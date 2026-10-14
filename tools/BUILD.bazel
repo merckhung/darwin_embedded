@@ -1,0 +1,4 @@
+exports_files([
+    "boot_arm64.sh",
+    "boot_x86_64.sh",
+])

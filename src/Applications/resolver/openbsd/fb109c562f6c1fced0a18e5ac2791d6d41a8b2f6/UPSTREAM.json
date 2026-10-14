@@ -1,0 +1,21 @@
+{
+  "project": "OpenBSD libc resolver companion files",
+  "commit": "fb109c562f6c1fced0a18e5ac2791d6d41a8b2f6",
+  "source_url": "https://github.com/openbsd/src/tree/fb109c562f6c1fced0a18e5ac2791d6d41a8b2f6",
+  "files_sha256": {
+    "lib/libc/net/getservent.c": "b07e481646ad514958fc07fd5db3843bd4684632e1e6fad6142a684116f83e37",
+    "lib/libc/net/getservbyname.c": "c972e60409b6271c0946a62e13c480a788ac5f6c5b07e55fbe24e5ef6a6f00b4",
+    "lib/libc/net/freeaddrinfo.c": "8098d7a5de2b9d33d086cf6b84b676ea25019c6bb90f41290dc7c540134f5019",
+    "lib/libc/net/gai_strerror.c": "9f299aed8842a70e3a2e058d87f20213abc3ec05541e88b6b88b0636a7cbfb08",
+    "lib/libc/asr/getaddrinfo.c": "9c576d58d03e53bd821060c6bb625c7d548ba4a5d4bac1ac4697a02c27983471",
+    "include/netdb.h": "c7c8be69c886605619af8fec9d62480e2147c65af70770c267045c741ad99157",
+    "include/arpa/nameser.h": "46ba02b2f47eb4971f535821aa92925c9de5b7b926894093322a9172c6aa9686",
+    "include/resolv.h": "9bfd514049328f493ebbe1fc8e060afe03681c2624ecdb64798466f2bea27e92",
+    "lib/libc/stdlib/reallocarray.c": "813952c9ae8a0d699d86024e4d1b9ec23efb762a6064fb5fe2592c420b509348",
+    "lib/libc/net/res_comp.c": "c7cf644e0ef680c711456b34ef3ab3545baf756117e7ec1432686c53ff643d5d",
+    "lib/libc/net/getservbyport.c": "95c72ba27fd479f503a3639e0671efbccfb240c0dde72a421e138ccea74e111d",
+    "lib/libc/gen/fstab.c": "cab4986b96b2febdf1e4afc6ea7be6bb414b56dd27aa365d1f7d285794fe65b6",
+    "sys/sys/syslimits.h": "2b9aef2c91a1ccd7f5ae149f36e842e13e4d800cd3df4daa44145105566e06ce"
+  },
+  "local_changes": []
+}

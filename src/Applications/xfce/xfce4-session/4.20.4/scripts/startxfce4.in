@@ -1,0 +1,267 @@
+#!/bin/sh
+#
+#  xfce4
+#
+#  Copyright (C) 1996-2003 Olivier Fourdan (fourdan@xfce.org)
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+#
+
+if test "x$*" != "x"
+then
+  OPTS=""
+  for OPT in $*
+  do
+    if test "x$OPT" = "x--help"
+    then
+      # print help and exit
+      echo "Usage:"
+      echo "  startxfce4 [OPTIONS...]"
+      echo
+      echo "Options:"
+      echo "  --help                   Show help options"
+      echo "  --with-ck-launch         Start xfce4-session inside a"
+      echo "                           ConsoleKit session"
+      echo "  --wayland                Start xfce4-session inside a Wayland compositor."
+      echo "                           The remaining optional arguments are interpreted as"
+      echo "                           a command line to run a Wayland compositor replacing"
+      echo "                           the default one."
+      echo
+
+      exit 0
+    elif test "x$OPT" = "x--with-ck-launch"
+    then
+      # try to launch xfce4-session with ck-launch-session in xinitrc
+      XFCE4_SESSION_WITH_CK="1"
+      export XFCE4_SESSION_WITH_CK
+    elif test "x$OPT" = "x--wayland"
+    then
+      XFCE4_SESSION_COMPOSITOR="1"
+      export XFCE4_SESSION_COMPOSITOR
+      # Set the XDG_RUNTIME_DIR if we can not get it in systems
+      # without systemd
+      if [ -z "${XDG_RUNTIME_DIR}" ]; then
+        if [ -d "/run/user" ]; then
+          XDG_RUNTIME_DIR="/run/user/$(id -ru)"
+          export XDG_RUNTIME_DIR
+        else
+          if [ -d "/var/run/user" ]; then
+            XDG_RUNTIME_DIR="/var/run/user/$(id -ru)"
+            export XDG_RUNTIME_DIR
+          else
+            XDG_RUNTIME_DIR="/tmp/${USER}-runtime"
+            export XDG_RUNTIME_DIR
+          fi
+        fi
+      fi
+      if [ ! -e "${XDG_RUNTIME_DIR}" ]; then
+         echo "XDG_RUNTIME_DIR is invalid or does not exist!"
+         echo "Creating XDG_RUNTIME_DIR..."
+         mkdir -p -m 0700 "${XDG_RUNTIME_DIR}" || {
+           echo "Unable to create runtime directory ${XDG_RUNTIME_DIR}!"
+           exit 1
+         }
+      fi
+      # freedesktop specifications mandate that the definition
+      # of XDG_SESSION_TYPE should be respected
+      XDG_SESSION_TYPE="wayland"
+      export XDG_SESSION_TYPE
+      # Make sure all toolkits use their Wayland backend
+      #
+      # For Gtk applications also the x11 backend as a safe fallback
+      if [ -z "${GDK_BACKEND}" ]; then
+        GDK_BACKEND="wayland,x11"
+        export GDK_BACKEND
+      fi
+      if [ -z "${QT_QPA_PLATFORM}" ]; then
+        QT_QPA_PLATFORM="wayland"
+        export QT_QPA_PLATFORM
+      fi
+      # In many OS the wayland backend for clutter does not work, so
+      # use the safe "gdk" backend instead
+      if [ -z "${CLUTTER_BACKEND}" ]; then
+        CLUTTER_BACKEND="gdk"
+        export CLUTTER_BACKEND
+      fi
+      # This is default for current firefox/thunderbird
+      MOZ_ENABLE_WAYLAND="1"
+      export MOZ_ENABLE_WAYLAND
+    else
+      # append
+      OPTS="$OPTS $OPT"
+    fi
+  done
+
+  if test "x$XFCE4_SESSION_COMPOSITOR" = "x"
+  then
+    if test "x${OPTS#*--}" = "x${OPTS}"
+    then
+      CLIENTRC=${OPTS}
+    else
+      SERVERRC=${OPTS#*-- }
+      CLIENTRC=${OPTS%--*}
+    fi
+  else
+    default_compositor="labwc"
+    if test "x$OPTS" = "x"; then
+      if ! command -v "$default_compositor" >/dev/null 2>&1; then
+        echo "$0: Please either install $default_compositor or specify another compositor as argument"
+        exit 1
+      else
+        # See if we can use the --session option of labwc (available since 0.7.2)
+        startup_option="--session"
+        "$default_compositor" --help | grep -q -- "$startup_option" || startup_option="--startup"
+      fi
+    fi
+    # Create specific labwc directory for Xfce
+    if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc" ]; then
+       mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc"
+    fi
+    # Copy specific labwc configuration file for Xfce
+    if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/rc.xml" ]; then
+       cp -p @_datadir_@/xfce4/labwc/labwc-rc.xml "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/rc.xml"
+    fi
+    # Copy specific labwc environment file for Xfce
+    if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/environment" ]; then
+       cp -p @_datadir_@/xfce4/labwc/labwc-environment "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/environment"
+    fi
+    # Set labwc keymap to match system-wide keymap only in absence of
+    # a user-created 'lock' file, just in case user doesn't want any
+    # modification of the environment and rc.xml files.
+    if [ ! -e "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/lock" ]; then
+      # Linux
+      if [ -e /etc/vconsole.conf ]; then 
+       LABWC_KEYMAP=$(awk -F '=' -v q1=\' -v q2=\" '
+         $1 == "KEYMAP" {
+           gsub ("[" q1 q2 "]", "", $2)
+           sub ("-", "(", $2) && sub ("$", ")", $2)
+           keymap = $2
+         }
+         $1 == "XKBLAYOUT" {
+           gsub ("[" q1 q2 "]", "", $2)
+           layout = $2
+         }
+         $1 == "XKBVARIANT" {
+           gsub ("[" q1 q2 "]", "", $2)
+           variant = $2
+         }
+         END {
+           if (layout != "") {
+             if (variant != "") {
+               print layout "(" variant ")"
+             } else {
+               print layout
+             }
+           } else if (keymap != "") {
+             print keymap
+           }
+         }
+       ' /etc/vconsole.conf)
+      # OpenBSD
+      elif [ -e /etc/kbdtype ]; then
+        LABWC_KEYMAP=$(tr -d ' ' </etc/kbdtype | cut -c-2)
+      fi
+      if [ -n "$LABWC_KEYMAP" ]; then
+         sed -i \
+           -e "s|XKB_DEFAULT_LAYOUT=.*|XKB_DEFAULT_LAYOUT=${LABWC_KEYMAP}|g" \
+           "${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/environment"
+      else
+         echo "Keyboard layout detection failed"
+      fi
+    fi
+    # Xfce will use its own config directory and config file to avoid
+    # conflict with current labwc setup and avoid launching anything
+    # from ~/.config/labwc/autostart
+    XFCE4_SESSION_COMPOSITOR="${OPTS:-labwc --config-dir ${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc --config ${XDG_CONFIG_HOME:-${HOME}/.config}/xfce4/labwc/rc.xml $startup_option xfce4-session}"
+    # Start a D-Bus session if there isn't one already.
+    if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+      XFCE4_SESSION_COMPOSITOR="dbus-run-session -- ${XFCE4_SESSION_COMPOSITOR}"
+    fi
+  fi
+fi
+
+if test "x$XDG_CONFIG_HOME" = "x"
+then
+  BASEDIR="$HOME/.config/xfce4/"
+else
+  BASEDIR="$XDG_CONFIG_HOME/xfce4"
+fi
+
+if test "x$XDG_DATA_DIRS" = "x"
+then
+  if test "x@_datadir_@" = "x/usr/local/share" -o "x@_datadir_@" = "x/usr/share"; then
+    XDG_DATA_DIRS="/usr/local/share:/usr/share"
+  else
+    XDG_DATA_DIRS="@_datadir_@:/usr/local/share:/usr/share"
+  fi
+# If $XDG_DATA_DIRS is pre-defined, but does not end with @_datadir_@, append it
+elif test "${XDG_DATA_DIRS##*:}" != "@_datadir_@"
+then
+  XDG_DATA_DIRS="$XDG_DATA_DIRS:@_datadir_@"
+fi
+export XDG_DATA_DIRS
+
+if test "x$XDG_CONFIG_DIRS" = "x"
+then
+  if test "x@_sysconfdir_@" = "x/etc"; then
+    XDG_CONFIG_DIRS="/etc/xdg"
+  else
+    XDG_CONFIG_DIRS="/etc/xdg:@_sysconfdir_@/xdg"
+  fi
+# If $XDG_CONFIG_DIRS is pre-defined, but does not end with @_sysconfdir_@/xdg, append it
+elif test "${XDG_CONFIG_DIRS##*:}" != "@_sysconfdir_@/xdg"
+then
+  XDG_CONFIG_DIRS="$XDG_CONFIG_DIRS:@_sysconfdir_@/xdg"
+fi
+export XDG_CONFIG_DIRS
+
+if test "x$XFCE4_SESSION_COMPOSITOR" = "x"
+then
+  if test "x$DISPLAY" = "x"
+  then
+    echo "$0: Starting X server"
+    prog=xinit
+
+    if test ! "x$XDG_VTNR" = "x"; then
+      SERVERRC="$SERVERRC vt$XDG_VTNR"
+    fi
+  else
+    echo "$0: X server already running on display $DISPLAY"
+    prog=/bin/sh
+  fi
+else
+  prog=/bin/sh
+fi
+
+if [ -f "$HOME/.xserverrc" ]; then
+  SERVERRC="$HOME/.xserverrc $SERVERRC"
+elif [ -f /etc/X11/xinit/xserverrc ]; then
+  SERVERRC="/etc/X11/xinit/xserverrc $SERVERRC"
+fi
+
+if test ! "x$SERVERRC" = "x"
+then
+  SERVERRC="-- $SERVERRC"
+fi
+
+if [ -f $BASEDIR/xinitrc ]; then
+  exec $prog $BASEDIR/xinitrc $CLIENTRC $SERVERRC
+elif [ -f $HOME/.xfce4/xinitrc ]; then
+  mkdir -p $BASEDIR
+  cp $HOME/.xfce4/xinitrc $BASEDIR/
+  exec $prog $BASEDIR/xinitrc $CLIENTRC $SERVERRC
+else
+  exec $prog @_sysconfdir_@/xdg/xfce4/xinitrc $CLIENTRC $SERVERRC
+fi

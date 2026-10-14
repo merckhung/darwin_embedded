@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-19 12:45+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2025\n"
+"Language-Team: Japanese (https://app.transifex.com/xfce/teams/16840/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:248
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "提供されたウィンドウには、_NET_WM_ICON または WMHints アイコンがありません"
+
+#: libxfce4windowing/xfw-wnck-icon.c:621
+msgid "Failed to find or load an icon for the window"
+msgstr "ウィンドウアイコンの検索または読み込みに失敗しました"
+
+#: libxfce4windowing/xfw-workspace-dummy.c:146
+msgid "Workspace 0"
+msgstr "ワークスペース 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:219
+msgid "_Move"
+msgstr "移動(_M)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:224
+msgid "_Resize"
+msgstr "リサイズ(_R)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:232
+msgid "Always on _Top"
+msgstr "常にトップに(_T)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:237
+msgid "_Always on Visible Workspace"
+msgstr "常に表示されているワークスペースに(_A)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:242
+msgid "_Only on This Workspace"
+msgstr "このワークスペースのみに(_O)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:247
+msgid "Move to Workspace _Left"
+msgstr "左のワークスペースに移動(_L)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:256
+msgid "Move to Workspace R_ight"
+msgstr "右のワークスペースに移動(_I)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:265
+msgid "Move to Workspace _Up"
+msgstr "上のワークスペースに移動(_U)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:274
+msgid "Move to Workspace _Down"
+msgstr "下のワークスペースに移動(_D)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:283
+msgid "Move to Another _Workspace"
+msgstr "別のワークスペースに移動(_W)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:292
+msgid "_Close"
+msgstr "閉じる(_C)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:465
+#, c-format
+msgid "Workspace _%d"
+msgstr "ワークスペース _%d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:466
+#, c-format
+msgid "Workspace %d"
+msgstr "ワークスペース %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Mi_nimize"
+msgstr "最小化(_N)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Unmi_nimize"
+msgstr "最小化を解除(_N)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Ma_ximize"
+msgstr "最大化(_X)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Unma_ximize"
+msgstr "最大化を解除(_X)"

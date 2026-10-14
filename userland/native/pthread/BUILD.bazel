@@ -1,0 +1,128 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libpthread_" + arch,
+        srcs = [
+            "target_config.h",
+            "test_pthread.c",
+            "//scripts:build_native_pthread.py",
+            "//src/Libraries/25.5.0:kernel_dependency_sources",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//tools/cctools:cctools_header_files",
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+        ],
+        outs = ["libpthread." + arch + ".a", "pthread." + arch + ".json", "test_pthread." + arch + ".o"],
+        cmd = "python3 $(location //scripts:build_native_pthread.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --output $(location libpthread." + arch + ".a)" +
+              " --report $(location pthread." + arch + ".json)" +
+              " --probe-output $(location test_pthread." + arch + ".o)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "libpthread_dyld_" + arch,
+        srcs = [
+            "target_config.h",
+            "//scripts:build_native_pthread.py",
+            "//src/Libraries/25.5.0:kernel_dependency_sources",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//tools/cctools:cctools_header_files",
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+        ],
+        outs = ["libpthread_dyld." + arch + ".a", "pthread_dyld." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_pthread.py) --root $$PWD --arch " + arch +
+              " --variant dyld --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --output $(location libpthread_dyld." + arch + ".a)" +
+              " --report $(location pthread_dyld." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [
+    ":libpthread_arm64", ":libpthread_x86_64",
+    ":libpthread_dyld_arm64", ":libpthread_dyld_x86_64",
+])
+
+[
+    genrule(
+        name = "closure_" + arch,
+        srcs = [
+            "//scripts:build_native_pthread.py",
+            "libpthread." + arch + ".a",
+            "//userland/native:libsyscall_" + arch,
+            "//userland/native:libmach_base." + arch + ".a",
+            "//userland/native:libplatform_" + arch,
+        ],
+        outs = ["pthread_closure." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_pthread.py) --root $$PWD --arch " + arch +
+              " --audit-archive $(location libpthread." + arch + ".a)" +
+              " --dependency $(location //userland/native:libsyscall_" + arch + ")" +
+              " --dependency $(location //userland/native:libmach_base." + arch + ".a)" +
+              " --dependency $(location //userland/native:libplatform_" + arch + ")" +
+              " --report $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "closure", srcs = [":closure_arm64", ":closure_x86_64"])
+
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = [
+            "bootstrap.c", "test_main.c",
+            "//scripts:build_native_pthread_test.py",
+            "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+            "//tools/cctools:cctools_header_files",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//userland/diagnostic:root_" + arch,
+            "//userland/native:dyld_" + arch,
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+            "//userland/native:libmach_base." + arch + ".a",
+            "//userland/native:libsyscall_" + arch,
+            "//userland/native:libplatform_" + arch,
+            "libpthread." + arch + ".a", "libpthread_dyld." + arch + ".a",
+            "test_pthread." + arch + ".o",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["pthread-test-root." + arch + ".img", "pthread-test-root." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_pthread_test.py) --root $$PWD --arch " + arch +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --libsyscall $(location //userland/native:libsyscall_" + arch + ")" +
+              " --libmach $(location //userland/native:libmach_base." + arch + ".a)" +
+              " --libplatform $(location //userland/native:libplatform_" + arch + ")" +
+              " --libpthread $(location libpthread." + arch + ".a)" +
+              " --libpthread-dyld $(location libpthread_dyld." + arch + ".a)" +
+              " --probe $(location test_pthread." + arch + ".o)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $(location pthread-test-root." + arch + ".img)" +
+              " --report $(location pthread-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+
+[
+    sh_binary(
+        name = "verify_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch],
+        data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]

@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Andi Chandler <andi@gowling.com>, 2017,2022-2023
+# Jackson Doak <noskcaj@ubuntu.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2017,2022-2023\n"
+"Language-Team: English (United Kingdom) (http://app.transifex.com/xfce/garcon/language/en_GB/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Accessories"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Common desktop tools and applications"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Development"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Software development tools"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Education"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Educational software"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Games"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Games, puzzles, and other fun software"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Graphics"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Graphics creation and manipulation applications"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Hardware"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Settings for several hardware devices"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Audio and video players and editors"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Internet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Applications for Internet access"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Office"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Office and productivity applications"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Other"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Applications that don't fit into other categories"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Personal"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Personal settings"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Science"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Scientific software"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Screensavers"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Screensaver applets"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Settings"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Desktop and system settings applications"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "System"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "System tools and utilities"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "File \"%s\" not found"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Could not load menu file data from %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Could not load menu file data from %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Failed to execute command \"%s\"."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Launch Error"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Unable to launch \"exo-desktop-item-edit\", which is required to create and edit menu items."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Close"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Failed to load the applications menu"

@@ -1,0 +1,1424 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfdesktop.xfce-4-20 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Anton Bulgakov, 2025
+# Igor Vornovskii, 2025
+# ivmazurenko <ivmazurenko@yandex.ru>, 2025
+# AlexanderFilev, 2025
+# Темак, 2025
+# Andrei Stepanov, 2025
+# Alexander Kurakin <kuraga333@mail.ru>, 2025
+# Nick Schermer <nick@xfce.org>, 2025
+# Xfce Bot <transifex@xfce.org>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: xfdesktop.xfce-4-20\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-03-19 11:22+0100\n"
+"PO-Revision-Date: 2025-03-19 10:22+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>, 2025\n"
+"Language-Team: Russian (https://app.transifex.com/xfce/teams/16840/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: common/xfdesktop-keyboard-shortcuts.c:75
+msgid "_Reload"
+msgstr "_Обновить"
+
+#: common/xfdesktop-keyboard-shortcuts.c:78
+msgid "Activate _Primary Menu"
+msgstr "Активировать главное мен_ю"
+
+#: common/xfdesktop-keyboard-shortcuts.c:80
+msgid "Activate _Secondary Menu"
+msgstr "Активировать _вторичное меню"
+
+#: common/xfdesktop-keyboard-shortcuts.c:82
+msgid "Cycle Next Background"
+msgstr "Циклировать следующий фон"
+
+#: common/xfdesktop-keyboard-shortcuts.c:88
+msgid "_Activate Icon"
+msgstr "_Активировать значок"
+
+#: common/xfdesktop-keyboard-shortcuts.c:93
+msgid "_Toggle Cursor Icon"
+msgstr "П_ереключить значок курсора"
+
+#: common/xfdesktop-keyboard-shortcuts.c:95
+msgid "Select _All"
+msgstr "_Выбрать все"
+
+#: common/xfdesktop-keyboard-shortcuts.c:96
+msgid "U_nselect All"
+msgstr "Сня_ть выбор со всех"
+
+#: common/xfdesktop-keyboard-shortcuts.c:97
+msgid "A_rrange Icons"
+msgstr "Расставить знач_ки"
+
+#: common/xfdesktop-keyboard-shortcuts.c:101
+msgid "Un_minimize Window"
+msgstr "Отменит_ь сворачивание окна"
+
+#: common/xfdesktop-keyboard-shortcuts.c:102
+msgid "_Close Window"
+msgstr "_Закрыть окно"
+
+#: common/xfdesktop-keyboard-shortcuts.c:107
+msgid "Create _Folder"
+msgstr "Созд_ать папку"
+
+#: common/xfdesktop-keyboard-shortcuts.c:108
+#: src/xfdesktop-file-icon-manager.c:1756
+msgid "Create _Document"
+msgstr "_Создать"
+
+#: common/xfdesktop-keyboard-shortcuts.c:109
+#: src/xfdesktop-file-icon-manager.c:1814
+#: src/xfdesktop-special-file-icon.c:339 src/xfdesktop-volume-icon.c:756
+msgid "_Open"
+msgstr "_Открыть"
+
+#: common/xfdesktop-keyboard-shortcuts.c:110
+msgid "Ope_n With Other Application"
+msgstr "Откры_ть в другом приложении"
+
+#: common/xfdesktop-keyboard-shortcuts.c:111
+msgid "Open _Filesystem"
+msgstr "Открыть ф_айловую систему"
+
+#: common/xfdesktop-keyboard-shortcuts.c:112
+msgid "Open _Home"
+msgstr "Отк_рыть домашний каталог"
+
+#: common/xfdesktop-keyboard-shortcuts.c:113
+msgid "Open _Trash"
+msgstr "Открыть корзи_ну"
+
+#: common/xfdesktop-keyboard-shortcuts.c:114
+msgid "_Rename"
+msgstr "_Переименовать"
+
+#: common/xfdesktop-keyboard-shortcuts.c:115
+#: src/xfdesktop-file-icon-manager.c:1960
+msgid "Cu_t"
+msgstr "_Вырезать"
+
+#: common/xfdesktop-keyboard-shortcuts.c:117
+#: src/xfdesktop-file-icon-manager.c:1968
+msgid "_Copy"
+msgstr "C_копировать"
+
+#: common/xfdesktop-keyboard-shortcuts.c:119
+#: src/xfdesktop-file-icon-manager.c:1947
+msgid "_Paste"
+msgstr "Вст_авить"
+
+#: common/xfdesktop-keyboard-shortcuts.c:121
+msgid "Paste _Into Folder"
+msgstr "Вс_тавить в папку"
+
+#: common/xfdesktop-keyboard-shortcuts.c:122
+#: src/xfdesktop-file-icon-manager.c:1991
+msgid "Mo_ve to Trash"
+msgstr "_Убрать в корзину"
+
+#: common/xfdesktop-keyboard-shortcuts.c:125
+#: src/xfdesktop-special-file-icon.c:355
+msgid "_Empty Trash"
+msgstr "_Очистить корзину"
+
+#: common/xfdesktop-keyboard-shortcuts.c:126
+#: src/xfdesktop-file-icon-manager.c:2000
+msgid "_Delete"
+msgstr "У_далить"
+
+#: common/xfdesktop-keyboard-shortcuts.c:129
+msgid "Show _Hidden Files"
+msgstr "_Скрытые файлы"
+
+#: common/xfdesktop-keyboard-shortcuts.c:130
+msgid "_Properties"
+msgstr "_Свойства"
+
+#: settings/main.c:99
+msgid "Settings manager socket"
+msgstr "Сокет диспетчера настроек"
+
+#: settings/main.c:99
+msgid "SOCKET ID"
+msgstr "ID сокета"
+
+#: settings/main.c:101
+msgid "Version information"
+msgstr "Информация о версии"
+
+#: settings/main.c:102 src/xfdesktop-application.c:286
+msgid "Enable debug messages"
+msgstr "Включить отладочные сообщения"
+
+#: settings/main.c:120
+#, c-format
+msgid "Type '%s --help' for usage."
+msgstr "Наберите «%s --help» для информации об использовании."
+
+#: settings/main.c:132 src/xfdesktop-application.c:1202
+msgid "The Xfce development team. All rights reserved."
+msgstr "Команда разработчиков Xfce. Все права защищены."
+
+#: settings/main.c:133 src/xfdesktop-application.c:1203
+#, c-format
+msgid "Please report bugs to <%s>."
+msgstr "Об ошибках сообщайте на <%s>."
+
+#: settings/main.c:139
+msgid "Desktop Settings"
+msgstr "Настройки рабочего стола"
+
+#: settings/main.c:141
+msgid "Unable to contact settings server"
+msgstr "Не удалось присоединиться к серверу настроек"
+
+#: settings/main.c:143
+msgid "Quit"
+msgstr "Закрыть"
+
+#: settings/xfce-backdrop-settings.desktop.in:4
+#: settings/xfdesktop-keyboard-shortcuts-settings.c:42
+#: settings/xfdesktop-settings-ui.glade:162 src/xfce-desktop.c:563
+msgid "Desktop"
+msgstr "Рабочий стол"
+
+#: settings/xfce-backdrop-settings.desktop.in:5
+msgid "Set desktop background and menu and icon behavior"
+msgstr "Задание фона рабочего стола и изменение настроек меню и значков"
+
+#: settings/xfce-backdrop-settings.desktop.in:17
+msgid "desktop;background;wallpaper;settings;xfce;"
+msgstr ""
+"desktop;background;wallpaper;settings;xfce;рабочий;стол;фон;обои;настройки;параметры;"
+
+#: settings/xfdesktop-background-settings.c:227
+msgid "Choose the folder to select wallpapers from."
+msgstr "Укажите каталог для выбора фоновых изображений."
+
+#: settings/xfdesktop-background-settings.c:445
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"Type: %s\n"
+"Size: %s"
+msgstr ""
+"<b>%s</b>\n"
+"Тип: %s\n"
+"Размер: %s"
+
+#: settings/xfdesktop-background-settings.c:529
+#: settings/xfdesktop-background-settings.c:611
+#, c-format
+msgid "Unable to load images from folder \"%s\""
+msgstr "Невозможно загрузить изображения из папки «%s»"
+
+#: settings/xfdesktop-background-settings.c:712
+#, c-format
+msgid "Wallpaper for Monitor %d (%s)"
+msgstr "Фоновое изображение для монитора %d (%s)"
+
+#: settings/xfdesktop-background-settings.c:716
+#, c-format
+msgid "Wallpaper for Monitor %d"
+msgstr "Фоновое изображение для монитора %d"
+
+#: settings/xfdesktop-background-settings.c:722
+msgid "Move this dialog to the display you want to edit the settings for."
+msgstr "Переместите этот диалог на экран, настройки которого хотите изменить."
+
+#: settings/xfdesktop-background-settings.c:727
+#, c-format
+msgid "Wallpaper for %s on Monitor %d (%s)"
+msgstr "Фоновое изображение для %s на мониторе %d (%s)"
+
+#: settings/xfdesktop-background-settings.c:732
+#, c-format
+msgid "Wallpaper for %s on Monitor %d"
+msgstr "Фоновое изображение для %s на мониторе %d"
+
+#: settings/xfdesktop-background-settings.c:740
+msgid ""
+"Move this dialog to the display and workspace you want to edit the settings "
+"for."
+msgstr ""
+"Переместите этот диалог на экран и рабочее место, настройки которых хотите "
+"изменить."
+
+#. Single monitor and single workspace
+#: settings/xfdesktop-background-settings.c:749
+msgid "Wallpaper for my desktop"
+msgstr "Фоновое изображение для рабочего стола"
+
+#. Single monitor and per workspace wallpaper
+#: settings/xfdesktop-background-settings.c:755
+#, c-format
+msgid "Wallpaper for %s"
+msgstr "Фоновое изображение для %s"
+
+#: settings/xfdesktop-background-settings.c:760
+msgid "Move this dialog to the workspace you want to edit the settings for."
+msgstr ""
+"Перенесите этот диалог на рабочее место настройки, которого хотите изменить."
+
+#: settings/xfdesktop-background-settings.c:1074
+msgid "Image selection is unavailable while the image style is set to None."
+msgstr "Выбор изображения недоступен, если не указан стиль изображения."
+
+#: settings/xfdesktop-background-settings.c:1515
+msgid "Spanning screens"
+msgstr "Объединённые экраны"
+
+#: settings/xfdesktop-background-settings.c:1904
+msgid "Image files"
+msgstr "Файлы изображений"
+
+#. Change the title of the file chooser dialog
+#: settings/xfdesktop-background-settings.c:1912
+msgid "Select a Directory"
+msgstr "Выбор каталога"
+
+#: settings/xfdesktop-file-icon-settings.c:94
+#: src/xfdesktop-special-file-icon.c:236 src/xfdesktop-special-file-icon.c:274
+msgid "Home"
+msgstr "Домашняя папка"
+
+#: settings/xfdesktop-file-icon-settings.c:96
+#: src/xfdesktop-special-file-icon.c:238 src/xfdesktop-special-file-icon.c:272
+msgid "File System"
+msgstr "Файловая система"
+
+#: settings/xfdesktop-file-icon-settings.c:98
+#: src/xfdesktop-special-file-icon.c:240
+msgid "Trash"
+msgstr "Корзина"
+
+#: settings/xfdesktop-file-icon-settings.c:100
+msgid "Devices"
+msgstr "Устройства"
+
+#: settings/xfdesktop-file-icon-settings.c:102
+msgid "Network Shares"
+msgstr "Сетевые ресурсы"
+
+#: settings/xfdesktop-file-icon-settings.c:104
+msgid "Removable Disks and Drives"
+msgstr "Съёмные диски и накопители"
+
+#: settings/xfdesktop-file-icon-settings.c:106
+msgid "Fixed Disks and Drives"
+msgstr "Стационарные диски и накопители"
+
+#: settings/xfdesktop-file-icon-settings.c:108
+msgid "Other Devices"
+msgstr "Прочее"
+
+#. TRANSLATORS: Please split the message in half with '\n' so the dialog will
+#. not be too wide.
+#: settings/xfdesktop-icon-settings.c:90
+msgid ""
+"Would you like to arrange all existing\n"
+"icons according to the selected orientation?"
+msgstr ""
+"Вы хотите выстроить все существующие значки\n"
+"в соответствии с выбранным направлением?"
+
+#: settings/xfdesktop-icon-settings.c:94
+msgid "Arrange icons"
+msgstr "Выстроить значки"
+
+#. printf is to be translator-friendly
+#: settings/xfdesktop-icon-settings.c:98 src/xfdesktop-file-icon-manager.c:764
+#: src/xfdesktop-file-icon-manager.c:1317
+#, c-format
+msgid "Unable to launch \"%s\":"
+msgstr "Невозможно запустить «%s»:"
+
+#: settings/xfdesktop-icon-settings.c:99 src/xfdesktop-file-icon-manager.c:766
+#: src/xfdesktop-file-icon-manager.c:1010
+#: src/xfdesktop-file-icon-manager.c:1058
+#: src/xfdesktop-file-icon-manager.c:1319 src/xfdesktop-file-utils.c:585
+#: src/xfdesktop-file-utils.c:1469 src/xfdesktop-file-utils.c:1494
+#: src/xfdesktop-file-utils.c:1601 src/xfdesktop-file-utils.c:1665
+msgid "Launch Error"
+msgstr "Ошибка запуска"
+
+#: settings/xfdesktop-icon-settings.c:101
+#: settings/xfdesktop-settings-ui.glade:198
+#: src/xfdesktop-file-icon-manager.c:702 src/xfdesktop-file-icon-manager.c:768
+#: src/xfdesktop-file-icon-manager.c:1014
+#: src/xfdesktop-file-icon-manager.c:1062
+#: src/xfdesktop-file-icon-manager.c:1321
+#: src/xfdesktop-file-icon-manager.c:3640 src/xfdesktop-file-utils.c:588
+#: src/xfdesktop-file-utils.c:706 src/xfdesktop-file-utils.c:761
+#: src/xfdesktop-file-utils.c:825 src/xfdesktop-file-utils.c:886
+#: src/xfdesktop-file-utils.c:947 src/xfdesktop-file-utils.c:995
+#: src/xfdesktop-file-utils.c:1014 src/xfdesktop-file-utils.c:1128
+#: src/xfdesktop-file-utils.c:1224 src/xfdesktop-file-utils.c:1412
+#: src/xfdesktop-file-utils.c:1473 src/xfdesktop-file-utils.c:1496
+#: src/xfdesktop-file-utils.c:1605 src/xfdesktop-file-utils.c:1669
+#: src/xfdesktop-file-utils.c:1740 src/xfdesktop-file-utils.c:1810
+#: src/xfdesktop-volume-icon.c:395 src/xfdesktop-volume-icon.c:443
+#: src/xfdesktop-volume-icon.c:525
+msgid "_Close"
+msgstr "_Закрыть"
+
+#: settings/xfdesktop-keyboard-shortcuts-settings.c:52
+msgid "Icons"
+msgstr "Значки"
+
+#: settings/xfdesktop-keyboard-shortcuts-settings.c:61
+msgid "Window Icons"
+msgstr "Значки окон"
+
+#: settings/xfdesktop-keyboard-shortcuts-settings.c:71
+msgid "File Icons"
+msgstr "Значки файлов"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:19
+msgid "Solid color"
+msgstr "Сплошной цвет"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:22
+msgid "Horizontal gradient"
+msgstr "Горизонтальный градиент"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:25
+msgid "Vertical gradient"
+msgstr "Вертикальный градиент"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:28
+msgid "Transparent"
+msgstr "Прозрачный"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:134
+msgid "Apply"
+msgstr "Применить"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:149
+msgid "St_yle:"
+msgstr "Ст_иль:"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:164
+msgid "Specify how the image will be resized to fit the screen."
+msgstr "Задать способ изменения размера изображения к размеру экрана."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:166
+#: settings/xfdesktop-settings-ui.glade:60
+#: settings/xfdesktop-settings-ui.glade:97
+#: settings/xfdesktop-settings-ui.glade:117
+msgid "None"
+msgstr "Отсутствует"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:167
+msgid "Centered"
+msgstr "По центру"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:168
+msgid "Tiled"
+msgstr "Черепицей"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:169
+msgid "Stretched"
+msgstr "Растянуть"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:170
+msgid "Scaled"
+msgstr "Масштабировать"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:171
+msgid "Zoomed"
+msgstr "Увеличить"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:172
+msgid "Spanning Screens"
+msgstr "Объединённые экраны"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:185
+msgid "Specify the style of the color drawn behind the backdrop image."
+msgstr "Задать стиль цвета, отображаемого под фоновым изображением."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:207
+msgid "Specifies the solid color, or the \"left\" or \"top\" color of the gradient."
+msgstr "Задать сплошной цвет, «левый» или «верхний» цвет градиента."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:208
+msgid "Select First Color"
+msgstr "Выбор первого цвета"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:221
+msgid "Specifies the \"right\" or \"bottom\" color of the gradient."
+msgstr "Задать «правый» или «нижний» цвет градиента."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:222
+msgid "Select Second Color"
+msgstr "Выбор второго цвета"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:231
+msgid "Apply to all _workspaces"
+msgstr "_Применить ко всем рабочим местам"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:249
+msgid "_Folder:"
+msgstr "_Папка:"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:263
+msgid "C_olor:"
+msgstr "_Цвет:"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:332
+msgid "Change the _background "
+msgstr "Измени_ть фон"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:337
+msgid ""
+"Automatically select a different background from the current directory."
+msgstr ""
+"Автоматически выбирать различные фоновые изображения из текущего каталога."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:353
+msgid "Specify how often the background will change."
+msgstr "Как часто менять фоновое изображение."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:355
+msgid "in seconds:"
+msgstr "через секунд:"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:356
+msgid "in minutes:"
+msgstr "через минут:"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:357
+msgid "in hours:"
+msgstr "через часов:"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:358
+msgid "at start up"
+msgstr "при запуске"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:359
+msgid "every hour"
+msgstr "каждый час"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:360
+msgid "every day"
+msgstr "каждый день"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:361
+msgid "chronologically"
+msgstr "хронологически"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:376
+msgid "Amount of time before a different background is selected."
+msgstr "Время между сменой фоновых изображений."
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:387
+msgid "_Random Order"
+msgstr "С_лучайный порядок"
+
+#: settings/xfdesktop-settings-appearance-frame-ui.glade:393
+msgid ""
+"Randomly selects another image from the same directory when the wallpaper is"
+" to cycle."
+msgstr "Выбирать случайное изображение из той же папки при смене фона."
+
+#: settings/xfdesktop-settings-ui.glade:43
+#: settings/xfdesktop-settings-ui.glade:80
+msgid "Left"
+msgstr "Влево"
+
+#: settings/xfdesktop-settings-ui.glade:46
+#: settings/xfdesktop-settings-ui.glade:83
+msgid "Middle"
+msgstr "Посередине"
+
+#: settings/xfdesktop-settings-ui.glade:49
+#: settings/xfdesktop-settings-ui.glade:86
+msgid "Right"
+msgstr "Вправо"
+
+#: settings/xfdesktop-settings-ui.glade:63
+#: settings/xfdesktop-settings-ui.glade:100
+msgid "Shift"
+msgstr "Shift"
+
+#: settings/xfdesktop-settings-ui.glade:66
+#: settings/xfdesktop-settings-ui.glade:103
+msgid "Alt"
+msgstr "Alt"
+
+#: settings/xfdesktop-settings-ui.glade:69
+#: settings/xfdesktop-settings-ui.glade:106
+msgid "Control"
+msgstr "Ctrl"
+
+#: settings/xfdesktop-settings-ui.glade:120
+msgid "Minimized application icons"
+msgstr "Значки свёрнутых приложений"
+
+#: settings/xfdesktop-settings-ui.glade:123
+msgid "File/launcher icons"
+msgstr "Значки файлов и запуска"
+
+#: settings/xfdesktop-settings-ui.glade:134
+msgid "Top Left Vertical"
+msgstr "Слева сверху вертикально"
+
+#: settings/xfdesktop-settings-ui.glade:137
+msgid "Top Left Horizontal"
+msgstr "Слева сверху горизонтально"
+
+#: settings/xfdesktop-settings-ui.glade:140
+msgid "Top Right Vertical"
+msgstr "Справа сверху вертикально"
+
+#: settings/xfdesktop-settings-ui.glade:143
+msgid "Top Right Horizontal"
+msgstr "Справа сверху горизонтально"
+
+#: settings/xfdesktop-settings-ui.glade:146
+msgid "Bottom Left Vertical"
+msgstr "Слева снизу вертикально"
+
+#: settings/xfdesktop-settings-ui.glade:149
+msgid "Bottom Left Horizontal"
+msgstr "Слева снизу горизонтально"
+
+#: settings/xfdesktop-settings-ui.glade:152
+msgid "Bottom Right Vertical"
+msgstr "Справа снизу вертикально"
+
+#: settings/xfdesktop-settings-ui.glade:155
+msgid "Bottom Right Horizontal"
+msgstr "Справа снизу горизонтально"
+
+#: settings/xfdesktop-settings-ui.glade:182
+msgid "_Help"
+msgstr "_Справка"
+
+#: settings/xfdesktop-settings-ui.glade:238
+msgid "_Background"
+msgstr "_Фон"
+
+#: settings/xfdesktop-settings-ui.glade:271
+msgid "Include applications menu on _desktop right click"
+msgstr "Меню приложений на рабочем столе по правой кнопке мыши"
+
+#: settings/xfdesktop-settings-ui.glade:304
+msgid "_Button:"
+msgstr "_Кнопка:"
+
+#: settings/xfdesktop-settings-ui.glade:338
+msgid "Mo_difier:"
+msgstr "Мо_дификатор:"
+
+#: settings/xfdesktop-settings-ui.glade:376
+msgid "Show _application icons in menu"
+msgstr "Показывать значки _приложений в меню рабочего стола"
+
+#: settings/xfdesktop-settings-ui.glade:398
+msgid "_Edit desktop menu"
+msgstr "_Править меню рабочего стола"
+
+#: settings/xfdesktop-settings-ui.glade:432
+msgid "<b>Desktop Menu</b>"
+msgstr "<b>Меню рабочего стола</b>"
+
+#: settings/xfdesktop-settings-ui.glade:461
+msgid "Show _window list menu on desktop middle click"
+msgstr "Показывать список окон по щелчку с_редней кнопкой мыши"
+
+#: settings/xfdesktop-settings-ui.glade:494
+msgid "B_utton:"
+msgstr "К_нопка:"
+
+#: settings/xfdesktop-settings-ui.glade:528
+msgid "Modi_fier:"
+msgstr "Моди_фикатор:"
+
+#: settings/xfdesktop-settings-ui.glade:566
+msgid "Sh_ow application icons in menu"
+msgstr "Показывать зн_ачки приложений в списке окон"
+
+#: settings/xfdesktop-settings-ui.glade:583
+msgid "List windows on a_ll workspaces"
+msgstr "Список окон на всех рабочи_х местах"
+
+#: settings/xfdesktop-settings-ui.glade:600
+msgid "Show workspace _names in list"
+msgstr "Показывать наз_вания рабочих мест в списке"
+
+#: settings/xfdesktop-settings-ui.glade:623
+msgid "Use _submenus for the windows in each workspace"
+msgstr "Использовать по_дменю для окон на каждом рабочем месте"
+
+#: settings/xfdesktop-settings-ui.glade:646
+msgid "Show s_ticky windows only in active workspace"
+msgstr "Показывать за_креплённые окна только на активном рабочем месте"
+
+#: settings/xfdesktop-settings-ui.glade:662
+msgid "Show a section listing all _urgent windows on other workspaces"
+msgstr ""
+"Показать раздел со списком всех сро_чных окон на других рабочих местах"
+
+#: settings/xfdesktop-settings-ui.glade:678
+msgid "Show a_dd and remove workspace options in list"
+msgstr "Показывать элементы меню для уда_ления и добавления рабочих мест"
+
+#: settings/xfdesktop-settings-ui.glade:707
+msgid "<b>Window List Menu</b>"
+msgstr "<b>Список окон</b>"
+
+#: settings/xfdesktop-settings-ui.glade:728
+msgid "_Menus"
+msgstr "_Меню"
+
+#: settings/xfdesktop-settings-ui.glade:753
+msgid "Icon _type:"
+msgstr "_Тип значков:"
+
+#: settings/xfdesktop-settings-ui.glade:813
+msgid "Icon _size:"
+msgstr "_Размер значков:"
+
+#: settings/xfdesktop-settings-ui.glade:829
+msgid "48"
+msgstr "48"
+
+#: settings/xfdesktop-settings-ui.glade:840
+msgid "Fo_nt size:"
+msgstr "Размер шриф_та:"
+
+#: settings/xfdesktop-settings-ui.glade:860
+msgid "12"
+msgstr "12"
+
+#: settings/xfdesktop-settings-ui.glade:871
+msgid "Show icon toolt_ips. Size:"
+msgstr "Показывать подсказки для _значков. Размер:"
+
+#: settings/xfdesktop-settings-ui.glade:890
+msgid "Size of the tooltip preview image."
+msgstr "Размер эскиза во всплывающей подсказке."
+
+#: settings/xfdesktop-settings-ui.glade:892
+msgid "64"
+msgstr "64"
+
+#: settings/xfdesktop-settings-ui.glade:903
+msgid "Font co_lor:"
+msgstr "Цвет _шрифта:"
+
+#: settings/xfdesktop-settings-ui.glade:941
+msgid "Label bac_kground color:"
+msgstr "Фоновый цвет яр_лыка:"
+
+#: settings/xfdesktop-settings-ui.glade:984
+msgid "<b>Appearance</b>"
+msgstr "<b>Внешний вид</b>"
+
+#: settings/xfdesktop-settings-ui.glade:1019
+msgid "Placement _direction:"
+msgstr "Напра_вление размещения:"
+
+#: settings/xfdesktop-settings-ui.glade:1059
+msgid "Show icons only on _primary display"
+msgstr "Показывать _значки только на главном экране"
+
+#: settings/xfdesktop-settings-ui.glade:1074
+msgid "Single click to _activate items"
+msgstr "Единичный щелчок для актива_ции элементов"
+
+#: settings/xfdesktop-settings-ui.glade:1090
+msgid "_Underline text on hover"
+msgstr "Подчё_ркивать текст при наведении курсора"
+
+#: settings/xfdesktop-settings-ui.glade:1106
+msgid "Show confirmation dialog before arran_ging icons"
+msgstr "_Показывать диалог подтверждения перед расстановкой значков"
+
+#: settings/xfdesktop-settings-ui.glade:1127
+msgid "Behavior"
+msgstr "Поведение"
+
+#: settings/xfdesktop-settings-ui.glade:1150
+msgid "Desktop _Icons"
+msgstr "_Значки рабочего стола"
+
+#: settings/xfdesktop-settings-ui.glade:1204
+msgid ""
+"File/Launcher icons are not enabled. You can enable them from the \"Desktop "
+"Icons\" tab."
+msgstr ""
+"Значки файлов и запуска не включены. Вы можете включить их во вкладке "
+"«Значки рабочего стола»."
+
+#: settings/xfdesktop-settings-ui.glade:1250
+msgid "Show hidden files on the desktop"
+msgstr "Показывать скрытые файлы на рабочем столе"
+
+#: settings/xfdesktop-settings-ui.glade:1266
+msgid "Show t_humbnails"
+msgstr "Показывать _эскизы"
+
+#: settings/xfdesktop-settings-ui.glade:1271
+msgid ""
+"Select this option to display preview-able files on the desktop as "
+"automatically generated thumbnail icons."
+msgstr "Показывать эскизы для файлов соответствующего типа на Рабочем столе."
+
+#: settings/xfdesktop-settings-ui.glade:1283
+msgid "Show \"Delete\" option in file context menu"
+msgstr "Показать опцию \"Удалить\" в контекстном меню файла"
+
+#: settings/xfdesktop-settings-ui.glade:1300
+msgid "_Arrange folders before files"
+msgstr "Упорядочить папки перед _файлами"
+
+#: settings/xfdesktop-settings-ui.glade:1321
+msgid "General"
+msgstr "Общие"
+
+#: settings/xfdesktop-settings-ui.glade:1365
+msgid "Default Icons"
+msgstr "Стандартные значки"
+
+#: settings/xfdesktop-settings-ui.glade:1395
+msgid "_File/Launcher Icons"
+msgstr "Зн_ачки файлов и запуска"
+
+#: settings/xfdesktop-settings-ui.glade:1421
+msgid "_Keyboard Shortcuts"
+msgstr "Сочетания к_лавиш"
+
+#: src/menu.c:86
+msgid "_Applications"
+msgstr "_Меню приложений"
+
+#: src/windowlist.c:83
+msgid "Window List"
+msgstr "Список окон"
+
+#: src/xfdesktop-application.c:278
+msgid "Display version information"
+msgstr "Показать информацию о версии"
+
+#: src/xfdesktop-application.c:279
+msgid "Reload all settings"
+msgstr "Перезагрузить все настройки"
+
+#: src/xfdesktop-application.c:280
+msgid "Advance to the next wallpaper on the current workspace"
+msgstr "Перейти к следующему фоновому изображению на текущем рабочем месте"
+
+#: src/xfdesktop-application.c:281
+msgid "Pop up the menu (at the current mouse position)"
+msgstr "Показать меню (под указателем мыши)"
+
+#: src/xfdesktop-application.c:282
+msgid "Pop up the window list (at the current mouse position)"
+msgstr "Показать список окон (под указателем мыши)"
+
+#: src/xfdesktop-application.c:284
+msgid "Automatically arrange all the icons on the desktop"
+msgstr "Автоматически выравнивать значки на рабочем столе"
+
+#: src/xfdesktop-application.c:287
+msgid "Disable debug messages"
+msgstr "Отключить отладочные сообщения"
+
+#: src/xfdesktop-application.c:289
+msgid "Do not wait for a window manager on startup"
+msgstr "Не ожидать менеджера окон при запуске"
+
+#: src/xfdesktop-application.c:291
+msgid "Cause xfdesktop to quit"
+msgstr "Завершить выполнение xfdesktop"
+
+#: src/xfdesktop-application.c:1195
+#, c-format
+msgid "This is %s version %s, running on Xfce %s.\n"
+msgstr "Это %s версии %s, запущенный на Xfce %s.\n"
+
+#: src/xfdesktop-application.c:1197
+#, c-format
+msgid "Built with GTK+ %d.%d.%d, linked with GTK+ %d.%d.%d."
+msgstr "Собрано с GTK+ %d.%d.%d, скомпоновано с GTK+ %d.%d.%d."
+
+#: src/xfdesktop-application.c:1205
+msgid "Build options:\n"
+msgstr "Параметры сборки:\n"
+
+#: src/xfdesktop-application.c:1206
+#, c-format
+msgid "    Desktop Menu:        %s\n"
+msgstr "Меню рабочего стола: %s\n"
+
+#: src/xfdesktop-application.c:1208 src/xfdesktop-application.c:1215
+#: src/xfdesktop-application.c:1222
+msgid "enabled"
+msgstr "включено"
+
+#: src/xfdesktop-application.c:1210 src/xfdesktop-application.c:1217
+#: src/xfdesktop-application.c:1224
+msgid "disabled"
+msgstr "отключено"
+
+#: src/xfdesktop-application.c:1213
+#, c-format
+msgid "    Desktop Icons:       %s\n"
+msgstr "Значки на рабочем столе: %s\n"
+
+#: src/xfdesktop-application.c:1220
+#, c-format
+msgid "    Desktop File Icons:  %s\n"
+msgstr "Значки файлов на рабочем столе: %s\n"
+
+#: src/xfdesktop-file-icon-manager.c:699 src/xfdesktop-file-utils.c:757
+#: src/xfdesktop-file-utils.c:821
+msgid "Rename Error"
+msgstr "Ошибка при переименовании"
+
+#: src/xfdesktop-file-icon-manager.c:700 src/xfdesktop-file-utils.c:822
+msgid "The files could not be renamed"
+msgstr "Не удалось переименовать файлы"
+
+#: src/xfdesktop-file-icon-manager.c:701
+msgid "None of the icons selected support being renamed."
+msgstr "Выбранные значки не поддерживают переименование."
+
+#: src/xfdesktop-file-icon-manager.c:959
+#, c-format
+msgid "_Open With \"%s\""
+msgstr "_Открыть с помощью «%s»"
+
+#: src/xfdesktop-file-icon-manager.c:962
+#, c-format
+msgid "Open With \"%s\""
+msgstr "Открыть с помощью «%s»"
+
+#: src/xfdesktop-file-icon-manager.c:1012
+#: src/xfdesktop-file-icon-manager.c:1060
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit launchers and links on the desktop."
+msgstr ""
+"Невозможно запустить «exo-desktop-item-edit», которая необходима для "
+"редактирования значков запуска и ссылок на рабочем столе."
+
+#: src/xfdesktop-file-icon-manager.c:1422
+#, c-format
+msgid ""
+"Would you like to assign an existing desktop icon layout to monitor "
+"<b>%s</b>?"
+msgstr ""
+"Хотите назначить существующий макет значков рабочего стола для монитора "
+"<b>%s</b>?"
+
+#: src/xfdesktop-file-icon-manager.c:1430
+msgid "Monitors"
+msgstr "Мониторы"
+
+#: src/xfdesktop-file-icon-manager.c:1716
+msgid "_Open all"
+msgstr "Открыть _все"
+
+#: src/xfdesktop-file-icon-manager.c:1728
+msgid "Create _Launcher..."
+msgstr "Создать _значок запуска..."
+
+#: src/xfdesktop-file-icon-manager.c:1738
+msgid "Create _URL Link..."
+msgstr "Создать _ссылку..."
+
+#: src/xfdesktop-file-icon-manager.c:1748
+msgid "Create _Folder..."
+msgstr "Создать _папку..."
+
+#: src/xfdesktop-file-icon-manager.c:1787
+msgid "No templates installed"
+msgstr "Нет установленных шаблонов"
+
+#: src/xfdesktop-file-icon-manager.c:1805
+msgid "_Empty File"
+msgstr "Пустой _файл"
+
+#: src/xfdesktop-file-icon-manager.c:1814
+msgid "_Open All"
+msgstr "Открыть _всё"
+
+#: src/xfdesktop-file-icon-manager.c:1827
+msgid "_Execute"
+msgstr "_Выполнить"
+
+#: src/xfdesktop-file-icon-manager.c:1840
+msgid "Edit _Launcher"
+msgstr "Изменить _значок запуска"
+
+#: src/xfdesktop-file-icon-manager.c:1888
+msgid "Ope_n With"
+msgstr "О_ткрыть с помощью"
+
+#: src/xfdesktop-file-icon-manager.c:1916
+#: src/xfdesktop-file-icon-manager.c:1933
+msgid "Ope_n With Other Application..."
+msgstr "О_ткрыть в другом приложении…"
+
+#: src/xfdesktop-file-icon-manager.c:1924
+msgid "Set Defa_ult Application..."
+msgstr "Задать при_ложение по умолчанию…"
+
+#: src/xfdesktop-file-icon-manager.c:1980
+msgid "Paste Into Folder"
+msgstr "Вст_авить в папку"
+
+#: src/xfdesktop-file-icon-manager.c:2011
+msgid "_Rename..."
+msgstr "_Переименовать..."
+
+#: src/xfdesktop-file-icon-manager.c:2062
+msgid "_Open in New Window"
+msgstr "Открыть в _новом окне"
+
+#: src/xfdesktop-file-icon-manager.c:2069
+#: src/xfdesktop-window-icon-manager.c:308
+msgid "Arrange Desktop _Icons"
+msgstr "В_ыстроить значки"
+
+#: src/xfdesktop-file-icon-manager.c:2084
+#: src/xfdesktop-window-icon-manager.c:322
+msgid "_Next Background"
+msgstr "С_ледующий фон"
+
+#: src/xfdesktop-file-icon-manager.c:2094
+#: src/xfdesktop-window-icon-manager.c:335
+msgid "Desktop _Settings..."
+msgstr "_Настройка рабочего стола..."
+
+#: src/xfdesktop-file-icon-manager.c:2101 src/xfdesktop-volume-icon.c:818
+msgid "_Properties..."
+msgstr "_Свойства..."
+
+#: src/xfdesktop-file-icon-manager.c:3082
+#, c-format
+msgid "Failed to save dropped file to '%s'"
+msgstr "Не удалось сохранить вставленный файл в «%s»"
+
+#: src/xfdesktop-file-icon-manager.c:3084
+msgid "Drop Failure"
+msgstr "Ошибка вставки"
+
+#: src/xfdesktop-file-icon-manager.c:3088
+#: src/xfdesktop-icon-view-manager.c:492
+msgid "_OK"
+msgstr "_ОК"
+
+#: src/xfdesktop-file-icon-manager.c:3493
+msgid "Copy _Here"
+msgstr "С_копировать сюда"
+
+#: src/xfdesktop-file-icon-manager.c:3494
+msgid "_Move Here"
+msgstr "Пере_местить"
+
+#: src/xfdesktop-file-icon-manager.c:3495
+msgid "_Link Here"
+msgstr "Создать с_вязь"
+
+#: src/xfdesktop-file-icon-manager.c:3520 src/xfdesktop-file-utils.c:1156
+#: src/xfdesktop-icon-view-manager.c:491
+msgid "_Cancel"
+msgstr "_Отменить"
+
+#: src/xfdesktop-file-icon-manager.c:3613
+#, c-format
+msgid "Could not create the desktop folder \"%s\""
+msgstr "Не удалось создать каталог рабочего стола «%s»"
+
+#: src/xfdesktop-file-icon-manager.c:3621
+msgid "Failed to load the desktop folder"
+msgstr "Не удалось загрузить каталог рабочего стола"
+
+#: src/xfdesktop-file-icon-manager.c:3630
+msgid "A desktop file icon error occurred"
+msgstr "Произошла ошибка значка файла рабочего стола"
+
+#: src/xfdesktop-file-icon-manager.c:3634
+msgid "Desktop Folder Error"
+msgstr "Ошибка каталога рабочего стола"
+
+#: src/xfdesktop-file-icon-model.c:552
+msgid ""
+"A normal file with the same name already exists. Please delete or rename it."
+msgstr ""
+"Уже существует обычный файл с таким именем. Переименуйте его или удалите."
+
+#. TRANSLATORS: file was modified less than one day ago
+#: src/xfdesktop-file-utils.c:184
+#, c-format
+msgid "Today at %X"
+msgstr "сегодня в %X"
+
+#. TRANSLATORS: file was modified less than two days ago
+#: src/xfdesktop-file-utils.c:188
+#, c-format
+msgid "Yesterday at %X"
+msgstr "вчера в %X"
+
+#. Days from last week
+#: src/xfdesktop-file-utils.c:193
+#, c-format
+msgid "%A at %X"
+msgstr "%A в %X"
+
+#. Any other date
+#: src/xfdesktop-file-utils.c:196
+#, c-format
+msgid "%x at %X"
+msgstr "%x в %X"
+
+#. the file_time is invalid
+#: src/xfdesktop-file-utils.c:206 src/xfdesktop-file-utils.c:1735
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: src/xfdesktop-file-utils.c:335
+#, c-format
+msgid "%.*s %u%s"
+msgstr "%.*s %u%s"
+
+#: src/xfdesktop-file-utils.c:586
+msgid "The folder could not be opened"
+msgstr "Не удалось открыть каталог"
+
+#: src/xfdesktop-file-utils.c:703
+msgid "Error"
+msgstr "Ошибка"
+
+#: src/xfdesktop-file-utils.c:704
+msgid "The requested operation could not be completed"
+msgstr "Невозможно завершить запрошенное действие"
+
+#: src/xfdesktop-file-utils.c:758
+msgid "The file could not be renamed"
+msgstr "Не удалось переименовать файл"
+
+#: src/xfdesktop-file-utils.c:759 src/xfdesktop-file-utils.c:823
+#: src/xfdesktop-file-utils.c:884 src/xfdesktop-file-utils.c:1410
+#: src/xfdesktop-file-utils.c:1471 src/xfdesktop-file-utils.c:1603
+#: src/xfdesktop-file-utils.c:1667 src/xfdesktop-file-utils.c:1808
+msgid ""
+"This feature requires a file manager service to be present (such as the one "
+"supplied by Thunar)."
+msgstr ""
+"Эта функция требует наличия службы проводника (например, предоставляемой "
+"Thunar)."
+
+#: src/xfdesktop-file-utils.c:882
+msgid "Delete Error"
+msgstr "Ошибка удаления"
+
+#: src/xfdesktop-file-utils.c:883
+msgid "The selected files could not be deleted"
+msgstr "Не удалось удалить выбранные файлы"
+
+#: src/xfdesktop-file-utils.c:943 src/xfdesktop-file-utils.c:991
+msgid "Trash Error"
+msgstr "Ошибка корзины"
+
+#: src/xfdesktop-file-utils.c:944
+msgid "The selected files could not be moved to the trash"
+msgstr "Не удалось переместить выбранные файлы в Корзину"
+
+#: src/xfdesktop-file-utils.c:945 src/xfdesktop-file-utils.c:993
+msgid ""
+"This feature requires a trash service to be present (such as the one "
+"supplied by Thunar)."
+msgstr ""
+"Эта функция требует наличия службы корзины (например, предоставляемой "
+"Thunar)."
+
+#: src/xfdesktop-file-utils.c:992
+msgid "Could not empty the trash"
+msgstr "Невозможно очистить корзину"
+
+#: src/xfdesktop-file-utils.c:1002
+#, c-format
+msgid "Unable to create new file \"%1$s\" from template file \"%2$s\": %3$s"
+msgstr "Не удаётся создать новый файл «%1$s» из файла шаблона «%2$s»: %3$s"
+
+#: src/xfdesktop-file-utils.c:1008 src/xfdesktop-file-utils.c:1122
+#: src/xfdesktop-file-utils.c:1218
+msgid "Create File Error"
+msgstr "Ошибка создания файла"
+
+#: src/xfdesktop-file-utils.c:1010 src/xfdesktop-file-utils.c:1284
+msgid "Could not create a new file"
+msgstr "Не удалось создать новый файл"
+
+#: src/xfdesktop-file-utils.c:1023
+msgid "New Empty File"
+msgstr "Новый файл"
+
+#: src/xfdesktop-file-utils.c:1118
+#, c-format
+msgid "Unable to create new folder \"%1$s\": %2$s"
+msgstr "Не удаётся создать новую папку «%1$s»: %2$s"
+
+#: src/xfdesktop-file-utils.c:1124 src/xfdesktop-file-utils.c:1317
+msgid "Could not create a new folder"
+msgstr "Не удалось создать новую папку"
+
+#: src/xfdesktop-file-utils.c:1158
+msgid "C_reate"
+msgstr "_Создать"
+
+#: src/xfdesktop-file-utils.c:1216
+#, c-format
+msgid "Cannot convert filename \"%s\" to the local encoding"
+msgstr "Не удалось преобразовать имя «%s» файла в локальную кодировку"
+
+#: src/xfdesktop-file-utils.c:1278
+#, c-format
+msgid "Create Document from template \"%s\""
+msgstr "Создать документ по шаблону «%s»"
+
+#: src/xfdesktop-file-utils.c:1281 src/xfdesktop-file-utils.c:1314
+msgid "Enter the name:"
+msgstr "Введите имя:"
+
+#: src/xfdesktop-file-utils.c:1306
+msgid "New Folder"
+msgstr "Новый каталог"
+
+#: src/xfdesktop-file-utils.c:1312
+msgid "Create New Folder"
+msgstr "Создать новый каталог"
+
+#: src/xfdesktop-file-utils.c:1408
+msgid "File Properties Error"
+msgstr "Ошибка свойств файла"
+
+#: src/xfdesktop-file-utils.c:1409
+msgid "The file properties dialog could not be opened"
+msgstr "Не удалось открыть диалог свойств файла"
+
+#: src/xfdesktop-file-utils.c:1470
+msgid "The file could not be opened"
+msgstr "Не удалось открыть файл"
+
+#: src/xfdesktop-file-utils.c:1491 src/xfdesktop-file-utils.c:1598
+#, c-format
+msgid "Failed to run \"%s\""
+msgstr "Не удалось запустить «%s»"
+
+#: src/xfdesktop-file-utils.c:1666
+msgid "The application chooser could not be opened"
+msgstr "Не удалось открыть диалог выбора приложений"
+
+#: src/xfdesktop-file-utils.c:1737 src/xfdesktop-file-utils.c:1806
+msgid "Transfer Error"
+msgstr "Ошибка передачи"
+
+#: src/xfdesktop-file-utils.c:1738 src/xfdesktop-file-utils.c:1807
+msgid "The file transfer could not be performed"
+msgstr "Не удалось выполнить передачу файла"
+
+#: src/xfdesktop-icon-view-manager.c:488
+msgid "Arrange Icons"
+msgstr "Упорядочить значки"
+
+#: src/xfdesktop-icon-view-manager.c:509
+msgid ""
+"This will reorder all desktop items and place them on different screen positions.\n"
+"Are you sure?"
+msgstr ""
+"Все элементы рабочего стола будут упорядочены, и их положение на экране изменится.\n"
+"Продолжить?"
+
+#: src/xfdesktop-icon-view-manager.c:513
+msgid "Do _not ask me again"
+msgstr "_Больше не спрашивать"
+
+#. TRANSLATORS: Please use the same translation here as in Thunar
+#: src/xfdesktop-notify.c:152
+msgid "Unmounting device"
+msgstr "Отключение устройства"
+
+#. TRANSLATORS: Please use the same translation here as in Thunar
+#: src/xfdesktop-notify.c:155
+#, c-format
+msgid ""
+"The device \"%s\" is being unmounted by the system. Please do not remove the"
+" media or disconnect the drive"
+msgstr ""
+"Устройство «%s» отключается. Не вынимайте его до окончания выполнения "
+"операции."
+
+#. TRANSLATORS: Please use the same translation here as in Thunar
+#: src/xfdesktop-notify.c:162 src/xfdesktop-notify.c:241
+msgid "Writing data to device"
+msgstr "Запись данных на устройство"
+
+#. TRANSLATORS: Please use the same translation here as in Thunar
+#: src/xfdesktop-notify.c:165 src/xfdesktop-notify.c:244
+#, c-format
+msgid ""
+"There is data that needs to be written to the device \"%s\" before it can be"
+" removed. Please do not remove the media or disconnect the drive"
+msgstr ""
+"Необходимо записать данные на устройство «%s» перед его извлечением. Не "
+"вынимайте его до окончания выполнения операции."
+
+#: src/xfdesktop-notify.c:211
+msgid "Unmount Finished"
+msgstr "Отключение завершено"
+
+#: src/xfdesktop-notify.c:212 src/xfdesktop-notify.c:355
+#, c-format
+msgid "The device \"%s\" has been safely removed from the system. "
+msgstr "Устройство «%s» безопасно отключено от системы."
+
+#. TRANSLATORS: Please use the same translation here as in Thunar
+#: src/xfdesktop-notify.c:234
+msgid "Ejecting device"
+msgstr "Извлечение устройства"
+
+#. TRANSLATORS: Please use the same translation here as in Thunar
+#: src/xfdesktop-notify.c:237
+#, c-format
+msgid "The device \"%s\" is being ejected. This may take some time"
+msgstr "Устройство «%s» извлекается. Это может занять некоторое время."
+
+#: src/xfdesktop-notify.c:354
+msgid "Eject Finished"
+msgstr "Извлечение завершено"
+
+#: src/xfdesktop-regular-file-icon.c:729
+#, c-format
+msgid ""
+"Name: %s\n"
+"Type: %s\n"
+"Size: %s\n"
+"Last modified: %s"
+msgstr ""
+"Имя: %s\n"
+"Тип: %s\n"
+"Размер: %s\n"
+"Изменён: %s"
+
+#: src/xfdesktop-special-file-icon.c:258
+msgid "Trash is empty"
+msgstr "Корзина пуста"
+
+#: src/xfdesktop-special-file-icon.c:261
+msgid "Trash contains one item"
+msgstr "В корзине один файл"
+
+#: src/xfdesktop-special-file-icon.c:262
+#, c-format
+msgid "Trash contains %d items"
+msgstr "Файлы в корзине: %d"
+
+#: src/xfdesktop-special-file-icon.c:290
+#, c-format
+msgid ""
+"%s\n"
+"Size: %s\n"
+"Last modified: %s"
+msgstr ""
+"%s\n"
+"Размер: %s\n"
+"Изменён: %s"
+
+#: src/xfdesktop-volume-icon.c:334
+msgid "(not mounted)"
+msgstr "(не смонтировано)"
+
+#: src/xfdesktop-volume-icon.c:335 src/xfdesktop-volume-icon.c:336
+msgid "(unknown)"
+msgstr "(неизвестно)"
+
+#: src/xfdesktop-volume-icon.c:340
+#, c-format
+msgid ""
+"Name: %s\n"
+"Type: %s\n"
+"Mounted at: %s\n"
+"Size: %s\n"
+"Free Space: %s"
+msgstr ""
+"Название: %s\n"
+"Тип: %s\n"
+"Смонтировано на: %s\n"
+"Размер: %s\n"
+"Свободное пространство: %s"
+
+#: src/xfdesktop-volume-icon.c:342
+msgid "Removable Volume"
+msgstr "Съёмный том"
+
+#: src/xfdesktop-volume-icon.c:389 src/xfdesktop-volume-icon.c:436
+#, c-format
+msgid "Failed to eject \"%s\""
+msgstr "Не удалось извлечь «%s»"
+
+#: src/xfdesktop-volume-icon.c:393 src/xfdesktop-volume-icon.c:441
+msgid "Eject Failed"
+msgstr "Не удалось извлечь"
+
+#: src/xfdesktop-volume-icon.c:520
+#, c-format
+msgid "Failed to mount \"%s\""
+msgstr "Не удалось подключить «%s»"
+
+#: src/xfdesktop-volume-icon.c:523
+msgid "Mount Failed"
+msgstr "Не удалось подключить"
+
+#: src/xfdesktop-volume-icon.c:780
+msgid "Safely _Remove Volume"
+msgstr "Б_езопасно извлечь том"
+
+#: src/xfdesktop-volume-icon.c:783
+msgid "_Disconnect Volume"
+msgstr "_Отключить том"
+
+#: src/xfdesktop-volume-icon.c:786
+msgid "Stop the _Multi-Disk Drive"
+msgstr "Остановит_ь многодисковый накопитель"
+
+#: src/xfdesktop-volume-icon.c:789
+msgid "_Lock Volume"
+msgstr "_Блокировать том"
+
+#: src/xfdesktop-volume-icon.c:792
+msgid "_Eject Volume"
+msgstr "Гром_кость извелечения"
+
+#: src/xfdesktop-volume-icon.c:801
+msgid "_Unmount Volume"
+msgstr "О_тключить том"
+
+#: src/xfdesktop-volume-icon.c:808
+msgid "_Mount Volume"
+msgstr "_Подключить том"
+
+#: src/xfdesktop-window-icon-manager.c:296
+msgid "_Run Program..."
+msgstr "Выполнить _программу…"

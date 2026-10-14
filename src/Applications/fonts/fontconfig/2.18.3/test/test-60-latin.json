@@ -1,0 +1,38 @@
+{
+  "env": {
+    "locale": "en_US.UTF-8",
+  },
+  "fonts": [
+    {
+      "family": "Noto Sans",
+      "style": "Regular",
+      "file": "/path/to/NotoSans.ttf",
+    },
+    {
+      "family": "Noto Sans CJK KR",
+      "style": "Regular",
+      "file": "/path/to/NotoSansCJK.ttc",
+    }
+  ],
+  "load_xml": [
+    "conf.d/40-nonlatin.conf",
+    "conf.d/45-latin.conf",
+    "conf.d/48-guessfamily.conf",
+    "conf.d/49-sansserif.conf",
+    "conf.d/60-latin.conf",
+    "conf.d/65-nonlatin.conf",
+  ],
+  "tests": [
+    {
+      "method": "match",
+      "query": {
+        "family": "Cantarell",
+      },
+      "result": {
+        "family": "Noto Sans",
+        "style": "Regular",
+        "file": "/path/to/NotoSans.ttf",
+      }
+    },
+  ]
+}

@@ -1,0 +1,16 @@
+Fontconfig is built with Meson:
+
+	$ meson setup build --prefix=/usr --sysconfdir=/etc
+	$ meson compile -C build
+	$ meson install -C build
+
+If you're going to package fontconfig for release:
+
+ 1.	Create new version
+ 		sh new-version.sh 2.xx.xx
+
+ 2.	Push the tag to the remote repository to trigger the release CI
+		git push origin 2.xx.xx
+
+ 3.	Post a release announcement to fontconfig@fontconfig.org.
+	gpg sign the message.

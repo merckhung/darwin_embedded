@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Unicode Manipulation: libxfce4util Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4util-Resource-Config-File-Support.html" title="Resource Config File Support">
+<link rel="next" href="libxfce4util-File-Utilities.html" title="File Utilities">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libxfce4util-Unicode-Support-Functions.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4util-Resource-Config-File-Support.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libxfce4util-File-Utilities.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libxfce4util-Unicode-Support-Functions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4util-Unicode-Support-Functions.top_of_page"></a>Unicode Manipulation</span></h2>
+<p>Unicode Manipulation — functions operating on Unicode characters and UTF-8 strings.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libxfce4util-Unicode-Support-Functions.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Unicode-Support-Functions.html#xfce-utf8-remove-controls" title="xfce_utf8_remove_controls ()">xfce_utf8_remove_controls</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Unicode-Support-Functions.html#xfce-utf8-strndup" title="xfce_utf8_strndup ()">xfce_utf8_strndup</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Unicode-Support-Functions.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4util/libxfce4util.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Unicode-Support-Functions.description"></a><h2>Description</h2>
+<p>Functions operating on Unicode characters and UTF-8 strings.</p>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Unicode-Support-Functions.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfce-utf8-remove-controls"></a><h3>xfce_utf8_remove_controls ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+xfce_utf8_remove_controls (<em class="parameter"><code><span class="type">gchar</span> *str</code></em>,
+                           <em class="parameter"><code><span class="type">gssize</span> max_len</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *end</code></em>);</pre>
+<p>Removes all control characters from <em class="parameter"><code>str</code></em>
+ up to <em class="parameter"><code>end</code></em>
+ or up to
+<em class="parameter"><code>max_len</code></em>
+ characters (note that characters does not mean bytes with
+UTF-8), where both <em class="parameter"><code>str</code></em>
+ and <em class="parameter"><code>max_len</code></em>
+ may not be given.</p>
+<p>Control characters are replaced in <em class="parameter"><code>str</code></em>
+ by whitespaces, no new string
+will be allocated. The operation is done in-place.</p>
+<div class="refsect3">
+<a name="xfce-utf8-remove-controls.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>str</p></td>
+<td class="parameter_description"><p>target string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_len</p></td>
+<td class="parameter_description"><p>max characters to check or -1 for no character limit.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>end</p></td>
+<td class="parameter_description"><p>pointer to the endpoint in <em class="parameter"><code>str</code></em>
+or <code class="literal">NULL</code> for no endpoint.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-utf8-remove-controls.returns"></a><h4>Returns</h4>
+<p> pointer to <em class="parameter"><code>str</code></em>
+or <code class="literal">NULL</code> on error.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-utf8-strndup"></a><h3>xfce_utf8_strndup ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+xfce_utf8_strndup (<em class="parameter"><code>const <span class="type">gchar</span> *src</code></em>,
+                   <em class="parameter"><code><span class="type">gssize</span> max_len</code></em>);</pre>
+<p>Duplicates the <em class="parameter"><code>src</code></em>
+ string up to <em class="parameter"><code>max_len</code></em>
+ characters
+(note that characters does not mean bytes with UTF-8).</p>
+<p>The caller is responsible to free the returned string
+using <code class="function">g_free()</code> when no longer needed.</p>
+<div class="refsect3">
+<a name="xfce-utf8-strndup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>src</p></td>
+<td class="parameter_description"><p>target string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_len</p></td>
+<td class="parameter_description"><p>max characters to duplicate or -1 for no character limit.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-utf8-strndup.returns"></a><h4>Returns</h4>
+<p> pointer to the newly allocated string.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-3.html#api-index-4.3">4.3</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Unicode-Support-Functions.see-also"></a><h2>See Also</h2>
+<p>https://developer.gnome.org/glib/stable/glib-Unicode-Manipulation.html</p>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

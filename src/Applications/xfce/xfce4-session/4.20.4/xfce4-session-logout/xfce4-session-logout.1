@@ -1,0 +1,61 @@
+.TH xfce4-session-logout 1 "Oct 7, 2008"
+.SH NAME
+xfce4-session-logout \- Logs out from Xfce
+.SH SYNOPSIS
+.B xfce4-session-logout
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B xfce4-session-logout
+command.
+.PP
+The \fBxfce4-session-logout\fP command allows you to programmatically
+logout from your Xfce session. It requests the session manager to display
+the logout confirmation screen, or, if given one of the command-line
+options below, causes the session manager to take the requested action
+immediately.
+
+
+.SH OPTIONS
+\fBxfce4-session-logout\fP takes the following command line options:
+.TP
+.B \-\-logout
+Log out without displaying the logout dialog.
+.TP
+.B \-\-halt
+Halt without displaing the logout dialog.
+.TP
+.B \-\-reboot
+Reboot without displaying the logout dialog.
+.TP
+.B \-\-suspend
+Suspend without displaying the logout dialog.
+.TP
+.B \-\-hibernate
+Hibernate without displaying the logout dialog.
+.TP
+.B \-\-hybrid-sleep
+Hybrid Sleep without displaying the logout dialog.
+.TP
+.B \-\-fast
+Do a fast shutdown.  This instructs the session manager
+not to save the session, but instead to quit everything
+quickly.
+.TP
+.B \-\-help
+Print a help screen and exit.
+.TP
+.B \-\-version
+Output version information and exit.
+
+.SH AUTHOR
+\fBxfce4-session-logout\fP and this manual
+page were written by Brian
+Tarricone <kelnos@xfce.org> and Benedikt Meurer
+<benny@xfce.org> as part of the Xfce project.
+.SH "REPORTING BUGS"
+Report bugs to https://gitlab.xfce.org/xfce/xfce4-session/.
+.SH COPYRIGHT
+Copyright \(co 2004 Benedikt Meurer.
+.br
+Copyright \(co 2008 Brian Tarricone.

@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Саша Петровић <salepetronije@gmail.com>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-19 12:45+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>, 2025\n"
+"Language-Team: Serbian (https://app.transifex.com/xfce/teams/16840/sr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:248
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "Обезбеђени прозор нема сличицу _NET_WM_ICON или WMHints"
+
+#: libxfce4windowing/xfw-wnck-icon.c:621
+msgid "Failed to find or load an icon for the window"
+msgstr "Нисам успео да учитам слику прозора"
+
+#: libxfce4windowing/xfw-workspace-dummy.c:146
+msgid "Workspace 0"
+msgstr "Радни простор 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:219
+msgid "_Move"
+msgstr "_Премести"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:224
+msgid "_Resize"
+msgstr "_Промени величину"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:232
+msgid "Always on _Top"
+msgstr "Увек на _врху"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:237
+msgid "_Always on Visible Workspace"
+msgstr "_Увек на видљивом радном простору"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:242
+msgid "_Only on This Workspace"
+msgstr "Само на овом радном простору"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:247
+msgid "Move to Workspace _Left"
+msgstr "Премести на _леви радни простор"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:256
+msgid "Move to Workspace R_ight"
+msgstr "Премести на десни радни простор"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:265
+msgid "Move to Workspace _Up"
+msgstr "Премести на _виши радни простор"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:274
+msgid "Move to Workspace _Down"
+msgstr "Премести на _нижи радни простор"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:283
+msgid "Move to Another _Workspace"
+msgstr "Премести на неки други радни простор"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:292
+msgid "_Close"
+msgstr "_Затвори"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:465
+#, c-format
+msgid "Workspace _%d"
+msgstr "Радни простор _%d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:466
+#, c-format
+msgid "Workspace %d"
+msgstr "Радни простор %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Mi_nimize"
+msgstr "Ум_ањи"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Unmi_nimize"
+msgstr "Поништи у_мањење"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Ma_ximize"
+msgstr "Ув_ећај"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Unma_ximize"
+msgstr "Пони_шти увећање"

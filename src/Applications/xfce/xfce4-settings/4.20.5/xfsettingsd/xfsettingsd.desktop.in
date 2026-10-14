@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Xfce Settings Daemon
+Comment=The Xfce Settings Daemon
+Exec=xfsettingsd
+Icon=org.xfce.settings.manager
+Terminal=false
+Type=Application
+StartupNotify=false
+OnlyShowIn=XFCE;
+Categories=Settings;System;Utility;
+Keywords=settings;daemon;xfce;configuration;preferences;system;manage;

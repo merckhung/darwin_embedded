@@ -1,0 +1,36 @@
+{
+  "env": {
+    "locale": "de_DE.UTF-8",
+  },
+  "fonts": [
+    {
+      "family": [ "Foo" ],
+      "file": "/path/to/Foo-VF.otf",
+      "index": 0,
+      "namedinstance": false,
+      "variable": true,
+      "fontversion": 1,
+      "size": [8.0, 48.0],
+    }
+  ],
+  "tests": [
+    {
+      "method": "match",
+      "query": {
+        "family": "Foo",
+        "style": "Regular",
+        "size": 12.5,
+      },
+      "result": {
+        "family": "Foo",
+        "style": "Regular",
+        "file": "/path/to/Foo-VF.otf",
+        "index": 0,
+        "namedinstance": false,
+        "fontversion": 1,
+        "size": 12.5,
+        "fontvariations": "opsz=12.5",
+      }
+    }
+  ]
+}

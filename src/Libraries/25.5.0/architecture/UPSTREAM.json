@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/architecture",
+  "tag": "architecture-282",
+  "commit": "fe869009b9c98d9d9d6cc917dfed6fab24b0b686",
+  "archive_sha256": "e639a0993f7fe55cfe8f4565f805b64eb8ebe919ba419e26fcb48ed6daa6890f",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/architecture/tar.gz/refs/tags/architecture-282",
+  "release_manifest": "https://raw.githubusercontent.com/apple-oss-distributions/distribution-macOS/macos-265/release.json"
+}

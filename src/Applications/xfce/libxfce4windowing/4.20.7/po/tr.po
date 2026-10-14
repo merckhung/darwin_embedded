@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Emin Tufan Çetin <etcetin@gmail.com>, 2022
+# b83946de5835331df42b9ffcc43e6a33_05e65cd <73a30e0a984b2291d4915f37112ad292_814039>, 2023
+# Demiray Muhterem <mdemiray@msn.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-19 12:45+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Demiray Muhterem <mdemiray@msn.com>, 2026\n"
+"Language-Team: Turkish (https://app.transifex.com/xfce/teams/16840/tr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:248
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "Sağlanan pencerede _NET_WM_ICON veya WMHints simgesi yok"
+
+#: libxfce4windowing/xfw-wnck-icon.c:621
+msgid "Failed to find or load an icon for the window"
+msgstr "Pencere simgesi bulunamadı veya yüklenemedi"
+
+#: libxfce4windowing/xfw-workspace-dummy.c:146
+msgid "Workspace 0"
+msgstr "Çalışma Alanı 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:219
+msgid "_Move"
+msgstr "_Taşı"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:224
+msgid "_Resize"
+msgstr "_Yeniden Boyutlandır"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:232
+msgid "Always on _Top"
+msgstr "Hep _Üstte"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:237
+msgid "_Always on Visible Workspace"
+msgstr "_Hep Görünen Çalışma Alanında"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:242
+msgid "_Only on This Workspace"
+msgstr "Y_alnızca Bu Çalışma Alanında"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:247
+msgid "Move to Workspace _Left"
+msgstr "_Sol Çalışma Alanına Taşı"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:256
+msgid "Move to Workspace R_ight"
+msgstr "S_ağ Çalışma Alanına Taşı"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:265
+msgid "Move to Workspace _Up"
+msgstr "_Üst Çalışma Alanına Taşı"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:274
+msgid "Move to Workspace _Down"
+msgstr "A_lt Çalışma Alanına Taşı"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:283
+msgid "Move to Another _Workspace"
+msgstr "Başka Çalı_şma Alanına Taşı"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:292
+msgid "_Close"
+msgstr "_Kapat"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:465
+#, c-format
+msgid "Workspace _%d"
+msgstr "Çalışma Alanı _%d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:466
+#, c-format
+msgid "Workspace %d"
+msgstr "Çalışma Alanı %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Mi_nimize"
+msgstr "_Küçült"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Unmi_nimize"
+msgstr "_Küçültmeyi Geri Al"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Ma_ximize"
+msgstr "_Büyült"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Unma_ximize"
+msgstr "_Büyültmeyi Geri Al"

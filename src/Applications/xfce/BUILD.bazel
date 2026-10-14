@@ -1,0 +1,8 @@
+package(default_visibility = ["//visibility:public"])
+filegroup(name = "base_sources", srcs = glob(["libxfce4util/**", "xfconf/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "ui_sources", srcs = glob(["libxfce4ui/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "wm_sources", srcs = glob(["xfwm4/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "desktop_library_sources", srcs = glob(["exo/**", "garcon/**", "libxfce4windowing/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "desktop_sources", srcs = glob(["xfce4-panel/**", "xfce4-session/**", "xfdesktop/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "settings_sources", srcs = glob(["xfce4-settings/**"]))
+filegroup(name = "terminal_sources", srcs = glob(["xfce4-terminal/**"]))

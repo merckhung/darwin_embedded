@@ -1,0 +1,425 @@
+################################################################################
+### This file use the following template format:
+### - Lines starting with “#” are template syntax:
+###   - Comments are introduced using “###”, as illustrated in the current line.
+###   - The second character of the line is ignored.
+###   - The rest of the line is interpreted as Python syntax.
+###   - Indentation is 4 spaces.
+###   - Indented blocks of code must be terminated by the corresponding
+###     “endXXX” instruction, e.g.:
+###
+###         if a:
+###             ...
+###         else:
+###             ...
+###         endif
+###
+### - Lines not starting with “#” are interpreted as a Python f-strings.
+###
+###   Whenever possible, prefer using layout *ranges* than layout indexes, such
+###   as: `single`, `first`, `later` and `any`. They are documented at:
+###   https://xkbcommon.org/doc/current/rule-file-format.html#grammar
+###   They will be converted to the appropriate syntax when rendering in the
+###   legacy format.
+################################################################################
+//
+//  Rules for resolving XKB components for use with XFree86
+//  Copyright 1996 by Joseph Moss
+//
+//  2002 Modifier: Ivan Pascal      The XFree86 Project
+//
+
+### TODO: get groups from registries
+# for g in groups:
+// {group.comment}
+! {group.name} = {group.definition}
+# endfor
+
+// PC models
+! $pcmodels = abnt2 jp106 kr106 pc86 pc101 pc102 pc104 pc104alt pc105
+
+// Jolla devices and keyboards
+! $jollamodels = jollasbj
+
+// Microsoft models (using MS geometry)
+! $msmodels = microsoft microsoft4000 microsoft7000 microsoftpro microsoftprousb microsoftprose microsoftsurface
+
+// TypeMatrix geometries
+! $tmgeometries = tm2020 tm2030PS2 tm2030USB tm2030USB-102 tm2030USB-106
+
+// Country files that provide specializations for the OLPC:
+! $olpclayouts = af am ara br ca es et fr in it kh kz mn ng np pk ru th tr us
+
+! $applealu = applealu_ansi applealu_iso applealu_jis
+
+! $macvendorlayouts = ch de dk fi fr gb is it latam nl no pt se us
+
+// Macintosh vendor: country-specific variants
+! $mac_ch_variants = de fr nodeadkeys
+! $mac_de_variants = nodeadkeys Sundeadkeys sundeadkeys
+! $mac_dk_variants = macbookpro nodeadkeys
+! $mac_pt_variants = nodeadkeys Sundeadkeys sundeadkeys
+
+// The countries that predominantly have AZERTY or QWERTZ layouts:
+! $azerty = be fr
+! $qwertz = al ch cz de hr hu ro si sk
+
+! $thinkpads = thinkpad thinkpad60 thinkpadz60
+
+! $sun = sun_type6_jp sun_type6_usb sun_type6_euro_usb \
+         sun_type6_jp_usb sun_type6_unix_usb sun_type7_jp_usb \
+         sun_type7_usb sun_type7_euro_usb sun_type7_unix_usb
+
+! $sun_jp = sun_type6_jp sun_type6_jp_usb sun_type7_jp_usb
+
+// Sun Type_6_7 keyboards with custom layouts
+! $sun_custom = ara be br ca ch cz de dk \
+                ee es fi fr gb gr it jp \
+                kr lt lv nl no pl pt ro \
+                ru se sk tr tw ua us
+
+! $sun_var =  sun_type6 sun_type6_suncompat sun_type6_de sun_type6_fr \
+              sun_type7 sun_type7_suncompat suncompat basic
+
+! $sun_compat = sun_type6 sun_type6_suncompat sun_type7_suncompat suncompat
+
+# if ruleset == "base":
+! $inetkbds = acer_c300 acer_ferrari4k acer_laptop \
+              airkey apex300 \
+              apple armada azonaRF2300 \
+              benqx brother \
+              btc5113rf btc9000 btc9000a btc9001ah btc5090 btc9019u \
+              cherryblue cherrybluea cherryblueb \
+              cherrycyboard cherrycmexpert \
+              chicony chicony0108 chicony0420 chicony9885 \
+              compalfl90 \
+              compaqeak8 compaqik7 compaqik13 compaqik18 \
+              creativedw7000 \
+              cymotionlinux \
+              dell dellm65 dellusbmm \
+              emachines ennyah_dkb1008 evdev \
+              genius geniuscomfy2 \
+              gyration honeywell_euroboard \
+              hp250x hp5xx hp500fa hpdv5 \
+              hpi6 hpxe3gc hpxe3gf hpxe4xxx hpxt1000 hpzt11xx \
+              ibm_spacesaver inspiron intel ipaq itouch \
+              logiaccess logicda logicink logiclx300 \
+              logidinovo logidinovoedge logiex110 \
+              logiik logiinkse logiinkseusb logiitc \
+              logitech_base logitech_g15 logiultrax \
+              microsoft4000 microsoft7000 microsoftinet microsoftmult \
+              microsoftoffice microsoftprooem microsoftprose microsoftprousb \
+              mx1998 mx2500 mx2750 \
+              oretec \
+              pc105 ppkb presario propeller \
+              qtronix \
+              rapidaccess rapidaccess2 \
+              samsung4500 samsung4510 \
+              silvercrest \
+              sk1300 sk2500 sk6200 sk7100 \
+              sven sven303 symplon \
+              teck227 teck229 thinkpad60 \
+              toshiba_s3000 trust trustda \
+              unitekkb1925 yahoo
+
+! $inetmediakbds = \
+		a4_rfkb23 a4techKB21 a4techKBS8 acer_ferrari4k acer_laptop \
+		armada asus_laptop benqx btc5090 btc6301urf btc9019u \
+		cherrybluea cherryblueb cherrycyboard chicony042 \
+		compalfl90 compaqik13 compaqik18 creativedw7000 \
+		cymotionlinux dellm65 dellusbmm dexxa diamond dtk2000 \
+		emachines ennyah_dkb1008 fscaa1667g genius geniuscomfy \
+		geniuscomfy2 geniuskb19e hp5xx hpdv5 hpi6 hpxe3gc hpxe3gf \
+		hpxe4xxx hpxt1000 hpzt11xx inspiron latitude \
+		logidinovo logidinovoedge logitech_base logitech_g15 \
+		microsoft4000 microsoft7000 microsoftmult microsoftpro \
+		microsoftprooem mx1998 mx2500 mx2750 pc105 precision_m \
+		presario propeller samsung4500 samsung4510 scorpius \
+		silvercrest sk1300 sk2500 sk7100 sp_inet targa_v811 \
+		thinkpad thinkpad60 tm2030USB-102 tm2030USB-106 \
+		toshiba_s3000 trust trustda trust_slimline unitekkb1925
+
+# endif
+
+# if ruleset == "base":
+! model		=	keycodes
+  amiga		=	amiga(de)
+  ataritt	=	ataritt(de)
+  empty		=	empty
+ $sun_jp	=	sun(type6_jp_usb)
+ $sun		=	sun(type6_usb)
+  pc98		=	xfree98(pc98)
+ $applealu	=	macintosh(alukbd)
+  thinkpadz60	=	xfree86(thinkpadz60)
+  *		=	xfree86
+
+# else:
+
+! model		=	keycodes
+ $jollamodels	=	evdev+jolla(jolla)
+  olpc		=	evdev+olpc(olpc)
+  olpcm		=	evdev+olpc(olpcm)
+  *		=	evdev
+# endif
+
+! layout[first]	=	keycodes
+ $azerty	=	+aliases(azerty)
+ $qwertz	=	+aliases(qwertz)
+  *		=	+aliases(qwerty)
+
+! model		layout	=	geometry
+  thinkpad	us	=	thinkpad(us)
+
+! model			=	geometry
+  microsoftelite	=	microsoft(elite)
+ $msmodels		=	microsoft(natural)
+  dell101		=	dell(dell101)
+  dellm65		=	dell(dellm65)
+  latitude		=	dell(latitude)
+  flexpro		=	keytronic(FlexPro)
+  hp6000		=	hp(omnibook)
+  hpmini110		=	hp(mini110)
+  hpdv5			=	hp(dv5)
+  omnikey101		=	northgate(omnikey101)
+  sanwaskbkg3		=	sanwa(sanwaskbkg3)
+ $pcmodels		=	pc(%m)
+  everex		=	everex(STEPnote)
+  thinkpad		=	thinkpad(intl)
+  thinkpad60		=	thinkpad(60)
+  thinkpadz60		=	thinkpad(60)
+  apex300		=	steelseries(apex300)
+ $tmgeometries		=	typematrix(%m)
+  winbook		=	winbook(XP5)
+  pc98			=	nec(pc98)
+ $applealu		=	macintosh(%m)
+  hhk			=	hhk(basic)
+  kinesis		=	kinesis(model100)
+  sun_type6_jp		=	sun(type6jp)
+  sun_type6_usb		=	sun(type6)
+  sun_type6_euro_usb	=	sun(type6tuv)
+  sun_type6_jp_usb	=	sun(type6jp)
+  sun_type6_unix_usb	=	sun(type6unix)
+  sun_type7_jp_usb	=	sun(type6jp)
+  sun_type7_usb		=	sun(type7)
+  sun_type7_euro_usb	=	sun(type7tuv)
+  sun_type7_unix_usb	=	sun(type7unix)
+  *			=	pc(pc104)
+
+# if variants_compat_mappings:
+! model		layout		variant	=	symbols
+#     for e in variants_compat_mappings:
+  {e.source.model}	{e.source.layout}	{e.source.variant}	=	{e.destination.symbols_prefix}+{e.destination}
+#     endfor
+
+# endif
+
+! model		 layout			=	symbols
+# for e in layouts_compat_mappings:
+  {e.source.model}	{e.source.layout}	=	{e.destination.symbols_prefix}+{e.destination}
+# endfor
+  ataritt	 *			=	xfree68_vndr/ataritt(us)+%l%(v)
+  amiga		 *			=	xfree68_vndr/amiga(usa1)+%l%(v)
+  empty		 *			=	empty(basic)
+  *		 empty			=	empty(basic)
+  jollasbj	 *			=	jolla_vndr/sbj(common)+%l%(v)
+ $sun		$sun_custom		=	pc+sun_vndr/%l
+  pc98		 jp			=	nec_vndr/jp(pc98)+nec_vndr/jp(jp):2
+  pc98		 *			=	nec_vndr/jp(pc98)+%l%(v)
+  applealu_jis	 jp			=	macintosh_vndr/apple(alukbd)+macintosh_vndr/jp(usmac)+macintosh_vndr/jp(mac):2
+  applealu_jis	 *			=	macintosh_vndr/apple(alukbd)+%l%(v)+macintosh_vndr/jp(mac):2
+  applealu_iso	 us			=	macintosh_vndr/apple(alukbd)+macintosh_vndr/us(applealu_iso)
+ $applealu	$macvendorlayouts	=	macintosh_vndr/apple(alukbd)+macintosh_vndr/%l
+ $applealu	 *			=	macintosh_vndr/apple(alukbd)+%l%(v)
+  olpc		$olpclayouts		=	olpc+%l%(m)
+  olpc		 *			=	olpc+%l%(v)
+  olpcm		$olpclayouts		=	olpc+%l%(m)
+  olpcm		 *			=	olpc+%l%(v)
+ $thinkpads	 br			=	pc+br(thinkpad)
+  sl-c3x00	 *			=	pc+sharp_vndr/sl-c3x00(basic)
+  ws003sh	 *			=	pc+sharp_vndr/ws003sh(basic)
+  ws007sh	 *			=	pc+sharp_vndr/ws007sh(basic)
+  ws011sh	 *			=	pc+sharp_vndr/ws011sh(basic)
+  ws020sh	 *			=	pc+sharp_vndr/ws020sh(basic)
+  *		 *			=	pc+%l%(v)
+
+# if variants_compat_mappings:
+! model		layout[1]		variant[1]	=	symbols
+#     for e in variants_compat_mappings:
+  {e.source.model}	{e.source.layout}	{e.source.variant}	=	{e.destination.symbols_prefix}+{e.destination}
+#     endfor
+
+# endif
+
+! model		layout[1]			=	symbols
+# for e in layouts_compat_mappings:
+  {e.source.model}	{e.source.layout}	=	{e.destination.symbols_prefix}+{e.destination}
+# endfor
+  ataritt	 *				=	xfree68_vndr/ataritt(us)+%l[1]%(v[1])
+  amiga		 *				=	xfree68_vndr/amiga(usa1)+%l[1]%(v[1])
+  jollasbj	 *				=	jolla_vndr/sbj(common)+%l[1]%(v[1])
+ $sun		$sun_custom			=	pc+sun_vndr/%l[1]
+  applealu_jis	 us				=	macintosh_vndr/apple(alukbd)+macintosh_vndr/jp(usmac)
+  applealu_iso	 us				=	macintosh_vndr/apple(alukbd)+macintosh_vndr/us(applealu_iso)
+ $applealu	$macvendorlayouts		=	macintosh_vndr/apple(alukbd)+macintosh_vndr/%l[1]
+ $applealu	 *				=	macintosh_vndr/apple(alukbd)+%l[1]%(v[1])
+ $thinkpads	 br				=	pc+%l[1](thinkpad)
+  *		 *				=	pc+%l[1]%(v[1])
+
+! model		layout[later]		=	symbols
+# for e in layouts_compat_mappings:
+  {e.source.model}	{e.source.layout}	=	+{e.destination}:%i
+# endfor
+  applealu_iso	 us			=	+macintosh_vndr/us(applealu_iso):%i
+ $applealu	$macvendorlayouts	=	+macintosh_vndr/%l[%i]:%i
+ $sun		$sun_custom		=	+sun_vndr/%l[%i]:%i
+  *		 *			=	+%l[%i]%(v[%i]):%i
+
+# if variants_compat_mappings:
+! model		layout[later]		variant[later]	=	symbols
+#     for e in variants_compat_mappings:
+  {e.source.model}	{e.source.layout}	{e.source.variant}	=	+{e.destination}:%i
+#     endfor
+
+# endif
+
+# if ruleset == "base":
+! model			=	symbols
+  a4techKB21		=	+inet(media_nav_common)
+  a4techKBS8		=	+inet(media_nav_acpi_common)
+  a4_rfkb23		=	+inet(media_nav_acpi_common)
+  asus_laptop		=	+inet(media_common)
+  acer_tm_800		=	+inet(acer_laptop)
+  benqx730		=	+inet(benqx)
+  benqx800		=	+inet(benqx)
+  btc5126t		=	+inet(nav_acpi_common)
+  btc9116u		=	+inet(btc9019u)
+  btc6301urf		=	+inet(media_nav_acpi_common)
+  chromebook		=	+inet(chromebook)
+  dellsk8125		=	+inet(dell)
+  dellsk8135		=	+inet(dell)
+  cherrybunlim		=	+inet(nav_common)
+  dexxa			=	+inet(media_nav_common)
+  dtk2000		=	+inet(media_nav_acpi_common)
+  fscaa1667g		=	+inet(media_nav_common)
+  geniuskb19e		=	+inet(media_nav_acpi_common)
+  geniuscomfy		=	+inet(media_nav_acpi_common)
+  geniuskkb2050hs	=	+inet(dellusbmm)
+  hpnx9020		=	+inet(hpi6)
+  latitude		=	+inet(media_common)
+  logicd		=	+inet(logitech_base)
+  logicd_it		=	+inet(logitech_base)
+  logicd_nav		=	+inet(logitech_base)
+  logicd_opt		=	+inet(logitech_base)
+  logiultrax		=	+inet(logitech_base)
+  logiclx300		=	+inet(logiex110)
+  logii350		=	+inet(logiex110)
+  logimel		=	+inet(logiex110)
+  logicdpa		=	+inet(logicda)
+  logiciink		=	+inet(logicink)
+  ltcd			=	+inet(logicda)
+  microsoftccurve2k	=	+inet(microsoftprooem)
+  microsoftpro		=	+inet(media_nav_acpi_common)
+  precision_m		=	+inet(media_nav_common)
+  scorpius		=	+inet(media_nav_acpi_common)
+  sp_inet		=	+inet(media_nav_acpi_common)
+  targa_v811		=	+inet(media_nav_acpi_common)
+  thinkpad		=	+inet(media_nav_common)
+  thinkpadz60		=	+inet(thinkpad60)
+  tm2030USB-102		=	+inet(media_nav_acpi_common)
+  tm2030USB-106		=	+inet(media_nav_acpi_common)
+  trust_slimline	=	+inet(media_nav_acpi_common)
+  vsonku306		=	+inet(microsoftprooem)
+ $inetkbds		=	+inet(%m)
+ $applealu		=	+inet(apple)
+  sun_type7_jp_usb	=	+sun_vndr/solaris(defaults_type7jp)
+ $sun			=	+sun_vndr/solaris(defaults)
+
+! model		layout		=	symbols
+ $inetmediakbds	jp		=	+jp(henkan)
+
+# else:
+
+! model		=	symbols
+  chromebook	=	+inet(evdev)+inet(chromebook)
+  ppkb		=	+inet(evdev)+inet(ppkb)
+  *		=	+inet(evdev)
+# endif
+
+# if compat:
+! layout[first]	 variant[first]		= compat
+  de		 neo			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 adnw			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 koy			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 bone			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 bone_eszett_home	= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 neo_qwertz		= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 neo_qwerty		= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  jp		$sun_compat		= complete+japan(kana_lock):%i
+
+! layout[later]	 variant[later]		= compat
+  de		 neo			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 adnw			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 koy			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 bone			= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 bone_eszett_home	= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 neo_qwertz		= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  de		 neo_qwerty		= +caps(caps_lock):%i+misc(assign_shift_left_action):%i+level5(level5_lock):%i
+  jp		$sun_compat		= +japan(kana_lock):%i
+
+# endif
+
+! model		layout[single]	=	compat
+  pc98		jp		=	pc98(basic)
+  *		jp		=	complete+japan
+  olpc		*		=	olpc
+  olpcm		*		=	olpc
+  *		*		=	complete
+
+! model		layout[1]	=	compat
+  *		jp		=	complete+japan
+  *		*		=	complete
+
+! model		layout[later]	=	compat
+  *		jp		=	+japan
+
+! model		=	types
+ $applealu	=	complete+numpad(mac)
+  *		=	complete
+
+! layout[any]	option					= symbols
+  *		misc:apl				= +apl(level3):%i
+  *		misc:typo				= +typo(base):%i
+  *		lv3:ralt_alt				= +level3(ralt_alt):%i
+  *		grp:toggle				= +group(toggle):%i
+  *		grp:alts_toggle				= +group(alts_toggle):%i
+  *		grp:alt_altgr_toggle			= +group(alt_altgr_toggle):%i
+  *		grp:alt_space_toggle			= +group(alt_space_toggle):%i
+  *		grp:win_space_toggle			= +group(win_space_toggle):%i
+  *		grp:ctrl_space_toggle			= +group(ctrl_space_toggle):%i
+  *		grp:rctrl_rshift_toggle			= +group(rctrl_rshift_toggle):%i
+  *		grp:shifts_toggle			= +group(shifts_toggle):%i
+ $azerty	caps:digits_row				= +capslock(digits_row):%i
+ $azerty	caps:digits_row_independent_lock	= +capslock(digits_row_independent_lock):%i
+
+! option				= 	symbols
+# if compat:
+  grp:shift_caps_switch			=	+group(caps_select)			// Delete in July 2027
+  grp:win_menu_switch			=	+group(win_menu_select)			// Delete in July 2027
+  grp:lctrl_rctrl_switch		=	+group(ctrl_select)			// Delete in July 2027
+  ctrl:swapcaps_hyper			=	+ctrl(hyper_capscontrol)		// Delete in September 2027
+  ctrl:swapcaps_and_switch_layout	= 	+ctrl(swapcaps)+group(lctrl_toggle)	// Delete in September 2027
+# endif
+# for option, value in options["symbols"]:
+  {option}				=	+{value}
+# endfor
+
+# for s, entries in options.items():
+#     if not entries or s is s.symbols:
+#         continue
+#     endif
+! option	=	{s}
+#     for option, value in entries:
+  {option}	=	+{value}
+#     endfor
+
+# endfor

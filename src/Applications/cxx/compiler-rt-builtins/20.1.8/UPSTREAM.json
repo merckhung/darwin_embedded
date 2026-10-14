@@ -1,0 +1,33 @@
+{
+  "project": "LLVM compiler-rt integer division builtins",
+  "version": "20.1.8",
+  "revision": "llvmorg-20.1.8",
+  "upstream_url": "https://github.com/llvm/llvm-project/tree/llvmorg-20.1.8/compiler-rt/lib/builtins",
+  "source_subset": "Original signed/unsigned 128-bit division and numeric abort implementation with exact recursive original headers; no operating-system or syscall compatibility implementation.",
+  "publisher_git_blobs_verified": true,
+  "upstream_files_sha256": {
+    "int_util.c": "c2efa4a829b46383f5abe662e1a0545c4ab5f30f8b169e122152eef47c6f029a",
+    "int_lib.h": "b31130f10484636895daa13b91b63d47ea82b45547f29e4dd136b48a67854d30",
+    "int_util.h": "63d06198ab720a75c20bfd84be895c2746581b129168bae6201e7384bbb0473b",
+    "int_types.h": "b4b768e1b2251df4c0161b4c1f120417500ff4883b7008120104d042eeb2151f",
+    "int_endianness.h": "ec5175561075845b7b16a92ad5ecdfd42a284de2736dd07e4ca7011b75c37709",
+    "udivmodti4.c": "2cfaca7399d1392c92ec4dd6458da22933b4ad2e0cd58769f22b52be98116760",
+    "udivti3.c": "c0b20f06f6e0e8a6b5423ca6674cf0c57219d07554f6f35c9ecc36bf28915355",
+    "divti3.c": "b8392be2b070cda2a01bc33c7912e06ab83ce9a1ec7995fe0acbe44540cf92ae",
+    "int_div_impl.inc": "833906405d418f0f421d6155acc5abf79d9902ed37a44903d01c95ff55d3a010",
+    "LICENSE.TXT": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+  },
+  "upstream_git_blob_sha1": {
+    "int_util.c": "bbb735ccf2791b108cdde8ea6c7d297be8dc4d57",
+    "int_lib.h": "f6c1b7cff4b99b5dfbd6915bab7b75bc0aaea55e",
+    "int_util.h": "c372c2edc637137d28926ad9af948f31766907ba",
+    "int_types.h": "48862f3642175bd241e97805c7d32111febe2c28",
+    "int_endianness.h": "291c6b58c8ed9ed2ff2cc970bbfc0b486cc338ec",
+    "udivmodti4.c": "55def37c9e1fee9bc3e9be93fb5889bbe0481188",
+    "udivti3.c": "4c82040b88cb57d04114cc9ba4a37e8c5c8e825e",
+    "divti3.c": "80f2130b590e290ac4abbd3243e726fc9a001295",
+    "int_div_impl.inc": "dc1f97cbeae537728dc0b9fe119a43d5db122d5e",
+    "LICENSE.TXT": "5a79a1b9d5cb0af9a779751f07033e44ca3b14d8"
+  },
+  "local_changes": []
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="xfconf Reference Manual" link="index.html" author="" name="xfconf" version="2" language="c" online="https://developer.xfce.org/xfconf/index.html">
+  <chapters>
+    <sub name="Xfconf Core Functionality" link="ch01.html">
+      <sub name="Xfconf Types" link="xfconf-Xfconf-Types.html"/>
+      <sub name="Error Reporting" link="xfconf-Error-Reporting.html"/>
+    </sub>
+    <sub name="Xfconf Daemon" link="ch02.html">
+      <sub name="Xfconf Backend" link="xfconf-Xfconf-Backend.html"/>
+    </sub>
+    <sub name="Xfconf Client Library" link="ch03.html">
+      <sub name="Xfconf Library Core" link="xfconf-Xfconf-Library-Core.html"/>
+      <sub name="Xfconf Channel" link="xfconf-Xfconf-Channel.html"/>
+      <sub name="Xfconf-GObject Binding" link="xfconf-Xfconf-GObject-Binding.html"/>
+    </sub>
+    <sub name="API Index" link="ch04.html">
+      <sub name="All symbols" link="ch04.html#api-index-full"/>
+      <sub name="Added in 4.5.91" link="ch04.html#api-index-4.5.91"/>
+      <sub name="Added in 4.5.92" link="ch04.html#api-index-4.5.92"/>
+      <sub name="Added in 4.12.1" link="ch04.html#api-index-4.12.1"/>
+    </sub>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <keyword type="function" name="xfconf_g_value_get_int16 ()" link="xfconf-Xfconf-Types.html#xfconf-g-value-get-int16"/>
+    <keyword type="function" name="xfconf_g_value_get_uint16 ()" link="xfconf-Xfconf-Types.html#xfconf-g-value-get-uint16"/>
+    <keyword type="function" name="xfconf_g_value_set_int16 ()" link="xfconf-Xfconf-Types.html#xfconf-g-value-set-int16"/>
+    <keyword type="function" name="xfconf_g_value_set_uint16 ()" link="xfconf-Xfconf-Types.html#xfconf-g-value-set-uint16"/>
+    <keyword type="macro" name="XFCONF_ERROR" link="xfconf-Error-Reporting.html#XFCONF-ERROR:CAPS"/>
+    <keyword type="enum" name="enum XfconfError" link="xfconf-Error-Reporting.html#XfconfError"/>
+    <keyword type="function" name="xfconf_backend_initialize ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-initialize"/>
+    <keyword type="function" name="xfconf_backend_is_property_locked ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-is-property-locked"/>
+    <keyword type="function" name="xfconf_backend_list_channels ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-list-channels"/>
+    <keyword type="function" name="xfconf_backend_set ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-set"/>
+    <keyword type="function" name="xfconf_backend_get ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-get"/>
+    <keyword type="function" name="xfconf_backend_get_all ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-get-all"/>
+    <keyword type="function" name="xfconf_backend_exists ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-exists"/>
+    <keyword type="function" name="xfconf_backend_reset ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-reset"/>
+    <keyword type="function" name="xfconf_backend_flush ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-flush"/>
+    <keyword type="function" name="xfconf_backend_register_property_changed_func ()" link="xfconf-Xfconf-Backend.html#xfconf-backend-register-property-changed-func"/>
+    <keyword type="macro" name="xfconf_backend_return_val_if_fail()" link="xfconf-Xfconf-Backend.html#xfconf-backend-return-val-if-fail"/>
+    <keyword type="function" name="XfconfPropertyChangedFunc ()" link="xfconf-Xfconf-Backend.html#XfconfPropertyChangedFunc"/>
+    <keyword type="struct" name="struct XfconfBackendInterface" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface"/>
+    <keyword type="struct" name="XfconfBackend" link="xfconf-Xfconf-Backend.html#XfconfBackend"/>
+    <keyword type="function" name="xfconf_init ()" link="xfconf-Xfconf-Library-Core.html#xfconf-init"/>
+    <keyword type="function" name="xfconf_shutdown ()" link="xfconf-Xfconf-Library-Core.html#xfconf-shutdown"/>
+    <keyword type="function" name="xfconf_named_struct_register ()" link="xfconf-Xfconf-Library-Core.html#xfconf-named-struct-register"/>
+    <keyword type="function" name="xfconf_array_free ()" link="xfconf-Xfconf-Library-Core.html#xfconf-array-free"/>
+    <keyword type="function" name="xfconf_list_channels ()" link="xfconf-Xfconf-Library-Core.html#xfconf-list-channels"/>
+    <keyword type="function" name="xfconf_channel_get ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get" since="4.5.91"/>
+    <keyword type="function" name="xfconf_channel_new ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-new"/>
+    <keyword type="function" name="xfconf_channel_new_with_property_base ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-new-with-property-base" since="4.5.92"/>
+    <keyword type="function" name="xfconf_channel_has_property ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-has-property"/>
+    <keyword type="function" name="xfconf_channel_is_property_locked ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-is-property-locked" since="4.5.91"/>
+    <keyword type="function" name="xfconf_channel_reset_property ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-reset-property" since="4.5.91"/>
+    <keyword type="function" name="xfconf_channel_get_properties ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-properties"/>
+    <keyword type="function" name="xfconf_channel_get_string ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-string"/>
+    <keyword type="function" name="xfconf_channel_get_string_list ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-string-list"/>
+    <keyword type="function" name="xfconf_channel_get_int ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-int"/>
+    <keyword type="function" name="xfconf_channel_get_uint ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-uint"/>
+    <keyword type="function" name="xfconf_channel_get_uint64 ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-uint64"/>
+    <keyword type="function" name="xfconf_channel_get_double ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-double"/>
+    <keyword type="function" name="xfconf_channel_get_bool ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-bool"/>
+    <keyword type="function" name="xfconf_channel_set_string ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-string"/>
+    <keyword type="function" name="xfconf_channel_set_string_list ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-string-list"/>
+    <keyword type="function" name="xfconf_channel_set_int ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-int"/>
+    <keyword type="function" name="xfconf_channel_set_uint ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-uint"/>
+    <keyword type="function" name="xfconf_channel_set_uint64 ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-uint64"/>
+    <keyword type="function" name="xfconf_channel_set_double ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-double"/>
+    <keyword type="function" name="xfconf_channel_set_bool ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-bool"/>
+    <keyword type="function" name="xfconf_channel_get_property ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-property"/>
+    <keyword type="function" name="xfconf_channel_set_property ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-property"/>
+    <keyword type="function" name="xfconf_channel_get_array ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-array"/>
+    <keyword type="function" name="xfconf_channel_get_array_valist ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-array-valist"/>
+    <keyword type="function" name="xfconf_channel_get_arrayv ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-arrayv"/>
+    <keyword type="function" name="xfconf_channel_set_array ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-array"/>
+    <keyword type="function" name="xfconf_channel_set_array_valist ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-array-valist"/>
+    <keyword type="function" name="xfconf_channel_set_arrayv ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-arrayv"/>
+    <keyword type="function" name="xfconf_channel_get_named_struct ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-named-struct"/>
+    <keyword type="function" name="xfconf_channel_set_named_struct ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-named-struct"/>
+    <keyword type="function" name="xfconf_channel_get_struct ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-struct"/>
+    <keyword type="function" name="xfconf_channel_get_struct_valist ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-struct-valist"/>
+    <keyword type="function" name="xfconf_channel_get_structv ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-get-structv"/>
+    <keyword type="function" name="xfconf_channel_set_struct ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-struct"/>
+    <keyword type="function" name="xfconf_channel_set_struct_valist ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-struct-valist"/>
+    <keyword type="function" name="xfconf_channel_set_structv ()" link="xfconf-Xfconf-Channel.html#xfconf-channel-set-structv"/>
+    <keyword type="struct" name="XfconfChannel" link="xfconf-Xfconf-Channel.html#XfconfChannel-struct"/>
+    <keyword type="property" name="The “channel-name” property" link="xfconf-Xfconf-Channel.html#XfconfChannel--channel-name"/>
+    <keyword type="property" name="The “is-singleton” property" link="xfconf-Xfconf-Channel.html#XfconfChannel--is-singleton"/>
+    <keyword type="property" name="The “property-base” property" link="xfconf-Xfconf-Channel.html#XfconfChannel--property-base"/>
+    <keyword type="signal" name="The “property-changed” signal" link="xfconf-Xfconf-Channel.html#XfconfChannel-property-changed"/>
+    <keyword type="function" name="xfconf_g_property_bind ()" link="xfconf-Xfconf-GObject-Binding.html#xfconf-g-property-bind"/>
+    <keyword type="function" name="xfconf_g_property_bind_gdkcolor ()" link="xfconf-Xfconf-GObject-Binding.html#xfconf-g-property-bind-gdkcolor" deprecated=""/>
+    <keyword type="function" name="xfconf_g_property_bind_gdkrgba ()" link="xfconf-Xfconf-GObject-Binding.html#xfconf-g-property-bind-gdkrgba" deprecated="" since="4.12.1"/>
+    <keyword type="function" name="xfconf_g_property_unbind ()" link="xfconf-Xfconf-GObject-Binding.html#xfconf-g-property-unbind"/>
+    <keyword type="function" name="xfconf_g_property_unbind_by_property ()" link="xfconf-Xfconf-GObject-Binding.html#xfconf-g-property-unbind-by-property"/>
+    <keyword type="function" name="xfconf_g_property_unbind_all ()" link="xfconf-Xfconf-GObject-Binding.html#xfconf-g-property-unbind-all"/>
+    <keyword type="constant" name="XFCONF_ERROR_UNKNOWN" link="xfconf-Error-Reporting.html#XFCONF-ERROR-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_CHANNEL_NOT_FOUND" link="xfconf-Error-Reporting.html#XFCONF-ERROR-CHANNEL-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_PROPERTY_NOT_FOUND" link="xfconf-Error-Reporting.html#XFCONF-ERROR-PROPERTY-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_READ_FAILURE" link="xfconf-Error-Reporting.html#XFCONF-ERROR-READ-FAILURE:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_WRITE_FAILURE" link="xfconf-Error-Reporting.html#XFCONF-ERROR-WRITE-FAILURE:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_PERMISSION_DENIED" link="xfconf-Error-Reporting.html#XFCONF-ERROR-PERMISSION-DENIED:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_INTERNAL_ERROR" link="xfconf-Error-Reporting.html#XFCONF-ERROR-INTERNAL-ERROR:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_NO_BACKEND" link="xfconf-Error-Reporting.html#XFCONF-ERROR-NO-BACKEND:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_INVALID_PROPERTY" link="xfconf-Error-Reporting.html#XFCONF-ERROR-INVALID-PROPERTY:CAPS"/>
+    <keyword type="constant" name="XFCONF_ERROR_INVALID_CHANNEL" link="xfconf-Error-Reporting.html#XFCONF-ERROR-INVALID-CHANNEL:CAPS"/>
+    <keyword type="member" name="XfconfBackendInterface.parent" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.parent"/>
+    <keyword type="member" name="XfconfBackendInterface.initialize" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.initialize"/>
+    <keyword type="member" name="XfconfBackendInterface.set" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.set"/>
+    <keyword type="member" name="XfconfBackendInterface.get" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.get"/>
+    <keyword type="member" name="XfconfBackendInterface.get-all" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.get-all"/>
+    <keyword type="member" name="XfconfBackendInterface.exists" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.exists"/>
+    <keyword type="member" name="XfconfBackendInterface.reset" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.reset"/>
+    <keyword type="member" name="XfconfBackendInterface.list-channels" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.list-channels"/>
+    <keyword type="member" name="XfconfBackendInterface.is-property-locked" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.is-property-locked"/>
+    <keyword type="member" name="XfconfBackendInterface.flush" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.flush"/>
+    <keyword type="member" name="XfconfBackendInterface.register-property-changed-func" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.register-property-changed-func"/>
+    <keyword type="member" name="XfconfBackendInterface.-xb-reserved0" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.-xb-reserved0"/>
+    <keyword type="member" name="XfconfBackendInterface.-xb-reserved1" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.-xb-reserved1"/>
+    <keyword type="member" name="XfconfBackendInterface.-xb-reserved2" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.-xb-reserved2"/>
+    <keyword type="member" name="XfconfBackendInterface.-xb-reserved3" link="xfconf-Xfconf-Backend.html#XfconfBackendInterface.-xb-reserved3"/>
+  </functions>
+</book>

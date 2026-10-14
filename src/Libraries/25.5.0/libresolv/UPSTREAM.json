@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/libresolv",
+  "tag": "libresolv-96",
+  "commit": "e48cd914edc1cb14f8289b8e2dfdaac360481cd2",
+  "archive_sha256": "ed051fcf048620c0e97a88ae3b712bf67dffe4a1a73a7d8af6c296b4c8805e53",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/libresolv/tar.gz/refs/tags/libresolv-96",
+  "release_manifest": "https://raw.githubusercontent.com/apple-oss-distributions/distribution-macOS/macos-265/release.json"
+}

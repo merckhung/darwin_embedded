@@ -1,0 +1,360 @@
+load("//userland/native/system:defs.bzl", "native_system")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(
+        name = "gtk_" + arch,
+        srcs = ["build_gtk.py", "build_accessibility.py", "//src/Applications/widgets:gtk_sources", "//src/Applications/glib:sources",
+                "//userland/apps/x11:build_clients.py", "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, ":epoxy." + arch + ".tar"],
+        outs = ["gtk." + arch + ".tar", "gtk." + arch + ".imports", "gtk." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/build_gtk.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --epoxy $(location :epoxy." + arch + ".tar)" +
+              " --output $(location gtk." + arch + ".tar) --imports $(location gtk." + arch + ".imports)" +
+              " --report $(location gtk." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "gtk", srcs = [":gtk_arm64", ":gtk_x86_64"])
+[
+    native_system(name = "gtk_system_" + arch, arch = arch, exports = ":gtk." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "gtk_runtime_" + arch,
+        srcs = ["link_gtk.py", "build_gtk.py", "link_epoxy.py", "build_epoxy.py", "link_accessibility.py", "build_accessibility.py", "link_xml.py", "build_xml.py",
+                "//userland/apps/dbus:link_dbus.py", "//userland/apps/dbus:build_dbus.py",
+                "//userland/apps/x11:link_extensions.py", "//userland/apps/x11:build_extensions.py", "link_pixbuf.py",
+                "//userland/apps/fonts:link_pango.py", "//userland/apps/fonts:link_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_harfbuzz.py",
+                "//src/Applications/accessibility:sources", "//src/Applications/widgets:gtk_sources", "//src/Applications/widgets:epoxy_sources", "//src/Applications/xml:sources", "//src/Applications/ipc:sources",
+                "//src/Applications/desktop-x11:sources", "//src/Applications/gtk:sources", "//src/Applications/text:sources",
+                "//src/Applications/fonts:sources", "//src/Applications/x11:sources", "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":gtk." + arch + ".tar", ":gtk." + arch + ".json", ":gtk_system_" + arch + ".tar",
+                ":epoxy-runtime." + arch + ".tar", ":epoxy-runtime." + arch + ".json", "//userland/native:dyld_" + arch],
+        outs = ["gtk-runtime." + arch + ".tar", "gtk-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/link_gtk.py --root $$PWD --arch " + arch +
+              " --libraries $(location :gtk." + arch + ".tar) --build-report $(location :gtk." + arch + ".json)" +
+              " --system $(location :gtk_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --services-runtime $(location :epoxy-runtime." + arch + ".tar) --services-report $(location :epoxy-runtime." + arch + ".json)" +
+              " --output $(location gtk-runtime." + arch + ".tar) --report $(location gtk-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "gtk_runtime", srcs = [":gtk_runtime_arm64", ":gtk_runtime_x86_64"])
+sh_test(
+    name = "gtk_artifact_test", size = "small", srcs = ["check_gtk.sh"],
+    data = ["check_gtk.py", "build_gtk.py", "build_accessibility.py", ":gtk", ":gtk_runtime", ":epoxy_runtime",
+            "//src/Applications/widgets:gtk_sources", "//src/Applications/glib:sources", "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/apps/x11:build_clients.py",
+            "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py", "//scripts:native_components.py",
+            "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+            "//userland/native:sdk_arm64", "//userland/native:sdk_x86_64", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "epoxy_" + arch,
+        srcs = ["build_epoxy.py", "build_accessibility.py", "//src/Applications/widgets:epoxy_sources",
+                "//userland/apps/x11:build_clients.py", "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, ":accessibility." + arch + ".tar"],
+        outs = ["epoxy." + arch + ".tar", "epoxy." + arch + ".imports", "epoxy." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/build_epoxy.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --accessibility $(location :accessibility." + arch + ".tar)" +
+              " --output $(location epoxy." + arch + ".tar) --imports $(location epoxy." + arch + ".imports)" +
+              " --report $(location epoxy." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "epoxy", srcs = [":epoxy_arm64", ":epoxy_x86_64"])
+[
+    native_system(name = "epoxy_system_" + arch, arch = arch, exports = ":epoxy." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "epoxy_runtime_" + arch,
+        srcs = ["link_epoxy.py", "build_epoxy.py", "link_accessibility.py", "build_accessibility.py", "link_xml.py", "build_xml.py",
+                "//userland/apps/dbus:link_dbus.py", "//userland/apps/dbus:build_dbus.py",
+                "//userland/apps/x11:link_extensions.py", "//userland/apps/x11:build_extensions.py", "link_pixbuf.py",
+                "//userland/apps/fonts:link_pango.py", "//userland/apps/fonts:link_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_harfbuzz.py",
+                "//src/Applications/accessibility:sources", "//src/Applications/widgets:epoxy_sources", "//src/Applications/xml:sources", "//src/Applications/ipc:sources",
+                "//src/Applications/desktop-x11:sources", "//src/Applications/gtk:sources", "//src/Applications/text:sources",
+                "//src/Applications/fonts:sources", "//src/Applications/x11:sources", "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":epoxy." + arch + ".tar", ":epoxy." + arch + ".json", ":epoxy_system_" + arch + ".tar",
+                ":accessibility-runtime." + arch + ".tar", ":accessibility-runtime." + arch + ".json", "//userland/native:dyld_" + arch],
+        outs = ["epoxy-runtime." + arch + ".tar", "epoxy-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/link_epoxy.py --root $$PWD --arch " + arch +
+              " --libraries $(location :epoxy." + arch + ".tar)" +
+              " --system $(location :epoxy_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --services-runtime $(location :accessibility-runtime." + arch + ".tar) --services-report $(location :accessibility-runtime." + arch + ".json)" +
+              " --output $(location epoxy-runtime." + arch + ".tar) --report $(location epoxy-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "epoxy_runtime", srcs = [":epoxy_runtime_arm64", ":epoxy_runtime_x86_64"])
+sh_test(
+    name = "epoxy_artifact_test", size = "small", srcs = ["check_epoxy.sh"],
+    data = ["check_epoxy.py", ":epoxy", ":epoxy_runtime", ":accessibility_runtime", "//src/Applications/widgets:epoxy_sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//scripts:native_components.py", "//userland/native:sdk_arm64", "//userland/native:sdk_x86_64",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "accessibility_" + arch,
+        srcs = ["build_accessibility.py", "//src/Applications/accessibility:sources", "//src/Applications/glib:sources",
+                "//userland/apps/x11:build_clients.py", "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, ":xml." + arch + ".tar"],
+        outs = ["accessibility." + arch + ".tar", "accessibility." + arch + ".imports", "accessibility." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/build_accessibility.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --xml $(location :xml." + arch + ".tar)" +
+              " --output $(location accessibility." + arch + ".tar) --imports $(location accessibility." + arch + ".imports)" +
+              " --report $(location accessibility." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "accessibility", srcs = [":accessibility_arm64", ":accessibility_x86_64"])
+[
+    native_system(name = "accessibility_system_" + arch, arch = arch, exports = ":accessibility." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "accessibility_runtime_" + arch,
+        srcs = ["link_accessibility.py", "build_accessibility.py", "link_xml.py", "build_xml.py",
+                "//userland/apps/dbus:link_dbus.py", "//userland/apps/dbus:build_dbus.py",
+                "//userland/apps/x11:link_extensions.py", "//userland/apps/x11:build_extensions.py", "link_pixbuf.py",
+                "//userland/apps/fonts:link_pango.py", "//userland/apps/fonts:link_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_harfbuzz.py",
+                "//src/Applications/accessibility:sources", "//src/Applications/xml:sources", "//src/Applications/ipc:sources",
+                "//src/Applications/desktop-x11:sources", "//src/Applications/gtk:sources", "//src/Applications/text:sources",
+                "//src/Applications/fonts:sources", "//src/Applications/x11:sources", "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":accessibility." + arch + ".tar", ":accessibility." + arch + ".json", ":accessibility_system_" + arch + ".tar",
+                "//userland/apps/dbus:runtime." + arch + ".tar", "//userland/apps/dbus:runtime." + arch + ".json", "//userland/native:dyld_" + arch],
+        outs = ["accessibility-runtime." + arch + ".tar", "accessibility-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/link_accessibility.py --root $$PWD --arch " + arch +
+              " --libraries $(location :accessibility." + arch + ".tar) --build-report $(location :accessibility." + arch + ".json)" +
+              " --system $(location :accessibility_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --dbus-runtime $(location //userland/apps/dbus:runtime." + arch + ".tar) --dbus-report $(location //userland/apps/dbus:runtime." + arch + ".json)" +
+              " --output $(location accessibility-runtime." + arch + ".tar) --report $(location accessibility-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "accessibility_runtime", srcs = [":accessibility_runtime_arm64", ":accessibility_runtime_x86_64"])
+sh_test(
+    name = "accessibility_artifact_test", size = "small", srcs = ["check_accessibility.sh"],
+    data = ["check_accessibility.py", "build_accessibility.py", ":accessibility", ":accessibility_runtime",
+            "//src/Applications/accessibility:sources", "//userland/apps/dbus:runtime",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/apps/x11:build_clients.py",
+            "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py", "//scripts:native_components.py",
+            "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+            "//userland/native:sdk_arm64", "//userland/native:sdk_x86_64", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "xml_" + arch,
+        srcs = ["build_xml.py", "//src/Applications/xml:sources", "//userland/apps/x11:build_clients.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py", "//scripts:native_components.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, "//userland/apps/dbus:libraries." + arch + ".tar"],
+        outs = ["xml." + arch + ".tar", "xml." + arch + ".imports", "xml." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/build_xml.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dbus $(location //userland/apps/dbus:libraries." + arch + ".tar)" +
+              " --output $(location xml." + arch + ".tar) --imports $(location xml." + arch + ".imports)" +
+              " --report $(location xml." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "xml", srcs = [":xml_arm64", ":xml_x86_64"])
+[
+    native_system(name = "xml_system_" + arch, arch = arch, exports = ":xml." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "xml_closure", srcs = [":xml_system_arm64", ":xml_system_x86_64"])
+[
+    genrule(
+        name = "xml_runtime_" + arch,
+        srcs = ["link_xml.py", "build_xml.py", "//userland/apps/dbus:link_dbus.py", "//userland/apps/dbus:build_dbus.py",
+                "//userland/apps/x11:link_extensions.py", "//userland/apps/x11:build_extensions.py", "link_pixbuf.py",
+                "//userland/apps/fonts:link_pango.py", "//userland/apps/fonts:link_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_harfbuzz.py",
+                "//src/Applications/xml:sources", "//src/Applications/ipc:sources", "//src/Applications/desktop-x11:sources",
+                "//src/Applications/gtk:sources", "//src/Applications/text:sources", "//src/Applications/fonts:sources",
+                "//src/Applications/x11:sources", "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":xml." + arch + ".tar", ":xml_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["xml-runtime." + arch + ".tar", "xml-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/link_xml.py --root $$PWD --arch " + arch +
+              " --libraries $(location :xml." + arch + ".tar) --system $(location :xml_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location xml-runtime." + arch + ".tar)" +
+              " --report $(location xml-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "xml_runtime", srcs = [":xml_runtime_arm64", ":xml_runtime_x86_64"])
+sh_test(
+    name = "xml_artifact_test", size = "small", srcs = ["check_xml.sh"],
+    data = ["check_xml.py", "build_xml.py", ":xml", ":xml_runtime", "//src/Applications/xml:sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/apps/x11:build_clients.py",
+            "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py", "//scripts:native_components.py",
+            "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+            "//userland/native:sdk_arm64", "//userland/native:sdk_x86_64", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "pixbuf_" + arch,
+        srcs = ["build_pixbuf.py", "//src/Applications/gtk:sources", "//src/Applications/glib:sources",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, "//userland/apps/fonts:pango." + arch + ".tar"],
+        outs = ["pixbuf." + arch + ".tar", "pixbuf." + arch + ".imports", "pixbuf." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/build_pixbuf.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --pango $(location //userland/apps/fonts:pango." + arch + ".tar)" +
+              " --output $(location pixbuf." + arch + ".tar) --imports $(location pixbuf." + arch + ".imports)" +
+              " --report $(location pixbuf." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pixbuf", srcs = [":pixbuf_arm64", ":pixbuf_x86_64"])
+[
+    native_system(name = "pixbuf_system_" + arch, arch = arch, exports = ":pixbuf." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pixbuf_closure", srcs = [":pixbuf_system_arm64", ":pixbuf_system_x86_64"])
+[
+    genrule(
+        name = "pixbuf_runtime_" + arch,
+        srcs = ["link_pixbuf.py", "//userland/apps/fonts:link_pango.py", "//userland/apps/fonts:link_cairo.py",
+                "//userland/apps/fonts:build_pango.py", "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_harfbuzz.py",
+                "//src/Applications/gtk:sources", "//src/Applications/text:sources", "//src/Applications/fonts:sources",
+                "//src/Applications/x11:sources", "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":pixbuf." + arch + ".tar", ":pixbuf_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["pixbuf-runtime." + arch + ".tar", "pixbuf-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/gtk/link_pixbuf.py --root $$PWD --arch " + arch +
+              " --libraries $(location :pixbuf." + arch + ".tar) --system $(location :pixbuf_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location pixbuf-runtime." + arch + ".tar)" +
+              " --report $(location pixbuf-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pixbuf_runtime", srcs = [":pixbuf_runtime_arm64", ":pixbuf_runtime_x86_64"])
+[
+    genrule(
+        name = "pixbuf_probe_" + arch,
+        srcs = ["//userland/apps/fonts:build_font_probe.py", "test_pixbuf.c", ":pixbuf." + arch + ".tar",
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/apps/x11:link_auth.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch],
+        outs = ["pixbuf-probe." + arch + ".a", "pixbuf-probe." + arch + ".imports", "pixbuf-probe." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --pixbuf --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --libraries $(location :pixbuf." + arch + ".tar)" +
+              " --output $(location pixbuf-probe." + arch + ".a) --exports $(location pixbuf-probe." + arch + ".imports)" +
+              " --report $(location pixbuf-probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "pixbuf_test_requests_" + arch,
+            srcs = [":pixbuf." + arch + ".imports", ":pixbuf-probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+            outs = ["pixbuf-test." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "pixbuf_test_system_" + arch, arch = arch, exports = ":pixbuf-test." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "pixbuf_test_root_" + arch,
+        srcs = ["//userland/apps/fonts:build_font_probe.py", ":pixbuf-probe." + arch + ".a", ":pixbuf-runtime." + arch + ".tar", ":pixbuf_test_system_" + arch + ".tar",
+                "//src/Applications/fonts:sources", "//src/Applications/gtk:sources", "//userland/apps/init:root_" + arch, "//userland/native:sdk_" + arch,
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py", "//userland/apps/x11:link_auth.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["pixbuf-test-root." + arch + ".img", "pixbuf-test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --pixbuf --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :pixbuf-probe." + arch + ".a)" +
+              " --runtime $(location :pixbuf-runtime." + arch + ".tar) --system $(location :pixbuf_test_system_" + arch + ".tar)" +
+              " --base-root $(location //userland/apps/init:root_" + arch + ") --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location pixbuf-test-root." + arch + ".img)" +
+              " --report $(location pixbuf-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pixbuf_test_roots", srcs = [":pixbuf_test_root_arm64", ":pixbuf_test_root_x86_64"])
+[
+    sh_binary(name = "verify_pixbuf_" + arch, srcs = ["verify_pixbuf.sh"], args = [arch],
+              data = [":pixbuf_test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+sh_test(
+    name = "pixbuf_artifact_test", size = "small", srcs = ["check_pixbuf.sh"],
+    data = ["check_pixbuf.py", "build_pixbuf.py", ":pixbuf", ":pixbuf_runtime", "//src/Applications/gtk:sources",
+            "//userland/apps/fonts:build_pango.py", "//userland/apps/fonts:build_cairo.py", "//scripts:native_components.py",
+            "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:sdk_arm64", "//userland/native:sdk_x86_64",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)

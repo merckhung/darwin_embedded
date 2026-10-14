@@ -1,0 +1,4 @@
+subsystem smoke 42000;
+type smoke_port_t = MACH_MSG_TYPE_COPY_SEND;
+type value_t = MACH_MSG_TYPE_INTEGER_32;
+routine smoke(server: smoke_port_t; value: value_t);

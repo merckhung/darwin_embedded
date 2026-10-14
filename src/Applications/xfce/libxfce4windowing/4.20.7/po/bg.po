@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-19 12:45+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2025\n"
+"Language-Team: Bulgarian (https://app.transifex.com/xfce/teams/16840/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:248
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "Предоставеният прозорец няма _NET_WM_ICON или WMHints икона"
+
+#: libxfce4windowing/xfw-wnck-icon.c:621
+msgid "Failed to find or load an icon for the window"
+msgstr "Не може да бъде намерена или заредена икона за прозореца"
+
+#: libxfce4windowing/xfw-workspace-dummy.c:146
+msgid "Workspace 0"
+msgstr "Работно място 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:219
+msgid "_Move"
+msgstr "_Преместване"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:224
+msgid "_Resize"
+msgstr "Прео_размеряване"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:232
+msgid "Always on _Top"
+msgstr "Винаги _отгоре"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:237
+msgid "_Always on Visible Workspace"
+msgstr "Винаги на _видимото работно място"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:242
+msgid "_Only on This Workspace"
+msgstr "Винаги на _това работно място"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:247
+msgid "Move to Workspace _Left"
+msgstr "Преместване на работното място в_ляво"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:256
+msgid "Move to Workspace R_ight"
+msgstr "Преместване на работното място в_дясно"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:265
+msgid "Move to Workspace _Up"
+msgstr "Преместване на работното място от_горе"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:274
+msgid "Move to Workspace _Down"
+msgstr "Преместване на работното място от_долу"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:283
+msgid "Move to Another _Workspace"
+msgstr "Преместване на друго работно място"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:292
+msgid "_Close"
+msgstr "_Затваряне"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:465
+#, c-format
+msgid "Workspace _%d"
+msgstr "Работно място _%d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:466
+#, c-format
+msgid "Workspace %d"
+msgstr "Работно място %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Mi_nimize"
+msgstr "Ми_нимизиране"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:523
+msgid "Unmi_nimize"
+msgstr "Деми_нимизиране"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Ma_ximize"
+msgstr "Ма_ксимизиране"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:528
+msgid "Unma_ximize"
+msgstr "Дема_ксимизиране"

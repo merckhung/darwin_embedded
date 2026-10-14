@@ -1,0 +1,46 @@
+name: valgrind
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+    - name: Setup Ccache
+      uses: hendrikmuhs/ccache-action@f09c25b45002a07be2955cbe52e8cee55643f89d # v1.2.24
+    - name: Install Dependencies
+      run: |
+        sudo rm -f /etc/apt/sources.list.d/google-chrome.list
+        sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list
+        sudo apt-get update
+        sudo apt install -y \
+          valgrind \
+          binutils \
+          pkg-config \
+          libfreetype6-dev \
+          libglib2.0-dev \
+          libcairo2-dev \
+          libicu-dev \
+          libgraphite2-dev
+    - name: Setup Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: '3.12'
+    - name: Install Python Dependencies
+      run: pip3 install -r .ci/requirements.txt --require-hashes
+    - name: Setup Meson
+      run:  meson setup build --buildtype=debugoptimized
+    - name: Build
+      run: meson compile -Cbuild
+    - name: Test
+      run: meson test -Cbuild -t 10 --no-suite=slow --wrap='valgrind --leak-check=full --error-exitcode=1' --print-errorlogs

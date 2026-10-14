@@ -1,0 +1,24 @@
+genrule(
+    name = "adt_builder",
+    srcs = ["adt_builder.c", "//bootloader/video:metadata.h"],
+    outs = ["adt-builder"],
+    executable = True,
+    cmd = "mkdir -p $(@D)/adt-build && TMPDIR=$$PWD/$(@D)/adt-build gcc -pipe -std=c11 -O2 -Wall -Wextra -Werror -I. $(location adt_builder.c) -o $@",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "adt_current_bin",
+    outs = ["current/adt.bin", "current/adt_layout.h"],
+    tools = [":adt_builder"],
+    cmd = "$(location :adt_builder) --current && mv adt.bin $(location current/adt.bin) && mv adt_layout.h $(location current/adt_layout.h)",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "adt_current_h",
+    srcs = ["current/adt.bin", "current/adt_layout.h"],
+    outs = ["current/adt_bin.h"],
+    cmd = "cat $(location current/adt_layout.h) > $@ && echo 'unsigned char adt_bin[] = {' >> $@ && xxd -i < $(location current/adt.bin) >> $@ && echo '};' >> $@",
+    visibility = ["//visibility:public"],
+)

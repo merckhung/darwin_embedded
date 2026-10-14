@@ -1,0 +1,26 @@
+# List of source files containing translatable strings.
+
+common/xfdesktop-keyboard-shortcuts.c
+
+settings/main.c
+settings/xfce-backdrop-settings.desktop.in
+settings/xfdesktop-background-settings.c
+settings/xfdesktop-file-icon-settings.c
+settings/xfdesktop-icon-settings.c
+settings/xfdesktop-keyboard-shortcuts-settings.c
+settings/xfdesktop-settings-appearance-frame-ui.glade
+settings/xfdesktop-settings-ui.glade
+
+src/menu.c
+src/windowlist.c
+src/xfce-desktop.c
+src/xfdesktop-application.c
+src/xfdesktop-file-icon-manager.c
+src/xfdesktop-file-icon-model.c
+src/xfdesktop-file-utils.c
+src/xfdesktop-icon-view-manager.c
+src/xfdesktop-notify.c
+src/xfdesktop-regular-file-icon.c
+src/xfdesktop-special-file-icon.c
+src/xfdesktop-volume-icon.c
+src/xfdesktop-window-icon-manager.c

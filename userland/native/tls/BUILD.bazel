@@ -1,0 +1,89 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("//userland/native/system:defs.bzl", "native_system")
+
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libtls_" + arch,
+        srcs = [
+            "build_tls.py", "registration.cpp", "test_tls.c", "test_module.c", "test_zero_module.c",
+            "//userland/native/tlv:build_tlv.py",
+            "//src/Libraries/25.5.0:sources",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//userland/native:sdk_" + arch,
+        ],
+        outs = [
+            "libtls." + arch + ".a", "tls." + arch + ".json", "tls." + arch + ".cpp", "tls." + arch + ".s",
+            "test_tls." + arch + ".o", "test_module." + arch + ".o", "test_zero_module." + arch + ".o",
+        ],
+        cmd = "python3 userland/native/tls/build_tls.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libtls." + arch + ".a)" +
+              " --report $(location tls." + arch + ".json)" +
+              " --source-output $(location tls." + arch + ".cpp)" +
+              " --assembly-output $(location tls." + arch + ".s)" +
+              " --probe-output $(location test_tls." + arch + ".o)" +
+              " --module-output $(location test_module." + arch + ".o)" +
+              " --zero-module-output $(location test_zero_module." + arch + ".o)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":libtls_arm64", ":libtls_x86_64"])
+
+[
+    genrule(
+        name = "exports_" + arch,
+        srcs = ["tls.exports", "//userland/native/system:test_lifecycle." + arch + ".exports"],
+        outs = ["tls.all." + arch + ".exports"],
+        cmd = "cat $(location tls.exports) $(location //userland/native/system:test_lifecycle." + arch + ".exports) > $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    native_system(name = "tls_system_" + arch, arch = arch, exports = ":tls.all." + arch + ".exports")
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = [
+            "build_test.py", "test_main.c", ":test_tls." + arch + ".o", ":test_module." + arch + ".o", ":test_zero_module." + arch + ".o",
+            ":tls_system_" + arch + ".tar", "//userland/native:sdk_" + arch,
+            "//userland/native:dyld_" + arch, "//userland/diagnostic:root_" + arch,
+            "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+            "//scripts:sign_diagnostic_macho.py",
+            "//userland/native/system:test_lifecycle." + arch + ".o",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["tls-test-root." + arch + ".img", "tls-test-root." + arch + ".json"],
+        cmd = "python3 userland/native/tls/build_test.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --system $(location :tls_system_" + arch + ".tar)" +
+              " --probe $(location :test_tls." + arch + ".o)" +
+              " --module $(location :test_module." + arch + ".o)" +
+              " --zero-module $(location :test_zero_module." + arch + ".o)" +
+              " --lifecycle $(location //userland/native/system:test_lifecycle." + arch + ".o)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $(location tls-test-root." + arch + ".img)" +
+              " --report $(location tls-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+
+[
+    sh_binary(
+        name = "verify_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch],
+        data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]

@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Alois Nešpor <info@aloisnespor.info>, 2013
+# Martin Šiška, 2023
+# Michal Várady <miko.vaji@gmail.com>, 2016
+# Miro Hrončok <churchyard@gmail.com>, 2008
+# Pavel Borecki <pavel.borecki@gmail.com>, 2018-2019
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-30 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Martin Šiška, 2023\n"
+"Language-Team: Czech (http://app.transifex.com/xfce/garcon/language/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Příslušenství"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Běžné nástroje pracovní plochy a aplikace"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Vývoj"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Nástroje pro vývoj softwaru"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Vzdělávání"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Vzdělávací software"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Hry"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Hry, hříčky a jiný zábavný software"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Grafika"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Aplikace pro vytváření a manipulaci s grafikou"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Hardware"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Nastavení různých hardwarových zařízení"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Multimédia"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Přehrávače a editory zvuku a videa"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Internet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Aplikace pro přístup k Internetu"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Kancelář"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Kancelářské aplikace"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Ostatní"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Aplikace nespadající do ostatních kategorií"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Osobní"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Osobní nastavení"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Věda"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Vědecký software"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Spořiče obrazovky"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Aplety spořičů obrazovek"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Nastavení"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Aplikace pro nastavení pracovní plochy a systému"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Systém"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Systémové nástroje"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Soubor „%s“ nenalezen"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Nedaří se načíst data souboru nabídky z %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Nedaří se načíst data souboru nabídky z %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Nepodařilo se spustit příkaz „%s“."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Chyba při spuštění"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Nedaří se spustit „exo-desktop-item-edit“. Tato aplikace je potřebná pro vytváření a úpravu položek nabídky."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Zavřit"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Načtení nabídky aplikací se nezdařilo"

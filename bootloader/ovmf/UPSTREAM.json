@@ -1,0 +1,23 @@
+{
+  "project": "OVMF / EDK II",
+  "source_package": "edk2",
+  "package_version": "2025.02-8ubuntu3.2",
+  "package_url": "https://archive.ubuntu.com/ubuntu/pool/main/e/edk2/ovmf_2025.02-8ubuntu3.2_all.deb",
+  "package_sha256": "1048b1c49254ea710224ecf22953c59df8c0c3e8ea26943d8e20f933ea24ccd6",
+  "license_notice": "COPYRIGHT",
+  "purpose": "UEFI firmware for the x86_64 QEMU machine; code and fresh variable templates are extracted by Bazel.",
+  "files": {
+    "code": {
+      "member": "usr/share/OVMF/OVMF_CODE_4M.fd",
+      "sha256": "e322462c034d0ec6443dca2b2fe36c17d00a24de0b72cd76456a62fde8ab36a5"
+    },
+    "variables": {
+      "member": "usr/share/OVMF/OVMF_VARS_4M.fd",
+      "sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e"
+    },
+    "copyright": {
+      "member": "usr/share/doc/ovmf/copyright",
+      "sha256": "b42a3b2c60b162118ac20ed40f732e9e427a8110e0ff56a81aef9a010a1b303b"
+    }
+  }
+}

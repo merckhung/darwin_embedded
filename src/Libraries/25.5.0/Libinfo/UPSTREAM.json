@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/Libinfo",
+  "tag": "Libinfo-600",
+  "commit": "39b70c515baee5b609e7e91693edbd934b6845a1",
+  "archive_sha256": "ea37be1f7876e8ca20761ab03f484f1cb0fa1ac15c437bb5615167c88529563b",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/Libinfo/tar.gz/refs/tags/Libinfo-600",
+  "release_manifest": "https://raw.githubusercontent.com/apple-oss-distributions/distribution-macOS/macos-265/release.json"
+}

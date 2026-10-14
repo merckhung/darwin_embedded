@@ -1,0 +1,526 @@
+/*
+ * Copyright © 2026  Behdad Esfahbod
+ *
+ *  This is part of HarfBuzz, a text shaping library.
+ *
+ * Permission is hereby granted, without written agreement and without
+ * license or royalty fees, to use, copy, modify, and distribute this
+ * software and its documentation for any purpose, provided that the
+ * above copyright notice and the following two paragraphs appear in
+ * all copies of this software.
+ *
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR
+ * DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ * ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN
+ * IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+ * DAMAGE.
+ *
+ * THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+ * BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ * FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ * ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
+ * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+ *
+ * Author(s): Behdad Esfahbod
+ */
+
+#include "hb-test.h"
+#include "hb-raster.h"
+#include <hb-ot.h>
+
+
+/* ── Helpers ─────────────────────────────────────────────────────── */
+
+/* Draw a closed rectangle by emitting raw draw callbacks. */
+static void
+draw_rect (hb_raster_draw_t *rdr,
+	   float x0, float y0, float x1, float y1)
+{
+  hb_draw_funcs_t *df = hb_raster_draw_get_funcs (rdr);
+  hb_draw_state_t  st = HB_DRAW_STATE_DEFAULT;
+
+  hb_draw_move_to   (df, rdr, &st, x0, y0);
+  hb_draw_line_to   (df, rdr, &st, x1, y0);
+  hb_draw_line_to   (df, rdr, &st, x1, y1);
+  hb_draw_line_to   (df, rdr, &st, x0, y1);
+  hb_draw_close_path (df, rdr, &st);  /* emits closing line_to(x0,y0) */
+}
+
+/* Read one A8 pixel value; returns 0 for out-of-bounds coordinates. */
+static uint8_t
+pixel_at (hb_raster_image_t *img, int x, int y)
+{
+  hb_raster_extents_t ext;
+  hb_raster_image_get_extents (img, &ext);
+
+  int col = x - ext.x_origin;
+  int row = y - ext.y_origin;
+
+  if (col < 0 || row < 0 ||
+      (unsigned) col >= ext.width || (unsigned) row >= ext.height)
+    return 0;
+
+  return hb_raster_image_get_buffer (img)[row * ext.stride + col];
+}
+
+
+/* ── Test 1: rectangle geometry ──────────────────────────────────── */
+
+static void
+test_rectangle (void)
+{
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+
+  draw_rect (rdr, 2.f, 2.f, 30.f, 30.f);
+
+  hb_raster_image_t *img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+
+  hb_raster_extents_t ext;
+  hb_raster_image_get_extents (img, &ext);
+  g_assert_cmpint (ext.x_origin, ==, 2);
+  g_assert_cmpint (ext.y_origin, ==, 2);
+  g_assert_cmpuint (ext.width, ==, 28);
+  g_assert_cmpuint (ext.height, ==, 28);
+
+  /* Center: fully inside → full coverage */
+  g_assert_cmpint (pixel_at (img, 16, 16), ==, 255);
+
+  /* Well outside the box → zero */
+  g_assert_cmpint (pixel_at (img, 0, 0), ==, 0);   /* out of image */
+  g_assert_cmpint (pixel_at (img, 31, 31), ==, 0);  /* out of image */
+
+  /* Left-most and right-most pixel columns: still fully inside
+     because integer-coordinate box edges align with pixel boundaries */
+  g_assert_cmpint (pixel_at (img, 2, 16), ==, 255);
+  g_assert_cmpint (pixel_at (img, 29, 16), ==, 255);
+
+  /* One pixel beyond the box right edge: out of image */
+  g_assert_cmpint (pixel_at (img, 30, 16), ==, 0);
+
+  hb_raster_image_destroy (img);
+
+  /* render() with no accumulated edges → empty (0×0) image */
+  img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+  hb_raster_image_get_extents (img, &ext);
+  g_assert_cmpuint (ext.width, ==, 0);
+  g_assert_cmpuint (ext.height, ==, 0);
+  hb_raster_image_destroy (img);
+
+  hb_raster_draw_destroy (rdr);
+}
+
+
+/* ── Test 2: multi-glyph accumulation ────────────────────────────── */
+
+static void
+test_accumulate (void)
+{
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+
+  /* Two non-overlapping boxes accumulated before a single render() */
+  draw_rect (rdr, 0.f, 0.f, 10.f, 10.f);
+  draw_rect (rdr, 20.f, 0.f, 30.f, 10.f);
+
+  hb_raster_image_t *img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+
+  /* Both interiors fully covered */
+  g_assert_cmpint (pixel_at (img, 5,  5), ==, 255);
+  g_assert_cmpint (pixel_at (img, 25, 5), ==, 255);
+
+  /* Gap between the two boxes is empty */
+  g_assert_cmpint (pixel_at (img, 15, 5), ==, 0);
+
+  hb_raster_image_destroy (img);
+  hb_raster_draw_destroy (rdr);
+}
+
+
+/* ── Test 3: sub-pixel edge coverage ─────────────────────────────── */
+
+static void
+test_subpixel_edge (void)
+{
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+
+  /* Box with a half-pixel offset so the leftmost pixel column is split */
+  draw_rect (rdr, 2.5f, 2.f, 30.f, 30.f);
+
+  hb_raster_image_t *img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+
+  /* The pixel at x=2 straddles the left edge → partial coverage */
+  int v = pixel_at (img, 2, 16);
+  g_assert_cmpint (v, >, 0);
+  g_assert_cmpint (v, <, 255);
+
+  /* The pixel at x=3 is fully inside */
+  g_assert_cmpint (pixel_at (img, 3, 16), ==, 255);
+
+  hb_raster_image_destroy (img);
+  hb_raster_draw_destroy (rdr);
+}
+
+
+/* ── Test 4: wide scanline accumulators ─────────────────────────── */
+
+static void
+test_many_coincident_edges (void)
+{
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+
+  /* A vertical edge at x=255/256 contributes 510*256 to one area cell.
+   * 16,449 such edges exceed INT32_MAX. */
+  for (unsigned i = 0; i < 16449; i++)
+    draw_rect (rdr, 0.f, 0.f, 255.f / 256.f, 1.f);
+
+  hb_raster_image_t *img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+  g_assert_cmpint (pixel_at (img, 0, 0), ==, 255);
+  hb_raster_image_destroy (img);
+
+  /* 256 coincident unit boxes overflow the narrow cover accumulator. */
+  for (unsigned i = 0; i < 256; i++)
+    draw_rect (rdr, 0.f, 0.f, 1.f, 1.f);
+
+  img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+  g_assert_cmpint (pixel_at (img, 0, 0), ==, 255);
+
+  hb_raster_image_destroy (img);
+  hb_raster_draw_destroy (rdr);
+}
+
+/* ── Test 5: transform ───────────────────────────────────────────── */
+
+static void
+test_transform (void)
+{
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+
+  /* Scale by 2 — same unit-square box maps to (0,0)→(20,20) */
+  hb_raster_draw_set_transform (rdr, 2.f, 0.f, 0.f, 2.f, 0.f, 0.f);
+  draw_rect (rdr, 0.f, 0.f, 10.f, 10.f);
+
+  hb_raster_image_t *img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+
+  hb_raster_extents_t ext;
+  hb_raster_image_get_extents (img, &ext);
+  g_assert_cmpuint (ext.width, ==, 20);
+  g_assert_cmpuint (ext.height, ==, 20);
+  g_assert_cmpint (pixel_at (img, 10, 10), ==, 255); /* center of scaled box */
+
+  hb_raster_image_destroy (img);
+  hb_raster_draw_destroy (rdr);
+}
+
+/* ── Test 6: transformed glyph extents helper ───────────────────── */
+
+static void
+test_set_glyph_extents_with_transform (void)
+{
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+
+  hb_raster_draw_set_transform (rdr, 2.f, 0.f, 0.f, 3.f, 5.f, 7.f);
+
+  hb_glyph_extents_t gext = {
+    1,   /* x_bearing */
+    4,   /* y_bearing */
+    10,  /* width */
+    -6   /* height */
+  };
+
+  g_assert_true (hb_raster_draw_set_glyph_extents (rdr, &gext));
+
+  draw_rect (rdr, (float) gext.x_bearing,
+	     (float) gext.y_bearing + gext.height,
+	     (float) gext.x_bearing + gext.width,
+	     (float) gext.y_bearing);
+
+  hb_raster_image_t *img = hb_raster_draw_render (rdr);
+  g_assert_nonnull (img);
+
+  hb_raster_extents_t ext;
+  hb_raster_image_get_extents (img, &ext);
+  g_assert_cmpint (ext.x_origin, ==, 7);   /* 2*1 + 5 */
+  g_assert_cmpint (ext.y_origin, ==, 1);   /* 3*(-2) + 7 */
+  g_assert_cmpuint (ext.width, ==, 20);    /* 2*10 */
+  g_assert_cmpuint (ext.height, ==, 18);   /* 3*6 */
+
+  hb_raster_image_destroy (img);
+  hb_raster_draw_destroy (rdr);
+}
+
+/* ── Test 7: image paint under an overflowing transform ──────────── */
+
+/* Nested scales, each representable, whose product overflows to infinity.
+ * The inverse transform then carries NaN into the image sampler's texel
+ * coordinates.  Exercised for the float-to-int conversion, so this needs a
+ * sanitizer build to catch a regression. */
+static void
+test_image_nonfinite_transform (void)
+{
+  hb_raster_paint_t *paint = hb_raster_paint_create_or_fail ();
+  g_assert_nonnull (paint);
+
+  hb_raster_extents_t ext = {0, 0, 32, 32, 0};
+  hb_raster_paint_set_extents (paint, &ext);
+
+  hb_paint_funcs_t *funcs = hb_raster_paint_get_funcs (paint);
+
+  hb_paint_push_transform (funcs, paint, 1e30f, 0.f, 0.f, 1e30f, 0.f, 0.f);
+  hb_paint_push_transform (funcs, paint, 1e30f, 0.f, 0.f, 1e30f, 0.f, 0.f);
+
+  const unsigned w = 4, h = 4;
+  char pixels[w * h * 4];
+  memset (pixels, 0, sizeof (pixels));
+  hb_blob_t *blob = hb_blob_create (pixels, sizeof (pixels),
+				    HB_MEMORY_MODE_READONLY, nullptr, nullptr);
+
+  hb_glyph_extents_t gext = {0, 32, 32, -32};
+  hb_paint_image (funcs, paint, blob, w, h,
+		  HB_PAINT_IMAGE_FORMAT_BGRA, 0.f, &gext);
+
+  hb_paint_pop_transform (funcs, paint);
+  hb_paint_pop_transform (funcs, paint);
+
+  hb_blob_destroy (blob);
+  hb_raster_paint_destroy (paint);
+}
+
+/* ── Test 8: glyph extents that overflow the int grid ────────────── */
+
+/* Glyph extents are int32, so a transform that scales them up puts the
+ * corner coordinates far outside the int range before they are floored
+ * back to the integer pixel grid.  Exercised for the conversion itself,
+ * so this needs a sanitizer build to catch a regression. */
+static void
+test_set_glyph_extents_overflow (void)
+{
+  hb_glyph_extents_t gext = {-2000000000, 2000000000, 2000000000, -2000000000};
+
+  hb_raster_draw_t *rdr = hb_raster_draw_create_or_fail ();
+  g_assert_nonnull (rdr);
+  hb_raster_draw_set_transform (rdr, 1000.f, 0.f, 0.f, 1000.f, 0.f, 0.f);
+  hb_raster_draw_set_glyph_extents (rdr, &gext);
+  hb_raster_draw_destroy (rdr);
+
+  hb_raster_paint_t *paint = hb_raster_paint_create_or_fail ();
+  g_assert_nonnull (paint);
+  hb_raster_paint_set_transform (paint, 1000.f, 0.f, 0.f, 1000.f, 0.f, 0.f);
+  hb_raster_paint_set_glyph_extents (paint, &gext);
+  hb_raster_paint_destroy (paint);
+}
+
+/* ── Test 9: shared work-budget lifecycle ───────────────────────── */
+
+static void
+test_budget (void)
+{
+  hb_face_t *face = hb_test_open_font_file ("fonts/glyphs.ttf");
+  hb_font_t *font = hb_font_create (face);
+
+  hb_raster_draw_t *draw = hb_raster_draw_create_or_fail ();
+  hb_draw_funcs_t *draw_funcs = hb_raster_draw_get_funcs (draw);
+  g_assert_cmpint (hb_draw_get_budget (draw_funcs, draw), ==, HB_BUDGET_DEFAULT);
+  g_assert_cmpint (hb_draw_get_budget_remaining (draw_funcs, draw), >, 0);
+  g_assert_cmpint (hb_draw_get_budget_remaining (draw_funcs, draw), <, HB_BUDGET_UNLIMITED);
+
+  g_assert_true (hb_draw_set_budget (draw_funcs, draw, 1));
+  hb_raster_draw_glyph (draw, font, 0);
+  g_assert_cmpint (hb_draw_get_budget_remaining (draw_funcs, draw), <, 0);
+  hb_raster_draw_clear (draw);
+  g_assert_cmpint (hb_draw_get_budget (draw_funcs, draw), ==, 1);
+  g_assert_cmpint (hb_draw_get_budget_remaining (draw_funcs, draw), ==, 1);
+  hb_raster_draw_reset (draw);
+  g_assert_cmpint (hb_draw_get_budget (draw_funcs, draw), ==, HB_BUDGET_DEFAULT);
+  g_assert_cmpint (hb_draw_get_budget_remaining (draw_funcs, draw), >, 0);
+
+  hb_raster_paint_t *paint = hb_raster_paint_create_or_fail ();
+  hb_paint_funcs_t *paint_funcs = hb_raster_paint_get_funcs (paint);
+  g_assert_cmpint (hb_paint_get_budget (paint_funcs, paint), ==, HB_BUDGET_DEFAULT);
+  g_assert_cmpint (hb_paint_get_budget_remaining (paint_funcs, paint), >, 0);
+  g_assert_cmpint (hb_paint_get_budget_remaining (paint_funcs, paint), <, HB_BUDGET_UNLIMITED);
+
+  hb_raster_extents_t extents = {0, 0, 1, 1, 0};
+  hb_raster_paint_set_extents (paint, &extents);
+  g_assert_true (hb_paint_set_budget (paint_funcs, paint, 2));
+  hb_raster_paint_glyph (paint, font, 0);
+  g_assert_cmpint (hb_paint_get_budget_remaining (paint_funcs, paint), <, 0);
+  hb_raster_paint_clear (paint);
+  g_assert_cmpint (hb_paint_get_budget (paint_funcs, paint), ==, 2);
+  g_assert_cmpint (hb_paint_get_budget_remaining (paint_funcs, paint), ==, 2);
+  hb_raster_paint_reset (paint);
+  g_assert_cmpint (hb_paint_get_budget (paint_funcs, paint), ==, HB_BUDGET_DEFAULT);
+  g_assert_cmpint (hb_paint_get_budget_remaining (paint_funcs, paint), >, 0);
+
+  g_assert_true (hb_draw_set_budget (draw_funcs, draw, HB_BUDGET_UNLIMITED));
+  g_assert_cmpint (hb_draw_get_budget_remaining (draw_funcs, draw), ==, HB_BUDGET_UNLIMITED);
+  g_assert_true (hb_paint_set_budget (paint_funcs, paint, HB_BUDGET_UNLIMITED));
+  g_assert_cmpint (hb_paint_get_budget_remaining (paint_funcs, paint), ==, HB_BUDGET_UNLIMITED);
+
+  hb_raster_paint_destroy (paint);
+  hb_raster_draw_destroy (draw);
+  hb_font_destroy (font);
+  hb_face_destroy (face);
+}
+
+/* ── Test 10: outline budget bounds a real COLR walk, apart from pixels ─ */
+
+/* The paint session's outline and pixel budgets are separate.  A 1x1
+ * surface makes the pixel budget effectively unbounded, so only the
+ * outline budget can bound a multi-layer COLR glyph here -- which
+ * requires the outline work of every layer to aggregate into one counter
+ * through the public seed/readback transfer.  A broken transfer (no
+ * readback, or a re-armed counter) would leave the budget positive. */
+static void
+test_budget_colr_outline (void)
+{
+  hb_face_t *face = hb_test_open_font_file ("fonts/COLRv0.extents.ttf");
+  hb_font_t *font = hb_font_create (face);
+  const hb_codepoint_t colr_glyph = 13;  /* 5 COLR layers */
+  hb_raster_extents_t extents = {0, 0, 1, 1, 0};
+
+  /* Large outline budget: the walk completes, and real outline work is
+   * charged back (the counter drops below the configured cap). */
+  hb_raster_paint_t *paint = hb_raster_paint_create_or_fail ();
+  hb_paint_funcs_t *funcs = hb_raster_paint_get_funcs (paint);
+  hb_raster_paint_set_extents (paint, &extents);
+  g_assert_true (hb_paint_set_budget (funcs, paint, 1 << 20));
+  hb_raster_paint_glyph (paint, font, colr_glyph);
+  int64_t remaining = hb_paint_get_budget_remaining (funcs, paint);
+  g_assert_cmpint (remaining, <, 1 << 20);   /* outline work aggregated back */
+  g_assert_cmpint (remaining, >=, 0);        /* not depleted at this budget */
+  hb_raster_paint_destroy (paint);
+
+  /* Tiny outline budget: the aggregate walk is bounded by it, not by the
+   * (unbounded) pixel budget of the 1x1 surface. */
+  paint = hb_raster_paint_create_or_fail ();
+  funcs = hb_raster_paint_get_funcs (paint);
+  hb_raster_paint_set_extents (paint, &extents);
+  g_assert_true (hb_paint_set_budget (funcs, paint, 1));
+  hb_raster_paint_glyph (paint, font, colr_glyph);
+  g_assert_cmpint (hb_paint_get_budget_remaining (funcs, paint), <, 0);
+  hb_raster_paint_destroy (paint);
+
+  hb_font_destroy (font);
+  hb_face_destroy (face);
+}
+
+/* ── Test 11: background color is premultiplied before filling ─────── */
+
+/* hb_raster_paint_set_background() must store the premultiplied BGRA32
+ * pixel in the buffer, matching the format every other paint op in this
+ * file assumes (see hb-raster.hh's SRC_OVER: "premultiplied src over
+ * premultiplied dst"), not the raw unpremultiplied channel bytes. */
+static void
+test_background_premultiplied (void)
+{
+  hb_raster_paint_t *paint = hb_raster_paint_create_or_fail ();
+
+  const unsigned width = 2, height = 2;
+  hb_raster_extents_t ext = {0, 0, width, height, 0};
+  hb_raster_paint_set_extents (paint, &ext);
+
+  /* Half-alpha opaque red: blue=0, green=0, red=255, alpha=128.
+   * Premultiplied: r = div255(255*128) = 128, a stays 128. */
+  hb_raster_paint_set_background (paint, HB_COLOR (0, 0, 255, 128));
+
+  hb_paint_funcs_t *funcs = hb_raster_paint_get_funcs (paint);
+  hb_paint_push_clip_rectangle (funcs, paint, 0.f, 0.f, (float) width, (float) height);
+  hb_paint_pop_clip (funcs, paint);
+
+  hb_raster_image_t *img = hb_raster_paint_render (paint);
+  g_assert_nonnull (img);
+
+  hb_raster_extents_t out_ext;
+  hb_raster_image_get_extents (img, &out_ext);
+  const uint8_t *buf = hb_raster_image_get_buffer (img);
+
+  for (unsigned y = 0; y < out_ext.height; y++)
+  {
+    const uint32_t *row = (const uint32_t *) (buf + (size_t) y * out_ext.stride);
+    for (unsigned x = 0; x < out_ext.width; x++)
+      /* 0x80800000: alpha=0x80, premultiplied red=0x80, in BGRA memory
+       * order. The old HB_COLOR()-based reconstruction produces
+       * 0x0000ff80 instead (wrong byte layout, not premultiplied). */
+      g_assert_cmphex (row[x], ==, 0x80800000);
+  }
+
+  hb_raster_image_destroy (img);
+  hb_raster_paint_destroy (paint);
+}
+
+/* ── Test 12: background pre-fill honors a stride wider than width*4 ── */
+
+/* hb_raster_paint_set_background() must pre-fill every pixel of the
+ * output image with the premultiplied BGRA32 background color, honoring
+ * a caller-supplied stride wider than width * 4 bytes. */
+static void
+test_background_stride (void)
+{
+  hb_raster_paint_t *paint = hb_raster_paint_create_or_fail ();
+
+  const unsigned width = 2, height = 4;
+  const unsigned stride = 9; /* wider than width * 4, but not word-aligned */
+  hb_raster_extents_t ext = {0, 0, width, height, stride};
+  hb_raster_paint_set_extents (paint, &ext);
+
+  /* Opaque red: blue=0, green=0, red=255, alpha=255. */
+  hb_raster_paint_set_background (paint, HB_COLOR (0, 0, 255, 255));
+
+  /* Trigger initialization without painting any pixels directly, so the
+   * only thing that can have colored a pixel is the background fill. */
+  hb_paint_funcs_t *funcs = hb_raster_paint_get_funcs (paint);
+  hb_paint_push_clip_rectangle (funcs, paint, 0.f, 0.f, (float) width, (float) height);
+  hb_paint_pop_clip (funcs, paint);
+
+  hb_raster_image_t *img = hb_raster_paint_render (paint);
+  g_assert_nonnull (img);
+
+  hb_raster_extents_t out_ext;
+  hb_raster_image_get_extents (img, &out_ext);
+  const uint8_t *buf = hb_raster_image_get_buffer (img);
+
+  for (unsigned y = 0; y < out_ext.height; y++)
+  {
+    const uint8_t *row = buf + (size_t) y * out_ext.stride;
+    for (unsigned x = 0; x < out_ext.width; x++)
+    {
+      const uint8_t *pixel = row + x * 4;
+      g_assert_cmphex (pixel[0], ==, 0x00); /* blue */
+      g_assert_cmphex (pixel[1], ==, 0x00); /* green */
+      g_assert_cmphex (pixel[2], ==, 0xff); /* red */
+      g_assert_cmphex (pixel[3], ==, 0xff); /* alpha */
+    }
+  }
+
+  hb_raster_image_destroy (img);
+  hb_raster_paint_destroy (paint);
+}
+
+/* ── main ────────────────────────────────────────────────────────── */
+
+int
+main (int argc, char **argv)
+{
+  hb_test_init (&argc, &argv);
+
+  hb_test_add (test_rectangle);
+  hb_test_add (test_accumulate);
+  hb_test_add (test_subpixel_edge);
+  hb_test_add (test_many_coincident_edges);
+  hb_test_add (test_transform);
+  hb_test_add (test_set_glyph_extents_with_transform);
+  hb_test_add (test_image_nonfinite_transform);
+  hb_test_add (test_set_glyph_extents_overflow);
+  hb_test_add (test_budget);
+  hb_test_add (test_budget_colr_outline);
+  hb_test_add (test_background_premultiplied);
+  hb_test_add (test_background_stride);
+
+  return hb_test_run ();
+}

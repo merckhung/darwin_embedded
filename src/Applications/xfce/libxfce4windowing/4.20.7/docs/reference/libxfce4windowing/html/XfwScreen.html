@@ -1,0 +1,1061 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XfwScreen: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4windowing-Utilities.html" title="Utilities">
+<link rel="next" href="XfwSeat.html" title="XfwSeat">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfwScreen.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfwScreen.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#XfwScreen.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#XfwScreen.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4windowing-Utilities.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfwSeat.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfwScreen"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfwScreen.top_of_page"></a>XfwScreen</span></h2>
+<p>XfwScreen — An object representing a logical screen</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfwScreen.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfwScreen.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="returnvalue">XfwScreen</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-default" title="xfw_screen_get_default ()">xfw_screen_get_default</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-seats" title="xfw_screen_get_seats ()">xfw_screen_get_seats</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="returnvalue">XfwWorkspaceManager</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-workspace-manager" title="xfw_screen_get_workspace_manager ()">xfw_screen_get_workspace_manager</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-windows" title="xfw_screen_get_windows ()">xfw_screen_get_windows</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-windows-stacked" title="xfw_screen_get_windows_stacked ()">xfw_screen_get_windows_stacked</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="returnvalue">XfwWindow</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-active-window" title="xfw_screen_get_active_window ()">xfw_screen_get_active_window</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-monitors" title="xfw_screen_get_monitors ()">xfw_screen_get_monitors</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="returnvalue">XfwMonitor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-primary-monitor" title="xfw_screen_get_primary_monitor ()">xfw_screen_get_primary_monitor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="returnvalue">XfwMonitor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-monitor-from-gdk-monitor" title="xfw_screen_get_monitor_from_gdk_monitor ()">xfw_screen_get_monitor_from_gdk_monitor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-get-show-desktop" title="xfw_screen_get_show_desktop ()">xfw_screen_get_show_desktop</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwScreen.html#xfw-screen-set-show-desktop" title="xfw_screen_set_show_desktop ()">xfw_screen_set_show_desktop</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwScreen.html#XfwScreen--active-window" title="The “active-window” property">active-window</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GdkScreen</span> *</td>
+<td class="property_name"><a class="link" href="XfwScreen.html#XfwScreen--gdk-screen" title="The “gdk-screen” property">gdk-screen</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwScreen.html#XfwScreen--show-desktop" title="The “show-desktop” property">show-desktop</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="type">XfwWorkspaceManager</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwScreen.html#XfwScreen--workspace-manager" title="The “workspace-manager” property">workspace-manager</a></td>
+<td class="property_flags">Read</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-active-window-changed" title="The “active-window-changed” signal">active-window-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-monitor-added" title="The “monitor-added” signal">monitor-added</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-monitor-removed" title="The “monitor-removed” signal">monitor-removed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-monitors-changed" title="The “monitors-changed” signal">monitors-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-seat-added" title="The “seat-added” signal">seat-added</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-seat-removed" title="The “seat-removed” signal">seat-removed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-window-closed" title="The “window-closed” signal">window-closed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-window-manager-changed" title="The “window-manager-changed” signal">window-manager-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-window-opened" title="The “window-opened” signal">window-opened</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwScreen.html#XfwScreen-window-stacking-changed" title="The “window-stacking-changed” signal">window-stacking-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwScreen.html#XfwScreen-struct" title="XfwScreen">XfwScreen</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> XfwScreen
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowing/libxfce4windowing.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.description"></a><h2>Description</h2>
+<p><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> represents a logical screen.  On most windowing environments,
+this doesn't necessarily correspond to a single monitor, but might span
+multiple monitors.  These days, most windowing environments will only
+have a single screen, even if (API-wise) more than one can be represented.</p>
+<p>The <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> instance is the main entry point into this library.  You
+can obtain an instance using <a class="link" href="XfwScreen.html#xfw-screen-get-default" title="xfw_screen_get_default ()"><code class="function">xfw_screen_get_default()</code></a>.  From there, you can
+enumerate toplevel windows, or examine workspace groups and workspaces.</p>
+<p>Note that <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> is actually an interface; when obtaining an instance,
+an instance of a windowing-environment-specific object that implements
+this interface will be returned.</p>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-screen-get-default"></a><h3>xfw_screen_get_default ()</h3>
+<pre class="programlisting"><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="returnvalue">XfwScreen</span></a> *
+xfw_screen_get_default (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Retrieves the <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> instance corresponding to the default <span class="type">GdkScreen</span>.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-default.returns"></a><h4>Returns</h4>
+<p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> instance, with
+a reference owned by the caller. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-seats"></a><h3>xfw_screen_get_seats ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_screen_get_seats (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Returns the list of all <a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a> instances available on <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-seats.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-seats.returns"></a><h4>Returns</h4>
+<p>a list of
+<a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a>.  The list and its contents are owned by <em class="parameter"><code>screen</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwSeat][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-workspace-manager"></a><h3>xfw_screen_get_workspace_manager ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="returnvalue">XfwWorkspaceManager</span></a> *
+xfw_screen_get_workspace_manager (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Retrieves this screen's <a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="type">XfwWorkspaceManager</span></a> instance, which can be used
+to inspect and interact with <em class="parameter"><code>screen</code></em>
+'s workspace groups and workspaces.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-workspace-manager.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-workspace-manager.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="type">XfwWorkspaceManager</span></a>
+instance.  This instance is a singleton and is owned by <em class="parameter"><code>screen</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-windows"></a><h3>xfw_screen_get_windows ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_screen_get_windows (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Retrieves the list of windows currently displayed on <em class="parameter"><code>screen</code></em>
+.</p>
+<p>The list and its contents are owned by <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-windows.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-windows.returns"></a><h4>Returns</h4>
+<p>the list
+of <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> on <em class="parameter"><code>screen</code></em>
+, or <code class="literal">NULL</code> if there are no windows.  The list
+and its contents are owned by <em class="parameter"><code>screen</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwWindow][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-windows-stacked"></a><h3>xfw_screen_get_windows_stacked ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_screen_get_windows_stacked (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Retrieves the list of windows currently displayed on <em class="parameter"><code>screen</code></em>
+, in stacking
+order, with the bottom-most window first in the returned list.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-windows-stacked.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-windows-stacked.returns"></a><h4>Returns</h4>
+<p>the list
+of <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> on <em class="parameter"><code>screen</code></em>
+, in stacking order, or <code class="literal">NULL</code> if there are no
+windows.  The list and its contents are owned by <em class="parameter"><code>screen</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwWindow][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-active-window"></a><h3>xfw_screen_get_active_window ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="returnvalue">XfwWindow</span></a> *
+xfw_screen_get_active_window (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Retrieves the window on <em class="parameter"><code>screen</code></em>
+ that is currently active.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-active-window.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-active-window.returns"></a><h4>Returns</h4>
+<p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>, or <code class="literal">NULL</code> if no
+window is active on <em class="parameter"><code>screen</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-monitors"></a><h3>xfw_screen_get_monitors ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_screen_get_monitors (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Retrieves the list of monitors currently attached and enabled on <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-monitors.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-monitors.returns"></a><h4>Returns</h4>
+<p>the list
+of <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> on <em class="parameter"><code>screen</code></em>
+, or <code class="literal">NULL</code> if there are no connected/enabled
+monitors.  The list and its contents are owned by <em class="parameter"><code>screen</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwMonitor][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-primary-monitor"></a><h3>xfw_screen_get_primary_monitor ()</h3>
+<pre class="programlisting"><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="returnvalue">XfwMonitor</span></a> *
+xfw_screen_get_primary_monitor (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Returns the monitor designated as "primary".</p>
+<p>This function will do its best to return something other than <code class="literal">NULL</code>.  If the
+windowing system has no concept of a primary monitor, or if the primary
+monitor is unset, a likely candidate will be chosen from the list of
+available monitors.</p>
+<p>However, if no monitors are connected, <code class="literal">NULL</code> can still be returned.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-primary-monitor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-primary-monitor.returns"></a><h4>Returns</h4>
+<p><em class="parameter"><code>screen</code></em>
+'s primary <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>, or
+<code class="literal">NULL</code>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-monitor-from-gdk-monitor"></a><h3>xfw_screen_get_monitor_from_gdk_monitor ()</h3>
+<pre class="programlisting"><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="returnvalue">XfwMonitor</span></a> *
+xfw_screen_get_monitor_from_gdk_monitor
+                               (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>,
+                                <em class="parameter"><code><span class="type">GdkMonitor</span> *monitor</code></em>);</pre>
+<p>Attempts to find the <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> corresponding to <em class="parameter"><code>monitor</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-screen-get-monitor-from-gdk-monitor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkMonitor</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-monitor-from-gdk-monitor.returns"></a><h4>Returns</h4>
+<p>An <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>, or <code class="literal">NULL</code> if the
+corresponding <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> could not be determined. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-20-6.html#api-index-4.20.6">4.20.6</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-get-show-desktop"></a><h3>xfw_screen_get_show_desktop ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_screen_get_show_desktop (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<div class="refsect3">
+<a name="xfw-screen-get-show-desktop.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-screen-get-show-desktop.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the desktop is shown, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-screen-set-show-desktop"></a><h3>xfw_screen_set_show_desktop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_screen_set_show_desktop (<em class="parameter"><code><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen</code></em>,
+                             <em class="parameter"><code><span class="type">gboolean</span> show</code></em>);</pre>
+<p>Showing the desktop minimizes the windows not minimized at the time of the query.
+The reverse process unminimizes those same windows, if they have not already been
+unminimized or destroyed. The desktop show state can be tracked via
+<a class="link" href="XfwScreen.html#XfwScreen--show-desktop" title="The “show-desktop” property"><span class="type">“show-desktop”</span></a>.</p>
+<p>The state of the previously active window is always restored upon unminimization,
+but there is no guarantee for the rest of the window stacking order on Wayland.</p>
+<p>A request to switch to the current state is silently ignored.</p>
+<div class="refsect3">
+<a name="xfw-screen-set-show-desktop.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>show</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> to show the desktop, <code class="literal">FALSE</code> to restore the previous state.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfwScreen-struct"></a><h3>XfwScreen</h3>
+<pre class="programlisting">typedef struct _XfwScreen XfwScreen;</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfwScreen--active-window"></a><h3>The <code class="literal">“active-window”</code> property</h3>
+<pre class="programlisting">  “active-window”            <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *</pre>
+<p>The currently-active window.</p>
+<p>Owner: XfwScreen</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen--gdk-screen"></a><h3>The <code class="literal">“gdk-screen”</code> property</h3>
+<pre class="programlisting">  “gdk-screen”               <span class="type">GdkScreen</span> *</pre>
+<p>The <span class="type">GdkScreen</span> instance used to construct this <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p>
+<p>Owner: XfwScreen</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen--show-desktop"></a><h3>The <code class="literal">“show-desktop”</code> property</h3>
+<pre class="programlisting">  “show-desktop”             <span class="type">gboolean</span></pre>
+<p>Whether or not to show the desktop.</p>
+<p>Owner: XfwScreen</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen--workspace-manager"></a><h3>The <code class="literal">“workspace-manager”</code> property</h3>
+<pre class="programlisting">  “workspace-manager”        <a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="type">XfwWorkspaceManager</span></a> *</pre>
+<p>The <a class="link" href="XfwWorkspaceManager.html" title="XfwWorkspaceManager"><span class="type">XfwWorkspaceManager</span></a> that manages and describes workspace groups
+and workspaces on this screen instance.</p>
+<p>Owner: XfwScreen</p>
+<p>Flags: Read</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwScreen.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="XfwScreen-active-window-changed"></a><h3>The <code class="literal">“active-window-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when a new window becomes the active window.  Often the
+active window will receive keyboard focus.  While <em class="parameter"><code>window</code></em>
+ is
+the previously-active window (if any, and may be <code class="literal">NULL</code>), the
+newly-active window can be retrieved via
+<a class="link" href="XfwScreen.html#xfw-screen-get-active-window" title="xfw_screen_get_active_window ()"><code class="function">xfw_screen_get_active_window()</code></a>.</p>
+<div class="refsect3">
+<a name="XfwScreen-active-window-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the previously-active window.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-monitor-added"></a><h3>The <code class="literal">“monitor-added”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>  *screen,
+               <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor,
+               <span class="type">gpointer</span>    user_data)</pre>
+<p>Emitted when a monitor is added to <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="XfwScreen-monitor-added.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>the monitor that was added.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-monitor-removed"></a><h3>The <code class="literal">“monitor-removed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>  *screen,
+               <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor,
+               <span class="type">gpointer</span>    user_data)</pre>
+<p>Emitted when a monitor is removed from <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="XfwScreen-monitor-removed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>the monitor that was removed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-monitors-changed"></a><h3>The <code class="literal">“monitors-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when one of the following has changed about the monitors
+attached to <em class="parameter"><code>screen</code></em>
+:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>A monitor was added.</p></li>
+<li class="listitem"><p>A monitor was removed.</p></li>
+<li class="listitem"><p>A monitor's resolution changed (including if the scale factor changed).</p></li>
+<li class="listitem"><p>A monitor was re-positioned in the global screen space.</p></li>
+<li class="listitem"><p>Which monitor is primary has changed.</p></li>
+</ul></div>
+<p>Note that changes such as the subpixel layout or model name will not
+result in the emission of this signal.  Connect to the propert notify
+signals on <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> to be notified of changes in other aspects of the
+monitor.</p>
+<div class="refsect3">
+<a name="XfwScreen-monitors-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-seat-added"></a><h3>The <code class="literal">“seat-added”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a>   *seat,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>seat</code></em>
+ has been added to <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="XfwScreen-seat-added.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>seat</p></td>
+<td class="parameter_description"><p>the new <a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a> that was added.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-seat-removed"></a><h3>The <code class="literal">“seat-removed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a>   *seat,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>seat</code></em>
+ has been added to <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="XfwScreen-seat-removed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>seat</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a> that was removed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-window-closed"></a><h3>The <code class="literal">“window-closed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when a window is closed on the screen.</p>
+<div class="refsect3">
+<a name="XfwScreen-window-closed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object that received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the window that has been closed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-window-manager-changed"></a><h3>The <code class="literal">“window-manager-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when the window manager on <em class="parameter"><code>screen</code></em>
+ has changed.</p>
+<p>Note that currently this signal is not emitted on Wayland.</p>
+<div class="refsect3">
+<a name="XfwScreen-window-manager-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-window-opened"></a><h3>The <code class="literal">“window-opened”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when a new window is opened on the screen.</p>
+<div class="refsect3">
+<a name="XfwScreen-window-opened.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the new window that was opened.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwScreen-window-stacking-changed"></a><h3>The <code class="literal">“window-stacking-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *screen,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when the order of the windows as displayed on the screen has
+changed.  Windows, in stacking order, can be retrieved via
+<a class="link" href="XfwScreen.html#xfw-screen-get-windows-stacked" title="xfw_screen_get_windows_stacked ()"><code class="function">xfw_screen_get_windows_stacked()</code></a>.</p>
+<p>Note that currently this signal is not emitted on Wayland.</p>
+<div class="refsect3">
+<a name="XfwScreen-window-stacking-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

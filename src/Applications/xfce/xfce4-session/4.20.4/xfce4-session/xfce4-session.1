@@ -1,0 +1,84 @@
+.TH xfce4-session 1 "Sep 28, 2014"
+.SH NAME
+xfce4-session \- Starts up the Xfce Desktop Environment
+.SH SYNOPSIS
+.B xfce4-session
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B xfce4-session
+command.
+.PP
+The \fBxfce4-session\fP program starts up the Xfce Desktop Environment and
+is typically executed by your login manager (e.g. xdm, gdm, kdm, wdm or from
+your X startup scripts). It will load your last session or a default session
+that includes the standard Xfce programs if no saved session is available.
+
+\fBxfce4-session\fP is an standard X11R6 session manager that can manage
+any X11R6 SM compliant program, including GNOME and KDE programs.
+
+\fBxfce4-session\fP uses the contents of the ~/.cache/sessions/ directory
+for starting previously saved sessions.
+
+
+.SH OPTIONS
+\fBxfce4-session\fP takes the following command line options:
+.TP
+.B \-\-disable\-tcp
+Disable binding to TCP ports in the ICE layer. This is not possible on every
+platform. If you use this option on a platform that does not support it,
+\fBxfce4-session\fP will print a warning message and ignore the setting.
+.TP
+.B \-\-help
+Print a help screen and exit.
+.TP
+.B \-\-version
+Output version information and exit.
+
+
+.SH ENVIRONMENT
+\fBxfce4-session\fP's behaviour is affected by the following environment
+variables.
+.PP
+.TP
+.B XDG_CONFIG_HOME
+Specifies the root for all user-specific configuration files. If this
+environment variable is unset, it defaults to
+.I ~/.config/
+.TP
+.B XDG_CONFIG_DIRS
+Set of preference ordered base directories relative to which configuration
+files should be searched in addition to the
+.B $XDG_CONFIG_HOME
+base directory. The directories should be separated with a colon.
+.TP
+.B XDG_CACHE_HOME
+Specifies the root for all user-specific cache data. If this environment
+variable is unset, it defaults to
+.I ~/.cache/
+.TP
+.B XFSM_VERBOSE
+When defined, this environment variable enables debugging messages to be
+saved to
+.I ~/.xfce4-session.verbose-log
+The log file from the last session run with this environment variable
+set is retained at
+.I ~/.xfce4-session.verbose-log.last
+These debugging messages are useful for troubleshooting and development.
+
+.SH FILES
+\fBxfce4-session\fP reads its configuration from Xfconf.
+\fBxfce4-session\fP stores its session data into
+.IR $XDG_CACHE_HOME/sessions/ .
+
+.SH AUTHOR
+\fBxfce4-session\fP was written by Benedikt Meurer
+<benny@xfce.org> as part of the Xfce project.
+This manual page was written by Oliver M. Bolzer <oliver@debian.org>
+and Benedikt Meurer <benny@xfce.org>.
+
+.SH "REPORTING BUGS"
+Report bugs to https://gitlab.xfce.org/xfce/xfce4-session/.
+
+.SH COPYRIGHT
+Copyright \(co 2003-2014 Benedikt Meurer.

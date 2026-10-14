@@ -1,0 +1,20 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+cc_test(
+    name = "framebuffer_test",
+    size = "small",
+    srcs = ["test_framebuffer.c", "//bootloader/rpi4:framebuffer.h"],
+    copts = ["-std=c11", "-Wall", "-Wextra", "-Werror"],
+)
+
+sh_binary(
+    name = "verify_arm64",
+    srcs = ["verify_arm64.sh"],
+    data = [
+        "verify_framebuffer.py",
+        "//bootloader/rpi4:boot_current_bin",
+        "//src/Kernel/xnu/12377.121.6:kernel_bin_arm64",
+        "//userland/diagnostic:root_arm64",
+    ],
+)

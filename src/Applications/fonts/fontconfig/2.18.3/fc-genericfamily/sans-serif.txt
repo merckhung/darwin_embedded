@@ -1,0 +1,567 @@
+# Font families for sans-serif generic family
+Albany
+Albany AMT
+Apple SD Gothic Neo
+Arial
+Arial Unicode
+Arial Unicode MS
+ArmNet Helvetica
+Arshia
+Artsounk
+B Compset
+B Davat
+Bitstream Vera Sans
+BPG Glaho International
+BPG UTF8 M
+Britannic
+Cairo
+Calibri
+Candara
+Century Gothic
+Corbel
+Cordia New
+DejaVu Sans
+Elham
+Farnaz
+FreeSans
+Garuda
+Gautami
+Geeza Pro
+GF Zemen Unicode
+Haettenschweiler
+Hapax Berbère
+Helvetica
+Helvetica LT Std
+Helvetica Neue
+Hiragino Sans
+Hiragino Sans CNS
+Hiragino Sans GB
+Hiragino Kaku Gothic
+IPAGothic
+IPAMonaGothic
+JG Lao Old Arial
+Kacst-Qr
+KacstQura
+Kerkis
+Khmer OS
+Kochi Gothic
+Koodak
+Liberation Sans
+LKLUG
+Lohit Bengali
+Lohit Devanagari
+Lohit Gujarati
+Lohit Hindi
+Lohit Kannada
+Lohit Kashmiri
+Lohit Konkani
+Lohit Maithili
+Lohit Malayalam
+Lohit Marathi
+Lohit Nepali
+Lohit Odia
+Lohit Punjabi
+Lohit Sindhi
+Lohit Tamil
+Lohit Telugu
+Loma
+Lucida Sans Unicode
+Luxi Sans
+malayalam
+Meera
+MgOpen Modata
+Microsoft JhengHei
+Microsoft YaHei
+MS Gothic
+MS Sans Serif
+Mukti Narrow
+Nachlieli
+NanumGothic
+Nasim
+Nimbus Sans
+Nimbus Sans L
+Noto Sans
+Noto Sans CJK KR
+padmaa
+Pigiarniq
+PingFang HK
+PingFang SC
+PingFang TC
+Raghindi
+Roya
+Sampige
+Saysettha Unicode
+Sazanami Gothic
+Sina
+Tahoma
+Terafik
+Trebuchet MS
+TSCu_Paranar
+Twentieth Century
+UmePlus P Gothic
+Umpush
+Urdu Nastaliq Unicode
+Verdana
+VL Gothic
+Waree
+WenQuanYi Zen Hei
+Yudit Unicode
+ＭＳ ゴシック
+Adwaita Sans
+AharoniCLM
+Akzidenz Grotesk
+Al Bayan
+Anorexia
+Aqui
+Arabic Typesetting
+Archivo
+Arial Hebrew
+Arimo
+Aroania
+Arundina Sans
+Avenir
+Avenir Next
+Avenir Next Condensed
+B612
+Brandon Grotesque
+BIZ UDGothic
+BIZ UDPGothic
+Baekmuk Dotum
+Barlow
+Be Vietnam Pro
+BonvenoCF
+BravuraText
+Carlito
+Comfortaa
+Comic Neue
+Comic Neue Angular
+Commissioner
+Cure
+D-DIN
+D-DIN Condensed
+D-DIN Exp
+DIN Next
+DIN Pro
+DM Sans
+Drift
+Droid Arabic Kufi
+Dubai
+Droid Sans
+Droid Sans Armenian
+Droid Sans Devanagari
+Droid Sans Ethiopic
+Droid Sans Fallback
+Droid Sans Georgian
+Droid Sans Hebrew
+Droid Sans Japanese
+Droid Sans Tamil
+Droid Sans Thai
+Dotum
+Dustismo
+Edges
+Ektype Baloo 2
+FF DIN
+FF Meta
+Ektype Baloo Bhai 2
+Ektype Baloo Bhaina 2
+Ektype Baloo Chettan 2
+Ektype Baloo Da 2
+Ektype Baloo Paaji 2
+Ektype Baloo Tamma 2
+Ektype Baloo Tammudu 2
+Ektype Baloo Thambi 2
+ElliniaCLM
+Epilogue
+Figtree
+Fira Sans
+Fkp
+Franklin Gothic
+Frutiger
+Futura
+Geist
+Gelly
+Gill Sans
+Glisp
+Gotham
+Gulim
+IPAPGothic
+IPAexGothic
+IPAexゴシック
+Infofont
+Infofont Z
+Inter
+Inter Display
+Inter Variable
+ITC Stone Sans
+IBM Plex Sans
+KacstBook
+KacstDigital
+KacstFarsi
+KacstLetter
+KacstOffice
+KacstOne
+KacstPoster
+KacstQurn
+KacstScreen
+KacstTitle
+KacstTitleL
+Kates
+Keter YG
+Keyfont V2
+Laconic
+Lato
+League Gothic
+Leland Text
+Liberation Sans Narrow
+Lime
+Linux Biolinum
+Lohit Assamese
+Madan
+Malgun Gothic
+Manchu2005
+Mangal
+Manrope
+Meiryo
+Microsoft JhengHei
+Microsoft YaHei
+Mingzat
+Mints Mild
+Mints Strong
+Miriam CLM
+Museo Sans
+Myriad Pro
+Molot
+Montserrat
+Montserrat Alternates
+Montserrat Underline
+Mukti
+Nachlieli CLM
+Navilu
+New Peninim MT
+News Cycle
+News Gothic
+Nu
+Nuosu SIL
+Open Sans
+OpenDyslexic
+Optima
+Overpass
+Oxygen-Sans
+PCfont
+PCfont Z
+Padauk
+Padauk Book
+PakType Naqsh
+PakType Tehreer
+PetalumaText
+Poppins
+Proxima Nova
+Quicksand
+Raanana
+Raavi
+Red Hat Display
+Reem Kufi
+Red Hat Text
+Roboto
+Roboto Condensed
+Signfont
+Signfont Z
+Silkscreen
+Silkscreen Expanded
+Simple CLM
+Smoothansi
+Snap
+Source Han Sans CN
+Source Han Sans JP
+Source Han Sans KR
+Source Han Sans TW
+Source Sans 3
+Spark Dot-line Extrathick
+Spark Dot-line Extrathin
+Spark Dot-line Medium
+Spark Dot-line Thick
+Spark Dot-line Thin
+Sparks Bar Extranarrow
+Sparks Bar Extrawide
+Sparks Bar Medium
+Sparks Bar Narrow
+Sparks Bar Wide
+Sparks Dot Extralarge
+Sparks Dot Extrasmall
+Sparks Dot Large
+Sparks Dot Medium
+Sparks Dot Small
+Titillium
+Trade Gothic
+UKIJ Tuz
+Ume Gothic
+Univers
+Ume Gothic C4
+Ume Gothic C5
+Ume Gothic O5
+Ume Gothic S4
+Ume Gothic S5
+Ume Hy Gothic
+Ume Hy Gothic O5
+Ume P Gothic
+Ume P Gothic C4
+Ume P Gothic C5
+Ume P Gothic O5
+Ume P Gothic S4
+Ume P Gothic S5
+UnDotum
+UnGraphic
+Unikurd Web
+VDRSymbols Sans
+VL PGothic
+Vazirmatn
+Vazirmatn NL
+Vazirmatn RD
+Vazirmatn RD NL
+WenQuanYi Micro Hei
+WenQuanYi Zen Hei Sharp
+YehudaCLM
+alef
+gargi
+kacstPen
+tuffy
+Alegreya Sans
+Andika
+Andika Compact
+Andika New Basic
+Clear Sans
+DarkGarden
+Exo 2
+GFS Decker
+GFS NeoHellenic
+GFS Orpheus Sans
+Gillius ADF
+Harmattan
+Jura
+Kalinga
+Karla
+Kartika
+Krungthep
+Lalezar
+Lexend
+Leelawadee
+LiSu
+Lohit Gurmukhi
+M Yuppy GB
+Manrope
+Merriweather Sans
+Muli
+Noto Sans CJK HK
+Noto Sans CJK JP
+Noto Sans CJK SC
+Noto Sans CJK TC
+Nunito
+Nunito Sans
+Oswald
+Outfit
+PT Sans
+Pothana2000
+Public Sans
+RIT Keraleeyam
+RIT Meera New
+RIT TN Joy
+Raleway
+Rubik
+San Francisco
+Segoe UI
+SF Pro
+SF Pro Display
+SF Pro Rounded
+SF Pro Text
+Shruti
+Shimenkan
+Simplified Arabic
+SimHei
+Sophia Nubian
+Sora
+Space Grotesk
+STHeiti
+Sathu
+Sakkal Majalla
+Tajawal
+Thonburi
+Tunga
+Vemana2000
+Vrinda
+Work Sans
+YouYuan
+Yu Gothic
+Yudit
+Edwin  # FIXME: serif
+TeX Gyre Adventor
+TeX Gyre Heros
+TeX Gyre Heros Cn
+URW Gothic
+Madan2
+# Noto Sans script-specific variants
+Noto Sans Adlam
+Noto Sans Adlam Unjoined
+Noto Sans Arabic
+Noto Kufi Arabic
+Noto Sans Armenian
+Noto Sans Avestan
+Noto Sans Balinese
+Noto Sans Bamum
+Noto Sans Bassa Vah
+Noto Sans Batak
+Noto Sans Bengali
+Noto Sans Bhaiksuki
+Noto Sans Brahmi
+Noto Sans Buginese
+Noto Sans Buhid
+Noto Sans Canadian Aboriginal
+Noto Sans Carian
+Noto Sans Caucasian Albanian
+Noto Sans Chakma
+Noto Sans Cham
+Noto Sans Cherokee
+Noto Sans Chorasmian
+Noto Sans Coptic
+Noto Sans Cuneiform
+Noto Sans Cypriot
+Noto Sans Cypro Minoan
+Noto Sans Deseret
+Noto Sans Devanagari
+Noto Sans Display
+Noto Sans Duployan
+Noto Sans Egyptian Hieroglyphs
+Noto Sans Elbasan
+Noto Sans Elymaic
+Noto Sans Ethiopic
+Noto Sans Georgian
+Noto Sans Glagolitic
+Noto Sans Gothic
+Noto Sans Grantha
+Noto Sans Gujarati
+Noto Sans Gunjala Gondi
+Noto Sans Gurmukhi
+Noto Sans Hanifi Rohingya
+Noto Sans Hanunoo
+Noto Sans Hatran
+Noto Sans Hebrew
+Noto Sans Imperial Aramaic
+Noto Sans Indic Siyaq Numbers
+Noto Sans Inscriptional Pahlavi
+Noto Sans Inscriptional Parthian
+Noto Sans Javanese
+Noto Sans Kaithi
+Noto Sans Kannada
+Noto Sans Kayah Li
+Noto Sans Kharoshthi
+Noto Sans Khmer
+Noto Sans Khojki
+Noto Sans Khudawadi
+Noto Sans Lao
+Noto Sans Lao Looped
+Noto Sans Lepcha
+Noto Sans Limbu
+Noto Sans Linear A
+Noto Sans Linear B
+Noto Sans Lisu
+Noto Sans Lycian
+Noto Sans Lydian
+Noto Sans Mahajani
+Noto Sans Malayalam
+Noto Sans Mandaic
+Noto Sans Manichaean
+Noto Sans Marchen
+Noto Sans Masaram Gondi
+Noto Sans Mayan Numerals
+Noto Sans Medefaidrin
+Noto Sans Meetei Mayek
+Noto Sans Mende Kikakui
+Noto Sans Meroitic
+Noto Sans Miao
+Noto Sans Modi
+Noto Sans Mongolian
+Noto Sans Mro
+Noto Sans Multani
+Noto Sans Myanmar
+Noto Sans Nabataean
+Noto Sans Nag Mundari
+Noto Sans Nandinagari
+Noto Sans New Tai Lue
+Noto Sans Newa
+Noto Sans NKo
+Noto Sans NKo Unjoined
+Noto Sans Ogham
+Noto Sans Ol Chiki
+Noto Sans Old Hungarian
+Noto Sans Old Italic
+Noto Sans Old North Arabian
+Noto Sans Old Permic
+Noto Sans Old Persian
+Noto Sans Old Sogdian
+Noto Sans Old South Arabian
+Noto Sans Old Turkic
+Noto Sans Oriya
+Noto Sans Osage
+Noto Sans Osmanya
+Noto Sans Pahawh Hmong
+Noto Sans Palmyrene
+Noto Sans Pau Cin Hau
+Noto Sans Phags Pa
+Noto Sans Phoenician
+Noto Sans Psalter Pahlavi
+Noto Sans Rejang
+Noto Sans Runic
+Noto Sans Samaritan
+Noto Sans Saurashtra
+Noto Sans Sharada
+Noto Sans Shavian
+Noto Sans Siddham
+Noto Sans SignWriting
+Noto Sans Sinhala
+Noto Sans Sogdian
+Noto Sans Sora Sompeng
+Noto Sans Soyombo
+Noto Sans Sundanese
+Noto Sans Syloti Nagri
+Noto Sans Symbols
+Noto Sans Symbols 2
+Noto Sans Syriac
+Noto Sans Syriac Eastern
+Noto Sans Syriac Western
+Noto Sans Tagalog
+Noto Sans Tagbanwa
+Noto Sans Tai Le
+Noto Sans Tai Tham
+Noto Sans Tai Viet
+Noto Sans Takri
+Noto Sans Tamil
+Noto Sans Tamil Supplement
+Noto Sans Tangsa
+Noto Sans Telugu
+Noto Sans Thaana
+Noto Sans Thai
+Noto Sans Thai Looped
+Noto Sans Tifinagh
+Noto Sans Tifinagh Adrar
+Noto Sans Tifinagh Agraw Imazighen
+Noto Sans Tifinagh Ahaggar
+Noto Sans Tifinagh Air
+Noto Sans Tifinagh APT
+Noto Sans Tifinagh Azawagh
+Noto Sans Tifinagh Ghat
+Noto Sans Tifinagh Hawad
+Noto Sans Tifinagh Rhissa Ixa
+Noto Sans Tifinagh SIL
+Noto Sans Tifinagh Tawellemmet
+Noto Sans Tirhuta
+Noto Sans Ugaritic
+Noto Sans Vai
+Noto Sans Vithkuqi
+Noto Sans Wancho
+Noto Sans Warang Citi
+Noto Sans Yi
+Noto Sans Zanabazar Square
+# Nerd Fonts - sans-serif variants
+Ubuntu
+Ubuntu Condensed
+# Nerd Fonts - Nerd Font sans-serif variants
+Ubuntu Nerd Font

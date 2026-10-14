@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Xfce Generics: libxfce4util Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4util-Internationalisation.html" title="Internationalization">
+<link rel="next" href="libxfce4util-Xfce-Kiosk-functions.html" title="Xfce Kiosk functions">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libxfce4util-Xfce-Generics.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4util-Internationalisation.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libxfce4util-Xfce-Kiosk-functions.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libxfce4util-Xfce-Generics"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4util-Xfce-Generics.top_of_page"></a>Xfce Generics</span></h2>
+<p>Xfce Generics — Generic data types and related functions.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libxfce4util-Xfce-Generics.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to
+develop applications to these interfaces, release them, and have confidence that
+they will run on all minor releases of the product (after the one in which the
+interface was introduced, and within the same major release). Even at a major
+release, incompatible changes are expected to be rare, and to have strong
+justifications.
+"><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Xfce-Generics.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Xfce-Generics.html#XFCE-GENERIC-STACK:CAPS" title="XFCE_GENERIC_STACK()">XFCE_GENERIC_STACK</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Xfce-Generics.html#xfce-stack-new" title="xfce_stack_new()">xfce_stack_new</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Xfce-Generics.html#xfce-stack-free" title="xfce_stack_free()">xfce_stack_free</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Xfce-Generics.html#xfce-stack-top" title="xfce_stack_top()">xfce_stack_top</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Xfce-Generics.html#xfce-stack-pop" title="xfce_stack_pop()">xfce_stack_pop</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Xfce-Generics.html#xfce-stack-push" title="xfce_stack_push()">xfce_stack_push</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Xfce-Generics.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4util/libxfce4util.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Xfce-Generics.description"></a><h2>Description</h2>
+<p>Xfce-dialogs are a collection of helper dialogs to display
+the help dialog with link to the docs website, warning, info, and
+error dialogs and more.</p>
+<p>Using a generic stack</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="k">typedef</span><span class="w"> </span><span class="n">XFCE_GENERIC_STACK</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">IntStack</span><span class="p">;</span>
+<span class="n">IntStack</span><span class="w"> </span><span class="o">*</span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xfce_stack_new</span><span class="w"> </span><span class="p">(</span><span class="n">IntStack</span><span class="p">);</span>
+<span class="n">xfce_stack_push</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="n">xfce_stack_push</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Top is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xfce_stack_top</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">));</span>
+<span class="n">xfce_stack_pop</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+<span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Top is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xfce_stack_top</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">));</span>
+<span class="n">xfce_stack_free</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Xfce-Generics.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="XFCE-GENERIC-STACK:CAPS"></a><h3>XFCE_GENERIC_STACK()</h3>
+<pre class="programlisting">#define             XFCE_GENERIC_STACK(Type)</pre>
+<p>This macro is used to create a new stack data type which elements are of
+<em class="parameter"><code>Type</code></em>
+. For example, to create a stack type that handles elements of type
+<code class="literal">double</code>, you'd write the following</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="k">typedef</span><span class="w"> </span><span class="n">XFCE_GENERIC_STACK</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">MyDoubleStack</span><span class="p">;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+and furtheron refer to your stack type as <code class="literal">MyDoubleStack</code>.</p>
+<div class="refsect3">
+<a name="XFCE-GENERIC-STACK.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>Type</p></td>
+<td class="parameter_description"><p>Data type of the elements that should be handled by the stack. Can be any valid data type from simple int's to complex structures.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-stack-new"></a><h3>xfce_stack_new()</h3>
+<pre class="programlisting">#define             xfce_stack_new(StackType)</pre>
+<p>Creates a new instance of <em class="parameter"><code>StackType</code></em>
+ and returns a pointer to the newly
+created instance. For example, imagine you declared a type <code class="literal">MyDoubleStack</code>
+as shown above, you can instantiate this type with</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">MyDoubleStack</span><span class="w"> </span><span class="o">*</span><span class="n">my_stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xfce_stack_new</span><span class="w"> </span><span class="p">(</span><span class="n">MyDoubleStack</span><span class="p">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<div class="refsect3">
+<a name="xfce-stack-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>StackType</p></td>
+<td class="parameter_description"><p>Type of stack declared with <a class="link" href="libxfce4util-Xfce-Generics.html#XFCE-GENERIC-STACK:CAPS" title="XFCE_GENERIC_STACK()"><span class="type">XFCE_GENERIC_STACK</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-stack-free"></a><h3>xfce_stack_free()</h3>
+<pre class="programlisting">#define             xfce_stack_free(stack)</pre>
+<p>Frees a stack, that was allocated using <a class="link" href="libxfce4util-Xfce-Generics.html#xfce-stack-new" title="xfce_stack_new()"><span class="type">xfce_stack_new</span></a>.</p>
+<div class="refsect3">
+<a name="xfce-stack-free.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>stack</p></td>
+<td class="parameter_description"><p>A stack object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-stack-top"></a><h3>xfce_stack_top()</h3>
+<pre class="programlisting">#define             xfce_stack_top(stack)</pre>
+<p>Removes the top element from <em class="parameter"><code>stack</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-stack-top.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>stack</p></td>
+<td class="parameter_description"><p>A stack object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-stack-pop"></a><h3>xfce_stack_pop()</h3>
+<pre class="programlisting">#define             xfce_stack_pop(stack)</pre>
+<p>Removes the top element from <em class="parameter"><code>stack</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-stack-pop.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>stack</p></td>
+<td class="parameter_description"><p>A stack object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-stack-push"></a><h3>xfce_stack_push()</h3>
+<pre class="programlisting">#define             xfce_stack_push(stack, value)</pre>
+<p>Pushes a new <em class="parameter"><code>value</code></em>
+ on top of <em class="parameter"><code>stack</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-stack-push.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>stack</p></td>
+<td class="parameter_description"><p>A stack object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>the value to push</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

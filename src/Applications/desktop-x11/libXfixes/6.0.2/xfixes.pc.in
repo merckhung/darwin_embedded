@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+includedir=@includedir@
+libdir=@libdir@
+
+Name: Xfixes
+Description: X Fixes Library
+URL: https://gitlab.freedesktop.org/xorg/lib/libxfixes/
+Version: @PACKAGE_VERSION@
+Requires: xproto fixesproto >= @FIXESEXT_VERSION@
+Requires.private: x11
+Libs: -L${libdir} -lXfixes
+Cflags: -I${includedir}

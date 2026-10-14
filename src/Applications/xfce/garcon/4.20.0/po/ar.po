@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# كريم أولاد الشلحة <herr.linux88@gmail.com>, 2013
+# Salem Yaslem <xlmnxp@outlook.sa>, 2021
+# كريم أولاد الشلحة <herr.linux88@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-04-18 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Salem Yaslem <xlmnxp@outlook.sa>, 2021\n"
+"Language-Team: Arabic (http://app.transifex.com/xfce/garcon/language/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: data/xfce/xfce-accessories.desktop.in:5
+msgid "applications-accessories"
+msgstr ""
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "ملحقات"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "تطبيقات وأدوات سطح المكتب الشائعة"
+
+#: data/xfce/xfce-development.desktop.in:5
+msgid "applications-development"
+msgstr ""
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "تطوير"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "أدوات تطوير البرامج"
+
+#: data/xfce/xfce-education.desktop.in:5 data/xfce/xfce-science.desktop.in:5
+msgid "applications-science"
+msgstr ""
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "تعليم"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "برامج تعليمية"
+
+#: data/xfce/xfce-games.desktop.in:5
+msgid "applications-games"
+msgstr ""
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "ألعاب"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "ألعاب، وألغاز، وبرامج مرح أخرى"
+
+#: data/xfce/xfce-graphics.desktop.in:5
+msgid "applications-graphics"
+msgstr ""
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "رسوميات"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "تطبيقات إنشاء ومعالجة الرسوميات"
+
+#: data/xfce/xfce-hardware.desktop.in:5
+msgid "preferences-desktop-peripherals"
+msgstr ""
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "أجهزة"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "إعدادات لمختلف أجهزة العتاد"
+
+#: data/xfce/xfce-multimedia.desktop.in:5
+msgid "applications-multimedia"
+msgstr ""
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "وسائط المتعددة"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "مشغلات ومحررات الصوت والفيديو"
+
+#: data/xfce/xfce-network.desktop.in:5
+msgid "applications-internet"
+msgstr ""
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "إنترنت"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "تطبيقات للدخول إلى الإنترنت"
+
+#: data/xfce/xfce-office.desktop.in:5
+msgid "applications-office"
+msgstr ""
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "مكتب"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "تطبيقات المكتب والإنتاج"
+
+#: data/xfce/xfce-other.desktop.in:5
+msgid "applications-other"
+msgstr ""
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "أخرى"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "التطبيقات التي لا تنتمي إلى أي فئة أخرى"
+
+#: data/xfce/xfce-personal.desktop.in:5
+msgid "preferences-desktop-personal"
+msgstr ""
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "شخصي"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "إعدادات الشخصية"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr ""
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:5
+msgid "preferences-desktop-screensaver"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "حافظات الشاشة"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "بريمجات حافظة الشاشة"
+
+#: data/xfce/xfce-settings.desktop.in:5
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "تطبيقات إعدادات سطح المكتب والنظام"
+
+#: data/xfce/xfce-system.desktop.in:5
+msgid "applications-system"
+msgstr ""
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "النّظام"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "أدوات النظام"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "لم بتم العثور على الملف \"%s\""
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "لا يمكن تحميل ملف قائمة البيانات من %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "لا يمكن تحميل ملف قائمة البيانات من %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "فشل تفنيد الأمر \"%s\"."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "خطأ في الإقلاع"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "فشل في تنفيذ \"exo-desktop-item-edit\", الضروري لإنشاء و تحرير عناصر القائمة"
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_أغلق"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "فشل في تحميل قائمة التطبيقات"

@@ -1,0 +1,380 @@
+PROJECT := libmalloc
+TEST_DIR := tests/
+
+DEVELOPER_DIR ?= $(shell xcode-select -p)
+
+include $(DEVELOPER_DIR)/AppleInternal/Makefiles/darwintest/Makefile.common
+
+MALLOC_EXCLAVES := $(if $(findstring Exclave,$(PLATFORM)),YES,NO)
+MALLOC_EXCLAVECORE := $(if $(findstring ExclaveCore,$(PLATFORM)),YES,NO)
+MALLOC_EXCLAVEKIT := $(if $(findstring ExclaveKit,$(PLATFORM)),YES,NO)
+
+ifeq ($(MALLOC_EXCLAVES),NO)
+EXCLUDED_SOURCES := \
+	mvm_testing.c
+endif
+
+BATS_PLISTS_EXTRACT = \
+	$(patsubst %,$(SYMROOT)/%.plist,$(OTHER_TEST_TARGETS))
+
+CXX := $(shell $(XCRUN) -sdk "$(TARGETSDK)" -find clang++)
+
+WARNING_CFLAGS := -Wno-format-invalid-specifier -Wno-format-extra-args
+OTHER_CFLAGS += \
+	-DDARWINTEST \
+	-DOS_ATOMIC_CONFIG_MEMORY_ORDER_DEPENDENCY=1 \
+	-DT_META_TAG_XZONE_AND_PGM=T_META_TAG\(\"xzone_and_pgm\"\) \
+	-DT_META_TAG_NO_ALLOCATOR_OVERRIDE=T_META_TAG\(\"no_allocator_override\"\) \
+	-DT_META_TAG_ALL_ALLOCATORS=T_META_TAG\(\"all_allocators\"\) \
+	-DT_META_TAG_XZONE_ONLY=T_META_TAG\(\"xzone_only\"\) \
+	-DT_META_TAG_MAGAZINE_ONLY=T_META_TAG\(\"magazine_only\"\) \
+	-DT_META_TAG_DISABLE_SANITIZERS_TRACES=T_META_TAG\(\"disable_sanitizers_traces\"\) \
+	-I$(SDKROOT)/System/Library/Frameworks/System.framework/PrivateHeaders \
+	-I$(SRCROOT)/../private \
+	-I$(SRCROOT)/../include \
+	$(WARNING_CFLAGS)
+
+ifeq ($(MALLOC_EXCLAVES),NO)
+OTHER_CFLAGS += -fno-builtin -fno-typed-memory-operations
+endif
+
+ifeq ($(MALLOC_EXCLAVEKIT),YES)
+INSTALLPATH := System/ExclaveKit/usr/local/bin
+OTHER_CFLAGS += -DL4_CONFIG_PLAT_EVP
+OTHER_CFLAGS += -isystem $(SDKROOT)/System/ExclaveKit/usr/local/standalone/cL4-future/include
+OTHER_LDFLAGS += -L $(SDKROOT)/System/ExclaveKit/usr/local/lib
+OTHER_LDFLAGS += -lc++ -lobjc
+
+# FIXME: This should be inherited from SDKSettings.json, but Xcode doesn't
+# invoke the darwintests target once for each variant in BUILD_VARIANTS
+_OTHER_CFLAGS_asan := $(shell plutil -extract DefaultProperties._OTHER_CFLAGS_asan raw -expect string $(SDKROOT)/SDKSettings.json)
+# rdar://128967612 (Don't link compiler-rt for exclavekit sanitizers)
+_OTHER_LDFLAGS_asan := \
+	-fno-sanitize-link-runtime
+
+CUSTOM_TARGETS += libmalloc-exclavekit-darwintests libmalloc-exclavekit-darwintests_asan
+CUSTOM_TARGETS += libmalloc_exclavekit.plist
+endif
+
+ifeq ($(MALLOC_EXCLAVECORE),YES)
+INSTALLPATH := System/ExclaveCore/usr/local/bin
+OTHER_CFLAGS += -isystem $(SDKROOT)/System/ExclaveCore/usr/local/standalone/cL4-future/include
+OTHER_LDFLAGS += -L $(SDKROOT)/System/ExclaveCore/usr/local/lib
+OTHER_LDFLAGS += \
+	-nostartfiles \
+	-pagezero_size 0x0 \
+	-seg1addr 0x07FFC000 \
+	-static \
+	-e _start \
+	-Wl,-threaded_starts_section \
+	-dead_strip \
+	-fapple-link-rtlib \
+	-lc++ \
+	-lc++abi \
+	-llibc \
+	-llibc_plat_cl4_standalone_malloc \
+	-lm \
+	-lmalloc
+
+# FIXME: This should be inherited from SDKSettings.json, but Xcode doesn't
+# invoke the darwintests target once for each variant in BUILD_VARIANTS
+_OTHER_CFLAGS_asan := $(shell plutil -extract DefaultProperties._OTHER_CFLAGS_asan raw -expect string $(SDKROOT)/SDKSettings.json)
+_OTHER_LDFLAGS_asan := \
+	-Wl,-image_suffix,_asan
+
+CUSTOM_TARGETS += libmalloc-exclavecore-darwintests libmalloc-exclavecore-darwintests_asan
+CUSTOM_TARGETS += libmalloc_exclavecore.plist
+endif
+
+# For minirunner support only
+EXCLUDED_SOURCES += exclavecore_support.c
+
+ifeq ($(MALLOC_EXCLAVES),YES)
+# In order to not generate any standalone test exectuables, we need TEST_TARGETS
+# to be defined but empty, which the recursive expansion assignment to an
+# undefined variable here does
+TEST_TARGETS=$(UNDEFINED_VARIABLE)
+
+OTHER_CFLAGS += -I ../src
+
+# PGM specific tests
+EXCLUDED_SOURCES += \
+	pgm_allocator.c \
+	pgm_integration.c \
+	pgm_internals.c \
+	pgm_zone_api.c \
+	stack_trace_test.c
+
+# Magazine Malloc and Nano specific tests
+EXCLUDED_SOURCES += \
+	magazine_malloc.c \
+	magazine_medium_test.c \
+	magazine_small_test.c \
+	magazine_rack.c \
+	magazine_tiny_test.c \
+	region_cookie_test.c \
+	nano_tests.c
+
+# Malloc zones are largely unsupported on exclaves (no malloc_create_zone or
+# malloc_num_zones)
+EXCLUDED_SOURCES += \
+	zone_names.c \
+	malloc_create_purgeable_zone.c \
+	malloc_create_zone_tests.c \
+	malloc_zone_unregister_test.c
+
+# Exclaves don't support environment variables
+EXCLUDED_SOURCES += scribble_tests.c
+
+# Exclaves don't support blocks, so the introspector doesn't run
+EXCLUDED_SOURCES += introspect_tests.c
+
+# Exclaves doesn't have fork
+EXCLUDED_SOURCES += xzone_corruption.c
+
+# These tests reboot the system with bootargs set, doesn't apply to exclaves
+EXCLUDED_SOURCES += xzone.c
+
+# Exclaves should always be built with TMO
+EXCLUDED_SOURCES += malloc_type_callsite.c
+
+# Darwin specific behaviours
+EXCLUDED_SOURCES += \
+	asan.c \
+	tsan.c \
+	memory_pressure.c \
+	malloc_logger_test.c \
+	malloc_msl.c \
+	madvise.c \
+	security_policy.c
+
+# Exclaves don't support dispatch_apply, which this perf test relies on
+EXCLUDED_SOURCES += basic_malloc_free_perf.c
+
+# Guarded range is not implemented for Exclaves
+EXCLUDED_SOURCES += guarded_range_tests.c
+
+# Backdeployment is not supported
+EXCLUDED_SOURCES += malloc_type_backdeploy.c
+
+ifeq ($(MALLOC_EXCLAVECORE),YES)
+EXCLUDED_SOURCES += \
+	mfm_test.c \
+	xzone_segment_tests.c \
+	xzone_metapool_tests.c
+# This also includes the C file to implement the unit tests.
+EXCLUDED_SOURCES += mte_instrumentation_tests.c
+endif # MALLOC_EXCLAVECORE
+else
+OTHER_CFLAGS += \
+	-DOS_UNFAIR_LOCK_INLINE=1 \
+	-lCrashReporterClient
+endif # MALLOC_EXCLAVES
+
+PRIVATE_FRAMEWORKS = $(SDKROOT)/System/Library/PrivateFrameworks
+PERFDATA_FRAMEWORK = perfdata
+
+BATS_PLISTS = $(BATS_PLISTS_EXTRACT)
+BATS_PLISTS += $(PROJECT_DIR)/tests/xctests/BATS.plist
+
+$(BATS_PLISTS_EXTRACT): %.plist : %
+	$(EXTRACTMETA) extract -i /$(INSTALLPATH)/$(notdir $<) -b $(SYMROOT)/$(notdir $<) -o $@
+	@plutil -convert binary1 $@
+
+SANITIZER_DYLIB_PATH := /usr/appleinternal/lib/sanitizers/
+asan: OTHER_CFLAGS += -fsanitize=address
+asan: OTHER_LDFLAGS += -Wl,-rpath -Wl,$(SANITIZER_DYLIB_PATH)
+
+ifeq ($(PLATFORM),MacOSX)
+tsan: CFLAGS := $(filter-out $(ARCH_FLAGS),$(CFLAGS)) -arch x86_64 -fsanitize=thread
+tsan: OTHER_LDFLAGS += -Wl,-rpath -Wl,$(SANITIZER_DYLIB_PATH)
+else
+EXCLUDED_SOURCES += tsan.c
+endif
+
+bounds_test: OTHER_CFLAGS += -fbounds-safety -fbounds-safety-bringup-missing-checks=batch_0
+
+malloc_msl: OTHER_CFLAGS += -F $(PRIVATE_FRAMEWORKS)
+malloc_msl: OTHER_CFLAGS += -framework MallocStackLogging
+malloc_msl: OTHER_LDFLAGS += -F $(PRIVATE_FRAMEWORKS)
+malloc_msl: OTHER_LDFLAGS += -framework MallocStackLogging
+
+pgm_integration: OTHER_CFLAGS += -F $(PRIVATE_FRAMEWORKS)
+pgm_integration: OTHER_CFLAGS += -framework MallocStackLogging
+pgm_integration: OTHER_LDFLAGS += -F $(PRIVATE_FRAMEWORKS)
+pgm_integration: OTHER_LDFLAGS += -framework MallocStackLogging
+
+ifeq ($(MALLOC_EXCLAVES),NO)
+malloc_type_backdeploy: OTHER_CFLAGS := $(filter-out -fno-builtin -fno-typed-memory-operations,$(OTHER_CFLAGS)) -ftyped-memory-operations
+ifeq ($(PLATFORM),MacOSX)
+malloc_type_backdeploy: DEPLOYMENT_TARGET_FLAGS := -target unknown-apple-macosx13.0
+else ifeq ($(PLATFORM),iPhoneOS)
+malloc_type_backdeploy: DEPLOYMENT_TARGET_FLAGS := -target unknown-apple-ios16.0
+else ifeq ($(PLATFORM),WatchOS)
+malloc_type_backdeploy: DEPLOYMENT_TARGET_FLAGS := -target unknown-apple-watchos9.0
+else ifeq ($(PLATFORM),AppleTVOS)
+malloc_type_backdeploy: DEPLOYMENT_TARGET_FLAGS := -target unknown-apple-tvos16.0
+else ifeq ($(PLATFORM),BridgeOS)
+malloc_type_backdeploy: DEPLOYMENT_TARGET_FLAGS := -target unknown-apple-bridgeos8.0
+else ifeq ($(PLATFORM),XROS)
+malloc_type_backdeploy: DEPLOYMENT_TARGET_FLAGS := -target unknown-apple-xros1.0
+else
+$(error Unknown platform $(PLATFORM)!)
+endif
+
+malloc_with_options_test: OTHER_LDFLAGS += -F $(PRIVATE_FRAMEWORKS)
+malloc_with_options_test: OTHER_LDFLAGS += -framework ktrace
+
+xzone_metapool_tests: OTHER_CFLAGS += -DDEBUG
+endif
+malloc_with_options_test: OTHER_CFLAGS += -I../src
+
+madvise: OTHER_CFLAGS += -I../src
+malloc_claimed_address_tests: OTHER_CFLAGS += -I../src
+scribble_tests: OTHER_CFLAGS += -I../src
+malloc_size_test: OTHER_CFLAGS += -I../src
+xzone: OTHER_LDFLAGS += -ldarwintest_utils
+
+enablement_tests: OTHER_LDFLAGS += -lobjc -fobjc-arc -ldarwintest_utils
+
+EXCLUDED_SOURCES += entitlement_test_tool.c guarded_range_test_tool.c
+
+ifeq ($(MALLOC_EXCLAVES),NO)
+hardened_heap_test_tool: entitlement_test_tool.c
+	mkdir -p $(SYMROOT)/assets/
+	$(CC) -o $(SYMROOT)/assets/$@ $(CFLAGS) $(OTHER_CFLAGS) $(LDFLAGS) $(OTHER_LDFLAGS) $<
+	env CODESIGN_ALLOCATE=$(CODESIGN_ALLOCATE) $(CODESIGN) --force --sign - --timestamp=none --entitlements hardened_heap_test_tool-entitlements.plist $(SYMROOT)/assets/hardened_heap_test_tool
+
+install-hardened_heap_test_tool: hardened_heap_test_tool
+	mkdir -p $(INSTALLDIR)/assets
+	@cp $(SYMROOT)/assets/hardened_heap_test_tool $(INSTALLDIR)/assets
+
+hardened_browser_test_tool: entitlement_test_tool.c
+	mkdir -p $(SYMROOT)/assets/
+	$(CC) -o $(SYMROOT)/assets/$@ $(CFLAGS) $(OTHER_CFLAGS) $(LDFLAGS) $(OTHER_LDFLAGS) $<
+	env CODESIGN_ALLOCATE=$(CODESIGN_ALLOCATE) $(CODESIGN) --force --sign - --timestamp=none --entitlements hardened_browser_test_tool-entitlements.plist $(SYMROOT)/assets/hardened_browser_test_tool
+
+install-hardened_browser_test_tool: hardened_browser_test_tool
+	mkdir -p $(INSTALLDIR)/assets
+	@cp $(SYMROOT)/assets/hardened_browser_test_tool $(INSTALLDIR)/assets
+
+guarded_range_test_tool: guarded_range_test_tool.c
+	mkdir -p $(SYMROOT)/assets/
+	$(CC) -o $(SYMROOT)/assets/$@ $(CFLAGS) $(OTHER_CFLAGS) $(LDFLAGS) $(OTHER_LDFLAGS) $<
+	env CODESIGN_ALLOCATE=$(CODESIGN_ALLOCATE) $(CODESIGN) --force --sign - --timestamp=none $(SYMROOT)/assets/guarded_range_test_tool
+
+install-guarded_range_test_tool: guarded_range_test_tool
+	mkdir -p $(INSTALLDIR)/assets
+	@cp $(SYMROOT)/assets/guarded_range_test_tool $(INSTALLDIR)/assets
+
+CUSTOM_TARGETS += hardened_heap_test_tool hardened_browser_test_tool guarded_range_test_tool
+endif
+
+MALLOC_TYPE_SWIFT_OBJS := $(addsuffix .o,$(addprefix malloc_type_swift_,$(ARCH_CONFIGS)))
+MALLOC_TYPE_SYM_SWIFT_OBJS := $(addprefix $(SYMROOT)/,$(MALLOC_TYPE_SWIFT_OBJS))
+
+memory_pressure: OTHER_CFLAGS := $(filter-out -fno-builtin -fno-typed-memory-operations,$(OTHER_CFLAGS))
+
+# -fno-builtin also disables TMO
+#
+# Build this test with no explicit TMO options to validate that it gets TMO
+# automatically on platforms where that's expected
+malloc_type: OTHER_CFLAGS := $(filter-out -fno-builtin -fno-typed-memory-operations,$(OTHER_CFLAGS))
+malloc_type: OTHER_LDFLAGS += $(SYMROOT)/malloc_type_cpp.o $(SYMROOT)/malloc_type_swift.a $(SYMROOT)/malloc_type_objc.o
+malloc_type: $(SYMROOT)/malloc_type_cpp.o $(SYMROOT)/malloc_type_swift.a $(SYMROOT)/malloc_type_objc.o
+malloc_type: OTHER_LDFLAGS += -lc++ -L $(TOOLCHAIN_DIR)/usr/lib/swift/
+
+$(SYMROOT)/malloc_type_objc.o: malloc_type_objc.m
+	$(CC) $(CFLAGS) $(OBJCFLAGS) -c $< -o $@
+
+$(SYMROOT)/malloc_type_cpp.o: malloc_type_cpp.cpp
+	$(CXX) $(OTHER_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+
+SWIFTC := "$(shell $(XCRUN) -sdk "$(TARGETSDK)" -find swiftc)"
+SWIFT_OBJ_FLAGS := -emit-object -parse-as-library -import-objc-header xzone_swift_bridge.h
+
+$(SYMROOT)/malloc_type_swift.swift: malloc_type_swift.swift.i
+	$(CC) -x c -P -E $< -o $@
+
+$(SYMROOT)/malloc_type_swift_%.o: $(SYMROOT)/malloc_type_swift.swift
+	$(SWIFTC) -target $*-$(subst -target unknown-,,$(DEPLOYMENT_TARGET_FLAGS)) $(SWIFT_OBJ_FLAGS) $< -o $@
+
+$(SYMROOT)/malloc_type_swift.a: $(MALLOC_TYPE_SYM_SWIFT_OBJS)
+	lipo -create $^ -output $@
+
+EXCLUDED_SOURCES += malloc_type_cpp.cpp malloc_type_callsite_cpp.cpp malloc_type_swift.swift.i malloc_type_objc.m
+
+$(SYMROOT)/malloc_type_callsite_cpp.o: malloc_type_callsite_cpp.cpp
+	$(CXX) $(OTHER_CXXFLAGS) $(CXXFLAGS) -fno-typed-memory-operations -fno-typed-cxx-new-delete -c $< -o $@
+
+malloc_type_callsite: $(SYMROOT)/malloc_type_callsite_cpp.o
+malloc_type_callsite: OTHER_CFLAGS += $(SYMROOT)/malloc_type_callsite_cpp.o
+malloc_type_callsite: OTHER_LDFLAGS += -lc++
+
+mte_tests: OTHER_CFLAGS := $(filter-out -fno-builtin -fno-typed-memory-operations,$(OTHER_CFLAGS)) -Xclang -target-feature -Xclang +mte
+mte_tests: CODE_SIGN_ENTITLEMENTS = mte_tests.entitlements
+mte_instrumentation_tests: OTHER_CFLAGS := $(OTHER_CFLAGS) -I../src -Xclang -target-feature -Xclang +mte -DCONFIG_MTE=1
+mte_instrumentation_tests: CODE_SIGN_ENTITLEMENTS = mte_instrumentation_tests.entitlements
+
+guarded_range_tests: OTHER_LDFLAGS := -ldarwintest_utils
+
+ifeq ($(MALLOC_EXCLAVES),NO)
+# BATS test plist handling
+#  - Modify plist (add tests) to run general tests again with xzone malloc enabled
+#  - Create separate plist to re-run test suite with PGM
+project_test_configs: bats.plist
+	mkdir -p $(DSTROOT)/AppleInternal/CoreOS/BATS/unit_tests/
+	xcrun -sdk $(SDKROOT) python3 ./process_bats_plist.py $(SYMROOT)/bats.plist $(DSTROOT)/AppleInternal/CoreOS/BATS/unit_tests/ --platform $(PLATFORM)
+
+.PHONY: project_test_configs
+
+# Ensure that we add the xzone tests before bats.plist is installed to the
+# dstroot
+install: project_test_configs
+endif
+
+.DEFAULT_GOAL := all
+
+include $(DEVELOPER_DIR)/AppleInternal/Makefiles/darwintest/Makefile.targets
+
+ifeq ($(MALLOC_EXCLAVEKIT),YES)
+# Linker arguments for ASAN must be prepended to select correct libraries
+libmalloc-exclavekit-darwintests_asan: OTHER_CFLAGS += $(_OTHER_CFLAGS_asan)
+libmalloc-exclavekit-darwintests_asan: OTHER_LDFLAGS := $(_OTHER_LDFLAGS_asan) $(OTHER_LDFLAGS)
+libmalloc-exclavekit-darwintests_asan: $(SOURCES_c) $(SYMROOT)/malloc_type_cpp.o
+	$(CC) $(DT_CFLAGS) $(OTHER_CFLAGS) $(CFLAGS) $(DT_LDFLAGS) $(OTHER_LDFLAGS) $(LDFLAGS) $^ -o $(SYMROOT)/$@
+libmalloc-exclavekit-darwintests: $(SOURCES_c) $(SYMROOT)/malloc_type_cpp.o
+	$(CC) $(DT_CFLAGS) $(OTHER_CFLAGS) $(CFLAGS) $(DT_LDFLAGS) $(OTHER_LDFLAGS) $(LDFLAGS) $^ -o $(SYMROOT)/$@
+install-libmalloc-exclavekit-darwintests_asan: libmalloc-exclavekit-darwintests_asan
+	mkdir -p $(INSTALLDIR)
+	cp $(SYMROOT)/$(patsubst install-%,%,$@) $(INSTALLDIR)/
+install-libmalloc-exclavekit-darwintests: libmalloc-exclavekit-darwintests
+	mkdir -p $(INSTALLDIR)
+	cp $(SYMROOT)/$(patsubst install-%,%,$@) $(INSTALLDIR)/
+libmalloc_exclavekit.plist: $(PROJECT_DIR)/tests/exclave/libmalloc_exclavekit.plist
+	plutil -convert binary1 -o $(SYMROOT)/$@ $<
+install-libmalloc_exclavekit.plist: libmalloc_exclavekit.plist
+	mkdir -p $(BATS_PLIST_DIR)
+	cp $(SYMROOT)/$(patsubst install-%,%,$@) $(BATS_PLIST_DIR)/
+endif
+
+ifeq ($(MALLOC_EXCLAVECORE),YES)
+# Linker arguments for ASAN must be prepended to select correct libraries
+libmalloc-exclavecore-darwintests_asan: OTHER_CFLAGS += $(_OTHER_CFLAGS_asan)
+libmalloc-exclavecore-darwintests_asan: OTHER_LDFLAGS := $(_OTHER_LDFLAGS_asan) $(OTHER_LDFLAGS)
+libmalloc-exclavecore-darwintests_asan: $(SOURCES_c) exclavecore_support.c $(SYMROOT)/malloc_type_cpp.o
+	$(CC) $(DT_CFLAGS) $(OTHER_CFLAGS) $(CFLAGS) $(DT_LDFLAGS) $(OTHER_LDFLAGS) $(LDFLAGS) $^ -o $(SYMROOT)/$@
+libmalloc-exclavecore-darwintests: $(SOURCES_c) exclavecore_support.c $(SYMROOT)/malloc_type_cpp.o
+	$(CC) $(DT_CFLAGS) $(OTHER_CFLAGS) $(CFLAGS) $(DT_LDFLAGS) $(OTHER_LDFLAGS) $(LDFLAGS) $^ -o $(SYMROOT)/$@
+install-libmalloc-exclavecore-darwintests_asan: libmalloc-exclavecore-darwintests_asan
+	mkdir -p $(INSTALLDIR)
+	cp $(SYMROOT)/$(patsubst install-%,%,$@) $(INSTALLDIR)/
+install-libmalloc-exclavecore-darwintests: libmalloc-exclavecore-darwintests
+	mkdir -p $(INSTALLDIR)
+	cp $(SYMROOT)/$(patsubst install-%,%,$@) $(INSTALLDIR)/
+libmalloc_exclavecore.plist: $(PROJECT_DIR)/tests/exclave/libmalloc_exclavecore.plist
+	plutil -convert binary1 -o $(SYMROOT)/$@ $<
+install-libmalloc_exclavecore.plist: libmalloc_exclavecore.plist
+	mkdir -p $(BATS_PLIST_DIR)
+	cp $(SYMROOT)/$(patsubst install-%,%,$@) $(BATS_PLIST_DIR)/
+endif

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=@name@
+Comment=Use the command line
+Keywords=shell;prompt;command;commandline;cmd;ptyxis;terminal;cmd;cli;console;
+TryExec=@exec@
+Exec=@exec@
+Icon=org.gnome.Terminal
+Type=Application
+Categories=GNOME;GTK;System;TerminalEmulator;Utility;X-GNOME-Utilities;
+StartupNotify=true
+StartupWMClass=org.gnome.Vte.App.Gtk@gtk@
+SingleMainWindow=false
+X-ExecArg=--
+X-TerminalArgExec=--
+X-TerminalArgTitle=--title
+X-TerminalArgDir=--working-directory
+# X-TerminalArgHold=
+X-KDE-AuthorizeAction=shell_access

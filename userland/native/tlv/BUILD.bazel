@@ -1,0 +1,25 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libtlv_" + arch,
+        srcs = [
+            "build_tlv.py", "test_tlv.c",
+            "//src/Libraries/25.5.0:sources",
+            "//userland/native:sdk_" + arch,
+        ],
+        outs = [
+            "libtlv." + arch + ".a", "tlv." + arch + ".json",
+            "tlv." + arch + ".cpp", "test_tlv." + arch + ".o",
+        ],
+        cmd = "python3 userland/native/tlv/build_tlv.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libtlv." + arch + ".a)" +
+              " --report $(location tlv." + arch + ".json)" +
+              " --source-output $(location tlv." + arch + ".cpp)" +
+              " --probe-output $(location test_tlv." + arch + ".o)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":libtlv_arm64", ":libtlv_x86_64"])

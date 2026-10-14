@@ -1,0 +1,2308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Xfconf Channel: xfconf Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="xfconf Reference Manual">
+<link rel="up" href="ch03.html" title="Xfconf Client Library">
+<link rel="prev" href="xfconf-Xfconf-Library-Core.html" title="Xfconf Library Core">
+<link rel="next" href="xfconf-Xfconf-GObject-Binding.html" title="Xfconf-GObject Binding">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#xfconf-Xfconf-Channel.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#xfconf-Xfconf-Channel.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#xfconf-Xfconf-Channel.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#xfconf-Xfconf-Channel.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="xfconf-Xfconf-Library-Core.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="xfconf-Xfconf-GObject-Binding.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="xfconf-Xfconf-Channel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="xfconf-Xfconf-Channel.top_of_page"></a>Xfconf Channel</span></h2>
+<p>Xfconf Channel — An application-defined domain for storing configuration settings</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="returnvalue">XfconfChannel</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get" title="xfconf_channel_get ()">xfconf_channel_get</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="returnvalue">XfconfChannel</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-new" title="xfconf_channel_new ()">xfconf_channel_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="returnvalue">XfconfChannel</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-new-with-property-base" title="xfconf_channel_new_with_property_base ()">xfconf_channel_new_with_property_base</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-has-property" title="xfconf_channel_has_property ()">xfconf_channel_has_property</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-is-property-locked" title="xfconf_channel_is_property_locked ()">xfconf_channel_is_property_locked</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-reset-property" title="xfconf_channel_reset_property ()">xfconf_channel_reset_property</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GHashTable</span> *
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-properties" title="xfconf_channel_get_properties ()">xfconf_channel_get_properties</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-string" title="xfconf_channel_get_string ()">xfconf_channel_get_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> **
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-string-list" title="xfconf_channel_get_string_list ()">xfconf_channel_get_string_list</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint32</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-int" title="xfconf_channel_get_int ()">xfconf_channel_get_int</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint32</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-uint" title="xfconf_channel_get_uint ()">xfconf_channel_get_uint</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint64</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-uint64" title="xfconf_channel_get_uint64 ()">xfconf_channel_get_uint64</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gdouble</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-double" title="xfconf_channel_get_double ()">xfconf_channel_get_double</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-bool" title="xfconf_channel_get_bool ()">xfconf_channel_get_bool</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-string" title="xfconf_channel_set_string ()">xfconf_channel_set_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-string-list" title="xfconf_channel_set_string_list ()">xfconf_channel_set_string_list</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-int" title="xfconf_channel_set_int ()">xfconf_channel_set_int</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-uint" title="xfconf_channel_set_uint ()">xfconf_channel_set_uint</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-uint64" title="xfconf_channel_set_uint64 ()">xfconf_channel_set_uint64</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-double" title="xfconf_channel_set_double ()">xfconf_channel_set_double</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-bool" title="xfconf_channel_set_bool ()">xfconf_channel_set_bool</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-property" title="xfconf_channel_get_property ()">xfconf_channel_get_property</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-property" title="xfconf_channel_set_property ()">xfconf_channel_set_property</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-array" title="xfconf_channel_get_array ()">xfconf_channel_get_array</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-array-valist" title="xfconf_channel_get_array_valist ()">xfconf_channel_get_array_valist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GPtrArray</span> *
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-arrayv" title="xfconf_channel_get_arrayv ()">xfconf_channel_get_arrayv</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-array" title="xfconf_channel_set_array ()">xfconf_channel_set_array</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-array-valist" title="xfconf_channel_set_array_valist ()">xfconf_channel_set_array_valist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-arrayv" title="xfconf_channel_set_arrayv ()">xfconf_channel_set_arrayv</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-named-struct" title="xfconf_channel_get_named_struct ()">xfconf_channel_get_named_struct</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-named-struct" title="xfconf_channel_set_named_struct ()">xfconf_channel_set_named_struct</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-struct" title="xfconf_channel_get_struct ()">xfconf_channel_get_struct</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-struct-valist" title="xfconf_channel_get_struct_valist ()">xfconf_channel_get_struct_valist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-structv" title="xfconf_channel_get_structv ()">xfconf_channel_get_structv</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-struct" title="xfconf_channel_set_struct ()">xfconf_channel_set_struct</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-struct-valist" title="xfconf_channel_set_struct_valist ()">xfconf_channel_set_struct_valist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-structv" title="xfconf_channel_set_structv ()">xfconf_channel_set_structv</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel--channel-name" title="The “channel-name” property">channel-name</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel--is-singleton" title="The “is-singleton” property">is-singleton</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel--property-base" title="The “property-base” property">property-base</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
+</colgroup>
+<tbody><tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel-property-changed" title="The “property-changed” signal">property-changed</a></td>
+<td class="signal_flags">Has Details</td>
+</tr></tbody>
+</table></div>
+</div>
+<a name="XfconfChannel"></a><div class="refsect1">
+<a name="xfconf-Xfconf-Channel.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel-struct" title="XfconfChannel">XfconfChannel</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> XfconfChannel
+</pre>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.description"></a><h2>Description</h2>
+<p>An XfconfChannel is a representation of a restricted domain or
+namespace that an application can define to store configuration
+settings.  This is to ensure that different applications do not store
+configuration keys with the same names.</p>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfconf-channel-get"></a><h3>xfconf_channel_get ()</h3>
+<pre class="programlisting"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="returnvalue">XfconfChannel</span></a> *
+xfconf_channel_get (<em class="parameter"><code>const <span class="type">gchar</span> *channel_name</code></em>);</pre>
+<p>Either creates a new channel, or fetches a singleton object for
+<em class="parameter"><code>channel_name</code></em>
+.  This function always returns a valid object; no
+checking is done to see if the channel exists or has a valid name.</p>
+<p>The reference count of the returned channel is owned by libxfconf.</p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="xfconf-channel-get.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>channel_name</p></td>
+<td class="parameter_description"><p>A channel name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get.returns"></a><h4>Returns</h4>
+<p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> singleton. </p>
+<p><span class="annotation">[<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="ch04.html#api-index-4.5.91" title="Added in 4.5.91">4.5.91</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-new"></a><h3>xfconf_channel_new ()</h3>
+<pre class="programlisting"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="returnvalue">XfconfChannel</span></a> *
+xfconf_channel_new (<em class="parameter"><code>const <span class="type">gchar</span> *channel_name</code></em>);</pre>
+<p>Creates a new channel using <em class="parameter"><code>name</code></em>
+ as the channel's identifier.
+This function always returns a valid object; no checking is done
+to see if the channel exists or has a valid name.</p>
+<p>Note: use of this function is not recommended, in favor of
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get" title="xfconf_channel_get ()"><code class="function">xfconf_channel_get()</code></a>, which returns a singleton object and
+saves a little memory.  However, <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-new" title="xfconf_channel_new ()"><code class="function">xfconf_channel_new()</code></a> can be
+useful in some cases where you want to tie an <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>'s
+lifetime (and thus the lifetime of connected signals and bound
+<span class="type">GObject</span> properties) to the lifetime of another object.</p>
+<p>Also note that each channel has its own cache, so if you create
+2 new channels with the same name, it will double the dbus traffic,
+so in this cases it is highly recommended to use <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get" title="xfconf_channel_get ()"><code class="function">xfconf_channel_get()</code></a>.</p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="xfconf-channel-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>channel_name</p></td>
+<td class="parameter_description"><p>A channel name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-new.returns"></a><h4>Returns</h4>
+<p> A new <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.  Release with <code class="function">g_object_unref()</code>
+when no longer needed.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-new-with-property-base"></a><h3>xfconf_channel_new_with_property_base ()</h3>
+<pre class="programlisting"><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="returnvalue">XfconfChannel</span></a> *
+xfconf_channel_new_with_property_base (<em class="parameter"><code>const <span class="type">gchar</span> *channel_name</code></em>,
+                                       <em class="parameter"><code>const <span class="type">gchar</span> *property_base</code></em>);</pre>
+<p>Creates a new channel using <em class="parameter"><code>name</code></em>
+ as the channel's identifier,
+restricting the accessible properties to be rooted at
+<em class="parameter"><code>property_base</code></em>
+.  This function always returns a valid object;
+no checking is done to see if the channel exists or has a valid
+name.</p>
+<div class="refsect3">
+<a name="xfconf-channel-new-with-property-base.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel_name</p></td>
+<td class="parameter_description"><p>A channel name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property_base</p></td>
+<td class="parameter_description"><p>A property root name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-new-with-property-base.returns"></a><h4>Returns</h4>
+<p> A new <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.  Release with <code class="function">g_object_unref()</code>
+when no longer needed.</p>
+</div>
+<p class="since">Since: <a class="link" href="ch04.html#api-index-4.5.92" title="Added in 4.5.92">4.5.92</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-has-property"></a><h3>xfconf_channel_has_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_has_property (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                             <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>);</pre>
+<p>Checks to see if <em class="parameter"><code>property</code></em>
+ exists on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-has-property.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-has-property.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>property</code></em>
+exists, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-is-property-locked"></a><h3>xfconf_channel_is_property_locked ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_is_property_locked (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                   <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>);</pre>
+<p>Queries whether or not <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ is locked by system
+policy.  If the property is locked, calls to
+<a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-property" title="xfconf_channel_set_property ()"><code class="function">xfconf_channel_set_property()</code></a> (or any of the "set" family of functions)
+or <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-reset-property" title="xfconf_channel_reset_property ()"><code class="function">xfconf_channel_reset_property()</code></a> will fail.</p>
+<div class="refsect3">
+<a name="xfconf-channel-is-property-locked.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-is-property-locked.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property is locked, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+<p class="since">Since: <a class="link" href="ch04.html#api-index-4.5.91" title="Added in 4.5.91">4.5.91</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-reset-property"></a><h3>xfconf_channel_reset_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfconf_channel_reset_property (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *property_base</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> recursive</code></em>);</pre>
+<p>Resets properties starting at (and including) <em class="parameter"><code>property_base</code></em>
+.
+If <em class="parameter"><code>recursive</code></em>
+ is <code class="literal">TRUE</code>, will also reset all properties that are
+under <em class="parameter"><code>property_base</code></em>
+ in the property hierarchy.</p>
+<p>A bit of an explanation as to what this function actually does:
+Since Xfconf backends are expected to support setting defaults
+via what you might call "optional schema," you can't really
+"remove" properties.  Since the client library can't know if a
+channel provides default values (or even if the backend supports
+it!), at best it can only reset properties to their default values.</p>
+<p>The <em class="parameter"><code>property_base</code></em>
+ parameter can be <code class="literal">NULL</code> or the empty string (""),
+in which case the channel root ("/") will be assumed.  Of course,
+<code class="literal">TRUE</code> must be passed for <em class="parameter"><code>recursive</code></em>
+ in this case.</p>
+<div class="refsect3">
+<a name="xfconf-channel-reset-property.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property_base</p></td>
+<td class="parameter_description"><p>A property tree root or property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>recursive</p></td>
+<td class="parameter_description"><p>Whether to reset properties recursively.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ch04.html#api-index-4.5.91" title="Added in 4.5.91">4.5.91</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-properties"></a><h3>xfconf_channel_get_properties ()</h3>
+<pre class="programlisting"><span class="returnvalue">GHashTable</span> *
+xfconf_channel_get_properties (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *property_base</code></em>);</pre>
+<p>Retrieves multiple properties from <em class="parameter"><code>channel</code></em>
+ and stores
+them in a <span class="type">GHashTable</span> in which the keys correspond to
+the string (gchar *) property names, and the values
+correspond to variant (GValue *) values.  The keys and
+values are owned by the hash table and should be copied
+if needed.  The value of the property specified by
+<em class="parameter"><code>property_base</code></em>
+ (if it exists) and all sub-properties are
+retrieved.  To retrieve all properties in the channel,
+specify "/" or <code class="literal">NULL</code> for <em class="parameter"><code>property_base</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-properties.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property_base</p></td>
+<td class="parameter_description"><p>The base property name of properties to retrieve. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-properties.returns"></a><h4>Returns</h4>
+<p>A newly-allocated <span class="type">GHashTable</span>, which should be freed with
+<code class="function">g_hash_table_destroy()</code> when no longer needed. </p>
+<p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8 GValue][<acronym title="The caller owns the data container, but not the data inside it."><span class="acronym">transfer container</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-string"></a><h3>xfconf_channel_get_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+xfconf_channel_get_string (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *default_value</code></em>);</pre>
+<p>Retrieves the string value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_value</p></td>
+<td class="parameter_description"><p>A fallback value. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-string.returns"></a><h4>Returns</h4>
+<p>A newly-allocated string which should
+be freed with <code class="function">g_free()</code> when no longer
+needed.  If <em class="parameter"><code>property</code></em>
+is not in
+<em class="parameter"><code>channel</code></em>
+or if its type does not match,
+a <code class="function">g_strdup()</code>ed copy of
+<em class="parameter"><code>default_value</code></em>
+is returned. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-string-list"></a><h3>xfconf_channel_get_string_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
+xfconf_channel_get_string_list (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>);</pre>
+<p>Retrieves the string list value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-string-list.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-string-list.returns"></a><h4>Returns</h4>
+<p>A newly-allocated string list which should be freed with
+<code class="function">g_strfreev()</code> when no longer needed.  If <em class="parameter"><code>property</code></em>
+is not in
+<em class="parameter"><code>channel</code></em>
+, <code class="literal">NULL</code> is returned. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-int"></a><h3>xfconf_channel_get_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint32</span>
+xfconf_channel_get_int (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                        <em class="parameter"><code><span class="type">gint32</span> default_value</code></em>);</pre>
+<p>Retrieves the int value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-int.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_value</p></td>
+<td class="parameter_description"><p>A fallback value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-int.returns"></a><h4>Returns</h4>
+<p> The int value, or, if <em class="parameter"><code>property</code></em>
+is not in <em class="parameter"><code>channel</code></em>
+or if its type does not match,
+<em class="parameter"><code>default_value</code></em>
+is returned.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-uint"></a><h3>xfconf_channel_get_uint ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>
+xfconf_channel_get_uint (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                         <em class="parameter"><code><span class="type">guint32</span> default_value</code></em>);</pre>
+<p>Retrieves the unsigned int value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-uint.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_value</p></td>
+<td class="parameter_description"><p>A fallback value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-uint.returns"></a><h4>Returns</h4>
+<p> The uint value, or, if <em class="parameter"><code>property</code></em>
+is not in <em class="parameter"><code>channel</code></em>
+or if its type does not match,
+<em class="parameter"><code>default_value</code></em>
+is returned.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-uint64"></a><h3>xfconf_channel_get_uint64 ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint64</span>
+xfconf_channel_get_uint64 (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code><span class="type">guint64</span> default_value</code></em>);</pre>
+<p>Retrieves the 64-bit int value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-uint64.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_value</p></td>
+<td class="parameter_description"><p>A fallback value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-uint64.returns"></a><h4>Returns</h4>
+<p> The uint64 value, or, if <em class="parameter"><code>property</code></em>
+is not in <em class="parameter"><code>channel</code></em>
+or if its type does not match,
+<em class="parameter"><code>default_value</code></em>
+is returned.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-double"></a><h3>xfconf_channel_get_double ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>
+xfconf_channel_get_double (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code><span class="type">gdouble</span> default_value</code></em>);</pre>
+<p>Retrieves the double value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-double.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_value</p></td>
+<td class="parameter_description"><p>A fallback value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-double.returns"></a><h4>Returns</h4>
+<p> The double value, or, if <em class="parameter"><code>property</code></em>
+is not in <em class="parameter"><code>channel</code></em>
+or if its type does not match,
+<em class="parameter"><code>default_value</code></em>
+is returned.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-bool"></a><h3>xfconf_channel_get_bool ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_bool (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                         <em class="parameter"><code><span class="type">gboolean</span> default_value</code></em>);</pre>
+<p>Retrieves the boolean value associated with <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-bool.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_value</p></td>
+<td class="parameter_description"><p>A fallback value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-bool.returns"></a><h4>Returns</h4>
+<p> The boolean value, or, if <em class="parameter"><code>property</code></em>
+is not in <em class="parameter"><code>channel</code></em>
+or if its type does not match,
+<em class="parameter"><code>default_value</code></em>
+is returned.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-string"></a><h3>xfconf_channel_set_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_string (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);</pre>
+<p>Sets <em class="parameter"><code>value</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<p>If <em class="parameter"><code>value</code></em>
+ is <code class="literal">NULL</code>, the empty string ("") will be stored.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-string.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-string-list"></a><h3>xfconf_channel_set_string_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_string_list (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *const *values</code></em>);</pre>
+<p>Sets <em class="parameter"><code>values</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-string-list.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>values</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-string-list.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-int"></a><h3>xfconf_channel_set_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_int (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                        <em class="parameter"><code><span class="type">gint32</span> value</code></em>);</pre>
+<p>Sets <em class="parameter"><code>value</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-int.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-int.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-uint"></a><h3>xfconf_channel_set_uint ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_uint (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                         <em class="parameter"><code><span class="type">guint32</span> value</code></em>);</pre>
+<p>Sets <em class="parameter"><code>value</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-uint.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-uint.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-uint64"></a><h3>xfconf_channel_set_uint64 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_uint64 (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code><span class="type">guint64</span> value</code></em>);</pre>
+<p>Sets <em class="parameter"><code>value</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-uint64.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-uint64.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-double"></a><h3>xfconf_channel_set_double ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_double (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);</pre>
+<p>Sets <em class="parameter"><code>value</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-double.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-double.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-bool"></a><h3>xfconf_channel_set_bool ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_bool (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
+<p>Sets <em class="parameter"><code>value</code></em>
+ for <em class="parameter"><code>property</code></em>
+ on <em class="parameter"><code>channel</code></em>
+ in the configuration store.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-bool.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The value to set.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-bool.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occured.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-property"></a><h3>xfconf_channel_get_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_property (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                             <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                             <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
+<p>Gets a property on <em class="parameter"><code>channel</code></em>
+ and stores it in <em class="parameter"><code>value</code></em>
+.  The caller is
+responsible for calling <code class="function">g_value_unset()</code> when finished with <em class="parameter"><code>value</code></em>
+.</p>
+<p>This function can be called with an initialized or uninitialized
+<em class="parameter"><code>value</code></em>
+.  If <em class="parameter"><code>value</code></em>
+ is initialized to a particular type, libxfconf
+will attempt to convert the value returned from the configuration
+store to that type if they don't match.  If the value type returned
+from the configuration store is an array type, each element of the
+array will be converted to the type of <em class="parameter"><code>value</code></em>
+.  If <em class="parameter"><code>value</code></em>
+ is
+uninitialized, the value in the configuration store will be returned
+in its native type.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-property.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>A <span class="type">GValue</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-property.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-property"></a><h3>xfconf_channel_set_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_property (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                             <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                             <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);</pre>
+<p>Sets the value stored in <em class="parameter"><code>value</code></em>
+  to a property on <em class="parameter"><code>channel</code></em>
+.</p>
+<p>Note: The configuration store backend almost certainly supports
+only a restricted set of value types.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-property.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>A <span class="type">GValue</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-property.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-array"></a><h3>xfconf_channel_get_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_array (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                          <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                          <em class="parameter"><code><span class="type">GType</span> first_value_type</code></em>,
+                          <em class="parameter"><code>...</code></em>);</pre>
+<p>Gets an array property on <em class="parameter"><code>channel</code></em>
+.  The <em class="parameter"><code>first_value_type</code></em>
+
+argument specifies the type of the first value in the variable
+argument list.  The variable argument list should alternate between
+pointers to locations to store the values, and the GType of the
+next value.  The argument list should be terminated with
+G_TYPE_INVALID.</p>
+<p>Note: The configuration store backend almost certainly supports
+only a restricted set of value types.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_value_type</p></td>
+<td class="parameter_description"><p>The type of the first argument in the array.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>A variable argument list of types and values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-array.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-array-valist"></a><h3>xfconf_channel_get_array_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_array_valist (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                 <em class="parameter"><code><span class="type">GType</span> first_value_type</code></em>,
+                                 <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>Gets an array property on <em class="parameter"><code>channel</code></em>
+.  See <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-array" title="xfconf_channel_get_array ()"><code class="function">xfconf_channel_get_array()</code></a>
+for details.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-array-valist.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_value_type</p></td>
+<td class="parameter_description"><p>The type of the first argument in the array.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>var_args</p></td>
+<td class="parameter_description"><p>A variable argument list of types and values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-array-valist.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-arrayv"></a><h3>xfconf_channel_get_arrayv ()</h3>
+<pre class="programlisting"><span class="returnvalue">GPtrArray</span> *
+xfconf_channel_get_arrayv (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>);</pre>
+<p>Gets an array property on <em class="parameter"><code>channel</code></em>
+ and returns it as
+a <span class="type">GPtrArray</span>, which can be freed with <a class="link" href="xfconf-Xfconf-Library-Core.html#xfconf-array-free" title="xfconf_array_free ()"><code class="function">xfconf_array_free()</code></a>
+when no longer needed.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-arrayv.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-arrayv.returns"></a><h4>Returns</h4>
+<p>A newly-allocated <span class="type">GPtrArray</span> on success,
+or <code class="literal">NULL</code> on failure. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GValue][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-array"></a><h3>xfconf_channel_set_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_array (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                          <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                          <em class="parameter"><code><span class="type">GType</span> first_value_type</code></em>,
+                          <em class="parameter"><code>...</code></em>);</pre>
+<p>Sets an array property on <em class="parameter"><code>channel</code></em>
+.  The <em class="parameter"><code>first_value_type</code></em>
+
+argument specifies the type of the first value in the variable
+argument list.  Note that all values specified MUST be pointers
+to variables holding the correct value, and may not be, e.g.,
+numeric constants.  The argument list should be terminated with
+G_TYPE_INVALID.</p>
+<p>Note: The configuration store backend almost certainly supports
+only a restricted set of value types.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_value_type</p></td>
+<td class="parameter_description"><p>The type of the first argument in the array.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>A variable argument list of types and values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-array.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-array-valist"></a><h3>xfconf_channel_set_array_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_array_valist (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                 <em class="parameter"><code><span class="type">GType</span> first_value_type</code></em>,
+                                 <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>Sets an array property on <em class="parameter"><code>channel</code></em>
+.  See <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-array" title="xfconf_channel_set_array ()"><code class="function">xfconf_channel_set_array()</code></a>
+for details.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-array-valist.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_value_type</p></td>
+<td class="parameter_description"><p>The type of the first argument in the array.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>var_args</p></td>
+<td class="parameter_description"><p>A variable argument list of types and values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-array-valist.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-arrayv"></a><h3>xfconf_channel_set_arrayv ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_arrayv (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code><span class="type">GPtrArray</span> *values</code></em>);</pre>
+<p>Sets an array property on <em class="parameter"><code>channel</code></em>
+, using the values in the
+provided <em class="parameter"><code>values</code></em>
+ array.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-arrayv.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A property string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>values</p></td>
+<td class="parameter_description"><p>A <span class="type">GPtrArray</span> of <span class="type">GValue</span>s. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GValue]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-arrayv.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-named-struct"></a><h3>xfconf_channel_get_named_struct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_named_struct (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *struct_name</code></em>,
+                                 <em class="parameter"><code><span class="type">gpointer</span> value_struct</code></em>);</pre>
+<p>Gets a property from <em class="parameter"><code>channel</code></em>
+ and fills in <em class="parameter"><code>value_struct</code></em>
+ using
+the retrieved values.  The <em class="parameter"><code>struct_name</code></em>
+ parameter is the same
+name that must have been used to register the struct's layout
+with <a class="link" href="xfconf-Xfconf-Library-Core.html#xfconf-named-struct-register" title="xfconf_named_struct_register ()"><code class="function">xfconf_named_struct_register()</code></a>.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-named-struct.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>struct_name</p></td>
+<td class="parameter_description"><p>A string struct name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-named-struct.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-named-struct"></a><h3>xfconf_channel_set_named_struct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_named_struct (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *struct_name</code></em>,
+                                 <em class="parameter"><code><span class="type">gpointer</span> value_struct</code></em>);</pre>
+<p>Sets a property on <em class="parameter"><code>channel</code></em>
+ using the members of <em class="parameter"><code>value_struct</code></em>
+
+as the array of values.  The <em class="parameter"><code>struct_name</code></em>
+ parameter is the same
+name that must have been used to register the struct's layout
+with <a class="link" href="xfconf-Xfconf-Library-Core.html#xfconf-named-struct-register" title="xfconf_named_struct_register ()"><code class="function">xfconf_named_struct_register()</code></a>.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-named-struct.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>struct_name</p></td>
+<td class="parameter_description"><p>A string struct name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-named-struct.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully,
+<code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-struct"></a><h3>xfconf_channel_get_struct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_struct (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code><span class="type">gpointer</span> value_struct</code></em>,
+                           <em class="parameter"><code><span class="type">GType</span> first_member_type</code></em>,
+                           <em class="parameter"><code>...</code></em>);</pre>
+<p>Gets a property on <em class="parameter"><code>channel</code></em>
+ and stores it as members of the
+<em class="parameter"><code>value_struct</code></em>
+ struct.  The <em class="parameter"><code>first_member_type</code></em>
+ argument
+specifies the <span class="type">GType</span> of the first member of the struct.  The
+variable argument list specifies the <span class="type">GType</span>s of the
+rest of the struct members, and should be terminated with
+G_TYPE_INVALID.</p>
+<p>Note: This function takes your compiler's and platform's
+struct member alignment rules into account when storing values
+in <em class="parameter"><code>value_struct</code></em>
+.  Therefore, it cannot be used with structs that
+are declared as "packed" in such a way that the alignment rules
+are ignored by the compiler.</p>
+<p>Note: Struct members can only be non-pointer types such as int,
+boolean, double, etc.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-struct.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct in which to store values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_member_type</p></td>
+<td class="parameter_description"><p>The GType of the first member of <em class="parameter"><code>value_struct</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>A variable argument list of <span class="type">GType</span>s.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-struct.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> oherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-struct-valist"></a><h3>xfconf_channel_get_struct_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_struct_valist (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                  <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                  <em class="parameter"><code><span class="type">gpointer</span> value_struct</code></em>,
+                                  <em class="parameter"><code><span class="type">GType</span> first_member_type</code></em>,
+                                  <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>Gets a property on <em class="parameter"><code>channel</code></em>
+ and stores it as members of the
+<em class="parameter"><code>value_struct</code></em>
+ struct.  See <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-get-struct" title="xfconf_channel_get_struct ()"><code class="function">xfconf_channel_get_struct()</code></a> for details.</p>
+<p>Note: Struct members can only be non-pointer types such as int,
+boolean, double, etc.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-struct-valist.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct in which to store values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_member_type</p></td>
+<td class="parameter_description"><p>The GType of the first member of <em class="parameter"><code>value_struct</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>var_args</p></td>
+<td class="parameter_description"><p>A variable argument list of <span class="type">GType</span>s.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-struct-valist.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> oherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-get-structv"></a><h3>xfconf_channel_get_structv ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_get_structv (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                            <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                            <em class="parameter"><code><span class="type">gpointer</span> value_struct</code></em>,
+                            <em class="parameter"><code><span class="type">guint</span> n_members</code></em>,
+                            <em class="parameter"><code><span class="type">GType</span> *member_types</code></em>);</pre>
+<p>Gets a property on <em class="parameter"><code>channel</code></em>
+ and stores it as members of the
+<em class="parameter"><code>value_struct</code></em>
+ struct.  The <em class="parameter"><code>member_types</code></em>
+ array should hold
+a <span class="type">GType</span> for each member of the struct.</p>
+<p>Note: Struct members can only be non-pointer types such as int,
+boolean, double, etc.</p>
+<div class="refsect3">
+<a name="xfconf-channel-get-structv.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct in which to store values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_members</p></td>
+<td class="parameter_description"><p>The number of data members in the struct.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>member_types</p></td>
+<td class="parameter_description"><p>An array of <em class="parameter"><code>n_members</code></em>
+<span class="type">GType</span>s.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-get-structv.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was retrieved successfully,
+<code class="literal">FALSE</code> oherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-struct"></a><h3>xfconf_channel_set_struct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_struct (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                           <em class="parameter"><code>const <span class="type">gpointer</span> value_struct</code></em>,
+                           <em class="parameter"><code><span class="type">GType</span> first_member_type</code></em>,
+                           <em class="parameter"><code>...</code></em>);</pre>
+<p>Sets a property on <em class="parameter"><code>channel</code></em>
+ using the members of <em class="parameter"><code>value_struct</code></em>
+
+as a value array.  The <em class="parameter"><code>first_member_type</code></em>
+ argument specifies
+the <span class="type">GType</span> of the first member of the struct.  The variable
+argument list specifies the <span class="type">GType</span>s of the rest of the
+struct members, and should be terminated with G_TYPE_INVALID.</p>
+<p>Note: This function takes your compiler's and platform's
+struct member alignment rules into account when taking values
+in <em class="parameter"><code>value_struct</code></em>
+.  Therefore, it cannot be used with structs that
+are declared as "packed" such that the alignment rules are ignored
+by the compiler.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-struct.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct from which to take values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_member_type</p></td>
+<td class="parameter_description"><p>The GType of the first member of <em class="parameter"><code>value_struct</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>A variable argument list of <span class="type">GType</span>s.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-struct.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully,
+<code class="literal">FALSE</code> oherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-struct-valist"></a><h3>xfconf_channel_set_struct_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_struct_valist (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                                  <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                  <em class="parameter"><code>const <span class="type">gpointer</span> value_struct</code></em>,
+                                  <em class="parameter"><code><span class="type">GType</span> first_member_type</code></em>,
+                                  <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>Sets a property on <em class="parameter"><code>channel</code></em>
+ using the members of <em class="parameter"><code>value_struct</code></em>
+
+as a value array.  See <a class="link" href="xfconf-Xfconf-Channel.html#xfconf-channel-set-struct" title="xfconf_channel_set_struct ()"><code class="function">xfconf_channel_set_struct()</code></a> for details.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-struct-valist.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct from which to take values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_member_type</p></td>
+<td class="parameter_description"><p>The GType of the first member of <em class="parameter"><code>value_struct</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>var_args</p></td>
+<td class="parameter_description"><p>A variable argument list of <span class="type">GType</span>s.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-struct-valist.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully,
+<code class="literal">FALSE</code> oherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-channel-set-structv"></a><h3>xfconf_channel_set_structv ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfconf_channel_set_structv (<em class="parameter"><code><a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel</code></em>,
+                            <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                            <em class="parameter"><code>const <span class="type">gpointer</span> value_struct</code></em>,
+                            <em class="parameter"><code><span class="type">guint</span> n_members</code></em>,
+                            <em class="parameter"><code><span class="type">GType</span> *member_types</code></em>);</pre>
+<p>Sets a property on <em class="parameter"><code>channel</code></em>
+ using the members of <em class="parameter"><code>value_struct</code></em>
+
+as a value array.  The <em class="parameter"><code>member_types</code></em>
+ array should hold a <span class="type">GType</span>
+for each member of the struct.</p>
+<div class="refsect3">
+<a name="xfconf-channel-set-structv.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>An <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>A string property name.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value_struct</p></td>
+<td class="parameter_description"><p>A pointer to a struct from which to take values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_members</p></td>
+<td class="parameter_description"><p>The number of data members in the struct.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>member_types</p></td>
+<td class="parameter_description"><p>An array of <em class="parameter"><code>n_members</code></em>
+<span class="type">GType</span>s.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfconf-channel-set-structv.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the property was set successfully,
+<code class="literal">FALSE</code> oherwise.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfconfChannel-struct"></a><h3>XfconfChannel</h3>
+<pre class="programlisting">typedef struct _XfconfChannel XfconfChannel;</pre>
+<p>An opaque structure that holds state about a channel.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfconfChannel--channel-name"></a><h3>The <code class="literal">“channel-name”</code> property</h3>
+<pre class="programlisting">  “channel-name”             <span class="type">char</span> *</pre>
+<p>The string identifier used for this channel.</p>
+<p>Owner: XfconfChannel</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfconfChannel--is-singleton"></a><h3>The <code class="literal">“is-singleton”</code> property</h3>
+<pre class="programlisting">  “is-singleton”             <span class="type">gboolean</span></pre>
+<p>Identifies the instance of the class as a singleton instance
+or not.  This is mainly used internally by <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a>
+but may be useful for API users.</p>
+<p>Owner: XfconfChannel</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfconfChannel--property-base"></a><h3>The <code class="literal">“property-base”</code> property</h3>
+<pre class="programlisting">  “property-base”            <span class="type">char</span> *</pre>
+<p>The string identifier used for the property base inside a channel.
+This can be used to restrict a channel to a subset of properties.</p>
+<p>Owner: XfconfChannel</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Xfconf-Channel.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="XfconfChannel-property-changed"></a><h3>The <code class="literal">“property-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> *channel,
+               <span class="type">char</span>          *property,
+               <span class="type">GValue</span>        *value,
+               <span class="type">gpointer</span>       user_data)</pre>
+<p>Emitted whenever a property on <em class="parameter"><code>channel</code></em>
+ has changed.  If
+the change was caused by the removal of <em class="parameter"><code>property</code></em>
+, <em class="parameter"><code>value</code></em>
+
+will be unset; you should test this with</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">G_VALUE_TYPE</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">G_TYPE_INVALID</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="refsect3">
+<a name="XfconfChannel-property-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>channel</p></td>
+<td class="parameter_description"><p>The <a class="link" href="xfconf-Xfconf-Channel.html#XfconfChannel"><span class="type">XfconfChannel</span></a> emitting the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>property</p></td>
+<td class="parameter_description"><p>The property that changed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>The new value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Has Details</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

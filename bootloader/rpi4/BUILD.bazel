@@ -1,0 +1,31 @@
+exports_files(["framebuffer.h", "boot_entry.S", "boot_current.c", "boot.ld"])
+
+genrule(
+    name = "boot_current_elf",
+    srcs = [
+        "boot_entry.S",
+        "boot_current.c",
+        "framebuffer.h",
+        "//bootloader/video:metadata.h",
+        "boot.ld",
+        "//adt:current/adt_bin.h",
+        "//src/Kernel/xnu/12377.121.6:arm64/kernel_layout.h",
+    ],
+    outs = ["boot_current.elf"],
+    cmd = """
+        TMPDIR=$$PWD/$(@D) clang-20 --target=aarch64-none-elf -fuse-ld=lld -O2 -fno-pic -ffreestanding -fno-builtin -fno-stack-protector -nostdlib -mgeneral-regs-only -mstrict-align \
+          -I$$(dirname $(location //adt:current/adt_bin.h)) \
+          -I$$(dirname $(location //src/Kernel/xnu/12377.121.6:arm64/kernel_layout.h)) \
+          -Wl,-T$(location boot.ld) -Wl,--build-id=none \
+          -o $@ $(location boot_entry.S) $(location boot_current.c)
+    """,
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "boot_current_bin",
+    srcs = [":boot_current_elf"],
+    outs = ["boot_current.bin"],
+    cmd = "llvm-objcopy-20 -S -O binary $< $@",
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,913 @@
+4.20.4 (2026-03-02)
+======
+- logout-dialog: Do not create multiple dialogs
+- startxfce4: Add support for OpenBSD to kbd layout detection on wayland
+- portals: Add gnome-keyring as Secret provider
+- startxfce4: Prioritize XKBLAYOUT over KEYMAP for kbd layout on wayland
+- manager: Avoid use-after-free in idle function
+- labwc: Let amixer use system default mixer
+
+4.20.3 (2025-08-14)
+======
+- wayland: startxfce4: Remove definition of SDL_VIDEODRIVER variable
+- Add xapp for Settings in xfce-portals.conf
+- startxfce4: Add check for /etc/vconsole.conf
+- labwc: Add some default config values
+- xfce-portals.conf: Add wlr for ScreenCast
+- startxfce4: Improve keyboard layout detection on wayland
+- wayland: start a D-Bus session only if there isn't one already
+- Use syntax compatible with most sh shells.
+- labwc: Add window snapping range
+
+4.20.2 (2025-03-24)
+======
+- build: Fix include order on *BSD
+- autotools-build: Be sure gdbus-codegen files are regenerated
+
+4.20.1 (2025-03-23)
+======
+- wayland: Use labwc's --session option if available
+- wayland: Don't pass xfce4-session to the optional compositor cmdline
+- build: Add missing dep flags
+- build: Automate copyright year management
+- build: Replace xdt-csource with glib-compile-resources
+- build: Define xfce4 min version >= 4.18
+- scripts: Make xflock4 blocking again
+- startxfce4: Fix keyboard layout on wayland
+- scripts: Remove unused .in level in xinitrc
+- build: Add missing checks for headers
+- build: Fix wrong include guard
+- build: Add missing check for sigprocmask
+- autotools-build: Check for xfce4-dev-tools in configure.ac
+- build: Add missing dep flags
+- build: Get rid of maintainer mode where gdbus-codegen is used
+- Improve Wayland support
+- Translation Updates:
+  Basque, Catalan, Danish, Hungarian, Portuguese (Brazil), Russian,
+  Slovak, Ukrainian, Vietnamese
+
+4.20.0 (2024-12-15)
+======
+
+- Translation Updates:
+  Finnish, Hebrew, Polish, Portuguese (Brazil), Romanian
+
+4.19.4 (2024-12-01)
+======
+- I18n: Update po/LINGUAS list
+- Fix leak of reason messages from libSM
+- wayland: Wait for VT switch for LightDM users before starting 
+compositor
+- Avoid using bzero
+- users wanting to shutdown should be in the _shutdown group since 
+OpenBSD 7.4
+- Translation Updates:
+  Amharic, Azerbaijani (Azerbaijan), Czech, Georgian, Kazakh, Latvian,
+  Polish, Portuguese, Spanish, Turkish, Urdu, Urdu (Pakistan),
+  Vietnamese
+
+4.19.3 (2024-11-01)
+======
+- manager: Fix SmsClientHostName leak
+- Fix leaks in xfsm_properties_load
+- manager: Fix leaks in xfsm_manager_load_failsafe
+- Added missing Keywords entry to .desktop files
+- manager: Fix string array leak
+- Fix string leak in main()
+- Fix leaks in settings_list_sessions_open_key_file
+- manager: Fix string leaks
+- build: Bump requirements for Xfce 4.20
+- logout-dialog: Fix use-after-free when getting logout action
+- Apply .clang-format file
+- Fix gtk-layer-shell includes
+- Add xapp for Background xfce-portals.conf
+- manager: Fix wrong release function
+- Add css class for session chooser
+- scan-build: Fix unix.Malloc
+- scan-build: Add false positive file
+- build: clang: Fix -Wcast-align
+- build: Fix -Werror=unused-variable
+- Revert "Add new CI builds to build without X11 and Wayland"
+- build: Fix check for _IceTransNoListen
+- Translation Updates:
+  Albanian, Asturian, Bulgarian, Catalan, Chinese (China), Chinese
+  (Taiwan), Czech, Danish, Dutch, English (United Kingdom), Estonian,
+  French, Galician, German, Hebrew, Italian, Japanese, Korean,
+  Lithuanian, Occitan (post 1500), Polish, Portuguese, Serbian,
+  Slovenian, Spanish, Swedish
+
+4.19.2 (2024-03-31)
+======
+- Update copyright year
+- manager: Honor user settings for session saving in non-interact mode
+- logout-dialog: Remove save session checkbox
+- Explicitly depend on gio-unix-2.0
+- build: Always distribute session .desktop files
+- Add new CI builds to build without X11 and Wayland
+- wayland: Hide disabled features in dialogs
+- wayland: Avoid segfault when parsing display name
+- wayland: Use gtk-layer-shell for the logout dialog
+- wayland: Complete logout process
+- wayland: Adapt failsafe startup
+- wayland: Adapt startxfce4 and related files
+- build: Use AM_DISTCHECK_CONFIGURE_FLAGS
+- Guard X11 code paths
+- Remove X11 specific headers and symbols when possible
+- Revert "Ensure we always reap child processes"
+- Ensure we always reap child processes
+- Replace deprecated xfce_spawn_command_line_on_screen()
+- Add missing G_(BEGIN|END)_DECLS
+- Add xapp for Wallpaper and Screenshot in xfce-portals.conf
+- Add minimal xdg-desktop-portal conf file for Xfce (Fixes #181)
+- Ensure all various XDG_* etc. env vars are passed to DBus and systemd
+- Add missing export for XDG_CONFIG_HOME and XDG_CACHE_HOME
+- Clean up SVG icon metadata for 24px, 48px actions
+- Add action icons at 96px
+- Add icons at missing sizes, clean up SVG metadata
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Azerbaijani, Basque,
+  Belarusian, Belarusian (Tarask), Bengali, Bulgarian, Catalan, Chinese
+  (China), Chinese (Hong Kong), Chinese (Taiwan), Croatian, Czech,
+  Danish, Dutch, Eastern Armenian, English (Australia), English
+  (Canada), English (United Kingdom), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hindi, Hungarian, Icelandic,
+  Indonesian, Interlingue, Italian, Japanese, Kazakh, Korean,
+  Lithuanian, Malay, Norwegian Bokmål, Norwegian Nynorsk, Occitan
+  (post 1500), Persian (Iran), Polish, Portuguese, Portuguese (Brazil),
+  Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swedish,
+  Thai, Turkish, Ukrainian, Uyghur, Vietnamese
+
+4.19.1 (2023-05-29)
+======
+- xflock4: Add --help option (Fixes #148)
+- Add Lock() D-Bus method and make xflock4 a simple wrapper around it
+- Remove xscreensaver.desktop
+- cleanup: Simplify can_*() methods that never fail (Fixes #174)
+- shutdown: Do not set an error when returning TRUE
+- logout-dialog: Fix use-after-free
+- Use glib wrappers for memory allocation
+- build: Fix build when there is no suspend/hibernate support
+- build: Add suspend support for Solaris
+- startxfce4: Fix xinit arguments order
+- manager: Always use xfsm_manager_save_yourself_dbus() (Fixes #106)
+- settings: Remove useless tooltip
+- xflock4: Update fallback list
+- shutdown: Properly set error when methods fail
+- logout-dialog: Lower warning level
+- shutdown: Keep error NULL when unused
+- Use new authorization info for Reboot and PowerOff
+- Use updated session management API
+- Use XfceConsolekit and XfceSystemd from libxfce4util
+- Prepare XfsmSystemd to be moved to libxfce4util
+- Prepare XfsmConsolekit to be moved to libxfce4util
+- cleanup: Move packagekit code from xfsm-systemd.c to xfsm-shutdown.c
+- cleanup: Move common locker code in xfsm-shutdown.c
+- cleanup: Remove dead polkit code
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- Revert "Fallback to old method for shutdown (bug #8630)."
+- Use g_critical() instead of g_error()
+- Use GLib logging functions or g_printerr() instead of g_print()
+- Use GLib logging functions instead of g_printerr()
+- packagekit: Don't warn if packagekit is not installed
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Azerbaijani, Basque,
+  Belarusian, Belarusian (Tarask), Bulgarian, Catalan, Chinese (China),
+  Chinese (Hong Kong), Chinese (Taiwan), Croatian, Czech, Danish,
+  Dutch, Eastern Armenian, English (Australia), English (Canada),
+  English (United Kingdom), Estonian, Finnish, French, Galician,
+  German, Greek, Hebrew, Hindi, Hungarian, Icelandic, Indonesian,
+  Interlingue, Italian, Japanese, Kazakh, Korean, Lithuanian, Malay,
+  Norwegian Bokmål, Norwegian Nynorsk, Occitan (post 1500), Persian
+  (Iran), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish,
+  Ukrainian, Uyghur, Vietnamese
+
+4.19.0 (2023-04-18)
+======
+- Finally, take into account inhibitions when showing the session 
+dialog.
+- Implement the inhibition methods in the dbus interface.
+- Allows update on restart or shutdown when this feature are available.
+- build: Use m4_defined min versions and cleanup
+- build: Use XDT_CHECK_PACKAGE_BINARY and replace XDT_CHECK_LIBX11
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- build: Switch from intltool to gettext
+- build: Fix untranslated policykit file
+- Escape/unescape string list delimiter when saving/restoring session
+- Replace XfceRc with GKeyFile for session file parsing
+- manager: Fix GQueue memory management
+- Fix Xfconf memory management
+- Update bug report address
+- Fix suspend/hibernation bug on ConsoleKit2 (Fixes #164)
+- Update copyright year
+- Fix bus name acquisition/ownership
+- Use XfceScreensaver from Libxfce4ui
+- build: Fix previous commit
+- build: Fix autotools warnings
+- Avoid duplicating directories in the tail of $XDG_* envs
+- settings: Fix memory leak
+- libxfsm: Fix wrong return value
+- Fix memory leaks when opening xfce4-session-settings
+- Fix blurry session snapshots
+- Fix blurry icons in autostart tab when UI scale > 1
+- build: Fix GTK deprecation warnings
+- build: Fix some other GDK deprecation warnings
+- build: Fix gdk_error_trap_push/pop() deprecation warnings
+- build: Let xdt-depends.m4 macros set GLib macros
+- build: Remove GDK_VERSION_MIN_REQUIRED/MAX_ALLOWED
+- Make use of translations for run hooks (Fixes #156)
+- Translation Updates:
+  Albanian, Amharic, Arabic, Armenian (Armenia), Asturian, Azerbaijani,
+  Azerbaijani (Azerbaijan), Basque, Belarusian, Belarusian (Tarask),
+  Bengali, Bulgarian, Catalan, Chinese (China), Chinese (Hong Kong),
+  Chinese (Taiwan), Croatian, Czech, Danish, Dutch, Eastern Armenian,
+  English (Australia), English (Canada), English (United Kingdom),
+  Estonian, Finnish, French, Galician, German, Greek, Hebrew, Hindi,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Kazakh, Korean, Lithuanian, Malay, Norwegian Bokmål, Norwegian
+  Nynorsk, Occitan (post 1500), Persian (Iran), Polish, Portuguese,
+  Portuguese (Brazil), Romanian, Russian, Serbian, Slovak, Slovenian,
+  Spanish, Swedish, Thai, Turkish, Ukrainian, Uyghur, Vietnamese
+
+4.18.0 (2022-12-15)
+======
+- build: Bump requirements for Xfce 4.18
+- Translation Updates:
+  Russian, Turkish
+
+4.17.2 (2022-12-01)
+======
+- logout-dialog: New Xfconf property "ShowSave" (!29)
+- bump copyright year to 2022
+
+
+4.17.1 (2022-11-01)
+======
+
+- Translation Updates:
+  Portuguese
+
+4.17.0 (2022-09-14)
+======
+- settings: Revert type hint change
+- Check getgrgid(3) return value to avoid crash
+- build: Fix intltool lock file problem during make distcheck
+- Remove pre-defined lockers
+- Refresh list of screensavers (#17)
+- Do not mind output of screensaver, if successful
+- Run custom command in a separate shell
+- Avoid extra pause by redirecting stdin
+- Update COPYING
+- Increase switch user timeout (!25)
+- xflock4: Apply initial delay before running a screensaver/locker (#29)
+- xflock4: Update copyrights
+- xflock4: make the script executable
+- Add labels to inline toolbar buttons
+- Use correct icon for Close button
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Azerbaijani, Basque,
+  Belarusian, Belarusian (Tarask), Bengali, Bulgarian, Catalan, Chinese
+  (China), Chinese (Hong Kong), Chinese (Taiwan), Croatian, Czech,
+  Danish, Dutch, Eastern Armenian, English (Australia), English
+  (Canada), English (United Kingdom), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hindi, Hungarian, Icelandic,
+  Indonesian, Interlingue, Italian, Japanese, Kazakh, Korean,
+  Lithuanian, Malay, Norwegian Bokmål, Norwegian Nynorsk, Occitan
+  (post 1500), Persian (Iran), Polish, Portuguese, Portuguese (Brazil),
+  Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swedish,
+  Thai, Turkish, Ukrainian, Uyghur, Vietnamese
+
+4.16.0
+======
+- settings: Accept all types of GIcon
+- settings: Adjust inline toolbar
+- Fix compilation with -Wmissing-prototypes
+- Don't warn when there are no saved sessions
+- bump glib (and gio, gthread, etc) minimum to 2.50.0
+- Remove GSourceFunc casts
+- Update .gitignore
+- Add README.md to EXTRA_DIST
+- Translation Updates:
+  Basque, Chinese (China), Czech, Danish, Estonian, French, Galician,
+  Hebrew, Hindi, Indonesian, Italian, Lithuanian, Norwegian Bokmål,
+  Portuguese, Portuguese (Brazil), Russian, Serbian, Slovenian,
+  Turkish, Vietnamese
+
+4.15.1
+======
+- Fix potential crash in suspend and shutdown (Fixes #65)
+- Avoid potential format-string vulns (Issue #65)
+- settings: Tweak 'Current Session' tab
+- settings: Make 'App Autostart' columns sortable
+- settings: Fix 'Current session' column width (!10)
+- Add lock icon, 24px and 32px icons
+- Add more guards around GErrors
+- Update copyright year
+- Fix ifdef
+- Add README.md
+- Translation Updates:
+  Armenian (Armenia), Basque, Belarusian (Tarask), Chinese (China),
+  Czech, Danish, Eastern Armenian, Estonian, French, Hebrew, Hungarian,
+  Indonesian, Norwegian Bokmål, Portuguese (Brazil), Russian, Slovak,
+  Slovenian, Swedish, Turkish, Uyghur
+
+4.15.0
+======
+- Use new icon in settings dialog (Bug #16885)
+- Add new application icon and rDNS icon name
+- logout-dialog: Add new icons
+- logout-dialog: Bump icon size to 48px
+- Switch to symbolic window-close icons
+- Drop GDM compatibility code to avoid invalid session locale
+- Segfault when suspending without pm-suspend installed (Bug #16632)
+- Expand field codes
+- Add a GnuPG 2.1+ mode
+- Fix session crash at logout (Bug #16105)
+- Free the intermediate "cmd" variable in xfsm_startup_init()
+- Re-add xfsm_startup_shutdown() call to xfce4-session main()
+- Remove sys/sysctl.h on linux platform
+- Move from exo-csource to xdt-csource (Bug #16717)
+- Try xfce screensaver before cinnamon (Bug #16223)
+- Add support for xfce4-screensaver (Bug #16522)
+- Silence runtime warning (Bug #15731)
+- settings: Don't warn when there are no saved sessions (Fixes #62)
+- settings: Add sort-on-click to columns in "Current Session" tab (!3)
+- settings: Add keywords for discoverability (Bug #10694)
+- settings: Add tooltips to image-buttons
+- settings: Better app icon lookup
+- settings: Be more precise in infobar wording
+- settings: Drop inline-toolbar button labels
+- settings: Move autostart info to docs.xfce
+- settings: Don't make 'saved sessions' tab reorderable
+- settings: Sort saved sessions by most recently used (Bug #15338)
+- Add basic GitLab pipeline
+- Drop unused var
+- Bump copyright years
+- Only clean generated sources when in maintainer mode
+- Do not show translation info on --help output
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Basque, Belarusian, Belarusian
+  (Tarask), Bengali, Bulgarian, Catalan, Chinese (China), Chinese (Hong
+  Kong), Chinese (Taiwan), Croatian, Czech, Danish, Dutch, Eastern
+  Armenian, English (Australia), English (Canada), English (United
+  Kingdom), Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Kazakh, Korean, Lithuanian, Malay, Norwegian Bokmål, Norwegian
+  Nynorsk, Occitan (post 1500), Polish, Portuguese, Portuguese (Brazil),
+  Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swedish, Thai,
+  Turkish, Uighur, Ukrainian, Vietnamese
+
+4.14.0
+======
+- settings: Fix icon name
+- settings: Replace GtkStock buttons
+- Set XAUTHLOCALHOSTNAME in systemd user session (Bug #15440)
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Basque, Belarusian,
+  Bengali, Bulgarian, Catalan, Chinese (China), Chinese (Hong Kong),
+  Croatian, Czech, Danish, Dutch, English (Australia), English (United
+  Kingdom), Finnish, French, Galician, German, Greek, Hebrew, Hungarian,
+  Icelandic, Indonesian, Interlingue, Italian, Japanese, Kazakh, Korean,
+  Lithuanian, Malay, Norwegian Bokmål, Norwegian Nynorsk, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Uighur, Ukrainian,
+  Vietnamese
+
+4.13.4
+======
+ - Process Gtk events prior to starting D-Bus (Bug #15712)
+ - Revert "session: Serialize startup of xfsettings daemon"
+ - session: Serialize startup of xfsettings daemon
+ - Splash engines are not present anymore in xfce4-session
+ - Translation Updates:
+   Armenian (Armenia), Danish, Finnish, Norwegian Bokmål, Ukrainian
+
+4.13.3
+======
+- Reset font-size of logout dialog to default (Bug #15505)
+- Report optional dependency on polkit (Bug #12761)
+- Read data from correct group when editing autostart entry (Bug
+  #10423)
+- Improve layout of autostart add/edit dialogs
+- Improve column layout of autostart tab (Bug #15448)
+- settings: Fix crash when terminating programs (Bug #15489)
+- Translation updates:
+  Belarusian, Danish, English (Australia), Finnish, French, German,
+  Hebrew, Hungarian, Kazakh, Malay, Portuguese, Portuguese (Brazilian),
+  Turkish
+
+4.13.2
+======
+- Drop splash screens
+- Introduce priority-group startup for FailSafe Session
+- Optionally run commands on logout, suspend etc. (Bug #10172)
+- xflock4:
+  - Do not override PATH with hardcoded value.
+  - Add support for xfce4-screensaver to xflock4
+- chooser:
+  - Improve look and feel of the session chooser
+  - Improve UI and add delete button (Bug #12799)
+  - Add fallback theming to chooser dialogs
+  - Enable keypress response to session creation
+  - Update session name in xfconf after chooser
+  - Fix case in session chooser buttons
+- settings:
+  - Show saved sessions in settings dialog
+  - Move "lock screen before sleep" option to general tab
+  - Fix alignment of session lock property
+  - Fix PID showing in "Current Session" tab
+  - Improve icon matching in "Current Session" tab
+  - Add a label for the currently active session
+  - Add a "delete session" button to the session list
+  - Make the Autostart buttons an inline toolbar
+  - Initialize the session list treeview if necessary
+  - More settings dialog UI improvements
+  - Add column headers to autostart list
+  - In autostart some apps (e.g. xfce-polkit) have bigger icons
+  - Make entries expand in add/edit app startup dialog (Bug #15321)
+- logout-dialog:
+  - Fix sensitivity of switch user button
+  - Remove blue border from logout dialog (Bug #15284)
+  - Improve default style of the logout dialog
+  - Add styleclass to make logout dialog themeable
+  - Set logout dialog icons from icon_name
+  - Support scaling in logout dialog (Bug #14951)
+  - Use a different icon for hybrid sleep when possible
+  - Fix mnemonic conflict on logout dialog
+- Use systemd-logind methods instead of polkit permissions (Bug #14707)
+- scripts/xinitrc.in.in: use "command" shell builtin instead of
+which(1)
+- Use sysconf(_SC_NGROUPS_MAX) instead of #defining an arbitrary
+MAX_USER_GROUPS (bug #14722)
+- Don't auto start consolekit daemon if it is not running
+- Added better shutdown fallback support for the BSDs (Bug #14722)
+- Don't install generic icon names (Bug #11912)
+- Use exec to launch xfce4-session from xinitrc
+- xinitrc: Remove fallback path when xfce4-session is not installed
+- Remove old unused autostart_migrate function
+- Fix GVariant format string in dbus server
+- Extend debug messages
+- Silence compiler warnings
+- Remove unused checks on configure step
+- Drop unused function
+- Remove useless ioprio.h check
+- rollback fix of a warning (fix requires glib 2.58)
+- Fixed warning "cast between incompatible function types" introduced
+  in GCC 8
+- replaced GList of windows with single window (not required any more)
+  (triggered by previous commit a99008c8dbddc038778c8c7e1e080f42c034c3a2)
+- merged identic cases (triggered by previous commit
+  a99008c8dbddc038778c8c7e1e080f42c034c3a2)
+- removed duplicated loop counter (triggered by previous commit
+  a99008c8dbddc038778c8c7e1e080f42c034c3a2)
+- replaced deprecated "gtk_display_get_screen"  - For each display
+  there is only one screen (See gtk3 doc of gdk_display_get_screen). So
+  we can use gdk_display_get_default_screen (display) instead of looping
+  on all screens.  - The default screen is the screen of the default
+  display ( no need to first get the default display if the default
+  screen is required)
+- bump gtk version to 3.22 and gmodule/gio to 2.42
+- Remove now useless XFCE_GLADE_*_PATH variables (Bug #13945)
+- Tell intltool how to extract .ui files (Bug #14582)
+- fix build failure when dbus is not in the system include path (Bug
+  #14386)
+- Translation updates:
+  Albanian, Arabic, Asturian, Basque, Belarusian, Bengali, Bulgarian,
+  Catalan, Chinese (China), Chinese (Hong Kong), Chinese (Taiwan),
+  Croatian, Czech, Danish, Dutch (Flemish), English (Australia), English
+  (Great Britain), Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Italian, Japanese, Kazakh, Korean,
+  Latvian, Lithuanian, Malay, Norwegian Bokmål, Norwegian Nynorsk,
+  Occitan, Polish, Portuguese, Portuguese (Brazilian), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian,
+  Urdu, Urdu (Pakistan), Uyghur, Vietnamese
+
+4.13.1
+======
+- Add/Edit Application Autostart Entries (Bug #13271)
+- Remove non-existent grid properties (Bug #13271)
+- fix coverity 178990 Resource leak
+- fix coverity cid 178989 Dereference after null check
+- 178988 'Constant' variable guards dead code
+- fix coverity cid 178987 Logically dead code
+- fix coverity cid 87608 Dereference after null check
+- 178988 'Constant' variable guards dead code
+- fix coverity cid 178987 Logically dead code
+- fix coverity cid 87608 Dereference after null check
+- fix coverity cid 87607 Unchecked return value from library
+- Hybrid Sleep support - "hibernate" and suspend the system
+- xfce4-session-logout: deconflict -h option (Bug #12806)
+- Export the SSH_AUTH_SOCK when spawning client Bug #13486
+- fix: Compilation error with --disable-polkit Bug #12760
+- Require libxfce4ui-2 instead of libxfce4ui-1 in pc.in file
+- xfsm-manager: pass manager variable to g_timeout_add Bug #13802
+- Bump GTK version to 3.20
+- Check accessibility depending on xfsm configuration
+- Fix keyboard grab for logout window
+- Fix fadeout window using Xlib API
+- Fix gdk max version to 3.20
+- Translation updates: am, ar, ast, be, bg, bn, ca, cs, da,
+  de, el, en_AU, en_GB, eo, es, eu, fi, fr, gl, he, hr, hu,
+  id, is, it, ja, kk, ko, lt, lv, ms, nb, nl, nn, oc, pl, pt,
+  pt_BR, ro, ru, sk, sl, sq, sr, sv, th, tr, ug, uk, ur, ur_PK,
+  vi, zh_CN, zh_HK, zh_TW
+
+4.13.0
+======
+- xfsm has been ported to Gtk3.
+- xfsm now does session management for clients using the Gtk application
+  dbus interface.
+- xfsm has been ported to GDBus.
+- Add a switch user button to the logout dialog (Bug #10345)
+- UPower dependency has been removed as the suspend/hibernate dbus calls
+  were dropped from it.
+- Handle screensaver with it's own object (Bug #12603)
+- Fix a crash when warning about the screenlocker (Bug #12603)
+- When locking fallback to xflock4 first (Bug #12603)
+- Add switch-user to the xfsm-logout program
+- Translation updates: am, ast, ca, da, de, el, en_AU, es, fi, fr, gl, he,
+  hr, hu, id, is, it, ja, kk, ko, lt, ms, nb, nl, nn, oc, pl, pt, pt_BR,
+  ru, sk, sr, sv, th, tr, uk, zh_CN,  zh_TW
+
+4.12.0
+======
+Stable release of xfce4-session for Xfce 4.12.
+
+* Miscellaneous bug fixes:
+- Remove AC_CHECK_HEADER_STDBOOL, it was only
+  added in autoconf 2.69 and we dont use
+  stdbool.h anyway
+- Add symlinks to the old icons (Bug #11513)
+- Rename action icon names (Bug #11513)
+- Gracefully handle the sessions dir being
+  readonly (Bug #11307)
+- Add ConsoleKit2 support
+- Create scripts/xinitrc from scripts/xinitrc.in
+  created by configure
+
+* Translation updates:
+  Asturian (ast), Bulgarian (bg), Spanish (Castilian) (es),
+  Finnish (fi), French (fr), Hebrew (he), Romanian (ro),
+  Slovak (sk), Slovenian (sl).
+
+4.11.1
+======
+- Add DesktopNames to .desktop file
+- Export XDG_CURRENT_DESKTOP (Bug #11239)
+- Expand usage of xfsm_verbose for debugging
+- Don't log errors when trying to close non-existent FDs
+- Add error checking for fcntl
+- Properly print the dbus error message
+- Check the return value of select
+- atoi (argv[2]) is unsafe
+- Check the return value of gtk_tree_selection_get_selected
+- gtk_cell_renderer_text_new is never used
+- Minor Autotools Updates
+- Add fallback DragonflyBSD support for suspend/hibernate
+- Use pkexec for xfsm-shutdown (Bug 9952)
+- Handle gpg and ssh agents separately
+  Patch by Mikhail Efremov
+- Non-POSIX compliant test used in startxfce4 (Bug 10828)
+  Patch by seejay
+- Update copyright year (Bug 10768)
+- polkit_unix_process_new is deprecated (Bug 10793)
+  Patch by Baurzhan Muftakhidinov
+- Add logind runtime detection to support suspend/hibernate (Bug 9952)
+  Patch by Guido Berhoerster
+- Translation Updates: Asturian (ast), Bulgarian (bg),
+  German (de), Spanish (Castilian) (es), Finnish (fi),
+  French (fr), Norwegian Bokmål (nb), Dutch (Flemish) (nl),
+  Polish (pl), Swedish (sv), Phan Vĩnh Thịnh (vi).
+
+4.11.0
+======
+- Remove gnome-keyring remains.
+- Remove xfce environment functions and use glib.
+- Add shutdown/reboot functionality for systemd (bug #8729).
+- Fix duplicated accelerators.
+- Use the async spawn function of glib.
+- Store the watch function id to avoid possible double free (bug #9709).
+- Translation updates: Amharic, Arabic, Asturian, Azerbaijani,
+  Belarusian, Bulgarian, Bengali, Bengali (India), Catalan (Valencian),
+  Czech, Danish, German, Dzongkha, Greek, English (Australia), English
+  (United Kingdom), Spanish (Castilian), Basque, Persian, Finnish,
+  French, Galician, Gujarati, Hindi, Croatian, Hungarian, Indonesian,
+  Icelandic, Italian, Japanese, Georgian, Kazakh, Korean, Lithuanian,
+  Latvian, Macedonian, Marathi, Malay, Norwegian Bokmal, Dutch
+  (Flemish), Norwegian Nynorsk, Occitan (post 1500), Polish,
+  Portuguese, Portuguese (Brazilian), Romanian, Russian, Slovak,
+  Albanian, Serbian, Swedish, Tamil, Thai, Turkish, Uyghur, Ukrainian,
+  Urdu, Urdu (Pakistan), Chinese (China), Chinese (Hong Kong), Chinese
+  (Taiwan).
+
+4.10.0
+======
+- Remove remaining code to shutdown gconf.
+- Skip gpg/ssh-agent if GNOME compat is enabled and gnome-keyring found.
+- Replace mkdirhier with mkdir (bug #8776).
+- Translation updates: Spanish (Castilian), Galician, Japanese,
+  Korean, Portuguese, Romanian, Turkish, Chinese (China), Chinese
+  (Taiwan).
+
+4.9.2
+=====
+- Make the buttons sensitive when using sudo (bug #8708).
+- Restore ssh and gpg agent starting (bug #7018).
+- Translation updates: Czech, German, English (United Kingdom),
+  Spanish (Castilian), Croatian, Hungarian, Japanese, Kazakh, Korean,
+  Dutch (Flemish), Polish, Russian.
+
+4.9.1
+=====
+- Fix return value of CanSuspend and CanHibernate.
+- Make common no-reply error more subtile.
+- Bump package dependency versions.
+- Remove deprecated or unused code from xinit.
+- Use macro to search for sed.
+- Fallback to old method for shutdown (bug #8630).
+- Improve xflock4 script (bug #3770).
+- Drop the sync code because it can segfault on ext2 (bug #7887).
+- Always escape name and comment in dialog.
+- Translation updates: Catalan (Valencian), Danish, German, Greek,
+  Basque, Finnish, French, Galician, Croatian, Italian, Japanese,
+  Kazakh, Korean, Lithuanian, Dutch (Flemish), Norwegian Nynorsk,
+  Polish, Portuguese, Portuguese (Brazilian), Slovak, Turkish,
+  Ukrainian, Chinese (China).
+
+4.9.0
+=====
+- Add accelerators to logout dialog buttons (bug #6982).
+- Add support for starting assistive technologies.
+- Remove optional dependency for gconf.
+- Remove Xfce4-tips.
+- Remove early xfsettingsd autostart and add it to the session.
+- Fix crash if save timeout for a client is triggered (bug #7320).
+- Add a way to delete sessions (Bug #5730).
+- Drop usage of G_CONST_RETURN macro.
+- Add Xft.xrdb, startxfce4, xinit, xfce.desktop and xflock4
+  files from xfce-utils.
+- Explicitly link to libm where needed (bug #7953).
+- Remove the xfce4-panel logout menu plugin.
+- Don't try to remove the $HOME directory (bug #8154).
+- Remove manual and link to docs.xfce.org.
+- Show dialog in settings category.
+- Link to gmodule (bug #8340).
+- Improve fadeout code with compositing enabled.
+- Start screensaver with autostart.
+- Support the TryExec key for autostart in the settings dialog.
+- Rework the logout dialog code.
+- Cleanup the power management code.
+- Let xfce4-session handle the dbus-launch checking.
+- Add support for launching xfce4-session in consolekit.
+- Add --with-ck-launch support to startxfce4.
+- Add option to lock the screen on suspend/hibernate.
+- Remove unused icons.
+- Show all applications in autostart (bug #8014).
+- Drop gpg-agent and ssh-agent handling.
+- Translation updates: Arabic, Bulgarian, Catalan (Valencian), Czech,
+  Danish, German, Greek, Spanish (Castilian), Basque, Finnish, French,
+  Galician, Croatian, Hungarian, Indonesian, Icelandic, Italian,
+  Kazakh, Korean, Lithuanian, Dutch (Flemish), Norwegian Nynorsk,
+  Polish, Portuguese, Portuguese (Brazilian), Romanian, Russian,
+  Slovak, Swedish, Telugu, Turkish, Ukrainian, Chinese (China), Chinese
+  (Taiwan).
+
+4.8.2 (not released yet)
+=====
+- Fix crash if save timeout for a client is triggered (bug #7320).
+- Fix configuration location in manpage (bug #7371).
+
+4.8.1
+=====
+- Add missing license information (bug #7240).
+- Fix --fast CLI option when used with another option (bug #7197).
+- Fix error pop up when clicking session menu item (bug #7123).
+- Don't fallback to "system" icon in the logout dialog (bug #7196).
+- Update FSF address in copyright headers.
+- Updated translations: French, Swedish, Russian, Turkish.
+
+4.8.0
+=====
+- Add main category to desktop file.
+- Updated translations: Polish, Romanian, French, Arabic.
+
+4.7.3
+=====
+- Fix missing include.
+- Do not register to menu else the panel never hides (bug #7020).
+- Fix xfce4-session-logout --halt and --reboot (bug #5032).
+- Translation updates (nb, cs, en_GB, sv, hr, pt).
+
+4.7.2
+=====
+- Do not try "unix-session" authorization with PolicyKit as this
+  seems to be either broken or not implemented in PolicyKit (bug #6817).
+  This fixes suspend/hibernate in xfce4-session-logout.
+- Fix possibly shadowed variables.
+- Fix compilation on FreeBSD with polkit (bug #6870).
+- Restore splash screen functionality (bug #6831).
+- Fix logout with sudo.
+- Translation updates (de, pt_BR, zh_CN, el, uk, it, id, ja, kk, pt).
+
+4.7.1
+=====
+- Add support for new gnome-keyring (bugs #5912, #5137 and #6073).
+- Fix typo in xflock4 error message.
+- Don't use consolekit when it's not enabled.
+- Remove consolekit session creation in xfce4-session.
+- Use cairo to draw the fadeout.
+- Remove obsolote gtk_tooltip_* calls and other < gtk 2.14 code.
+- Fix the check for legacy sm.
+- Fix configure build options.
+- Print build config after running configure.
+- Various code cleanups.
+- Translation updates (it, ug, gl, zh_TW, de, ru, ja, sv, fi, kk,
+  pt, da, ca, eu, hu).
+
+4.7.0
+=====
+- Query HAL to be sure suspend and hibernate are supported.  If not,
+  don't even show the buttons (bug #4952).
+- Allow xfce4-tips to work when 'fortune' is not installed (bug #2871).
+- Allow clients to set arbitrary custom SM properties.
+- Support _GSM_DesktopFile and use it in the settings dialog to display
+  an icon and localized app name if available.
+- Add timing information to verbose.
+- Allow xfce4-tips to work properly without 'fortune' installed (bug #2871).
+- Add org.freedesktop.PowerManagement support for logout actions.
+- Add panel plugin that lists shutdown/logout actions.
+- Huge refactoring of how SM properties are handled.
+- Display richer information if the SM knows the client's .desktop file.
+- If it looks like the helper got killed, just return success (bug #4849).
+- Fix crash when properties are freed in failure handler (bug #5797).
+- Port code to libxfce4ui and drop deprecated Gtk code.
+- Fix error when running --help or --version (bug #6169).
+- Fix changing the restart style (bug #5768).
+- Add some additional checks for bug #5233.
+- Allow slashes in the application name (bug #3995).
+- Handle OnlyShowIn GNOME or KDE when compat is set.
+- Don't save settings dialogs when saving session (Bug #5113).
+- A lot of compiler warnings got fixed and build improvements.
+- Use ConsoleKit for shutdown and restart.
+- Use Upower for suspend and hibernate.
+- Use gtk_init_with_args in xfce4-session-logout.
+- Add a desktop file for xfce4-session-logout.
+- Don't write the deprecated encoding key to desktop files.
+- Remove deprecated encoding key from desktop files.
+- Move $libexecdir files to $libdir.
+- Move splash engines to $lidir/xfce4/session/splash-engines.
+- Generate documentation during dist check.
+- Translation updates (gl, ro, lv, it, ur_PK, zh_CN, hu, ast, da, po,
+  ja, kk, eu, ca, cs, el, ru, sk, es, tr, lv, sq, fi, pt_BR, de, uk,
+  bn, zh_TW).
+
+
+4.6.1
+=====
+
+- Fix crash in settings dialog when a .desktop file with a missing
+  Application key is opened (bug 5020).
+- Ensure networked session handling over TCP is disabled by
+  default (bug 5126).
+
+4.6.0
+=====
+
+- Respect the ICEAUTHORITY env var (bug 4369).
+- Fix sudo shutdown helper for systems without HAL (bug 4849).
+- Avoid a spurious error dialog when using the sudo shutdown helper
+  to shut down the system (bug 4849).
+- Fix crash in autostart editor when adding a new app (bug 4934).
+- Translation updates: el, eu, gl, hu, id, it, pl, ru, tr
+
+4.5.99.1 (Xfce 4.6rc1)
+======================
+
+- Translation updates: cs, da, fr, nb_NO, pt_BR, sv, zh_CN.
+
+4.5.93 (Xfce 4.6beta3)
+======================
+
+- Don't let autostart get run twice when using the failsafe session
+  (bug 4486).
+- Display username in logout dialog (bug 3083).
+- Ignore DBUS_GERROR_NO_REPLY errors on suspend/hibernate (bug 4629).
+- Use xfce_message_dialog() instead of xfce_err() for the Balou config
+  dialog.
+- Check for the existence of pwd.h and getpwuid().
+- Display the currently logged-in user in the shutdown dialog.
+- Properly signal that startup is complete when using the failsafe
+  session.
+- Translation updates: ca, cs, de, es, eu, fi, fr, hu, id, ja, nb_BO,
+  pt_BR, sq, sv, uk, tr.
+
+4.5.92 (Xfce 4.6beta2)
+======================
+
+- Hook up Help button in settings dialog.
+- Implement support for the RestartImmediately restart style hint.
+- Fix possible crash with uninitialised GError (bug 4202).
+- Link libxfsm against all required libs to avoid link-time errors
+  (bug 4429).
+- Make splash engines store their settings in Xfconf.
+- Handle the ProcessID SM property properly.
+- Add a session editor to the settings dialog.
+- Fix compilation on some Linux systems with a broken linux/ioprio.h
+  header (bug 4515).
+- Fix a possible crash on amd64 (bug 4510).
+- Add support for suspend and hibernate via HAL.  Initial patch from
+  Michael Casadevall (bug 2672).
+- When restoring clients on startup, be sure to set their current
+  working directory if the cwd was set as a part of their saved state.
+- Add SaveSession kiosk capability (bug 2998).
+- When a client requests interaction, don't continue to kill all other
+  clients while it's still interacting.  And then don't ignore it when
+  it wants to cancel shutdown.  Also fixes a similar problem when
+  interaction is requested during a phase 2 save-yourself (bug 4284).
+
+4.5.91 (Xfce 4.6beta1)
+======================
+
+- Start up session in parallel to greatly shorten startup time (bug 4312).
+- Add a D-Bus interface for some limited amount of remote control.
+- Implement support for the ShutdownCommand SM property when a
+  client has RestartAnyway set as its restart style hint.
+- Implement support for the RestartNever restart style hint.
+- sync() disks early in the shutdown process if on Linux and
+  ioprio_set() is available (bug 4313).  Otherwise sync() right before
+  quit as before (bug 4313).
+- Check for a running gnome-keyring instance before launching
+  a new one (bug 3007).
+- Convert most of xfce4-session to use Xfconf.  Splash settings are still
+  stored in the xfce4-splash.rc file.  The xfce4-session.rc file is no longer
+  used, however.
+
+
+4.5.90 (Xfce 4.6alpha)
+======================
+
+- Modified settings-dialogs to work with the new settings-manager
+- Fix compile-issues with -Wall -Werror in mice theme-engine and settings-dialogs
+- Let xfce4-session start xfsettingsd automatically
+- Remove dependency on deprecated NETK
+- Translations: am, ar, az, be, bn_IN, ca, cs, da, de, dz, el,
+  en_GB, eo, es_MX, es, et, eu, fa, fi, fr, gl, gu, he, hi, hu,
+  id, it, ja, ka, ko, lt, lv, mk, mr, ms, nb_NO, nl, pa, pl,
+  pt_BR, pt_PT, ro, ru, si, sk, sq, sv, ta, tr, uk, ur, vi, zh_CN, zh_TW
+
+
+4.4.0
+=====
+- Improve the logout dialog (Bug #2653).
+- Fix poweroff on DragonFly BSD (Bug #2567).
+- Use Xrender to fadeout the background if cairo is available.
+- Updated translations: Carles Muñoz Gorriz (ca), Fabian Nowak (de),
+                        Rudy Godoy (es), Maximilian Schleiss (fr), Andrey
+                        Fedoseev (ru)
+- New translations: Josip Dzolonga (mk)
+
+
+4.3.99.2
+========
+- Remove references to xftaskbar4 and xfce4-iconbox and rename xffm to Thunar
+  for the Tips'n'Tricks displayed on startup (#1332).
+- Be sure to start Thunar prior to xfdesktop on first login to avoid the trash
+  error from xfdesktop if the session bus is not configured properly (#2447).
+- Applications that fail to startup on login do no longer time out, but are
+  dropped immediately from the session, which results in faster startup in
+  that case.
+- Merge the sudo and the HAL shutdown helpers into a single shutdown helper,
+  which tries to use HAL first, and falls back to sudo.
+- Drop GLib 2.2.x compatibility code.
+- Updated translations: Pau Rul-lan Ferragut (ca), Sylvain Vedrenne (eo),
+			ByungHyun Choi (ko), Phan Vĩnh Thịnh (vi)
+- New translations: Sonam Rinchen (dz)
+
+
+4.3.99.1
+========
+- Add support for HAL to shutdown/reboot the computer. Must be enabled
+  explicitly using --with-shutdown-style=hal to configure (Bug #2046).
+- Do not try to save the xfce4-tips as part of the session (Bug #1089).
+- Add shutdown/reboot support for Solaris (Bug #2230, Moinak Ghosh).
+- Drop libgnome dependency for assistive technologies support.
+
+
+4.3.90.2
+========
+- Update dialogs to use the new XfceTitledDialog.
+- Properly handle OnlyShowIn and NotShowIn in the autostart editor.
+- Run discard command when client terminates unexpectedly.
+
+
+4.3.90.1
+========
+- Use the new standard location ($XDG_CONFIG_DIRS/autostart/) to specify
+  applications that will be automatically start on session login. Autostart
+  items from the previous location (~/Desktop/Autostart/) will be migrated
+  automatically on first run of the new session manager.
+- The list of autostarted applications can now be altered using a simple
+  editor application (xfce4-autostart-editor).
+- The xfce4-tips tool is now part of xfce4-session and well integrated with
+  the new autostart mechanism.

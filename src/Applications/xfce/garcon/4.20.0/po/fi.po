@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013,2019
+# Pasi Lallinaho <pasi@shimmerproject.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-04-18 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>, 2013,2019\n"
+"Language-Team: Finnish (http://app.transifex.com/xfce/garcon/language/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:5
+msgid "applications-accessories"
+msgstr ""
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Apuohjelmat"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Yleiset työpöydän työkalut ja sovellukset"
+
+#: data/xfce/xfce-development.desktop.in:5
+msgid "applications-development"
+msgstr ""
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Ohjelmistokehitys"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Ohjelmointi- ja kehitystyökalut"
+
+#: data/xfce/xfce-education.desktop.in:5 data/xfce/xfce-science.desktop.in:5
+msgid "applications-science"
+msgstr ""
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Opetus"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Opiskeluun tarkoitetut ohjelmistot"
+
+#: data/xfce/xfce-games.desktop.in:5
+msgid "applications-games"
+msgstr ""
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Pelit"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Pelit ja muut viihdeohjelmat"
+
+#: data/xfce/xfce-graphics.desktop.in:5
+msgid "applications-graphics"
+msgstr ""
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Grafiikka"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Grafiikan käsittely- ja katseluohjelmat"
+
+#: data/xfce/xfce-hardware.desktop.in:5
+msgid "preferences-desktop-peripherals"
+msgstr ""
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Laitteisto"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Eräiden laitteiden asetukset"
+
+#: data/xfce/xfce-multimedia.desktop.in:5
+msgid "applications-multimedia"
+msgstr ""
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Ääni- ja videosoittimet sekä editorit"
+
+#: data/xfce/xfce-network.desktop.in:5
+msgid "applications-internet"
+msgstr ""
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Internet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Sovellukset Internetin käyttöön"
+
+#: data/xfce/xfce-office.desktop.in:5
+msgid "applications-office"
+msgstr ""
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Toimisto"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Toimisto- ja tuottavuusohjelmistot"
+
+#: data/xfce/xfce-other.desktop.in:5
+msgid "applications-other"
+msgstr ""
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Muut"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Sovellukset, jotka eivät sovi muihin luokkiin"
+
+#: data/xfce/xfce-personal.desktop.in:5
+msgid "preferences-desktop-personal"
+msgstr ""
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Henkilökohtaiset"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Henkilökohtaiset asetukset"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Tiede"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Tiedeohjelmistot"
+
+#: data/xfce/xfce-screensavers.desktop.in:5
+msgid "preferences-desktop-screensaver"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Näytönsäästäjät"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Näytönsäästäjäsovelmat"
+
+#: data/xfce/xfce-settings.desktop.in:5
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Asetukset"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Työpöydän ja järjestelmän asetusohjelmat"
+
+#: data/xfce/xfce-system.desktop.in:5
+msgid "applications-system"
+msgstr ""
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Järjestelmä"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Järjestelmän työkalut ja hyötyohjelmat"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Tiedostoa \"%s\" ei löydy"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Valikkotiedoston %s lataaminen epäonnistui: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Valikkotiedoston %s lataaminen epäonnistui"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Komennon \"%s\" suorittaminen epäonnistui."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Käynnistysvirhe"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Ei voida käynnistää \"exo-desktop-item-edit\" -toimintoa, jota tarvitaan valikon kohteiden luomiseen ja muokkaamiseen."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Sulje"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Sovellusvalikon lataaminen epäonnistui"

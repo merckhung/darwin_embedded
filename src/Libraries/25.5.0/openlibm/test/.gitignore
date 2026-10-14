@@ -1,0 +1,14 @@
+/test-float
+/test-float-system
+/test-float.dSYM
+/test-double
+/test-double-system
+/test-double.dSYM
+/bench-openlibm
+/bench-syslibm
+/*.exe
+# Built regression programs (keep the .c sources and the shared header).
+/regression/test-*
+!/regression/test-*.c
+/regression/*.exe
+/regression/*.dSYM

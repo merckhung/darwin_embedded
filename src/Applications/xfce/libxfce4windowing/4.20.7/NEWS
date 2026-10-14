@@ -1,0 +1,342 @@
+4.20.7 (2026-08-10)
+======
+- Add xfw_monitor_get_edid()
+- Support the xfce-output-private-v1 protocol
+- build: Add missing check for bind_textdomain_codeset
+- Implement xfce-foreign-toplevel-management-private-v1
+- Remove G_GNUC_CONST
+- gobject-linter: Fix property_enum_coverage
+- gobject-linter: Fix missing_implementation
+- gobject-linter: Fix use_g_steal_pointer
+- gobject-linter: Fix g_param_spec_static_strings
+- gobject-linter: Fix use_clear_functions
+- gobject-linter: Fix matching_declare_define
+- gobject-linter: Fix property_switch_exhaustiveness
+- cppcheck: Fix invalidPrintfArgType_sint warning in test code
+- Fix includes that should use double quotes
+- cppcheck: Fix knownConditionTrueFalse
+- cppcheck: Fix unreadVariable
+- cppcheck: Fix invalidPrintfArgType_sint
+- scan-build: Update false positive file after clang version bump
+- Fix fallback icons for pixmaps path
+- Translation Updates:
+  Czech, Slovak
+
+4.20.6 (2026-05-24)
+======
+- Add xfw_screen_get_monitor_for_gdk_monitor()
+- Add missing "New in 4.20.6" docs section
+- Add missing chain up to parent class
+- I18n: Update po/LINGUAS list
+- XfwMonitor: Fix (xdg_)output_done event handling
+- XfwMonitor: Fix typo and initialize class member
+- Ignore workarea/workspace count mismatches
+- Fix incorrect max to clamp workspace number to
+- Implement workspace geometry for wayland
+- Add XfwWorkspace:geometry property
+- Fix missing workspace signal connections in test program
+- Add test program to enumerate workspaces
+- Fix X11 workspace geometry and layout getting out of date
+- Fix incorrect col & row ordering for Wayland workspace coordinates
+- Fix width -> height typo for XfwWorkspaceX11 geometry
+- Add fallback monitor on X11 if XRandR doesn't report anything
+- Don't depend on wayland-scanner and wayland-protocols
+- XfwWindowWayland: Connect to XfwScreen::monitor-added
+- XfwWindowWayland: Connect to XfwScreen::monitor-removed
+- Translation Updates:
+  Georgian, Kazakh, Korean, Lao, Russian, Turkish
+
+4.20.5 (2025-12-29)
+======
+- I18n: Update po/LINGUAS list
+- build: Fix typo in optimization level
+- XfwWorkspaceWayland: Add missing sanity check
+- I18n: Update po/LINGUAS list
+- XfwWindowX11: Readjust entire monitor list when one is added/removed
+- I18n: Update po/LINGUAS list
+- autotools-build: Add *-docs.xml.in to EXTRA_DIST
+- Translation Updates:
+  Arabic, Czech, Danish, Esperanto, Italian, Norwegian Bokmål, Occitan
+  (post 1500), Portuguese (Brazil), Slovenian, Swedish, Thai, Uyghur,
+  Vietnamese
+
+4.20.4 (2025-08-14)
+======
+- XfwMonitorWayland: Delay monitor finalization until gdk data are set
+- XfwSeatWayland: Store global name for matching when seat is removed
+- XfwMonitorWayland: Fix release order in _global_removed()
+- XfwMonitorManagerWayland: Use g_hash_table_iter_remove when iterating
+- XfwMonitorWayland: Store global name for matching when output is 
+removed
+- XfwScreenWayland: Rename id to name in registry_global(_remove)?
+- XfwMonitorWayland: Don't make XfwScreen emit signal with null monitor
+- XfwWorkspaceGroupWayland: Connect to 
+XfwScreen::monitor-(added|removed)
+- Add mnemonics for workspace names in workspace menu
+- Revert "Update README after switchover to meson"
+- Update README after switchover to meson
+- Destroy wl_output & xdg_output together when wl_output global removed
+- XfwWorkspaceWayland: Fix typo
+- XfwWorkspace: Fix id property management
+- Defer binding to the workspace manager until after we have the outputs
+- I18n: Update po/LINGUAS list
+- meson-build: Add Vala language bindings option
+- Translation Updates:
+  Arabic, Bulgarian, Catalan, Chinese (China), Dutch, English (United
+  Kingdom), Estonian, French, German, Greek, Japanese, Lithuanian,
+  Polish, Portuguese, Portuguese (Brazil), Romanian, Serbian, Spanish,
+  Ukrainian
+
+4.20.3 (2025-05-21)
+======
+- Support absolute icon paths
+- meson-build: Add GNU visibility files to sources
+- I18n: Update po/LINGUAS list
+- autotools-build: Search for xdt-gen-visibility also in the working 
+tree
+- build: Automate copyright year management
+- docs: Fix warnings
+- XfwWindowX11: Fix memory leak
+- Try to match the app id in lower case to find the .desktop file
+- XfwWindowX11: Keep a ref on workspace
+- XfwWnckIcon: Fix wrong compare func
+- meson-build: Add missing conditional for ext-workspace
+- meson-build: Reintroduce tests option
+- meson-build: Use SPDX license expression
+- meson-build: Specify wayland-scanner as a native dependency
+- meson-build: Update debug/optimization flag management
+- Translation Updates:
+  Georgian
+
+4.20.2 (2025-02-02)
+======
+- autotools-build: Unconditionally add ext-workspace-v1.xml to 
+EXTRA_DIST
+
+4.20.1 (2025-02-02)
+======
+- Update copyright year
+- Sanity-check the dimensions of the icon data in _NET_WM_ICON
+- meson-build: Use meson built-in tests
+- XfwMonitorX11: Fix connector for virtual output
+- Use wnck_class_group_get_id() to attempt .desktop file icon fallback
+- meson-build: Let pkg.generate() fill in required libs
+- meson-build: Fix pkgdatadir definition
+- meson-build: Gobject introspection cleanup
+- meson-build: Use relative path in gtk-doc
+- meson-build: Improve maintainability of multi-dependency features
+- Removed extra ';' in source code.
+- build: Remove ununsed conditional
+- I18n: Update po/LINGUAS list
+- docs: Don't run gtkdoc-check
+- XfwWorkspaceWayland: Ensure active workspace is initialized
+- XfwWorkspaceManagerWayland: Fix typo
+- XfwWorkspaceWayland: fix ext-workspace activate
+- XfwWorkspaceWayland: Store name property
+- XfwWorkspaceWayland: Properly set id property
+- XfwWorkspaceGroupWayland: Fix wrong list element removal
+- Update ext-workspace protocol version
+- XfwWorkspaceWayland: Add missing sanity check
+- XfwWorkspaceManagerWayland: Fix typo
+- XfwWorkspaceGroupWayland: Add missing property and private struct
+- I18n: Update po/LINGUAS list
+- Translation Updates:
+  Hungarian, Romanian, Slovak
+
+4.20.0 (2024-12-15)
+======
+
+- Translation Updates:
+  Finnish
+
+4.19.10 (2024-12-01)
+=======
+- I18n: Update po/LINGUAS list
+- Fix XfwMonitor leak in steal_monitor_by_connector
+- Translation Updates:
+  Czech, Galician
+
+4.19.9 (2024-11-01)
+======
+- Fix leak of seats GList
+
+
+4.19.8 (2024-10-22)
+======
+- Clean up xsettings client & work around GDK swallowing events
+- Remove private sources from the public sources list
+
+
+4.19.7 (2024-10-09)
+======
+- Fix missing parent instance in XfwSeatWayland
+- Add XfwWindowListMenu widget
+- Remove the "(constructor)" annotation on xfw_screen_get_default()
+- Fix crash on workspace add/remove after XfwWindowActionMenu destroyed
+- Make XfwWindowAction menu struct private
+
+
+4.19.6 (2024-10-06)
+======
+- Actually export xfw_screen_get_seats from the library
+- Add XfwSeat abstraction
+- build: Adjust Wayland requirements for Xfce 4.20
+
+
+4.19.5 (2024-10-03)
+======
+- Add more compiler flags to the meson build
+- Use physical geometry when comparing X11 window geometry to monitor
+- build: Bump requirements for Xfce 4.20
+- Include meson build files in autotools dist tarball
+- Set up GNU symbol visibility
+- Ditch maintainer mode
+- Suppress spurious uninitialized var warning
+- Make window listener struct static
+- Update meson build
+- Bump C std from gnu99 to gnu11
+- meson: fix missing checks for x11 and wayland feature detection
+- Fix physical monitor height not getting set on X11
+- Ensure private symbols don't end up in the introspection file
+- autotools: don't build tests by default
+- Print monitor ID in xfw-enum-monitors test app
+- Try to make monitor IDs stable between X11 and Wayland
+- Move xrandr event base into XfwMonitorManagerX11
+- Fetch X11 scale factor from XSETTINGS, not GDK
+- Fix monitor workarea setting when monitors appear
+
+
+4.19.4 (2024-08-23)
+======
+- Add tests/Makefile.am
+- x11: refresh monitors in an idle function
+- I18n: Update po/LINGUAS list
+- Add a couple small test programs
+- Defer binding to the toplevel manager until after we have the outputs
+- Add debug logging to toplevel output_enter/leave
+- Add debugging when finalizing output properties
+- Add a few more display synchronization points in the wayland code
+- Reset XfwMonitorWayland output_done/xdg_output_done count on finalize
+- Add XfwMonitor:fractional-scale
+- Add primary monitor fallback guessing to X11 too
+- Remove extra wl_registry for the wayland monitor management
+- Remove extra wl_registry for the wayland workspace manager
+- Fix missing wl_output & xdg_output assignment in XfwMonitorWayland
+- Add workarea info and tracking to XfwMonitor
+- Use XfwMonitor instead of GdkMonitor throughout
+- Add XfwScreen::monitor-added and XfwScreen::monitor-removed
+- Fix 'Since' doc tag typos
+- Don't g_warning() if xrandr returns no monitors
+- Add xfw_monitor_get_gdk_monitor()
+- Fix bad doc comment for XfwMonitor:is-primary
+- Add primary monitor concept to XfwMonitor
+- Use system-relative include paths in public headers
+- Fix bad property name (from a stray search-and-replace)
+- Move monitors list into XfwScreen
+- Make XfwScreen an abstract class instead of an interface
+- wayland: Fix monitor ownership
+- XfwMonitor: add object properties
+- Add XfwMonitor
+- Apply .clang-format file
+- clang-format: Add file
+- build: Complete use of XDT_VERSION_INIT
+- Fix warnings about typedef redeclaration
+- use -no-undefined so that libtool consumes it
+- scan-build: Add false positive file
+- build: clang: Fix -Wcast-align
+- I18n: Update po/LINGUAS list
+- Revert "Add new CI builds to build without X11 and Wayland"
+- I18n: Update po/LINGUAS list
+- Don't toggle show-desktop whenever wnck tells us it changed
+- make sure bash is found non non-linux
+- Add meson build files
+- Add layout-row and layout-column properties to XfwWorkspace
+- Implement workspace layout row/column for Wayland
+- I18n: Update po/LINGUAS list
+- Translation Updates:
+  Asturian, Czech, Greek, Kazakh
+
+4.19.3 (2024-02-29)
+======
+- Update copyright year
+- Ensure workspace/group state is correct on X11 before emitting signals
+- Set initial workspace's group properly on X11
+- Add XfwClientType to doc sections
+- Add xfw_set_client_type() to doc sections
+- Add xfw_set_client_type()
+- Add an X11-specific header and xfw_window_get_xid()
+- Remove xfw_(window|application)_get_id()
+- build: Use AM_DISTCHECK_CONFIGURE_FLAGS
+- Expose class ids in XfwWindow and XfwApplication
+- Update ext-workspace protocol spec to current version
+- XfwWindowX11: Improve monitor list management
+- XfwWindowX11: Fix monitor management
+- build: Search for bind_textdomain_codeset in libintl too
+- build: Test if wlr-protocols dir is empty at configure time
+- Use system wlr-protocols defs if avail, fall back to submodule if not
+- Reduce verbosity
+- Add missing G_END_DECLS
+- I18n: Update po/LINGUAS list
+- window-wayland: Set app_id only if it changes
+- application: Fix window memory management (V2)
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- window-wayland: Ensure app always exists (Fixes #14)
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- Add monitor-added and monitor-removed signals to XfwWorkspaceWayland
+- Minor cleanup to wayland group monitor code
+- Remove unused code from XfwWorkspaceGroupWayland
+- Fix missing monitors-changed signal emission on x11/dummy
+- x11: use workspace number as ID
+- Use G_N_ELEMENTS()
+- Fix previous commit
+- XfwApplication: Fix window memory management
+- Translation Updates:
+  Catalan, Chinese (Taiwan), Danish, Estonian, Irish, Italian, Occitan
+  (post 1500), Ukrainian
+
+4.19.2 (2023-04-17)
+======
+- Update copyright year
+- XfwScreenX11: Fix typo in property name when creating window
+- Use XDT_CHECK_PACKAGE_BINARY for wayland-scanner
+- Use XDT_CHECK_OPTIONAL_FEATURE
+- Use XDT_VERSION_INIT() and eliminate need for configure.ac.in
+- Use $PKG_CONFIG and not pkg-config in configure.ac
+- autogen.sh: fix xfce4-dev-tools dependency version
+- build: Get rid of IntlTool
+- Use bind_textdomain_codeset() if available
+- build: Fix autotools warning
+- Update bug report address
+- build: Fix "make dist" when disable wayland
+- configure: Fix X11's dependencies detection
+- XfwWnckIcon: Silently return NULL if no X11 window can be found
+- Add new CI builds to build without X11 and Wayland
+- configure: error out if no windowing backend enabled
+- Add configure args to enable/disable X11/Wayland
+- Fix Wayland-only build
+- Translation Updates:
+  Albanian, Bulgarian, Chinese (China), Chinese (Taiwan), Croatian,
+  Dutch, English (Canada), English (United Kingdom), Finnish, French,
+  German, Hebrew, Indonesian, Interlingue, Italian, Japanese, Korean,
+  Lithuanian, Norwegian Bokmål, Occitan (post 1500), Polish,
+  Portuguese, Portuguese (Brazil), Romanian, Russian, Serbian,
+  Slovenian, Spanish, Swedish, Turkish, Ukrainian
+
+4.19.1 (2023-01-09)
+======
+- Allow callers to determine if a returned icon is a fallback icon
+- Remove duplicate _get_icon() code
+- Return correct fallback icon for XfwWindowWayland
+- Cache GIcon and GdkPixbuf in XfwApplication
+- Cache GIcon and GdkPixbuf in XfwWindow
+- Add xfw_(window|application)_get_gicon()
+- XfwApplication: Make XfwApplicationInstance opaque
+- Fix build when X11 disabled
+
+
+4.19.0 (2023-01-02)
+======
+- Initial release

@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# 黃柏諺 <s8321414@gmail.com>, 2022
+# Bill Chang, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-30 00:46+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Bill Chang, 2023\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/xfce/teams/16840/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "提供的視窗沒有 _NET_WM_ICON 或 _NET_WM_ICON 圖示"
+
+#: libxfce4windowing/xfw-wnck-icon.c:630
+msgid "Failed to find or load an icon for the window"
+msgstr "無法找到或載入視窗圖示"
+
+#: libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "工作空間 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "移動(_M)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "調整大小(_R)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "一律置頂(_T)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "一律處於可見的工作空間(_A)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "僅於此工作空間(_O)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "移動至左側工作空間(_L)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "移動至右側工作空間(_I)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "移動至上方工作空間(_U)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "移動至下方工作空間(_D)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "移動至其他工作框間(_W)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "關閉(_C)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "工作空間 %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr "最小化(_N)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr "取消最小化(_N)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr "最大化(_X)"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr "取消最大化(_X)"

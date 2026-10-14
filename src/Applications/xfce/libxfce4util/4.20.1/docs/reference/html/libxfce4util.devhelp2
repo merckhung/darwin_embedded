@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="libxfce4util Reference Manual" link="index.html" author="" name="libxfce4util" version="2" language="c" online="http://[SERVER]/libxfce4util/index.html">
+  <chapters>
+    <sub name="[Insert title here]" link="ch01.html">
+      <sub name="Version Information" link="libxfce4util-Version-Information.html"/>
+      <sub name="Internationalization" link="libxfce4util-Internationalisation.html"/>
+      <sub name="Xfce Generics" link="libxfce4util-Xfce-Generics.html"/>
+      <sub name="Xfce Kiosk functions" link="libxfce4util-Xfce-Kiosk-functions.html"/>
+      <sub name="Resource lookup functions" link="libxfce4util-Resource-lookup-functions.html"/>
+      <sub name="Resource Config File Support" link="libxfce4util-Resource-Config-File-Support.html"/>
+      <sub name="Unicode Manipulation" link="libxfce4util-Unicode-Support-Functions.html"/>
+      <sub name="File Utilities" link="libxfce4util-File-Utilities.html"/>
+      <sub name="GIO Extensions" link="libxfce4util-GIO-Extensions.html"/>
+      <sub name="Xfce Cstring/GString Functions" link="libxfce4util-Xfce-String-Functions.html"/>
+      <sub name="Software Licenses" link="libxfce4util-Software-Licenses.html"/>
+      <sub name="Miscellaneous Utilities" link="libxfce4util-Miscellaneous-Utilities.html"/>
+      <sub name="POSIX Signal Handling" link="libxfce4util-POSIX-Signal-Handling.html"/>
+      <sub name="XfceConsolekit" link="XfceConsolekit.html"/>
+      <sub name="XfceSystemd" link="XfceSystemd.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Index of deprecated API" link="deprecated-api-index.html"/>
+    <sub name="Index of new API in 4.17" link="api-index-4-17.html"/>
+    <sub name="Index of new API in 4.17.1" link="api-index-4-17-1.html"/>
+    <sub name="Index of new API in 4.18" link="api-index-4-18.html"/>
+    <sub name="Index of new API in 4.19.1" link="api-index-4-19-1.html"/>
+    <sub name="Index of new API in 4.2" link="api-index-4-2.html"/>
+    <sub name="Index of new API in 4.3" link="api-index-4-3.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <keyword type="function" name="xfce_version_string ()" link="libxfce4util-Version-Information.html#xfce-version-string" since="4.2"/>
+    <keyword type="macro" name="LIBXFCE4UTIL_CHECK_VERSION()" link="libxfce4util-Version-Information.html#LIBXFCE4UTIL-CHECK-VERSION:CAPS"/>
+    <keyword type="variable" name="libxfce4util_major_version" link="libxfce4util-Version-Information.html#libxfce4util-major-version"/>
+    <keyword type="variable" name="libxfce4util_minor_version" link="libxfce4util-Version-Information.html#libxfce4util-minor-version"/>
+    <keyword type="variable" name="libxfce4util_micro_version" link="libxfce4util-Version-Information.html#libxfce4util-micro-version"/>
+    <keyword type="macro" name="LIBXFCE4UTIL_MAJOR_VERSION" link="libxfce4util-Version-Information.html#LIBXFCE4UTIL-MAJOR-VERSION:CAPS"/>
+    <keyword type="macro" name="LIBXFCE4UTIL_MINOR_VERSION" link="libxfce4util-Version-Information.html#LIBXFCE4UTIL-MINOR-VERSION:CAPS"/>
+    <keyword type="macro" name="LIBXFCE4UTIL_MICRO_VERSION" link="libxfce4util-Version-Information.html#LIBXFCE4UTIL-MICRO-VERSION:CAPS"/>
+    <keyword type="function" name="xfce_textdomain ()" link="libxfce4util-Internationalisation.html#xfce-textdomain"/>
+    <keyword type="function" name="xfce_get_file_localized ()" link="libxfce4util-Internationalisation.html#xfce-get-file-localized"/>
+    <keyword type="function" name="xfce_get_file_localized_r ()" link="libxfce4util-Internationalisation.html#xfce-get-file-localized-r"/>
+    <keyword type="function" name="xfce_get_dir_localized ()" link="libxfce4util-Internationalisation.html#xfce-get-dir-localized"/>
+    <keyword type="function" name="xfce_get_dir_localized_r ()" link="libxfce4util-Internationalisation.html#xfce-get-dir-localized-r"/>
+    <keyword type="function" name="xfce_get_path_localized ()" link="libxfce4util-Internationalisation.html#xfce-get-path-localized"/>
+    <keyword type="function" name="xfce_locale_match ()" link="libxfce4util-Internationalisation.html#xfce-locale-match" since="4.2"/>
+    <keyword type="macro" name="XFCE_LOCALE_FULL_MATCH" link="libxfce4util-Internationalisation.html#XFCE-LOCALE-FULL-MATCH:CAPS"/>
+    <keyword type="macro" name="XFCE_LOCALE_NO_MATCH" link="libxfce4util-Internationalisation.html#XFCE-LOCALE-NO-MATCH:CAPS"/>
+    <keyword type="macro" name="XFCE_GENERIC_STACK()" link="libxfce4util-Xfce-Generics.html#XFCE-GENERIC-STACK:CAPS"/>
+    <keyword type="macro" name="xfce_stack_new()" link="libxfce4util-Xfce-Generics.html#xfce-stack-new"/>
+    <keyword type="macro" name="xfce_stack_free()" link="libxfce4util-Xfce-Generics.html#xfce-stack-free"/>
+    <keyword type="macro" name="xfce_stack_top()" link="libxfce4util-Xfce-Generics.html#xfce-stack-top"/>
+    <keyword type="macro" name="xfce_stack_pop()" link="libxfce4util-Xfce-Generics.html#xfce-stack-pop"/>
+    <keyword type="macro" name="xfce_stack_push()" link="libxfce4util-Xfce-Generics.html#xfce-stack-push"/>
+    <keyword type="function" name="xfce_kiosk_new ()" link="libxfce4util-Xfce-Kiosk-functions.html#xfce-kiosk-new" since="4.2"/>
+    <keyword type="function" name="xfce_kiosk_query ()" link="libxfce4util-Xfce-Kiosk-functions.html#xfce-kiosk-query" since="4.2"/>
+    <keyword type="function" name="xfce_kiosk_free ()" link="libxfce4util-Xfce-Kiosk-functions.html#xfce-kiosk-free" since="4.2"/>
+    <keyword type="struct" name="XfceKiosk" link="libxfce4util-Xfce-Kiosk-functions.html#XfceKiosk-struct"/>
+    <keyword type="function" name="XfceMatchFunc ()" link="libxfce4util-Resource-lookup-functions.html#XfceMatchFunc"/>
+    <keyword type="function" name="xfce_resource_dirs ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-dirs" since="4.2"/>
+    <keyword type="function" name="xfce_resource_lookup ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup" since="4.2"/>
+    <keyword type="function" name="xfce_resource_lookup_all ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup-all" since="4.2"/>
+    <keyword type="function" name="xfce_resource_match ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-match" since="4.2"/>
+    <keyword type="function" name="xfce_resource_match_custom ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-match-custom" since="4.2"/>
+    <keyword type="function" name="xfce_resource_push_path ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-push-path" since="4.2"/>
+    <keyword type="function" name="xfce_resource_pop_path ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-pop-path" since="4.2"/>
+    <keyword type="function" name="xfce_resource_save_location ()" link="libxfce4util-Resource-lookup-functions.html#xfce-resource-save-location" since="4.2"/>
+    <keyword type="enum" name="enum XfceResourceType" link="libxfce4util-Resource-lookup-functions.html#XfceResourceType"/>
+    <keyword type="function" name="xfce_rc_simple_open ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-simple-open" since="4.2"/>
+    <keyword type="function" name="xfce_rc_config_open ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-config-open" since="4.2"/>
+    <keyword type="function" name="xfce_rc_close ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-close" since="4.2"/>
+    <keyword type="function" name="xfce_rc_flush ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-flush" since="4.2"/>
+    <keyword type="function" name="xfce_rc_is_dirty ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-is-dirty" since="4.2"/>
+    <keyword type="function" name="xfce_rc_is_readonly ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-is-readonly" since="4.2"/>
+    <keyword type="function" name="xfce_rc_get_locale ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-locale" since="4.2"/>
+    <keyword type="function" name="xfce_rc_get_groups ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-groups" since="4.2"/>
+    <keyword type="function" name="xfce_rc_get_entries ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-entries" since="4.2"/>
+    <keyword type="function" name="xfce_rc_delete_group ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-delete-group" since="4.2"/>
+    <keyword type="function" name="xfce_rc_get_group ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-group" since="4.2"/>
+    <keyword type="function" name="xfce_rc_has_group ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-has-group" since="4.2"/>
+    <keyword type="function" name="xfce_rc_set_group ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-set-group" since="4.2"/>
+    <keyword type="function" name="xfce_rc_delete_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-delete-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_has_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-has-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_read_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_read_entry_untranslated ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry-untranslated" since="4.2"/>
+    <keyword type="function" name="xfce_rc_read_bool_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-bool-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_read_int_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-int-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_read_list_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-list-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_rollback ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-rollback" since="4.2"/>
+    <keyword type="function" name="xfce_rc_write_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_write_bool_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-bool-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_write_int_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-int-entry" since="4.2"/>
+    <keyword type="function" name="xfce_rc_write_list_entry ()" link="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-list-entry" since="4.2"/>
+    <keyword type="struct" name="XfceRc" link="libxfce4util-Resource-Config-File-Support.html#XfceRc-struct"/>
+    <keyword type="function" name="xfce_utf8_remove_controls ()" link="libxfce4util-Unicode-Support-Functions.html#xfce-utf8-remove-controls" since="4.2"/>
+    <keyword type="function" name="xfce_utf8_strndup ()" link="libxfce4util-Unicode-Support-Functions.html#xfce-utf8-strndup" since="4.3"/>
+    <keyword type="function" name="xfce_mkdirhier ()" link="libxfce4util-File-Utilities.html#xfce-mkdirhier" since="4.2"/>
+    <keyword type="function" name="xfce_create_shared_thumbnail_path ()" link="libxfce4util-File-Utilities.html#xfce-create-shared-thumbnail-path" since="4.17.1"/>
+    <keyword type="function" name="xfce_g_file_metadata_is_supported ()" link="libxfce4util-GIO-Extensions.html#xfce-g-file-metadata-is-supported" since="4.17"/>
+    <keyword type="function" name="xfce_g_file_create_checksum ()" link="libxfce4util-GIO-Extensions.html#xfce-g-file-create-checksum" since="4.17"/>
+    <keyword type="function" name="xfce_g_file_set_trusted ()" link="libxfce4util-GIO-Extensions.html#xfce-g-file-set-trusted" since="4.17"/>
+    <keyword type="function" name="xfce_g_file_is_trusted ()" link="libxfce4util-GIO-Extensions.html#xfce-g-file-is-trusted" since="4.17"/>
+    <keyword type="function" name="xfce_g_string_append_quoted ()" link="libxfce4util-Xfce-String-Functions.html#xfce-g-string-append-quoted" since="4.17"/>
+    <keyword type="function" name="xfce_str_replace ()" link="libxfce4util-Xfce-String-Functions.html#xfce-str-replace" since="4.17"/>
+    <keyword type="macro" name="xfce_str_is_empty()" link="libxfce4util-Xfce-String-Functions.html#xfce-str-is-empty"/>
+    <keyword type="macro" name="I_()" link="libxfce4util-Xfce-String-Functions.html#I-:CAPS"/>
+    <keyword type="function" name="xfce_get_license_text ()" link="libxfce4util-Software-Licenses.html#xfce-get-license-text"/>
+    <keyword type="macro" name="XFCE_LICENSE_BSD" link="libxfce4util-Software-Licenses.html#XFCE-LICENSE-BSD:CAPS"/>
+    <keyword type="macro" name="XFCE_LICENSE_GPL" link="libxfce4util-Software-Licenses.html#XFCE-LICENSE-GPL:CAPS"/>
+    <keyword type="macro" name="XFCE_LICENSE_LGPL" link="libxfce4util-Software-Licenses.html#XFCE-LICENSE-LGPL:CAPS"/>
+    <keyword type="enum" name="enum XfceLicenseTextType" link="libxfce4util-Software-Licenses.html#XfceLicenseTextType"/>
+    <keyword type="function" name="xfce_get_homedir ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-get-homedir"/>
+    <keyword type="macro" name="xfce_get_homefile()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-get-homefile"/>
+    <keyword type="function" name="xfce_get_homefile_r ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-get-homefile-r"/>
+    <keyword type="function" name="xfce_get_userdir ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-get-userdir"/>
+    <keyword type="macro" name="xfce_get_userfile()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-get-userfile"/>
+    <keyword type="function" name="xfce_get_userfile_r ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-get-userfile-r"/>
+    <keyword type="function" name="xfce_gethostname ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-gethostname"/>
+    <keyword type="function" name="xfce_expand_variables ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-expand-variables" since="4.2"/>
+    <keyword type="function" name="xfce_append_quoted ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-append-quoted" deprecated="4.17: Renamed to xfce_g_string_append_quoted()"/>
+    <keyword type="function" name="xfce_expand_desktop_entry_field_codes ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-expand-desktop-entry-field-codes"/>
+    <keyword type="function" name="xfce_unescape_desktop_entry_value ()" link="libxfce4util-Miscellaneous-Utilities.html#xfce-unescape-desktop-entry-value" since="4.18"/>
+    <keyword type="function" name="XfcePosixSignalHandler ()" link="libxfce4util-POSIX-Signal-Handling.html#XfcePosixSignalHandler"/>
+    <keyword type="function" name="xfce_posix_signal_handler_init ()" link="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-init"/>
+    <keyword type="function" name="xfce_posix_signal_handler_restore_handler ()" link="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-restore-handler"/>
+    <keyword type="function" name="xfce_posix_signal_handler_set_handler ()" link="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-set-handler"/>
+    <keyword type="function" name="xfce_posix_signal_handler_shutdown ()" link="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-shutdown"/>
+    <keyword type="function" name="xfce_consolekit_get ()" link="XfceConsolekit.html#xfce-consolekit-get" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_reboot ()" link="XfceConsolekit.html#xfce-consolekit-reboot" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_power_off ()" link="XfceConsolekit.html#xfce-consolekit-power-off" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_suspend ()" link="XfceConsolekit.html#xfce-consolekit-suspend" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_hibernate ()" link="XfceConsolekit.html#xfce-consolekit-hibernate" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_hybrid_sleep ()" link="XfceConsolekit.html#xfce-consolekit-hybrid-sleep" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_can_reboot ()" link="XfceConsolekit.html#xfce-consolekit-can-reboot" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_can_power_off ()" link="XfceConsolekit.html#xfce-consolekit-can-power-off" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_can_suspend ()" link="XfceConsolekit.html#xfce-consolekit-can-suspend" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_can_hibernate ()" link="XfceConsolekit.html#xfce-consolekit-can-hibernate" since="4.19.1"/>
+    <keyword type="function" name="xfce_consolekit_can_hybrid_sleep ()" link="XfceConsolekit.html#xfce-consolekit-can-hybrid-sleep" since="4.19.1"/>
+    <keyword type="struct" name="XfceConsolekit" link="XfceConsolekit.html#XfceConsolekit-struct"/>
+    <keyword type="function" name="xfce_systemd_get ()" link="XfceSystemd.html#xfce-systemd-get" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_reboot ()" link="XfceSystemd.html#xfce-systemd-reboot" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_power_off ()" link="XfceSystemd.html#xfce-systemd-power-off" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_suspend ()" link="XfceSystemd.html#xfce-systemd-suspend" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_hibernate ()" link="XfceSystemd.html#xfce-systemd-hibernate" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_hybrid_sleep ()" link="XfceSystemd.html#xfce-systemd-hybrid-sleep" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_can_reboot ()" link="XfceSystemd.html#xfce-systemd-can-reboot" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_can_power_off ()" link="XfceSystemd.html#xfce-systemd-can-power-off" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_can_suspend ()" link="XfceSystemd.html#xfce-systemd-can-suspend" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_can_hibernate ()" link="XfceSystemd.html#xfce-systemd-can-hibernate" since="4.19.1"/>
+    <keyword type="function" name="xfce_systemd_can_hybrid_sleep ()" link="XfceSystemd.html#xfce-systemd-can-hybrid-sleep" since="4.19.1"/>
+    <keyword type="struct" name="XfceSystemd" link="XfceSystemd.html#XfceSystemd-struct"/>
+    <keyword type="constant" name="XFCE_RESOURCE_DATA" link="libxfce4util-Resource-lookup-functions.html#XFCE-RESOURCE-DATA:CAPS"/>
+    <keyword type="constant" name="XFCE_RESOURCE_CONFIG" link="libxfce4util-Resource-lookup-functions.html#XFCE-RESOURCE-CONFIG:CAPS"/>
+    <keyword type="constant" name="XFCE_RESOURCE_CACHE" link="libxfce4util-Resource-lookup-functions.html#XFCE-RESOURCE-CACHE:CAPS"/>
+    <keyword type="constant" name="XFCE_RESOURCE_ICONS" link="libxfce4util-Resource-lookup-functions.html#XFCE-RESOURCE-ICONS:CAPS"/>
+    <keyword type="constant" name="XFCE_RESOURCE_THEMES" link="libxfce4util-Resource-lookup-functions.html#XFCE-RESOURCE-THEMES:CAPS"/>
+    <keyword type="constant" name="XFCE_LICENSE_TEXT_BSD" link="libxfce4util-Software-Licenses.html#XFCE-LICENSE-TEXT-BSD:CAPS"/>
+    <keyword type="constant" name="XFCE_LICENSE_TEXT_GPL" link="libxfce4util-Software-Licenses.html#XFCE-LICENSE-TEXT-GPL:CAPS"/>
+    <keyword type="constant" name="XFCE_LICENSE_TEXT_LGPL" link="libxfce4util-Software-Licenses.html#XFCE-LICENSE-TEXT-LGPL:CAPS"/>
+  </functions>
+</book>

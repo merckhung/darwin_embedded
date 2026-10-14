@@ -1,0 +1,101 @@
+name: linux
+
+on:
+  push:
+    branches: [ main ]
+    tags: ["*.*.*"]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+    - name: Setup Ccache
+      uses: hendrikmuhs/ccache-action@f09c25b45002a07be2955cbe52e8cee55643f89d # v1.2.24
+      with:
+        key: ${{ github.job }}-${{ runner.os }}-${{ runner.arch }}
+    - name: Install Dependencies
+      run: |
+        sudo rm -f /etc/apt/sources.list.d/google-chrome.list
+        sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list
+        sudo apt-get update
+        sudo apt-get install \
+          gcc \
+          gobject-introspection \
+          libcairo2-dev \
+          libchafa-dev \
+          libfreetype6-dev \
+          libgirepository1.0-dev \
+          libglib2.0-dev \
+          libgraphite2-dev \
+          libicu-dev \
+          libpng-dev \
+          libglew-dev \
+          libglfw3-dev \
+          libgl-dev \
+          pkg-config \
+          zlib1g-dev \
+          help2man
+    - name: Setup Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: '3.12'
+    - name: Install Python Dependencies
+      run: pip3 install -r .ci/requirements.txt --require-hashes
+    - name: Setup Meson
+      run: |
+        ccache --version
+        meson setup build \
+          -Dauto_features=enabled \
+          -Dgraphite=enabled \
+          -Dkbts=enabled \
+          -Doptimization=2 \
+          -Ddocs=disabled \
+          -Dragel_subproject=true
+    - name: Build
+      run: meson compile -Cbuild
+    - name: Test
+      run: meson test --print-errorlogs -Cbuild
+    - name: Dist
+      run: |
+        git reset --hard HEAD # ragel may have modified the source tree
+        meson dist --no-tests -Cbuild
+    - name: Archive artifacts
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: harfbuzz
+        path: build/meson-dist/harfbuzz-*.tar.xz
+        if-no-files-found: error
+
+  release:
+    name: Create and populate release
+    permissions:
+      contents: write
+    needs: build
+    runs-on: ubuntu-24.04
+    if: contains(github.ref, 'refs/tags/')
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Download artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: harfbuzz
+      - name: Check for release
+        id: create_release
+        run: |
+          if ! gh release view ${{ github.ref_name }}; then
+            python3 src/check-release-notes.py NEWS ${{ github.ref_name }} > RELEASE_NOTES
+            gh release create ${{ github.ref_name }} --title ${{ github.ref_name }} --notes-file RELEASE_NOTES
+          fi
+      - name: Populate release
+        run: |
+          gh release upload ${{ github.ref_name }} harfbuzz-${{ github.ref_name }}.tar.xz --clobber

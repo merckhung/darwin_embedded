@@ -1,0 +1,14 @@
+make: Lenovo Group Limited
+model: T24s-28
+serial: U5AN9260
+HDR static metadata:
+luminance 0.000000-0.000000, maxFALL 0.000000
+metadata type1=no
+EOTF tSDR=yes, tHDR=no, PQ=no, HLG=no
+default color primaries:
+    red: 0.664, 0.330
+  green: 0.287, 0.623
+   blue: 0.141, 0.079
+default white: 0.313, 0.329
+default gamma: 2.20
+signal colorimetry:

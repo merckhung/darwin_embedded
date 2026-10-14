@@ -1,0 +1,163 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/xnu",
+  "tag": "xnu-12377.121.6",
+  "commit": "ac9718fb1af618d5ce8678d0dc6e8a58f252216f",
+  "archive_sha256": "3898466e5f4ba16c6e2ea291987e097792349a0b34dda89191c4b5e8da29118c",
+  "darwin_version": "25.5.0",
+  "apple_release": "macOS 26.5",
+  "compatibility_sources": [
+    {
+      "repository": "https://github.com/PureDarwin/PureDarwin",
+      "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+      "files": [
+        "pd_apple_builtins.h",
+        "EXTERNAL_HEADERS/TrustCache/API.h",
+        "EXTERNAL_HEADERS/CodeSignature/Entitlements.h",
+        "EXTERNAL_HEADERS/CoreEntitlements/V2/API.h",
+        "EXTERNAL_HEADERS/CoreEntitlements/V2/Kernel.h"
+      ],
+      "adapted_files": [
+        "osfmk/mach/arm/vm_param.h"
+      ]
+    }
+  ],
+  "local_changes": [
+    "Publish x86 commpage pointers after initial writes establish the writable kernel alias, avoiding a timer-interrupt write fault during population.",
+    "Distinguish empty/compressed page-table entries from valid physical page zero during ARM pmap removal.",
+    "Enable the GIC-400 distributor and CPU interface groups required by QEMU raspi4b without security extensions.",
+    "Use physical memory-device copies for the reserved x86_64 EFI RAM disk, outside the kernel static mapping.",
+    "Fail entitlement queries closed when the embedded profile has no AMFI provider. Accept entitlement acceleration without AMFI only for ad-hoc signatures with empty entitlements and no privileged flags, platform identity or team identifier. Normal CodeDirectory validation and code-page hash checks remain enabled."
+  ],
+  "modification_notices": [
+    {
+      "file": "SETUP/kextsymboltool/kextsymboltool.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "bsd/kern/kern_trustcache.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "bsd/kern/ubc_subr.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "bsd/miscfs/devfs/devfs.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "bsd/miscfs/devfs/devfs_tree.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "iokit/bsddev/IOKitBSDInit.cpp",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm/arm_init.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm/commpage/commpage_asm.s",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm/pmap/pmap.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm/pmap/pmap_misc.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/arm_vm_init.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/caches_asm.s",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/corecrypto/arm64_isa_compatibility.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/machine_routines.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/proc_reg.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/sleh.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/arm64/start.s",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/console/serial_general.c",
+      "last_port_change": "2026-10-13",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/i386/commpage/commpage.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/kern/kalloc.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/kern/zalloc.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/mach/arm/vm_param.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/vm/vm_compressor.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/vm/vm_kern.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "pexpert/pexpert/arm64/apple_arm64_cpu.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "pexpert/pexpert/arm64/board_config.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    }
+  ]
+}

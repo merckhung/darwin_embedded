@@ -1,0 +1,72 @@
+/*
+ * AT-SPI - Assistive Technology Service Provider Interface
+ * (Gnome Accessibility Project; http://developer.gnome.org/projects/gap)
+ *
+ * Copyright 2023 SUSE LLC.
+ *
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
+
+#pragma once
+
+G_BEGIN_DECLS
+
+/**
+ * ATSPI_MAJOR_VERSION:
+ *
+ * The major version of AT-SPI used at compile time.
+ *
+ * Since: 2.50.0
+ */
+#define ATSPI_MAJOR_VERSION (@ATSPI_MAJOR_VERSION@)
+
+/**
+ * ATSPI_MINOR_VERSION:
+ *
+ * The minor version of AT-SPI used at compile time.
+ *
+ * Since: 2.50.0
+ */
+#define ATSPI_MINOR_VERSION (@ATSPI_MINOR_VERSION@)
+
+/**
+ * ATSPI_MICRO_VERSION:
+ *
+ * The micro version / patch level of AT-SPI used at compile time.
+ *
+ * Since: 2.50.0
+ */
+#define ATSPI_MICRO_VERSION (@ATSPI_MICRO_VERSION@)
+
+/**
+ * ATSPI_CHECK_VERSION:
+ * @major: major version (e.g. 2 for version 2.58.0)
+ * @minor: minor version (e.g. 58 for version 2.58.0)
+ * @micro: micro version (e.g. 0 for version 2.58.0)
+ *
+ * Returns %TRUE if the version of AT-SPI used at compile
+ * time is the same as or newer than the passed-in version.
+ *
+ * Since: 2.58.0
+ */
+#define ATSPI_CHECK_VERSION(major,minor,micro)                          \
+    (ATSPI_MAJOR_VERSION > (major) ||                                   \
+     (ATSPI_MAJOR_VERSION == (major) && ATSPI_MINOR_VERSION > (minor)) || \
+     (ATSPI_MAJOR_VERSION == (major) && ATSPI_MINOR_VERSION == (minor) && \
+      ATSPI_MICRO_VERSION >= (micro)))
+
+G_END_DECLS

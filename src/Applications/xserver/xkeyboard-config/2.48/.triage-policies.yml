@@ -1,0 +1,155 @@
+# This is a set of bugbot commands for issues and merge requests - setting any of the
+# bugbot::foo labels will trigger gitlab-triage to run with this ruleset (well, the
+# one we have on the main branch at the time)
+#
+# Note that for adding labels via gitlab-triage, the label must first be created in the project.
+
+
+################################################################################
+# Rules definitions
+################################################################################
+
+.template-required: &template-required
+  name: "Require using a template"
+  conditions:
+    labels:
+      - "bugbot::template-required"
+  actions:
+    remove_labels:
+      - "bugbot::template-required"
+    comment: |
+      Hi {{author}}! Thanks for filing this issue/merge request. In order to process your
+      request more efficiently, please edit it and choose the appropriate template in the
+      list above your text, then fill in the required information.
+
+.insufficient-information: &insufficient-information
+  name: "Needs information"
+  conditions:
+    labels:
+      - "bugbot::insufficient-information"
+  actions:
+    remove_labels:
+      - "bugbot::insufficient-information"
+    labels:
+      - "Needs information"
+    comment: |
+      Hi {{author}}! Thanks for filing this issue/merge request. However, information
+      you provided is insufficient to process your request.
+      Please fill in the missing information in the description and/or answer the
+      maintainers’ request in the corresponding thread[^1].
+
+      [^1]: Use the button `⮢` “Reply to comment” of the corresponding comment.
+
+.insufficient-motivation: &insufficient-motivation
+  name: "Require better motivation"
+  conditions:
+    labels:
+      - "bugbot::insufficient-motivation"
+  actions:
+    remove_labels:
+      - "bugbot::insufficient-motivation"
+    comment: |
+      Hi {{author}}! Thanks for filing this issue/merge request. We do not have sufficient
+      information about the *current* user base of the feature you propose. Please provide
+      neutral and accessible *evidences*[^1] (if possible in English), that this feature is
+      sufficiently popular in order to be shipped as part of the default xkeyboard-config
+      keymaps.
+
+      Features added to the distribution means we have to maintain these features for years
+      and decades into the future and we avoid having to do so for features that we expect
+      have a tiny number of users.
+
+      Note that comparing the new feature to one already included in xkeyboard-config is
+      *not* a sufficient motivation: the focus must be on the *current* user-base of *your*
+      proposal.
+
+      [^1]: Such as: an active community.
+
+      You may also install it locally instead; we have
+      [instructions for Xorg](https://who-t.blogspot.com/2021/02/a-pre-supplied-custom-keyboard-layout.html)
+      and [instructions for Wayland](https://xkbcommon.github.io/libxkbcommon/doc/current/md_doc_user_configuration.html).
+
+.too-exotic: &too-exotic
+  name: "Close as too exotic"
+  conditions:
+    labels:
+      - "bugbot::too-exotic"
+  actions:
+    remove_labels:
+      - "bugbot::too-exotic"
+    comment: |
+      Hi {{author}}! Thanks for filing this issue/merge request. We think this keyboard
+      feature is too exotic to be shipped as part of the default xkeyboard-config keymaps.
+      Features added to the distribution means we have to maintain these features for years
+      and decades into the future and we avoid having to do so for features that
+      we expect have a tiny number of users.
+
+      As a general rule, we will add layouts that are part of official standards but not
+      experimental layouts. If this is the case here, please re-open with a comment.
+
+      Please install it as a custom layout instead, we have
+      [instructions for Xorg](https://who-t.blogspot.com/2021/02/a-pre-supplied-custom-keyboard-layout.html)
+      and [instructions for Wayland](https://xkbcommon.github.io/libxkbcommon/doc/current/md_doc_user_configuration.html).
+    status: "close"
+
+.not-constructive: &not-constructive
+  name: "Close as not constructive"
+  conditions:
+    labels:
+      - "bugbot::not-constructive"
+  actions:
+    remove_labels:
+      - "bugbot::not-constructive"
+    comment: |
+      Dear {{author}}, it seems that after various maintainers’ requests you failed to
+      provide the relevant information and/or to stay on topic.
+
+      > [!important]
+      > Please check:
+      > - [The Contribution Guide]
+      > - [The Code of Conduct]
+
+      [The Contribution Guide]: https://xkeyboard-config.freedesktop.org/doc/contributing/
+      [The Code of Conduct]: https://www.freedesktop.org/wiki/CodeOfConduct/
+
+      Feel free to re-open the issue/merge request in order to address the
+      maintainers’ requests, so that we can restart the discussion on a better ground.
+    status: "close"
+
+.redirect-translations: &redirect-translations
+  name: "Translations are handled in another project"
+  conditions:
+    labels:
+      - "bugbot::redirect-translations"
+  actions:
+    remove_labels:
+      - "bugbot::redirect-translations"
+    comment: |
+      Hi {{author}}! Thanks for filing this issue/merge request. Translations are handled
+      in [The Translation Project]. Please contact the team corresponding to the relevant
+      language for any bug report or other contribution.
+
+      [The Translation Project]: https://translationproject.org/domain/xkeyboard-config.html
+    status: "close"
+
+################################################################################
+# Rules
+################################################################################
+
+resource_rules:
+  issues:
+    rules:
+      - *template-required
+      - *insufficient-information
+      - *insufficient-motivation
+      - *too-exotic
+      - *not-constructive
+      - *redirect-translations
+  merge_requests:
+    rules:
+      - *template-required
+      - *insufficient-information
+      - *insufficient-motivation
+      - *too-exotic
+      - *not-constructive
+      - *redirect-translations

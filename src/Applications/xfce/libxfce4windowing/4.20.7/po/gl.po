@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Daniel Muñiz Fontoira <dani@damufo.eu>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-30 00:46+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2024\n"
+"Language-Team: Galician (https://app.transifex.com/xfce/teams/16840/gl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "A xanela fornecida non ten unha icona _NET_WM_ICON ou WMHints"
+
+#: libxfce4windowing/xfw-wnck-icon.c:630
+msgid "Failed to find or load an icon for the window"
+msgstr "Non se puido atopar ou cargar unha icona para a xanela"
+
+#: libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "Espazo de traballo 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "_Mover"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "_Redimensionar"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "Sempre _enriba"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "Sempre no espazo de traballo _visíbel"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "_Só visíbel neste espazo de traballo"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "Mover ó espazo de traballo da _esquerda"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "Mover ó espazo de traballo da _dereita"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "Mover ó espazo de traballo de en_riba"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "Mover ó espazo de traballo de en_baixo"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "Mover a outro espazo de _traballo"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "_Pechar"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "Espazo de traballo %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr "Mi_nimizar"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr "Desmi_nimizar"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr "Ma_ximizar"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr "Desma_ximizar"

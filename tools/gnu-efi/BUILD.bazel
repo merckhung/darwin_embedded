@@ -1,0 +1,12 @@
+filegroup(
+    name = "sources",
+    srcs = glob(["**"]),
+)
+
+genrule(
+    name = "runtime",
+    srcs = [":sources"],
+    outs = ["gnu-efi.tar"],
+    cmd = "python3 tools/gnu-efi/build_runtime.py --source tools/gnu-efi --output $@",
+    visibility = ["//visibility:public"],
+)

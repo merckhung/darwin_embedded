@@ -1,0 +1,14 @@
+// Native HID keycodes with original XKB layout/type/compatibility components.
+! model = keycodes
+  * = nativehid
+! model = types
+  * = complete
+! model = compat
+  * = complete
+! model layout variant = symbols
+  * * * = pc+%l(%v)
+! model layout = symbols
+  * * = pc+%l
+! model = geometry
+  pc105 = pc(pc105)
+  * = pc(pc104)

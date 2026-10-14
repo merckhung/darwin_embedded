@@ -1,0 +1,13 @@
+filegroup(
+    name = "sources",
+    srcs = glob(["**"]),
+)
+
+genrule(
+    name = "efi",
+    srcs = [":sources", "//tools/gnu-efi:runtime", "//bootloader/video:metadata.h"],
+    outs = ["BOOTX64.EFI"],
+    cmd = "python3 bootloader/xnu-loader/build_efi.py --source bootloader/xnu-loader " +
+          "--runtime $(location //tools/gnu-efi:runtime) --output $@",
+    visibility = ["//visibility:public"],
+)

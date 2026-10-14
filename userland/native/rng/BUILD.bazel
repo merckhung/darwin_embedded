@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "rng_" + arch,
+        srcs = ["rng.c", "test_rng.c", "//scripts:build_native_rng.py", "//userland/native:sdk_" + arch],
+        outs = ["libnative_rng." + arch + ".a", "rng." + arch + ".json", "test_rng." + arch + ".o"],
+        cmd = "python3 $(location //scripts:build_native_rng.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libnative_rng." + arch + ".a)" +
+              " --report $(location rng." + arch + ".json)" +
+              " --probe-output $(location test_rng." + arch + ".o)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":rng_arm64", ":rng_x86_64"])

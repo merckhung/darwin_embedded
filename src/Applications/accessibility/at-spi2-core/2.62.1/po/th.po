@@ -1,0 +1,824 @@
+# Thai translation of atk
+# This file is distributed under the same license as the atk package.
+# Copyright (C) 2004-2012 Free Software Foundation, Inc.
+# Supranee Thirawatthanasuk <supranee@opentle.org>, 2004.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: atk\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2026-04-29 15:22+0000\n"
+"PO-Revision-Date: 2026-04-30 22:06+0700\n"
+"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "ลิงก์ถูกเลือก"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "ระบุว่าออบเจกต์ AtkHyperlink ถูกเลือกอยู่หรือไม่"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "จำนวนของสมอยึด"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "จำนวนของสมอยึดที่สัมพันธ์กับออบเจกต์ AtkHyperlink"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "ดัชนีสิ้นสุด"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "ดัชนีสิ้นสุดของออบเจกต์ AtkHyperlink"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "ดัชนีเริ่มต้น"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "ดัชนีเริ่มต้นของออบเจกต์ AtkHyperlink"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "ชื่อสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr "ชื่ออินสแตนซ์ของออบเจกต์ ซึ่งจัดรูปแบบไว้สำหรับใช้กับเทคโนโลยีสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "คำบรรยายสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "คำบรรยายของออบเจกต์ ซึ่งจัดรูปแบบไว้สำหรับใช้กับเทคโนโลยีสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "ออบเจกต์แม่ของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:288
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr "ออบเกจต์แม่ของสิ่งอำนวยความสะดวกปัจจุบันตามที่ atk_object_get_parent() ส่งกลับมา"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "ค่าของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "ใช้แจ้งเหตุมื่อค่ามีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "บทบาทของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "บทบาทของสิ่งอำนวยความสะดวกของออบเจกต์นี้"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "ชั้นของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "ชั้นของสิ่งอำนวยความสะดวกของออบเจกต์นี้"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "ค่า MDI ของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "ค่า MDI ของสิ่งอำนวยความสะดวกของออบเจกต์นี้"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "ป้ายบรรยายตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should not be used. "
+"accessible-table-caption-object should be used instead"
+msgstr ""
+"ใช้แจ้งเหตุเมื่อป้ายบรรยายตารางมีการเปลี่ยนแปลง ไม่ควรใช้ช่องข้อมูลนี้ แต่ควรใช้ accessible-table-caption-"
+"object แทน"
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "หัวคอลัมน์ตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "ใช้แจ้งเหตุเมื่อหัวคอลัมน์ของตารางมีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "คำบรรยายคอลัมน์ตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "ใช้แจ้งเหตุเมื่อคำบรรยายคอลัมน์ของตารางมีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "หัวแถวตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "ใช้แจ้งเหตุเมื่อหัวแถวของตารางมีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "คำบรรยายแถวตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "ใช้แจ้งเหตุเมื่อคำบรรยายแถวของตารางมีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "คำสรุปตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "ใช้แจ้งเหตุเมื่อคำสรุปตารางมีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "ออบเจกต์ป้ายบรรยายตารางของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "ใช้แจ้งเหตุเมื่อป้ายบรรยายตารางมีการเปลี่ยนแปลง"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "จำนวนของ Hypertext Links ของสิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "จำนวนของลิงก์ที่ AtkHypertext ปัจจุบันมี"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "ID สิ่งอำนวยความสะดวก"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr "ID ของสิ่งอำนวยความสะดวก ซึ่งมีประโยชน์ต่อการทดสอบแบบอัตโนมัติ"
+
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "ข้อความวิธีใช้"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "ข้อความวิธีใช้ที่สัมพันธ์กับสิ่งอำนวยความสะอวก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "อ่อนแอมาก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "อ่อนแอ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "พอใช้"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "ปลอดภัย"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "ปลอดภัยมาก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "ต่ำมาก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "ปานกลาง"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "สูง"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "สูงมาก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "แย่มาก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "แย่"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "ดี"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "ดีมาก"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "ดีที่สุด"
+
+#: atspi/atspi-component.c:341 atspi/atspi-misc.c:1232 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "แอปพลิเคชันไม่มีอยู่อีกต่อไปแล้ว"
+
+#: atspi/atspi-misc.c:51
+msgid "invalid"
+msgstr "ไม่ถูกต้อง"
+
+#: atspi/atspi-misc.c:52
+msgid "accelerator label"
+msgstr "ฉลากคีย์ด่วน"
+
+#: atspi/atspi-misc.c:53
+msgid "alert"
+msgstr "แจ้งเหตุ"
+
+#: atspi/atspi-misc.c:54
+msgid "animation"
+msgstr "ภาพเคลื่อนไหว"
+
+#: atspi/atspi-misc.c:55
+msgid "arrow"
+msgstr "ลูกศร"
+
+#: atspi/atspi-misc.c:56
+msgid "calendar"
+msgstr "ปฏิทิน"
+
+#: atspi/atspi-misc.c:57
+msgid "canvas"
+msgstr "ผ้าใบวาดรูป"
+
+#: atspi/atspi-misc.c:58
+msgid "check box"
+msgstr "กล่องกาเครื่องหมาย"
+
+#: atspi/atspi-misc.c:59
+msgid "check menu item"
+msgstr "รายการเมนูกาเครื่องหมาย"
+
+#: atspi/atspi-misc.c:60
+msgid "color chooser"
+msgstr "กล่องเลือกสี"
+
+#: atspi/atspi-misc.c:61
+msgid "column header"
+msgstr "หัวข้อคอลัมน์"
+
+#: atspi/atspi-misc.c:62
+msgid "combo box"
+msgstr "กล่องคอมโบ"
+
+#: atspi/atspi-misc.c:63
+msgid "dateeditor"
+msgstr "กล่องแก้ไขวันที่"
+
+#: atspi/atspi-misc.c:64
+msgid "desktop icon"
+msgstr "ไอคอนเดสก์ท็อป"
+
+#: atspi/atspi-misc.c:65
+msgid "desktop frame"
+msgstr "กรอบเดสก์ท็อป"
+
+#: atspi/atspi-misc.c:66
+msgid "dial"
+msgstr "หมุนโทรศัพท์"
+
+#: atspi/atspi-misc.c:67
+msgid "dialog"
+msgstr "กล่องโต้ตอบ"
+
+#: atspi/atspi-misc.c:68
+msgid "directory pane"
+msgstr "ช่องไดเรกทอรี"
+
+#: atspi/atspi-misc.c:69
+msgid "drawing area"
+msgstr "พื้นที่วาดรูป"
+
+#: atspi/atspi-misc.c:70
+msgid "file chooser"
+msgstr "กล่องเลือกไฟล์"
+
+#: atspi/atspi-misc.c:71
+msgid "filler"
+msgstr "ช่องเติม"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:73
+msgid "fontchooser"
+msgstr "กล่องเลือกแบบอักษร"
+
+#: atspi/atspi-misc.c:74
+msgid "frame"
+msgstr "กรอบ"
+
+#: atspi/atspi-misc.c:75
+msgid "glass pane"
+msgstr "ช่องหน้าต่างแบบใส"
+
+#: atspi/atspi-misc.c:76
+msgid "html container"
+msgstr "เครื่องบรรจุ html"
+
+#: atspi/atspi-misc.c:77
+msgid "icon"
+msgstr "ไอคอน"
+
+#: atspi/atspi-misc.c:78
+msgid "image"
+msgstr "รูปภาพ"
+
+#: atspi/atspi-misc.c:79
+msgid "internal frame"
+msgstr "กรอบภายใน"
+
+#: atspi/atspi-misc.c:80
+msgid "label"
+msgstr "ป้ายชื่อ"
+
+#: atspi/atspi-misc.c:81
+msgid "layered pane"
+msgstr "ช่องหน้าต่างแบบเป็นชั้น"
+
+#: atspi/atspi-misc.c:82
+msgid "list"
+msgstr "รายชื่อ"
+
+#: atspi/atspi-misc.c:83
+msgid "list item"
+msgstr "รายการรายชื่อ"
+
+#: atspi/atspi-misc.c:84
+msgid "menu"
+msgstr "เมนู"
+
+#: atspi/atspi-misc.c:85
+msgid "menu bar"
+msgstr "แถบเมนู"
+
+#: atspi/atspi-misc.c:86
+msgid "menu button"
+msgstr "ปุ่มเมนู"
+
+#: atspi/atspi-misc.c:87
+msgid "menu item"
+msgstr "รายการเมนู"
+
+#: atspi/atspi-misc.c:88
+msgid "option pane"
+msgstr "ช่องหน้าต่างตัวเลือก"
+
+#: atspi/atspi-misc.c:89
+msgid "page tab"
+msgstr "แท็บของหน้า"
+
+#: atspi/atspi-misc.c:90
+msgid "page tab list"
+msgstr "รายการแท็บของหน้า"
+
+#: atspi/atspi-misc.c:91
+msgid "panel"
+msgstr "พาเนล"
+
+#: atspi/atspi-misc.c:92
+msgid "password text"
+msgstr "ข้อความรหัสผ่าน"
+
+#: atspi/atspi-misc.c:93
+msgid "popup menu"
+msgstr "เมนูผุดขึ้น"
+
+#: atspi/atspi-misc.c:94
+msgid "progress bar"
+msgstr "แถบบอกความคืบหน้า"
+
+#: atspi/atspi-misc.c:95
+msgid "button"
+msgstr "ปุ่ม"
+
+#: atspi/atspi-misc.c:96
+msgid "radio button"
+msgstr "ปุ่มวิทยุ"
+
+#: atspi/atspi-misc.c:97
+msgid "radio menu item"
+msgstr "รายการเมนูแบบปุ่มวิทยุ"
+
+#: atspi/atspi-misc.c:98
+msgid "root pane"
+msgstr "ช่องหลัก"
+
+#: atspi/atspi-misc.c:99
+msgid "row header"
+msgstr "หัวแถว"
+
+#: atspi/atspi-misc.c:100
+msgid "scroll bar"
+msgstr "แถบเลื่อน"
+
+#: atspi/atspi-misc.c:101
+msgid "scroll pane"
+msgstr "ช่องแถบเลื่อน"
+
+#: atspi/atspi-misc.c:102
+msgid "separator"
+msgstr "เส้นแบ่ง"
+
+#: atspi/atspi-misc.c:103
+msgid "slider"
+msgstr "ปุ่มรางเลื่อน"
+
+#: atspi/atspi-misc.c:104
+msgid "split pane"
+msgstr "กล่องแบ่งช่อง"
+
+#: atspi/atspi-misc.c:105
+msgid "spin button"
+msgstr "ปุ่มปรับเลข"
+
+#: atspi/atspi-misc.c:106
+msgid "statusbar"
+msgstr "แถบสถานะ"
+
+#: atspi/atspi-misc.c:107
+msgid "switch"
+msgstr "สวิตช์"
+
+#: atspi/atspi-misc.c:108
+msgid "table"
+msgstr "ตาราง"
+
+#: atspi/atspi-misc.c:109
+msgid "table cell"
+msgstr "เซลล์ตาราง"
+
+#: atspi/atspi-misc.c:110
+msgid "table column header"
+msgstr "หัวคอลัมน์ของตาราง"
+
+#: atspi/atspi-misc.c:111
+msgid "table row header"
+msgstr "หัวแถวของตาราง"
+
+#: atspi/atspi-misc.c:112
+msgid "tear off menu item"
+msgstr "รายการเมนูฉีกออก"
+
+#: atspi/atspi-misc.c:113
+msgid "terminal"
+msgstr "เทอร์มินัล"
+
+#: atspi/atspi-misc.c:114
+msgid "text"
+msgstr "ข้อความ"
+
+#: atspi/atspi-misc.c:115
+msgid "toggle button"
+msgstr "ปุ่มสลับค่า"
+
+#: atspi/atspi-misc.c:116
+msgid "tool bar"
+msgstr "แถบเครื่องมือ"
+
+#: atspi/atspi-misc.c:117
+msgid "tool tip"
+msgstr "คำแนะนำเครื่องมือ"
+
+#: atspi/atspi-misc.c:118
+msgid "tree"
+msgstr "ต้นไม้"
+
+#: atspi/atspi-misc.c:119
+msgid "tree table"
+msgstr "ตารางแบบต้นไม้"
+
+#: atspi/atspi-misc.c:120
+msgid "unknown"
+msgstr "ไม่ทราบ"
+
+#: atspi/atspi-misc.c:121
+msgid "viewport"
+msgstr "ช่องมอง"
+
+#: atspi/atspi-misc.c:122
+msgid "window"
+msgstr "หน้าต่าง"
+
+#: atspi/atspi-misc.c:123
+msgid "header"
+msgstr "หัวกระดาษ"
+
+#: atspi/atspi-misc.c:124
+msgid "footer"
+msgstr "ท้ายกระดาษ"
+
+#: atspi/atspi-misc.c:125
+msgid "paragraph"
+msgstr "ย่อหน้า"
+
+#: atspi/atspi-misc.c:126
+msgid "ruler"
+msgstr "ไม้บรรทัด"
+
+#: atspi/atspi-misc.c:127
+msgid "application"
+msgstr "โปรแกรม"
+
+#: atspi/atspi-misc.c:128
+msgid "autocomplete"
+msgstr "เติมเต็มคำอัตโนมัติ"
+
+#: atspi/atspi-misc.c:129
+msgid "edit bar"
+msgstr "แถบแก้ไข"
+
+#: atspi/atspi-misc.c:130
+msgid "embedded component"
+msgstr "องค์ประกอบฝังตัว"
+
+#: atspi/atspi-misc.c:131
+msgid "entry"
+msgstr "ช่องป้อนข้อความ"
+
+#: atspi/atspi-misc.c:132
+msgid "chart"
+msgstr "แผนภูมิ"
+
+#: atspi/atspi-misc.c:133
+msgid "caption"
+msgstr "ป้ายบรรยาย"
+
+#: atspi/atspi-misc.c:134
+msgid "document frame"
+msgstr "กรอบเอกสาร"
+
+#: atspi/atspi-misc.c:135
+msgid "heading"
+msgstr "หัวข้อเรื่อง"
+
+#: atspi/atspi-misc.c:136
+msgid "page"
+msgstr "หน้า"
+
+#: atspi/atspi-misc.c:137
+msgid "section"
+msgstr "หัวข้อ"
+
+#: atspi/atspi-misc.c:138
+msgid "redundant object"
+msgstr "ออบเจกต์ส่วนเกิน"
+
+#: atspi/atspi-misc.c:139
+msgid "form"
+msgstr "แบบฟอร์ม"
+
+#: atspi/atspi-misc.c:140
+msgid "link"
+msgstr "ลิงก์"
+
+#: atspi/atspi-misc.c:141
+msgid "input method window"
+msgstr "หน้าต่างวิธีป้อนข้อความ"
+
+#: atspi/atspi-misc.c:142
+msgid "table row"
+msgstr "แถวของตาราง"
+
+#: atspi/atspi-misc.c:143
+msgid "tree item"
+msgstr "รายการในต้นไม้"
+
+#: atspi/atspi-misc.c:144
+msgid "document spreadsheet"
+msgstr "เอกสารตารางคำนวณ"
+
+#: atspi/atspi-misc.c:145
+msgid "document presentation"
+msgstr "เอกสารงานนำเสนอ"
+
+#: atspi/atspi-misc.c:146
+msgid "document text"
+msgstr "เอกสารข้อความ"
+
+#: atspi/atspi-misc.c:147
+msgid "document web"
+msgstr "เอกสารเว็บ"
+
+#: atspi/atspi-misc.c:148
+msgid "document email"
+msgstr "เอกสารอีเมล"
+
+#: atspi/atspi-misc.c:149
+msgid "comment"
+msgstr "หมายเหตุ"
+
+#: atspi/atspi-misc.c:150
+msgid "list box"
+msgstr "กล่องรายการ"
+
+#: atspi/atspi-misc.c:151
+msgid "grouping"
+msgstr "การจัดกลุ่ม"
+
+#: atspi/atspi-misc.c:152
+msgid "image map"
+msgstr "แผนที่ในรูปภาพ"
+
+#: atspi/atspi-misc.c:153
+msgid "notification"
+msgstr "การแจ้งเหตุ"
+
+#: atspi/atspi-misc.c:154
+msgid "info bar"
+msgstr "แถบข้อมูล"
+
+#: atspi/atspi-misc.c:155
+msgid "level bar"
+msgstr "แถบระดับ"
+
+#: atspi/atspi-misc.c:156
+msgid "title bar"
+msgstr "แถบชื่อ"
+
+#: atspi/atspi-misc.c:157
+msgid "block quote"
+msgstr "ข้อความอ้างอิง"
+
+#: atspi/atspi-misc.c:158
+msgid "audio"
+msgstr "เสียง"
+
+#: atspi/atspi-misc.c:159
+msgid "video"
+msgstr "วิดีโอ"
+
+#: atspi/atspi-misc.c:160
+msgid "definition"
+msgstr "ความคมชัด"
+
+#: atspi/atspi-misc.c:161
+msgid "article"
+msgstr "บทความ"
+
+#: atspi/atspi-misc.c:162
+msgid "landmark"
+msgstr "ตำแหน่งสำคัญ"
+
+#: atspi/atspi-misc.c:163
+msgid "log"
+msgstr "ปูมบันทึก"
+
+#: atspi/atspi-misc.c:164
+msgid "marquee"
+msgstr "ตัวอักษรวิ่ง"
+
+#: atspi/atspi-misc.c:165
+msgid "math"
+msgstr "คณิตศาสตร์"
+
+#: atspi/atspi-misc.c:166
+msgid "rating"
+msgstr "การจัดระดับ"
+
+#: atspi/atspi-misc.c:167
+msgid "timer"
+msgstr "เวลานับถอยหลัง"
+
+#: atspi/atspi-misc.c:168
+msgid "description list"
+msgstr "รายชื่อคำอธิบาย"
+
+#: atspi/atspi-misc.c:169
+msgid "description term"
+msgstr "คำบอกรายละเอียด"
+
+#: atspi/atspi-misc.c:170
+msgid "description value"
+msgstr "ค่าของคำอธิบาย"
+
+#~ msgid "Is used to notify that the parent has changed"
+#~ msgstr "ใช้แจ้งเหตุเมื่อออบเจกต์แม่มีการเปลี่ยนแปลง"

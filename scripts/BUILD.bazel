@@ -1,0 +1,47 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+exports_files([
+    "build_xnu.py",
+    "build_kext.py",
+    "build_kernel_collection.py",
+    "build_diagnostic_userland.py",
+    "build_native_libsyscall.py",
+    "build_native_sdk.py",
+    "build_native_platform.py",
+    "build_native_pthread.py",
+    "build_native_pthread_test.py",
+    "build_native_libc.py",
+    "build_native_malloc.py",
+    "build_native_malloc_test.py",
+    "build_native_rng.py",
+    "build_native_system.py",
+    "native_components.py",
+    "build_native_math.py",
+    "build_native_math_test.py",
+    "build_native_mach.py",
+    "build_native_dyld.py",
+    "build_native_dyld_test.py",
+    "sign_diagnostic_macho.py",
+    "plutil.py",
+    "macho_to_bin.py",
+    "verify_qemu_boot.py",
+    "verify_native_tools.py",
+    "create_efi_image.py",
+    "verify_diagnostic_code_signing.py",
+])
+
+sh_binary(
+    name = "native_regressions",
+    srcs = ["native_regressions.sh"],
+    data = glob(["*.py"]) + ["//userland/native:dynamic_linkers", "//tools/kc-tools:kc-builder"],
+)
+
+sh_binary(
+    name = "verify_native",
+    srcs = ["verify_native.sh"],
+    data = [
+        "verify_qemu_boot.py", "verify_diagnostic_code_signing.py",
+        "//userland/native:dynamic_linker_test_roots",
+        "//userland/native:runtime_test_roots", "//:arm64", "//:x86_64",
+    ],
+)

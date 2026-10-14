@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="xfce_output_private_v1">
+  <copyright>
+    Copyright © 2024 Brian Tarricone &lt;brian@tarricone.org&gt;
+
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation files
+    (the "Software"), to deal in the Software without restriction,
+    including without limitation the rights to use, copy, modify, merge,
+    publish, distribute, sublicense, and/or sell copies of the Software,
+    and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the
+    next paragraph) shall be included in all copies or substantial
+    portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+    BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+    ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  </copyright>
+
+  <interface name="xfce_output_manager_private_v1" version="1">
+    <description summary="Xfce output extensions">
+      This protocol advertises extensions to the existing wl_output and
+      xdg_output_v1 protocols.
+
+      It is intended to be private to the Xfce desktop implementation, and
+      should not be used by other applications. This protocol may introduce
+      incompatible changes at any time, without warning, and without following
+      normal, accepted guidelines about Wayland protocol versioning.
+
+      This protocol depends on the wl_output protocol (with a soft dependency on
+      the xdg_output_v1 protocol).
+    </description>
+
+    <request name="get_xfce_output">
+      <description summary="Fetches a new xfce_output_v1 instance">
+        This creates a new xfce_output_v1 object for the given wl_output.
+      </description>
+      <arg name="id" type="new_id" interface="xfce_output_v1"/>
+      <arg name="output" type="object" interface="wl_output" summary="Output to request a xfce_output_v1 object for"/>
+    </request>
+
+    <request name="release" type="destructor">
+      <description summary="Informs the compositor the client is done using the manager object"/>
+    </request>
+  </interface>
+
+  <interface name="xfce_output_v1" version="1">
+    <event name="serial">
+      <description summary="Advertises the serial number of a device">
+        This informs the client of the output's hardware serial number.
+
+        This event is emitted on creation of the xfce_output_v1 instance, if the
+        serial number is available.
+
+        Since the serial number will never change during the lifetime of this
+        output object, it is safe to assume you will only get this event
+        once for each xfce_output_v1.
+
+        This event is a property that is a part of the 'done' grouping. See the
+        xfce_output_v1.done event for more information.
+      </description>
+      <arg name="serial" type="string"/>
+    </event>
+
+    <request name="destroy" type="destructor">
+      <description summary="Destroys the object"/>
+    </request>
+
+    <event name="edid">
+      <description summary="Advertises the EDID of a device">
+        The EDID data is raw binary data exposed by the monitor's hardware and
+        will need to be parsed in order to be useful.
+
+        This event is emitted on creation of the xfce_output_v1 instance, if the
+        EDID is available.
+
+        Since the EDID will never change during the lifetime of this output
+        object, it is safe to assume you will only get this event once for each
+        xfce_output_v1.
+
+        This event is a property that is a part of the 'done' grouping. See the
+        xfce_output_v1.done event for more information.
+      </description>
+      <arg name="fd" type="fd" summary="A file descriptor that can be mapped into memory"/>
+      <arg name="size" type="uint" summary="The size of the memory region referred to by fd"/>
+    </event>
+
+    <event name="primary">
+      <description summary="Emitted when the output becomes primary">
+        The user or compositor may have designated an output as "primary", which
+        is the output that might usually hold the desktop's main UI elements,
+        like a panel or dock.
+
+        Since only one output can be primary, receiving this event means that
+        the previous primary output is no longer primary.
+
+        This event is a property that is a part of the 'done' grouping. See the
+        xfce_output_v1.done event for more information.
+      </description>
+    </event>
+
+    <event name="workarea">
+      <description summary="Advertises the usable space on the output">
+        An output's workarea is the area that is usable for the display of
+        regular surfaces. For example, a panel or dock may reserve space at the
+        edge of the screen where other surfaces should not be placed, so the
+        area taken up by the panel or dock would be excluded by the workkarea.
+
+        Coordinates and size are presented in output-relative, logical
+        coordinates that may be scaled (see xdg_output_v1.logical_size for
+        details), with the (0, 0) origin in the top-left corner.
+
+        The workarea event will always be emitted after binding the object, even
+        if the coordinates and size represent the full output area. It will be
+        emitted again any time the workarea changes.
+
+        This event is a property that is a part of the 'done' grouping. See the
+        xfce_output_v1.done event for more information.
+      </description>
+      <arg name="x" type="int" summary="x-origin of the workarea"/>
+      <arg name="y" type="int" summary="y-origin of the workarea"/>
+      <arg name="width" type="uint" summary="Width of the workarea"/>
+      <arg name="height" type="uint" summary="Height of the workarea"/>
+    </event>
+
+    <event name="done">
+      <description summary="Initial properties have been sent">
+        Sent after a grouping of event properties has been sent.
+
+        After initially creating the object, all known properties will be sent
+        before this event is sent. When properties change, their events will be
+        succeeded by this event.
+
+        See the individual events to learn which events are part of the initial
+        'done' group.
+      </description>
+    </event>
+
+    <event name="pointer_enter">
+      <description summary="Emitted when a pointer enters this output">
+        The pointer for a seat can only be on one output at a time, so, aside
+        from the first emission of this event, it will never be emitted without
+        being preceded by a pointer_leave event from another xfce_output_v1
+        instance.
+
+        This event will be emitted at bind time to inform new clients of the
+        output the pointer is currently on.
+
+        Note that this event is _not_ part of the 'done' group.
+      </description>
+      <arg name="seat" type="object" interface="wl_seat"/>
+    </event>
+
+    <event name="pointer_leave">
+      <description summary="Emitted when a pointer leaves this output">
+        The pointer for a seat can only be on one output at a time, so this
+        event will never be emitted without being preceded by a pointer_enter
+        event on the same object.
+
+        Note that this event is _not_ part of the 'done' group.
+      </description>
+      <arg name="seat" type="object" interface="wl_seat"/>
+    </event>
+  </interface>
+</protocol>

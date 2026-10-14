@@ -1,0 +1,3 @@
+package(default_visibility = ["//visibility:public"])
+filegroup(name = "epoxy_sources", srcs = glob(["libepoxy/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "gtk_sources", srcs = glob(["gtk/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))

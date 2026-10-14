@@ -1,0 +1,5 @@
+filegroup(
+    name = "kernel_bootstrap_header_files",
+    srcs = glob(["*.h"]),
+    visibility = ["//visibility:public"],
+)

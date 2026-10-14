@@ -1,0 +1,914 @@
+# #-#-#-#-#  uk.po (1.1)  #-#-#-#-#
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# #-#-#-#-#  uk.po (atk)  #-#-#-#-#
+# ATK Ukrainian translation.
+# Copyright (C) 2002 The ATK Team
+# This file is distributed under the same license as the ATK package.
+# Yuriy Syrota <yuri@renome.rovno.ua>
+# Maxim Dziumanenko <dziumanenko@gmail.com>
+# Korostil Daniel <ted.korostiled@gmail.com>, 2011.
+# wanderlust <wanderlust@ukr.net>, 2009.
+# Korostil Daniel <ted.korostiled@gmail.com>, 2012.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2022, 2024, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: atk\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2025-02-11 18:33+0000\n"
+"PO-Revision-Date: 2025-02-24 16:02+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  uk.po (1.1)  #-#-#-#-#\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.04.3\n"
+"#-#-#-#-#  uk.po (atk)  #-#-#-#-#\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 20.03.70\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "Посилання вибрано"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "Вказує, чи виділений об'єкт AtkHyperlink"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "Кількість якорів"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "Кількість якорів, пов'язаних з об'єктом AtkHyperlink"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "Кінцевий індекс"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "Кінцевий індекс об'єкта AtkHyperlink"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "Початковий індекс"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "Початковий індекс об'єкта AtkHyperlink"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "Назва об'єкта"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr ""
+"Назва екземпляру об'єкта для доступу з використанням допоміжних технологій"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "Опис об'єкта"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "Опис об'єкта для доступу з використанням допоміжних технологій"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "Батьківський об'єкт"
+
+#: atk/atkobject.c:288
+msgid ""
+"Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr ""
+"Батьківський елемент поточного доступного елемента, який повертатиме "
+"atk_object_get_parent()"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "Значення об'єкта"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "Використовується для сповіщення, що значення змінились"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "Роль об'єкта"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "Роль цього об'єкта у допоміжних технологіях"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "Рівень об'єкта"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "Рівень цього об'єкта в допоміжних технологіях"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "Допоміжне значення MDI"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "Значення MDI цього об'єкта у допоміжних технологіях"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "Допоміжний заголовок таблиці"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"Використовується для сповіщення про зміну заголовку таблиці. Ця властивість "
+"не повинна використовуватись. Натомість повинна використовуватись "
+"властивість accessible-table-caption-object."
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "Допоміжний заголовок стовпчика таблиці"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "Використовується для сповіщення про зміну заголовку стовпця"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "Допоміжний опис стовпця таблиці"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "Використовується для сповіщення про зміну опису стовпця"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "Допоміжний заголовок рядка таблиці"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "Використовується для сповіщення про зміну заголовку рядка таблиці"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "Допоміжний опис рядка таблиці"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "Використовується для сповіщення про зміну опису рядка таблиці"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "Допоміжний підсумок таблиці "
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "Використовується для сповіщення про зміну підсумку таблиці"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "Допоміжний об'єкт заголовку таблиці"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "Використовується для сповіщення про зміну заголовку таблиці"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "Кількість допоміжних гіпертекстових посилань"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "Кількість посилань, які має поточний об'єкт AtkHypertext"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "Ідентифікатор доступності"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr ""
+"Ідентифікатор для елемента доступності: корисно для автоматизованого "
+"тестування"
+
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "Текст довідки"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "Текст довідки, який пов'язано із елементом доступності"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "дуже простий"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "простий"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "прийнятний"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "складний"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "дуже складний"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "дуже низька"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "середня"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "висока"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "дуже висока"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "дуже погано"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "погано"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "добре"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "дуже добре"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "якнайкраще"
+
+#: atspi/atspi-component.c:352 atspi/atspi-misc.c:1234 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "Програми більше не існує"
+
+#: atspi/atspi-misc.c:49
+msgid "invalid"
+msgstr "неприпустимий"
+
+#: atspi/atspi-misc.c:50
+msgid "accelerator label"
+msgstr "позначка комбінації клавіш"
+
+#: atspi/atspi-misc.c:51
+msgid "alert"
+msgstr "тривога"
+
+#: atspi/atspi-misc.c:52
+msgid "animation"
+msgstr "анімація"
+
+#: atspi/atspi-misc.c:53
+msgid "arrow"
+msgstr "стрілка"
+
+#: atspi/atspi-misc.c:54
+msgid "calendar"
+msgstr "календар"
+
+#: atspi/atspi-misc.c:55
+msgid "canvas"
+msgstr "полотно"
+
+#: atspi/atspi-misc.c:56
+msgid "check box"
+msgstr "кнопка-прапорець"
+
+#: atspi/atspi-misc.c:57
+msgid "check menu item"
+msgstr "елемент-прапорець меню"
+
+#: atspi/atspi-misc.c:58
+msgid "color chooser"
+msgstr "вибір кольору"
+
+#: atspi/atspi-misc.c:59
+msgid "column header"
+msgstr "заголовок стовпчика"
+
+#: atspi/atspi-misc.c:60
+msgid "combo box"
+msgstr "поле зі списком"
+
+#: atspi/atspi-misc.c:61
+msgid "dateeditor"
+msgstr "редактор дати"
+
+#: atspi/atspi-misc.c:62
+msgid "desktop icon"
+msgstr "значок робочого столу"
+
+#: atspi/atspi-misc.c:63
+msgid "desktop frame"
+msgstr "рамка робочого столу"
+
+#: atspi/atspi-misc.c:64
+msgid "dial"
+msgstr "набір номера"
+
+#: atspi/atspi-misc.c:65
+msgid "dialog"
+msgstr "діалогове вікно"
+
+#: atspi/atspi-misc.c:66
+msgid "directory pane"
+msgstr "панель каталогу"
+
+#: atspi/atspi-misc.c:67
+msgid "drawing area"
+msgstr "область малювання"
+
+#: atspi/atspi-misc.c:68
+msgid "file chooser"
+msgstr "вибір файлів"
+
+#: atspi/atspi-misc.c:69
+msgid "filler"
+msgstr "заповнювач"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:71
+msgid "fontchooser"
+msgstr "вибір шрифту"
+
+#: atspi/atspi-misc.c:72
+msgid "frame"
+msgstr "рамка"
+
+#: atspi/atspi-misc.c:73
+msgid "glass pane"
+msgstr "прозора панель"
+
+#: atspi/atspi-misc.c:74
+msgid "html container"
+msgstr "контейнер з html вмістом"
+
+#: atspi/atspi-misc.c:75
+msgid "icon"
+msgstr "значок"
+
+#: atspi/atspi-misc.c:76
+msgid "image"
+msgstr "зображення"
+
+#: atspi/atspi-misc.c:77
+msgid "internal frame"
+msgstr "внутрішня рамка"
+
+#: atspi/atspi-misc.c:78
+msgid "label"
+msgstr "позначка"
+
+#: atspi/atspi-misc.c:79
+msgid "layered pane"
+msgstr "панель з рівнями"
+
+#: atspi/atspi-misc.c:80
+msgid "list"
+msgstr "список"
+
+#: atspi/atspi-misc.c:81
+msgid "list item"
+msgstr "елемент списку"
+
+#: atspi/atspi-misc.c:82
+msgid "menu"
+msgstr "меню"
+
+#: atspi/atspi-misc.c:83
+msgid "menu bar"
+msgstr "рядок меню"
+
+#: atspi/atspi-misc.c:84
+msgid "menu button"
+msgstr "кнопка меню"
+
+#: atspi/atspi-misc.c:85
+msgid "menu item"
+msgstr "елемент меню"
+
+#: atspi/atspi-misc.c:86
+msgid "option pane"
+msgstr "панель параметрів"
+
+#: atspi/atspi-misc.c:87
+msgid "page tab"
+msgstr "вкладка сторінки"
+
+#: atspi/atspi-misc.c:88
+msgid "page tab list"
+msgstr "список вкладок сторінки"
+
+#: atspi/atspi-misc.c:89
+msgid "panel"
+msgstr "панель"
+
+#: atspi/atspi-misc.c:90
+msgid "password text"
+msgstr "пароль"
+
+#: atspi/atspi-misc.c:91
+msgid "popup menu"
+msgstr "контекстне меню"
+
+#: atspi/atspi-misc.c:92
+msgid "progress bar"
+msgstr "індикатор поступу"
+
+#: atspi/atspi-misc.c:93
+msgid "button"
+msgstr "кнопка"
+
+#: atspi/atspi-misc.c:94
+msgid "radio button"
+msgstr "кнопка-перемикач"
+
+#: atspi/atspi-misc.c:95
+msgid "radio menu item"
+msgstr "елемент-перемикач меню"
+
+#: atspi/atspi-misc.c:96
+msgid "root pane"
+msgstr "коренева панель"
+
+#: atspi/atspi-misc.c:97
+msgid "row header"
+msgstr "заголовок рядка"
+
+#: atspi/atspi-misc.c:98
+msgid "scroll bar"
+msgstr "смуга прокрутки"
+
+#: atspi/atspi-misc.c:99
+msgid "scroll pane"
+msgstr "панель прокрутки"
+
+#: atspi/atspi-misc.c:100
+msgid "separator"
+msgstr "розділювач"
+
+#: atspi/atspi-misc.c:101
+msgid "slider"
+msgstr "повзунок"
+
+#: atspi/atspi-misc.c:102
+msgid "split pane"
+msgstr "розділена панель"
+
+#: atspi/atspi-misc.c:103
+msgid "spin button"
+msgstr "кнопка обертання"
+
+#: atspi/atspi-misc.c:104
+msgid "statusbar"
+msgstr "рядок стану"
+
+#: atspi/atspi-misc.c:105
+msgid "switch"
+msgstr "перемикач"
+
+#: atspi/atspi-misc.c:106
+msgid "table"
+msgstr "таблиця"
+
+#: atspi/atspi-misc.c:107
+msgid "table cell"
+msgstr "клітинка таблиці"
+
+#: atspi/atspi-misc.c:108
+msgid "table column header"
+msgstr "заголовок стовпчика таблиці"
+
+#: atspi/atspi-misc.c:109
+msgid "table row header"
+msgstr "заголовок рядка таблиці"
+
+#: atspi/atspi-misc.c:110
+msgid "tear off menu item"
+msgstr "рухомий елемент меню"
+
+#: atspi/atspi-misc.c:111
+msgid "terminal"
+msgstr "термінал"
+
+#: atspi/atspi-misc.c:112
+msgid "text"
+msgstr "текст"
+
+#: atspi/atspi-misc.c:113
+msgid "toggle button"
+msgstr "кнопка-перемикач"
+
+#: atspi/atspi-misc.c:114
+msgid "tool bar"
+msgstr "панель інструментів"
+
+#: atspi/atspi-misc.c:115
+msgid "tool tip"
+msgstr "підказка"
+
+#: atspi/atspi-misc.c:116
+msgid "tree"
+msgstr "дерево"
+
+#: atspi/atspi-misc.c:117
+msgid "tree table"
+msgstr "таблиця у вигляді дерева"
+
+#: atspi/atspi-misc.c:118
+msgid "unknown"
+msgstr "невідомий"
+
+#: atspi/atspi-misc.c:119
+msgid "viewport"
+msgstr "область перегляду"
+
+#: atspi/atspi-misc.c:120
+msgid "window"
+msgstr "вікно"
+
+#: atspi/atspi-misc.c:121
+msgid "header"
+msgstr "заголовок"
+
+#: atspi/atspi-misc.c:122
+msgid "footer"
+msgstr "нижній колонтитул"
+
+#: atspi/atspi-misc.c:123
+msgid "paragraph"
+msgstr "абзац"
+
+#: atspi/atspi-misc.c:124
+msgid "ruler"
+msgstr "лінійка"
+
+#: atspi/atspi-misc.c:125
+msgid "application"
+msgstr "програма"
+
+#: atspi/atspi-misc.c:126
+msgid "autocomplete"
+msgstr "автодоповнення"
+
+#: atspi/atspi-misc.c:127
+msgid "edit bar"
+msgstr "рядок редагування"
+
+#: atspi/atspi-misc.c:128
+msgid "embedded component"
+msgstr "вбудований компонент"
+
+#: atspi/atspi-misc.c:129
+msgid "entry"
+msgstr "запис"
+
+#: atspi/atspi-misc.c:130
+msgid "chart"
+msgstr "діаграма"
+
+#: atspi/atspi-misc.c:131
+msgid "caption"
+msgstr "заголовок"
+
+#: atspi/atspi-misc.c:132
+msgid "document frame"
+msgstr "рамка документа"
+
+#: atspi/atspi-misc.c:133
+msgid "heading"
+msgstr "заголовок"
+
+#: atspi/atspi-misc.c:134
+msgid "page"
+msgstr "сторінка"
+
+#: atspi/atspi-misc.c:135
+msgid "section"
+msgstr "розділ"
+
+#: atspi/atspi-misc.c:136
+msgid "redundant object"
+msgstr "зайвий аргумент"
+
+#: atspi/atspi-misc.c:137
+msgid "form"
+msgstr "форма"
+
+#: atspi/atspi-misc.c:138
+msgid "link"
+msgstr "посилання"
+
+#: atspi/atspi-misc.c:139
+msgid "input method window"
+msgstr "вікно методу вводу"
+
+#: atspi/atspi-misc.c:140
+msgid "table row"
+msgstr "рядок таблиці"
+
+#: atspi/atspi-misc.c:141
+msgid "tree item"
+msgstr "об'єкт дерева"
+
+#: atspi/atspi-misc.c:142
+msgid "document spreadsheet"
+msgstr "документ електронної таблиці"
+
+#: atspi/atspi-misc.c:143
+msgid "document presentation"
+msgstr "документ презентації"
+
+#: atspi/atspi-misc.c:144
+msgid "document text"
+msgstr "документ тексту"
+
+#: atspi/atspi-misc.c:145
+msgid "document web"
+msgstr "документ інтернету"
+
+#: atspi/atspi-misc.c:146
+msgid "document email"
+msgstr "документ пошти"
+
+#: atspi/atspi-misc.c:147
+msgid "comment"
+msgstr "коментар"
+
+#: atspi/atspi-misc.c:148
+msgid "list box"
+msgstr "список"
+
+#: atspi/atspi-misc.c:149
+msgid "grouping"
+msgstr "групування"
+
+#: atspi/atspi-misc.c:150
+msgid "image map"
+msgstr "зображування"
+
+#: atspi/atspi-misc.c:151
+msgid "notification"
+msgstr "сповіщення"
+
+#: atspi/atspi-misc.c:152
+msgid "info bar"
+msgstr "інформаційна панель"
+
+#: atspi/atspi-misc.c:153
+msgid "level bar"
+msgstr "смужка рівня"
+
+#: atspi/atspi-misc.c:154
+msgid "title bar"
+msgstr "смужка заголовка"
+
+#: atspi/atspi-misc.c:155
+msgid "block quote"
+msgstr "цитата"
+
+#: atspi/atspi-misc.c:156
+msgid "audio"
+msgstr "звук"
+
+#: atspi/atspi-misc.c:157
+msgid "video"
+msgstr "відео"
+
+#: atspi/atspi-misc.c:158
+msgid "definition"
+msgstr "визначення"
+
+#: atspi/atspi-misc.c:159
+msgid "article"
+msgstr "стаття"
+
+#: atspi/atspi-misc.c:160
+msgid "landmark"
+msgstr "орієнтир"
+
+#: atspi/atspi-misc.c:161
+msgid "log"
+msgstr "журнал"
+
+#: atspi/atspi-misc.c:162
+msgid "marquee"
+msgstr "область"
+
+#: atspi/atspi-misc.c:163
+msgid "math"
+msgstr "математичний вираз"
+
+#: atspi/atspi-misc.c:164
+msgid "rating"
+msgstr "оцінка"
+
+#: atspi/atspi-misc.c:165
+msgid "timer"
+msgstr "таймер"
+
+#: atspi/atspi-misc.c:166
+msgid "description list"
+msgstr "список опису"
+
+#: atspi/atspi-misc.c:167
+msgid "description term"
+msgstr "термін опису"
+
+#: atspi/atspi-misc.c:168
+msgid "description value"
+msgstr "значення опису"
+
+#~ msgid "push button"
+#~ msgstr "звичайна кнопка"
+
+#~ msgid "Attempted synchronous call where prohibited"
+#~ msgstr "Спроба синхронного виклику там, де це заборонено"
+
+#~ msgid "AT-SPI: Unknown signature %s for RemoveAccessible"
+#~ msgstr "AT-SPI: невідомий підпис %s для RemoveAccessible"
+
+#~ msgid "AT-SPI: Error calling getRoot for %s: %s"
+#~ msgstr "AT-SPI: помилка виклику getRoot для %s: %s"
+
+#~ msgid "AT-SPI: Error in GetItems, sender=%s, error=%s"
+#~ msgstr "AT-SPI: помилка в GetItems, sender=%s, error=%s"
+
+#~ msgid ""
+#~ "AT-SPI: Called _atspi_dbus_return_accessible_from_message with strange "
+#~ "signature %s"
+#~ msgstr ""
+#~ "AT-SPI: викликано _atspi_dbus_return_accessible_from_message з дивним "
+#~ "підписом %s"
+
+#~ msgid ""
+#~ "AT-SPI: Called _atspi_dbus_return_hyperlink_from_message with strange "
+#~ "signature %s"
+#~ msgstr ""
+#~ "AT-SPI: викликано _atspi_dbus_return_hyperlink_from_message з дивним "
+#~ "підписом %s"
+
+#~ msgid "AT-SPI: AddAccessible with unknown signature %s\n"
+#~ msgstr "AT-SPI: AddAccessible з невідомим підписом %s\n"
+
+#~ msgid "AT-SPI: Could not get the display\n"
+#~ msgstr "AT-SPI: неможливо перейти до показу\n"
+
+#~ msgid "AT-SPI: Accessibility bus not found - Using session bus.\n"
+#~ msgstr ""
+#~ "AT-SPI: не знайдено шини доступності — використовуйте шину сеансу.\n"
+
+#~ msgid "AT-SPI: Couldn't connect to bus: %s\n"
+#~ msgstr "AT-SPI: неможливо з'єднатись із шиною: %s\n"
+
+#~ msgid "AT-SPI: Couldn't register with bus: %s\n"
+#~ msgstr "AT-SPI: неможливо зареєструватись із шиною: %s\n"
+
+#~ msgid ""
+#~ "AT-SPI: expected a variant when fetching %s from interface %s; got %s\n"
+#~ msgstr ""
+#~ "AT-SPI: очікуваний варіант, коли звантажуємо %s з інтерфейсу %s; "
+#~ "отримаємо %s\n"
+
+#~ msgid "atspi_dbus_get_property: Wrong type: expected %s, got %c\n"
+#~ msgstr ""
+#~ "atspi_dbus_get_property: неправильний тип: очікували %s, отримали %c\n"
+
+#~ msgid "AT-SPI: Unknown interface %s"
+#~ msgstr "AT-SPI: невідомий інтерфейс %s"
+
+#~ msgid "AT-SPI: expected 2 values in states array; got %d\n"
+#~ msgstr "AT-SPI: очікувалось 2 значення в масиві станів; отримали %d\n"
+
+#~ msgid "Streamable content not implemented"
+#~ msgstr "Потоковий вміст не реалізовано"
+
+#~ msgid ""
+#~ "called atspi_event_listener_register_from_callback with a NULL event_type"
+#~ msgstr ""
+#~ "викликано atspi_event_listener_register_from_callback з NULL event_type"
+
+#~ msgid "Got invalid signature %s for signal %s from interface %s\n"
+#~ msgstr "Отримано неправильний підпис %s для сигналу %s з інтерфейсу %s\n"

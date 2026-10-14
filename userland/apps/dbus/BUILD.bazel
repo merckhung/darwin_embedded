@@ -1,0 +1,119 @@
+load("//userland/native/system:defs.bzl", "native_system")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(
+        name = "libraries_" + arch,
+        srcs = ["build_dbus.py", "//src/Applications/ipc:sources", "//userland/apps/x11:build_clients.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, "//userland/apps/x11:extensions." + arch + ".tar"],
+        outs = ["libraries." + arch + ".tar", "libraries." + arch + ".imports", "libraries." + arch + ".json"],
+        cmd = "python3 userland/apps/dbus/build_dbus.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --extensions $(location //userland/apps/x11:extensions." + arch + ".tar)" +
+              " --output $(location libraries." + arch + ".tar) --imports $(location libraries." + arch + ".imports)" +
+              " --report $(location libraries." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "libraries", srcs = [":libraries_arm64", ":libraries_x86_64"])
+[
+    native_system(name = "system_" + arch, arch = arch, exports = ":libraries." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "closure", srcs = [":system_arm64", ":system_x86_64"])
+[
+    genrule(
+        name = "runtime_" + arch,
+        srcs = ["link_dbus.py", "build_dbus.py", "//userland/apps/x11:link_extensions.py", "//userland/apps/x11:build_extensions.py",
+                "//userland/apps/gtk:link_pixbuf.py", "//userland/apps/fonts:link_pango.py", "//userland/apps/fonts:link_cairo.py",
+                "//userland/apps/fonts:build_pango.py", "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_harfbuzz.py",
+                "//src/Applications/ipc:sources", "//src/Applications/desktop-x11:sources", "//src/Applications/gtk:sources",
+                "//src/Applications/text:sources", "//src/Applications/fonts:sources", "//src/Applications/x11:sources",
+                "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":libraries." + arch + ".tar", ":libraries." + arch + ".json", ":system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["runtime." + arch + ".tar", "runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/dbus/link_dbus.py --root $$PWD --arch " + arch +
+              " --libraries $(location :libraries." + arch + ".tar) --build-report $(location :libraries." + arch + ".json)" +
+              " --system $(location :system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location runtime." + arch + ".tar) --report $(location runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "runtime", srcs = [":runtime_arm64", ":runtime_x86_64"])
+sh_test(
+    name = "artifact_test", size = "small", srcs = ["check_dbus.sh"],
+    data = ["check_dbus.py", "build_dbus.py", ":libraries", ":runtime", "//src/Applications/ipc:sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/apps/x11:build_clients.py",
+            "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py", "//scripts:native_components.py",
+            "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+            "//userland/native:sdk_arm64", "//userland/native:sdk_x86_64", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "probe_" + arch,
+        srcs = ["//userland/apps/fonts:build_font_probe.py", "test_dbus.c", ":libraries." + arch + ".tar",
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/apps/x11:link_auth.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch],
+        outs = ["probe." + arch + ".a", "probe." + arch + ".imports", "probe." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --dbus --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --libraries $(location :libraries." + arch + ".tar)" +
+              " --output $(location probe." + arch + ".a) --exports $(location probe." + arch + ".imports)" +
+              " --report $(location probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "test_requests_" + arch,
+            srcs = [":libraries." + arch + ".imports", ":probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+            outs = ["test." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "test_system_" + arch, arch = arch, exports = ":test." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = ["//userland/apps/fonts:build_font_probe.py", ":probe." + arch + ".a", ":runtime." + arch + ".tar", ":test_system_" + arch + ".tar",
+                "//src/Applications/fonts:sources", "//userland/apps/init:root_" + arch, "//userland/native:sdk_" + arch,
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py", "//userland/apps/x11:link_auth.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["test-root." + arch + ".img", "test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --dbus --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :probe." + arch + ".a)" +
+              " --runtime $(location :runtime." + arch + ".tar) --system $(location :test_system_" + arch + ".tar)" +
+              " --base-root $(location //userland/apps/init:root_" + arch + ") --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location test-root." + arch + ".img)" +
+              " --report $(location test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+[
+    sh_binary(name = "verify_dbus_" + arch, srcs = ["verify_dbus.sh"], args = [arch],
+              data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]

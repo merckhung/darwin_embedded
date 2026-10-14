@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Muhammad Akbar Yanuar Mantari, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10 00:45+0100\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Muhammad Akbar Yanuar Mantari, 2023\n"
+"Language-Team: Indonesian (https://www.transifex.com/xfce/teams/16840/id/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "Jendela tidak menyediakan ikon _NET_WM_ICON atau WMHints"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:626
+msgid "Failed to find or load an icon for the window"
+msgstr "Gagal dalam menemukan atau memuat ikon jendela"
+
+#: ../libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "Ruang Kerja 0"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "_Pindah"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "_Ubah"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "Selalu Tampak di _Muka"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "_Selalu Terlihat dalam Ruang Kerja Manapun"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "_Hanya Terlihat di Ruang Kerja Ini"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "Pindah ke Ruang Kerja _Kirinya"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "Pindah ke Ruang Kerja Ka_nannya"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "Pindah ke Ruang Kerja _Atasnya"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "Pindah ke Ruang Kerja _Bawahnya"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "Pindah ke Ruang Kerja _Lainnya"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "_Tutup"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "Ruang kerja %d"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr "Sem_bunyikan"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr "Munculkan _Kembali"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr "Luaskan _Tampilan"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr "Kembali _Semula"

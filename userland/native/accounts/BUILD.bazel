@@ -1,0 +1,16 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "accounts_" + arch,
+        srcs = ["accounts.c", "build_accounts.py", "//scripts:native_components.py", "//userland/native:sdk_" + arch],
+        outs = ["libaccounts." + arch + ".a", "accounts." + arch + ".json"],
+        cmd = "python3 userland/native/accounts/build_accounts.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libaccounts." + arch + ".a)" +
+              " --report $(location accounts." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":accounts_arm64", ":accounts_x86_64"])

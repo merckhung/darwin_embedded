@@ -1,0 +1,188 @@
+What's this file about?
+-----------------------
+This file lists all external people that have contributed to this project and
+thereby helped to make Terminal such a successful project.
+
+
+
+Testers (sorted by name):
+--------------------------
+These people have contributed to Terminal by testing the software,
+reporting problems and making useful suggestions.
+
+ Alexandre Aractingi <aaractingi@libertysurf.fr>
+  * bug reports
+
+ Giacomo Perale <ghepeu@virgilio.it>
+  * extensive testing, bug reports
+
+ Bernhard Walle <bernhard@bwalle.de>
+  * several bug reports and useful suggestions
+
+
+
+Translators (sorted by language):
+----------------------------------
+These people have translated Terminal to foreign languages.
+
+ Khaled Hosny <khaledhosny@eglug.org>
+  * ar translations
+
+ Alexander Nyakhaychyk <nyakhaychyk@gmail.com>
+  * be translations
+
+ Carles Muñoz Gorriz <carlesmu@internautas.org>
+  * ca translations
+
+ Pau Rul·lan Ferragut <paurullan@bulma.net>
+  * ca translations
+
+ Michal Várady <miko.vaji@gmail.com>
+  * cs translations
+
+ Benedikt Meurer <benny@xfce.org>
+  * de translations
+
+ Fabian Nowak <timystery@arcor.de>
+  * de translations
+
+ Tenzin Dendup <tdendup@dit.gov.bt>
+  * dz translations
+
+ Stathis Kamperis <ekamperi@auth.gr>
+  * el translations
+
+ Stavros Giannouris <stavrosg@serverhive.com>
+  * el translations
+
+ Jeff Bailes <thepizzaking@gmail.com>
+  * en_GB translations
+
+ Dwayne Bailey <dwayne@translate.org.za>
+  * en_GB translations
+
+ Jarbas Araujo Jr <jarbasaraujojr@yahoo.com.br>
+  * eo translations
+
+ Antono Vasiljev <antono.vasiljev@gmail.com>
+  * eo translations
+
+ Sylvain Vedrenne <gnu_sylvain@xfce.org>
+  * eo translations
+
+ Jaime Buffery <nestu@lunar-linux.org>
+  * es translations
+
+ Piarres Beobide Egaña <pi@beobide.net>
+  * eu translations
+
+ Jari Rahkonen <jari.rahkonen@pp1.inet.fi>
+  * fi translations
+
+ Maximilian Schleiss <maxschleiss@bluewin.ch>
+  * fr translations
+
+ Stephane Roy <sroy@j2n.net>
+  * fr translations
+
+ Leandro Regueiro <leandro.regueiro@gmail.com>
+  * gl translations
+
+ Dotan Kamber <kamberd@yahoo.com>
+  * he translations
+
+ Yuval Tanny <tanai@int.gov.il>
+  * he translations
+
+ Szervác Attila <sas@321.hu>
+  * hu translactions
+
+ Vittorio Palmisano <redclay@email.it>
+  * it translations
+
+ Daichi Kawahata <daichi@xfce.org>
+  * ja translations
+
+ ByungHyun Choi <byunghyun.choi@debianusers.org>
+  * ko translations
+
+ Kibum Han <yui@yui.pe.kr>
+  * ko translations
+
+ Mantas Zapolskas <mantaz@users.sourceforge.net>
+  * lt translations
+
+ Rihards Prieditis <RPrieditis@inbox.lv>
+  * lv translations
+
+ Terje Uriansrud <ter@operamail.com>
+  * nb_NO translations
+
+ Jasper Huijsmans <jasper@xfce.org>
+  * nl translations
+
+ Amanpreet Singh Alam <aalam@users.sf.net>
+  * pa translations
+
+ Szymon Kałasz <szymon_maestro@gazeta.pl>
+  * pl translations
+
+ Joao Pedrosa <joaopedrosa@gmail.com>
+  * pt_BR translations
+
+ Adriano Winter Bess <awbess@gmail.com>
+  * pt_BR translations
+
+ Nuno Miguel <nunis@netcabo.pt>
+  * pt_PT translations
+
+ Mişu Moldovan <dumol@gnome.ro>
+  * ro translations
+
+ Andrey Fedoseev <andrey.fedoseev@gmail.com>
+  * ru translations
+
+ Anthony Ivanoff <a-i@bk.ru>
+  * ru translations
+
+ Roman Moravcik <roman.moravcik@gmail.com>
+  * sk translations
+
+ Besnik Bleta <besnik@programeshqip.org>
+  * sq translations
+
+ Jens Hagerman <godhet@gmail.com>
+  * sv translations
+
+ Türker Gülüm <turker.gulum@linux.org.tr>
+  * tr translations
+
+ Maxim V. Dziumanenko <dziumanenko@gmail.com>
+  * uk translations
+
+ Muhammad Ali Makki <makki.ma@gmail.com>
+  * ur translations
+
+ Phan Vĩnh Thịnh <teppi@vnlinux.org>
+  * vi translations
+
+ Army Gu <redarmy@gmail.com>
+  * zh_CN translations
+
+ Hydonsingore Sie <hydonsingore@mail.educities.edu.tw>
+  * zh_TW translations
+
+
+
+Other contributors (sorted by name):
+------------------------------------
+
+ Andrew Conkling <andrewski@fr.st>
+  * helped with the online documentation
+
+ Kir Kolyshkin <kir@sacred.ru>
+  * mouse autohide patch
+
+ Mikel Ward <mikel@mikelward.com>
+  * maximize patch
+

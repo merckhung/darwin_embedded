@@ -1,0 +1,29 @@
+{
+  "repository": "https://github.com/llvm/llvm-project",
+  "tag": "llvmorg-20.1.8",
+  "commit": "87f0227cb60147a26a1eeb4fb06e3b505e9c7261",
+  "purpose": "Freestanding compiler-rt profile runtime for the Clang 20 kernel build",
+  "upstream_files_sha256": {
+    "compiler-rt/lib/profile/InstrProfiling.h": "fcaa61efef7446e56d975296afb66ddb9c65d160256378cc0bc424e608beb082",
+    "compiler-rt/lib/profile/InstrProfilingInternal.h": "bb929158a59c74493819e57c3b0705df25297bb790348ad5ef85e13ea7bbe375",
+    "compiler-rt/lib/profile/InstrProfilingPort.h": "1131ba8b050738cd6cd42d8b0b75e56df627b80282e2c48f1051305d5d8f9be2",
+    "compiler-rt/lib/profile/InstrProfilingUtil.h": "f58533ee41653dfb4db52818727be129a605dd345b46d225d964d53b9e42d112",
+    "compiler-rt/lib/profile/WindowsMMap.h": "4a311829a23ed5e744030626465c198925e067d18773aa93cc1ef15134be29f9",
+    "compiler-rt/include/profile/InstrProfData.inc": "066f801d0032df047396305bb9bd551edeb870e209fce50da0f55d0006b1d3b9",
+    "compiler-rt/include/profile/MIBEntryDef.inc": "258f2f52ee8edfb65fc5013fedb528cf98435bc602efa3ddfd9f5c26107d458a",
+    "compiler-rt/include/profile/MemProfData.inc": "a6634bac8cb5b688070343f1c875b4e062a6219f851bd9332f5d06220985180c",
+    "compiler-rt/include/profile/instr_prof_interface.h": "d23481bd777bcd4fe25af9299866b58b4155faba9f4ede5e8f609bf444e3b8dc",
+    "compiler-rt/lib/profile/InstrProfiling.c": "75f4245ca62a00fe23367213263692d9b869cea0ac4cdfd85eeeb9946a591c29",
+    "compiler-rt/lib/profile/InstrProfilingBuffer.c": "14dd9d5c733f67f84fef8c6c94b8c1299b5b6bc15e8e30d1c8946fe9a9538094",
+    "compiler-rt/lib/profile/InstrProfilingPlatformDarwin.c": "660586502acf6eba1c79fb250a2902501e6af94cc0688fbe993aa04045a3602a",
+    "compiler-rt/lib/profile/InstrProfilingWriter.c": "3da13298112214a15cdd1f8fb82f98b32e12b05f21b156067a2445e402e5f8f8",
+    "compiler-rt/lib/profile/InstrProfilingInternal.c": "bc9fd759ec4a14f5fe359a10266b62bb8d9a997217f7232d2c43054c733973ea",
+    "compiler-rt/lib/profile/InstrProfilingVersionVar.c": "f13fe99b4a6cc607599569a4273013c69af24e68249203bf9d46f44930dbc525",
+    "compiler-rt/LICENSE.TXT": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d",
+    "llvm/LICENSE.TXT": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee",
+    "llvm/include/llvm/ProfileData/InstrProfData.inc": "066f801d0032df047396305bb9bd551edeb870e209fce50da0f55d0006b1d3b9"
+  },
+  "local_changes": [
+    "Remove userspace stdio/stdlib/unistd declarations from KERNEL_USE builds; include stddef explicitly."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "fonts": [
+    {
+      "family": "Foo",
+      "style": "Regular",
+      "file": "/path/to/Foo.ttf",
+    },
+    {
+      "family": "Bar",
+      "style": "Regular",
+      "file": "/path/to/Bar.ttf",
+    },
+    {
+      "family": "Baz",
+      "style": "Regular",
+      "file": "/path/to/Baz.ttf",
+    },
+  ],
+  "load_xml": [
+    "%test%/test-genericfamily.conf"
+  ],
+  "tests": [
+    {
+      "method": "scan",
+      "result_fs": [
+        {
+          "family": "Foo",
+          "style": "Regular",
+          "file": "/path/to/Foo.ttf",
+          "genericfamily": "sans-serif",
+        },
+        {
+          "family": "Bar",
+          "style": "Regular",
+          "file": "/path/to/Bar.ttf",
+          "genericfamily": "serif",
+        },
+        {
+          "family": "Baz",
+          "style": "Regular",
+          "file": "/path/to/Baz.ttf",
+          "genericfamily": "sans-serif",
+        }
+      ]
+    }
+  ]
+}

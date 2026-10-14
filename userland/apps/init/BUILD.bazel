@@ -1,0 +1,105 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("//userland/native/system:defs.bzl", "native_system")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_binary(
+    name = "hfs_metadata",
+    srcs = ["hfs_metadata.c"],
+    copts = ["-fcommon"],
+    deps = ["//tools/libdmg-hfsplus:library"],
+)
+
+[
+    genrule(
+        name = "objects_" + arch,
+        srcs = ["build_init.py", "init.c", "uname.c", "test_home.c", "//scripts:native_components.py",
+                "//src/Kernel/Extensions/25.5.0:hfs/core/hfs_mount.h", "//src/Kernel/xnu/12377.121.6:sources", "//userland/native:sdk_" + arch],
+        outs = ["init." + arch + ".o", "uname." + arch + ".o", "test_home." + arch + ".o", "libinit_support." + arch + ".a", "init." + arch + ".exports", "init." + arch + ".json"],
+        cmd = "python3 userland/apps/init/build_init.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --init-output $(location init." + arch + ".o)" +
+              " --uname-output $(location uname." + arch + ".o)" +
+              " --home-output $(location test_home." + arch + ".o)" +
+              " --support-output $(location libinit_support." + arch + ".a)" +
+              " --exports $(location init." + arch + ".exports)" +
+              " --report $(location init." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "exports_" + arch,
+        srcs = [":init." + arch + ".exports", "//userland/apps/dash:shell." + arch + ".exports", "//userland/apps/busybox:busybox." + arch + ".imports"],
+        outs = ["system." + arch + ".exports"],
+        cmd = "cat $(SRCS) > $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    native_system(
+        name = "system_" + arch,
+        arch = arch,
+        exports = ":system." + arch + ".exports",
+        libraries = {"accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                     "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                     "permissions": "//userland/apps/glib:libglib_support." + arch + ".a",
+                     "init_support": ":libinit_support." + arch + ".a"},
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "systems", srcs = [":system_arm64", ":system_x86_64"])
+
+[
+    genrule(
+        name = "roots_" + arch,
+        srcs = ["build_root.py", "test_home.sh", ":init." + arch + ".o", ":uname." + arch + ".o", ":test_home." + arch + ".o", ":system_" + arch + ".tar", "//userland/apps/busybox:libbusybox." + arch + ".a", "//userland/apps/busybox:busybox." + arch + ".json",
+                "//userland/apps/dash:shell-test-root." + arch + ".img", "//userland/native:dyld_" + arch,
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus", ":hfs_metadata"],
+        outs = ["root." + arch + ".img", "root." + arch + ".json", "test-root." + arch + ".img", "test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/init/build_root.py --arch " + arch +
+              " --base-root $(location //userland/apps/dash:shell-test-root." + arch + ".img)" +
+              " --system $(location :system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --init $(location init." + arch + ".o) --uname $(location uname." + arch + ".o)" +
+              " --home $(location test_home." + arch + ".o) --home-script $(location test_home.sh)" +
+              " --busybox $(location //userland/apps/busybox:libbusybox." + arch + ".a) --busybox-report $(location //userland/apps/busybox:busybox." + arch + ".json)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --metadata-tool $(location :hfs_metadata)" +
+              " --output $(location root." + arch + ".img) --report $(location root." + arch + ".json)" +
+              " --test-output $(location test-root." + arch + ".img) --test-report $(location test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    filegroup(name = "root_" + arch, srcs = [":root." + arch + ".img"])
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "roots", srcs = [":roots_arm64", ":roots_x86_64"])
+
+[
+    sh_binary(
+        name = "verify_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch, "root"],
+        data = [":roots_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py", "//scripts:verify_native_tools.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    sh_binary(
+        name = "verify_shell_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch, "test-root"],
+        data = [":roots_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]

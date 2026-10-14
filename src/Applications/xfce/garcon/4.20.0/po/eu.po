@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# beriain, 2018
+# beriain, 2022
+# Piarres Beobide <pi@beobide.net>, 2008-2010
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-04-18 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: beriain, 2022\n"
+"Language-Team: Basque (http://app.transifex.com/xfce/garcon/language/eu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:5
+msgid "applications-accessories"
+msgstr ""
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Gehigarriak"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Mahaigain lanabes eta aplikazio arruntak"
+
+#: data/xfce/xfce-development.desktop.in:5
+msgid "applications-development"
+msgstr ""
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Garapena"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Software garapen lanabesak"
+
+#: data/xfce/xfce-education.desktop.in:5 data/xfce/xfce-science.desktop.in:5
+msgid "applications-science"
+msgstr ""
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Hezkuntza"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Hezkuntzarako softwarea"
+
+#: data/xfce/xfce-games.desktop.in:5
+msgid "applications-games"
+msgstr ""
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Jokoak"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Joko, puzzle eta beste software dibertigarria"
+
+#: data/xfce/xfce-graphics.desktop.in:5
+msgid "applications-graphics"
+msgstr ""
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Grafikoak"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Sormen eta eraldaketa grafikorako aplikazioak"
+
+#: data/xfce/xfce-hardware.desktop.in:5
+msgid "preferences-desktop-peripherals"
+msgstr ""
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Hardwarea"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Zenbait hardware gailuren ezarpenak"
+
+#: data/xfce/xfce-multimedia.desktop.in:5
+msgid "applications-multimedia"
+msgstr ""
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Audio eta bideo editore eta erreproduzigailuak"
+
+#: data/xfce/xfce-network.desktop.in:5
+msgid "applications-internet"
+msgstr ""
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Internet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Internet atzitzeko aplikazioa"
+
+#: data/xfce/xfce-office.desktop.in:5
+msgid "applications-office"
+msgstr ""
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Bulegoa"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Bulego eta produktibitate aplikazioak"
+
+#: data/xfce/xfce-other.desktop.in:5
+msgid "applications-other"
+msgstr ""
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Besteak"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Beste kategorietan sartzen ez diren aplikazioak"
+
+#: data/xfce/xfce-personal.desktop.in:5
+msgid "preferences-desktop-personal"
+msgstr ""
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Pertsonala"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Ezarpen pertsonalak"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Zientzia"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Zientzia-softwarea"
+
+#: data/xfce/xfce-screensavers.desktop.in:5
+msgid "preferences-desktop-screensaver"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Pantaila-babesleak"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Pantaila-babesle appletak"
+
+#: data/xfce/xfce-settings.desktop.in:5
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Mahaigain eta sistema ezarpen aplikazioak"
+
+#: data/xfce/xfce-system.desktop.in:5
+msgid "applications-system"
+msgstr ""
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Sistema"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Sistema tresna eta lanabesak"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "\"%s\" fitxategia ez da aurkitu"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Ezin da %s-etik menuaren fitxategi datuak kargatu: %s."
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Ezin da %s-etik menuaren fitxategi datuak kargatu"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Ezin da \"%s\" komandoa exekutatu."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Errorea abiaraztean"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Ezin izan da \"exo-desktop-item-edit\" abiarazi, menuetako elementuak sortu eta editatzeko beharrezkoa dena."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Itxi"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Huts aplikazio menua kargatzean"

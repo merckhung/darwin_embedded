@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Daichi Kawahata <daichi@xfce.org>, 2007
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2016,2022
+# UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2023
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2023\n"
+"Language-Team: Japanese (http://app.transifex.com/xfce/garcon/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "アクセサリー"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "一般的なデスクトップツールやアプリケーションです"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "開発"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "ソフトウェア開発ツールです"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "教育"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "教育用ソフトウェアです"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "ゲーム"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "ゲーム、パズル、その他楽しいソフトウェアです"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "グラフィックス"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "グラフィック作成および操作アプリケーションです"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "ハードウェア"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "一部のハードウェアデバイスを設定します"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "マルチメディア"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "オーディオおよびビデオのプレーヤーおよびエディターです"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "インターネット"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "インターネットアクセス用アプリケーションです"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "オフィス"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "オフィスおよび生産性アプリケーションです"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "その他"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "他のカテゴリに含まれないアプリケーションです"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "個人設定"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "個人の設定を変更します"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "科学"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "科学ソフトウェア"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "スクリーンセーバー"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "スクリーンセーバーアプレット"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "設定"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "デスクトップおよびシステム設定アプリケーションです"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "システム"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "システムツールおよびユーティリティです"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "ファイル \"%s\" が見つかりませんでした"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "%s からのメニューファイルデータを読み込めませんでした: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "%s からメニューファイルデータを読み込めませんでした"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "コマンド \"%s\" の実行に失敗しました。"
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "実行エラー"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "\"exo-desktop-item-edit\" を実行できません。これはメニューアイテムの作成と編集に必要です。"
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "閉じる(_C)"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "アプリケーションメニューの読み込みに失敗しました"

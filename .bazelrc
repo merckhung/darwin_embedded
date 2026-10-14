@@ -1,0 +1,5 @@
+# Shared compiler flags for the Linux host tools used by both kernel targets.
+build --action_env=PATH
+build --copt=-fno-asynchronous-unwind-tables
+build --copt=-fno-unwind-tables
+build --copt=-fno-stack-protector

@@ -1,0 +1,23 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libc_" + arch,
+        srcs = [
+            "//src/Libraries/25.5.0:sources", "//scripts:build_native_libc.py",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+        ],
+        outs = ["libc_base." + arch + ".a", "inventory." + arch + ".json", "libc." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_libc.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --inventory $(location inventory." + arch + ".json)" +
+              " --report $(location libc." + arch + ".json)" +
+              " --output $(location libc_base." + arch + ".a)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":libc_arm64", ":libc_x86_64"])

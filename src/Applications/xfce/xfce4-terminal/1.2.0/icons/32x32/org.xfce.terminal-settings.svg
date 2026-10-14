@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   id="svg11300"
+   version="1.0"
+   style="display:inline;enable-background:new"
+   viewBox="0 0 32 32"
+   sodipodi:docname="org.xfce.terminal-settings.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="org.xfce.terminal-settings.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1030"
+     id="namedview44"
+     showgrid="true"
+     inkscape:zoom="7.4374432"
+     inkscape:cx="5.983239"
+     inkscape:cy="7.5966967"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11300"
+     inkscape:lockguides="false"
+     showguides="false"
+     inkscape:guide-bbox="true"
+     inkscape:document-rotation="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4761"
+       empspacing="4" />
+  </sodipodi:namedview>
+  <title
+     id="title4162">Adwaita Icon Template</title>
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient1020"
+       inkscape:swatch="gradient">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop1016" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.09411765"
+         offset="1"
+         id="stop1018" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient870"
+       id="linearGradient872"
+       x1="69.432274"
+       y1="59.292229"
+       x2="69.432274"
+       y2="115.19054"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.29166674,0,0,0.29166675,1.2489135,-2.2102338)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient870">
+      <stop
+         style="stop-color:#f9da02;stop-opacity:1;"
+         offset="0"
+         id="stop866" />
+      <stop
+         style="stop-color:#dcb102;stop-opacity:1"
+         offset="1"
+         id="stop868" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>GNOME Design Team</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:title>Adwaita Icon Template</dc:title>
+        <dc:subject>
+          <rdf:Bag />
+        </dc:subject>
+        <dc:date />
+        <dc:rights>
+          <cc:Agent>
+            <dc:title />
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title />
+          </cc:Agent>
+        </dc:publisher>
+        <dc:identifier />
+        <dc:relation />
+        <dc:language />
+        <dc:coverage />
+        <dc:description />
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title />
+          </cc:Agent>
+        </dc:contributor>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     style="display:inline;opacity:1;fill:#a7b0b7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new"
+     id="rect929-36-9-9-2"
+     width="28"
+     height="26"
+     x="2"
+     y="3"
+     ry="2"
+     rx="2.0000002" />
+  <rect
+     rx="2"
+     ry="2"
+     y="5"
+     x="3"
+     height="23"
+     width="26"
+     id="rect929-36-9-9-2-3-67-3"
+     style="display:inline;opacity:1;fill:#758087;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
+  <rect
+     style="display:inline;opacity:1;fill:#d2d8dc;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new"
+     id="rect929-36-9-9-2-3-67"
+     width="26"
+     height="23"
+     x="3"
+     y="4"
+     ry="1.5"
+     rx="1.5" />
+  <rect
+     style="display:inline;opacity:1;fill:#263742;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new"
+     id="rect946-0-7-4-0"
+     width="24"
+     height="21"
+     x="4"
+     y="5"
+     ry="1"
+     rx="1" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path992"
+     d="m 7,8 6,3 v 2 L 7,16 V 14 L 11,12 7,10 V 8"
+     style="display:inline;fill:#f1f3f5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new" />
+  <path
+     id="path974-5"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f1f3f5;fill-opacity:1;stroke:none;stroke-width:0.999998;stroke-dasharray:none"
+     d="m 14,18 10e-7,2 h 7 L 21,18 Z"
+     inkscape:connector-curvature="0" />
+  <path
+     id="path864"
+     d="m 21.500002,14.5 -0.777001,2.332 c -0.09,0.034 -0.18,0.06998 -0.268001,0.109999 L 18.258,15.843997 16.843997,17.257999 17.944,19.457 a 5.0000024,5.0000022 0 0 0 -0.116002,0.266001 L 15.5,20.500001 v 1.999998 l 2.332,0.777 c 0.034,0.09 0.06998,0.180002 0.109998,0.268001 l -1.098001,2.197002 1.414003,1.414001 2.199,-1.100002 c 0.08701,0.042 0.176001,0.08 0.266001,0.116 l 0.776999,2.328 h 1.999999 L 24.277,26.168 c 0.09003,-0.034 0.180002,-0.06998 0.268,-0.109999 l 2.197003,1.098002 1.414003,-1.414001 L 27.056002,23.543 c 0.042,-0.08701 0.08,-0.175997 0.116,-0.266001 L 29.5,22.499999 v -1.999998 l -2.331999,-0.777 A 4.9900025,4.9900022 0 0 0 27.058003,19.455 l 1.098003,-2.197001 -1.414003,-1.414002 -2.199002,1.100002 A 4.9920024,4.9920021 0 0 0 24.277,16.827999 L 23.499999,14.5 Z M 22.5,18.5 a 3.0000017,3.0000014 0 1 1 0,5.999999 3.0000017,3.0000014 0 0 1 0,-5.999999 z"
+     style="display:inline;fill:url(#linearGradient872);fill-opacity:1;stroke:#ad7702;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     inkscape:connector-curvature="0" />
+</svg>

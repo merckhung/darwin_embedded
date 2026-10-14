@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/IOFireWireFamily",
+  "tag": "IOFireWireFamily-492",
+  "commit": "ad9f879946570c786a80c731c8e9baaa490994ed",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/IOFireWireFamily/tar.gz/refs/tags/IOFireWireFamily-492",
+  "archive_sha256": "85654f3f7f172b58615f5ca8122a8dfb7c41a8a4acb3e1690ae9d5b71655391f",
+  "release_manifest": "https://raw.githubusercontent.com/apple-oss-distributions/distribution-macOS/macos-265/release.json"
+}

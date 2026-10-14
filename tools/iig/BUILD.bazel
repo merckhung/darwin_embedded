@@ -1,0 +1,25 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
+cc_library(
+    name = "generator",
+    srcs = ["src/parse.cpp", "src/codegen.cpp"],
+    hdrs = ["include/ast.h"],
+    includes = ["include"],
+    copts = ["-std=c++17"],
+)
+
+cc_binary(
+    name = "iig",
+    srcs = ["src/main.cpp"],
+    deps = [":generator"],
+    copts = ["-std=c++17"],
+    visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "generator_test",
+    size = "small",
+    srcs = ["tests/generator_test.cpp"],
+    deps = [":generator"],
+    copts = ["-std=c++17"],
+)

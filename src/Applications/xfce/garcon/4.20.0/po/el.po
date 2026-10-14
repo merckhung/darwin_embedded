@@ -1,0 +1,237 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Ápo. <apostolos.papadimitriu@gmail.com>, 2017
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2014
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
+# ebal <ebalaskas@ebalaskas.gr>, 2008
+# Ioannis LM, 2022-2023
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-04-18 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Ioannis LM, 2022-2023\n"
+"Language-Team: Greek (http://app.transifex.com/xfce/garcon/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:5
+msgid "applications-accessories"
+msgstr ""
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Βοηθήματα"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Εφαρμογές και εργαλεία διαμοιραζόμενου υπολογιστή"
+
+#: data/xfce/xfce-development.desktop.in:5
+msgid "applications-development"
+msgstr ""
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Ανάπτυξη"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Εργαλεία ανάπτυξης λογισμικού"
+
+#: data/xfce/xfce-education.desktop.in:5 data/xfce/xfce-science.desktop.in:5
+msgid "applications-science"
+msgstr ""
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Εκπαίδευση"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Εκπαιδευτικό λογισμικό"
+
+#: data/xfce/xfce-games.desktop.in:5
+msgid "applications-games"
+msgstr ""
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Παιχνίδια"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Παιχνίδια, παζλ, και άλλο λογισμικό διασκέδασης"
+
+#: data/xfce/xfce-graphics.desktop.in:5
+msgid "applications-graphics"
+msgstr ""
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Γραφικά"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Εφαρμογές δημιουργίας και επεξεργασίας γραφικών"
+
+#: data/xfce/xfce-hardware.desktop.in:5
+msgid "preferences-desktop-peripherals"
+msgstr ""
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Υλικό"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Ρυθμίσεις για διάφορες συσκευές"
+
+#: data/xfce/xfce-multimedia.desktop.in:5
+msgid "applications-multimedia"
+msgstr ""
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Πολυμέσα"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Εφαρμογές αναπαραγωγής και επεξεργασίας ήχου και βίντεο"
+
+#: data/xfce/xfce-network.desktop.in:5
+msgid "applications-internet"
+msgstr ""
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Διαδίκτυο"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Εφαρμογές για πρόσβαση στο διαδίκτυο"
+
+#: data/xfce/xfce-office.desktop.in:5
+msgid "applications-office"
+msgstr ""
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Γραφείο"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Εφαρμογές γραφείου και παραγωγικότητας"
+
+#: data/xfce/xfce-other.desktop.in:5
+msgid "applications-other"
+msgstr ""
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Άλλα"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Εφαρμογές που δεν εντάσσονται σε άλλες κατηγορίες"
+
+#: data/xfce/xfce-personal.desktop.in:5
+msgid "preferences-desktop-personal"
+msgstr ""
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Προσωπικά"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Προσωπικές ρυθμίσεις"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Επιστήμη"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Λογισμικό επιστημών"
+
+#: data/xfce/xfce-screensavers.desktop.in:5
+msgid "preferences-desktop-screensaver"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Εφαρμογές προστασίας οθόνης"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Μικροεφαρμογές προστασίας οθόνης"
+
+#: data/xfce/xfce-settings.desktop.in:5
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Εφαρμογές ρύθμισης συστήματος και επιφάνειας εργασίας"
+
+#: data/xfce/xfce-system.desktop.in:5
+msgid "applications-system"
+msgstr ""
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Σύστημα"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Εργαλεία και βοηθητικά προγράμματα συστήματος"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Το αρχείο \"%s\" δε βρέθηκε"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Δεν μπορούν να φορτωθούν τα δεδομένα από το αρχείο μενού %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Δεν μπορούν να φορτωθούν τα δεδομένα από το αρχείο μενού %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Απέτυχε η εκτέλεση της εντολής \"%s\"."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Σφάλμα εκκίνησης"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Αδύνατη η έναρξη του \"exo-desktop-item-edit\", που απαιτείται για τη δημιουργία και επεξεργασία αντικειμένων των μενού."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Κλείσιμο"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Αποτυχία φόρτωσης μενού εφαρμογών"

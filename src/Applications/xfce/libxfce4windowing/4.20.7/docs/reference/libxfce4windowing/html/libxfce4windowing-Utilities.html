@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Utilities: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4windowing-Library-Configuration.html" title="Library Configuration">
+<link rel="next" href="XfwScreen.html" title="XfwScreen">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libxfce4windowing-Utilities.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4windowing-Library-Configuration.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfwScreen.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libxfce4windowing-Utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4windowing-Utilities.top_of_page"></a>Utilities</span></h2>
+<p>Utilities — Miscellaneous windowing utilities</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4windowing-Utilities.html#xfw-set-client-type" title="xfw_set_client_type ()">xfw_set_client_type</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libxfce4windowing-Utilities.html#XfwWindowing" title="enum XfwWindowing"><span class="returnvalue">XfwWindowing</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4windowing-Utilities.html#xfw-windowing-get" title="xfw_windowing_get ()">xfw_windowing_get</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4windowing-Utilities.html#xfw-windowing-error-trap-push" title="xfw_windowing_error_trap_push ()">xfw_windowing_error_trap_push</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4windowing-Utilities.html#xfw-windowing-error-trap-pop" title="xfw_windowing_error_trap_pop ()">xfw_windowing_error_trap_pop</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4windowing-Utilities.html#xfw-windowing-error-trap-pop-ignored" title="xfw_windowing_error_trap_pop_ignored ()">xfw_windowing_error_trap_pop_ignored</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libxfce4windowing-Utilities.html#XFW-ERROR:CAPS" title="XFW_ERROR">XFW_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libxfce4windowing-Utilities.html#XfwClientType" title="enum XfwClientType">XfwClientType</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libxfce4windowing-Utilities.html#XfwError" title="enum XfwError">XfwError</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libxfce4windowing-Utilities.html#XfwWindowing" title="enum XfwWindowing">XfwWindowing</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libxfce4windowing-Utilities.html#XfwDirection" title="enum XfwDirection">XfwDirection</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowing/libxfce4windowing.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-set-client-type"></a><h3>xfw_set_client_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_set_client_type (<em class="parameter"><code><a class="link" href="libxfce4windowing-Utilities.html#XfwClientType" title="enum XfwClientType"><span class="type">XfwClientType</span></a> client_type</code></em>);</pre>
+<p>Sets the type of the application.  This is used when sending various
+messages to control the behavior of other windows, to indicate the source of
+the control.  In general, <a class="link" href="libxfce4windowing-Utilities.html#XFW-CLIENT-TYPE-APPLICATION:CAPS"><span class="type">XFW_CLIENT_TYPE_APPLICATION</span></a> will be interpreted
+as automated control from a regular application, and <a class="link" href="libxfce4windowing-Utilities.html#XFW-CLIENT-TYPE-PAGER:CAPS"><span class="type">XFW_CLIENT_TYPE_PAGER</span></a>
+will be interpreted as user-initiated control from a desktop component
+application like a pager or dock.</p>
+<p>This does nothing on Wayland, but is safe to call under a Wayland session.</p>
+<div class="refsect3">
+<a name="xfw-set-client-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>client_type</p></td>
+<td class="parameter_description"><p>A <a class="link" href="libxfce4windowing-Utilities.html#XfwClientType" title="enum XfwClientType"><span class="type">XfwClientType</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-windowing-get"></a><h3>xfw_windowing_get ()</h3>
+<pre class="programlisting"><a class="link" href="libxfce4windowing-Utilities.html#XfwWindowing" title="enum XfwWindowing"><span class="returnvalue">XfwWindowing</span></a>
+xfw_windowing_get (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Determines the windowing environment that is currently active.</p>
+<div class="refsect3">
+<a name="xfw-windowing-get.returns"></a><h4>Returns</h4>
+<p> A value from the <a class="link" href="libxfce4windowing-Utilities.html#XfwWindowing" title="enum XfwWindowing"><span class="type">XfwWindowing</span></a> enum.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-windowing-error-trap-push"></a><h3>xfw_windowing_error_trap_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_windowing_error_trap_push (<em class="parameter"><code><span class="type">GdkDisplay</span> *display</code></em>);</pre>
+<p>Traps errors in the underlying windowing environment.  Error traps work as
+a stack, so for every "push" call, there needs to be a "pop" call.  Multiple
+pushes need to be matched with an equal number of pops.</p>
+<p>This only does anything on X11.</p>
+<div class="refsect3">
+<a name="xfw-windowing-error-trap-push.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>display</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkDisplay</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-windowing-error-trap-pop"></a><h3>xfw_windowing_error_trap_pop ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+xfw_windowing_error_trap_pop (<em class="parameter"><code><span class="type">GdkDisplay</span> *display</code></em>);</pre>
+<p>Pops the topmost error trap off of the stack.</p>
+<p>This only does anything on X11.</p>
+<div class="refsect3">
+<a name="xfw-windowing-error-trap-pop.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>display</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkDisplay</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-windowing-error-trap-pop.returns"></a><h4>Returns</h4>
+<p> Returns the error code of the error that occured, or <code class="literal">0</code> if
+there was no error.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-windowing-error-trap-pop-ignored"></a><h3>xfw_windowing_error_trap_pop_ignored ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_windowing_error_trap_pop_ignored (<em class="parameter"><code><span class="type">GdkDisplay</span> *display</code></em>);</pre>
+<p>Pops the topmost error trap off of the stack.</p>
+<p>This only does anything on X11.</p>
+<div class="refsect3">
+<a name="xfw-windowing-error-trap-pop-ignored.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>display</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkDisplay</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libxfce4windowing-Utilities.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XFW-ERROR:CAPS"></a><h3>XFW_ERROR</h3>
+<pre class="programlisting">#define XFW_ERROR (xfw_error_quark())
+</pre>
+<p>The error domain for all errors returned by this library.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwClientType"></a><h3>enum XfwClientType</h3>
+<p>The type of the application.</p>
+<p>See <a class="link" href="libxfce4windowing-Utilities.html#xfw-set-client-type" title="xfw_set_client_type ()"><code class="function">xfw_set_client_type()</code></a> for details.</p>
+<div class="refsect3">
+<a name="XfwClientType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-CLIENT-TYPE-APPLICATION:CAPS"></a>XFW_CLIENT_TYPE_APPLICATION</p></td>
+<td class="enum_member_description">
+<p>a regular application</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-CLIENT-TYPE-PAGER:CAPS"></a>XFW_CLIENT_TYPE_PAGER</p></td>
+<td class="enum_member_description">
+<p>a pager or other user-controlled desktop component</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwError"></a><h3>enum XfwError</h3>
+<p>An error code enum describing possible errors returned by this library.</p>
+<div class="refsect3">
+<a name="XfwError.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-ERROR-UNSUPPORTED:CAPS"></a>XFW_ERROR_UNSUPPORTED</p></td>
+<td class="enum_member_description">
+<p>the operation attempted is not supported.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-ERROR-INTERNAL:CAPS"></a>XFW_ERROR_INTERNAL</p></td>
+<td class="enum_member_description">
+<p>an internal error has occurred.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowing"></a><h3>enum XfwWindowing</h3>
+<p>Represents the windowing environment that is currently running.  Note that
+for an application running on XWayland, this will return <a class="link" href="libxfce4windowing-Utilities.html#XFW-WINDOWING-X11:CAPS"><span class="type">XFW_WINDOWING_X11</span></a>.</p>
+<div class="refsect3">
+<a name="XfwWindowing.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOWING-UNKNOWN:CAPS"></a>XFW_WINDOWING_UNKNOWN</p></td>
+<td class="enum_member_description">
+<p>the application is running under an unknown
+or unsupported windowing system.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOWING-X11:CAPS"></a>XFW_WINDOWING_X11</p></td>
+<td class="enum_member_description">
+<p>the application is running under an X11 server.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOWING-WAYLAND:CAPS"></a>XFW_WINDOWING_WAYLAND</p></td>
+<td class="enum_member_description">
+<p>the application is running under a Wayland
+comopositor.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwDirection"></a><h3>enum XfwDirection</h3>
+<p>Represents a direction, either of position ("This workspace is to the left
+of the current workspace") or movement ("Move this window to the workspace to
+the right of its current workspace").</p>
+<div class="refsect3">
+<a name="XfwDirection.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-DIRECTION-UP:CAPS"></a>XFW_DIRECTION_UP</p></td>
+<td class="enum_member_description">
+<p>upward from the current location</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-DIRECTION-DOWN:CAPS"></a>XFW_DIRECTION_DOWN</p></td>
+<td class="enum_member_description">
+<p>downward from the current location</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-DIRECTION-LEFT:CAPS"></a>XFW_DIRECTION_LEFT</p></td>
+<td class="enum_member_description">
+<p>to the left of the current location</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-DIRECTION-RIGHT:CAPS"></a>XFW_DIRECTION_RIGHT</p></td>
+<td class="enum_member_description">
+<p>to the right of the current location</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

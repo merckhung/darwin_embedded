@@ -1,0 +1,5 @@
+# Font families for fangsong generic family
+FangSong
+Noto Fangsong KSS Rotated
+Noto Fangsong KSS Vertical
+STFangsong

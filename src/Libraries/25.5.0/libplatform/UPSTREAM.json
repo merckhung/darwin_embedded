@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/libplatform",
+  "tag": "libplatform-375.120.2",
+  "commit": "b7ed7cf5cf7dd12b98672435db2225a860f199d8",
+  "archive_sha256": "c0962595da8899cf54445698fd71bddc2118edb8ce8e3d6e11a29ef96ad754bc"
+}

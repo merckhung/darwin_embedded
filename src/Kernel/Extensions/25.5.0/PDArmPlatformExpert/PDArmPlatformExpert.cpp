@@ -1,0 +1,592 @@
+#include <IOKit/IOPlatformExpert.h>
+#include <IOKit/IODeviceTreeSupport.h>
+#include <IOKit/IOKitKeys.h>
+#include <IOKit/IOLib.h>
+#include <IOKit/IOMemoryDescriptor.h>
+#include <kern/thread_call.h>
+#include <kern/clock.h>
+#include "PDArmCPU.h"
+#include "PDArmGIC.h"
+#include "PDAppleAIC.h"
+#include "PDBcm2835IC.h"
+#include "PDArmGICController.h"
+#include "PDSun50iUSB.h"
+#include "PDSun50iWatchdog.h"
+#include "PDSg2002.h"
+#include "PDPerfControl.h"
+#include "PDSun60iDVFS.h"
+
+class PDArmPlatformExpert : public IODTPlatformExpert
+{
+	OSDeclareDefaultStructors(PDArmPlatformExpert)
+
+private:
+	PDArmCPU *bootCPU;
+	IOService *fEMMCNub;
+	IOService *fFramebufferNub;
+	IOMemoryMap *fRTCMap;
+	volatile uint32_t *fRTC;
+	thread_call_t fRTCPublish;
+	// pdtime=SECONDS on boards without an rtc driver: the calendar at boot, counted on from uptime
+	long fBootSecs;
+
+public:
+	IOService *probe(IOService *provider, SInt32 *score) APPLE_KEXT_OVERRIDE;
+	bool start(IOService *provider) APPLE_KEXT_OVERRIDE;
+	void processTopLevel(IORegistryEntry *root) APPLE_KEXT_OVERRIDE;
+	const char *deleteList(void) APPLE_KEXT_OVERRIDE;
+	const char *excludeList(void) APPLE_KEXT_OVERRIDE;
+	bool getMachineName(char *name, int maxLength) APPLE_KEXT_OVERRIDE;
+	bool getModelName(char *name, int maxLength) APPLE_KEXT_OVERRIDE;
+	bool getTargetName(char *name, int maxLength) APPLE_KEXT_OVERRIDE;
+	long getGMTTimeOfDay(void) APPLE_KEXT_OVERRIDE;
+	void setGMTTimeOfDay(long secs) APPLE_KEXT_OVERRIDE;
+
+protected:
+	virtual bool initPlatformInterrupts(void);
+	virtual void initPlatformInterruptsLate(void);
+	virtual const char *platformModelName(void);
+	void publishBcm2835EMMC(void);
+	void publishBcm283xFramebuffer(void);
+	void startQemuRTC(void);
+	static void publishRTC(thread_call_param_t self, thread_call_param_t);
+	void publishSocNubs(void);
+};
+
+static bool pd_platform_is_bcm283x(void);
+
+#if defined(__arm64__)
+// without a handler reboot(2) returned to a torn-down userland and the board sat there,
+// while panics keep the old behaviour so their output stays on the console
+static int
+pdArmHaltRestart(unsigned int type)
+{
+	uint32_t log = 0;
+
+	if (PE_parse_boot_argn("pdhaltlog", &log, sizeof(log)) && log != 0)
+		IOLog("pdhaltlog: psci handler, type %u\n", type);
+	if (type == kPERestartCPU) return PDArmCPU::systemReset(false);
+	if (type == kPEHaltCPU) return PDArmCPU::systemReset(true);
+	return -1;
+}
+#endif
+
+#define super IODTPlatformExpert
+OSDefineMetaClassAndStructors(PDArmPlatformExpert, IODTPlatformExpert);
+
+IOService *
+PDArmPlatformExpert::probe(IOService *provider, SInt32 *score)
+{
+	IOService *result = super::probe(provider, score);
+	if (result != 0 && score != 0) *score = 10000;
+	return result;
+}
+
+bool
+PDArmPlatformExpert::start(IOService *provider)
+{
+	if (!super::start(provider)) return false;
+	registerService();
+
+	if (!initPlatformInterrupts()) return false;
+
+	// One IOCPU per processor in xnu's topology.
+	// The boot CPU finishes its setup here, the others wait for PE_cpu_start() to power them on
+	{
+		const ml_topology_info_t *topo = ml_get_topology_info();
+		unsigned int ncpu = (topo != NULL) ? topo->num_cpus : 1;
+
+		PDArmCPU::setCPUCount(ncpu);
+
+		for (unsigned int i = 0; i < ncpu; i++) {
+			PDArmCPU *cpu = new PDArmCPU;
+			uint32_t phys_id = (topo != NULL) ? topo->cpus[i].phys_id : 0;
+
+			if (cpu == NULL) return false;
+			cpu->init();
+			cpu->attach(0);
+			if (!cpu->startForCPU(i, phys_id, i == 0)) return false;
+			if (i == 0) bootCPU = cpu;
+		}
+		IOLog("PDArmPlatformExpert: %u processor(s)\n", ncpu);
+	}
+	if (bootCPU == NULL) return false;
+
+	initPlatformInterruptsLate();
+
+#if defined(__arm__) && !defined(__arm64__)
+	publishBcm2835EMMC();
+#endif
+
+	publishBcm283xFramebuffer();
+	startQemuRTC();
+
+#if defined(__arm64__)
+	pd_perfcontrol_start();
+#if !defined(ARM64_BOARD_CONFIG_BCM2711)
+	PDSun60iDVFS_start();
+#endif
+#if !defined(ARM64_BOARD_CONFIG_BCM2711)
+	/* BCM2711 does not implement the PSCI HVC used by this callback. */
+	PE_halt_restart = pdArmHaltRestart;
+#endif
+	if (PDSun50i_isPlatform()) {
+		PDSun50iWatchdog_start();
+		PDSun50iMMC_publish(this);
+		if (PDSun50iUSB_init())
+			PDSun50iUSB_publish(this);
+	} else if (PDSg2002_isPlatform()) {
+		PDSg2002Watchdog_start();
+		PDSg2002_publish(this);
+	} else {
+		publishSocNubs();
+		PDSun50iWatchdog_startFromDeviceTree();
+	}
+#endif
+
+	return true;
+}
+
+#if defined(__arm64__)
+// true when a nul-separated compatible list names want
+static bool
+pd_compat_has(OSData *compat, const char *want)
+{
+	const char *s = compat != NULL ? (const char *)compat->getBytesNoCopy() : NULL;
+	unsigned int len = compat != NULL ? compat->getLength() : 0;
+
+	for (unsigned int o = 0; s != NULL && o < len; o += strnlen(s + o, len - o) + 1) {
+		if (strncmp(s + o, want, len - o) == 0) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// a board's own devices, imported from its tree by the loader. configure() stops at the root's
+// children and the peripherals sit one level down on a simple-bus
+void
+PDArmPlatformExpert::publishSocNubs(void)
+{
+	IORegistryEntry *root = IORegistryEntry::fromPath("/", gIODTPlane);
+	OSIterator *iter = root != NULL ? root->getChildIterator(gIODTPlane) : NULL;
+	IORegistryEntry *child;
+
+	while (iter != NULL && (child = (IORegistryEntry *)iter->getNextObject()) != NULL) {
+		if (!pd_compat_has(OSDynamicCast(OSData, child->getProperty("compatible")), "simple-bus")) {
+			continue;
+		}
+		IOLog("PDArmPlatformExpert: publishing the devices on %s\n", child->getName(gIODTPlane));
+		createNubs(this, IODTFindMatchingEntries(child, kIODTExclusive, NULL));
+	}
+	OSSafeReleaseNULL(iter);
+	OSSafeReleaseNULL(root);
+}
+#endif
+
+// QEMU virt's PL031 at 0x09010000 counts seconds since 1970 from the host clock. Without an IORTC
+// the calendar starts at 1970 and IOKitInitializeTime waits 30 s for one
+#define PD_QEMU_PL031_PHYS 0x09010000ULL
+#define PD_PL031_DR 0       // data: current seconds
+#define PD_PL031_LR 2       // load: set seconds
+
+void
+PDArmPlatformExpert::startQemuRTC(void)
+{
+	IORegistryEntry *armio = IORegistryEntry::fromPath("/arm-io", gIODTPlane);
+	OSData *type = armio != NULL ? OSDynamicCast(OSData, armio->getProperty("device_type")) : NULL;
+	IOMemoryDescriptor *md;
+
+	if (type == NULL || strncmp((const char *)type->getBytesNoCopy(), "qemuvirt-io", type->getLength()) != 0) {
+		OSSafeReleaseNULL(armio);
+		if (!PE_parse_boot_argn("pdtime", &fBootSecs, sizeof(fBootSecs)) || fBootSecs <= 0)
+			return;
+		IOLog("PDArmPlatformExpert: calendar from pdtime %ld\n", fBootSecs);
+	} else {
+		OSSafeReleaseNULL(armio);
+		md = IOMemoryDescriptor::withPhysicalAddress(PD_QEMU_PL031_PHYS, 0x1000, kIODirectionInOut);
+		if (md == NULL) {
+			return;
+		}
+		fRTCMap = md->map(kIOMapInhibitCache);
+		md->release();
+		if (fRTCMap == NULL) {
+			return;
+		}
+		fRTC = (volatile uint32_t *)fRTCMap->getVirtualAddress();
+	}
+	// Root mount relied on the 30 s IOKitInitializeTime spent waiting for this: APFS still holds the
+	// container a few seconds after IOKit goes quiet, so IORTC is published 10 s later
+	{
+		uint64_t deadline;
+
+		fRTCPublish = thread_call_allocate(&PDArmPlatformExpert::publishRTC, this);
+		if (fRTCPublish == NULL) {
+			publishResource("IORTC", this);
+			return;
+		}
+		clock_interval_to_deadline(10, kSecondScale, &deadline);
+		thread_call_enter_delayed(fRTCPublish, deadline);
+	}
+}
+
+void
+PDArmPlatformExpert::publishRTC(thread_call_param_t self, thread_call_param_t)
+{
+	PDArmPlatformExpert *pe = (PDArmPlatformExpert *)self;
+
+	pe->publishResource("IORTC", pe);
+}
+
+long
+PDArmPlatformExpert::getGMTTimeOfDay(void)
+{
+	uint64_t ns;
+
+	if (fRTC != NULL)
+		return (long)fRTC[PD_PL031_DR];
+	if (fBootSecs == 0)
+		return 0;
+	absolutetime_to_nanoseconds(mach_absolute_time(), &ns);
+	return fBootSecs + (long)(ns / NSEC_PER_SEC);
+}
+
+void
+PDArmPlatformExpert::setGMTTimeOfDay(long secs)
+{
+	uint64_t ns;
+
+	if (fRTC != NULL) {
+		fRTC[PD_PL031_LR] = (uint32_t)secs;
+	} else if (fBootSecs != 0) {
+		absolutetime_to_nanoseconds(mach_absolute_time(), &ns);
+		fBootSecs = secs - (long)(ns / NSEC_PER_SEC);
+	}
+}
+
+/*
+ * Firmware framebuffers are described by boot_args rather than an
+ * architecture-specific device-tree node. Publish a matching nub whenever the
+ * loader supplied valid geometry. This covers both the Pi framebuffer and
+ * QEMU's GOP-backed ramfb.
+ */
+void
+PDArmPlatformExpert::publishBcm283xFramebuffer(void)
+{
+	PE_Video console;
+	IOService *nub = NULL;
+
+	if (fFramebufferNub != NULL) return;
+
+	if (getConsoleInfo(&console) != kIOReturnSuccess ||
+	    console.v_baseAddr == 0 || console.v_width == 0 || console.v_height == 0) {
+		IOLog("PDArmPlatformExpert: no boot framebuffer to publish\n");
+		return;
+	}
+
+	nub = OSTypeAlloc(IOPlatformDevice);
+	if (nub == NULL) goto fail;
+	if (!nub->init()) goto fail;
+	nub->setName("framebuffer");
+	if (!nub->attach(this)) goto fail;
+
+	fFramebufferNub = nub;
+	nub->registerService();
+	IOLog("PDArmPlatformExpert: published framebuffer nub, %ux%u\n",
+	    (unsigned)console.v_width, (unsigned)console.v_height);
+	return;
+
+fail:
+	IOLog("PDArmPlatformExpert: could not publish the framebuffer nub\n");
+	OSSafeReleaseNULL(nub);
+}
+
+#if defined(__arm__) && !defined(__arm64__)
+// The Pi's bootloader device tree describes only gpio and uart, so nothing ever
+// provides for the SD host controller. Publish the nub ourselves; PDBcm2835SD
+// hardcodes the register address and needs the provider only to match against.
+//
+// Service plane only: matching uses IOProviderClass/IONameMatch, and a nub in
+// the device-tree plane would be fed to IODTPlatformExpert::getNubResources()
+// to have a "reg" property resolved that this one does not have.
+void
+PDArmPlatformExpert::publishBcm2835EMMC(void)
+{
+	if (fEMMCNub != NULL) return;
+
+	IOService *nub = OSTypeAlloc(IOPlatformDevice);
+	if (nub == NULL) goto fail;
+
+	if (!nub->init()) goto fail;
+	nub->setName("emmc");
+	if (!nub->attach(this)) goto fail;
+
+	fEMMCNub = nub;
+	nub->registerService();
+	IOLog("PDArmPlatformExpert: published emmc nub for the SD host\n");
+	return;
+
+fail:
+	IOLog("PDArmPlatformExpert: could not publish the emmc nub\n");
+	OSSafeReleaseNULL(nub);
+}
+#endif
+
+static bool pd_platform_is_bcm283x(void);
+static bool sPDVirtualMac;
+
+// a VirtualMac2,1's identity as a 26.6.2 Virtualization.framework guest shows it (pd-ref ioreg).
+// pad 32 is a fixed 32 byte field, 0 a plain C string, word a 32-bit value
+struct PDIdentityProp {
+	const char *key, *str;
+	uint32_t pad, word;
+};
+
+static const PDIdentityProp kPDVirtualMacRoot[] = {
+	{ "target-sub-type", "VMA2MACOSAP", 0, 0 },
+	{ "platform-name", "vmapple2", 32, 0 },
+	{ "manufacturer", "Apple Inc.", 0, 0 },
+	{ "model-number", "VM0001", 32, 0 },
+	{ "region-info", "LL/A", 32, 0 },
+	{ "device_type", "bootrom", 0, 0 },
+};
+
+static const PDIdentityProp kPDVirtualMacProduct[] = {
+	{ "product-name", "Apple Virtual Machine 1", 0, 0 },
+	{ "product-description", "virtual machine for ARM-v8.4 with Apple Silicon extensions", 0, 0 },
+	{ "product-soc-name", "Apple M1 (Virtual)", 0, 0 },
+	{ "sub-product-type", "VirtualMac2,1", 0, 0 },
+	{ "fdr-product-type", "VirtualMac2,1", 0, 0 },
+	{ "unique-model", "VMA2MACOSAP", 0, 0 },
+	{ "compatible-app-variant", "MacFamily20,1", 0, 0 },
+	{ "compatible-device-fallback", "iPad8,6", 0, 0 },
+	{ "app-macho-architecture", "arm64", 0, 0 },
+	{ "partition-style", "macOS", 0, 0 },
+	{ "graphics-featureset-class", "APPLE7", 0, 0 },
+	{ "graphics-featureset-fallbacks", "APPLE6:APPLE5:APPLE4:APPLE3:APPLE3v1:APPLE2:APPLE1:GLES2,0", 0, 0 },
+	{ "allow-hactivation", NULL, 0, 1 },
+	{ "has-virtualization", NULL, 0, 1 },
+	{ "allow-32bit-apps", NULL, 0, 1 },
+};
+
+static void
+pd_set_identity(IORegistryEntry *e, const PDIdentityProp *props, size_t n)
+{
+	for (size_t i = 0; i < n; i++) {
+		char buf[64] = {};
+		OSData *d;
+
+		if (props[i].str == NULL) {
+			d = OSData::withBytes(&props[i].word, sizeof(props[i].word));
+		} else if (props[i].pad != 0) {
+			strlcpy(buf, props[i].str, sizeof(buf));
+			d = OSData::withBytes(buf, props[i].pad);
+		} else {
+			d = OSData::withBytes(props[i].str, (unsigned)strlen(props[i].str) + 1);
+		}
+		if (d == NULL) continue;
+		e->setProperty(props[i].key, d);
+		d->release();
+	}
+}
+
+// QEMU virt's root as the loader builds it: compatible and model both "ACPI"
+static bool
+pd_root_is_placeholder(IORegistryEntry *root)
+{
+	OSData *c = OSDynamicCast(OSData, root->getProperty("compatible"));
+
+	return c != NULL && c->getLength() >= 5 && memcmp(c->getBytesNoCopy(), "ACPI", 5) == 0;
+}
+
+void
+PDArmPlatformExpert::processTopLevel(IORegistryEntry *root)
+{
+	super::processTopLevel(root);
+	// QEMU virt stands in for Apple's virtual platform: MobileGestalt's hardware model (and
+	// mobileactivationd's hactivation) comes from the root target-type, as on a VMA2MACOS guest
+	if (root != NULL && !pd_platform_is_bcm283x() && root->getProperty("target-type") == NULL) {
+		OSData *tt = OSData::withBytes("VMA2MACOS", sizeof("VMA2MACOS"));
+
+		if (tt != NULL) {
+			root->setProperty("target-type", tt);
+			tt->release();
+		}
+	}
+	// the loader's placeholder root ("ACPI") gets the rest of a VirtualMac2,1's identity:
+	// MobileGestalt's ProductType is nil without it and apsd throws on the nil
+	if (root != NULL && pd_root_is_placeholder(root)) {
+		static const char compat[] = "VMA2MACOSAP\0VirtualMac2,1\0AppleVirtualPlatformARM";
+		OSData *c = OSData::withBytes(compat, sizeof(compat));
+		OSData *m = OSData::withBytes("VirtualMac2,1", sizeof("VirtualMac2,1"));
+
+		if (c != NULL) root->setProperty("compatible", c);
+		if (m != NULL) root->setProperty("model", m);
+		OSSafeReleaseNULL(c);
+		OSSafeReleaseNULL(m);
+		pd_set_identity(root, kPDVirtualMacRoot, sizeof(kPDVirtualMacRoot) / sizeof(kPDVirtualMacRoot[0]));
+		IORegistryEntry *product = IORegistryEntry::fromPath("/product", gIODTPlane);
+		if (product != NULL) {
+			pd_set_identity(product, kPDVirtualMacProduct, sizeof(kPDVirtualMacProduct) / sizeof(kPDVirtualMacProduct[0]));
+			product->release();
+		}
+		sPDVirtualMac = true;
+	}
+}
+
+const char *
+PDArmPlatformExpert::deleteList(void)
+{
+	return "('pd-delete-none')";
+}
+
+const char *
+PDArmPlatformExpert::excludeList(void)
+{
+	return NULL;
+}
+
+bool
+PDArmPlatformExpert::getMachineName(char *name, int maxLength)
+{
+	if (name == 0 || maxLength <= 0) return false;
+	strlcpy(name, "arm64", (size_t)maxLength);
+	return true;
+}
+
+bool
+PDArmPlatformExpert::getTargetName(char *name, int maxLength)
+{
+	if (name == 0 || maxLength <= 0) return false;
+	if (!sPDVirtualMac) return getModelName(name, maxLength);
+	strlcpy(name, "VMA2MACOSAP", (size_t)maxLength);
+	return true;
+}
+
+bool
+PDArmPlatformExpert::getModelName(char *name, int maxLength)
+{
+	if (name == 0 || maxLength <= 0) return false;
+	strlcpy(name, platformModelName(), (size_t)maxLength);
+	return true;
+}
+
+/*
+ * True when the device tree describes a Broadcom BCM283x board. The 64-bit
+ * build serves both QEMU virt (GICv3) and the Raspberry Pi (legacy ARMCTRL),
+ * so the interrupt controller has to be chosen at runtime: writing
+ * ICC_SRE_EL1 on a Pi is an undefined instruction and panics the kernel.
+ */
+static bool
+pd_platform_is_bcm283x(void)
+{
+	IORegistryEntry *root = IORegistryEntry::fromPath("/", gIODTPlane);
+	bool isBcm = false;
+
+	if (root == NULL) return false;
+
+	OSData *compat = OSDynamicCast(OSData, root->getProperty("compatible"));
+	if (compat != NULL) {
+		const char *str = (const char *)compat->getBytesNoCopy();
+		unsigned len = compat->getLength();
+
+		/* "compatible" is a list of NUL-separated strings. */
+		for (unsigned i = 0; str != NULL && i < len; ) {
+			const char *entry = str + i;
+			unsigned remain = len - i;
+
+			if (strncmp(entry, "raspberrypi", 11) == 0 ||
+			    strncmp(entry, "bcm2837", 7) == 0 ||
+			    strncmp(entry, "bcm2835", 7) == 0) {
+				isBcm = true;
+				break;
+			}
+			unsigned n = 0;
+			while (n < remain && entry[n] != '\0') n++;
+			i += n + 1;
+		}
+	}
+	root->release();
+	return isBcm;
+}
+
+bool
+PDArmPlatformExpert::initPlatformInterrupts(void)
+{
+	/* BCM2835 has the legacy ARMCTRL controller; the QEMU GIC mapping is
+	 * invalid on the Pi Zero. Mask every source now, before PDArmCPU installs
+	 * the CPU interrupt handler: ARMCTRL has no end-of-interrupt, so anything
+	 * the booter left enabled would re-enter forever once delivery starts. */
+	if (pd_platform_is_bcm283x()) {
+		if (!PDBcm2835IC_maskAll()) {
+			IOLog("PDArmPlatformExpert: could not reach the BCM2835 interrupt "
+			    "controller\n");
+			return false;
+		}
+		return true;
+	}
+	PDArmGIC_init();
+	return true;
+}
+
+void
+PDArmPlatformExpert::initPlatformInterruptsLate(void)
+{
+	/* The CPU interrupt controller exists by now, so the ARMCTRL controller
+	 * can attach to it and start dispatching. */
+	if (pd_platform_is_bcm283x()) {
+		if (!PDBcm2835IC_init()) {
+			IOLog("PDArmPlatformExpert: BCM2835 interrupt controller unavailable; "
+			    "device interrupts will not be delivered\n");
+		}
+		return;
+	}
+	PDArmGICController_init();
+}
+
+const char *
+PDArmPlatformExpert::platformModelName(void)
+{
+	return sPDVirtualMac ? "VirtualMac2,1" : "QEMU Virtual ARM64";
+}
+
+/*
+ * Apple SoCs. The device tree root of every one of them carries "AppleARM" in
+ * its compatible property, alongside the board and product names, so a single
+ * personality covers the family.
+ */
+class PDAppleARMPlatformExpert : public PDArmPlatformExpert
+{
+	OSDeclareDefaultStructors(PDAppleARMPlatformExpert)
+
+protected:
+	bool initPlatformInterrupts(void) APPLE_KEXT_OVERRIDE;
+	void initPlatformInterruptsLate(void) APPLE_KEXT_OVERRIDE;
+	const char *platformModelName(void) APPLE_KEXT_OVERRIDE;
+};
+
+#undef super
+#define super PDArmPlatformExpert
+OSDefineMetaClassAndStructors(PDAppleARMPlatformExpert, PDArmPlatformExpert);
+
+bool
+PDAppleARMPlatformExpert::initPlatformInterrupts(void)
+{
+	/* The AIC attaches to the CPU's interrupt controller; see the late hook. */
+	return true;
+}
+
+void
+PDAppleARMPlatformExpert::initPlatformInterruptsLate(void)
+{
+	if (!PDAppleAIC_init()) {
+		IOLog("PDAppleARMPlatformExpert: no interrupt controller; "
+		    "device interrupts will not be delivered\n");
+	}
+}
+
+const char *
+PDAppleARMPlatformExpert::platformModelName(void)
+{
+	return "Apple ARM";
+}

@@ -1,0 +1,55 @@
+{
+  "fonts": [
+    {
+      "family": "Noto Sans Mono",
+      "style": "Regular",
+      "file": "/path/to/NotoSansMono.ttf",
+      "fontversion": 1
+    },
+    {
+      "family": "Adwaita Mono",
+      "style": "Regular",
+      "file": "/path/to/AdwaitaMono.ttf",
+      "fontversion": 1
+    }
+  ],
+  "load_xml": [
+    "conf.d/48-guessfamily.conf",
+    "conf.d/48-spacing.conf",
+    "conf.d/49-sansserif.conf",
+    "%test%/test-issue-539.conf",
+    "conf.d/60-latin.conf"
+  ],
+  "tests": [
+    {
+      "method": "match",
+      "query": {
+        "family": "Noto Sans Mono",
+        "spacing": 100
+      },
+      "result": {
+        "family": "Noto Sans Mono"
+      }
+    },
+    {
+      "method": "match",
+      "query": {
+        "family": "monospace",
+        "spacing": 100
+      },
+      "result": {
+        "family": "Adwaita Mono"
+      }
+    },
+    {
+      "method": "match",
+      "query": {
+        "family": "sans-serif",
+        "spacing": 100
+      },
+      "result": {
+        "family": "Adwaita Mono"
+      }
+    }
+  ]
+}

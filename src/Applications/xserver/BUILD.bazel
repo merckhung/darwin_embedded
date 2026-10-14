@@ -1,0 +1,4 @@
+package(default_visibility = ["//visibility:public"])
+filegroup(name = "dependencies", srcs = glob(["libfontenc/**", "libXfont2/**", "libxkbfile/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "server", srcs = glob(["xorg-server/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "keyboard", srcs = glob(["xkbcomp/**", "xkeyboard-config/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))

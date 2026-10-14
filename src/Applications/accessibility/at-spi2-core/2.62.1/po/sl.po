@@ -1,0 +1,872 @@
+# Slovenian translations for at-spi2-core.
+# Copyright (C) 2011 at-spi2-core's COPYRIGHT HOLDER
+# This file is distributed under the same license as the at-spi2-core package.
+#
+# Andraž Tori <andraz.tori1@guest.arnes.si> 2002
+# Matej Urbančič <mateju@svn.gnome.org> 2007-2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: atk master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2025-02-01 07:09+0000\n"
+"PO-Revision-Date: 2025-02-01 09:50+0100\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "Izbrana povezava"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "Določa, ali je predmet AtkHyperlink izbran"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "Število sider"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "Število sider, povezanih s predmetom AtkHyperlink"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "Končno kazalo"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "Končno kazalo predmeta AtkHyperlink"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "Začetno kazalo"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "Začetno kazalo predmeta AtkHyperlink"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "Dostopno ime"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr "Ime primerka predmeta v obliki pomožnih tehnologij"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "Dostopni opis"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "Opis predmeta v obliki pomožnih tehnologij"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "Dostopen nadrejeni"
+
+#: atk/atkobject.c:288
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr ""
+"Nadrejeni predmet trenutno dostopnega predmeta, kot ga obravnava "
+"modulatk_object_get_parent()"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "Dostopna vrednost"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah vrednosti"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "Dostopna vloga"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "Dostopna vloga tega predmeta"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "Dostopna raven"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "Dostopna raven tega predmeta"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "Dostopna vrednost MDI"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "Dostopna vrednost MDI tega predmeta"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "Dostopen naziv razpredelnice"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"Uporabljen pri opozarjanju o spremembah naziva razpredelnice. Namesto te "
+"lastnosti raje uporabite accessible-table-caption-object"
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "Dostopna glava stolpca razpredelnice"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah glave stolpca razpredelnice"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "Dostopen opis stolpca razpredelnice"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah opisa stolpca razpredelnice"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "Dostopna glava vrstice razpredelnice"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah glave vrstice razpredelnice"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "Dostopen opis vrstice razpredelnice"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah opisa vrstice razpredelnice"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "Dostopen povzetek razpredelnice"
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah povzetka razpredelnice"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "Dostopen predmet naziva razpredelnice"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "Uporabljen pri opozarjanju o spremembah naziva razpredelnice"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "Število dostopnih hiperpovezav"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "Število povezav, ki jih ima trenutni AtkHypertext"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "Dostopno določilo ID"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr "Določilo ID za dostopno točko, uporabno za samodejno preizkušanje"
+
+# G:0 K:1 O:0
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "Besedilo pomoči"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "Besedilo pomoči, povezano z možnostjo dostopa"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "zelo šibko"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "šibko"
+
+# G:4 K:0 O:0
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "sprejemljivo"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "močno"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "zelo močno"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "zelo nizko"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "srednje"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "visoko"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "zelo visoko"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "zelo slabo"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "slabo"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "dobro"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "zelo dobro"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "najboljše"
+
+#: atspi/atspi-component.c:352 atspi/atspi-misc.c:1234 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "Program ne obstaja več"
+
+#: atspi/atspi-misc.c:49
+msgid "invalid"
+msgstr "neveljavno"
+
+# G:3 K:0 O:0
+#: atspi/atspi-misc.c:50
+msgid "accelerator label"
+msgstr "oznaka pospeševalnika"
+
+#: atspi/atspi-misc.c:51
+msgid "alert"
+msgstr "opozorilo"
+
+#: atspi/atspi-misc.c:52
+msgid "animation"
+msgstr "animacija"
+
+# G:4 K:2 O:0
+#: atspi/atspi-misc.c:53
+msgid "arrow"
+msgstr "puščica"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:54
+msgid "calendar"
+msgstr "koledar"
+
+# G:6 K:2 O:0
+#: atspi/atspi-misc.c:55
+msgid "canvas"
+msgstr "platno"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:56
+msgid "check box"
+msgstr "potrditveno polje"
+
+#: atspi/atspi-misc.c:57
+msgid "check menu item"
+msgstr "potrditveno polje menija"
+
+#: atspi/atspi-misc.c:58
+msgid "color chooser"
+msgstr "izbirnik barv"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:59
+msgid "column header"
+msgstr "glava stolpca"
+
+#: atspi/atspi-misc.c:60
+msgid "combo box"
+msgstr "spustno polje"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:61
+msgid "dateeditor"
+msgstr "datumski urejevalnik"
+
+#: atspi/atspi-misc.c:62
+msgid "desktop icon"
+msgstr "ikona namizja"
+
+#: atspi/atspi-misc.c:63
+msgid "desktop frame"
+msgstr "okvir namizja"
+
+#: atspi/atspi-misc.c:64
+msgid "dial"
+msgstr "kliči"
+
+# G:0 K:3 O:0
+#: atspi/atspi-misc.c:65
+msgid "dialog"
+msgstr "pogovorno okno"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:66
+msgid "directory pane"
+msgstr "pladenj z mapami"
+
+#: atspi/atspi-misc.c:67
+msgid "drawing area"
+msgstr "risalna površina"
+
+#: atspi/atspi-misc.c:68
+msgid "file chooser"
+msgstr "izbirnik datotek"
+
+#: atspi/atspi-misc.c:69
+msgid "filler"
+msgstr "polnilnik"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:71
+msgid "fontchooser"
+msgstr "izbirnik pisav"
+
+#: atspi/atspi-misc.c:72
+msgid "frame"
+msgstr "okvir"
+
+# G:2 K:1 O:0
+#: atspi/atspi-misc.c:73
+msgid "glass pane"
+msgstr "steklen pladenj"
+
+#: atspi/atspi-misc.c:74
+msgid "html container"
+msgstr "vsebovalnik html"
+
+#: atspi/atspi-misc.c:75
+msgid "icon"
+msgstr "ikona"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:76
+msgid "image"
+msgstr "slika"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:77
+msgid "internal frame"
+msgstr "notranji okvir"
+
+#: atspi/atspi-misc.c:78
+msgid "label"
+msgstr "oznaka"
+
+# G:3 K:4 O:0
+#: atspi/atspi-misc.c:79
+msgid "layered pane"
+msgstr "ravninski pladenj"
+
+#: atspi/atspi-misc.c:80
+msgid "list"
+msgstr "seznam"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:81
+msgid "list item"
+msgstr "predmet seznama"
+
+#: atspi/atspi-misc.c:82
+msgid "menu"
+msgstr "meni"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:83
+msgid "menu bar"
+msgstr "menijska vrstica"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:84
+msgid "menu button"
+msgstr "gumb menija"
+
+# G:2 K:0 O:0
+#: atspi/atspi-misc.c:85
+msgid "menu item"
+msgstr "predmet menija"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:86
+msgid "option pane"
+msgstr "pladenj možnosti"
+
+#: atspi/atspi-misc.c:87
+msgid "page tab"
+msgstr "zavihek strani"
+
+#: atspi/atspi-misc.c:88
+msgid "page tab list"
+msgstr "seznam zavihkov strani"
+
+#: atspi/atspi-misc.c:89
+msgid "panel"
+msgstr "pult"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:90
+msgid "password text"
+msgstr "besedilo gesla"
+
+#: atspi/atspi-misc.c:91
+msgid "popup menu"
+msgstr "pojavni meni"
+
+#: atspi/atspi-misc.c:92
+msgid "progress bar"
+msgstr "kazalnik napredka"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:93
+msgid "button"
+msgstr "gumb"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:94
+msgid "radio button"
+msgstr "radijski gumb"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:95
+msgid "radio menu item"
+msgstr "radijski predmet menija"
+
+#: atspi/atspi-misc.c:96
+msgid "root pane"
+msgstr "korenski pladenj"
+
+#: atspi/atspi-misc.c:97
+msgid "row header"
+msgstr "glava vrstice"
+
+#: atspi/atspi-misc.c:98
+msgid "scroll bar"
+msgstr "drsnik"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:99
+msgid "scroll pane"
+msgstr "drsni pladenj"
+
+#: atspi/atspi-misc.c:100
+msgid "separator"
+msgstr "ločilnik"
+
+# G:3 K:1 O:0
+#: atspi/atspi-misc.c:101
+msgid "slider"
+msgstr "drsnik"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:102
+msgid "split pane"
+msgstr "delilni pladenj"
+
+#: atspi/atspi-misc.c:103
+msgid "spin button"
+msgstr "vrtljivi gumb"
+
+#: atspi/atspi-misc.c:104
+msgid "statusbar"
+msgstr "vrstica stanja"
+
+#: atspi/atspi-misc.c:105
+msgid "switch"
+msgstr "stikalo"
+
+# G:4 K:0 O:0
+#: atspi/atspi-misc.c:106
+msgid "table"
+msgstr "razpredelnica"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:107
+msgid "table cell"
+msgstr "celica razpredelnice"
+
+#: atspi/atspi-misc.c:108
+msgid "table column header"
+msgstr "glava stolpca razpredelnice"
+
+#: atspi/atspi-misc.c:109
+msgid "table row header"
+msgstr "glava vrstice razpredelnice"
+
+#: atspi/atspi-misc.c:110
+msgid "tear off menu item"
+msgstr "predmet odtrgljivega menija"
+
+#: atspi/atspi-misc.c:111
+msgid "terminal"
+msgstr "terminal"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:112
+msgid "text"
+msgstr "besedilo"
+
+# G:1 K:1 O:0
+#: atspi/atspi-misc.c:113
+msgid "toggle button"
+msgstr "preklopni gumb"
+
+#: atspi/atspi-misc.c:114
+msgid "tool bar"
+msgstr "orodna vrstica"
+
+# G:1 K:1 O:0
+#: atspi/atspi-misc.c:115
+msgid "tool tip"
+msgstr "orodni namig"
+
+#: atspi/atspi-misc.c:116
+msgid "tree"
+msgstr "drevo"
+
+# G:7 K:1 O:0
+#: atspi/atspi-misc.c:117
+msgid "tree table"
+msgstr "drevo razpredelnice"
+
+#: atspi/atspi-misc.c:118
+msgid "unknown"
+msgstr "neznano"
+
+# G:4 K:2 O:0
+#: atspi/atspi-misc.c:119
+msgid "viewport"
+msgstr "vidno polje"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:120
+msgid "window"
+msgstr "okno"
+
+# G:7 K:6 O:0
+#: atspi/atspi-misc.c:121
+msgid "header"
+msgstr "glava"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:122
+msgid "footer"
+msgstr "noga"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:123
+msgid "paragraph"
+msgstr "odstavek"
+
+#: atspi/atspi-misc.c:124
+msgid "ruler"
+msgstr "merilnik"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:125
+msgid "application"
+msgstr "program"
+
+#: atspi/atspi-misc.c:126
+msgid "autocomplete"
+msgstr "samodejno dopolnjevanje"
+
+#: atspi/atspi-misc.c:127
+msgid "edit bar"
+msgstr "vrstica za urejanje"
+
+#: atspi/atspi-misc.c:128
+msgid "embedded component"
+msgstr "vgrajene enote"
+
+#: atspi/atspi-misc.c:129
+msgid "entry"
+msgstr "vnos"
+
+#: atspi/atspi-misc.c:130
+msgid "chart"
+msgstr "graf"
+
+# G:1 K:0 O:0
+#: atspi/atspi-misc.c:131
+msgid "caption"
+msgstr "naslov"
+
+#: atspi/atspi-misc.c:132
+msgid "document frame"
+msgstr "okvir dokumenta"
+
+# G:7 K:6 O:0
+#: atspi/atspi-misc.c:133
+msgid "heading"
+msgstr "glava"
+
+#: atspi/atspi-misc.c:134
+msgid "page"
+msgstr "stran"
+
+#: atspi/atspi-misc.c:135
+msgid "section"
+msgstr "odsek"
+
+#: atspi/atspi-misc.c:136
+msgid "redundant object"
+msgstr "odvečni predmet"
+
+#: atspi/atspi-misc.c:137
+msgid "form"
+msgstr "obrazec"
+
+#: atspi/atspi-misc.c:138
+msgid "link"
+msgstr "povezava"
+
+#: atspi/atspi-misc.c:139
+msgid "input method window"
+msgstr "okno načina vnosa"
+
+#: atspi/atspi-misc.c:140
+msgid "table row"
+msgstr "vrstica preglednice"
+
+# G:7 K:1 O:0
+#: atspi/atspi-misc.c:141
+msgid "tree item"
+msgstr "predmet drevesa"
+
+#: atspi/atspi-misc.c:142
+msgid "document spreadsheet"
+msgstr "preglednica dokumenta"
+
+#: atspi/atspi-misc.c:143
+msgid "document presentation"
+msgstr "predstavitev  dokumenta"
+
+#: atspi/atspi-misc.c:144
+msgid "document text"
+msgstr "besedilo dokumenta"
+
+#: atspi/atspi-misc.c:145
+msgid "document web"
+msgstr "spletni naslov dokumenta"
+
+#: atspi/atspi-misc.c:146
+msgid "document email"
+msgstr "elektronski naslov dokumenta"
+
+#: atspi/atspi-misc.c:147
+msgid "comment"
+msgstr "opomba"
+
+#: atspi/atspi-misc.c:148
+msgid "list box"
+msgstr "seznam"
+
+#: atspi/atspi-misc.c:149
+msgid "grouping"
+msgstr "skupinjenje"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:150
+msgid "image map"
+msgstr "zemljevid slike"
+
+#: atspi/atspi-misc.c:151
+msgid "notification"
+msgstr "obvestilo"
+
+# G:0 K:1 O:0
+#: atspi/atspi-misc.c:152
+msgid "info bar"
+msgstr "vrstica podrobnosti"
+
+#: atspi/atspi-misc.c:153
+msgid "level bar"
+msgstr "vrstica ravni"
+
+#: atspi/atspi-misc.c:154
+msgid "title bar"
+msgstr "naslovna vrstica"
+
+#: atspi/atspi-misc.c:155
+msgid "block quote"
+msgstr "blokovni navedek"
+
+#: atspi/atspi-misc.c:156
+msgid "audio"
+msgstr "zvok"
+
+#: atspi/atspi-misc.c:157
+msgid "video"
+msgstr "video"
+
+#: atspi/atspi-misc.c:158
+msgid "definition"
+msgstr "določilo"
+
+#: atspi/atspi-misc.c:159
+msgid "article"
+msgstr "prispevek"
+
+#: atspi/atspi-misc.c:160
+msgid "landmark"
+msgstr "mestna oznaka"
+
+# G:0 K:3 O:0
+#: atspi/atspi-misc.c:161
+msgid "log"
+msgstr "dnevnik"
+
+#: atspi/atspi-misc.c:162
+msgid "marquee"
+msgstr "markiza"
+
+#: atspi/atspi-misc.c:163
+msgid "math"
+msgstr "matematika"
+
+#: atspi/atspi-misc.c:164
+msgid "rating"
+msgstr "ocena"
+
+#: atspi/atspi-misc.c:165
+msgid "timer"
+msgstr "časomer"
+
+#: atspi/atspi-misc.c:166
+msgid "description list"
+msgstr "seznam opisa"
+
+#: atspi/atspi-misc.c:167
+msgid "description term"
+msgstr "pojem opisa"
+
+#: atspi/atspi-misc.c:168
+msgid "description value"
+msgstr "vrednost opisa"

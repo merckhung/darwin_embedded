@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/syslog",
+  "tag": "syslog-406",
+  "commit": "69d8586e9a599c304e1b702a9c2830e2f78126d5",
+  "archive_sha256": "03ba22e5b89f2dcae1872a705b8b17302676fd8773001b69f1eb2a63ff637e9e"
+}

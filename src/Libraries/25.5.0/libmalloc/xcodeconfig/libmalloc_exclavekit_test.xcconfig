@@ -1,0 +1,4 @@
+SDKROOT = exclavekit.iphoneos.internal
+SUPPORTED_PLATFORMS = exclavekit.iphoneos exclavekit.macosx exclavekit.appletvos exclavekit.watchos exclavekit.xros
+
+PRODUCT_NAME = libsystem_malloc_test

@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Hayk Andreasyan <hayk.andreasyan@realschool.am>, 2019
+# Real School <localization@ehayq.am>, 2019
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-04-18 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Real School <localization@ehayq.am>, 2019\n"
+"Language-Team: Eastern Armenian (http://app.transifex.com/xfce/garcon/language/hye/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hye\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:5
+msgid "applications-accessories"
+msgstr ""
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Պիտոյք"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Աշխատասեղանի գործիքներ եւ յաւելուածներ"
+
+#: data/xfce/xfce-development.desktop.in:5
+msgid "applications-development"
+msgstr ""
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Մշակում"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Ծրագրակազմի մշակման գործիքներ"
+
+#: data/xfce/xfce-education.desktop.in:5 data/xfce/xfce-science.desktop.in:5
+msgid "applications-science"
+msgstr ""
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Կրթութիւն"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Կրթական ծրագրեր"
+
+#: data/xfce/xfce-games.desktop.in:5
+msgid "applications-games"
+msgstr ""
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Խաղեր"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Խաղեր, հանելուկներ եւ այլ ժամանցային ծրագրեր"
+
+#: data/xfce/xfce-graphics.desktop.in:5
+msgid "applications-graphics"
+msgstr ""
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Պատկեր"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Գծապատկերների ստեղծում եւ խմբագրում"
+
+#: data/xfce/xfce-hardware.desktop.in:5
+msgid "preferences-desktop-peripherals"
+msgstr ""
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Սարքաշար"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Կարգաւորումներ` սարքերի համար"
+
+#: data/xfce/xfce-multimedia.desktop.in:5
+msgid "applications-multimedia"
+msgstr ""
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Տեսաձայնային"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Ձայնային/տեսա նիշերի նուագարկիչներ եւ խմբագրիչներ"
+
+#: data/xfce/xfce-network.desktop.in:5
+msgid "applications-internet"
+msgstr ""
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Համացանց"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Համացանցային ծրագրեր"
+
+#: data/xfce/xfce-office.desktop.in:5
+msgid "applications-office"
+msgstr ""
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Գրասենեակ"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Գրասենեակային եւ արտադրողական այլ ծրագրեր"
+
+#: data/xfce/xfce-other.desktop.in:5
+msgid "applications-other"
+msgstr ""
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Այլ"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Ծրագրեր, որոնք չեն համապատասխանում մնացած անուանակարգերին"
+
+#: data/xfce/xfce-personal.desktop.in:5
+msgid "preferences-desktop-personal"
+msgstr ""
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Անձնական"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Անձնական կարգաւորումներ"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr ""
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:5
+msgid "preferences-desktop-screensaver"
+msgstr ""
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Էկրանահաններ"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Էկրանահանների ծրագրոյթ"
+
+#: data/xfce/xfce-settings.desktop.in:5
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Կարգաւորումներ"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Աշխատասեղանի եւ համակարգային կարգաւորումների ծրագրեր"
+
+#: data/xfce/xfce-system.desktop.in:5
+msgid "applications-system"
+msgstr ""
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Համակարգ"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Համակարգային գործիքներ եւ  աւժանդակ ծրագրեր "
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "«%s» նիշը չի գտնուել"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Չյաջողուեց բեռնել ընտրացանկի տուեալները %s֊ից․ %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Չյաջողուեց բեռնել ընտրացանկի տուեալները %s֊ից"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Չյաջողուեց գործարկել «%s» հրամանը:"
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Գործարկման սխալ"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Չյաջողուեց գործարկել «exo-desktop-item-edit»֊ը, որը պահանջուում է ցանկերի ստեղծման եւ խմբագրման համար։"
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Փակել"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Չյաջողուեց բեռնել յաւելուածների ցանկը"

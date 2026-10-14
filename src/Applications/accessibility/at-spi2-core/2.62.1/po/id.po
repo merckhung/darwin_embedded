@@ -1,0 +1,830 @@
+# #-#-#-#-#  id.po (at-spi2-core master)  #-#-#-#-#
+# Indonesian translation of at-spi2-core
+# Copyright (C) 2011 THE at-spi2-core'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the at-spi2-core package.
+# Copyright (C) 2005 THE atk's COPYRIGHT HOLDER
+# This file is distributed under the same license as the atk package.
+#
+# Mohammad DAMT <mdamt@bisnisweb.com>, 2005.
+# Ahmad Riza H Nst  <rizahnst@gnome.org>, 2006.
+# Andika Triwidada <andika@gmail.com>, 2010, 2011, 2014, 2024, 2025.
+# Dirgita <dirgitadevina@yahoo.co.id>, 2010, 2011.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2021-2022, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: at-spi2-core main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2025-03-10 11:11+0000\n"
+"PO-Revision-Date: 2025-03-12 04:39+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: GNOME Indonesian Translation Team <gnome@i15n.org>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.5\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "Taut Terpilih"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "Menentukan apakah objek AtkHyperlink dipilih atau tidak"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "Jumlah Jangkar/Anchor"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "Jumlah jangkar/anchor yang dihubungkan dengan objek AtkHyperlink"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "Indeks akhir"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "Akhir indeks objek AtkHyperlink"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "Indeks awal"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "Indeks awal objek AtkHyperlink"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "Nama Akses"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr "Nama turunan objek yang digunakan untuk teknologi kemudahan akses"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "Keterangan Akses"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "Keterangan objek yang digunakan dalam teknologi kemudahan akses"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "Induk Akses"
+
+#: atk/atkobject.c:288
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr ""
+"Induk akses saat ini sebagaimana dikembalikan oleh atk_object_get_parent()"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "Nilai Akses"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "Digunakan untuk memberitahukan bahwa nilai telah berubah"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "Peran Akses"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "Peran akses objek ini"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "Tapis Akses"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "Tapis akses objek ini"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "Nilai MDI Akses"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "Nilai MDI akses objek ini"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "Judul Tabel Akses"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"Digunakan untuk memberi peringatan bahwa judul tabel telah berubah,nilai ini "
+"sebaiknya tidak digunakan, silakan gunakan accessible-table-caption-object "
+"saja"
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "Kepala Kolom Tabel Akses"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "Digunakan untuk memberitahu bahwa kepala kolom telah berubah"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "Keterangan Kolom Tabel Akses"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "Digunakan untuk memberitahu bahwa keterangan kolom tabel telah berubah"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "Kepala Baris Tabel Akses"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "Digunakan untuk memberitahu bawha kepala baris tabel telah berubah"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "Keterangan Baris Tabel Akses"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "Digunakan untuk memberitahu bahwa keterangan baris tabel telah berubah"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "Ringkasan Tabel Akses"
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "Digunakan untuk memberitahu bahwa keterangan tabel telah berubah"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "Objek Judul Tabel Akses"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "Digunakan untuk memberitahu bahwa judul tabel telah berubah"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "Jumlah Akses Taut Hiperteks"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "Jumlah taut yang dimiliki AtkHypertext saat ini"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "ID Akses"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr "ID untuk akses; berguna untuk pengujian otomatis"
+
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "Teks bantuan"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "Teks bantuan terkait dengan yang dapat diakses"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "sangat lemah"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "lemah"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "dapat diterima"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "kuat"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "sangat kuat"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "sangat rendah"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "sedang"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "tinggi"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "sangat tinggi"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "sangat buruk"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "buruk"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "baik"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "sangat baik"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "terbaik"
+
+#: atspi/atspi-component.c:352 atspi/atspi-misc.c:1234 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "Aplikasi tak ada lagi"
+
+#: atspi/atspi-misc.c:49
+msgid "invalid"
+msgstr "tidak sah"
+
+#: atspi/atspi-misc.c:50
+msgid "accelerator label"
+msgstr "label akselerator"
+
+#: atspi/atspi-misc.c:51
+msgid "alert"
+msgstr "waspada"
+
+#: atspi/atspi-misc.c:52
+msgid "animation"
+msgstr "animasi"
+
+#: atspi/atspi-misc.c:53
+msgid "arrow"
+msgstr "panah"
+
+#: atspi/atspi-misc.c:54
+msgid "calendar"
+msgstr "kalender"
+
+#: atspi/atspi-misc.c:55
+msgid "canvas"
+msgstr "kanvas"
+
+#: atspi/atspi-misc.c:56
+msgid "check box"
+msgstr "kotak cek"
+
+#: atspi/atspi-misc.c:57
+msgid "check menu item"
+msgstr "item menu cek"
+
+#: atspi/atspi-misc.c:58
+msgid "color chooser"
+msgstr "pemilih warna"
+
+#: atspi/atspi-misc.c:59
+msgid "column header"
+msgstr "tajuk kolom"
+
+#: atspi/atspi-misc.c:60
+msgid "combo box"
+msgstr "kotak kombo"
+
+#: atspi/atspi-misc.c:61
+msgid "dateeditor"
+msgstr "penyunting tanggal"
+
+#: atspi/atspi-misc.c:62
+msgid "desktop icon"
+msgstr "ikon desktop"
+
+#: atspi/atspi-misc.c:63
+msgid "desktop frame"
+msgstr "bingkai desktop"
+
+#: atspi/atspi-misc.c:64
+msgid "dial"
+msgstr "tombol pemutar"
+
+#: atspi/atspi-misc.c:65
+msgid "dialog"
+msgstr "dialog"
+
+#: atspi/atspi-misc.c:66
+msgid "directory pane"
+msgstr "panel direktori"
+
+#: atspi/atspi-misc.c:67
+msgid "drawing area"
+msgstr "area gambar"
+
+#: atspi/atspi-misc.c:68
+msgid "file chooser"
+msgstr "pemilih berkas"
+
+#: atspi/atspi-misc.c:69
+msgid "filler"
+msgstr "isian"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:71
+msgid "fontchooser"
+msgstr "pemilih fonta"
+
+#: atspi/atspi-misc.c:72
+msgid "frame"
+msgstr "bingkai"
+
+#: atspi/atspi-misc.c:73
+msgid "glass pane"
+msgstr "panel kaca"
+
+#: atspi/atspi-misc.c:74
+msgid "html container"
+msgstr "kontainer html"
+
+#: atspi/atspi-misc.c:75
+msgid "icon"
+msgstr "ikon"
+
+#: atspi/atspi-misc.c:76
+msgid "image"
+msgstr "gambar"
+
+#: atspi/atspi-misc.c:77
+msgid "internal frame"
+msgstr "bingkai internal"
+
+#: atspi/atspi-misc.c:78
+msgid "label"
+msgstr "label"
+
+#: atspi/atspi-misc.c:79
+msgid "layered pane"
+msgstr "panel  berlapis"
+
+#: atspi/atspi-misc.c:80
+msgid "list"
+msgstr "daftar"
+
+#: atspi/atspi-misc.c:81
+msgid "list item"
+msgstr "isi daftar"
+
+#: atspi/atspi-misc.c:82
+msgid "menu"
+msgstr "menu"
+
+#: atspi/atspi-misc.c:83
+msgid "menu bar"
+msgstr "baris menu"
+
+#: atspi/atspi-misc.c:84
+msgid "menu button"
+msgstr "tombol menu"
+
+#: atspi/atspi-misc.c:85
+msgid "menu item"
+msgstr "objek menu"
+
+#: atspi/atspi-misc.c:86
+msgid "option pane"
+msgstr "panel opsi"
+
+#: atspi/atspi-misc.c:87
+msgid "page tab"
+msgstr "halaman tab"
+
+#: atspi/atspi-misc.c:88
+msgid "page tab list"
+msgstr "daftar halaman tab"
+
+#: atspi/atspi-misc.c:89
+msgid "panel"
+msgstr "panel"
+
+#: atspi/atspi-misc.c:90
+msgid "password text"
+msgstr "teks sandi"
+
+#: atspi/atspi-misc.c:91
+msgid "popup menu"
+msgstr "menu tongol"
+
+#: atspi/atspi-misc.c:92
+msgid "progress bar"
+msgstr "indikator proses"
+
+#: atspi/atspi-misc.c:93
+msgid "button"
+msgstr "tombol"
+
+#: atspi/atspi-misc.c:94
+msgid "radio button"
+msgstr "tombol radio"
+
+#: atspi/atspi-misc.c:95
+msgid "radio menu item"
+msgstr "objek menu radio"
+
+#: atspi/atspi-misc.c:96
+msgid "root pane"
+msgstr "panel dasar"
+
+#: atspi/atspi-misc.c:97
+msgid "row header"
+msgstr "tajuk baris"
+
+#: atspi/atspi-misc.c:98
+msgid "scroll bar"
+msgstr "batang penggulung"
+
+#: atspi/atspi-misc.c:99
+msgid "scroll pane"
+msgstr "panel penggulung"
+
+#: atspi/atspi-misc.c:100
+msgid "separator"
+msgstr "pemisah"
+
+#: atspi/atspi-misc.c:101
+msgid "slider"
+msgstr "slider"
+
+#: atspi/atspi-misc.c:102
+msgid "split pane"
+msgstr "panel pemisah"
+
+#: atspi/atspi-misc.c:103
+msgid "spin button"
+msgstr "tombol putar"
+
+#: atspi/atspi-misc.c:104
+msgid "statusbar"
+msgstr "baris status"
+
+#: atspi/atspi-misc.c:105
+msgid "switch"
+msgstr "saklar"
+
+#: atspi/atspi-misc.c:106
+msgid "table"
+msgstr "tabel"
+
+#: atspi/atspi-misc.c:107
+msgid "table cell"
+msgstr "sel tabel"
+
+#: atspi/atspi-misc.c:108
+msgid "table column header"
+msgstr "tajuk kolom pada tabel"
+
+#: atspi/atspi-misc.c:109
+msgid "table row header"
+msgstr "tajuk baris pada tabel"
+
+#: atspi/atspi-misc.c:110
+msgid "tear off menu item"
+msgstr "anggota menu yang dapat dilepas"
+
+#: atspi/atspi-misc.c:111
+msgid "terminal"
+msgstr "terminal"
+
+#: atspi/atspi-misc.c:112
+msgid "text"
+msgstr "teks"
+
+#: atspi/atspi-misc.c:113
+msgid "toggle button"
+msgstr "tombol togel"
+
+#: atspi/atspi-misc.c:114
+msgid "tool bar"
+msgstr "bilah alat"
+
+#: atspi/atspi-misc.c:115
+msgid "tool tip"
+msgstr "teks bantuan"
+
+#: atspi/atspi-misc.c:116
+msgid "tree"
+msgstr "pohon"
+
+#: atspi/atspi-misc.c:117
+msgid "tree table"
+msgstr "tabel pohon"
+
+#: atspi/atspi-misc.c:118
+msgid "unknown"
+msgstr "tidak diketahui"
+
+#: atspi/atspi-misc.c:119
+msgid "viewport"
+msgstr "viewport"
+
+#: atspi/atspi-misc.c:120
+msgid "window"
+msgstr "jendela"
+
+#: atspi/atspi-misc.c:121
+msgid "header"
+msgstr "tajuk"
+
+#: atspi/atspi-misc.c:122
+msgid "footer"
+msgstr "kaki"
+
+#: atspi/atspi-misc.c:123
+msgid "paragraph"
+msgstr "paragraf"
+
+#: atspi/atspi-misc.c:124
+msgid "ruler"
+msgstr "penggaris"
+
+#: atspi/atspi-misc.c:125
+msgid "application"
+msgstr "aplikasi"
+
+#: atspi/atspi-misc.c:126
+msgid "autocomplete"
+msgstr "lengkap secara otomatis"
+
+#: atspi/atspi-misc.c:127
+msgid "edit bar"
+msgstr "bilah sunting"
+
+#: atspi/atspi-misc.c:128
+msgid "embedded component"
+msgstr "komponen tercangkok"
+
+#: atspi/atspi-misc.c:129
+msgid "entry"
+msgstr "entri"
+
+#: atspi/atspi-misc.c:130
+msgid "chart"
+msgstr "bagan"
+
+#: atspi/atspi-misc.c:131
+msgid "caption"
+msgstr "kapsi"
+
+#: atspi/atspi-misc.c:132
+msgid "document frame"
+msgstr "bingkai dokumen"
+
+#: atspi/atspi-misc.c:133
+msgid "heading"
+msgstr "tajuk"
+
+#: atspi/atspi-misc.c:134
+msgid "page"
+msgstr "halaman"
+
+#: atspi/atspi-misc.c:135
+msgid "section"
+msgstr "bagian"
+
+#: atspi/atspi-misc.c:136
+msgid "redundant object"
+msgstr "objek redundan"
+
+#: atspi/atspi-misc.c:137
+msgid "form"
+msgstr "formulir"
+
+#: atspi/atspi-misc.c:138
+msgid "link"
+msgstr "taut"
+
+#: atspi/atspi-misc.c:139
+msgid "input method window"
+msgstr "jendela metoda masukan"
+
+#: atspi/atspi-misc.c:140
+msgid "table row"
+msgstr "baris tabel"
+
+#: atspi/atspi-misc.c:141
+msgid "tree item"
+msgstr "butir tabel pohon"
+
+#: atspi/atspi-misc.c:142
+msgid "document spreadsheet"
+msgstr "spreadsheet dokumen"
+
+#: atspi/atspi-misc.c:143
+msgid "document presentation"
+msgstr "presentasi dokumen"
+
+#: atspi/atspi-misc.c:144
+msgid "document text"
+msgstr "teks dokumen"
+
+#: atspi/atspi-misc.c:145
+msgid "document web"
+msgstr "web dokumen"
+
+#: atspi/atspi-misc.c:146
+msgid "document email"
+msgstr "surel dokumen"
+
+#: atspi/atspi-misc.c:147
+msgid "comment"
+msgstr "komentar"
+
+#: atspi/atspi-misc.c:148
+msgid "list box"
+msgstr "kotak daftar"
+
+#: atspi/atspi-misc.c:149
+msgid "grouping"
+msgstr "pengelompokan"
+
+#: atspi/atspi-misc.c:150
+msgid "image map"
+msgstr "peta gambar"
+
+#: atspi/atspi-misc.c:151
+msgid "notification"
+msgstr "pemberitahuan"
+
+#: atspi/atspi-misc.c:152
+msgid "info bar"
+msgstr "bilah info"
+
+#: atspi/atspi-misc.c:153
+msgid "level bar"
+msgstr "bilah aras"
+
+#: atspi/atspi-misc.c:154
+msgid "title bar"
+msgstr "bilah judul"
+
+#: atspi/atspi-misc.c:155
+msgid "block quote"
+msgstr "kutip blok"
+
+#: atspi/atspi-misc.c:156
+msgid "audio"
+msgstr "audio"
+
+#: atspi/atspi-misc.c:157
+msgid "video"
+msgstr "video"
+
+#: atspi/atspi-misc.c:158
+msgid "definition"
+msgstr "definisi"
+
+#: atspi/atspi-misc.c:159
+msgid "article"
+msgstr "artikel"
+
+#: atspi/atspi-misc.c:160
+msgid "landmark"
+msgstr "landmark"
+
+#: atspi/atspi-misc.c:161
+msgid "log"
+msgstr "log"
+
+#: atspi/atspi-misc.c:162
+msgid "marquee"
+msgstr "marquee"
+
+#: atspi/atspi-misc.c:163
+msgid "math"
+msgstr "math"
+
+#: atspi/atspi-misc.c:164
+msgid "rating"
+msgstr "rating"
+
+#: atspi/atspi-misc.c:165
+msgid "timer"
+msgstr "timer"
+
+#: atspi/atspi-misc.c:166
+msgid "description list"
+msgstr "daftar deskripsi"
+
+#: atspi/atspi-misc.c:167
+msgid "description term"
+msgstr "istilah deskripsi"
+
+#: atspi/atspi-misc.c:168
+msgid "description value"
+msgstr "nilai deskripsi"

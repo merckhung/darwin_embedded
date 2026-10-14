@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/dyld",
+  "tag": "dyld-1378",
+  "commit": "fd8d0c4d52320ebf64db34f3cb280310d905c5ae",
+  "archive_sha256": "509c8b081153a7b9ff08d6ddf0a681c0ab5190e1e336ef2e9748b801bdb9c59e"
+}

@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# 8b03701f910565d01acaec9ce3f558ab_e9f0fee <b5b06e8f85fb8288fe43ad0bc2422d94_32848>, 2013,2017
+# Arnold Marko <arnold.marko@gmail.com>, 2020,2022-2023
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Arnold Marko <arnold.marko@gmail.com>, 2020,2022-2023\n"
+"Language-Team: Slovenian (http://app.transifex.com/xfce/garcon/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Pripomočki"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Običajna namizna orodja in programi"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Razvoj"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Orodja za razvoj programov"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Izobraževanje"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Izobraževalni programi"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Igre"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Igre, uganke in ostali zabavni programi"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Grafika"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Aplikacije za izdelovanje in urejanje grafik"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Strojna oprema"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Nastavitve za številne strojne naprave"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Večpredstavnost"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Zvočni in video predvajalniki ter urejevalniki"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Splet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Programi za spletni dostop"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Pisarna"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Pisarniški in poslovni programi"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Ostalo"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Programi, ki ne spadajo v nobeno drugo kategorijo"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Osebno"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Osebne nastavitve"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Znanost"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Znanstvena programska oprema"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Ohranjevalniki zaslona"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Apleti ohranjevalnikov zaslona"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Programi za namizne in sistemske nastavitve"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Sistem"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Sistemska orodja in pripomočki"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Datoteka \"%s\" ni bila najdena"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Podatkov iz datoteke menija ni bilo mogoče naložiti iz %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Podatkov iz datoteke menija ni bilo mogoče naložiti iz %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Ukaza \"%s\" ni bilo mogoče izvesti."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Napaka pri zagonu"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Ni mogoče zagnati \"exo-desktop-item-edit\", ki je potreben za ustvarjanje in urejanje vnosov menija."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Zapri"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Programskega menija bilo mogoče naložiti"

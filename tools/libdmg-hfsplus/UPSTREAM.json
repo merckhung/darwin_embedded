@@ -1,0 +1,38 @@
+{
+  "repository": "https://github.com/planetbeing/libdmg-hfsplus",
+  "commit": "7ac55ec64c96f7800d9818ce64c79670e7f02b67",
+  "license": "GPL-3.0",
+  "purpose": "Host-only HFS image editing; not linked into the kernel or userland.",
+  "upstream_files_sha256": {
+    "LICENSE": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "README.markdown": "c465eca3d99ca47bff0b59402acb470cb6601d9371fb92c6ff6f15fdc15d7936",
+    "common/CMakeLists.txt": "b681faa7c6e8f59572059f22e39c9dbd08b0a94325eafab338facb9e646ef087",
+    "common/abstractfile.c": "647bdb78122f7f1a51056d76a689cdd3090b4714bbfcc86a511a336c4a27a9e8",
+    "hfs/CMakeLists.txt": "f1e64b2653edb4b8a73f19305d6c922902c02b9f4d5ea75f984dd787b799fa86",
+    "hfs/btree.c": "1ec2091e85a266d8a64ece06dfdea331720607cff20b09733ea378d73ab6376c",
+    "hfs/catalog.c": "deb4eb9ed603e4ed0c5a6332994edf1f4da1a20df11d928d4692ac50b2e2ebe4",
+    "hfs/extents.c": "379d5e76c7b4052afafd044d48ebee81427fa99f136eb73b141cf5991a9a7a04",
+    "hfs/fastunicodecompare.c": "f7e8ad5a53c67ef2c1e1196ec4483f0a690a032faba635b23796454da1a66292",
+    "hfs/flatfile.c": "b4cd4db91fe9993e2cdc337c8ddaa978dab6baffe33d87b90b43834608ec36db",
+    "hfs/hfs.c": "c3b7ac542f1df1be8ced3a56c1117b47d43ec977211892c63660ba76aecb85ab",
+    "hfs/hfscompress.c": "09170559a8d3d123422172baacca9accb84623a50a10bdb1a552120c51c6c049",
+    "hfs/hfslib.c": "eff3aa5f438f1873a65425cbf91a82f1ce5df9e66ea33d77c66d7d66198c5c09",
+    "hfs/rawfile.c": "0ee31cddc733acb0ecef4cdb3bebfb542919d078df2683df4205d3994fee8330",
+    "hfs/utility.c": "c6633e34c9ddde433913e7f86c8b0b6c3c8f8bcc9ae30343a1bed2f8d6c71169",
+    "hfs/volume.c": "f2255bbe288ca963a234dffcb5cc81633400f618213b8fb4aa2d1283d65f1969",
+    "hfs/xattr.c": "d57541d415b6b0542bbb776fc15a5606c56be7c31df17244c910ed371ed96b7e",
+    "includes/abstractfile.h": "f3e5cf0a939ffb3e6fe1ac2b79bcd9dee498478228f747d20b6b2cb8973110c5",
+    "includes/common.h": "f14bfc7d2edac4b0e056f1ca579472a1eae81bca3f21730d90e0504c55d6fc10",
+    "includes/dmg/adc.h": "22e48f646aaf6015cce171f2936d32a8e90bae21d6ac4e68f6a5821ae3c2cd21",
+    "includes/dmg/dmg.h": "ea24d800b634cafc250a1a3fed8e130ee5f638245d4407ff8043a3fcb52de21c",
+    "includes/dmg/dmgfile.h": "b86bbdbc0d684cce4235e8d614b017ddc64e17fd28780f0e648fbb09eb4e34d6",
+    "includes/dmg/dmglib.h": "e59e60af3809bcb4a9a5a5bf08e764a60e873a313b481004099ae2e78461ec7e",
+    "includes/dmg/filevault.h": "928b7000d2c92d484139fce838dad18111dac257ce93732cbe8e64c5dfb60389",
+    "includes/hfs/hfscompress.h": "329ff8f4a23c72c2d4038f3fbf27ec4d7b374d8b6de87ad2b694f9fc574081d2",
+    "includes/hfs/hfslib.h": "10465e851a29c8323d1e6bbc32d3bb454d23a81ad9424b366115902e330fe9c0",
+    "includes/hfs/hfsplus.h": "6d9a2ff2707df3e6127717d83cb40a3e2b37dc7e74ea342ba5cd103752fa2212"
+  },
+  "local_changes": [
+    "Add a Linux host Bazel target with -fcommon for the original C global definitions."
+  ]
+}

@@ -1,0 +1,7 @@
+module Dispatch [system] {
+	header "dispatch/dispatch.h"
+	header "dispatch/base.h"
+	header "dispatch/object.h"
+	header "dispatch/once.h"
+	export *
+}

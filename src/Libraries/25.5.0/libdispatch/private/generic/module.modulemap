@@ -1,0 +1,10 @@
+module DispatchPrivate [system] {
+	umbrella header "private.h"
+	exclude header "mach_private.h"
+	export *
+}
+
+module DispatchIntrospectionPrivate [system] {
+	header "introspection_private.h"
+	export *
+}

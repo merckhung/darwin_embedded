@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.5/EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY date "December 2009">
+  <!ENTITY application "xfce4-terminal">
+]>
+
+<refentry id="terminal" lang="en">
+  <refentryinfo>
+    <productname>&application;</productname>
+    <authorgroup>
+      <author>
+        <contrib>Developer</contrib>
+        <firstname>Sergios - Anestis</firstname>
+        <surname>Kefalidis</surname>
+        <affiliation>
+          <address><email>sergioskefalidis@gmail.com</email></address>
+        </affiliation>
+      </author>
+      <author>
+        <contrib>Developer</contrib>
+        <firstname>Igor</firstname>
+        <surname>Zakharov</surname>
+        <affiliation>
+          <address><email>f2404@yandex.ru</email></address>
+        </affiliation>
+      </author>
+      <author>
+        <contrib>Developer</contrib>
+        <firstname>Nick</firstname>
+        <surname>Schermer</surname>
+        <affiliation>
+          <address><email>nick@xfce.org</email></address>
+        </affiliation>
+      </author>
+      <author>
+        <contrib>Developer</contrib>
+        <firstname>Benedikt</firstname>
+        <surname>Meurer</surname>
+        <affiliation>
+          <jobtitle>Software developer</jobtitle>
+          <orgname>os-cillation</orgname>
+          <orgdiv>System development</orgdiv>
+          <address><email>benny@xfce.org</email></address>
+        </affiliation>
+      </author>
+    </authorgroup>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>&application;</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class="manual">Xfce</refmiscinfo>
+  </refmeta>
+
+  <refnamediv>
+    <refname>&application;</refname>
+    <refpurpose>A Terminal emulator for X</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv id="synopsis">
+    <title>Synopsis</title>
+    <cmdsynopsis>
+      <command>&application;</command>
+      <arg choice="opt" rep="repeat">OPTION</arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1 id="description">
+    <title>Description</title>
+    <para>
+      &application; is what is known as an X terminal emulator, often referred
+      to as terminal or shell. It provides an equivalent to the old-fashioned
+      text screen on your desktop, but one which can easily share the screen
+      with other graphical applications. Windows users may already be familiar
+      with the MS-DOS Prompt utility, which has the analogous function of
+      offering a DOS command-line under Windows, though one should note that
+      the UNIX CLI offer far more power and ease of use than does DOS.
+    </para>
+
+    <para>
+      &application; emulates the <application>xterm</application> application
+      developed by the X Consortium. In turn, the <application>xterm</application>
+      application emulates the DEC VT102 terminal and also supports the DEC VT220
+      escape sequences. An escape sequence is a series of characters that start
+      with the <keycap>Esc</keycap> character. &application; accepts all of the escape
+      sequences that the VT102 and VT220 terminals use for functions such as to
+      position the cursor and to clear the screen.
+    </para>
+  </refsect1>
+
+  <refsect1 id="options">
+    <title>Options</title>
+
+    <refsect2 id="options-summary">
+      <title>Option Summary</title>
+      <para>
+        Here is a summary of all the options, grouped by type. Explanations are in
+        the following sections.
+      </para>
+      <variablelist>
+        <varlistentry>
+          <term><link linkend="options-general">General Options</link></term>
+          <listitem>
+            <para><xref linkend="options-general-help"/>;
+              <xref linkend="options-general-version"/>;
+              <xref linkend="options-general-disable-server"/>;
+              <xref linkend="options-general-color-table"/>;
+              <xref linkend="options-general-preferences"/>;
+              <xref linkend="options-general-default-display"/>;
+              <xref linkend="options-general-default-working-directory"/>
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><link linkend="options-separators">Window or Tab Separators</link></term>
+          <listitem>
+            <para><xref linkend="options-separators-tab"/>;
+              <xref linkend="options-separators-window"/>
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><link linkend="options-tab">Tab Options</link></term>
+          <listitem>
+            <para><xref linkend="options-tab-execute"/>;
+              <xref linkend="options-tab-command"/>;
+              <xref linkend="options-tab-title"/>;
+              <xref linkend="options-tab-dynamic-title-mode"/>;
+              <xref linkend="options-tab-initial-title"/>;
+              <xref linkend="options-tab-working-directory"/>;
+              <xref linkend="options-tab-hold"/>;
+              <xref linkend="options-tab-active-tab"/>;
+              <xref linkend="options-tab-color-text"/>;
+              <xref linkend="options-tab-color-bg"/>
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><link linkend="options-window">Window Options</link></term>
+          <listitem>
+            <para><xref linkend="options-window-display"/>;
+              <xref linkend="options-window-drop-down"/>;
+              <xref linkend="options-window-geometry"/>;
+              <xref linkend="options-window-role"/>;
+              <xref linkend="options-window-startup-id"/>;
+              <xref linkend="options-window-icon"/>;
+              <xref linkend="options-window-fullscreen"/>;
+              <xref linkend="options-window-maximize"/>;
+              <xref linkend="options-window-minimize"/>;
+              <xref linkend="options-window-show-menubar"/>,
+              <xref linkend="options-window-hide-menubar"/>;
+              <xref linkend="options-window-show-borders"/>,
+              <xref linkend="options-window-hide-borders"/>;
+              <xref linkend="options-window-show-toolbar"/>,
+              <xref linkend="options-window-hide-toolbar"/>;
+              <xref linkend="options-window-show-scrollbar"/>,
+              <xref linkend="options-window-hide-scrollbar"/>;
+              <xref linkend="options-window-font"/>;
+              <xref linkend="options-window-zoom"/>;
+              <xref linkend="options-window-class"/>
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </refsect2>
+
+    <refsect2 id="options-general">
+      <title>General Options</title>
+      <variablelist>
+        <varlistentry>
+          <term id="options-general-help">
+            <option>-h</option>, <option>--help</option>
+          </term>
+          <listitem>
+            <para>List the various command line options supported by &application; and exit.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-general-version">
+            <option>-V</option>, <option>--version</option>
+          </term>
+          <listitem>
+            <para>Display version information and exit.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-general-disable-server">
+            <option>--disable-server</option>
+          </term>
+          <listitem>
+            <para>Do not register with the D-BUS session message bus. Run this terminal in its own process.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-general-color-table">
+            <option>--color-table</option>
+          </term>
+          <listitem>
+            <para>Echo the color codes.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-general-preferences">
+            <option>--preferences</option>
+          </term>
+          <listitem>
+            <para>Open the xfce4-terminal preferences window.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-general-default-display">
+            <option>--default-display=<replaceable>display</replaceable></option>
+          </term>
+          <listitem>
+            <para>Default X display to use.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-general-default-working-directory">
+            <option>--default-working-directory=<replaceable>directory</replaceable></option>
+          </term>
+          <listitem>
+            <para>Set <parameter>directory</parameter> as the default working directory for the terminal.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </refsect2>
+
+    <refsect2 id="options-separators">
+      <title>Window or Tab Separators</title>
+      <variablelist>
+        <varlistentry>
+          <term id="options-separators-tab">
+            <option>--tab</option>
+          </term>
+          <listitem>
+            <para>Open a new tab in the last specified window. More than one of these options can be provided, each opening an additional tab.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-separators-window">
+            <option>--window</option>
+          </term>
+          <listitem>
+            <para>Open a new window containing one tab. More than one of these options can be provided.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>
+        If there is an active window, the last specified window is that window until a --window option is encountered at which point that new window is the last specified window.
+      </para>
+      <para>
+        If there is no active window, the last specified window is the window created by xfce4-terminal until a --window option
+        is encountered at which point that new window is the last specified window.
+      </para>
+      <para>
+        These options can be combined with --drop-down.
+      </para>
+    </refsect2>
+
+    <refsect2 id="options-tab">
+      <title>Tab Options</title>
+      <variablelist>
+        <varlistentry>
+          <term id="options-tab-execute">
+            <option>-x</option>, <option>--execute</option>
+          </term>
+          <listitem>
+            <para>Execute the remainder of the command line inside the terminal.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-command">
+            <option>-e</option>, <option>--command=<replaceable>command</replaceable></option>
+          </term>
+          <listitem>
+            <para>Execute <parameter>command</parameter> inside the terminal.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-title">
+            <option>-T</option>, <option>--title=<replaceable>title</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set <parameter>title</parameter> as the window title for the terminal (ignores
+              dynamically-set title).
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-dynamic-title-mode">
+            <option>--dynamic-title-mode=<replaceable>mode</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set <parameter>mode</parameter> as the dynamically-set title mode for the terminal, one of:
+              'replace', 'before', 'after', 'none'.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-initial-title">
+            <option>--initial-title=<replaceable>title</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set <parameter>title</parameter> as the initial window title for the terminal (respects
+              dynamically-set title).
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-working-directory">
+            <option>--working-directory=<replaceable>directory</replaceable></option>
+          </term>
+          <listitem>
+            <para>Set <parameter>directory</parameter> as the working directory for the terminal.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-hold">
+            <option>-H</option>, <option>--hold</option>
+          </term>
+          <listitem>
+            <para>Causes the terminal to be kept around after the child command has terminated.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-active-tab">
+            <option>--active-tab</option>
+          </term>
+          <listitem>
+            <para>Makes the terminal active: useful when a terminal window contains multiple tabs.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-color-text">
+            <option>--color-text=<replaceable>color</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set <parameter>color</parameter> as the text color for the terminal per the following
+              specification: https://docs.gtk.org/gdk3/method.RGBA.parse.html
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-tab-color-bg">
+            <option>--color-bg=<replaceable>color</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set <parameter>color</parameter> as the background color for the terminal per the following
+              specification: https://docs.gtk.org/gdk3/method.RGBA.parse.html
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </refsect2>
+
+    <refsect2 id="options-window">
+      <title>Window Options</title>
+      <variablelist>
+        <varlistentry>
+          <term id="options-window-display">
+            <option>--display=<replaceable>display</replaceable></option>
+          </term>
+          <listitem>
+            <para>X display to use for the last- specified window.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-drop-down">
+            <option>--drop-down</option>
+          </term>
+          <listitem>
+            <para>
+              Will start the window in drop-down mode (also called a Quake-style terminal). This will only
+              apply to the first window started with this option. It is advised to bind this to
+              a shortcut in the keyboard preferences.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-geometry">
+            <option>--geometry=<replaceable>geometry</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Sets the geometry of the last-specified window to <parameter>geometry</parameter>. Read
+              <citerefentry><refentrytitle>X</refentrytitle><manvolnum>7</manvolnum></citerefentry>
+              for more information on how to specify window geometries.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-role">
+            <option>--role=<replaceable>role</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Sets the window role of the last-specified window to <parameter>role</parameter>.
+              Applies to only one window and can be specified once for each window you create
+              from the command line. The <parameter>role</parameter> is a unique identifier
+              for the window to be used when restoring a session.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-startup-id">
+            <option>--startup-id=<replaceable>string</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Specifies the startup notification id for the last-specified window. Used
+              internally to forward the startup notification id when using the D-BUS service.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-icon">
+            <option>-I, --icon=<replaceable>icon</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set the terminal's icon as an icon name or filename.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-fullscreen">
+            <option>--fullscreen</option>
+          </term>
+          <listitem>
+            <para>
+              Set the last-specified window into fullscreen mode; applies to only one window;
+              can be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-maximize">
+            <option>--maximize</option>
+          </term>
+          <listitem>
+            <para>
+              Set the last-specified window into maximized mode; applies to only one
+              window; can be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-minimize">
+            <option>--minimize</option>
+          </term>
+          <listitem>
+            <para>
+              Set the last-specified window into minimized mode; applies to only one
+              window; can be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-show-menubar">
+            <option>--show-menubar</option>
+          </term>
+          <listitem>
+            <para>
+              Turn on the menubar for the last-specified window. Can be specified once for each
+              window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-hide-menubar">
+            <option>--hide-menubar</option>
+          </term>
+          <listitem>
+            <para>
+              Turn off the menubar for the last-specified window. Can be specified once for each
+              window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-show-borders">
+            <option>--show-borders</option>
+          </term>
+          <listitem>
+            <para>
+              Turn on the window decorations for the last-specified window. Applies to only
+              one window. Can be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-hide-borders">
+            <option>--hide-borders</option>
+          </term>
+          <listitem>
+            <para>
+              Turn off the window decorations for the last-specified window. Applies to only
+              one window. Can be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-show-toolbar">
+            <option>--show-toolbar</option>
+          </term>
+          <listitem>
+            <para>
+              Turn on the toolbar for the last-specified window. Applies to only one window. Can
+              be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-hide-toolbar">
+            <option>--hide-toolbar</option>
+          </term>
+          <listitem>
+            <para>
+              Turn off the toolbar for the last-specified window. Applies to only one window. Can
+              be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-show-scrollbar">
+            <option>--show-scrollbar</option>
+          </term>
+          <listitem>
+            <para>
+              Turn on the scrollbar for the last-specified window. Scrollbar position is taken from
+              the settings; if position is None, the default position is Right side. Applies to only
+              one window. Can be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-hide-scrollbar">
+            <option>--hide-scrollbar</option>
+          </term>
+          <listitem>
+            <para>
+              Turn off the scrollbar for the last-specified window. Applies to only one window. Can
+              be specified once for each window you create from the command line.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-font">
+            <option>--font=<replaceable>font</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set the terminal font.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-zoom">
+            <option>--zoom=<replaceable>zoom</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set the zoom level: the font size will be multiplied by this level. The range
+              is from -7 to 7, default is 0. Each step multiplies the size by 1.2, i.e.
+              level 7 is 3.5831808 (1.2^7) times larger than the default size.
+            </para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term id="options-window-class">
+            <option>--class=<replaceable>class</replaceable></option>
+          </term>
+          <listitem>
+            <para>
+              Set the window manager class of all terminal windows. Controls window grouping
+              in the panel. If a terminal instance is already open, requires
+              <xref linkend="options-general-disable-server"/> to be set.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </refsect2>
+  </refsect1>
+
+  <refsect1 id="examples">
+    <title>Examples</title>
+    <variablelist>
+      <varlistentry>
+        <term>&application; --geometry 80x40 --command mutt --tab --command mc</term>
+        <listitem>
+          <para>
+            Opens a new terminal window with a geometry of 80 columns and 40 rows
+            and two tabs in it, where the first tab runs <command>mutt</command> and
+            the second tab runs <command>mc</command>.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id="environment">
+    <title>Environment</title>
+
+    <para>
+      &application; uses the Basedir Specification as defined on
+      <ulink url="http://freedesktop.org/" type="http">Freedesktop.org</ulink> to locate its
+      data and configuration files. This means that file locations will be specified as
+      a path relative to the directories described in the specification.
+    </para>
+
+    <variablelist>
+      <varlistentry>
+        <term><varname>${XDG_CONFIG_HOME}</varname></term>
+        <listitem>
+          <para>
+            The first base directory to look for configuration
+            files. By default this is set to <filename role="directory">~/.config/</filename>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><varname>${XDG_CONFIG_DIRS}</varname></term>
+        <listitem>
+          <para>
+            A colon separated list of base directories that contain configuration
+            data. By default the application will look in <filename role="directory">${sysconfdir}/xdg/</filename>.
+            The value of <varname>${sysconfdir}</varname> depends on how the program was
+            build and will often be <filename role="directory">/etc/</filename>
+            for binary packages.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><varname>${XDG_DATA_HOME}</varname></term>
+        <listitem>
+          <para>
+            The root for all user-specific data files. By default this
+            is set to <filename role="directory">~/.local/share/</filename>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><varname>${XDG_DATA_DIRS}</varname></term>
+        <listitem>
+          <para>
+            A set of preference ordered base directories relative to which
+            data files should be searched in addition to the
+            <varname>${XDG_DATA_HOME}</varname> base directory. The directories
+            should be separated with a colon.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id="files">
+    <title>Files</title>
+
+    <variablelist>
+      <varlistentry>
+        <term><filename>${XDG_CONFIG_HOME}/xfce4/terminal/accels.scm</filename></term>
+        <listitem>
+          <para>
+            This is the location of the keyboard shortcuts configuration file for &application;.
+            Editing this file allows one to modify or disable shortcuts for the supported actions.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id="bugs">
+    <title>Bugs</title>
+    <para>
+      Please report any bugs to https://gitlab.xfce.org/apps/xfce4-terminal/-/issues.
+    </para>
+  </refsect1>
+
+  <refsect1 id="seealso">
+    <title>See also</title>
+    <para>
+      <citerefentry>
+        <refentrytitle>bash</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>X</refentrytitle>
+        <manvolnum>7</manvolnum>
+      </citerefentry>
+    </para>
+  </refsect1>
+
+</refentry>

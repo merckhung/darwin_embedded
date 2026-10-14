@@ -1,0 +1,360 @@
+load("//userland/native/system:defs.bzl", "native_system")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(
+        name = "dependencies_" + arch,
+        srcs = ["build_dependencies.py", "build_intl.py", "//src/Applications/glib:sources",
+                "//userland/native:sdk_" + arch,
+                "//userland/native:mach.headers." + arch + ".tar", "//scripts:native_components.py"],
+        outs = ["dependencies." + arch + ".tar", "dependencies." + arch + ".imports", "dependencies." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_dependencies.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --output $(location dependencies." + arch + ".tar)" +
+              " --imports $(location dependencies." + arch + ".imports)" +
+              " --report $(location dependencies." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "dependencies", srcs = [":dependencies_arm64", ":dependencies_x86_64"])
+
+[
+    native_system(name = "system_" + arch, arch = arch, exports = ":dependencies." + arch + ".imports",
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "closure", srcs = [":system_arm64", ":system_x86_64"])
+
+[
+    genrule(
+        name = "runtime_" + arch,
+        srcs = ["link_dependencies.py", "build_dependencies.py", "build_intl.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                "//src/Applications/glib:sources", ":dependencies." + arch + ".tar",
+                ":system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["runtime." + arch + ".tar", "runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/link_dependencies.py --root $$PWD --arch " + arch +
+              " --libraries $(location :dependencies." + arch + ".tar) --system $(location :system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location runtime." + arch + ".tar) --report $(location runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "runtime", srcs = [":runtime_arm64", ":runtime_x86_64"])
+
+sh_test(
+    name = "artifact_test",
+    size = "small",
+    srcs = ["check_dependencies.sh"],
+    data = ["check_dependencies.py", ":dependencies", ":runtime", "//src/Applications/glib:sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+
+[
+    genrule(
+        name = "probe_" + arch,
+        srcs = ["build_probe.py", "test_dependencies.c", ":dependencies." + arch + ".tar",
+                "//userland/apps/x11:link_auth.py", "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py", "//userland/native:sdk_" + arch],
+        outs = ["probe." + arch + ".o", "probe." + arch + ".imports", "probe." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location :dependencies." + arch + ".tar)" +
+              " --output $(location probe." + arch + ".o) --exports $(location probe." + arch + ".imports)" +
+              " --report $(location probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "test_requests_" + arch,
+        srcs = [":dependencies." + arch + ".imports", ":probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+        outs = ["test." + arch + ".imports"],
+        cmd = "cat $(SRCS) > $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "test_system_" + arch, arch = arch, exports = ":test." + arch + ".imports",
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = ["build_probe.py", "//userland/apps/x11:link_auth.py", "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                ":probe." + arch + ".o", ":runtime." + arch + ".tar", ":test_system_" + arch + ".tar",
+                "//userland/apps/init:root_" + arch, "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["test-root." + arch + ".img", "test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :probe." + arch + ".o)" +
+              " --runtime $(location :runtime." + arch + ".tar) --system $(location :test_system_" + arch + ".tar)" +
+              " --base-root $(location //userland/apps/init:root_" + arch + ") --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location test-root." + arch + ".img)" +
+              " --report $(location test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+[
+    genrule(
+        name = "core_" + arch,
+        srcs = ["build_glib.py", "build_dependencies.py", "build_intl.py", ":dependencies." + arch + ".tar",
+                "//src/Applications/glib:sources", "//scripts:native_components.py",
+                "//userland/native:sdk_" + arch, "//userland/native:mach.headers." + arch + ".tar"],
+        outs = ["core." + arch + ".tar", "core." + arch + ".imports", "core." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_glib.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --dependencies $(location :dependencies." + arch + ".tar) --output $(location core." + arch + ".tar)" +
+              " --imports $(location core." + arch + ".imports) --report $(location core." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "core", srcs = [":core_arm64", ":core_x86_64"])
+[
+    genrule(
+        name = "gio_" + arch,
+        srcs = ["build_gio.py", "build_dependencies.py", "build_intl.py", ":core." + arch + ".tar", ":core." + arch + ".json",
+                "//userland/apps/graphics:libraries." + arch + ".tar", "//src/Applications/glib:sources",
+                "//userland/native/resolver:records.h",
+                "//scripts:native_components.py", "//userland/native:sdk_" + arch,
+                "//userland/native:mach.headers." + arch + ".tar"],
+        outs = ["gio." + arch + ".tar", "gio." + arch + ".imports", "gio." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_gio.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --core $(location :core." + arch + ".tar) --core-report $(location :core." + arch + ".json)" +
+              " --graphics $(location //userland/apps/graphics:libraries." + arch + ".tar)" +
+              " --output $(location gio." + arch + ".tar) --imports $(location gio." + arch + ".imports)" +
+              " --report $(location gio." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "gio", srcs = [":gio_arm64", ":gio_x86_64"])
+[
+    genrule(
+        name = "gio_support_" + arch,
+        srcs = ["build_support.py", "//scripts:native_components.py", "//userland/native:sdk_" + arch,
+                "//src/Applications/resolver:sources", "//src/Libraries/25.5.0:sources", "//src/Kernel/xnu/12377.121.6:sources"],
+        outs = ["libgio_support." + arch + ".a", "libgio_stdio." + arch + ".a", "gio-support." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_support.py --root $$PWD --arch " + arch + " --gio" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --output $(location libgio_support." + arch + ".a)" +
+              " --libc-output $(location libgio_stdio." + arch + ".a) --report $(location gio-support." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "gio_system_" + arch, arch = arch, exports = ":gio." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a",
+                                                 ":libgio_stdio." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": ":libglib_support." + arch + ".a",
+                               "gio_support": ":libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "gio_closure", srcs = [":gio_system_arm64", ":gio_system_x86_64"])
+[
+    genrule(
+        name = "gio_runtime_" + arch,
+        srcs = ["link_dependencies.py", "build_dependencies.py", "build_intl.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//src/Applications/glib:sources",
+                "//src/Applications/graphics:sources", ":gio." + arch + ".tar", ":gio_system_" + arch + ".tar",
+                "//userland/native:dyld_" + arch],
+        outs = ["gio-runtime." + arch + ".tar", "gio-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/link_dependencies.py --root $$PWD --arch " + arch + " --gio" +
+              " --libraries $(location :gio." + arch + ".tar) --system $(location :gio_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location gio-runtime." + arch + ".tar)" +
+              " --report $(location gio-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "gio_runtime", srcs = [":gio_runtime_arm64", ":gio_runtime_x86_64"])
+[
+    genrule(
+        name = "gio_probe_" + arch,
+        srcs = ["build_probe.py", "test_gio.c", "test_gio_ipc.c", "test_gio_dns.c", ":gio." + arch + ".tar", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/native:sdk_" + arch],
+        outs = ["gio-probe." + arch + ".o", "gio-probe." + arch + ".imports", "gio-probe." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch + " --gio" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location :gio." + arch + ".tar)" +
+              " --output $(location gio-probe." + arch + ".o) --exports $(location gio-probe." + arch + ".imports)" +
+              " --report $(location gio-probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "gio_test_requests_" + arch,
+        srcs = [":gio." + arch + ".imports", ":gio-probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+        outs = ["gio-test." + arch + ".imports"], cmd = "cat $(SRCS) > $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "gio_test_system_" + arch, arch = arch, exports = ":gio-test." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a",
+                                                 ":libgio_stdio." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": ":libglib_support." + arch + ".a",
+                               "gio_support": ":libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "gio_test_root_" + arch,
+        srcs = ["build_probe.py", ":gio-probe." + arch + ".o", ":gio-runtime." + arch + ".tar",
+                ":gio_test_system_" + arch + ".tar", "//userland/apps/init:root_" + arch,
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch,
+                "//userland/apps/x11:link_auth.py", "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["gio-test-root." + arch + ".img", "gio-test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch + " --gio" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :gio-probe." + arch + ".o)" +
+              " --runtime $(location :gio-runtime." + arch + ".tar) --system $(location :gio_test_system_" + arch + ".tar)" +
+              " --base-root $(location //userland/apps/init:root_" + arch + ") --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location gio-test-root." + arch + ".img)" +
+              " --report $(location gio-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "gio_test_roots", srcs = [":gio_test_root_arm64", ":gio_test_root_x86_64"])
+[
+    sh_binary(name = "verify_gio_" + arch, srcs = ["verify.sh"], args = [arch, "gio"],
+              data = [":gio_test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+sh_test(
+    name = "gio_artifact_test", size = "small", srcs = ["check_gio.sh"],
+    data = ["check_gio.py", ":gio", ":gio_runtime", "//src/Applications/glib:sources", "//src/Applications/resolver:sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "support_" + arch,
+        srcs = ["build_support.py", "//scripts:native_components.py", "//userland/native:sdk_" + arch,
+                "//src/Kernel/xnu/12377.121.6:sources"],
+        outs = ["libglib_support." + arch + ".a", "support." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_support.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --output $(location libglib_support." + arch + ".a)" +
+              " --report $(location support." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "core_system_" + arch, arch = arch, exports = ":core." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": ":libglib_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "core_closure", srcs = [":core_system_arm64", ":core_system_x86_64"])
+[
+    genrule(
+        name = "core_runtime_" + arch,
+        srcs = ["link_dependencies.py", "build_dependencies.py", "build_intl.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//src/Applications/glib:sources",
+                ":core." + arch + ".tar", ":core_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["core-runtime." + arch + ".tar", "core-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/link_dependencies.py --root $$PWD --arch " + arch + " --core" +
+              " --libraries $(location :core." + arch + ".tar) --system $(location :core_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location core-runtime." + arch + ".tar)" +
+              " --report $(location core-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "core_runtime", srcs = [":core_runtime_arm64", ":core_runtime_x86_64"])
+[
+    genrule(
+        name = "core_probe_" + arch,
+        srcs = ["build_probe.py", "test_glib.c", ":core." + arch + ".tar", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/native:sdk_" + arch],
+        outs = ["core-probe." + arch + ".o", "core-probe." + arch + ".imports", "core-probe." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch + " --core" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location :core." + arch + ".tar)" +
+              " --output $(location core-probe." + arch + ".o) --exports $(location core-probe." + arch + ".imports)" +
+              " --report $(location core-probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "core_module_" + arch,
+        srcs = ["build_probe.py", "module_glib.c", ":core." + arch + ".tar", ":core-runtime." + arch + ".tar",
+                "//userland/apps/x11:link_auth.py", "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py", "//userland/native:sdk_" + arch],
+        outs = ["core-module." + arch + ".so", "core-module." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch + " --core --module-build" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location :core." + arch + ".tar)" +
+              " --runtime $(location :core-runtime." + arch + ".tar) --output $(location core-module." + arch + ".so)" +
+              " --report $(location core-module." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "core_test_requests_" + arch,
+        srcs = [":core." + arch + ".imports", ":core-probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+        outs = ["core-test." + arch + ".imports"], cmd = "cat $(SRCS) > $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "core_test_system_" + arch, arch = arch, exports = ":core-test." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": ":libglib_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "core_test_root_" + arch,
+        srcs = ["build_probe.py", ":core-probe." + arch + ".o", ":core-module." + arch + ".so",
+                ":core-runtime." + arch + ".tar", ":core_test_system_" + arch + ".tar",
+                "//userland/apps/init:root_" + arch, "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch,
+                "//userland/apps/x11:link_auth.py", "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["core-test-root." + arch + ".img", "core-test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/glib/build_probe.py --root $$PWD --arch " + arch + " --core" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :core-probe." + arch + ".o)" +
+              " --module $(location :core-module." + arch + ".so) --runtime $(location :core-runtime." + arch + ".tar)" +
+              " --system $(location :core_test_system_" + arch + ".tar) --base-root $(location //userland/apps/init:root_" + arch + ")" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $(location core-test-root." + arch + ".img) --report $(location core-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "core_test_roots", srcs = [":core_test_root_arm64", ":core_test_root_x86_64"])
+[
+    sh_binary(name = "verify_core_" + arch, srcs = ["verify.sh"], args = [arch, "core"],
+              data = [":core_test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+sh_test(
+    name = "core_artifact_test", size = "small", srcs = ["check_core.sh"],
+    data = ["check_core.py", ":core", ":core_runtime", "//src/Applications/glib:sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    sh_binary(name = "verify_" + arch, srcs = ["verify.sh"], args = [arch],
+              data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]

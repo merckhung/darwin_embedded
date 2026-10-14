@@ -1,0 +1,100 @@
+name: Cross
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+    tags: '*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-cross-qemu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    name: build-cross-qemu-${{ matrix.config.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { arch: arm,         triple: arm-linux-gnueabihf }
+          - { arch: aarch64,     triple: aarch64-linux-gnu }
+          - { arch: ppc,         triple: powerpc-linux-gnu }
+          - { arch: ppc64,       triple: powerpc64-linux-gnu }
+          - { arch: ppc64le,     triple: powerpc64le-linux-gnu }
+          - { arch: mips,        triple: mips-linux-gnu }
+          - { arch: mipsel,      triple: mipsel-linux-gnu }
+          # mips64 / mips64el disabled. Tests fail under Ubuntu 24.04's
+          # qemu 8.2 (spurious FPU exception flags); Ubuntu 26.04 has
+          # newer qemu but dropped the mips64 cross-toolchain entirely.
+          # See #347.
+          # - { arch: mips64,    triple: mips64-linux-gnuabi64 }
+          # - { arch: mips64el,  triple: mips64el-linux-gnuabi64 }
+          - { arch: riscv64,     triple: riscv64-linux-gnu }
+          - { arch: s390x,       triple: s390x-linux-gnu }
+          # loongarch64 has no unversioned apt package; pin to gcc-14.
+          - { arch: loongarch64, triple: loongarch64-linux-gnu,
+              gcc_pkg: gcc-14-loongarch64-linux-gnu,
+              cc: loongarch64-linux-gnu-gcc-14,
+              ar: loongarch64-linux-gnu-gcc-ar-14 }
+    env:
+      ARCH: ${{ matrix.config.arch }}
+      TRIPLE: ${{ matrix.config.triple }}
+      CC: ${{ matrix.config.cc }}
+      AR: ${{ matrix.config.ar }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install qemu and toolchain
+        run: |
+          sudo apt update
+          sudo apt install -y qemu-user qemu-user-binfmt \
+            ${{ matrix.config.gcc_pkg || format('gcc-{0}', matrix.config.triple) }}
+      - name: Build with ${{ matrix.config.triple }}-gcc
+        run: make -j$(nproc) ARCH=$ARCH TOOLPREFIX=$TRIPLE- ${CC:+CC=$CC} ${AR:+AR=$AR}
+      - name: Build tests
+        # Build the regression programs with the cross toolchain too, so the
+        # run step below only executes them (under qemu) rather than trying to
+        # rebuild them with the host compiler.
+        run: make -j$(nproc) -C test all regression-build ARCH=$ARCH TOOLPREFIX=$TRIPLE- ${CC:+CC=$CC} ${AR:+AR=$AR}
+      - name: Run tests under qemu
+        env:
+          QEMU_LD_PREFIX: /usr/${{ matrix.config.triple }}
+          LD_LIBRARY_PATH: .
+        run: make test ARCH=$ARCH TOOLPREFIX=$TRIPLE- ${CC:+CC=$CC} ${AR:+AR=$AR}
+
+  # Regression test for #262 / #349: the RISC-V single-float ABI (lp64f /
+  # ilp32f) used to be rejected by include/openlibm_fenv_riscv.h with an
+  # `#error`. This job rebuilds the whole library with `-mabi=lp64f` to make
+  # sure the header (and the rest of openlibm) accepts that ABI.
+  #
+  # This is a COMPILE-ONLY check (build the static libopenlibm.a, no qemu run).
+  # Ubuntu's gcc-riscv64-linux-gnu ships only the default lp64d sysroot, so a
+  # full shared-library link or a qemu execution under lp64f is impossible
+  # without a custom single-float sysroot the distro does not provide. Building
+  # the static archive needs no libc/CRT link, so it compiles every source file
+  # (including riscv64/fenv.c, which pulls in the fixed header) under the
+  # single-float ABI and directly regresses the removed `#error`. Adding a
+  # bespoke lp64f sysroot would be exactly the kind of fragile, unmaintainable
+  # toolchain dependency that got mips64 disabled in #347, so we deliberately
+  # avoid it.
+  build-cross-riscv64-lp64f:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    name: build-cross-riscv64-lp64f
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install RISC-V toolchain
+        run: |
+          sudo apt update
+          sudo apt install -y gcc-riscv64-linux-gnu
+      - name: Build libopenlibm.a for the single-float ABI (lp64f)
+        run: |
+          make -j$(nproc) ARCH=riscv64 TOOLPREFIX=riscv64-linux-gnu- \
+            CFLAGS_arch='-march=rv64imafc -mabi=lp64f' \
+            SFLAGS_arch='-march=rv64imafc -mabi=lp64f' \
+            libopenlibm.a

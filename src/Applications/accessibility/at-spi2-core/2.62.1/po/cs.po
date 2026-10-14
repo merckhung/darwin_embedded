@@ -1,0 +1,833 @@
+# Czech translation for at-spi2-core.
+# Copyright (C) 2011 at-spi2-core's COPYRIGHT HOLDER
+# This file is distributed under the same license as the at-spi2-core package.
+#
+# Michal Bukovjan <bukm@centrum.cz>, 2002.
+# Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005.
+# Petr Tomeš <ptomes@gmail.com>, 2006.
+# Lucas Lommer <llommer@svn.gnome.org>, 2008, 2009, 2011.
+# Marek Černocký <marek@manet.cz>, 2011, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: atk\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2025-02-11 18:33+0000\n"
+"PO-Revision-Date: 2025-02-28 13:06+0100\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 3.5\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "Vybraný odkaz"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "Určuje, jestli je objekt AtkHyperlink vybrán"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "Počet ukotvení"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "Počet ukotvení asociovaných s objektem AtkHyperlink"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "Index konce"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "Index konce objektu AtkHyperlink"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "Index začátku"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "Indek začátku objektu AtkHyperlink"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "Zpřístupněný název"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr ""
+"Název instance objektu formátovaný pro použití technologiemi zpřístupnění"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "Zpřístupněný popis"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "Popis objektu formátovaný pro použití technologiemi zpřístupnění"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "Zpřístupněný rodič"
+
+#: atk/atkobject.c:288
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr ""
+"Rodič aktuálního zpřístupnění, tak jak jej vrací funkce "
+"atk_object_get_parent()"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "Zpřístupněná hodnota"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "Používá se pro upozornění, že hodnota byla změněna"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "Zpřístupněná role"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "Zpřístupněná role tohoto objektu"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "Zpřístupněná vrstva"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "Zpřístupněná vrstva tohoto objektu"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "Zpřístupněná hodnota MDI"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "Zpřístupněná hodnota MDI tohoto objektu"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "Zpřístupněný nadpis tabulky"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"Používá se pro upozornění, že nadpis tabulky byl změněn; tato vlastnost by "
+"se neměla používat. Místo toho by se mělo používat accessible-table-caption-"
+"object"
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "Zpřístupněné záhlaví sloupce tabulky"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "Používá se pro upozornění, že záhlaví sloupce tabulky bylo změněno"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "Zpřístupněný popis sloupce tabulky"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "Používá se pro upozornění, že popis sloupce tabulky byl změněn"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "Zpřístupněné záhlaví řádku tabulky"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "Používá se pro upozornění, že záhlaví řádku tabulky bylo změněno"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "Zpřístupněný popis řádku tabulky"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "Používá se pro upozornění, že popis řádku tabulky byl změněn"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "Zpřístupněný souhrn tabulky"
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "Používá se pro upozornění, že souhrn tabulky byl změněn"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "Zpřístupněný objekt nadpisu tabulky"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "Používá se pro upozornění, že nadpis tabulky byl změněn"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "Počet zpřístupněných odkazů hypertextu"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "Počet odkazů, které má aktuální AtkHypertext"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "Zpřístupněné ID"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr "ID pro zpřístupněné; užitečné pro automatizované testování"
+
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "Text nápovědy"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "Text nápovědy asociovaný se zpřístupněným"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "velmi slabé"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "slabé"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "přijatelné"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "silné"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "velmi silné"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "velmi nízké"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "střední"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "vysoké"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "velmi vysoké"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "velmi špatné"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "špatné"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "dobré"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "velmi dobré"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "nejlepší"
+
+#: atspi/atspi-component.c:352 atspi/atspi-misc.c:1234 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "Aplikace již neexistuje"
+
+#: atspi/atspi-misc.c:49
+msgid "invalid"
+msgstr "neplatný"
+
+#: atspi/atspi-misc.c:50
+msgid "accelerator label"
+msgstr "popisek klávesové zkratky"
+
+#: atspi/atspi-misc.c:51
+msgid "alert"
+msgstr "upozornění"
+
+#: atspi/atspi-misc.c:52
+msgid "animation"
+msgstr "animace"
+
+#: atspi/atspi-misc.c:53
+msgid "arrow"
+msgstr "šipka"
+
+#: atspi/atspi-misc.c:54
+msgid "calendar"
+msgstr "kalendář"
+
+#: atspi/atspi-misc.c:55
+msgid "canvas"
+msgstr "plátno"
+
+#: atspi/atspi-misc.c:56
+msgid "check box"
+msgstr "zaškrtávací políčko"
+
+#: atspi/atspi-misc.c:57
+msgid "check menu item"
+msgstr "zaškrtávací položka nabídky"
+
+#: atspi/atspi-misc.c:58
+msgid "color chooser"
+msgstr "výběr barvy"
+
+#: atspi/atspi-misc.c:59
+msgid "column header"
+msgstr "záhlaví sloupce"
+
+#: atspi/atspi-misc.c:60
+msgid "combo box"
+msgstr "kombo box"
+
+#: atspi/atspi-misc.c:61
+msgid "dateeditor"
+msgstr "editor data"
+
+#: atspi/atspi-misc.c:62
+msgid "desktop icon"
+msgstr "ikona pracovní plochy"
+
+#: atspi/atspi-misc.c:63
+msgid "desktop frame"
+msgstr "rám pracovní plochy"
+
+#: atspi/atspi-misc.c:64
+msgid "dial"
+msgstr "číselník"
+
+#: atspi/atspi-misc.c:65
+msgid "dialog"
+msgstr "dialog"
+
+#: atspi/atspi-misc.c:66
+msgid "directory pane"
+msgstr "panel adresářů"
+
+#: atspi/atspi-misc.c:67
+msgid "drawing area"
+msgstr "kreslicí oblast"
+
+#: atspi/atspi-misc.c:68
+msgid "file chooser"
+msgstr "výběr souboru"
+
+#: atspi/atspi-misc.c:69
+msgid "filler"
+msgstr "plnič"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:71
+msgid "fontchooser"
+msgstr "výběr písma"
+
+#: atspi/atspi-misc.c:72
+msgid "frame"
+msgstr "rám"
+
+#: atspi/atspi-misc.c:73
+msgid "glass pane"
+msgstr "skleněný panel"
+
+#: atspi/atspi-misc.c:74
+msgid "html container"
+msgstr "kontejner html"
+
+#: atspi/atspi-misc.c:75
+msgid "icon"
+msgstr "ikona"
+
+#: atspi/atspi-misc.c:76
+msgid "image"
+msgstr "obrázek"
+
+#: atspi/atspi-misc.c:77
+msgid "internal frame"
+msgstr "interní rám"
+
+#: atspi/atspi-misc.c:78
+msgid "label"
+msgstr "popisek"
+
+#: atspi/atspi-misc.c:79
+msgid "layered pane"
+msgstr "vrstvený panel"
+
+#: atspi/atspi-misc.c:80
+msgid "list"
+msgstr "seznam"
+
+#: atspi/atspi-misc.c:81
+msgid "list item"
+msgstr "položka seznamu"
+
+#: atspi/atspi-misc.c:82
+msgid "menu"
+msgstr "nabídka"
+
+#: atspi/atspi-misc.c:83
+msgid "menu bar"
+msgstr "panel nabídky"
+
+#: atspi/atspi-misc.c:84
+msgid "menu button"
+msgstr "tlačítko nabídky"
+
+#: atspi/atspi-misc.c:85
+msgid "menu item"
+msgstr "položka nabídky"
+
+#: atspi/atspi-misc.c:86
+msgid "option pane"
+msgstr "panel voleb"
+
+#: atspi/atspi-misc.c:87
+msgid "page tab"
+msgstr "záložka stránky"
+
+#: atspi/atspi-misc.c:88
+msgid "page tab list"
+msgstr "seznam záložek stránky"
+
+#: atspi/atspi-misc.c:89
+msgid "panel"
+msgstr "panel"
+
+#: atspi/atspi-misc.c:90
+msgid "password text"
+msgstr "text hesla"
+
+#: atspi/atspi-misc.c:91
+msgid "popup menu"
+msgstr "vyskakovací nabídka"
+
+#: atspi/atspi-misc.c:92
+msgid "progress bar"
+msgstr "lišta průběhu"
+
+#: atspi/atspi-misc.c:93
+msgid "button"
+msgstr "tlačítko"
+
+#: atspi/atspi-misc.c:94
+msgid "radio button"
+msgstr "rádiové tlačítko"
+
+#: atspi/atspi-misc.c:95
+msgid "radio menu item"
+msgstr "přepínací položka nabídky"
+
+#: atspi/atspi-misc.c:96
+msgid "root pane"
+msgstr "kořenový panel"
+
+#: atspi/atspi-misc.c:97
+msgid "row header"
+msgstr "záhlaví řádku"
+
+#: atspi/atspi-misc.c:98
+msgid "scroll bar"
+msgstr "posuvná lišta"
+
+#: atspi/atspi-misc.c:99
+msgid "scroll pane"
+msgstr "posuvný panel"
+
+#: atspi/atspi-misc.c:100
+msgid "separator"
+msgstr "oddělovač"
+
+#: atspi/atspi-misc.c:101
+msgid "slider"
+msgstr "posunovač"
+
+#: atspi/atspi-misc.c:102
+msgid "split pane"
+msgstr "oddělený panel"
+
+#: atspi/atspi-misc.c:103
+msgid "spin button"
+msgstr "otáčecí tlačítko"
+
+#: atspi/atspi-misc.c:104
+msgid "statusbar"
+msgstr "stavová-lišta"
+
+#: atspi/atspi-misc.c:105
+msgid "switch"
+msgstr "přepínač"
+
+#: atspi/atspi-misc.c:106
+msgid "table"
+msgstr "tabulka"
+
+#: atspi/atspi-misc.c:107
+msgid "table cell"
+msgstr "buňka tabulky"
+
+#: atspi/atspi-misc.c:108
+msgid "table column header"
+msgstr "záhlaví sloupce tabulky"
+
+#: atspi/atspi-misc.c:109
+msgid "table row header"
+msgstr "záhlaví řádku tabulky"
+
+#: atspi/atspi-misc.c:110
+msgid "tear off menu item"
+msgstr "odtrhávací položka nabídky"
+
+#: atspi/atspi-misc.c:111
+msgid "terminal"
+msgstr "terminál"
+
+#: atspi/atspi-misc.c:112
+msgid "text"
+msgstr "text"
+
+#: atspi/atspi-misc.c:113
+msgid "toggle button"
+msgstr "přepínač"
+
+#: atspi/atspi-misc.c:114
+msgid "tool bar"
+msgstr "nástrojová lišta"
+
+#: atspi/atspi-misc.c:115
+msgid "tool tip"
+msgstr "tip"
+
+#: atspi/atspi-misc.c:116
+msgid "tree"
+msgstr "strom"
+
+#: atspi/atspi-misc.c:117
+msgid "tree table"
+msgstr "stromová tabulka"
+
+#: atspi/atspi-misc.c:118
+msgid "unknown"
+msgstr "neznámý"
+
+#: atspi/atspi-misc.c:119
+msgid "viewport"
+msgstr "pohled"
+
+#: atspi/atspi-misc.c:120
+msgid "window"
+msgstr "okno"
+
+#: atspi/atspi-misc.c:121
+msgid "header"
+msgstr "záhlaví"
+
+#: atspi/atspi-misc.c:122
+msgid "footer"
+msgstr "zápatí"
+
+#: atspi/atspi-misc.c:123
+msgid "paragraph"
+msgstr "odstavec"
+
+#: atspi/atspi-misc.c:124
+msgid "ruler"
+msgstr "pravítko"
+
+#: atspi/atspi-misc.c:125
+msgid "application"
+msgstr "aplikace"
+
+#: atspi/atspi-misc.c:126
+msgid "autocomplete"
+msgstr "autodoplnění"
+
+#: atspi/atspi-misc.c:127
+msgid "edit bar"
+msgstr "editační lišta"
+
+#: atspi/atspi-misc.c:128
+msgid "embedded component"
+msgstr "vložená komponenta"
+
+#: atspi/atspi-misc.c:129
+msgid "entry"
+msgstr "vstupní pole"
+
+#: atspi/atspi-misc.c:130
+msgid "chart"
+msgstr "graf"
+
+#: atspi/atspi-misc.c:131
+msgid "caption"
+msgstr "titulek"
+
+#: atspi/atspi-misc.c:132
+msgid "document frame"
+msgstr "rám dokumentu"
+
+#: atspi/atspi-misc.c:133
+msgid "heading"
+msgstr "záhlaví"
+
+#: atspi/atspi-misc.c:134
+msgid "page"
+msgstr "strana"
+
+#: atspi/atspi-misc.c:135
+msgid "section"
+msgstr "oddíl"
+
+#: atspi/atspi-misc.c:136
+msgid "redundant object"
+msgstr "redundantní objet"
+
+#: atspi/atspi-misc.c:137
+msgid "form"
+msgstr "formulář"
+
+#: atspi/atspi-misc.c:138
+msgid "link"
+msgstr "odkaz"
+
+#: atspi/atspi-misc.c:139
+msgid "input method window"
+msgstr "okno vstupní metody"
+
+#: atspi/atspi-misc.c:140
+msgid "table row"
+msgstr "řádek tabulky"
+
+#: atspi/atspi-misc.c:141
+msgid "tree item"
+msgstr "položka stromu"
+
+#: atspi/atspi-misc.c:142
+msgid "document spreadsheet"
+msgstr "tabulka v dokumentu"
+
+#: atspi/atspi-misc.c:143
+msgid "document presentation"
+msgstr "prezentace v dokumentu"
+
+#: atspi/atspi-misc.c:144
+msgid "document text"
+msgstr "text v dokumentu"
+
+#: atspi/atspi-misc.c:145
+msgid "document web"
+msgstr "webová stránka v dokumentu"
+
+#: atspi/atspi-misc.c:146
+msgid "document email"
+msgstr "e-mail dokumentu"
+
+#: atspi/atspi-misc.c:147
+msgid "comment"
+msgstr "komentář"
+
+#: atspi/atspi-misc.c:148
+msgid "list box"
+msgstr "seznam"
+
+#: atspi/atspi-misc.c:149
+msgid "grouping"
+msgstr "skupiny"
+
+#: atspi/atspi-misc.c:150
+msgid "image map"
+msgstr "obrázková mapa"
+
+#: atspi/atspi-misc.c:151
+msgid "notification"
+msgstr "oznámení"
+
+#: atspi/atspi-misc.c:152
+msgid "info bar"
+msgstr "informační lišta"
+
+#: atspi/atspi-misc.c:153
+msgid "level bar"
+msgstr "ukazatel úrovně"
+
+#: atspi/atspi-misc.c:154
+msgid "title bar"
+msgstr "záhlaví"
+
+#: atspi/atspi-misc.c:155
+msgid "block quote"
+msgstr "citace"
+
+#: atspi/atspi-misc.c:156
+msgid "audio"
+msgstr "zvuk"
+
+#: atspi/atspi-misc.c:157
+msgid "video"
+msgstr "video"
+
+#: atspi/atspi-misc.c:158
+msgid "definition"
+msgstr "definice"
+
+#: atspi/atspi-misc.c:159
+msgid "article"
+msgstr "článek"
+
+#: atspi/atspi-misc.c:160
+msgid "landmark"
+msgstr "orientační bod"
+
+#: atspi/atspi-misc.c:161
+msgid "log"
+msgstr "záznam"
+
+#: atspi/atspi-misc.c:162
+msgid "marquee"
+msgstr "běžící text"
+
+#: atspi/atspi-misc.c:163
+msgid "math"
+msgstr "matematika"
+
+#: atspi/atspi-misc.c:164
+msgid "rating"
+msgstr "hodnocení"
+
+#: atspi/atspi-misc.c:165
+msgid "timer"
+msgstr "časovač"
+
+#: atspi/atspi-misc.c:166
+msgid "description list"
+msgstr "seznam definic"
+
+#: atspi/atspi-misc.c:167
+msgid "description term"
+msgstr "termín definice"
+
+#: atspi/atspi-misc.c:168
+msgid "description value"
+msgstr "hodnota definice"
+
+#~ msgid "push button"
+#~ msgstr "tlačítko"

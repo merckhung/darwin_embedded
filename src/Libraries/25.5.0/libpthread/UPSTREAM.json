@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/libpthread",
+  "tag": "libpthread-539.100.4",
+  "archive_sha256": "c815492b81044b1cf8d53b124a9ac9503697439e96325daac982adad934d7cd4",
+  "local_changes": [
+    "Use explicit uintptr_t/vm_offset_t conversions for matching XNU 12377 APIs, and zero for numeric user addresses.",
+    "Build the kernel extension with the exported callback interface, without depending on private thread/task structure layouts."
+  ],
+  "modification_notices": [
+    {
+      "file": "kern/kern_support.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "kern/kern_synch.c",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "kern/kern_trace.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    }
+  ]
+}

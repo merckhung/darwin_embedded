@@ -1,0 +1,210 @@
+NAME=hwdata
+VERSION=$(shell awk '/Version:/ { print $$2 }' hwdata.spec)
+RELEASE=$(shell rpm -q --define 'dist %{nil}' --specfile --qf "%{release}" hwdata.spec)
+ifeq ($(shell git rev-parse --abbrev-ref HEAD 2>/dev/null | sed -n 's/^\([^0-9-]\+\).*/\L\1/p'), rhel)
+    # add revision to tag name for rhel branches
+    TAGNAME := v$(VERSION)-$(RELEASE)
+else
+    TAGNAME := v$(VERSION)
+endif
+SOURCEDIR := $(shell pwd)
+ARCHIVE := $(TAGNAME).tar.gz
+
+CVSROOT = $(shell cat CVS/Root 2>/dev/null || :)
+
+CVSTAG = $(NAME)-r$(subst .,-,$(VERSION))
+
+IDFILES = pci.ids usb.ids oui.txt iab.txt pnp.ids
+
+.PHONY: all install tag force-tag check commit create-archive archive srpm-x \
+    clean clog download update-usb-patches
+
+# Preserve manually downloaded pnp.ids.csv (can't auto-download due to Cloudflare)
+.PRECIOUS: pnp.ids.csv
+
+include Makefile.inc
+
+all:
+
+Makefile.inc: configure
+	./configure
+	@echo "$@ generated. Run the make again."
+	@exit 1
+
+hwdata.pc: hwdata.pc.in
+	datadir="$(datadir)"; \
+	if [ "$${datadir#$(prefix)}" != "$$datadir" ]; then \
+		datadir="\$${prefix}$${datadir#$(prefix)}"; \
+	fi; \
+	sed -e 's|@prefix@|$(prefix)|g' \
+		-e "s|@datadir@|$$datadir|g" \
+		-e 's|@pkgdatadir@|$${datadir}/$(NAME)|g' \
+		-e 's|@VERSION@|$(VERSION)|g' \
+		-e 's|@NAME@|$(NAME)|g' \
+		$< > $@
+
+install: Makefile.inc hwdata.pc
+	mkdir -p -m 755 $(DESTDIR)$(datadir)/$(NAME)
+	for foo in $(IDFILES) ; do \
+		install -m 644 $$foo $(DESTDIR)$(datadir)/$(NAME) ;\
+	done
+	@if [ "$(blacklist)" = true ]; then \
+		mkdir -p -m 755 $(DESTDIR)$(libdir)/modprobe.d ;\
+		install -m 644 -T blacklist.conf $(DESTDIR)$(libdir)/modprobe.d/dist-blacklist.conf ;\
+	fi;
+	mkdir -p -m 755 $(DESTDIR)$(datadir)/pkgconfig
+	install -m 644 hwdata.pc $(DESTDIR)$(datadir)/pkgconfig/
+
+commit:
+	git commit -vas ||:
+
+tag:
+	@git tag -s -m "Tag as $(TAGNAME)" $(TAGNAME)
+	@echo "Tagged as $(TAGNAME)"
+
+force-tag:
+	@git tag -s -f -m "Tag as $(TAGNAME)" $(TAGNAME)
+	@echo "Tag forced as $(TAGNAME)"
+
+changelog:
+	@rm -f ChangeLog
+	@(GIT_DIR=.git git log > .changelog.tmp && mv .changelog.tmp ChangeLog || rm -f .changelog.tmp) || (touch ChangeLog; echo 'git directory not found: installing possibly empty changelog.' >&2)
+
+check:
+	@lspci -A dump -O dump.name=lspci-dump.txt -i pci.ids > /dev/null || \
+		{ echo "FAILURE: lspci -A dump -O dump.name=lspci-dump.txt -i pci.ids"; exit 1; } && echo "OK: lspci -A dump -O dump.name=lspci-dump.txt -i pci.ids"
+	@./check-pci-ids.py || { echo "FAILURE: ./check-pci-ids.py"; exit 1; } && echo "OK: ./check-pci-ids.py"
+	@./check-usb-ids.sh
+	@for file in $(IDFILES); do \
+	    iconv -f UTF-8 "$$file" >/dev/null || { echo "FAILURE: $$file is not valid UTF-8 data"; exit 1; }; \
+	    echo "OK: $$file is valid UTF-8 data"; \
+	done
+	@echo -n "CHECK date of pci.ids: "; grep "Date:" pci.ids | cut -d ' ' -f 5
+	@echo -n "CHECK date of usb.ids: "; grep "Date:" usb.ids | cut -d ' ' -f 6
+
+create-archive:
+	@rm -rf $(TAGNAME) $(TAGNAME).tar*  2>/dev/null
+	@make changelog
+	@git archive --format=tar --prefix=hwdata-$(VERSION)/ HEAD > $(TAGNAME).tar
+	@mkdir hwdata-$(VERSION)
+	@cp ChangeLog hwdata-$(VERSION)/
+	@tar --append -f $(TAGNAME).tar hwdata-$(VERSION)
+	@gzip -f $(TAGNAME).tar
+	@rm -rf hwdata-$(VERSION)
+	@echo ""
+	@echo "The final archive is in $(ARCHIVE)"
+
+archive: check clean commit tag
+
+upload:
+	@scp $(ARCHIVE) fedorahosted.org:$(NAME)
+
+srpm-x: create-archive
+	@echo Creating $(NAME) src.rpm
+	@rpmbuild --nodeps -bs --define "_sourcedir $(SOURCEDIR)" --define "_srcrpmdir $(SOURCEDIR)" $(NAME).spec
+	@echo SRPM is: $(NAME)-$(VERSION)-$(RELEASE).src.rpm
+
+clean:
+	@rm -f $(TAGNAME)*.gz $(NAME)-*.src.rpm \
+	    *.downloaded *.utf8 *.orig *.converted hwdata.pc ChangeLog clog
+	@# Note: pnp.ids.csv is preserved (must be manually downloaded)
+
+clog: hwdata.spec
+	@sed -n '/^%changelog/,/^$$/{/^%/d;/^$$/d;s/%%/%/g;p}' $< | tee $@
+
+download: $(IDFILES)
+
+usb.ids.downloaded:
+	@curl -o $@ http://www.linux-usb.org/usb.ids
+
+pci.ids.downloaded:
+	@curl -o $@ https://pci-ids.ucw.cz/v2.2/pci.ids
+
+oui.txt.downloaded:
+	@curl -o $@ -O https://standards-oui.ieee.org/oui/oui.txt
+
+iab.txt.downloaded:
+	@curl -o $@ -O https://standards-oui.ieee.org/iab/iab.txt
+
+pnp.ids.csv:
+	@if [ ! -f $@ ]; then \
+		echo "Downloading pnp.ids.csv from UEFI..." ; \
+		if ! curl -f -o $@ https://uefi.org/uefi-pnp-export 2>/dev/null; then \
+			echo "ERROR: Automatic download failed (Cloudflare protection)." ; \
+			echo "Please manually download from https://uefi.org/uefi-pnp-export" ; \
+			echo "and save as pnp.ids.csv in the project directory." ; \
+			rm -f $@ ; \
+			exit 1 ; \
+		fi ; \
+	else \
+		echo "Using existing pnp.ids.csv (manual download)" ; \
+	fi
+
+usb.ids.converted: usb.ids.utf8
+	dos2unix -n $? $@
+
+usb.ids: usb.ids.converted 01-utf-8-encoding.patch.patch 02-typos.patch.patch
+	patch -p1 -o $@ usb.ids.converted 01-utf-8-encoding.patch.patch
+	patch -p0 -b <02-typos.patch.patch
+
+pci.ids: pci.ids.utf8
+	dos2unix -n $? $@
+
+oui.txt: oui.txt.utf8
+	dos2unix -n $? $@
+
+iab.txt: iab.txt.utf8
+	dos2unix -n $? $@
+
+pnp.ids.orig: pnp.ids.csv
+	./process-pnp-ids.py $? $@
+
+pnp.ids: pnp.ids.orig pnp.ids.patch
+	patch -p1 -o - pnp.ids.orig pnp.ids.patch | \
+	    sed 's/\tDO NOT USE - /\tInvalid Vendor Codename - /' >$@
+
+%.utf8: %.downloaded
+	@text=`LANG=C file $?`
+	@encoding=`echo "$$text" | sed -n 's/.*\(iso-8859\S\*\|cp1[12]\d\+\).*/\1/Ip'`
+	@if [ -n "$$encoding" ]; then \
+	    iconv -f "$$encoding" -t UTF-8 $?; \
+	else \
+	    cat $?; \
+	fi | sed 's/\s\+$$//' >$@
+
+update-usb-patches:
+	@echo "Regenerating USB patches with updated line numbers..."
+	@if [ ! -f usb.ids.converted ]; then \
+		echo "Error: usb.ids.converted not found. Run 'make download' first."; \
+		exit 1; \
+	fi
+	@# Save current usb.ids (has correct content)
+	@cp -f usb.ids usb.ids.backup
+	@# Remove usb.ids and rebuild it WITH patches (allowing offsets)
+	@rm -f usb.ids
+	@$(MAKE) usb.ids 2>/dev/null || true
+	@# Now usb.ids has patches applied (possibly with offsets)
+	@# Compare it to the backup to see if patches worked correctly
+	@if ! diff -q usb.ids usb.ids.backup >/dev/null 2>&1; then \
+		echo "Warning: Rebuilt usb.ids differs from original!"; \
+		echo "Patches may have failed. Review carefully."; \
+	fi
+	@# Regenerate patch 1: usb.ids.converted -> intermediate (after patch 1)
+	@# First, apply JUST patch 1
+	@patch -p1 -o usb.ids.step1 usb.ids.converted 01-utf-8-encoding.patch.patch 2>/dev/null || \
+		cp usb.ids.converted usb.ids.step1
+	@diff -Naur usb.ids.converted usb.ids.step1 > 01-utf-8-encoding.patch.patch.new 2>/dev/null || \
+		touch 01-utf-8-encoding.patch.patch.new
+	@# Regenerate patch 2: intermediate -> final
+	@diff -Naur usb.ids.step1 usb.ids > 02-typos.patch.patch.new 2>/dev/null || \
+		touch 02-typos.patch.patch.new
+	@# Restore backup
+	@mv -f usb.ids.backup usb.ids
+	@rm -f usb.ids.step1
+	@echo "✓ Generated 01-utf-8-encoding.patch.patch.new"
+	@echo "✓ Generated 02-typos.patch.patch.new"
+	@echo ""
+	@echo "To use the new patches:"
+	@echo "  mv 01-utf-8-encoding.patch.patch.new 01-utf-8-encoding.patch.patch"
+	@echo "  mv 02-typos.patch.patch.new 02-typos.patch.patch"
+

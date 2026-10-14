@@ -1,0 +1,341 @@
+{
+  "format_version": 1,
+  "verified_utc": "2026-10-14T03:53:44.136628+00:00",
+  "xnu": "12377.121.6",
+  "darwin": "25.5.0",
+  "guest_format": "Native Mach-O; complete root inventories reject ELF images.",
+  "evidence_scope": "Actual boot inputs, kernel serial banners, completed native guest checks and unaltered screenshots; not cryptographic runtime attestation.",
+  "build_checks": [
+    "Both kernel targets and all four root boot inputs built successfully through Bazel.",
+    "bazel query //... passes after documentation consolidation."
+  ],
+  "setups": [
+    {
+      "variant": "minimal",
+      "architecture": "arm64",
+      "qemu_machine": "raspi4b",
+      "boot_captured_utc": "2026-10-14T03:36:10.900146+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:15 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_ARM64",
+      "boot_inputs": {
+        "kernel": {
+          "sha256": "774a33007256cd4dcc950f87b7157e61e6ae44eb6d3233b7158d18b5dff9f73f",
+          "size_bytes": 18265878
+        },
+        "layout": {
+          "sha256": "c94d7406467f86506719e2dd2169eef5c66ebef26aede0a5bf2d4422e74dac57",
+          "size_bytes": 2842
+        },
+        "loader": {
+          "sha256": "1da08ee7aab6f5d649ab07a8c44e8c8b98e54e3ac62448c99dedb0c35e1d41a8",
+          "size_bytes": 5804
+        },
+        "root_image": {
+          "sha256": "dd023f631ba133370ab40461c30ce025533b8b9877272dac28b1ed3c99aeb733",
+          "size_bytes": 67108864
+        }
+      },
+      "root": {
+        "size_bytes": 67108864,
+        "installed_file_count": 136,
+        "inventory_validation": "Complete extracted HFS file inventory, byte equality, native Mach-O CPU/type and actual import providers, no ELF, fsck read-only check."
+      },
+      "busybox": {
+        "version": "1.38.0",
+        "sha256": "180fb3d16cf52eddca1572783b6be1e75f889a97870cc0259b0f8b21440de1dc",
+        "header_words": [
+          "feedfacf",
+          "0100000c",
+          "00000000",
+          "00000002",
+          "00000010",
+          "00000698",
+          "00200085",
+          "00000000"
+        ],
+        "format": "MH_EXECUTE, native 64-bit Mach-O"
+      },
+      "checks": {
+        "native_utilities_exit_status": 0,
+        "files_permissions_pipelines_sha256_archives": true,
+        "process_child_presence_and_exit": true,
+        "tools_result_sha256": "97b05354d0dc5fe0fbf9341ae2b110f164e48bc8a318afca1844dce197e791a8",
+        "pid1_parentage": true,
+        "shell_exit_status": 23,
+        "shell_reaping_and_respawn": true
+      },
+      "screenshot": {
+        "path": "docs/screenshots/minimal-arm64.png",
+        "sha256": "0e1ff2bd14019b99e45021155f2caada54e5a60a33c45185a608532db4392adb",
+        "size_bytes": 19223,
+        "width": 1096,
+        "height": 627,
+        "captured_utc": "2026-10-14T03:39:52.322030+00:00",
+        "command_channel": "Interactive guest serial shell.",
+        "method": "Serial-console window capture"
+      }
+    },
+    {
+      "variant": "minimal",
+      "architecture": "x86_64",
+      "qemu_machine": "q35",
+      "boot_captured_utc": "2026-10-14T03:36:13.894220+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:16 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_X86_64",
+      "boot_inputs": {
+        "boot_image": {
+          "sha256": "d54a001e9f7454c571ff3ba954ceaae70d9a80cd49c4158dc28b1696624d6031",
+          "size_bytes": 134217728
+        },
+        "firmware_code": {
+          "sha256": "e322462c034d0ec6443dca2b2fe36c17d00a24de0b72cd76456a62fde8ab36a5",
+          "size_bytes": 3653632
+        },
+        "firmware_variables": {
+          "sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+          "size_bytes": 540672
+        },
+        "root_image": {
+          "sha256": "0b2f5c53033a71f4998bd7f2ee8681203e975965cd177437b6d619ef648cdc44",
+          "size_bytes": 67108864
+        }
+      },
+      "root": {
+        "size_bytes": 67108864,
+        "installed_file_count": 136,
+        "inventory_validation": "Complete extracted HFS file inventory, byte equality, native Mach-O CPU/type and actual import providers, no ELF, fsck read-only check."
+      },
+      "busybox": {
+        "version": "1.38.0",
+        "sha256": "ecd3bc6eea8c638a17dc41e0a54d2d1acd9f75b6fce17512fd4020a7397c5908",
+        "header_words": [
+          "feedfacf",
+          "01000007",
+          "80000003",
+          "00000002",
+          "00000010",
+          "00000698",
+          "00200085",
+          "00000000"
+        ],
+        "format": "MH_EXECUTE, native 64-bit Mach-O"
+      },
+      "checks": {
+        "native_utilities_exit_status": 0,
+        "files_permissions_pipelines_sha256_archives": true,
+        "process_child_presence_and_exit": true,
+        "tools_result_sha256": "a356958904f68683b682954c13e146d829d580ac8a10f36fbbcfa2adce20edb7",
+        "pid1_parentage": true,
+        "shell_exit_status": 23,
+        "shell_reaping_and_respawn": true
+      },
+      "screenshot": {
+        "path": "docs/screenshots/minimal-x86_64.png",
+        "sha256": "db16388d563804e22a486c6e2d941d18ee1fcd56302ed950e3dddc26ce4d3981",
+        "size_bytes": 20149,
+        "width": 1096,
+        "height": 627,
+        "captured_utc": "2026-10-14T03:52:58.282785+00:00",
+        "command_channel": "Interactive guest serial shell.",
+        "method": "Serial-console window capture"
+      }
+    },
+    {
+      "variant": "xfce",
+      "architecture": "arm64",
+      "qemu_machine": "raspi4b",
+      "boot_captured_utc": "2026-10-14T03:36:14.806629+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:15 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_ARM64",
+      "boot_inputs": {
+        "root": {
+          "sha256": "8ea48c99526979ff001f1444baa9766d4e0ef654c354b3d0062e268af158fa0d",
+          "size_bytes": 134217728
+        },
+        "root_report": {
+          "sha256": "45084fba04af3245abf7245d994094ee58cd2b744211d6d61b161dc85ae1e1bd",
+          "size_bytes": 48354344
+        },
+        "runtime_report": {
+          "sha256": "c02d543eddc9aa12925086d5fc60aa54c78889114673a6bf85645844b4447cd9",
+          "size_bytes": 82872517
+        },
+        "collection": {
+          "sha256": "7e5c05fe5674c0ec0fc51b972dc070355cb1ffdd1c22656e20babcc3fdc8ff8f",
+          "size_bytes": 13436790
+        },
+        "kernel": {
+          "sha256": "e964bf4c3ab9b9773c575c14eb0189f49e22b4cd9094cb79878cebd239145d9d",
+          "size_bytes": 18466678
+        },
+        "layout": {
+          "sha256": "fb95a8e7c5b2ba165e7be108d9741ffc40f4718495c537833d6cb01b19db0840",
+          "size_bytes": 2842
+        },
+        "loader": {
+          "sha256": "51b4d8b1e01b10a792d161e7101ae9751a7404be37ef83bbb792066c38a8f906",
+          "size_bytes": 5804
+        }
+      },
+      "root": {
+        "size_bytes": 134217728,
+        "installed_file_count": 1706,
+        "inventory_validation": "Complete HFS byte equality, native Mach-O CPU/type/signatures/ordinals including real GTK MH_BUNDLE, no ELF and fsck."
+      },
+      "busybox": {
+        "version": "1.38.0",
+        "sha256": "180fb3d16cf52eddca1572783b6be1e75f889a97870cc0259b0f8b21440de1dc",
+        "header_words": [
+          "feedfacf",
+          "0100000c",
+          "00000000",
+          "00000002",
+          "00000010",
+          "00000698",
+          "00200085",
+          "00000000"
+        ],
+        "format": "MH_EXECUTE, native 64-bit Mach-O"
+      },
+      "checks": {
+        "native_utilities_exit_status": 0,
+        "files_permissions_pipelines_sha256_archives": true,
+        "process_child_presence_and_exit": true,
+        "tools_result_sha256": "65290ecc970dc87e398a417f6139cb0e4f5d4cf84bddfd975edeca8a37ef33f0",
+        "hardware_keyboard_to_interactive_shell": true,
+        "hardware_keyboard_to_pty_child": true,
+        "desktop_checked": true,
+        "automatic_desktop_startup": true,
+        "desktop_components": {
+          "session_pid": 11,
+          "desktop_pid": 78,
+          "panel_pid": 77,
+          "desktop_window": 12582918,
+          "panel_windows": [
+            14680067,
+            14680074
+          ],
+          "registered_session_clients": 5,
+          "xfwm4_pid": 74,
+          "xfsettingsd_pid": 76
+        },
+        "tty": "/dev/ttys000",
+        "exit_status": 0,
+        "desktop_result_sha256": "850851a1d2d1d82c2dcd829930a46a7fed50731c45b376f93129b3e97abc88dd"
+      },
+      "screenshot": {
+        "path": "docs/screenshots/xfce-arm64.png",
+        "sha256": "884651c94e090b2cacd11a2c7bdebe8acb5995337dba9fcbb88cfd725effa7d5",
+        "size_bytes": 183933,
+        "width": 1024,
+        "height": 768,
+        "captured_utc": "2026-10-14T03:47:48.944086+00:00",
+        "command_channel": "Guest serial shell; desktop output sent to the original terminal through its Darwin PTY.",
+        "method": "QEMU framebuffer dump; lossless PPM-to-PNG conversion"
+      }
+    },
+    {
+      "variant": "xfce",
+      "architecture": "x86_64",
+      "qemu_machine": "q35",
+      "boot_captured_utc": "2026-10-14T03:36:17.702126+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:16 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_X86_64",
+      "boot_inputs": {
+        "root": {
+          "sha256": "50500ee3181910d9ae1fabb511850581a156cd7fdf9a6ec424256b7d69bb4978",
+          "size_bytes": 134217728
+        },
+        "root_report": {
+          "sha256": "052ab3b79d49659178af03d4ada6f51b64894def7a16e235c498b7b4b22cfa7c",
+          "size_bytes": 48444935
+        },
+        "runtime_report": {
+          "sha256": "a1c757dd3c97b8fe940ce18fb72154bed9af3e54767cad54573c9e5096b31402",
+          "size_bytes": 83038620
+        },
+        "collection": {
+          "sha256": "f5268dd03ac5f74540646470132c67da6c54db2341afb5c2f97812b1dbd6424d",
+          "size_bytes": 18980864
+        },
+        "boot": {
+          "sha256": "41e9ec2131f71d9f21c55b943cc3edfba2fea520af0e9ace44d0e24b2d767815",
+          "size_bytes": 201326592
+        },
+        "firmware": {
+          "sha256": "e322462c034d0ec6443dca2b2fe36c17d00a24de0b72cd76456a62fde8ab36a5",
+          "size_bytes": 3653632
+        },
+        "variables": {
+          "sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+          "size_bytes": 540672
+        }
+      },
+      "root": {
+        "size_bytes": 134217728,
+        "installed_file_count": 1706,
+        "inventory_validation": "Complete HFS byte equality, native Mach-O CPU/type/signatures/ordinals including real GTK MH_BUNDLE, no ELF and fsck."
+      },
+      "busybox": {
+        "version": "1.38.0",
+        "sha256": "ecd3bc6eea8c638a17dc41e0a54d2d1acd9f75b6fce17512fd4020a7397c5908",
+        "header_words": [
+          "feedfacf",
+          "01000007",
+          "80000003",
+          "00000002",
+          "00000010",
+          "00000698",
+          "00200085",
+          "00000000"
+        ],
+        "format": "MH_EXECUTE, native 64-bit Mach-O"
+      },
+      "checks": {
+        "native_utilities_exit_status": 0,
+        "files_permissions_pipelines_sha256_archives": true,
+        "process_child_presence_and_exit": true,
+        "tools_result_sha256": "b4629ee8db1037dec9d7a70a27b3dcb8d8b226ca3d3a21a30f09f65cf17770a5",
+        "hardware_keyboard_to_interactive_shell": true,
+        "hardware_keyboard_to_pty_child": true,
+        "desktop_checked": true,
+        "automatic_desktop_startup": true,
+        "desktop_components": {
+          "session_pid": 9,
+          "desktop_pid": 77,
+          "panel_pid": 68,
+          "desktop_window": 14680071,
+          "panel_windows": [
+            12582915,
+            12582923
+          ],
+          "registered_session_clients": 5,
+          "xfwm4_pid": 18,
+          "xfsettingsd_pid": 45
+        },
+        "tty": "/dev/ttys000",
+        "exit_status": 0,
+        "desktop_result_sha256": "717eb5b67a8e0bcba22001d05b5856d6764b7147851a55844ff7f165f6dd532b"
+      },
+      "screenshot": {
+        "path": "docs/screenshots/xfce-x86_64.png",
+        "sha256": "bb1004d9e36a33646c3c8d7229f07264b014131c0e6641295eb355a025c5b00e",
+        "size_bytes": 268502,
+        "width": 1280,
+        "height": 800,
+        "captured_utc": "2026-10-14T03:47:53.298706+00:00",
+        "command_channel": "Guest serial shell; desktop output sent to the original terminal through its Darwin PTY.",
+        "method": "QEMU framebuffer dump; lossless PPM-to-PNG conversion"
+      }
+    }
+  ],
+  "source_scan": {
+    "scanner": "Gitleaks 8.30.1",
+    "snapshot": {
+      "candidates": 721,
+      "provenance_checksum_metadata": 669,
+      "crypto_test_fixtures": 9,
+      "other_source_candidates": 43,
+      "candidates_in_project_code": 0,
+      "non_manifest_files_matching_publisher_inventory": 28
+    },
+    "scope": "No project credentials identified; retained public upstream test fixtures and false-positive checksum/source-symbol matches. Scanner coverage is not proof that all possible secrets are absent."
+  },
+  "publication_scope": "Public repository initialized from a clean source snapshot, excluding earlier development history, build caches and local metadata. BSD-2-Clause covers original code; PureDarwin-original code retains its BSD notice; upstream licenses and binary redistribution requirements remain applicable."
+}

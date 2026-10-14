@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Caarmi, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10 00:45+0100\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Caarmi, 2023\n"
+"Language-Team: Interlingue (https://www.transifex.com/xfce/teams/16840/ie/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ie\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "Li providet fenestre ne have un _NET_WM_ICON o icone de WMHints"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:626
+msgid "Failed to find or load an icon for the window"
+msgstr "Ne successat trovar o cargar un icone del fenestre"
+
+#: ../libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "Labor-spacie 0"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "_Mover"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "_Redimensionar"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "S_empre in avan"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "Sempre sur visibil l_abor-spacie"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "S_olmen sur ti labor-spacie"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "Mover a un labor-spacie a _levul"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "Mover a un labor-spacie a _dextri"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "Mover a un labor-spacie ad _up"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "Mover a un labor-spacie a _bass"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "Mover a un altri la_bor-spacie"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "_Cluder"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "Labor-spacie %d"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr "Mi_nimisar"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr "Demi_nimisar"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr "Ma_ximisar"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr "Dema_ximisar"

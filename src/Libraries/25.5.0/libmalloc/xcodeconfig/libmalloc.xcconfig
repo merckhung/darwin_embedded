@@ -1,0 +1,79 @@
+#include "<DEVELOPER_DIR>/Makefiles/CoreOS/Xcode/BSD.xcconfig"
+
+
+#include "libmalloc_common.xcconfig"
+
+SDKROOT = macosx.internal
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator driverkit
+BUILD_VARIANTS = normal debug
+
+SDK_INSTALL_ROOT[sdk=driverkit*] = $(DRIVERKITROOT)
+SDK_INSTALL_HEADERS_ROOT[sdk=driverkit*] = $(SDK_INSTALL_ROOT)/$(SDK_RUNTIME_HEADERS_PREFIX)
+SDK_RUNTIME_HEADERS_PREFIX = Runtime
+
+PRODUCT_NAME = libsystem_malloc
+INSTALL_PATH = $(SDK_INSTALL_ROOT)/usr/lib/system
+PUBLIC_HEADERS_FOLDER_PATH = $(SDK_INSTALL_HEADERS_ROOT)/usr/include/malloc
+PRIVATE_HEADERS_FOLDER_PATH = $(SDK_INSTALL_HEADERS_ROOT)/usr/local/include
+USE_HEADERMAP = NO
+
+SYSTEM_FRAMEWORK_HEADERS = $(inherited) $(SDKROOT)/$(SDK_INSTALL_HEADERS_ROOT)/System/Library/Frameworks/System.framework/PrivateHeaders
+HEADER_SEARCH_PATHS = $(inherited) $(DERIVED_FILES_DIR)/dtrace $(SRCROOT)/include $(SRCROOT)/private $(SRCROOT)/resolver $(inherited)
+SYSTEM_HEADER_SEARCH_PATHS = $(inherited) $(SYSTEM_FRAMEWORK_HEADERS)
+SYSTEM_HEADER_SEARCH_PATHS[sdk=driverkit*] = $(inherited)  $(SYSTEM_FRAMEWORK_HEADERS) $(SDKROOT)/$(SDK_INSTALL_HEADERS_ROOT)/usr/local/include $(SDKROOT)/$(SDK_INSTALL_HEADERS_ROOT)/usr/include
+SYSTEM_FRAMEWORK_SEARCH_PATHS[sdk=driverkit*] = $(inherited)  $(SDKROOT)/$(SDK_INSTALL_HEADERS_ROOT)/System/Library/Frameworks
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) _FORTIFY_SOURCE=0 $(OSATOMIC_PREPROCESSOR_DEFINITIONS) $(PLATFORM_PREPROCESSOR_DEFINITIONS) $(DRIVERKIT_PREPROCESSOR_DEFINITIONS)
+OSATOMIC_PREPROCESSOR_DEFINITIONS = OSATOMIC_USE_INLINED=1 OS_UNFAIR_LOCK_INLINE=1
+OSATOMIC_PREPROCESSOR_DEFINITIONS_NOINLINE = OSATOMIC_DEPRECATED=0 OSATOMIC_USE_INLINED=0 OS_UNFAIR_LOCK_INLINE=0
+DRIVERKIT_PREPROCESSOR_DEFINITIONS[sdk=driverkit.macosx*] = MALLOC_TARGET_DK_OSX=1
+DRIVERKIT_PREPROCESSOR_DEFINITIONS[sdk=driverkit.watchos*] = MALLOC_TARGET_DK_WATCH=1
+DRIVERKIT_PREPROCESSOR_DEFINITIONS[sdk=driverkit.appletvos*] = MALLOC_TARGET_DK_TV=1
+DRIVERKIT_PREPROCESSOR_DEFINITIONS[sdk=driverkit.iphoneos*] = MALLOC_TARGET_DK_IOS=1
+DRIVERKIT_PREPROCESSOR_DEFINITIONS[sdk=driverkit.xros*] = MALLOC_TARGET_DK_IOS=0 MALLOC_TARGET_DK_VISIONOS=1
+
+GCC_NO_COMMON_BLOCKS = YES
+ENABLE_STRICT_OBJC_MSGSEND = YES
+
+// TODO: Add -fno-stack-protector when uplink to Libc is removed
+OTHER_CFLAGS = $(inherited) $(PLATFORM_CFLAGS)
+OTHER_CFLAGS_normal = $(inherited) -momit-leaf-frame-pointer
+
+LLVM_LTO = LLVM_LTO_$(CURRENT_VARIANT)
+LLVM_LTO_normal = YES
+DEAD_CODE_STRIPPING = NO
+
+IS_ZIPPERED = YES
+
+SIM_SUFFIX[sdk=*simulator*] = _sim
+LINK_WITH_STANDARD_LIBRARIES = NO
+OTHER_LDFLAGS = $(inherited) -all_load -L$(SDK_INSTALL_ROOT)/usr/lib/system -umbrella System $(CR_LDFLAGS) $(LIBCOMPILER_RT_LDFLAGS) $(LIBDYLD_LDFLAGS) $(LIBSYSCALL_LDFLAGS) $(LIBPLATFORM_LDFLAGS) $(PLATFORM_LDFLAGS) $(LIBPTHREAD_LDFLAGS) $(LIBFEATUREFLAGS_LDFLAGS) $(UPLINK_LDFLAGS) $(INTERPOSE_LDFLAGS) $(DIRTY_LDFLAGS)
+LIBCOMPILER_RT_LDFLAGS = -lcompiler_rt
+LIBPLATFORM_LDFLAGS = -lsystem$(SIM_SUFFIX)_platform
+LIBSYSCALL_LDFLAGS = -lsystem$(SIM_SUFFIX)_kernel
+LIBPTHREAD_LDFLAGS = -lsystem$(SIM_SUFFIX)_pthread
+LIBDYLD_LDFLAGS = -ldyld
+
+LIBFEATUREFLAGS_LDFLAGS = -Wl,-upward-lsystem_featureflags
+LIBFEATUREFLAGS_LDFLAGS[sdk=macosx*][arch=i386] =
+LIBFEATUREFLAGS_LDFLAGS[sdk=driverkit*] =
+LIBFEATUREFLAGS_EXCLUDES =
+LIBFEATUREFLAGS_EXCLUDES[sdk=driverkit*] = libmalloc.plist
+
+EXCLUDED_SOURCE_FILE_NAMES = $(LIBFEATUREFLAGS_EXCLUDES)
+
+// TODO: Eliminate the crosslink between libmalloc and Libc (13046853)
+// The blocks runtime is safe for use only in the context of introspection
+// logic, which isn't really in the same layer as the rest of libmalloc
+UPLINK_LDFLAGS = -Wl,-upward-lsystem_c -Wl,-upward-lsystem_blocks -Wl,-upward-lcorecrypto
+
+INTERPOSE_LDFLAGS = -Wl,-interposable_list,$(SRCROOT)/xcodeconfig/interposable.list
+
+DYLIB_CURRENT_VERSION = $(CURRENT_PROJECT_VERSION)
+
+
+SUPPORTS_TEXT_BASED_API = YES
+TAPI_VERIFY_MODE = Pedantic
+OTHER_TAPI_FLAGS = $(inherited) -umbrella System -extra-private-header $(SRCROOT)/private/make_tapi_happy.h -extra-private-header $(SRCROOT)/src/frozen_malloc.h -extra-private-header $(SRCROOT)/private/stack_logging.h -extra-private-header $(SRCROOT)/private/malloc_implementation.h
+
+

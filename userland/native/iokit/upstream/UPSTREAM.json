@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/IOKitUser",
+  "tag": "IOKitUser-100231.120.3",
+  "commit": "23a611d9d194b63465f6df2abfdda63d71c87e97",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/IOKitUser/tar.gz/refs/tags/IOKitUser-100231.120.3",
+  "archive_sha256": "0dc5b68894bdd214ac6ec6f383760e1ad691b3ca07465658397ad3471232b0b1",
+  "release_manifest": "https://raw.githubusercontent.com/apple-oss-distributions/distribution-macOS/macos-265/release.json",
+  "selected_files_sha256": {
+    "IOKitLib.c": "6086e7b07aac1d7b489232b6997acac276e2da8917e077ba7365c2b5a58fdcd4",
+    "IOKitLib.h": "d97b87a7d557a4281436c1a92e26abf6651242786887f03d6baa6eaff4b20e86",
+    "DeviceMIG.sh": "e7656548884675e653f3a38fb7d492a0a7fc414dab018cb9bb98f8762ad2409f",
+    "APPLE_LICENSE": "212846e0145aa50fb3a5aef254a370311a93acf6c1e792e47e0068d64c8c3885"
+  },
+  "local_changes": [],
+  "selection": "Unmodified IOKitUser sources retained for Bazel extraction of the genuine CoreFoundation-independent connection/mapping functions. DeviceMIG.sh is source-generation reference only and is not executed."
+}

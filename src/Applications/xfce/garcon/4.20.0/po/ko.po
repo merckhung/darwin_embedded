@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Cybertramp <paran_son@outlook.com>, 2022
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2011-2013,2016,2022-2023
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2011-2013,2016,2022-2023\n"
+"Language-Team: Korean (http://app.transifex.com/xfce/garcon/language/ko/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "보조프로그램"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "일반적인 데스크톱 툴과 프로그램"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "개발"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "소프트웨어 개발 툴"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "교육"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "교육적 소프트웨어"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "게임"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "게임, 퍼즐, 그리고 다른 재밌는 소프트웨어"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "그래픽스"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "그래픽 저작 도구 및 편집 프로그램"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "하드웨어"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "다양한 하드웨어 장치 설정"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "멀티미디어"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "음악과 동영상 재생기 및 편집기"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "인터넷"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "인터넷에 접근하기 위한 프로그램"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "사무"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "사무 및 생산성 프로그램"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "기타"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "다른 분류에 맞지 않은 프로그램"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "개인"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "개인 설정"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "과학"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "과학 프로그램"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "화면 보호기"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "화면 보호기 애플릿"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "설정"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "데스크톱 및 시스템 설정 프로그램"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "시스템"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "시스템 도구와 유틸리티"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "\"%s\" 파일이 없습니다"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "%s에서 메뉴 파일 데이터를 불러올 수 없습니다: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "%s에서 메뉴 파일 데이터를 불러올 수 없습니다"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "\"%s\" 명령 실행에 실패했습니다."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "실행 오류"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "데스크톱에 실행 아이콘과 링크를 만들고 수정할 때 필요한 \"exo-desktop-item-edit\"을 실행하지 못했습니다."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "닫기(_C)"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "프로그램 메뉴 불러오기에 실패했습니다"

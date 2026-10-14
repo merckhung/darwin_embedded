@@ -1,0 +1,15 @@
+{
+  "origin_commit": "e03ccde580dbc0d01190471fcc68cd08e32e0c86",
+  "origin": "Existing repository SDK bootstrap; per-file license notices retained. MacTypes typedefs and Mach build-option headers only.",
+  "purpose": "Minimal bootstrap for the exported XNU 12377.121.6 SDK. Compiler headers come from the active Clang resource directory; availability headers are generated from AvailabilityVersions 157.2.",
+  "files_sha256": {
+    "MacTypes.h": "a89200c3d55897a1e7e39ddac896c509750d1ca4324edd4e118722d1a16e853f",
+    "mach_assert.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mach_debug.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mach_kdb.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mach_kgdb.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mach_kttimer.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mach_ldebug.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mach_lock_mon.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

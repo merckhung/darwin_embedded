@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>POSIX Signal Handling: libxfce4util Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4util-Miscellaneous-Utilities.html" title="Miscellaneous Utilities">
+<link rel="next" href="XfceConsolekit.html" title="XfceConsolekit">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libxfce4util-POSIX-Signal-Handling.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4util-Miscellaneous-Utilities.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfceConsolekit.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libxfce4util-POSIX-Signal-Handling"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4util-POSIX-Signal-Handling.top_of_page"></a>POSIX Signal Handling</span></h2>
+<p>POSIX Signal Handling — a callback system for handling POSIX signals safely</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libxfce4util-POSIX-Signal-Handling.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libxfce4util-POSIX-Signal-Handling.html#XfcePosixSignalHandler" title="XfcePosixSignalHandler ()">*XfcePosixSignalHandler</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-init" title="xfce_posix_signal_handler_init ()">xfce_posix_signal_handler_init</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-restore-handler" title="xfce_posix_signal_handler_restore_handler ()">xfce_posix_signal_handler_restore_handler</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-set-handler" title="xfce_posix_signal_handler_set_handler ()">xfce_posix_signal_handler_set_handler</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-POSIX-Signal-Handling.html#xfce-posix-signal-handler-shutdown" title="xfce_posix_signal_handler_shutdown ()">xfce_posix_signal_handler_shutdown</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-POSIX-Signal-Handling.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4util/libxfce4util.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-POSIX-Signal-Handling.description"></a><h2>Description</h2>
+<p>Due to reentrancy issues, there is a restricted set of functions/syscalls
+that are allowed to be performed inside a POSIX signal handler.  In
+general, it's safer to defer any signal-related processing until after the
+signal handler has run.  The functionality in this module automatically
+handles this, and allows you to set a handler function (with optional user
+data) for any signal.</p>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-POSIX-Signal-Handling.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="XfcePosixSignalHandler"></a><h3>XfcePosixSignalHandler ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*XfcePosixSignalHandler<span class="c_punctuation">)</span> (<em class="parameter"><code><span class="type">gint</span> signal</code></em>,
+                           <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<div class="refsect3">
+<a name="XfcePosixSignalHandler.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>signal</p></td>
+<td class="parameter_description"><p>The signal that was caught.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>The <em class="parameter"><code>user_data</code></em>
+parameter passed when the handler was registered.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-posix-signal-handler-init"></a><h3>xfce_posix_signal_handler_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_posix_signal_handler_init (<em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Initializes the POSIX signal handler system.  Must be called
+before setting any POSIX signal handlers.</p>
+<div class="refsect3">
+<a name="xfce-posix-signal-handler-init.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>Location of a <span class="type">GError</span> to store any possible errors. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-posix-signal-handler-init.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure, in which case
+<em class="parameter"><code>error</code></em>
+will be set.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-posix-signal-handler-restore-handler"></a><h3>xfce_posix_signal_handler_restore_handler ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_posix_signal_handler_restore_handler
+                               (<em class="parameter"><code><span class="type">gint</span> signal</code></em>);</pre>
+<p>Restores the default handler for <em class="parameter"><code>signal</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-posix-signal-handler-restore-handler.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>signal</p></td>
+<td class="parameter_description"><p>A POSIX signal id number.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-posix-signal-handler-set-handler"></a><h3>xfce_posix_signal_handler_set_handler ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_posix_signal_handler_set_handler (<em class="parameter"><code><span class="type">gint</span> signal</code></em>,
+                                       <em class="parameter"><code><a class="link" href="libxfce4util-POSIX-Signal-Handling.html#XfcePosixSignalHandler" title="XfcePosixSignalHandler ()"><span class="type">XfcePosixSignalHandler</span></a> handler</code></em>,
+                                       <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                       <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Sets <em class="parameter"><code>handler</code></em>
+ to be called whenever <em class="parameter"><code>signal</code></em>
+ is caught by the
+application.  The <em class="parameter"><code>user_data</code></em>
+ parameter will be passed as an argument
+to <em class="parameter"><code>handler</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-posix-signal-handler-set-handler.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>signal</p></td>
+<td class="parameter_description"><p>A POSIX signal id number.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>handler</p></td>
+<td class="parameter_description"><p>A callback function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>Arbitrary data that will be passed to <em class="parameter"><code>handler</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>Location of a <span class="type">GError</span> to store any possible errors. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-posix-signal-handler-set-handler.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> otherwise, in which case
+<em class="parameter"><code>error</code></em>
+will be set.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-posix-signal-handler-shutdown"></a><h3>xfce_posix_signal_handler_shutdown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_posix_signal_handler_shutdown (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Frees all memory associated with the POSIX signal handling system
+and restores all default signal handlers.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

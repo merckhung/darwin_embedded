@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XfceConsolekit: libxfce4util Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4util-POSIX-Signal-Handling.html" title="POSIX Signal Handling">
+<link rel="next" href="XfceSystemd.html" title="XfceSystemd">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfceConsolekit.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfceConsolekit.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4util-POSIX-Signal-Handling.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfceSystemd.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfceConsolekit"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfceConsolekit.top_of_page"></a>XfceConsolekit</span></h2>
+<p>XfceConsolekit — Session management via ConsoleKit</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfceConsolekit.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="returnvalue">XfceConsolekit</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-get" title="xfce_consolekit_get ()">xfce_consolekit_get</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-reboot" title="xfce_consolekit_reboot ()">xfce_consolekit_reboot</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-power-off" title="xfce_consolekit_power_off ()">xfce_consolekit_power_off</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-suspend" title="xfce_consolekit_suspend ()">xfce_consolekit_suspend</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-hibernate" title="xfce_consolekit_hibernate ()">xfce_consolekit_hibernate</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-hybrid-sleep" title="xfce_consolekit_hybrid_sleep ()">xfce_consolekit_hybrid_sleep</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-can-reboot" title="xfce_consolekit_can_reboot ()">xfce_consolekit_can_reboot</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-can-power-off" title="xfce_consolekit_can_power_off ()">xfce_consolekit_can_power_off</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-can-suspend" title="xfce_consolekit_can_suspend ()">xfce_consolekit_can_suspend</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-can-hibernate" title="xfce_consolekit_can_hibernate ()">xfce_consolekit_can_hibernate</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceConsolekit.html#xfce-consolekit-can-hybrid-sleep" title="xfce_consolekit_can_hybrid_sleep ()">xfce_consolekit_can_hybrid_sleep</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfceConsolekit.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfceConsolekit.html#XfceConsolekit-struct" title="XfceConsolekit">XfceConsolekit</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfceConsolekit.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> XfceConsolekit
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfceConsolekit.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4util/libxfce4util.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfceConsolekit.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="XfceConsolekit.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfce-consolekit-get"></a><h3>xfce_consolekit_get ()</h3>
+<pre class="programlisting"><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="returnvalue">XfceConsolekit</span></a> *
+xfce_consolekit_get (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Create a new <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> instance or increase reference count.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-get.returns"></a><h4>Returns</h4>
+<p>A reference to the singleton object, to be released with <code class="function">g_object_unref()</code>. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-reboot"></a><h3>xfce_consolekit_reboot ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_reboot (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                        <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask ConsoleKit to trigger Reboot.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-reboot.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-reboot.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-power-off"></a><h3>xfce_consolekit_power_off ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_power_off (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask ConsoleKit to trigger PowerOff.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-power-off.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-power-off.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-suspend"></a><h3>xfce_consolekit_suspend ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_suspend (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                         <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask ConsoleKit to trigger Suspend.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-suspend.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-suspend.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-hibernate"></a><h3>xfce_consolekit_hibernate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_hibernate (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask ConsoleKit to trigger Hibernate.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-hibernate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-hibernate.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-hybrid-sleep"></a><h3>xfce_consolekit_hybrid_sleep ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_hybrid_sleep (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                              <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                              <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask ConsoleKit to trigger HybridSleep.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-hybrid-sleep.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-hybrid-sleep.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-can-reboot"></a><h3>xfce_consolekit_can_reboot ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_can_reboot (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> *can_reboot</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> *auth_reboot</code></em>,
+                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether ConsoleKit can trigger Reboot.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-can-reboot.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_reboot</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_reboot</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-can-reboot.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-can-power-off"></a><h3>xfce_consolekit_can_power_off ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_can_power_off (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> *can_power_off</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> *auth_power_off</code></em>,
+                               <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether ConsoleKit can trigger PowerOff.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-can-power-off.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_power_off</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_power_off</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-can-power-off.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-can-suspend"></a><h3>xfce_consolekit_can_suspend ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_can_suspend (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                             <em class="parameter"><code><span class="type">gboolean</span> *can_suspend</code></em>,
+                             <em class="parameter"><code><span class="type">gboolean</span> *auth_suspend</code></em>,
+                             <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether ConsoleKit can trigger and has authorization for Suspend.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-can-suspend.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_suspend</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_suspend</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-can-suspend.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-can-hibernate"></a><h3>xfce_consolekit_can_hibernate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_can_hibernate (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> *can_hibernate</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> *auth_hibernate</code></em>,
+                               <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether ConsoleKit can trigger and has authorization for Hibernate.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-can-hibernate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_hibernate</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_hibernate</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-can-hibernate.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-consolekit-can-hybrid-sleep"></a><h3>xfce_consolekit_can_hybrid_sleep ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_consolekit_can_hybrid_sleep (<em class="parameter"><code><a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> *consolekit</code></em>,
+                                  <em class="parameter"><code><span class="type">gboolean</span> *can_hybrid_sleep</code></em>,
+                                  <em class="parameter"><code><span class="type">gboolean</span> *auth_hybrid_sleep</code></em>,
+                                  <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether ConsoleKit can trigger and has authorization for HybridSleep.</p>
+<div class="refsect3">
+<a name="xfce-consolekit-can-hybrid-sleep.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consolekit</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceConsolekit.html" title="XfceConsolekit"><span class="type">XfceConsolekit</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_hybrid_sleep</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_hybrid_sleep</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-consolekit-can-hybrid-sleep.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfceConsolekit.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfceConsolekit-struct"></a><h3>XfceConsolekit</h3>
+<pre class="programlisting">typedef struct _XfceConsolekit XfceConsolekit;</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libsyscall_" + arch,
+        srcs = [
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar",
+            "//scripts:build_native_libsyscall.py",
+        ],
+        outs = ["libsyscall_base." + arch + ".a"],
+        cmd = "python3 $(location //scripts:build_native_libsyscall.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar)" +
+              " --output $@",
+    )
+    for arch in ["x86_64", "arm64"]
+]
+
+filegroup(name = "libraries", srcs = [
+    ":libsyscall_x86_64", ":libsyscall_arm64",
+    ":libplatform_x86_64", ":libplatform_arm64", ":libmach_x86_64", ":libmach_arm64",
+])
+
+[
+    genrule(
+        name = "sdk_" + arch,
+        srcs = [
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//src/Libraries/25.5.0:sources",
+            "//src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar",
+            "//scripts:build_native_sdk.py",
+            "//tools/cctools:cctools_header_files",
+        ],
+        tools = ["//tools/unifdef:unifdef"],
+        outs = ["sdk." + arch + ".tar"],
+        cmd = "python3 $(location //scripts:build_native_sdk.py) --root $$PWD --arch " + arch +
+              " --kernel-headers $(location //src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar)" +
+              " --unifdef $(location //tools/unifdef:unifdef) --output $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "libplatform_" + arch,
+        srcs = [":sdk_" + arch, "//src/Libraries/25.5.0:sources",
+                "mach.headers." + arch + ".tar",
+                "//scripts:build_native_platform.py"],
+        outs = ["libplatform_base." + arch + ".a"],
+        cmd = "python3 $(location //scripts:build_native_platform.py) --root $$PWD --arch " + arch +
+              " --sdk $(location :sdk_" + arch + ")" +
+              " --mach-headers $(location mach.headers." + arch + ".tar) --output $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "libmach_" + arch,
+        srcs = [":sdk_" + arch, "//src/Kernel/xnu/12377.121.6:sources",
+                "//tools/mig:mig.sh", "//scripts:build_native_mach.py"],
+        tools = ["//tools/mig:migcom"],
+        outs = ["libmach_base." + arch + ".a", "mach.headers." + arch + ".tar"],
+        cmd = "python3 $(location //scripts:build_native_mach.py) --root $$PWD --arch " + arch +
+              " --sdk $(location :sdk_" + arch + ") --migcom $(location //tools/mig:migcom)" +
+              " --output $(location libmach_base." + arch + ".a)" +
+              " --headers-output $(location mach.headers." + arch + ".tar)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "dyld_" + arch,
+        srcs = [
+            "dyld/loader.c", "dyld/start.S", "dyld/native_calls.h", "dyld/memory.c",
+            "dyld/dynamic.h", "dyld/dynamic.c",
+            ":libsyscall_" + arch,
+            "//src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar",
+            "//scripts:build_native_dyld.py", "//scripts:sign_diagnostic_macho.py",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//src/Libraries/25.5.0:kernel_dependency_sources",
+            "//src/Libraries/25.5.0:native_dyld_support_sources",
+        ],
+        tools = ["//tools/cctools:ld"],
+        outs = ["dyld." + arch],
+        cmd = "python3 $(location //scripts:build_native_dyld.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar)" +
+              " --libsyscall $(location :libsyscall_" + arch + ")" +
+              " --ld $(location //tools/cctools:ld) --output $@",
+    )
+    for arch in ["x86_64", "arm64"]
+]
+
+filegroup(name = "dynamic_linkers", srcs = [":dyld_arm64", ":dyld_x86_64"])
+
+[
+    genrule(
+        name = "dyld_test_root_" + arch,
+        srcs = [
+            "dyld/test_leaf.c", "dyld/test_chain.c", "dyld/test_main.c", "dyld/native_calls.h", "dyld/memory.c",
+            "//userland/diagnostic:root_" + arch,
+            ":dyld_" + arch, ":libsyscall_" + arch,
+            "//scripts:build_native_dyld_test.py", "//scripts:build_diagnostic_userland.py",
+            "//scripts:sign_diagnostic_macho.py",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["dyld-test-root." + arch + ".img"],
+        cmd = "python3 $(location //scripts:build_native_dyld_test.py) --root $$PWD --arch " + arch +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location :dyld_" + arch + ") --libsyscall $(location :libsyscall_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "dynamic_linker_test_roots", srcs = [":dyld_test_root_arm64", ":dyld_test_root_x86_64"])
+
+[
+    genrule(
+        name = "runtime_test_root_" + arch,
+        srcs = [
+            "dyld/test_leaf.c", "dyld/test_chain.c", "dyld/test_main.c", "dyld/native_calls.h", "dyld/memory.c",
+            "platform/test_platform.c", "mach/test_mach.c",
+            "//userland/diagnostic:root_" + arch,
+            ":dyld_" + arch, ":libsyscall_" + arch, ":libplatform_" + arch,
+            "libmach_base." + arch + ".a", "mach.headers." + arch + ".tar",
+            ":sdk_" + arch,
+            "//scripts:build_native_dyld_test.py", "//scripts:build_diagnostic_userland.py",
+            "//scripts:sign_diagnostic_macho.py",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["runtime-test-root." + arch + ".img"],
+        cmd = "python3 $(location //scripts:build_native_dyld_test.py) --root $$PWD --arch " + arch +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location :dyld_" + arch + ") --libsyscall $(location :libsyscall_" + arch + ")" +
+              " --sdk $(location :sdk_" + arch + ") --libplatform $(location :libplatform_" + arch + ")" +
+              " --libmach $(location libmach_base." + arch + ".a)" +
+              " --mach-headers $(location mach.headers." + arch + ".tar)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "runtime_test_roots", srcs = [":runtime_test_root_arm64", ":runtime_test_root_x86_64"])

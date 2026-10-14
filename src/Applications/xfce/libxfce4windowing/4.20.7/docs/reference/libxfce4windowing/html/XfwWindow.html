@@ -1,0 +1,1905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XfwWindow: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfwWorkspace.html" title="XfwWorkspace">
+<link rel="next" href="XfwApplication.html" title="XfwApplication">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfwWindow.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfwWindow.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#XfwWindow.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#XfwWindow.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfwWorkspace.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfwApplication.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfwWindow"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfwWindow.top_of_page"></a>XfwWindow</span></h2>
+<p>XfwWindow — A representation of a toplevel window</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfwWindow.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfwWindow.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *const *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-class-ids" title="xfw_window_get_class_ids ()">xfw_window_get_class_ids</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-name" title="xfw_window_get_name ()">xfw_window_get_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GdkPixbuf</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-icon" title="xfw_window_get_icon ()">xfw_window_get_icon</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GIcon</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-gicon" title="xfw_window_get_gicon ()">xfw_window_get_gicon</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-icon-is-fallback" title="xfw_window_icon_is_fallback ()">xfw_window_icon_is_fallback</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWindow.html#XfwWindowType" title="enum XfwWindowType"><span class="returnvalue">XfwWindowType</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-window-type" title="xfw_window_get_window_type ()">xfw_window_get_window_type</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="returnvalue">XfwWindowState</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-state" title="xfw_window_get_state ()">xfw_window_get_state</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="returnvalue">XfwWindowCapabilities</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-capabilities" title="xfw_window_get_capabilities ()">xfw_window_get_capabilities</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GdkRectangle</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-geometry" title="xfw_window_get_geometry ()">xfw_window_get_geometry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="returnvalue">XfwScreen</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-screen" title="xfw_window_get_screen ()">xfw_window_get_screen</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="returnvalue">XfwWorkspace</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-workspace" title="xfw_window_get_workspace ()">xfw_window_get_workspace</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-monitors" title="xfw_window_get_monitors ()">xfw_window_get_monitors</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwApplication.html" title="XfwApplication"><span class="returnvalue">XfwApplication</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-get-application" title="xfw_window_get_application ()">xfw_window_get_application</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-activate" title="xfw_window_activate ()">xfw_window_activate</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-close" title="xfw_window_close ()">xfw_window_close</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-start-move" title="xfw_window_start_move ()">xfw_window_start_move</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-start-resize" title="xfw_window_start_resize ()">xfw_window_start_resize</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-geometry" title="xfw_window_set_geometry ()">xfw_window_set_geometry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-button-geometry" title="xfw_window_set_button_geometry ()">xfw_window_set_button_geometry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-move-to-workspace" title="xfw_window_move_to_workspace ()">xfw_window_move_to_workspace</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-minimized" title="xfw_window_set_minimized ()">xfw_window_set_minimized</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-maximized" title="xfw_window_set_maximized ()">xfw_window_set_maximized</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-fullscreen" title="xfw_window_set_fullscreen ()">xfw_window_set_fullscreen</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-skip-pager" title="xfw_window_set_skip_pager ()">xfw_window_set_skip_pager</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-skip-tasklist" title="xfw_window_set_skip_tasklist ()">xfw_window_set_skip_tasklist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-pinned" title="xfw_window_set_pinned ()">xfw_window_set_pinned</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-shaded" title="xfw_window_set_shaded ()">xfw_window_set_shaded</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-above" title="xfw_window_set_above ()">xfw_window_set_above</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-set-below" title="xfw_window_set_below ()">xfw_window_set_below</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-active" title="xfw_window_is_active ()">xfw_window_is_active</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-minimized" title="xfw_window_is_minimized ()">xfw_window_is_minimized</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-maximized" title="xfw_window_is_maximized ()">xfw_window_is_maximized</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-fullscreen" title="xfw_window_is_fullscreen ()">xfw_window_is_fullscreen</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-skip-pager" title="xfw_window_is_skip_pager ()">xfw_window_is_skip_pager</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-skip-tasklist" title="xfw_window_is_skip_tasklist ()">xfw_window_is_skip_tasklist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-pinned" title="xfw_window_is_pinned ()">xfw_window_is_pinned</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-shaded" title="xfw_window_is_shaded ()">xfw_window_is_shaded</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-above" title="xfw_window_is_above ()">xfw_window_is_above</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-below" title="xfw_window_is_below ()">xfw_window_is_below</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-urgent" title="xfw_window_is_urgent ()">xfw_window_is_urgent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-on-workspace" title="xfw_window_is_on_workspace ()">xfw_window_is_on_workspace</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindow.html#xfw-window-is-in-viewport" title="xfw_window_is_in_viewport ()">xfw_window_is_in_viewport</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--application" title="The “application” property">application</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="type">XfwWindowCapabilities</span></a></td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--capabilities" title="The “capabilities” property">capabilities</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">GStrv</span></td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--class-ids" title="The “class-ids” property">class-ids</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GIcon</span> *</td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--gicon" title="The “gicon” property">gicon</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--monitors" title="The “monitors” property">monitors</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--name" title="The “name” property">name</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--screen" title="The “screen” property">screen</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="type">XfwWindowState</span></a></td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--state" title="The “state” property">state</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="XfwWindow.html#XfwWindowType" title="enum XfwWindowType"><span class="type">XfwWindowType</span></a></td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--type" title="The “type” property">type</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwWindow.html#XfwWindow--workspace" title="The “workspace” property">workspace</a></td>
+<td class="property_flags">Read</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-capabilities-changed" title="The “capabilities-changed” signal">capabilities-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-class-changed" title="The “class-changed” signal">class-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-closed" title="The “closed” signal">closed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-geometry-changed" title="The “geometry-changed” signal">geometry-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-icon-changed" title="The “icon-changed” signal">icon-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-name-changed" title="The “name-changed” signal">name-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-state-changed" title="The “state-changed” signal">state-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-type-changed" title="The “type-changed” signal">type-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWindow.html#XfwWindow-workspace-changed" title="The “workspace-changed” signal">workspace-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwWindow.html#XfwWindow-struct" title="XfwWindow">XfwWindow</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities">XfwWindowCapabilities</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState">XfwWindowState</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwWindow.html#XfwWindowType" title="enum XfwWindowType">XfwWindowType</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">╰──</span> XfwWindowType
+    <a href="/usr/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html">GFlags</a>
+    <span class="lineart">├──</span> XfwWindowCapabilities
+    <span class="lineart">╰──</span> XfwWindowState
+    GObject
+    <span class="lineart">╰──</span> XfwWindow
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowing/libxfce4windowing.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.description"></a><h2>Description</h2>
+<p><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> describes a toplevel window on the screen, and provides
+access to the window's state, type, and actions that can be performed
+on it.</p>
+<p>Other metadata, like the window's title or icon, is also available.</p>
+<p>If the window supports it, actions can be taken, like minimizing,
+maximizing, pinning, moving between workspaces, or closing the
+window.</p>
+<p>Note that <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> is actually an interface; when obtaining an instance,
+an instance of a windowing-environment-specific object that implements this
+interface will be returned.</p>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-window-get-class-ids"></a><h3>xfw_window_get_class_ids ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *const *
+xfw_window_get_class_ids (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s class ids. On X11 this should contain the class and instance
+names of the <a class="ulink" href="https://x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html#wm_class_property" target="_top">WM_CLASS property</a>.
+On Wayland, it's likely to be limited to the <a class="ulink" href="https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1#zwlr_foreign_toplevel_handle_v1:event:app_id" target="_top">application ID</a>,
+which should correspond to the basename of the application's desktop file.</p>
+<div class="refsect3">
+<a name="xfw-window-get-class-ids.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-class-ids.returns"></a><h4>Returns</h4>
+<p>a <code class="literal">NULL</code>-terminated array of strings owned by the <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>. </p>
+<p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-name"></a><h3>xfw_window_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfw_window_get_name (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s name/title.</p>
+<div class="refsect3">
+<a name="xfw-window-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-name.returns"></a><h4>Returns</h4>
+<p>a window title, or <code class="literal">NULL</code> if there
+is no title.  The returned title should not be modified or freed. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-icon"></a><h3>xfw_window_get_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkPixbuf</span> *
+xfw_window_get_icon (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> size</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> scale</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s icon.  If <em class="parameter"><code>window</code></em>
+ has no icon, a fallback icon may be
+returned.  Whether or not the returned icon is a fallback icon can be
+determined using <a class="link" href="XfwWindow.html#xfw-window-icon-is-fallback" title="xfw_window_icon_is_fallback ()"><code class="function">xfw_window_icon_is_fallback()</code></a>.</p>
+<div class="refsect3">
+<a name="xfw-window-get-icon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>size</p></td>
+<td class="parameter_description"><p>the desired icon size.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>scale</p></td>
+<td class="parameter_description"><p>the UI scale factor.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-icon.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GdkPixbuf</span>, owned by <em class="parameter"><code>window</code></em>
+,
+or <code class="literal">NULL</code> if <em class="parameter"><code>window</code></em>
+has no icon and a fallback cannot be rendered. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-gicon"></a><h3>xfw_window_get_gicon ()</h3>
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *
+xfw_window_get_gicon (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s icon as a size-independent <span class="type">GIcon</span>.  If an icon cannot be
+found, a <span class="type">GIcon</span> representing a fallback icon will be returned.  Whether or
+not the returned icon is a fallback icon can be determined using
+<a class="link" href="XfwWindow.html#xfw-window-icon-is-fallback" title="xfw_window_icon_is_fallback ()"><code class="function">xfw_window_icon_is_fallback()</code></a>.</p>
+<div class="refsect3">
+<a name="xfw-window-get-gicon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-gicon.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GIcon</span>, owned by <em class="parameter"><code>window</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-icon-is-fallback"></a><h3>xfw_window_icon_is_fallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_icon_is_fallback (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Determines if <em class="parameter"><code>window</code></em>
+ does not have an icon, and thus a fallback icon
+will be returned from <a class="link" href="XfwWindow.html#xfw-window-get-icon" title="xfw_window_get_icon ()"><code class="function">xfw_window_get_icon()</code></a> and <a class="link" href="XfwWindow.html#xfw-window-get-gicon" title="xfw_window_get_gicon ()"><code class="function">xfw_window_get_gicon()</code></a>.</p>
+<div class="refsect3">
+<a name="xfw-window-icon-is-fallback.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-icon-is-fallback.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> or <code class="literal">FALSE</code>, depending on if <em class="parameter"><code>window</code></em>
+'s icon uses a
+fallback icon or not.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-window-type"></a><h3>xfw_window_get_window_type ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWindow.html#XfwWindowType" title="enum XfwWindowType"><span class="returnvalue">XfwWindowType</span></a>
+xfw_window_get_window_type (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-state"></a><h3>xfw_window_get_state ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="returnvalue">XfwWindowState</span></a>
+xfw_window_get_state (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s state bitfield.</p>
+<div class="refsect3">
+<a name="xfw-window-get-state.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-state.returns"></a><h4>Returns</h4>
+<p> a bitfield with zero or more bits from <a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="type">XfwWindowState</span></a> set.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-capabilities"></a><h3>xfw_window_get_capabilities ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="returnvalue">XfwWindowCapabilities</span></a>
+xfw_window_get_capabilities (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s capabilities bitfield.</p>
+<div class="refsect3">
+<a name="xfw-window-get-capabilities.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-capabilities.returns"></a><h4>Returns</h4>
+<p> a bitfield with zero or more bits from <a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="type">XfwWindowCapabilities</span></a>
+set.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-geometry"></a><h3>xfw_window_get_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkRectangle</span> *
+xfw_window_get_geometry (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s position and size.</p>
+<div class="refsect3">
+<a name="xfw-window-get-geometry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-geometry.returns"></a><h4>Returns</h4>
+<p>A <span class="type">GdkRectangle</span> representing
+<em class="parameter"><code>window</code></em>
+'s geometry, which should not be modified or freed. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-screen"></a><h3>xfw_window_get_screen ()</h3>
+<pre class="programlisting"><a class="link" href="XfwScreen.html" title="XfwScreen"><span class="returnvalue">XfwScreen</span></a> *
+xfw_window_get_screen (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches the <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> instance that owns <em class="parameter"><code>window</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-window-get-screen.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-screen.returns"></a><h4>Returns</h4>
+<p>A <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> instance, with a
+reference owned by <em class="parameter"><code>window</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-workspace"></a><h3>xfw_window_get_workspace ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="returnvalue">XfwWorkspace</span></a> *
+xfw_window_get_workspace (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s workspace, if any.  This may return <code class="literal">NULL</code> if <em class="parameter"><code>window</code></em>
+ is
+not on a workspace, or is pinned to all workspaces.</p>
+<div class="refsect3">
+<a name="xfw-window-get-workspace.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-workspace.returns"></a><h4>Returns</h4>
+<p>A <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> instance, with a
+reference owned by <em class="parameter"><code>window</code></em>
+, or <code class="literal">NULL</code>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-monitors"></a><h3>xfw_window_get_monitors ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_window_get_monitors (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches the list of monitors <em class="parameter"><code>window</code></em>
+ is displayed on, if any.</p>
+<div class="refsect3">
+<a name="xfw-window-get-monitors.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-monitors.returns"></a><h4>Returns</h4>
+<p>A list
+of <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> instances, or <code class="literal">NULL</code>.  The list and its contents are owned by
+<em class="parameter"><code>window</code></em>
+and should not be modified or freed. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwMonitor][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-get-application"></a><h3>xfw_window_get_application ()</h3>
+<pre class="programlisting"><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="returnvalue">XfwApplication</span></a> *
+xfw_window_get_application (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>window</code></em>
+'s application.</p>
+<div class="refsect3">
+<a name="xfw-window-get-application.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-get-application.returns"></a><h4>Returns</h4>
+<p>An <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> instance, with a
+reference owned by <em class="parameter"><code>window</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-activate"></a><h3>xfw_window_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_activate (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                     <em class="parameter"><code><a class="link" href="XfwSeat.html" title="XfwSeat"><span class="type">XfwSeat</span></a> *seat</code></em>,
+                     <em class="parameter"><code><span class="type">guint64</span> event_timestamp</code></em>,
+                     <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-close"></a><h3>xfw_window_close ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_close (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                  <em class="parameter"><code><span class="type">guint64</span> event_timestamp</code></em>,
+                  <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-start-move"></a><h3>xfw_window_start_move ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_start_move (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-start-resize"></a><h3>xfw_window_start_resize ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_start_resize (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-geometry"></a><h3>xfw_window_set_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_geometry (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                         <em class="parameter"><code>const <span class="type">GdkRectangle</span> *rect</code></em>,
+                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-button-geometry"></a><h3>xfw_window_set_button_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_button_geometry (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                                <em class="parameter"><code><span class="type">GdkWindow</span> *relative_to</code></em>,
+                                <em class="parameter"><code>const <span class="type">GdkRectangle</span> *rect</code></em>,
+                                <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-move-to-workspace"></a><h3>xfw_window_move_to_workspace ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_move_to_workspace (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                              <em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>,
+                              <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-minimized"></a><h3>xfw_window_set_minimized ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_minimized (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                          <em class="parameter"><code><span class="type">gboolean</span> is_minimized</code></em>,
+                          <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-maximized"></a><h3>xfw_window_set_maximized ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_maximized (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                          <em class="parameter"><code><span class="type">gboolean</span> is_maximized</code></em>,
+                          <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-fullscreen"></a><h3>xfw_window_set_fullscreen ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_fullscreen (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> is_fullscreen</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-skip-pager"></a><h3>xfw_window_set_skip_pager ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_skip_pager (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> is_skip_pager</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-skip-tasklist"></a><h3>xfw_window_set_skip_tasklist ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_skip_tasklist (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                              <em class="parameter"><code><span class="type">gboolean</span> is_skip_tasklist</code></em>,
+                              <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-pinned"></a><h3>xfw_window_set_pinned ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_pinned (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                       <em class="parameter"><code><span class="type">gboolean</span> is_pinned</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-shaded"></a><h3>xfw_window_set_shaded ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_shaded (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                       <em class="parameter"><code><span class="type">gboolean</span> is_shaded</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-above"></a><h3>xfw_window_set_above ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_above (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> is_above</code></em>,
+                      <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-set-below"></a><h3>xfw_window_set_below ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_set_below (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> is_below</code></em>,
+                      <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-active"></a><h3>xfw_window_is_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_active (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-minimized"></a><h3>xfw_window_is_minimized ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_minimized (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-maximized"></a><h3>xfw_window_is_maximized ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_maximized (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-fullscreen"></a><h3>xfw_window_is_fullscreen ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_fullscreen (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-skip-pager"></a><h3>xfw_window_is_skip_pager ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_skip_pager (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-skip-tasklist"></a><h3>xfw_window_is_skip_tasklist ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_skip_tasklist (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-pinned"></a><h3>xfw_window_is_pinned ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_pinned (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-shaded"></a><h3>xfw_window_is_shaded ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_shaded (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-above"></a><h3>xfw_window_is_above ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_above (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-below"></a><h3>xfw_window_is_below ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_below (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-urgent"></a><h3>xfw_window_is_urgent ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_urgent (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-on-workspace"></a><h3>xfw_window_is_on_workspace ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_on_workspace (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                            <em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-window-is-in-viewport"></a><h3>xfw_window_is_in_viewport ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_window_is_in_viewport (<em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>,
+                           <em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfwWindow-struct"></a><h3>XfwWindow</h3>
+<pre class="programlisting">typedef struct _XfwWindow XfwWindow;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowCapabilities"></a><h3>enum XfwWindowCapabilities</h3>
+<p>Flags bitfield that describes actions that can be taken on the window.</p>
+<div class="refsect3">
+<a name="XfwWindowCapabilities.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-NONE:CAPS"></a>XFW_WINDOW_CAPABILITIES_NONE</p></td>
+<td class="enum_member_description">
+<p>window has no capabilities.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-MINIMIZE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_MINIMIZE</p></td>
+<td class="enum_member_description">
+<p>window can be minimized/hidden.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-UNMINIMIZE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_UNMINIMIZE</p></td>
+<td class="enum_member_description">
+<p>window can be unminimized/unhidden.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-MAXIMIZE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_MAXIMIZE</p></td>
+<td class="enum_member_description">
+<p>window can be maximized.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-UNMAXIMIZE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_UNMAXIMIZE</p></td>
+<td class="enum_member_description">
+<p>window can be unmaximized/restored.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-FULLSCREEN:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_FULLSCREEN</p></td>
+<td class="enum_member_description">
+<p>window can be set fullscreen.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-UNFULLSCREEN:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_UNFULLSCREEN</p></td>
+<td class="enum_member_description">
+<p>window can be unset fullscreen.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-SHADE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_SHADE</p></td>
+<td class="enum_member_description">
+<p>window can be shaded.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-UNSHADE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_UNSHADE</p></td>
+<td class="enum_member_description">
+<p>window can be unshaded.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-MOVE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_MOVE</p></td>
+<td class="enum_member_description">
+<p>window can be moved.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-RESIZE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_RESIZE</p></td>
+<td class="enum_member_description">
+<p>window can be resized.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-PLACE-ABOVE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_PLACE_ABOVE</p></td>
+<td class="enum_member_description">
+<p>window can be placed above others.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-UNPLACE-ABOVE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_UNPLACE_ABOVE</p></td>
+<td class="enum_member_description">
+<p>always above window can be
+returned to the normal stacking
+order.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-PLACE-BELOW:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_PLACE_BELOW</p></td>
+<td class="enum_member_description">
+<p>window can be placed below others.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-UNPLACE-BELOW:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_UNPLACE_BELOW</p></td>
+<td class="enum_member_description">
+<p>always below window can be
+returned to the normal stacking
+order.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-CAPABILITIES-CAN-CHANGE-WORKSPACE:CAPS"></a>XFW_WINDOW_CAPABILITIES_CAN_CHANGE_WORKSPACE</p></td>
+<td class="enum_member_description">
+<p>window can be moved to a
+different workspace or can be
+pinned and unpinned.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowState"></a><h3>enum XfwWindowState</h3>
+<p>A flags bitfield representing various states the window can hold.</p>
+<div class="refsect3">
+<a name="XfwWindowState.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-NONE:CAPS"></a>XFW_WINDOW_STATE_NONE</p></td>
+<td class="enum_member_description">
+<p>window has no state bits set.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-ACTIVE:CAPS"></a>XFW_WINDOW_STATE_ACTIVE</p></td>
+<td class="enum_member_description">
+<p>window is active (and often has the keyboard
+focus).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-MINIMIZED:CAPS"></a>XFW_WINDOW_STATE_MINIMIZED</p></td>
+<td class="enum_member_description">
+<p>window is minimized/hidden.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-MAXIMIZED:CAPS"></a>XFW_WINDOW_STATE_MAXIMIZED</p></td>
+<td class="enum_member_description">
+<p>window is maximized.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-FULLSCREEN:CAPS"></a>XFW_WINDOW_STATE_FULLSCREEN</p></td>
+<td class="enum_member_description">
+<p>window is filling the entire screen.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-SKIP-PAGER:CAPS"></a>XFW_WINDOW_STATE_SKIP_PAGER</p></td>
+<td class="enum_member_description">
+<p>window should not be shown in pagers.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-SKIP-TASKLIST:CAPS"></a>XFW_WINDOW_STATE_SKIP_TASKLIST</p></td>
+<td class="enum_member_description">
+<p>window should not be shown in task lists.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-PINNED:CAPS"></a>XFW_WINDOW_STATE_PINNED</p></td>
+<td class="enum_member_description">
+<p>window is shown on al workspaces.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-SHADED:CAPS"></a>XFW_WINDOW_STATE_SHADED</p></td>
+<td class="enum_member_description">
+<p>window is hidden, except for its title bar.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-ABOVE:CAPS"></a>XFW_WINDOW_STATE_ABOVE</p></td>
+<td class="enum_member_description">
+<p>window is always shown above other windows.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-BELOW:CAPS"></a>XFW_WINDOW_STATE_BELOW</p></td>
+<td class="enum_member_description">
+<p>window is always shown below other windows.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-STATE-URGENT:CAPS"></a>XFW_WINDOW_STATE_URGENT</p></td>
+<td class="enum_member_description">
+<p>window is attempting to get the user's attention.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowType"></a><h3>enum XfwWindowType</h3>
+<p>Enumeration describing the windows type or function.</p>
+<div class="refsect3">
+<a name="XfwWindowType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-NORMAL:CAPS"></a>XFW_WINDOW_TYPE_NORMAL</p></td>
+<td class="enum_member_description">
+<p>window is a regular window.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-DESKTOP:CAPS"></a>XFW_WINDOW_TYPE_DESKTOP</p></td>
+<td class="enum_member_description">
+<p>window is responsible for drawing the desktop.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-DOCK:CAPS"></a>XFW_WINDOW_TYPE_DOCK</p></td>
+<td class="enum_member_description">
+<p>window is a dock or panel.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-DIALOG:CAPS"></a>XFW_WINDOW_TYPE_DIALOG</p></td>
+<td class="enum_member_description">
+<p>window is a temporary dialog, like an error alert.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-TOOLBAR:CAPS"></a>XFW_WINDOW_TYPE_TOOLBAR</p></td>
+<td class="enum_member_description">
+<p>window is a detached toolbar.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-MENU:CAPS"></a>XFW_WINDOW_TYPE_MENU</p></td>
+<td class="enum_member_description">
+<p>window is a popup menu.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-UTILITY:CAPS"></a>XFW_WINDOW_TYPE_UTILITY</p></td>
+<td class="enum_member_description">
+<p>window is a utility menu, like a tool picker or
+color palette.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WINDOW-TYPE-SPLASHSCREEN:CAPS"></a>XFW_WINDOW_TYPE_SPLASHSCREEN</p></td>
+<td class="enum_member_description">
+<p>window is an application splash screen.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfwWindow--application"></a><h3>The <code class="literal">“application”</code> property</h3>
+<pre class="programlisting">  “application”              <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *</pre>
+<p>The <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> that owns this window.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--capabilities"></a><h3>The <code class="literal">“capabilities”</code> property</h3>
+<pre class="programlisting">  “capabilities”             <a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="type">XfwWindowCapabilities</span></a></pre>
+<p>The window's capabilities bitfield.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--class-ids"></a><h3>The <code class="literal">“class-ids”</code> property</h3>
+<pre class="programlisting">  “class-ids”                <span class="type">GStrv</span></pre>
+<p>The window's class ids.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--gicon"></a><h3>The <code class="literal">“gicon”</code> property</h3>
+<pre class="programlisting">  “gicon”                    <span class="type">GIcon</span> *</pre>
+<p>The <span class="type">GIcon</span> that represents this window.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--monitors"></a><h3>The <code class="literal">“monitors”</code> property</h3>
+<pre class="programlisting">  “monitors”                 <span class="type">gpointer</span></pre>
+<p>The list of <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>s (if any) that the window is displayed on.</p>
+<p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GList(XfwMonitor)]</span></p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--name"></a><h3>The <code class="literal">“name”</code> property</h3>
+<pre class="programlisting">  “name”                     <span class="type">char</span> *</pre>
+<p>The window's name or title.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--screen"></a><h3>The <code class="literal">“screen”</code> property</h3>
+<pre class="programlisting">  “screen”                   <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> *</pre>
+<p>The <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a> instances that owns this window.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--state"></a><h3>The <code class="literal">“state”</code> property</h3>
+<pre class="programlisting">  “state”                    <a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="type">XfwWindowState</span></a></pre>
+<p>The window's state bitfield.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--type"></a><h3>The <code class="literal">“type”</code> property</h3>
+<pre class="programlisting">  “type”                     <a class="link" href="XfwWindow.html#XfwWindowType" title="enum XfwWindowType"><span class="type">XfwWindowType</span></a></pre>
+<p>The window's type or function.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+<p>Default value: XFW_WINDOW_TYPE_NORMAL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow--workspace"></a><h3>The <code class="literal">“workspace”</code> property</h3>
+<pre class="programlisting">  “workspace”                <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *</pre>
+<p>workspace.</p>
+<p>Owner: XfwWindow</p>
+<p>Flags: Read</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWindow.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="XfwWindow-capabilities-changed"></a><h3>The <code class="literal">“capabilities-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>            *window,
+               <a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="type">XfwWindowCapabilities</span></a> changed_mask,
+               <a class="link" href="XfwWindow.html#XfwWindowCapabilities" title="enum XfwWindowCapabilities"><span class="type">XfwWindowCapabilities</span></a> new_state,
+               <span class="type">gpointer</span>              user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+'s capabilities change.</p>
+<div class="refsect3">
+<a name="XfwWindow-capabilities-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>changed_mask</p></td>
+<td class="parameter_description"><p>bitfield representing which state bits have changed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>new_state</p></td>
+<td class="parameter_description"><p>the new state bitfield.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-class-changed"></a><h3>The <code class="literal">“class-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when at least one of the <em class="parameter"><code>window</code></em>
+'s class ids changes.</p>
+<div class="refsect3">
+<a name="XfwWindow-class-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-closed"></a><h3>The <code class="literal">“closed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+ is closed.</p>
+<div class="refsect3">
+<a name="XfwWindow-closed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-geometry-changed"></a><h3>The <code class="literal">“geometry-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+'s position or size changes.</p>
+<div class="refsect3">
+<a name="XfwWindow-geometry-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-icon-changed"></a><h3>The <code class="literal">“icon-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+'s icon changes.</p>
+<div class="refsect3">
+<a name="XfwWindow-icon-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-name-changed"></a><h3>The <code class="literal">“name-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+'s name/title changes.</p>
+<div class="refsect3">
+<a name="XfwWindow-name-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-state-changed"></a><h3>The <code class="literal">“state-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>     *window,
+               <a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="type">XfwWindowState</span></a> changed_mask,
+               <a class="link" href="XfwWindow.html#XfwWindowState" title="enum XfwWindowState"><span class="type">XfwWindowState</span></a> new_state,
+               <span class="type">gpointer</span>       user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+'s state changes.</p>
+<div class="refsect3">
+<a name="XfwWindow-state-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>changed_mask</p></td>
+<td class="parameter_description"><p>bitfield representing which state bits have changed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>new_state</p></td>
+<td class="parameter_description"><p>the new state bitfield.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-type-changed"></a><h3>The <code class="literal">“type-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a>    *window,
+               <a class="link" href="XfwWindow.html#XfwWindowType" title="enum XfwWindowType"><span class="type">XfwWindowType</span></a> old_type,
+               <span class="type">gpointer</span>      user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+'s type changes.</p>
+<div class="refsect3">
+<a name="XfwWindow-type-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>old_type</p></td>
+<td class="parameter_description"><p>the previous window type.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindow-workspace-changed"></a><h3>The <code class="literal">“workspace-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window,
+               <span class="type">gpointer</span>   user_data)</pre>
+<p>Emitted when <em class="parameter"><code>window</code></em>
+ is moved to a different worksapce.</p>
+<div class="refsect3">
+<a name="XfwWindow-workspace-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

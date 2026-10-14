@@ -1,0 +1,31 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/hfs",
+  "tag": "hfs-715.120.4",
+  "tag_object": {
+    "sha": "fa6f37df5ceb82c4149fa5caff89f75662457fc9",
+    "type": "tag",
+    "url": "https://api.github.com/repos/apple-oss-distributions/hfs/git/tags/fa6f37df5ceb82c4149fa5caff89f75662457fc9"
+  },
+  "archive_sha256": "6a464595d1777e63691301f1bd1e04df35c5e5c81fd54dce7205372fb3cecacd",
+  "imported_directories": [
+    "core",
+    "hfs_encodings"
+  ],
+  "license": "APSL-2.0; per-file notices retained",
+  "local_changes": [
+    "Guard the AppleKeyStore include, declarations and wrappers with CONFIG_PROTECT, which is disabled by the original macOS configuration. No substitute key services are provided.",
+    "Resolve bundle identifier/name/version build variables for the Linux kernel-extension build."
+  ],
+  "modification_notices": [
+    {
+      "file": "core/hfs_iokit.cpp",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    },
+    {
+      "file": "core/hfs_iokit.h",
+      "last_port_change": "2026-10-12",
+      "notice_added": "2026-10-13"
+    }
+  ]
+}

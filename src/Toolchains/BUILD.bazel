@@ -1,0 +1,3 @@
+package(default_visibility = ["//visibility:public"])
+filegroup(name = "libcxx_headers", srcs = glob(["libcxx/20.1.8/**"]))
+filegroup(name = "compiler_rt_builtins", srcs = glob(["compiler-rt/20.1.8/**"]))

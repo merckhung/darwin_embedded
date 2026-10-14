@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
+  <!--
+      org.a11y.atspi.TableCell:
+      @short_description: Interface implemented by accessible objects that
+      cells of a table.
+  -->
+  <interface name="org.a11y.atspi.TableCell">
+
+    <!--
+        Version: The version of this interface.
+
+        This property is incremented by one every time a new method, signal, or property
+        is added to this interface.
+    -->
+    <property name="version" type="u" access="read"/>
+
+    <!--
+        ColumnSpan: The number of columns occupied by this cell accessible.
+        This is meaningful only if the table cell has both STATE_VISIBLE
+        and STATE_SHOWING.
+    -->
+    <property access="read" name="ColumnSpan" type="i" />
+
+    <!--
+        Position: the tabular position of this cell.
+
+        Returns a struct with the cell's tabular row followed by the column.
+    -->
+    <property access="read" name="Position" type="(ii)">
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QPoint"/>
+    </property>
+
+    <!--
+        RowSpan: The number of rows occupied by this cell accessible.
+        This is meaningful only if the table cell has both STATE_VISIBLE
+        and STATE_SHOWING.
+    -->
+    <property access="read" name="RowSpan" type="i" />
+
+    <!--
+        Table: The object representing the containing table.
+
+        Returns a reference (bus name + object path) for the table.
+    -->
+    <property access="read" name="Table" type="(so)" >
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QSpiObjectReference"/>
+    </property>
+
+    <!--
+        GetRowColumnSpan:
+
+        @row: (out): the row index of the given cell.
+
+        @column: (out): the column index of the given cell.
+
+        @row_span: (out): the number of rows occupied by this cell.
+
+        @column_span: (out): the number of columns occupied by this cell.
+
+        Gets the row and column indexes and extents of this cell accessible.
+        The returned values are meaningful only if the table cell has both
+        STATE_VISIBLE and STATE_SHOWING.
+    -->
+    <method name="GetRowColumnSpan">
+      <arg direction="out" type="b" />
+      <arg direction="out" name="row" type="i" />
+      <arg direction="out" name="col" type="i" />
+      <arg direction="out" name="row_extents" type="i" />
+      <arg direction="out" name="col_extents" type="i" />
+    </method>
+
+    <!--
+        GetColumnHeaderCells:
+
+        Returns a list of the table cell's column header cells.
+    -->
+    <method name="GetColumnHeaderCells">
+      <arg direction="out" type="a(so)"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QSpiObjectReferenceArray"/>
+    </method>
+
+    <!--
+        GetRowHeaderCells:
+
+        Returns a list of the table cell's row header cells.
+    -->
+    <method name="GetRowHeaderCells">
+      <arg direction="out" type="a(so)"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QSpiObjectReferenceArray"/>
+    </method>
+  </interface>
+</node>

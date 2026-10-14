@@ -1,0 +1,1123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XfwWorkspace: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup">
+<link rel="next" href="XfwWindow.html" title="XfwWindow">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfwWorkspace.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfwWorkspace.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_prerequisites">  <span class="dim">|</span> 
+                  <a href="#XfwWorkspace.prerequisites" class="shortcut">Prerequisites</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#XfwWorkspace.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#XfwWorkspace.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfwWorkspaceGroup.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfwWindow.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfwWorkspace"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfwWorkspace.top_of_page"></a>XfwWorkspace</span></h2>
+<p>XfwWorkspace — A workspace that is part of a workspace group</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfwWorkspace.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-id" title="xfw_workspace_get_id ()">xfw_workspace_get_id</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-name" title="xfw_workspace_get_name ()">xfw_workspace_get_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="returnvalue">XfwWorkspaceCapabilities</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-capabilities" title="xfw_workspace_get_capabilities ()">xfw_workspace_get_capabilities</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="returnvalue">XfwWorkspaceState</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-state" title="xfw_workspace_get_state ()">xfw_workspace_get_state</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-number" title="xfw_workspace_get_number ()">xfw_workspace_get_number</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="returnvalue">XfwWorkspaceGroup</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-workspace-group" title="xfw_workspace_get_workspace_group ()">xfw_workspace_get_workspace_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-layout-row" title="xfw_workspace_get_layout_row ()">xfw_workspace_get_layout_row</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-layout-column" title="xfw_workspace_get_layout_column ()">xfw_workspace_get_layout_column</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="returnvalue">XfwWorkspace</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-neighbor" title="xfw_workspace_get_neighbor ()">xfw_workspace_get_neighbor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GdkRectangle</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-get-geometry" title="xfw_workspace_get_geometry ()">xfw_workspace_get_geometry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-activate" title="xfw_workspace_activate ()">xfw_workspace_activate</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-remove" title="xfw_workspace_remove ()">xfw_workspace_remove</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwWorkspace.html#xfw-workspace-assign-to-workspace-group" title="xfw_workspace_assign_to_workspace_group ()">xfw_workspace_assign_to_workspace_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type"><a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="type">XfwWorkspaceCapabilities</span></a></td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--capabilities" title="The “capabilities” property">capabilities</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GdkRectangle</span> *</td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--geometry" title="The “geometry” property">geometry</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--group" title="The “group” property">group</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--id" title="The “id” property">id</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--layout-column" title="The “layout-column” property">layout-column</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--layout-row" title="The “layout-row” property">layout-row</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--name" title="The “name” property">name</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">guint</span></td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--number" title="The “number” property">number</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="type">XfwWorkspaceState</span></a></td>
+<td class="property_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace--state" title="The “state” property">state</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace-capabilities-changed" title="The “capabilities-changed” signal">capabilities-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace-group-changed" title="The “group-changed” signal">group-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace-name-changed" title="The “name-changed” signal">name-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace-state-changed" title="The “state-changed” signal">state-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwWorkspace.html#XfwWorkspace-struct" title="XfwWorkspace">XfwWorkspace</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities">XfwWorkspaceCapabilities</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState">XfwWorkspaceState</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="XfwWorkspace.html#XfwWorkspaceIface" title="XfwWorkspaceIface">XfwWorkspaceIface</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html">GFlags</a>
+    <span class="lineart">├──</span> XfwWorkspaceCapabilities
+    <span class="lineart">╰──</span> XfwWorkspaceState
+    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
+    <span class="lineart">╰──</span> XfwWorkspace
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+XfwWorkspace requires
+ GObject.</p>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowing/libxfce4windowing.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.description"></a><h2>Description</h2>
+<p><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> represents a single workspace within a workspace group.  A
+workspace is usually a collection of windows that are shown together on the
+desktop when that workspace is the active workspace.</p>
+<p>An instance of <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> can be used to obtain information about the
+workspace, such as its name, position in the group, and capabilities.  The
+workspace can also be activated or removed.</p>
+<p>Note that <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> is actually an interface; when obtaining an
+instance, an instance of a windowing-environment-specific object that
+implements this interface will be returned.</p>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-workspace-get-id"></a><h3>xfw_workspace_get_id ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfw_workspace_get_id (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches this workspace's opaque ID.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-id.returns"></a><h4>Returns</h4>
+<p>A UTF-8 formatted string,
+owned by <em class="parameter"><code>workspace</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-name"></a><h3>xfw_workspace_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfw_workspace_get_name (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches this workspace's human-readable name.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-name.returns"></a><h4>Returns</h4>
+<p>A UTF-8 formatted string,
+owned by <em class="parameter"><code>workspace</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-capabilities"></a><h3>xfw_workspace_get_capabilities ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="returnvalue">XfwWorkspaceCapabilities</span></a>
+xfw_workspace_get_capabilities (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches this workspace's capabilities bitfield.</p>
+<p>The bitfield describes what operations are available on this workspace.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-capabilities.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-capabilities.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="type">XfwWorkspaceCapabilities</span></a> bitfield.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-state"></a><h3>xfw_workspace_get_state ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="returnvalue">XfwWorkspaceState</span></a>
+xfw_workspace_get_state (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches this workspace's state bitfield.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-state.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-state.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="type">XfwWorkspaceState</span></a> bitfield.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-number"></a><h3>xfw_workspace_get_number ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+xfw_workspace_get_number (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches the ordinal number of this workspace.</p>
+<p>The number can be used to order workspaces in a UI representation.</p>
+<p>On X11, this number should be stable across runs of your application.</p>
+<p>On Wayland, this number depends on the order in which the compositor
+advertises the workspaces.  This order may be stable, but may not be.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-number.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-number.returns"></a><h4>Returns</h4>
+<p> a non-negative, 0-indexed integer.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-workspace-group"></a><h3>xfw_workspace_get_workspace_group ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="returnvalue">XfwWorkspaceGroup</span></a> *
+xfw_workspace_get_workspace_group (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches the group this workspace belongs to, if any.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-workspace-group.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-workspace-group.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a>
+instance, owned by <em class="parameter"><code>workspace</code></em>
+, or <code class="literal">NULL</code> if the workspace is not a member of
+any groups. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-layout-row"></a><h3>xfw_workspace_get_layout_row ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+xfw_workspace_get_layout_row (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches the row this workspace belongs to in the workspace's group.</p>
+<p>This information can be used to lay out workspaces in a grid in a pager
+UI, for example.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-layout-row.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-layout-row.returns"></a><h4>Returns</h4>
+<p> a non-negative, 0-indexed integer.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-layout-column"></a><h3>xfw_workspace_get_layout_column ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+xfw_workspace_get_layout_column (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches the column this workspace belongs to in the workspace's group.</p>
+<p>This information can be used to lay out workspaces in a grid in a pager
+UI, for example.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-layout-column.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-layout-column.returns"></a><h4>Returns</h4>
+<p> a non-negative, 0-indexed integer.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-neighbor"></a><h3>xfw_workspace_get_neighbor ()</h3>
+<pre class="programlisting"><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="returnvalue">XfwWorkspace</span></a> *
+xfw_workspace_get_neighbor (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>,
+                            <em class="parameter"><code><a class="link" href="libxfce4windowing-Utilities.html#XfwDirection" title="enum XfwDirection"><span class="type">XfwDirection</span></a> direction</code></em>);</pre>
+<p>Fetches the workspace that resides in <em class="parameter"><code>direction</code></em>
+ from the <em class="parameter"><code>workspace</code></em>
+, if
+any.  If workspace is on the edge of the layout, and <em class="parameter"><code>direction</code></em>
+ points off
+the edge of the layout, will return <code class="literal">NULL</code>.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-neighbor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>direction</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4windowing-Utilities.html#XfwDirection" title="enum XfwDirection"><span class="type">XfwDirection</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-neighbor.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>, owned by
+the parent <em class="parameter"><code>group</code></em>
+, or <code class="literal">NULL</code> if no workspace exists in <em class="parameter"><code>direction</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-get-geometry"></a><h3>xfw_workspace_get_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkRectangle</span> *
+xfw_workspace_get_geometry (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>);</pre>
+<p>Fetches the position and size of the workspace in screen coordinates.</p>
+<p>The values in the returned <span class="type">GdkRectangle</span> are owned by <em class="parameter"><code>workspace</code></em>
+ and should
+not be modified.</p>
+<div class="refsect3">
+<a name="xfw-workspace-get-geometry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-get-geometry.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GdkRectangle</span>, owned by
+<em class="parameter"><code>workspace</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-activate"></a><h3>xfw_workspace_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_workspace_activate (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Attempts to set <em class="parameter"><code>workspace</code></em>
+ as the active workspace in its group.</p>
+<p>On failure, <em class="parameter"><code>error</code></em>
+ (if provided) will be set to a description of the error
+that occurred.</p>
+<div class="refsect3">
+<a name="xfw-workspace-activate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a location to store a possible error. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where callee must allocate storage."><span class="acronym">out callee-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-activate.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if workspace activation succeeded, <code class="literal">FALSE</code> otherwise.  If
+<code class="literal">FALSE</code>, and <em class="parameter"><code>error</code></em>
+is non-<code class="literal">NULL</code>, an error will be returned that must be
+freed using <code class="function"><GTKDOCLINK HREF="g-error-free"><code class="function">g_error_free()</code></code></GTKDOCLINK>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-remove"></a><h3>xfw_workspace_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_workspace_remove (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>,
+                      <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Attempts to remove <em class="parameter"><code>workspace</code></em>
+ from its group.</p>
+<p>On failure, <em class="parameter"><code>error</code></em>
+ (if provided) will be set to a description of the error
+that occurred.</p>
+<div class="refsect3">
+<a name="xfw-workspace-remove.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a location to store a possible error. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where callee must allocate storage."><span class="acronym">out callee-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-remove.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if workspace removal succeeded, <code class="literal">FALSE</code> otherwise.  If
+<code class="literal">FALSE</code>, and <em class="parameter"><code>error</code></em>
+is non-<code class="literal">NULL</code>, an error will be returned that must be
+freed using <code class="function"><GTKDOCLINK HREF="g-error-free"><code class="function">g_error_free()</code></code></GTKDOCLINK>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-workspace-assign-to-workspace-group"></a><h3>xfw_workspace_assign_to_workspace_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_workspace_assign_to_workspace_group
+                               (<em class="parameter"><code><a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace</code></em>,
+                                <em class="parameter"><code><a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a> *group</code></em>,
+                                <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Attempts to assign <em class="parameter"><code>workspace</code></em>
+ to <em class="parameter"><code>group</code></em>
+.</p>
+<p>On failure, <em class="parameter"><code>error</code></em>
+ (if provided) will be set to a description of the error
+that occurred.</p>
+<div class="refsect3">
+<a name="xfw-workspace-assign-to-workspace-group.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>group</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a location to store a possible error. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where callee must allocate storage."><span class="acronym">out callee-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-workspace-assign-to-workspace-group.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if workspace assignment succeeded, <code class="literal">FALSE</code> otherwise.
+If <code class="literal">FALSE</code>, and <em class="parameter"><code>error</code></em>
+is non-<code class="literal">NULL</code>, an error will be returned that must be
+freed using <code class="function">g_error_free()</code>.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfwWorkspace-struct"></a><h3>XfwWorkspace</h3>
+<pre class="programlisting">typedef struct _XfwWorkspace XfwWorkspace;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspaceCapabilities"></a><h3>enum XfwWorkspaceCapabilities</h3>
+<p>Flags enum representing a bitfield of actions that can be performed on this
+workspace.</p>
+<div class="refsect3">
+<a name="XfwWorkspaceCapabilities.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-CAPABILITIES-NONE:CAPS"></a>XFW_WORKSPACE_CAPABILITIES_NONE</p></td>
+<td class="enum_member_description">
+<p>workspace has no capabilities.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-CAPABILITIES-ACTIVATE:CAPS"></a>XFW_WORKSPACE_CAPABILITIES_ACTIVATE</p></td>
+<td class="enum_member_description">
+<p>workspace can be activated.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-CAPABILITIES-DEACTIVATE:CAPS"></a>XFW_WORKSPACE_CAPABILITIES_DEACTIVATE</p></td>
+<td class="enum_member_description">
+<p>workspace can be deactivated.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-CAPABILITIES-REMOVE:CAPS"></a>XFW_WORKSPACE_CAPABILITIES_REMOVE</p></td>
+<td class="enum_member_description">
+<p>workspace can be removed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-CAPABILITIES-ASSIGN:CAPS"></a>XFW_WORKSPACE_CAPABILITIES_ASSIGN</p></td>
+<td class="enum_member_description">
+<p>workspace can be assigned to a group.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspaceState"></a><h3>enum XfwWorkspaceState</h3>
+<p>Flags enum representing a bitfield that describes the workspace's state.</p>
+<div class="refsect3">
+<a name="XfwWorkspaceState.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-STATE-NONE:CAPS"></a>XFW_WORKSPACE_STATE_NONE</p></td>
+<td class="enum_member_description">
+<p>workspace has no state information.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-STATE-ACTIVE:CAPS"></a>XFW_WORKSPACE_STATE_ACTIVE</p></td>
+<td class="enum_member_description">
+<p>workspace is the active workspace in its group.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-STATE-URGENT:CAPS"></a>XFW_WORKSPACE_STATE_URGENT</p></td>
+<td class="enum_member_description">
+<p>workspace contains a window that is requesting
+attention.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-STATE-HIDDEN:CAPS"></a>XFW_WORKSPACE_STATE_HIDDEN</p></td>
+<td class="enum_member_description">
+<p>workspace should be hidden from pagers or other
+UI elements.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-WORKSPACE-STATE-VIRTUAL:CAPS"></a>XFW_WORKSPACE_STATE_VIRTUAL</p></td>
+<td class="enum_member_description">
+<p>workspace has a valid, visible viewport.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspaceIface"></a><h3>XfwWorkspaceIface</h3>
+<pre class="programlisting">typedef struct _XfwWorkspaceInterface XfwWorkspaceIface;
+</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfwWorkspace--capabilities"></a><h3>The <code class="literal">“capabilities”</code> property</h3>
+<pre class="programlisting">  “capabilities”             <a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="type">XfwWorkspaceCapabilities</span></a></pre>
+<p>The <a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="type">XfwWorkspaceCapabilities</span></a> bitfield for this workspace.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read / Write / Construct</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--geometry"></a><h3>The <code class="literal">“geometry”</code> property</h3>
+<pre class="programlisting">  “geometry”                 <span class="type">GdkRectangle</span> *</pre>
+<p>The position and size of the workspace on the desktop, in screen
+coordinates.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read</p>
+<p class="since">Since: <a class="link" href="api-index-4-20-6.html#api-index-4.20.6">4.20.6</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--group"></a><h3>The <code class="literal">“group”</code> property</h3>
+<pre class="programlisting">  “group”                    <a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a> *</pre>
+<p>The <a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a> that this workspace is a member of, if any.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--id"></a><h3>The <code class="literal">“id”</code> property</h3>
+<pre class="programlisting">  “id”                       <span class="type">char</span> *</pre>
+<p>The opaque ID of this workspace.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--layout-column"></a><h3>The <code class="literal">“layout-column”</code> property</h3>
+<pre class="programlisting">  “layout-column”            <span class="type">int</span></pre>
+<p>The y-coordinate of the workspace on a 2D grid.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= -1</p>
+<p>Default value: -1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--layout-row"></a><h3>The <code class="literal">“layout-row”</code> property</h3>
+<pre class="programlisting">  “layout-row”               <span class="type">int</span></pre>
+<p>The x-coordinate of the workspace on a 2D grid.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= -1</p>
+<p>Default value: -1</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--name"></a><h3>The <code class="literal">“name”</code> property</h3>
+<pre class="programlisting">  “name”                     <span class="type">char</span> *</pre>
+<p>The human-readable name of this workspace.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--number"></a><h3>The <code class="literal">“number”</code> property</h3>
+<pre class="programlisting">  “number”                   <span class="type">guint</span></pre>
+<p>The ordinal number of this workspace.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace--state"></a><h3>The <code class="literal">“state”</code> property</h3>
+<pre class="programlisting">  “state”                    <a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="type">XfwWorkspaceState</span></a></pre>
+<p>The <a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="type">XfwWorkspaceState</span></a> bitfield for this workspace.</p>
+<p>Owner: XfwWorkspace</p>
+<p>Flags: Read / Write / Construct</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWorkspace.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="XfwWorkspace-capabilities-changed"></a><h3>The <code class="literal">“capabilities-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>            *workspace,
+               <a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="type">XfwWorkspaceCapabilities</span></a> changed_mask,
+               <a class="link" href="XfwWorkspace.html#XfwWorkspaceCapabilities" title="enum XfwWorkspaceCapabilities"><span class="type">XfwWorkspaceCapabilities</span></a> new_capabilities,
+               <span class="type">gpointer</span>                 user_data)</pre>
+<p>Emitted when <em class="parameter"><code>workspace</code></em>
+'s capabilities change.</p>
+<div class="refsect3">
+<a name="XfwWorkspace-capabilities-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>changed_mask</p></td>
+<td class="parameter_description"><p>a bitfield representing the capabilities that have changed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>new_capabilities</p></td>
+<td class="parameter_description"><p>a bitfield of the new capabilities.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace-group-changed"></a><h3>The <code class="literal">“group-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>      *workspace,
+               <a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a> *previous_group,
+               <span class="type">gpointer</span>           user_data)</pre>
+<p>Emitted when <em class="parameter"><code>workspace</code></em>
+ is assigned to an <a class="link" href="XfwWorkspaceGroup.html" title="XfwWorkspaceGroup"><span class="type">XfwWorkspaceGroup</span></a>.</p>
+<div class="refsect3">
+<a name="XfwWorkspace-group-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>previous_group</p></td>
+<td class="parameter_description"><p>the group <em class="parameter"><code>workspace</code></em>
+was previously in, or <code class="literal">NULL</code>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace-name-changed"></a><h3>The <code class="literal">“name-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a> *workspace,
+               <span class="type">gpointer</span>      user_data)</pre>
+<p>Emitted when <em class="parameter"><code>workspace</code></em>
+'s name changes.</p>
+<div class="refsect3">
+<a name="XfwWorkspace-name-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWorkspace-state-changed"></a><h3>The <code class="literal">“state-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwWorkspace.html" title="XfwWorkspace"><span class="type">XfwWorkspace</span></a>     *workspace,
+               <a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="type">XfwWorkspaceState</span></a> changed_mask,
+               <a class="link" href="XfwWorkspace.html#XfwWorkspaceState" title="enum XfwWorkspaceState"><span class="type">XfwWorkspaceState</span></a> new_state,
+               <span class="type">gpointer</span>          user_data)</pre>
+<p>Emitted when <em class="parameter"><code>workspace</code></em>
+'s state changes.</p>
+<div class="refsect3">
+<a name="XfwWorkspace-state-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>workspace</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>changed_mask</p></td>
+<td class="parameter_description"><p>a bitfield representing the state bits that have changed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>new_state</p></td>
+<td class="parameter_description"><p>a bitfield of the new state.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

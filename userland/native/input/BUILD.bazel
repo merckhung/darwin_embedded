@@ -1,0 +1,12 @@
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load(":ports.bzl", "input_port")
+package(default_visibility = ["//visibility:public"])
+
+genrule(
+    name = "decode_program", srcs = ["test_decode.c", "ps2_decode.h", "hid_decode.h", "NativeBootInput.h"],
+    outs = ["test-decode"], executable = True,
+    cmd = "TMPDIR=$$PWD/$(@D) gcc -pipe -std=c11 -O2 -Wall -Wextra -Werror $(location test_decode.c) -o $@",
+)
+sh_test(name = "decode_test", srcs = ["test_decode.sh"], data = [":decode_program"], size = "small")
+
+[input_port(arch) for arch in ["arm64", "x86_64"]]

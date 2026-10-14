@@ -1,0 +1,15 @@
+__tlv_atexit
+__tlv_bootstrap
+_dlclose
+_dlerror
+_dlopen
+_dlsym
+_exit
+_pthread_cond_broadcast
+_pthread_cond_wait
+_pthread_create
+_pthread_join
+_pthread_mutex_lock
+_pthread_mutex_unlock
+_sysctl
+_write

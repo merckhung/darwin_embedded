@@ -1,0 +1,5 @@
+The cygwin dbus port is included in dbus' main git repository since 1.3.1.
+
+The cygwin port of dbus is maintained by:
+
+http://sourceware.org/cygwinports/

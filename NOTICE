@@ -1,0 +1,16 @@
+Darwin Embedded
+Copyright 2026 Darwin Embedded contributors
+
+Original code contributed to this project is licensed under the BSD 2-Clause
+License, unless a file states another license or contains third-party code.
+The project license does not replace any upstream license or copyright notice.
+
+PureDarwin-original code retains its BSD 2-Clause terms and copyright notice
+in PUREDARWIN_LICENSE.txt. Imported and derived code retains its original terms.
+This includes the source imports under src/, native IOKit imports, EFI loader, firmware, imported host
+tools, and changes to those sources. The Darwin BusyBox applet ports in
+userland/apps/busybox/ps_darwin.c and df_darwin.c are GPL-2.0-only.
+
+THIRD_PARTY_NOTICES.md describes the principal components. Component-local
+license files, source headers, UPSTREAM.json records and copyright inventories
+remain authoritative. Retain these notices when redistributing the source.

@@ -1,0 +1,21 @@
+{
+  "project": "hicolor-icon-theme",
+  "version": "0.18",
+  "archive_url": "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz",
+  "archive_sha256": "db0e50a80aa3bf64bb45cbca5cf9f75efd9348cf2ac690b907435238c3cf81d7",
+  "publisher_digest_verified": false,
+  "publisher_signature_url": "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz.asc",
+  "local_changes": [],
+  "upstream_files_sha256": {
+    ".gitignore": "ade6415e45cf33f6ec45812a56ab4421edaf3497a71f2bf019613a6488e896ab",
+    ".gitlab-ci.yml": "d9fd5eaf43ab10b65b38ee48ad8b7f2c395dce0afafe2f25d50e39b069830304",
+    "COPYING": "b0a64377d4ee87b7dbcf418ce4fb33ec3b2d7081b6732890e4af06b8118c4526",
+    "NEWS": "f078eb6142b842b5f136b2aa054ff6f8d81631d478fb27f4780a68363a3fc71c",
+    "README.md": "44dc7263014c2a7ec8401c6818465c469c20f04c47cdc3415220b8ec6ad6ee94",
+    "index.theme": "a02db5e1b203d981701481bbef8b6fae1c576baf34927eecbc0feae0d2cb9bc5",
+    "meson.build": "42d9e6810d15cef16ea758bdd25b451e702d9c72d169523cc3b1c12087aba700",
+    "spec/icon-naming-spec.xml": "90f83ca3476344fb21c7038341af5e49c908b282d5185b5d3db55b22ee0edfd5",
+    "spec/icon-theme-spec.xml": "6bcd112cf29f24e9fe1eb554e8b8c9cc0d0eb048d05e3a09587af7f91146189a",
+    "validate.py": "944d9e1d60f6b4fb39d7c8a7525f8edfef3b65b4505620d428b0c9dcdf3b2d09"
+  }
+}

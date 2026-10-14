@@ -1,0 +1,35 @@
+{
+  "repository": "https://github.com/PureDarwin/kc-tools",
+  "branch": "xnu-12377",
+  "commit": "ae159a581b814b596546768f44360481e6f0b141",
+  "license": "BSD-3-Clause",
+  "upstream_files_sha256": {
+    ".gitignore": "4b1d70c276d09d8ab7ad921445cc9bc19be63850a4099201dd7dff2138d64b18",
+    "CMakeLists.txt": "a37f47f75e4867b5eb8db145e0569a8ea421c2a3b6e9afb38272bb9ee3e27b03",
+    "LICENSE": "f4bd21af51ef06b69b41396beebcc95a5fa888706ae2092d873ccc9b08a53467",
+    "README.md": "5ed3a444b489988e0d48e6b30df452b3342a6d4a4a2330ade75ca6dd05aec7fa",
+    "build-kc.sh": "4bb75c9d81eea79f27a9306a5cc963ee00fdee096021efda36b8d90f59a97efd",
+    "default.nix": "6f1ad2b3554d6035448f8021de4103a8fe2c3ebbd1539152d4af46ef4b537a85",
+    "flake.lock": "f5092ab88f342cf2ec319f00bc1f48f50d5af7a07314c383d3e190f8dd070132",
+    "flake.nix": "3366bf4463925681c107d53eea7fd5fcb64c7ea537d5ec1a3e86bae5f12ce2d0",
+    "include/linker.h": "3585c0ccc73c482782455f341af56191f7a1d21409b92c67282b4c46523a8efa",
+    "include/macho_fmt.h": "83d13bfc286fa5190fba4be38a74129aaabe631b9d5a3c923dfce8fd3d8c79dd",
+    "include/macho_view.h": "8ec7a58dbb8abb8cd87bc68020bf66ab4f5f93364403de12157da6dbcc548782",
+    "include/plist.h": "d1c67036696eaa7c889e7da2221542ed4754eeada96e2e109aa9757a3fd10b66",
+    "include/prelink.h": "650fb23af932e5f05c6eaaadb0ff034793613e20986709eb027cc6f5aed71271",
+    "lib/linker.c": "c91847b483b5058bf8f72a93bd6e101c8c175cf246d2a4c6a28b85f668f5990e",
+    "lib/macho_view.c": "2dafd1bdd08a43d06a3e4c1dc03097c9e32c7be7470de45c8a14c7f9410ab631",
+    "lib/plist.c": "a8cbb04c62b41455464f439af7d2aa57ae839b1a043d53569c927dd5df39e087",
+    "lib/prelink.c": "875da5937b57f14152076b41fbecb0d34026f9903a0016b3338072cdc44a3c31",
+    "src/fileset.c": "32ece466a38df53edec24ca2d0bbd7ae46cb9979bcdf2c9628198eb834ea524f",
+    "src/kc_builder.c": "c213ea68e40598ec3b1a9f06f516e789b103cd436638e1e47f01406526031095",
+    "src/prelink_builder.c": "63f00568d78a8598f89b322b906c32fcf6e5a908a708891a596a9c9df47418f0"
+  },
+  "local_changes": [
+    "Fail if a requested extension cannot be loaded or linked.",
+    "Reject unresolved relocation, dyld and chained-fixup imports instead of binding them to a panic trampoline.",
+    "Add a Linux host Bazel target.",
+    "Apply and validate classic x86_64 KEXT_BUNDLE pointer and PC-relative relocations instead of skipping them.",
+    "Preserve the child kernel DATA_CONST extent separately from the collection aggregate, and avoid mutating the input header."
+  ]
+}

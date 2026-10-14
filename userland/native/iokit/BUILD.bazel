@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "iokit_" + arch,
+        srcs = ["build_iokit.py", "//tools/mig:mig.sh", "//src/Kernel/xnu/12377.121.6:sources",
+                "//userland/native:sdk_" + arch, "//userland/native:mach.headers." + arch + ".tar"] +
+               glob(["upstream/**"]),
+        tools = ["//tools/mig:migcom"],
+        outs = ["libnative_iokit." + arch + ".a", "iokit.headers." + arch + ".tar", "iokit." + arch + ".json"],
+        cmd = "python3 userland/native/iokit/build_iokit.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --migcom $(location //tools/mig:migcom)" +
+              " --output $(location libnative_iokit." + arch + ".a)" +
+              " --headers $(location iokit.headers." + arch + ".tar)" +
+              " --report $(location iokit." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":iokit_arm64", ":iokit_x86_64"])

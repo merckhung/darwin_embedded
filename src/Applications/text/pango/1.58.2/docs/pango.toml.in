@@ -1,0 +1,112 @@
+[library]
+namespace = "Pango"
+version = "@PANGO_VERSION@"
+browse_url = "https://gitlab.gnome.org/GNOME/pango/"
+repository_url = "https://gitlab.gnome.org/GNOME/pango.git"
+docs_url = "https://docs.gtk.org/Pango"
+website_url = "https://www.pango.org"
+authors = "Owen Taylor, Behdad Esfahbod"
+logo_url = "pango-name.png"
+license = "LGPL-2.1-or-later"
+description = "Internationalized text layout and rendering"
+dependencies = [ "GObject-2.0", "HarfBuzz-0.0", "PangoCairo-1.0",
+                 "PangoFc-1.0", "PangoFT2-1.0", "PangoOT-1.0",
+                 "PangoXft-1.0" ]
+related = [ "PangoCairo-1.0", "PangoFc-1.0", "PangoFT2-1.0", "PangoOT-1.0",
+            "PangoXft-1.0" ]
+devhelp = true
+search_index = true
+
+  [dependencies."GObject-2.0"]
+  name = "GObject"
+  description = "The base type system library"
+  docs_url = "https://docs.gtk.org/gobject/"
+
+  [dependencies."HarfBuzz-0.0"]
+  name = "HarfBuzz"
+  description = "A text shaping library"
+  docs_url = "https://harfbuzz.github.io/"
+
+  [related."PangoCairo-1.0"]
+  name = "PangoCairo"
+  description = "Cairo support for Pango"
+  docs_url = "../PangoCairo/"
+
+  [related."PangoFc-1.0"]
+  name = "PangoFc"
+  description = "Fontconfig support for Pango"
+  docs_url = "../PangoFc/"
+
+  [related."PangoFT2-1.0"]
+  name = "PangoFT2"
+  description = "FreeType support for Pango"
+  docs_url = "../PangoFT2/"
+
+  [related."PangoOT-1.0"]
+  name = "PangoOT"
+  description = "OpenType support for Pango"
+  docs_url = "../PangoOT/"
+
+  [related."PangoXft-1.0"]
+  name = "PangoXft"
+  description = "Xft support for Pango"
+  docs_url = "../PangoXft/"
+
+[theme]
+name = "basic"
+show_index_summary = true
+
+[source-location]
+base_url = "https://gitlab.gnome.org/GNOME/pango/-/blob/main/"
+
+[extra]
+content_files = [
+  "pango_rendering.md",
+  "pango_markup.md",
+  "pango_fonts.md",
+  "pango_bidi.md",
+  "tools.md",
+]
+
+content_images = [
+  "pango-name.png",
+  "layout-light.png",
+  "layout-dark.png",
+  "pipeline-light.png",
+  "pipeline-dark.png",
+  "rects1.png",
+  "rects2.png",
+  "rects3.png",
+  "arabic-markup.png",
+  "blue-text.png",
+  "align-left.png",
+  "align-center.png",
+  "align-right.png",
+  "align-left-justify.png",
+  "align-center-justify.png",
+  "align-right-justify.png",
+  "vertical-light.png",
+  "vertical-dark.png",
+  "m-south.png",
+  "m-west.png",
+  "m-north.png",
+  "m-east.png",
+  "bidi-input-light.png",
+  "bidi-input-dark.png",
+  "bidi-annotate-light.png",
+  "bidi-annotate-dark.png",
+  "split-cursor-light.png",
+  "split-cursor-dark.png",
+  "fontmetrics-light.png",
+  "fontmetrics-dark.png",
+  "caret-metrics-light.png",
+  "caret-metrics-dark.png",
+  "cursor-positions-light.png",
+  "cursor-positions-dark.png",
+  "glyphstring-positions-light.png",
+  "glyphstring-positions-dark.png",
+  "baseline-shift-light.png",
+  "baseline-shift-dark.png",
+]
+
+urlmap_file = "urlmap.js"

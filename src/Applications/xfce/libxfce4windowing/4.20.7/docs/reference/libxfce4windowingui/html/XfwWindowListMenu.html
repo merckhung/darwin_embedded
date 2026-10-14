@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XfwWindowListMenu: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfwWindowActionMenu.html" title="XfwWindowActionMenu">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfwWindowListMenu.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfwWindowListMenu.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_interfaces">  <span class="dim">|</span> 
+                  <a href="#XfwWindowListMenu.implemented-interfaces" class="shortcut">Implemented Interfaces</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#XfwWindowListMenu.properties" class="shortcut">Properties</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfwWindowActionMenu.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfwWindowListMenu"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfwWindowListMenu.top_of_page"></a>XfwWindowListMenu</span></h2>
+<p>XfwWindowListMenu — a <span class="type">GtkMenu</span> subclass that lists all windows</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="function_type">
+<span class="returnvalue">GtkWidget</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwWindowListMenu.html#xfw-window-list-menu-new" title="xfw_window_list_menu_new ()">xfw_window_list_menu_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--minimized-icon-saturation" title="The “minimized-icon-saturation” property">minimized-icon-saturation</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a href="../html/XfwScreen.html#XfwScreen-struct"><span class="type">XfwScreen</span></a> *</td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--screen" title="The “screen” property">screen</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-all-workspaces" title="The “show-all-workspaces” property">show-all-workspaces</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-icons" title="The “show-icons” property">show-icons</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-sticky-windows-once" title="The “show-sticky-windows-once” property">show-sticky-windows-once</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-urgent-windows-section" title="The “show-urgent-windows-section” property">show-urgent-windows-section</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-workspace-actions" title="The “show-workspace-actions” property">show-workspace-actions</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-workspace-names" title="The “show-workspace-names” property">show-workspace-names</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--show-workspace-submenus" title="The “show-workspace-submenus” property">show-workspace-submenus</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">PangoEllipsizeMode</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--window-title-ellipsize-mode" title="The “window-title-ellipsize-mode” property">window-title-ellipsize-mode</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu--window-title-max-width-chars" title="The “window-title-max-width-chars” property">window-title-max-width-chars</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwWindowListMenu.html#XfwWindowListMenu-struct" title="XfwWindowListMenu">XfwWindowListMenu</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
+        <span class="lineart">╰──</span> GtkWidget
+            <span class="lineart">╰──</span> GtkContainer
+                <span class="lineart">╰──</span> GtkMenuShell
+                    <span class="lineart">╰──</span> GtkMenu
+                        <span class="lineart">╰──</span> XfwWindowListMenu
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+XfwWindowListMenu implements
+ AtkImplementorIface and  GtkBuildable.</p>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowingui/libxfce4windowingui.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.description"></a><h2>Description</h2>
+<p><a class="link" href="XfwWindowListMenu.html" title="XfwWindowListMenu"><span class="type">XfwWindowListMenu</span></a> is a <span class="type">GtkMenu</span> that lists all windows present on the
+desktop, categorized by workspace.  There are also various options that
+control presentation; see the properties available on the object.</p>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-window-list-menu-new"></a><h3>xfw_window_list_menu_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *
+xfw_window_list_menu_new (<em class="parameter"><code><a href="../html/XfwScreen.html#XfwScreen-struct"><span class="type">XfwScreen</span></a> *screen</code></em>);</pre>
+<p>Creates a new <a class="link" href="XfwWindowListMenu.html" title="XfwWindowListMenu"><span class="type">XfwWindowListMenu</span></a>, populating it from <em class="parameter"><code>screen</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-window-list-menu-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>screen</p></td>
+<td class="parameter_description"><p>an <a href="../html/XfwScreen.html#XfwScreen-struct"><span class="type">XfwScreen</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-window-list-menu-new.returns"></a><h4>Returns</h4>
+<p>A <span class="type">GtkMenu</span> subclass as a
+<span class="type">GtkWidget</span>, with a floating reference. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="Alias for transfer none, used for objects with floating refs."><span class="acronym">transfer floating</span></acronym>]</span></p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfwWindowListMenu-struct"></a><h3>XfwWindowListMenu</h3>
+<pre class="programlisting">typedef struct _XfwWindowListMenu XfwWindowListMenu;</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwWindowListMenu.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfwWindowListMenu--minimized-icon-saturation"></a><h3>The <code class="literal">“minimized-icon-saturation”</code> property</h3>
+<pre class="programlisting">  “minimized-icon-saturation” <span class="type">int</span></pre>
+<p>The saturation of icons for minimized windows.  The value should be
+between 0 and 100.  Lower values will make the icon look more like a
+greyscale image.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: [0,100]</p>
+<p>Default value: 50</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--screen"></a><h3>The <code class="literal">“screen”</code> property</h3>
+<pre class="programlisting">  “screen”                   <a href="../html/XfwScreen.html#XfwScreen-struct"><span class="type">XfwScreen</span></a> *</pre>
+<p>The <a href="../html/XfwScreen.html#XfwScreen-struct"><span class="type">XfwScreen</span></a> to use when populating the menu.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-all-workspaces"></a><h3>The <code class="literal">“show-all-workspaces”</code> property</h3>
+<pre class="programlisting">  “show-all-workspaces”      <span class="type">gboolean</span></pre>
+<p>Whether or not to show all workspaces in the list, or just the current
+workspace.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-icons"></a><h3>The <code class="literal">“show-icons”</code> property</h3>
+<pre class="programlisting">  “show-icons”               <span class="type">gboolean</span></pre>
+<p>Whether or not to show icons in the menu.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-sticky-windows-once"></a><h3>The <code class="literal">“show-sticky-windows-once”</code> property</h3>
+<pre class="programlisting">  “show-sticky-windows-once” <span class="type">gboolean</span></pre>
+<p>Whether or not sticky/pinned windows should be shown once (on the active
+workspace), or in each workspace list.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-urgent-windows-section"></a><h3>The <code class="literal">“show-urgent-windows-section”</code> property</h3>
+<pre class="programlisting">  “show-urgent-windows-section” <span class="type">gboolean</span></pre>
+<p>Whether or not to show an extra section that lists urgent windows on
+other workspaces.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-workspace-actions"></a><h3>The <code class="literal">“show-workspace-actions”</code> property</h3>
+<pre class="programlisting">  “show-workspace-actions”   <span class="type">gboolean</span></pre>
+<p>Whether or not to show a section in the menu with items to add and
+remove workspaces.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-workspace-names"></a><h3>The <code class="literal">“show-workspace-names”</code> property</h3>
+<pre class="programlisting">  “show-workspace-names”     <span class="type">gboolean</span></pre>
+<p>Whether or not to show a heading with the workspace name before the list
+of windows on that workspace.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--show-workspace-submenus"></a><h3>The <code class="literal">“show-workspace-submenus”</code> property</h3>
+<pre class="programlisting">  “show-workspace-submenus”  <span class="type">gboolean</span></pre>
+<p>Whether or not the lists of windows should be in submenus for each
+workspace.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--window-title-ellipsize-mode"></a><h3>The <code class="literal">“window-title-ellipsize-mode”</code> property</h3>
+<pre class="programlisting">  “window-title-ellipsize-mode” <span class="type">PangoEllipsizeMode</span></pre>
+<p>The <span class="type">PangoEllipsizeMode</span> to use when ellipsizing window titles.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Default value: PANGO_ELLIPSIZE_MIDDLE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwWindowListMenu--window-title-max-width-chars"></a><h3>The <code class="literal">“window-title-max-width-chars”</code> property</h3>
+<pre class="programlisting">  “window-title-max-width-chars” <span class="type">int</span></pre>
+<p>The maximum width (in characters) of window titles to display before
+ellipsizing.</p>
+<p>Owner: XfwWindowListMenu</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= -1</p>
+<p>Default value: 24</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

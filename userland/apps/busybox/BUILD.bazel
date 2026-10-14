@@ -1,0 +1,10 @@
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(name = "objects_" + arch,
+        srcs = ["build_busybox.py", "darwin.config", "ps_darwin.c", "df_darwin.c", "//src/Applications/busybox:sources", "//userland/native:sdk_" + arch, "//scripts:native_components.py"],
+        outs = ["libbusybox." + arch + ".a", "busybox." + arch + ".imports", "busybox." + arch + ".json"],
+        cmd = "python3 $(location build_busybox.py) --root $$PWD --arch " + arch + " --config $(location darwin.config) --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libbusybox." + arch + ".a) --imports $(location busybox." + arch + ".imports) --report $(location busybox." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "objects", srcs = [":objects_arm64", ":objects_x86_64"])

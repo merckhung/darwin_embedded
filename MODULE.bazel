@@ -1,0 +1,15 @@
+module(
+    name = "darwin_embedded_system",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "rules_cc", version = "0.2.17")
+bazel_dep(name = "rules_shell", version = "0.6.1")
+
+http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+http_file(
+    name = "ovmf_package",
+    urls = ["https://archive.ubuntu.com/ubuntu/pool/main/e/edk2/ovmf_2025.02-8ubuntu3.2_all.deb"],
+    sha256 = "1048b1c49254ea710224ecf22953c59df8c0c3e8ea26943d8e20f933ea24ccd6",
+    downloaded_file_path = "ovmf.deb",
+)

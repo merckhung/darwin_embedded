@@ -1,0 +1,37 @@
+<INCLUDE>libxfce4windowingui/libxfce4windowingui.h</INCLUDE>
+
+<SECTION>
+<FILE>libxfce4windowingui</FILE>
+</SECTION>
+
+<SECTION>
+<FILE>libxfce4windowingui-config</FILE>
+LIBXFCE4WINDOWINGUI_MAJOR_VERSION
+LIBXFCE4WINDOWINGUI_MINOR_VERSION
+LIBXFCE4WINDOWINGUI_MICRO_VERSION
+LIBXFCE4WINDOWINGUI_CHECK_VERSION
+libxfce4windowingui_major_version
+libxfce4windowingui_micro_version
+libxfce4windowingui_minor_version
+libxfce4windowingui_check_version
+</SECTION>
+
+<SECTION>
+<FILE>xfw-window-action-menu</FILE>
+<TITLE>XfwWindowActionMenu</TITLE>
+XfwWindowActionMenu
+xfw_window_action_menu_new
+<SUBSECTION Standard>
+XFW_TYPE_WINDOW_ACTION_MENU
+XfwWindowActionMenuPrivate
+</SECTION>
+
+<SECTION>
+<FILE>xfw-window-list-menu</FILE>
+<TITLE>XfwWindowListMenu</TITLE>
+XfwWindowListMenu
+xfw_window_list_menu_new
+<SUBSECTION Standard>
+XFW_TYPE_WINDOW_LIST_MENU
+XfwWindowListMenuPrivate
+</SECTION>

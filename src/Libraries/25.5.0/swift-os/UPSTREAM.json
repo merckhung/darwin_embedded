@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/swiftlang/swift",
+  "commit": "6568feb9215fb94edeaa40215d6bc0c56b48f360",
+  "scope": "Selected original Swift OS overlay source and license; SDK extracts the published os_log_pack_s ABI declaration only. No Swift runtime is built.",
+  "files": {
+    "os.m": {
+      "upstream_path": "stdlib/public/SDK/os/os.m",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift/6568feb9215fb94edeaa40215d6bc0c56b48f360/stdlib/public/SDK/os/os.m",
+      "sha256": "656c716017234c813723668fdd2d70d525befe13a04c6438a3591bd5d49a9a3a"
+    },
+    "LICENSE.txt": {
+      "upstream_path": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift/6568feb9215fb94edeaa40215d6bc0c56b48f360/LICENSE.txt",
+      "sha256": "770af8291f708538d8ff885a0bbc4e045cd700531741c4f99528d435c14d7f55"
+    }
+  }
+}

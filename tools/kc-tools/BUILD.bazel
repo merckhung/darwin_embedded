@@ -1,0 +1,9 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "kc-builder",
+    srcs = ["src/kc_builder.c", "src/fileset.c"] + glob(["lib/*.c", "include/*.h"]),
+    includes = ["include"],
+    copts = ["-std=gnu11", "-Wno-unused-function", "-Wno-unused-variable"],
+    visibility = ["//visibility:public"],
+)

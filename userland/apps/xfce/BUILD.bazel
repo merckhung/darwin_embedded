@@ -1,0 +1,596 @@
+load("//userland/native/system:defs.bzl", "native_system")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(name = "terminal_dependencies_" + arch,
+        srcs = ["build_terminal_dependencies.py", "build_base.py", "//userland/apps/cxx:build_libraries.py", "//src/Applications/xfce-prerequisites:terminal_dependencies",
+                ":xfce-desktop." + arch + ".tar", "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["terminal-dependencies." + arch + ".tar", "terminal-dependencies." + arch + ".imports", "terminal-dependencies." + arch + ".json"],
+        cmd = "python3 $(location build_terminal_dependencies.py) --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-desktop." + arch + ".tar)" +
+              " --output $(location terminal-dependencies." + arch + ".tar) --imports $(location terminal-dependencies." + arch + ".imports) --report $(location terminal-dependencies." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "terminal_dependencies", srcs = [":terminal_dependencies_arm64", ":terminal_dependencies_x86_64"])
+[
+    genrule(name = "vte_" + arch,
+        srcs = ["build_vte.py", "build_base.py", "//userland/apps/cxx:build_libraries.py", "//src/Applications/xfce-prerequisites:vte", "//src/Applications/xfce-prerequisites:vte-0.84.1.tar.xz",
+                ":terminal-dependencies." + arch + ".tar", "//userland/apps/cxx:cxx." + arch + ".tar", "//userland/native:sdk_" + arch,
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["vte." + arch + ".tar", "vte." + arch + ".imports", "vte." + arch + ".json"],
+        cmd = "python3 $(location build_vte.py) --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location terminal-dependencies." + arch + ".tar)" +
+              " --source-archive $(location //src/Applications/xfce-prerequisites:vte-0.84.1.tar.xz) --cxx $(location //userland/apps/cxx:cxx." + arch + ".tar) --output $(location vte." + arch + ".tar) --imports $(location vte." + arch + ".imports) --report $(location vte." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "vte", srcs = [":vte_arm64", ":vte_x86_64"])
+[
+    genrule(name = "settings_" + arch,
+        srcs = ["build_settings.py", "build_base.py", "build_desktop.py", "//src/Applications/xfce:settings_sources", ":xfce-desktop." + arch + ".tar",
+                "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-settings." + arch + ".tar", "xfce-settings." + arch + ".imports", "xfce-settings." + arch + ".json"],
+        cmd = "python3 $(location build_settings.py) --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-desktop." + arch + ".tar)" +
+              " --output $(location xfce-settings." + arch + ".tar) --imports $(location xfce-settings." + arch + ".imports) --report $(location xfce-settings." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "settings", srcs = [":settings_arm64", ":settings_x86_64"])
+[
+    genrule(name = "terminal_" + arch,
+        srcs = ["build_terminal.py", "build_base.py", "//src/Applications/xfce:terminal_sources", ":vte." + arch + ".tar",
+                "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-terminal." + arch + ".tar", "xfce-terminal." + arch + ".imports", "xfce-terminal." + arch + ".json"],
+        cmd = "python3 $(location build_terminal.py) --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location vte." + arch + ".tar)" +
+              " --output $(location xfce-terminal." + arch + ".tar) --imports $(location xfce-terminal." + arch + ".imports) --report $(location xfce-terminal." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "terminal", srcs = [":terminal_arm64", ":terminal_x86_64"])
+sh_test(name = "terminal_build_artifact_test", size = "small", srcs = ["check_terminal_build.sh"],
+    data = ["check_terminal_build.py", "check_wm.py", ":terminal_dependencies", ":vte", ":settings", ":terminal",
+            "//src/Applications/xfce:settings_sources", "//src/Applications/xfce:terminal_sources", "//src/Applications/xfce-prerequisites:terminal_dependencies", "//src/Applications/xfce-prerequisites:vte",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py"])
+[
+    genrule(name = "terminal_stage_" + arch,
+        srcs = ["prepare_terminal.py", "build_base.py", "//userland/apps/cxx:build_libraries.py", ":xfce-terminal." + arch + ".tar", ":xfce-terminal." + arch + ".json",
+                ":xfce-settings." + arch + ".tar", ":xfce-settings." + arch + ".json", ":vte." + arch + ".tar", ":vte." + arch + ".json",
+                ":terminal-dependencies." + arch + ".tar", ":terminal-dependencies." + arch + ".json", "//userland/apps/cxx:cxx." + arch + ".tar", "//userland/apps/cxx:cxx." + arch + ".json",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-terminal-stage." + arch + ".tar", "xfce-terminal-stage." + arch + ".imports", "xfce-terminal-stage." + arch + ".json"],
+        cmd = "python3 $(location prepare_terminal.py) --arch " + arch +
+              " --terminal $(location xfce-terminal." + arch + ".tar) --terminal-report $(location xfce-terminal." + arch + ".json)" +
+              " --settings $(location xfce-settings." + arch + ".tar) --settings-report $(location xfce-settings." + arch + ".json)" +
+              " --vte $(location vte." + arch + ".tar) --vte-report $(location vte." + arch + ".json)" +
+              " --dependencies $(location terminal-dependencies." + arch + ".tar) --dependencies-report $(location terminal-dependencies." + arch + ".json)" +
+              " --cxx $(location //userland/apps/cxx:cxx." + arch + ".tar) --cxx-report $(location //userland/apps/cxx:cxx." + arch + ".json)" +
+              " --output $(location xfce-terminal-stage." + arch + ".tar) --imports $(location xfce-terminal-stage." + arch + ".imports) --report $(location xfce-terminal-stage." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "terminal_probe_" + arch,
+        srcs = ["build_terminal_probe.py", "test_terminal.c", "build_base.py", ":xfce-terminal-stage." + arch + ".tar", "//userland/native:sdk_" + arch,
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["terminal-probe." + arch + ".o", "terminal-probe." + arch + ".imports", "terminal-probe." + arch + ".json"],
+        cmd = "python3 $(location build_terminal_probe.py) --arch " + arch + " --source $(location test_terminal.c) --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --headers $(location xfce-terminal-stage." + arch + ".tar) --output $(location terminal-probe." + arch + ".o)" +
+              " --imports $(location terminal-probe." + arch + ".imports) --report $(location terminal-probe." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "desktop_launcher_" + arch,
+        srcs = ["build_terminal_probe.py", "start_desktop.c", "build_base.py", ":xfce-terminal-stage." + arch + ".tar", "//userland/native:sdk_" + arch,
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["desktop-launcher." + arch + ".o", "desktop-launcher." + arch + ".imports", "desktop-launcher." + arch + ".json"],
+        cmd = "python3 $(location build_terminal_probe.py) --arch " + arch + " --source $(location start_desktop.c) --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --headers $(location xfce-terminal-stage." + arch + ".tar) --output $(location desktop-launcher." + arch + ".o)" +
+              " --imports $(location desktop-launcher." + arch + ".imports) --report $(location desktop-launcher." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "terminal_requests_" + arch,
+        srcs = [":xfce-terminal-stage." + arch + ".imports", ":terminal-probe." + arch + ".imports", ":desktop-launcher." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports", ":desktop-jpeg." + arch + ".imports"],
+        outs = ["terminal." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "terminal_system_" + arch, arch = arch, exports = ":terminal." + arch + ".imports",
+        component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a", "//userland/native/system:libbootstrap_parent." + arch + ".a"]},
+        libraries = {"accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                     "filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                     "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                     "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                     "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                     "compiler_rt": "//userland/apps/cxx:libcompiler_rt." + arch + ".a",
+                     "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "terminal_runtime_" + arch,
+        srcs = ["link_desktop.py", "build_base.py", ":xfce-terminal-stage." + arch + ".tar", ":xfce-terminal-stage." + arch + ".json", ":terminal_system_" + arch + ".tar",
+                ":xfce-jpeg-runtime." + arch + ".tar", ":xfce-jpeg-runtime." + arch + ".json", "//src/Applications/cxx:sources", "//src/Applications/xfce-prerequisites:terminal_dependencies",
+                "//src/Applications/xfce-prerequisites:vte", "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["xfce-terminal-runtime." + arch + ".tar", "xfce-terminal-runtime." + arch + ".json"],
+        cmd = "python3 $(location link_desktop.py) --root $$PWD --arch " + arch + " --libraries $(location xfce-terminal-stage." + arch + ".tar) --build-report $(location xfce-terminal-stage." + arch + ".json)" +
+              " --runtime $(location xfce-jpeg-runtime." + arch + ".tar) --runtime-report $(location xfce-jpeg-runtime." + arch + ".json)" +
+              " --system $(location terminal_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location xfce-terminal-runtime." + arch + ".tar) --report $(location xfce-terminal-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "terminal_runtime", srcs = [":terminal_runtime_arm64", ":terminal_runtime_x86_64"])
+[
+    genrule(name = "jpeg_" + arch,
+        srcs = ["build_jpeg.py", "build_base.py", "//src/Applications/xfce-prerequisites:jpeg", "//userland/native:sdk_" + arch,
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["jpeg." + arch + ".tar", "jpeg." + arch + ".imports", "jpeg." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_jpeg.py --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location jpeg." + arch + ".tar) --imports $(location jpeg." + arch + ".imports) --report $(location jpeg." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "jpeg", srcs = [":jpeg_arm64", ":jpeg_x86_64"])
+[
+    genrule(name = "jpeg_pixbuf_" + arch,
+        srcs = ["//userland/apps/gtk:build_pixbuf.py", ":jpeg." + arch + ".tar", "//userland/native:sdk_" + arch,
+                "//userland/apps/fonts:pango." + arch + ".tar", "//src/Applications/gtk:sources", "//src/Applications/glib:sources",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/fonts:build_cairo.py", "//userland/apps/fonts:build_pango.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["jpeg-pixbuf." + arch + ".tar", "jpeg-pixbuf." + arch + ".imports", "jpeg-pixbuf." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/gtk:build_pixbuf.py) --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --pango $(location //userland/apps/fonts:pango." + arch + ".tar) --jpeg $(location jpeg." + arch + ".tar)" +
+              " --output $(location jpeg-pixbuf." + arch + ".tar) --imports $(location jpeg-pixbuf." + arch + ".imports) --report $(location jpeg-pixbuf." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "jpeg_pixbuf", srcs = [":jpeg_pixbuf_arm64", ":jpeg_pixbuf_x86_64"])
+[
+    genrule(name = "jpeg_stage_" + arch,
+        srcs = ["prepare_jpeg.py", "build_base.py", ":jpeg." + arch + ".tar", ":jpeg." + arch + ".json", ":jpeg-pixbuf." + arch + ".tar", ":jpeg-pixbuf." + arch + ".json",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-jpeg." + arch + ".tar", "xfce-jpeg." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/prepare_jpeg.py --arch " + arch + " --jpeg $(location jpeg." + arch + ".tar) --jpeg-report $(location jpeg." + arch + ".json)" +
+              " --pixbuf $(location jpeg-pixbuf." + arch + ".tar) --pixbuf-report $(location jpeg-pixbuf." + arch + ".json)" +
+              " --output $(location xfce-jpeg." + arch + ".tar) --report $(location xfce-jpeg." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "base_" + arch,
+        srcs = ["build_base.py", "//src/Applications/xfce:base_sources", "//scripts:native_components.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py",
+                "//userland/native:sdk_" + arch, "//userland/apps/x11:xorg-core." + arch + ".tar"],
+        outs = ["xfce-base." + arch + ".tar", "xfce-base." + arch + ".imports", "xfce-base." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_base.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location //userland/apps/x11:xorg-core." + arch + ".tar)" +
+              " --output $(location xfce-base." + arch + ".tar) --imports $(location xfce-base." + arch + ".imports) --report $(location xfce-base." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "base", srcs = [":base_arm64", ":base_x86_64"])
+[
+    genrule(name = "base_requests_" + arch,
+        srcs = [":xfce-base." + arch + ".imports", "//userland/apps/x11:xorg." + arch + ".imports"],
+        outs = ["base." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "base_system_" + arch, arch = arch, exports = ":base." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                               "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "base_runtime_" + arch,
+        srcs = ["link_base.py", "build_base.py", ":xfce-base." + arch + ".tar", ":xfce-base." + arch + ".json", ":base_system_" + arch + ".tar",
+                "//userland/apps/x11:xorg-runtime." + arch + ".tar", "//userland/apps/x11:xorg-runtime." + arch + ".json", "//userland/native:dyld_" + arch,
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py", "//src/Applications/xfce:base_sources"],
+        outs = ["xfce-base-runtime." + arch + ".tar", "xfce-base-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/link_base.py --root $$PWD --arch " + arch +
+              " --libraries $(location xfce-base." + arch + ".tar) --build-report $(location xfce-base." + arch + ".json) --system $(location base_system_" + arch + ".tar)" +
+              " --runtime $(location //userland/apps/x11:xorg-runtime." + arch + ".tar) --runtime-report $(location //userland/apps/x11:xorg-runtime." + arch + ".json)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location xfce-base-runtime." + arch + ".tar) --report $(location xfce-base-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "base_runtime", srcs = [":base_runtime_arm64", ":base_runtime_x86_64"])
+sh_test(name = "base_artifact_test", size = "small", srcs = ["check_base.sh"],
+        data = ["check_base.py", ":base", ":base_runtime", ":sessions", "//src/Applications/xfce:base_sources",
+                "//src/Applications/xfce:ui_sources", "//src/Applications/xfce-prerequisites:sessions",
+                "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/apps/x11:xorg_server",
+                "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"])
+[
+    genrule(
+        name = "base_test_root_" + arch,
+        srcs = ["test_base.c", "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", ":xfce-base." + arch + ".tar",
+                ":xfce-base-runtime." + arch + ".tar", ":xfce-base-runtime." + arch + ".json", "//userland/apps/init:root." + arch + ".img",
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["xfce-base-root." + arch + ".img", "xfce-base-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-base-test" +
+              " --probe-source $(location test_base.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location xfce-base." + arch + ".tar)" +
+              " --runtime $(location xfce-base-runtime." + arch + ".tar) --runtime-report $(location xfce-base-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location xfce-base-root." + arch + ".img) --report $(location xfce-base-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "base_test_roots", srcs = [":base_test_root_arm64", ":base_test_root_x86_64"])
+[
+    sh_binary(name = "verify_base_" + arch, srcs = ["verify_base.sh"], args = [arch],
+              data = [":base_test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "sessions_" + arch,
+        srcs = ["build_sessions.py", "build_base.py", "//src/Applications/xfce-prerequisites:sessions", ":xfce-base." + arch + ".tar",
+                "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-sessions." + arch + ".tar", "xfce-sessions." + arch + ".imports", "xfce-sessions." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_sessions.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-base." + arch + ".tar)" +
+              " --output $(location xfce-sessions." + arch + ".tar) --imports $(location xfce-sessions." + arch + ".imports) --report $(location xfce-sessions." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "sessions", srcs = [":sessions_arm64", ":sessions_x86_64"])
+[
+    genrule(name = "ui_" + arch,
+        srcs = ["build_ui.py", "build_base.py", "//src/Applications/xfce:ui_sources", ":xfce-sessions." + arch + ".tar",
+                "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-ui." + arch + ".tar", "xfce-ui." + arch + ".imports", "xfce-ui." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_ui.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-sessions." + arch + ".tar)" +
+              " --output $(location xfce-ui." + arch + ".tar) --imports $(location xfce-ui." + arch + ".imports) --report $(location xfce-ui." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "ui", srcs = [":ui_arm64", ":ui_x86_64"])
+[
+    genrule(name = "windowing_" + arch,
+        srcs = ["build_windowing.py", "build_base.py", "//src/Applications/xfce-prerequisites:windowing", ":xfce-ui." + arch + ".tar",
+                "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//src/Applications/glib:sources", "//userland/apps/gtk:build_gtk.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-windowing." + arch + ".tar", "xfce-windowing." + arch + ".imports", "xfce-windowing." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_windowing.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-ui." + arch + ".tar)" +
+              " --output $(location xfce-windowing." + arch + ".tar) --imports $(location xfce-windowing." + arch + ".imports) --report $(location xfce-windowing." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "windowing", srcs = [":windowing_arm64", ":windowing_x86_64"])
+[
+    genrule(name = "wm_" + arch,
+        srcs = ["build_wm.py", "build_base.py", "build_ui.py", "//src/Applications/xfce:wm_sources", "//src/Applications/xfce-prerequisites:icons", ":xfce-windowing." + arch + ".tar",
+                "//userland/native:sdk_" + arch, "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-wm." + arch + ".tar", "xfce-wm." + arch + ".imports", "xfce-wm." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_wm.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-windowing." + arch + ".tar)" +
+              " --output $(location xfce-wm." + arch + ".tar) --imports $(location xfce-wm." + arch + ".imports) --report $(location xfce-wm." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "wm", srcs = [":wm_arm64", ":wm_x86_64"])
+[
+    genrule(name = "desktop_libraries_" + arch,
+        srcs = ["build_desktop_libraries.py", "build_base.py", "build_ui.py", "//src/Applications/xfce:desktop_library_sources", "//src/Applications/xfce-prerequisites:display_info",
+                ":xfce-windowing." + arch + ".tar", "//userland/native:sdk_" + arch, "//scripts:native_components.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//src/Applications/glib:sources",
+                "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-desktop-libraries." + arch + ".tar", "xfce-desktop-libraries." + arch + ".imports", "xfce-desktop-libraries." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_desktop_libraries.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-windowing." + arch + ".tar)" +
+              " --output $(location xfce-desktop-libraries." + arch + ".tar) --imports $(location xfce-desktop-libraries." + arch + ".imports)" +
+              " --report $(location xfce-desktop-libraries." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "desktop_libraries", srcs = [":desktop_libraries_arm64", ":desktop_libraries_x86_64"])
+[
+    genrule(name = "desktop_" + arch,
+        srcs = ["build_desktop.py", "build_base.py", "//src/Applications/xfce:desktop_sources", "//src/Applications/xfce:desktop_library_sources", "//src/Applications/xfce-prerequisites:yaml", "//src/Applications/xfce-prerequisites:iceauth",
+                ":xfce-desktop-libraries." + arch + ".tar", "//userland/native:sdk_" + arch, "//scripts:native_components.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//src/Applications/glib:sources", "//userland/apps/x11:build_clients.py"],
+        outs = ["xfce-desktop." + arch + ".tar", "xfce-desktop." + arch + ".imports", "xfce-desktop." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/build_desktop.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --dependencies $(location xfce-desktop-libraries." + arch + ".tar)" +
+              " --output $(location xfce-desktop." + arch + ".tar) --imports $(location xfce-desktop." + arch + ".imports) --report $(location xfce-desktop." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "desktop", srcs = [":desktop_arm64", ":desktop_x86_64"])
+[
+    genrule(name = "desktop_requests_" + arch,
+        srcs = [":xfce-desktop." + arch + ".imports", ":desktop-library." + arch + ".imports"],
+        outs = ["desktop." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "desktop_system_" + arch, arch = arch, exports = ":desktop." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a", "//userland/native/system:libbootstrap_parent." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                               "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "desktop_runtime_" + arch,
+        srcs = ["link_desktop.py", "build_base.py", ":xfce-desktop." + arch + ".tar", ":xfce-desktop." + arch + ".json",
+                ":desktop_system_" + arch + ".tar", ":xfce-desktop-library-runtime." + arch + ".tar", ":xfce-desktop-library-runtime." + arch + ".json",
+                "//src/Applications/xfce:desktop_sources", "//src/Applications/xfce-prerequisites:yaml", "//userland/native:dyld_" + arch,
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["xfce-desktop-runtime." + arch + ".tar", "xfce-desktop-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/link_desktop.py --root $$PWD --arch " + arch +
+              " --libraries $(location xfce-desktop." + arch + ".tar) --build-report $(location xfce-desktop." + arch + ".json)" +
+              " --runtime $(location xfce-desktop-library-runtime." + arch + ".tar) --runtime-report $(location xfce-desktop-library-runtime." + arch + ".json)" +
+              " --system $(location desktop_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location xfce-desktop-runtime." + arch + ".tar) --report $(location xfce-desktop-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "desktop_runtime", srcs = [":desktop_runtime_arm64", ":desktop_runtime_x86_64"])
+sh_test(name = "desktop_artifact_test", size = "small", srcs = ["check_desktop.sh"],
+        data = ["check_desktop.py", "check_wm.py", ":desktop", ":desktop_runtime", "//src/Applications/xfce:desktop_sources",
+                "//src/Applications/xfce:desktop_library_sources", "//src/Applications/xfce-prerequisites:yaml", "//src/Applications/xfce-prerequisites:iceauth",
+                "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"])
+[
+    genrule(name = "jpeg_requests_" + arch, srcs = [":jpeg-pixbuf." + arch + ".imports", ":desktop." + arch + ".imports"],
+        outs = ["desktop-jpeg." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "jpeg_system_" + arch, arch = arch, exports = ":desktop-jpeg." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a", "//userland/native/system:libbootstrap_parent." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a", "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a", "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                               "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "jpeg_runtime_" + arch,
+        srcs = ["link_desktop.py", "build_base.py", ":xfce-jpeg." + arch + ".tar", ":xfce-jpeg." + arch + ".json", ":jpeg_system_" + arch + ".tar",
+                ":xfce-desktop-runtime." + arch + ".tar", ":xfce-desktop-runtime." + arch + ".json", "//src/Applications/xfce-prerequisites:jpeg", "//src/Applications/gtk:sources",
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["xfce-jpeg-runtime." + arch + ".tar", "xfce-jpeg-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/link_desktop.py --root $$PWD --arch " + arch + " --libraries $(location xfce-jpeg." + arch + ".tar) --build-report $(location xfce-jpeg." + arch + ".json)" +
+              " --runtime $(location xfce-desktop-runtime." + arch + ".tar) --runtime-report $(location xfce-desktop-runtime." + arch + ".json)" +
+              " --system $(location jpeg_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location xfce-jpeg-runtime." + arch + ".tar) --report $(location xfce-jpeg-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "jpeg_runtime", srcs = [":jpeg_runtime_arm64", ":jpeg_runtime_x86_64"])
+sh_test(name = "jpeg_artifact_test", size = "small", srcs = ["check_jpeg.sh"],
+        data = ["check_jpeg.py", "check_wm.py", ":jpeg", ":jpeg_pixbuf", ":jpeg_runtime",
+                "//src/Applications/xfce-prerequisites:jpeg", "//src/Applications/gtk:sources",
+                "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+                "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"])
+[
+    genrule(name = "desktop_test_root_" + arch,
+        srcs = ["test_ui.c", "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", ":xfce-desktop." + arch + ".tar",
+                ":xfce-desktop-runtime." + arch + ".tar", ":xfce-desktop-runtime." + arch + ".json", "//userland/apps/init:root." + arch + ".img",
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["xfce-desktop-root." + arch + ".img", "xfce-desktop-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-desktop-test --root-size-mib 128" +
+              " --probe-source $(location test_ui.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location xfce-desktop." + arch + ".tar)" +
+              " --runtime $(location xfce-desktop-runtime." + arch + ".tar) --runtime-report $(location xfce-desktop-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location xfce-desktop-root." + arch + ".img) --report $(location xfce-desktop-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "terminal_test_root_" + arch,
+        srcs = ["test_terminal.c", ":terminal-probe." + arch + ".o", "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", ":xfce-terminal-stage." + arch + ".tar",
+                ":xfce-terminal-runtime." + arch + ".tar", ":xfce-terminal-runtime." + arch + ".json", "//userland/apps/init:root." + arch + ".img",
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["xfce-terminal-root." + arch + ".img", "xfce-terminal-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-desktop-test --root-size-mib 128 --probe-object $(location terminal-probe." + arch + ".o)" +
+              " --probe-source $(location test_terminal.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location xfce-terminal-stage." + arch + ".tar)" +
+              " --runtime $(location xfce-terminal-runtime." + arch + ".tar) --runtime-report $(location xfce-terminal-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location xfce-terminal-root." + arch + ".img) --report $(location xfce-terminal-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "jpeg_test_root_" + arch,
+        srcs = ["test_ui.c", "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", ":xfce-desktop." + arch + ".tar",
+                ":xfce-jpeg-runtime." + arch + ".tar", ":xfce-jpeg-runtime." + arch + ".json", "//userland/apps/init:root." + arch + ".img",
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["xfce-jpeg-root." + arch + ".img", "xfce-jpeg-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-desktop-test --root-size-mib 128" +
+              " --probe-source $(location test_ui.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location xfce-desktop." + arch + ".tar)" +
+              " --runtime $(location xfce-jpeg-runtime." + arch + ".tar) --runtime-report $(location xfce-jpeg-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location xfce-jpeg-root." + arch + ".img) --report $(location xfce-jpeg-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+genrule(name = "desktop_loader_arm64",
+    srcs = ["//bootloader/rpi4:boot_entry.S", "//bootloader/rpi4:boot_current.c", "//bootloader/rpi4:framebuffer.h",
+            "//bootloader/rpi4:boot.ld", "//bootloader/video:metadata.h", "//adt:current/adt_bin.h", "//userland/apps/x11:desktop-arm64/kernel_layout.h"],
+    outs = ["desktop-arm64/boot_current.bin"],
+    cmd = "TMPDIR=$$PWD/$(@D) clang-20 --target=aarch64-none-elf -fuse-ld=lld -O2 -fno-pic -ffreestanding -fno-builtin -fno-stack-protector -nostdlib -mgeneral-regs-only -mstrict-align -DRPI_ROOTFS_SIZE=0x8000000" +
+          " -I$$(dirname $(location //adt:current/adt_bin.h)) -I$$(dirname $(location //userland/apps/x11:desktop-arm64/kernel_layout.h))" +
+          " -Wl,-T$(location //bootloader/rpi4:boot.ld) -Wl,--build-id=none -o $(@D)/desktop_boot.elf" +
+          " $(location //bootloader/rpi4:boot_entry.S) $(location //bootloader/rpi4:boot_current.c) &&" +
+          " llvm-objcopy-20 -S -O binary $(@D)/desktop_boot.elf $@")
+genrule(name = "desktop_boot_x86_64", srcs = [":xfce-desktop-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
+        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-desktop-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+              " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-desktop-root.x86_64.img) --output $@")
+[
+    sh_binary(name = "verify_desktop_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--desktop"],
+              data = [":desktop_test_root_" + arch, "verify_ui.py", "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+                     (["//userland/apps/x11:desktop_kernel_arm64", ":desktop_loader_arm64"] if arch == "arm64" else [":desktop_boot_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]
+genrule(name = "terminal_boot_x86_64", srcs = [":xfce-terminal-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
+        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-terminal-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+              " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-terminal-root.x86_64.img) --output $@")
+[
+    sh_binary(name = "verify_terminal_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--terminal"],
+              data = [":terminal_test_root_" + arch, "verify_ui.py", "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+                     (["//userland/apps/x11:desktop_kernel_arm64", ":desktop_loader_arm64"] if arch == "arm64" else [":terminal_boot_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]
+genrule(name = "jpeg_boot_x86_64", srcs = [":xfce-jpeg-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
+        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-jpeg-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+              " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-jpeg-root.x86_64.img) --output $@")
+[
+    sh_binary(name = "verify_jpeg_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--jpeg"],
+              data = [":jpeg_test_root_" + arch, "verify_ui.py", "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+                     (["//userland/apps/x11:desktop_kernel_arm64", ":desktop_loader_arm64"] if arch == "arm64" else [":jpeg_boot_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "desktop_library_requests_" + arch,
+        srcs = [":xfce-desktop-libraries." + arch + ".imports", ":ui." + arch + ".imports"],
+        outs = ["desktop-library." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "desktop_library_system_" + arch, arch = arch, exports = ":desktop-library." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a", "//userland/native/system:libbootstrap_parent." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                               "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "desktop_library_runtime_" + arch,
+        srcs = ["link_desktop.py", "build_base.py", ":xfce-desktop-libraries." + arch + ".tar", ":xfce-desktop-libraries." + arch + ".json",
+                ":desktop_library_system_" + arch + ".tar", ":xfce-wm-runtime." + arch + ".tar", ":xfce-wm-runtime." + arch + ".json",
+                "//src/Applications/xfce:desktop_library_sources", "//src/Applications/xfce-prerequisites:display_info", "//userland/native:dyld_" + arch,
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["xfce-desktop-library-runtime." + arch + ".tar", "xfce-desktop-library-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/link_desktop.py --root $$PWD --arch " + arch +
+              " --libraries $(location xfce-desktop-libraries." + arch + ".tar) --build-report $(location xfce-desktop-libraries." + arch + ".json)" +
+              " --runtime $(location xfce-wm-runtime." + arch + ".tar) --runtime-report $(location xfce-wm-runtime." + arch + ".json)" +
+              " --system $(location desktop_library_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location xfce-desktop-library-runtime." + arch + ".tar) --report $(location xfce-desktop-library-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "desktop_library_runtime", srcs = [":desktop_library_runtime_arm64", ":desktop_library_runtime_x86_64"])
+sh_test(name = "desktop_library_artifact_test", size = "small", srcs = ["check_desktop_libraries.sh"],
+        data = ["check_desktop_libraries.py", "check_wm.py", ":desktop_libraries", ":desktop_library_runtime", ":wm_runtime",
+                "//src/Applications/xfce:desktop_library_sources", "//src/Applications/xfce-prerequisites:display_info", "//userland/apps/x11:check_clients.py",
+                "//userland/apps/x11:link_auth.py", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"])
+[
+    genrule(name = "wm_runtime_" + arch,
+        srcs = ["link_wm.py", "build_base.py", ":xfce-wm." + arch + ".tar", ":xfce-wm." + arch + ".json", ":xfce-windowing." + arch + ".json",
+                ":xfce-ui-runtime." + arch + ".tar", ":xfce-ui-runtime." + arch + ".json", "//src/Applications/xfce-prerequisites:windowing",
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["xfce-wm-runtime." + arch + ".tar", "xfce-wm-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/link_wm.py --root $$PWD --arch " + arch +
+              " --libraries $(location xfce-wm." + arch + ".tar) --build-report $(location xfce-wm." + arch + ".json) --windowing-report $(location xfce-windowing." + arch + ".json)" +
+              " --runtime $(location xfce-ui-runtime." + arch + ".tar) --runtime-report $(location xfce-ui-runtime." + arch + ".json) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location xfce-wm-runtime." + arch + ".tar) --report $(location xfce-wm-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "wm_runtime", srcs = [":wm_runtime_arm64", ":wm_runtime_x86_64"])
+sh_test(name = "wm_artifact_test", size = "small", srcs = ["check_wm.sh"],
+        data = ["check_wm.py", ":wm", ":windowing", ":wm_runtime", ":ui_runtime", "//src/Applications/xfce:wm_sources",
+                "//src/Applications/xfce-prerequisites:windowing", "//src/Applications/xfce-prerequisites:icons", "//userland/apps/x11:check_clients.py",
+                "//userland/apps/x11:link_auth.py", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"])
+[
+    genrule(name = "wm_test_root_" + arch,
+        srcs = ["test_ui.c", "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", ":xfce-wm." + arch + ".tar",
+                ":xfce-wm-runtime." + arch + ".tar", ":xfce-wm-runtime." + arch + ".json", "//userland/apps/init:root." + arch + ".img",
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["xfce-wm-root." + arch + ".img", "xfce-wm-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-ui-test" +
+              " --probe-source $(location test_ui.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location xfce-wm." + arch + ".tar)" +
+              " --runtime $(location xfce-wm-runtime." + arch + ".tar) --runtime-report $(location xfce-wm-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location xfce-wm-root." + arch + ".img) --report $(location xfce-wm-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+genrule(name = "wm_boot_x86_64", srcs = [":xfce-wm-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
+        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-wm-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+              " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-wm-root.x86_64.img) --output $@")
+[
+    sh_binary(name = "verify_wm_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--wm"],
+              data = [":wm_test_root_" + arch, "verify_ui.py", "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+                     (["//userland/apps/x11:xorg_boot_arm64"] if arch == "arm64" else [":wm_boot_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "ui_requests_" + arch, srcs = [":xfce-ui." + arch + ".imports", ":base." + arch + ".imports"],
+            outs = ["ui." + arch + ".imports"], cmd = "cat $(SRCS) > $@ && printf '%s\\n' _bootstrap_parent _getsid _getcwd >> $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "ui_system_" + arch, arch = arch, exports = ":ui." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a", "//userland/native/system:libbootstrap_parent." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                               "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "ui_runtime_" + arch,
+        srcs = ["link_ui.py", "build_base.py", ":xfce-ui." + arch + ".tar", ":xfce-ui." + arch + ".json", ":xfce-sessions." + arch + ".json",
+                ":ui_system_" + arch + ".tar", ":xfce-base-runtime." + arch + ".tar", ":xfce-base-runtime." + arch + ".json",
+                "//src/Applications/xfce:ui_sources", "//src/Applications/xfce-prerequisites:sessions", "//userland/native:dyld_" + arch,
+                "//src/Applications/xfce-prerequisites:fonts", "//src/Applications/fonts:sources",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//userland/apps/glib:build_dependencies.py",
+                "//userland/apps/glib:build_intl.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["xfce-ui-runtime." + arch + ".tar", "xfce-ui-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/xfce/link_ui.py --root $$PWD --arch " + arch +
+              " --libraries $(location xfce-ui." + arch + ".tar) --build-report $(location xfce-ui." + arch + ".json) --session-report $(location xfce-sessions." + arch + ".json)" +
+              " --runtime $(location xfce-base-runtime." + arch + ".tar) --runtime-report $(location xfce-base-runtime." + arch + ".json)" +
+              " --system $(location ui_system_" + arch + ".tar) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --output $(location xfce-ui-runtime." + arch + ".tar) --report $(location xfce-ui-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "ui_runtime", srcs = [":ui_runtime_arm64", ":ui_runtime_x86_64"])
+sh_test(name = "ui_artifact_test", size = "small", srcs = ["check_ui.sh"],
+        data = ["check_ui.py", ":ui", ":ui_runtime", ":base_runtime", "//src/Applications/xfce:ui_sources",
+                "//src/Applications/xfce-prerequisites:fonts", "//src/Applications/fonts:sources", "//src/Libraries/25.5.0:sources",
+                "//userland/native/system:bootstrap_parent_arm64", "//userland/native/system:bootstrap_parent_x86_64",
+                "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"])
+sh_test(name = "ui_capture_test", size = "small", srcs = ["check_ui_capture.sh"],
+        data = ["test_ui_capture.py", "verify_ui.py", "//userland/native/framebuffer:verify.py"])
+[
+    genrule(name = "ui_test_root_" + arch,
+        srcs = ["test_ui.c", "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", ":xfce-ui." + arch + ".tar",
+                ":xfce-ui-runtime." + arch + ".tar", ":xfce-ui-runtime." + arch + ".json", "//userland/apps/init:root." + arch + ".img",
+                "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["xfce-ui-root." + arch + ".img", "xfce-ui-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-ui-test" +
+              " --probe-source $(location test_ui.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location xfce-ui." + arch + ".tar)" +
+              " --runtime $(location xfce-ui-runtime." + arch + ".tar) --runtime-report $(location xfce-ui-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location xfce-ui-root." + arch + ".img) --report $(location xfce-ui-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "ui_test_roots", srcs = [":ui_test_root_arm64", ":ui_test_root_x86_64"])
+genrule(name = "ui_boot_x86_64", srcs = [":xfce-ui-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
+        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-ui-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+              " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-ui-root.x86_64.img) --output $@")
+[
+    sh_binary(name = "verify_ui_" + arch, srcs = ["verify_ui.sh"], args = [arch],
+              data = [":ui_test_root_" + arch, "verify_ui.py", "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+                     (["//userland/apps/x11:xorg_boot_arm64"] if arch == "arm64" else [":ui_boot_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]

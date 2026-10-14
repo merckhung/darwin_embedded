@@ -1,0 +1,47 @@
+--- a/src/platform.h
++++ b/src/platform.h
+@@ -188,11 +188,13 @@
+ #define CONFIG_REALLOC_CAN_USE_VMCOPY 1
+ #endif
+ 
++#ifndef CONFIG_FEATUREFLAGS_SIMPLE
+ #if !TARGET_OS_DRIVERKIT && (!TARGET_OS_OSX || MALLOC_TARGET_64BIT)
+ #define CONFIG_FEATUREFLAGS_SIMPLE 1
+ #else
+ #define CONFIG_FEATUREFLAGS_SIMPLE 0
+ #endif
++#endif
+ 
+ // presence of commpage memsize
+ #define CONFIG_HAS_COMMPAGE_MEMSIZE 1
+--- a/src/internal.h
++++ b/src/internal.h
+@@ -164,6 +164,6 @@
+ #endif // !MALLOC_TARGET_EXCLAVES
+ #include <os/overflow.h>
+-#if !TARGET_OS_DRIVERKIT && !MALLOC_TARGET_EXCLAVES
++#if CONFIG_FEATUREFLAGS_SIMPLE
+ # include <os/feature_private.h>
+ #endif // !TARGET_OS_DRIVERKIT && !MALLOC_TARGET_EXCLAVES
+ #if !MALLOC_TARGET_EXCLAVES
+@@ -294,7 +294,9 @@
+ # include "magazine_rack.h"
+ # include "magazine_zone.h"
+ # include "nano_zone_common.h"
++# if defined(__x86_64__)
+ # include "nano_zone.h"
++# endif
+ # include "nanov2_zone.h"
+ # include "magazine_inline.h"
+ #endif // !MALLOC_TARGET_EXCLAVES && MALLOC_TARGET_EXCLAVES_INTROSPECTOR
+--- a/src/dtrace.h
++++ b/src/dtrace.h
+@@ -24,7 +24,7 @@
+ #ifndef __DTRACE_H
+ #define __DTRACE_H
+ 
+-#ifndef DARWINTEST
++#if !defined(DARWINTEST) && !defined(NATIVE_DISABLE_DTRACE)
+ #include "magmallocProvider.h"
+ #else
+ #define	MAGMALLOC_ALLOCREGION(arg0, arg1, arg2, arg3)

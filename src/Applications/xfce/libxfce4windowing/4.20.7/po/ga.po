@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the libxfce4windowing.main package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Michael O'Connor, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libxfce4windowing.main\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-30 00:46+0200\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Michael O'Connor, 2023\n"
+"Language-Team: Irish (https://app.transifex.com/xfce/teams/16840/ga/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ga\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);\n"
+
+#: libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr ""
+
+#: libxfce4windowing/xfw-wnck-icon.c:630
+msgid "Failed to find or load an icon for the window"
+msgstr ""
+
+#: libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "Spás Oibre 0"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "_Bog"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "_Athraigh Méid"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "In _Uachtar i gCónaí"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "Ar Spás Oibre _Infheicthe i gCónaí"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "Ar an Spás Oibre Seo _Amháin"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "Bog go Spás Oibre ar _Chlé"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "Bog go Spás Oibre ar _Dheis"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "Bog go Spás Oibre _Thuas"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "Bog go Spás Oibre T_híos"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "Bog go Spás Oibre _Eile"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "_Scoir"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "Spás Oibre %d"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr "Í_oslaghdaigh"
+
+#: libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr ""
+
+#: libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr ""
+
+#: libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr ""

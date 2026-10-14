@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/JuliaMath/openlibm",
+  "tag": "v0.8.8",
+  "commit": "5fe399749f9276eaa0b8403e507470da05cbbb3f",
+  "archive_url": "https://codeload.github.com/JuliaMath/openlibm/tar.gz/refs/tags/v0.8.8",
+  "archive_sha256": "721bab18ff37160fd9e903eb211ff26fdee38c3d0041d556b07d76089c435d17",
+  "note": "Portable source-built math provider for native Darwin x86_64 and ARM64. This is OpenLibm, not an Apple macOS release component.",
+  "local_changes": [
+    "include/openlibm_fenv_aarch64.h: feholdexcept clears FPSR exception status with FE_ALL_EXCEPT, not the FPCR enable mask.",
+    "include/openlibm_fenv_amd64.h: fesetenv restores an identical volatile automatic copy, preserving const inputs despite QEMU 10.1 helper_fldenv incorrectly probing its source as MMU_DATA_STORE (https://github.com/qemu/qemu/blob/v10.1.0/target/i386/tcg/fpu_helper.c#L2425). Actual x87/MXCSR restoration is unchanged; feupdateenv uses this same helper."
+  ]
+}

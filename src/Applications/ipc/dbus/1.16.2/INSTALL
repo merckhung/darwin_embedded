@@ -1,0 +1,131 @@
+           DBus Installation
+           =================
+
+Quick start
+===========
+
+This branch of dbus can be built by using Meson or CMake.
+The Meson build system is the recommended build system since version 1.16.0,
+except when building on Windows, for which CMake is recommended (this
+recommendation might change to Meson in future).
+
+Meson only supports out-of-tree builds, and must be passed a directory to put
+built and generated sources into. We'll call that directory "build" here. It's
+recommended to create a separate build directory for each configuration you
+might want to use.
+
+Basic configuration is done with:
+
+``` sh
+meson build/
+```
+
+This will create the build directory. If any dependencies are missing, you can
+install them, or try to remove the dependency with a Meson configuration option
+(see below).
+
+Older versions of dbus required Autotools or CMake, with Autotools
+recommended for Unix systems and CMake recommended for Windows systems.
+
+Configuration flags
+===================
+
+When using Meson, to review the options which Meson chose, run:
+
+``` sh
+meson configure build/
+```
+
+With additional arguments meson configure can be used to change options for a
+previously configured build directory. All options passed to this command are in
+the form `-D "option"="value"`. For example:
+
+``` sh
+meson configure build/ -Dprefix=/tmp/install
+```
+
+See `meson_options.txt` for details of dbus-specific options, and
+<https://mesonbuild.com/Builtin-options.html> for details of generic
+Meson options.
+
+When using CMake, inspect README.cmake to see the possible
+configuration options and environment variables.
+
+Building
+========
+
+To build with meson, here is a quick guide:
+
+``` sh
+cd dbus
+meson setup build/ && cd build/
+meson compile
+meson test
+```
+
+Full build instructions can be found on mesonbuild website:
+https://mesonbuild.com/Running-Meson.html
+
+Building with CMake
+-------------------
+
+The CMake equivalent is:
+
+``` sh
+cd <dbus-src-root>
+cmake -G <makefile-generator-name> [-D<option>] -B dbus-build-dir
+cmake --build <dbus-build-dir>
+cmake --build <dbus-build-dir> -t check
+```
+
+The installation of the build with CMake is performed with:
+
+``` sh
+cmake --build <dbus-build-dir> -t install [DESTDIR=<install-dir>]
+```
+
+When using makefile generator `-t install/fast` can also be used,
+which prevents rebuilding.
+
+CMake will automatically determine whether to build some features
+based on what tools and/or libraries are installed on the host system.
+The default build behaviour can be overridden using the
+-DENABLE_<XXX> arguments to cmake.
+A typical scenario in which it is desirable to override automatic
+detection, is during packaging of binary builds, where a predictable
+dependancy chain is required. For more details on cmake installation,
+consult http://www.cmake.org/cmake/help/help.html.
+
+Building as a subproject
+========================
+
+libdbus can be built as a Meson subproject, allowing larger projects that
+require it to default to a system copy if available but fall back to a
+vendored or downloaded copy if necessary. When doing this, it is usually
+best to disable the shared library, dbus-daemon, tools and tests, leaving
+only a static library: please see test/use-as-subproject/meson.build for
+sample code and suggested build options.
+
+External software dependencies
+==============================
+
+Usually required:
+
+  - expat                (not required if dbus-daemon is not built)
+
+Optional:
+
+  - libapparmor          (for AppArmor LSM integration on Linux)
+  - libaudit             (for AppArmor/SELinux audit logging on Linux)
+  - libcap-ng            (for capabilities management on Linux)
+  - libselinux           (for SELinux LSM integration on Linux)
+  - libsystemd           (for logging, socket activation and session tracking on Linux)
+  - libX11               (for X11 autolaunching on Unix platforms)
+  - doxygen              (for API documentation)
+  - xsltproc             (for Spec & other XML documentation)
+  - Docbook XSL stylesheets (for Spec & other XML documentation)
+  - ducktype             (for additional documentation)
+  - qhelpgenerator       (for additional documentation)
+  - yelp-build           (for additional documentation)
+  - GLib                 (for improved test coverage)
+  - Python 3             (for improved test coverage)

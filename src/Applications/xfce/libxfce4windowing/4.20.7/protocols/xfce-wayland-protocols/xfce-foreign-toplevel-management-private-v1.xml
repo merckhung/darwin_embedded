@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="xfce_foreign_toplevel_management_private_v1">
+  <copyright>
+    Copyright © 2024 Brian Tarricone &lt;brian@tarricone.org&gt;
+
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation files
+    (the "Software"), to deal in the Software without restriction,
+    including without limitation the rights to use, copy, modify, merge,
+    publish, distribute, sublicense, and/or sell copies of the Software,
+    and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the
+    next paragraph) shall be included in all copies or substantial
+    portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+    BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+    ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  </copyright>
+
+  <interface name="xfce_foreign_toplevel_manager_private_v1" version="1">
+    <description summary="Extensions to wlr-foreign-toplevel-management">
+      This protocol advertises extensions to the existing
+      wlr-foreign-toplevel-management protocol, and provides a bridge to the
+      ext-workspace protocol, so clients can learn what workspace each toplevel
+      is on.
+
+      It is intended to be private to the Xfce desktop implementation, and
+      should not be used by other applications. This protocol may introduce
+      incompatible changes at any time, without warning, and without following
+      normal, accepted guidelines about Wayland protocol versioning.
+    </description>
+
+    <request name="get_xfce_foreign_toplevel_handle">
+      <description summary="Fetches a new xfce_foreign_toplevel_handle_v1 instance">
+        This creates a new xfce_foreign_toplevel_handle_v1 instance for the
+        given zwlr_foreign_toplevel_handle_v1 object.
+
+        On creation of the xfce_foreign_toplevel_handle_v1 instance, all
+        relevant property events will be emitted, followed by the
+        wlr_foreign_toplevel_handle_v1.done event, in order to communicate the
+        initial state of the toplevel.
+
+        Note that the done event behaves differently between the initial
+        property list and subsequent updates. On the initial property list,
+        *two* done events will be received: on after the
+        wlr_foreign_toplevel_handle_v1 has sent all properties, and another
+        after the xfce_foreign_toplevel_handle_v1 has sent all properties. For
+        later updates, property changes for both the wlr and xfce handles will
+        be batched under a single done event.
+
+        If a xfce_foreign_toplevel_handle_v1 instance is already bound to the
+        provided wlr_foreign_toplevel_handle_v1 instance, an already_bound
+        protocol error is raised.
+
+        The lifecycle of this object is tied to the corresponding
+        zwlr_foreign_toplevel_handle_v1 object. When the
+        zwlr_foreign_toplevel_handle_v1.closed event is emitted, the returned
+        xfce_foreign_toplevel_handle_v1 instance will also become inert and
+        should be destroyed.
+      </description>
+      <arg name="id" type="new_id" interface="xfce_foreign_toplevel_handle_v1"/>
+      <arg name="foreign_toplevel_handle" type="object" interface="zwlr_foreign_toplevel_handle_v1"/>
+    </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="Destroys the manager object">
+        Indicates to the compositor that the client no longer wishes to receive
+        events on this interface.
+
+        The client still may receive more events that have been queued before
+        the compositor processes this event.
+      </description>
+    </request>
+
+    <enum name="error">
+      <description summary="Protocol errors for the xfce_foreign_toplevel_manager_private_v1 interface"/>
+      <entry name="invalid_handle" value="0" summary="The wlr_foreign_toplevel_handle_v1 is invalid"/>
+      <entry name="already_bound" value="1" summary="The wlr_foreign_toplevel_handle_v1 already has a bound xfce_foreign_toplevel_handle_v1 instance"/>
+    </enum>
+  </interface>
+
+  <interface name="xfce_foreign_toplevel_handle_v1" version="1">
+    <enum name="state">
+      <description summary="Extended toplevel state information">
+        This enumeration includes toplevel states that are not a part of the
+        base xdg-toplevel interface.
+      </description>
+      <entry name="shaded" value="0" summary="The toplevel is 'rolled up' or 'shaded', usually meaning the window's title bar is visible, but the contents are not"/>
+      <entry name="skip_pager" value="1" summary="The toplevel should not be shown in the desktop pager view"/>
+      <entry name="skip_tasklist" value="2" summary="The toplevel should not be shown in a desktop task or window list"/>
+      <entry name="sticky" value="3" summary="The toplevel should be shown on all workspaces within its workspace group"/>
+      <entry name="above" value="4" summary="The toplevel should be stacked above other windows"/>
+      <entry name="below" value="5" summary="The toplevel should be stacked below other windows"/>
+      <entry name="demands_attention" value="6" summary="The toplevel has some urgent information waiting"/>
+    </enum>
+
+    <request name="set_shaded">
+      <description summary="Sets the toplevel's shaded state"/>
+    </request>
+
+    <request name="unset_shaded">
+      <description summary="Unsets the toplevel's shaded state"/>
+    </request>
+
+    <request name="set_sticky">
+      <description summary="Sets the toplevel's sticky state">
+        A sticky toplevel appears on all workspaces in its workspace group.
+      </description>
+    </request>
+
+    <request name="unset_sticky">
+      <description summary="Unsets the toplevel's sticky state"/>
+    </request>
+
+    <request name="set_above">
+      <description summary="Sets the toplevel's above state">
+        The window will be kept in a layer above other regularly-stacked windows.
+
+        This state is mutually-exclusive with the "below" state; setting the
+        "above" state will unset "below" if it is set.
+      </description>
+    </request>
+
+    <request name="unset_above">
+      <description summary="Unsets the toplevel's above state"/>
+    </request>
+
+    <request name="set_below">
+      <description summary="Sets the toplevel's below state">
+        The window will be kept in a layer below other regularly-stacked windows.
+
+        This state is mutually-exclusive with the "above" state; setting the
+        "below" state will unset "above" if it is set.
+      </description>
+    </request>
+
+    <request name="unset_below">
+      <description summary="Unsets the toplevel's below state"/>
+    </request>
+
+    <request name="highlight">
+      <description summary="Visually highlights the window">
+        Asks the compositor to visually highlight the window, such as drawing a
+        wireframe or box around its position.
+
+        The compositor may un-highlight any other currently-highlighted window
+        before highlighting this one.
+
+        The compositor is free to ignore the request.
+      </description>
+      <arg name="seat" type="object" interface="wl_seat" summary="the seat where the requesting client has keyboard or pointer focus"/>
+    </request>
+
+    <request name="unhighlight">
+      <description summary="Removes a previously-requested window highlight">
+        Asks the compositor to stop higlighting the window.
+
+        The compositor will ignore this request if the client making this
+        request did not also request the currently-active highlight, if any.
+      </description>
+    </request>
+
+    <request name="move">
+      <description summary="Starts an interactive move">
+        Asks the compositor to start a user-driven move of this toplevel. The
+        user will be able to move the toplevel using whatever facilities the
+        compositor provides.
+
+        The compositor may choose to ignore this request.
+      </description>
+      <arg name="seat" type="object" interface="wl_seat" summary="the seat where the requesting client has keyboard or pointer focus"/>
+    </request>
+
+    <request name="resize">
+      <description summary="Starts an interactive resize">
+        Asks the compositor to start a user-driven resize of this toplevel. The
+        user will be able to resize the toplevel using whatever facilities the
+        compositor provides.
+
+        The compositor may choose to ignore this request.
+      </description>
+      <arg name="seat" type="object" interface="wl_seat" summary="the seat where the requesting client has keyboard or pointer focus"/>
+    </request>
+
+    <request name="move_to_output">
+      <description summary="Moves the toplevel to another output">
+        This has no effect if the toplevel is already on the specified output.
+
+        The compositor may choose to ignore this request.
+      </description>
+      <arg name="output" type="object" interface="wl_output"/>
+    </request>
+
+    <request name="move_to_workspace">
+      <description summary="Moves the toplevel to another workspace">
+        Requests that the compositor move the toplevel to the specified workspace.
+
+        Sticky windows cannot be moved to a particular workspace. The sticky
+        state must first be unset.
+
+        The compositor may choose to ignore this request.
+      </description>
+      <arg name="workspace" type="object" interface="ext_workspace_handle_v1"/>
+    </request>
+
+    <request name="get_icon_pixels">
+      <description summary="Requests pixel data for one of the toplevel's icons">
+        Requests an xfce_foreign_toplevel_icon_pixels_v1 handle for this toplevel.
+
+        The size/scale pair must be a pair received in a previously received
+        icon_size event, and that event must not have been obsoleted by a
+        further icon event grouping.
+      </description>
+      <arg name="id" type="new_id" interface="xfce_foreign_toplevel_icon_pixels_v1"/>
+      <arg name="size" type="uint" summary="The width/height of the requested icon"/>
+      <arg name="scale" type="uint" summary="The UI scale factor for the icon"/>
+    </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="Destroys the xfce_foreign_toplevel_handle_v1 object">
+        Destroys the object.
+
+        The client should call this when it no longer wishes to receive events
+        for this toplevel, or after the zwlr_foreign_toplevel_handle_v1.closed
+        event has been received.
+      </description>
+    </request>
+
+    <event name="state">
+      <description summary="Emitted when the toplevel's state changes">
+        Reports the current state of the toplevel. This state should be
+        combined with the state reported by wlr_foreign_toplevel_handle_v1 in
+        order to see the complete state of the toplevel.
+
+        After all property changes have been made on this toplevel, the
+        wlr_foreign_toplevel_handle_v1.done event will be sent.
+      </description>
+      <arg name="state" type="array" summary="List of active states from the state enum"/>
+    </event>
+
+    <event name="icon_name">
+      <description summary="Emitted when the toplevel's icon name has changed">
+        If a themed icon name is set on this toplevel, this event will be
+        emitted to inform clients of the toplevel's icon.
+
+        This event is mutually-exclusive with the no_icon event, and receiving
+        it replaces the no-icon state.
+
+        When a toplevel's icon changes, this event will be emitted within a
+        "done" group. The client should treat any icon event grouping as fully
+        replacing any previously-sent icon event grouping.
+
+        This event requires the xdg-toplevel-icon protocol, or a similar
+        protocol that allows applications to associate icon names with their
+        toplevels.
+
+        After all property changes have been made on this toplevel, the
+        wlr_foreign_toplevel_handle_v1.done event will be sent.
+      </description>
+      <arg name="name" type="string"/>
+    </event>
+
+    <event name="icon_size">
+      <description summary="Advertises the size and scale of a raster icon available for this toplevel">
+        If raw icon pixel data is set on this toplevel, this event will be
+        emitted for each size/scale combination of icon data known to the
+        compositor.
+
+        This event is mutually-exclusive with the no_icon event, and receiving
+        it replaces the no-icon state.
+
+        If the client wishes to fetch a particular size and scale of icon, it
+        can use the get_icon_pixels request.
+
+        If the set of icon sizes/scales changes (that is, new scales/sizes are
+        added, or some existing scales/sizes are removed), events describing the
+        entire list of available sizes/scales will be re-emitted, along with a
+        repeat of the icon_name event (if available).
+
+        The entire set will also be re-emitted if the icon pixel data for any
+        size/scale combination changes.
+
+        When a toplevel's icon changes, this event will be emitted within a
+        "done" group. The client should treat any icon event grouping as fully
+        replacing any previously-sent icon event grouping.
+
+        This event requires the xdg-toplevel-icon protocol, or a similar
+        protocol that allows applications to associate icon pixel data with
+        their toplevels.
+
+        After all property changes have been made on this toplevel, the
+        wlr_foreign_toplevel_handle_v1.done event will be sent.
+      </description>
+      <arg name="size" type="uint" summary="Width and height of the icon, in logical pixels"/>
+      <arg name="scale" type="uint" summary="The UI scale factor this pixel data corresponds to"/>
+    </event>
+
+    <event name="no_icon">
+      <description summary="Informs clients that the toplevel has no custom icon">
+        The client should instead use the toplevel's app_id as reported by
+        wlr_foreign_toplevel_handle_v1 in order to determine a suitable icon.
+
+        This event is mutually-exclusive with the icon_name and icon_size
+        events, and receiving it clears any previously-advertised icon state.
+
+        When a toplevel's icon changes, this event will be emitted within a
+        "done" group. The client should treat any icon event grouping as fully
+        replacing any previously-sent icon event grouping.
+
+        After all property changes have been made on this toplevel, the
+        wlr_foreign_toplevel_handle_v1.done event will be sent.
+      </description>
+    </event>
+
+    <event name="workspace_enter">
+      <description summary="Emitted when the toplevel enters a workspace">
+        Emitted when this toplevel is placed on the specified workspace.
+
+        A toplevel can either be on only one workspace, or on all workspaces in
+        a particular group.
+
+        If a workspace is made "sticky", that is, placed on all workspaces, this
+        event will not be emitted for any workspaces. Instead, the state event
+        will include the sticky state.
+
+        A workspace_enter event will always be preceded by a workspace_leave
+        event, except for the first workspace_enter event received after the
+        object is created.
+
+        If the client has not yet bound the ext_workspace_manager_v1 global,
+        and/or the ext_workspace_handle_v1 instances have not been created for
+        the client, this event will be deferred until the workspace handle
+        instances are created and available to the client.
+
+        After all property changes have been made on this toplevel, the
+        wlr_foreign_toplevel_handle_v1.done event will be sent.
+      </description>
+      <arg name="workspace" type="object" interface="ext_workspace_handle_v1"/>
+    </event>
+
+    <event name="workspace_leave">
+      <description summary="Emitted when the toplevel leaves a workspace">
+        Emitted when this toplevel is removed from the specified workspace.
+
+        A toplevel can either be on only one workspace, or on all workspaces in
+        a particular group.
+
+        If a workspace is made "sticky", that is, placed on all workspaces, this
+        event will be emitted for the previous single workspace it was on,
+        followed by a new state event that includes the sticky state.
+
+        A workspace_leave event will always be preceded by a workspace_enter
+        event.
+
+        If the workspace referenced by the ext_workspace_handle_v1 is being
+        destroyed, this event will be sent before the ext_workspace_handle_v1
+        itself is destroyed.
+
+        After all property changes have been made on this toplevel, the
+        wlr_foreign_toplevel_handle_v1.done event will be sent.
+      </description>
+      <arg name="workspace" type="object" interface="ext_workspace_handle_v1"/>
+    </event>
+  </interface>
+
+  <interface name="xfce_foreign_toplevel_icon_pixels_v1" version="1">
+    <description summary="A toplevel icon's pixel data">
+      Provides the pixel data of a toplevel's icon.
+    </description>
+
+    <request name="destroy" type="destructor">
+      <description summary="Destroys the xfce_foreign_toplevel_icon_pixels_v1 object">
+        Informs the compositor that the client no longer has a need for this
+        instance. While this does destroy the object, the compositor may have
+        already sent a pixels or failed event that has not yet been processed by
+        the client, and should be ignored.
+      </description>
+    </request>
+
+    <event name="pixels">
+      <description summary="The icon's pixel data">
+        The pixel data is provided in litte-endian ARGB32 format, with
+        premultiplied alpha.
+
+        The total size of the mapping can be calculated by multiplying stride
+        with height.
+
+        The compositor will not use this object for any other purpose after
+        sending this event; after reading the pixel data, you should call
+        destroy.
+      </description>
+      <arg name="fd" type="fd" summary="A mappable file descriptor containing the pixel data"/>
+      <arg name="width" type="uint" summary="The pixel width of the data"/>
+      <arg name="height" type="uint" summary="The pixel height of the data"/>
+      <arg name="stride" type="uint" summary="The size in bytes of each row of data"/>
+    </event>
+
+    <event name="failed">
+      <description summary="The icon's pixel data could not be provided">
+        The icon's pixel data cannot be provided for the supplied reason.
+
+        The client should destroy this object after receiving this event.
+      </description>
+      <arg name="reason" type="uint" enum="failure_reason"/>
+    </event>
+
+    <enum name="failure_reason">
+      <entry name="no_pixel_data" value="0" summary="The associated toplevel does not have any icon pixel data"/>
+      <entry name="invalid_args" value="1" summary="The specified size and/or scale is not available"/>
+      <entry name="unknown" value="2" summary="An unexpected error occurred"/>
+    </enum>
+  </interface>
+</protocol>

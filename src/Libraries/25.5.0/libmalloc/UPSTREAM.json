@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/libmalloc",
+  "tag": "libmalloc-812.100.31",
+  "commit": "c49dafa25f1efe8607701ae6014a663ad2ee437f",
+  "archive_sha256": "a2966b7790c9dc7b66af22160070b9f7faa9aceb8eb1f89b36cbeb82811d5fff"
+}

@@ -1,0 +1,11 @@
+#ifndef __SYS_APPLEAPIOPTS_H__
+#define __SYS_APPLEAPIOPTS_H__
+
+#define __APPLE_API_STANDARD
+#define __APPLE_API_STABLE
+#define __APPLE_API_EVOLVING
+#define __APPLE_API_UNSTABLE
+#define __APPLE_API_PRIVATE
+#define __APPLE_API_OBSOLETE
+
+#endif

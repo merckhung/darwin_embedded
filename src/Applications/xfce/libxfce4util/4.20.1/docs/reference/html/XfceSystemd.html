@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XfceSystemd: libxfce4util Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfceConsolekit.html" title="XfceConsolekit">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfceSystemd.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfceSystemd.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfceConsolekit.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfceSystemd"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfceSystemd.top_of_page"></a>XfceSystemd</span></h2>
+<p>XfceSystemd — Session management via systemd</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfceSystemd.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="returnvalue">XfceSystemd</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-get" title="xfce_systemd_get ()">xfce_systemd_get</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-reboot" title="xfce_systemd_reboot ()">xfce_systemd_reboot</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-power-off" title="xfce_systemd_power_off ()">xfce_systemd_power_off</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-suspend" title="xfce_systemd_suspend ()">xfce_systemd_suspend</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-hibernate" title="xfce_systemd_hibernate ()">xfce_systemd_hibernate</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-hybrid-sleep" title="xfce_systemd_hybrid_sleep ()">xfce_systemd_hybrid_sleep</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-can-reboot" title="xfce_systemd_can_reboot ()">xfce_systemd_can_reboot</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-can-power-off" title="xfce_systemd_can_power_off ()">xfce_systemd_can_power_off</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-can-suspend" title="xfce_systemd_can_suspend ()">xfce_systemd_can_suspend</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-can-hibernate" title="xfce_systemd_can_hibernate ()">xfce_systemd_can_hibernate</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfceSystemd.html#xfce-systemd-can-hybrid-sleep" title="xfce_systemd_can_hybrid_sleep ()">xfce_systemd_can_hybrid_sleep</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfceSystemd.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfceSystemd.html#XfceSystemd-struct" title="XfceSystemd">XfceSystemd</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfceSystemd.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> XfceSystemd
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfceSystemd.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4util/libxfce4util.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfceSystemd.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="XfceSystemd.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfce-systemd-get"></a><h3>xfce_systemd_get ()</h3>
+<pre class="programlisting"><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="returnvalue">XfceSystemd</span></a> *
+xfce_systemd_get (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Create a new <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> instance or increase reference count.</p>
+<div class="refsect3">
+<a name="xfce-systemd-get.returns"></a><h4>Returns</h4>
+<p>A reference to the singleton object, to be released with <code class="function">g_object_unref()</code>. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-reboot"></a><h3>xfce_systemd_reboot ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_reboot (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                     <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                     <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask systemd to trigger Reboot.</p>
+<div class="refsect3">
+<a name="xfce-systemd-reboot.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-reboot.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-power-off"></a><h3>xfce_systemd_power_off ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_power_off (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                        <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask systemd to trigger PowerOff.</p>
+<div class="refsect3">
+<a name="xfce-systemd-power-off.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-power-off.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-suspend"></a><h3>xfce_systemd_suspend ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_suspend (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                      <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask systemd to trigger Suspend.</p>
+<div class="refsect3">
+<a name="xfce-systemd-suspend.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-suspend.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-hibernate"></a><h3>xfce_systemd_hibernate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_hibernate (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                        <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask systemd to trigger Hibernate.</p>
+<div class="refsect3">
+<a name="xfce-systemd-hibernate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-hibernate.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-hybrid-sleep"></a><h3>xfce_systemd_hybrid_sleep ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_hybrid_sleep (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> polkit_interactive</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Ask systemd to trigger HybridSleep.</p>
+<div class="refsect3">
+<a name="xfce-systemd-hybrid-sleep.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>polkit_interactive</p></td>
+<td class="parameter_description"><p>whether PolicyKit should ask the user to authenticate if needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-hybrid-sleep.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-can-reboot"></a><h3>xfce_systemd_can_reboot ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_can_reboot (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                         <em class="parameter"><code><span class="type">gboolean</span> *can_reboot</code></em>,
+                         <em class="parameter"><code><span class="type">gboolean</span> *auth_reboot</code></em>,
+                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether systemd can trigger Reboot.</p>
+<div class="refsect3">
+<a name="xfce-systemd-can-reboot.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_reboot</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_reboot</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-can-reboot.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-can-power-off"></a><h3>xfce_systemd_can_power_off ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_can_power_off (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> *can_power_off</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> *auth_power_off</code></em>,
+                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether systemd can trigger PowerOff.</p>
+<div class="refsect3">
+<a name="xfce-systemd-can-power-off.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_power_off</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_power_off</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-can-power-off.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-can-suspend"></a><h3>xfce_systemd_can_suspend ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_can_suspend (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                          <em class="parameter"><code><span class="type">gboolean</span> *can_suspend</code></em>,
+                          <em class="parameter"><code><span class="type">gboolean</span> *auth_suspend</code></em>,
+                          <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether systemd can trigger and has authorization for Suspend.</p>
+<div class="refsect3">
+<a name="xfce-systemd-can-suspend.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_suspend</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_suspend</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-can-suspend.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-can-hibernate"></a><h3>xfce_systemd_can_hibernate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_can_hibernate (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> *can_hibernate</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> *auth_hibernate</code></em>,
+                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether systemd can trigger and has authorization for Hibernate.</p>
+<div class="refsect3">
+<a name="xfce-systemd-can-hibernate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_hibernate</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_hibernate</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-can-hibernate.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-systemd-can-hybrid-sleep"></a><h3>xfce_systemd_can_hybrid_sleep ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_systemd_can_hybrid_sleep (<em class="parameter"><code><a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> *systemd</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> *can_hybrid_sleep</code></em>,
+                               <em class="parameter"><code><span class="type">gboolean</span> *auth_hybrid_sleep</code></em>,
+                               <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Check whether systemd can trigger and has authorization for HybridSleep.</p>
+<div class="refsect3">
+<a name="xfce-systemd-can-hybrid-sleep.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>systemd</p></td>
+<td class="parameter_description"><p>the <a class="link" href="XfceSystemd.html" title="XfceSystemd"><span class="type">XfceSystemd</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>can_hybrid_sleep</p></td>
+<td class="parameter_description"><p>location to store capacity or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>auth_hybrid_sleep</p></td>
+<td class="parameter_description"><p>location to store authorization or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>location to store error on failure or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-systemd-can-hybrid-sleep.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the D-Bus request was successful, <code class="literal">FALSE</code> otherwise and <em class="parameter"><code>error</code></em>
+is set.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfceSystemd.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfceSystemd-struct"></a><h3>XfceSystemd</h3>
+<pre class="programlisting">typedef struct _XfceSystemd XfceSystemd;</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

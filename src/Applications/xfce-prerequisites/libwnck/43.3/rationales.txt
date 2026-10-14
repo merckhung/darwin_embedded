@@ -1,0 +1,40 @@
+Bugs explaining chosen behavior:
+================================
+Don't activate windows clicked in the pager:
+  http://bugzilla.gnome.org/show_bug.cgi?id=100470
+
+Sticky/Pinned/whatever-its-called windows only appear in one workspace:
+  http://bugzilla.gnome.org/show_bug.cgi?id=156182
+  http://bugzilla.gnome.org/show_bug.cgi?id=87531
+
+Use icon name in tasklist:
+  http://bugzilla.gnome.org/show_bug.cgi?id=321915
+
+Layout in window action menu:
+  See rationales.txt in metacity :-)
+
+<We need to fill this in more...>
+
+
+Tracker bugs:
+================================
+Window Grouping
+  http://bugzilla.gnome.org/show_bug.cgi?id=155904 
+
+Tasklist Appearance
+  http://bugzilla.gnome.org/show_bug.cgi?id=155905 
+
+Pager (i.e. workspace switcher) Appearance
+  http://bugzilla.gnome.org/show_bug.cgi?id=155906 
+
+Menus
+  http://bugzilla.gnome.org/show_bug.cgi?id=155907 
+
+Drag-and-drop
+  http://bugzilla.gnome.org/show_bug.cgi?id=155908 
+
+Metacity-Libwnck Interaction
+  http://bugzilla.gnome.org/show_bug.cgi?id=155909 
+
+Action bugs other than Drag-And-Drop
+  http://bugzilla.gnome.org/show_bug.cgi?id=155910 

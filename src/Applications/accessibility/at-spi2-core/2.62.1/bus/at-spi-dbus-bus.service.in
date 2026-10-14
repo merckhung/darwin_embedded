@@ -1,0 +1,10 @@
+[Unit]
+Description=Accessibility services bus
+PartOf=graphical-session.target
+
+[Service]
+Type=dbus
+BusName=org.a11y.Bus
+ExecStart=@libexecdir@/at-spi-bus-launcher
+Slice=session.slice
+TimeoutStopSec=5

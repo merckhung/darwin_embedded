@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Elishai Eliyahu <elishai@mailfence.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10 00:45+0100\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2023\n"
+"Language-Team: Hebrew (https://www.transifex.com/xfce/teams/16840/he/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr "החלון המסופק לא כולל _NET_WM_ICON או איקון WMHints"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:626
+msgid "Failed to find or load an icon for the window"
+msgstr "נכשל למצוא או לטעון איקון עבור החלון"
+
+#: ../libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "חלל עבודה 0"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "הז_ז"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "שנה גוד_ל"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "תמיד למ_עלה"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "תמי_ד בחלל עבודה גלוי"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "ר_ק בחלל עבודה זה "
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "עבור לחלל עבודה ש_מאל"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "עבור לחלל עבודה י_מין"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "עבור לחלל עבודה _עליון"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "עבור לחלל עבודה ת_חתון"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "עבור לחל_ל עבודה אחר"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "_סגור"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "חלל עבודה %d"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr "צמ_צם"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr "בטל צ_ימצום"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr "ה_גדל"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr "בטל הגדל_ה"

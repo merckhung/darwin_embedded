@@ -1,0 +1,43 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(name = "image_" + arch,
+        srcs = ["//userland/apps/xfce:start_desktop.c", "//userland/apps/xfce:desktop-launcher." + arch + ".o",
+                "//userland/apps/xfce:test_terminal.c", "//userland/apps/xfce:terminal-probe." + arch + ".o",
+                "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", "//userland/apps/xfce:xfce-terminal-stage." + arch + ".tar",
+                "//userland/apps/xfce:xfce-terminal-runtime." + arch + ".tar", "//userland/apps/xfce:xfce-terminal-runtime." + arch + ".json",
+                "//userland/apps/init:root." + arch + ".img", "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch,
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["root." + arch + ".img", "root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-xfce-start --root-size-mib 128 --product-desktop" +
+              " --probe-source $(location //userland/apps/xfce:start_desktop.c) --probe-object $(location //userland/apps/xfce:desktop-launcher." + arch + ".o)" +
+              " --desktop-check-source $(location //userland/apps/xfce:test_terminal.c) --desktop-check-object $(location //userland/apps/xfce:terminal-probe." + arch + ".o)" +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location //userland/apps/xfce:xfce-terminal-stage." + arch + ".tar)" +
+              " --runtime $(location //userland/apps/xfce:xfce-terminal-runtime." + arch + ".tar) --runtime-report $(location //userland/apps/xfce:xfce-terminal-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location root." + arch + ".img) --report $(location root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+alias(name = "arm64", actual = ":root.arm64.img")
+alias(name = "x86_64", actual = ":root.x86_64.img")
+filegroup(name = "images", srcs = [":arm64", ":x86_64"])
+filegroup(name = "reports", srcs = [":root.arm64.json", ":root.x86_64.json"])
+genrule(name = "efi_image_x86_64", srcs = [":root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64", "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"],
+    outs = ["boot.x86_64.img"], cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+          " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location root.x86_64.img) --output $@")
+filegroup(name = "boot_inputs_arm64", srcs = [":arm64", "//userland/apps/x11:desktop_kernel_arm64", "//userland/apps/xfce:desktop_loader_arm64"])
+[
+    sh_binary(name = "verify_" + arch, srcs = ["//userland/apps/xfce:verify_ui.sh"], args = [arch, "--product"],
+        data = [":image_" + arch, "//scripts:verify_native_tools.py", "//userland/apps/xfce:xfce-terminal-runtime." + arch + ".json", "//userland/apps/xfce:verify_ui.py",
+                "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+               ([":boot_inputs_arm64"] if arch == "arm64" else [":efi_image_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]
+[
+    sh_binary(name = "boot_" + arch, srcs = ["//userland/apps/xfce:verify_ui.sh"],
+        args = [arch, "--product", "--interactive", "--display", "gtk"],
+        data = [":image_" + arch, "//scripts:verify_native_tools.py", "//userland/apps/xfce:xfce-terminal-runtime." + arch + ".json", "//userland/apps/xfce:verify_ui.py",
+                "//userland/native/framebuffer:verify.py", "//bootloader/ovmf:firmware"] +
+               ([":boot_inputs_arm64"] if arch == "arm64" else [":efi_image_x86_64"]))
+    for arch in ["arm64", "x86_64"]
+]

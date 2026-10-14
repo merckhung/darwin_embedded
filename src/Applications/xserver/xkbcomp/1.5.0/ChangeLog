@@ -1,0 +1,2795 @@
+commit 2c7789785981ad1fce3858c726615b49293f7de0
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Dec 2 10:25:19 2025 +1000
+
+    xkbcomp 1.5.0
+
+commit da836764573298c53c625c6c237ab5211b2d3adf
+Author: Ran Benita <ran234@gmail.com>
+Date:   Sat Mar 10 23:10:47 2018 +0200
+
+    xkbcomp: fix stack overflow when evaluating boolean negation
+    
+    The expression evaluator would go into an infinite recursion when
+    evaluating something like this as a boolean: `!True`. Instead of
+    recursing to just `True` and negating, it recursed to `!True` itself
+    again.
+    
+    Bug inherited from xkbcomp.
+    
+    Caught with the afl fuzzer.
+    
+    CVE-2018-15853
+    
+    Identical to libxkbcommon commit 1f9d1248c07cda8aaff762429c0dce146de8632a
+    https://github.com/xkbcommon/libxkbcommon/commit/1f9d1248c07cda8aaff762429c0dce146de8632a
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/38>
+
+commit 895e080b237e346a43a31edf9dee6143c2abf230
+Author: Daniel Stone <daniels@collabora.com>
+Date:   Mon Oct 30 11:21:55 2017 +0000
+
+    Fail expression lookup on invalid atoms
+    
+    If we fail atom lookup, then we should not claim that we successfully
+    looked up the expression.
+    
+    CVE-2018-15859
+    
+    Identical to libxkbcommon commit bb4909d2d8fa6b08155e449986a478101e2b2634
+    https://github.com/xkbcommon/libxkbcommon/commit/bb4909d2d8fa6b08155e449986a478101e2b2634
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/38>
+
+commit c342635409cd687da0eda323ef4f165b11565052
+Author: Daniel Stone <daniels@collabora.com>
+Date:   Mon Jun 26 17:21:45 2017 +0100
+
+    xkbcomp: Don't falsely promise from ExprResolveLhs
+    
+    Every user of ExprReturnLhs goes on to unconditionally dereference the
+    field return, which can be NULL if xkb_intern_atom fails. Return false
+    if this is the case, so we fail safely.
+    
+    Testcase: splice geometry data into interp
+    
+    CVE-2018-15861
+    
+    Identical to libxkbcommon commit 38e1766bc6e20108948aec8a0b222a4bad0254e9
+    https://github.com/xkbcommon/libxkbcommon/commit/38e1766bc6e20108948aec8a0b222a4bad0254e9
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/38>
+
+commit fa10dbc2ca8bcb45bcecb433520de755e628ca91
+Author: Daniel Stone <daniels@collabora.com>
+Date:   Mon Jun 26 17:12:29 2017 +0100
+
+    xkbcomp: Don't crash on no-op modmask expressions
+    
+    If we have an expression of the form 'l1' in an interp section, we
+    unconditionally try to dereference its args, even if it has none.
+    
+    CVE-2018-15863
+    
+    Identical to libxkbcommon commit 96df3106d49438e442510c59acad306e94f3db4d
+    https://github.com/xkbcommon/libxkbcommon/commit/96df3106d49438e442510c59acad306e94f3db4d
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/38>
+
+commit ccea045e41f1a7e02b640d8a205d08ed4e1cadf4
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Thu Jan 30 16:46:35 2025 +0100
+
+    parser: Parse but discard multiple actions per level
+    
+    Follow-up of commit e119cbec7e750ffc4d4bd08b577db2c697035a30, in order
+    to support parsing this extension of XKB supported by libxkbcommon, but
+    ignoring its value (replaced by `NoAction()`).
+    
+    Signed-off-by: Pierre Le Marre <dev@wismill.eu>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/29>
+
+commit 7310026360dc7dc21c6ba0a9b0f0d76040205b8e
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Thu Jan 30 16:11:30 2025 +0100
+
+    parser: Refactor multiple keysyms per level and add warning
+    
+    The feature was added in commit e119cbec7e750ffc4d4bd08b577db2c697035a30.
+    but it previously issued no warning.
+    
+    - Refactored to always issue a warning.
+    - Fixed a memory leak because the discarded keysym list was not freed.
+    - Added a comment to explain that this is an extension to XKB that
+      cannot work with X11, due to its intrinsic limitations.
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/37>
+
+commit 915983c113cb0d187d64ae5ea02228ba66bb6ba3
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Thu Nov 13 07:59:22 2025 +0100
+
+    parser: Fix multiple keysyms per level parsing
+    
+    The feature was added in commit e119cbec7e750ffc4d4bd08b577db2c697035a30.
+    However, it made the parser accept the following symbols list: `[{{a}}]`.
+    This is invalid because nested keysym lists are not allowed.
+    
+    Fixed by refactoring the parser so that it triggers a syntax error.
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/37>
+
+commit e6989e2dacbac43efe08911f9460ee139f7e1999
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Thu Nov 13 07:53:08 2025 +0100
+
+    parser: Fix whitespaces
+    
+    - Trim trailing whitespaces.
+    - Fix indentation: indent parser entries with tabs and C code with
+      spaces. It’s not a great solution to mix both styles, but this is
+      the historical style adopted in this file and this commit only
+      make it consistent in all lines.
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/37>
+
+commit 8c45ef536490c9f0c7b451295c4f9b07ea949bc1
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Mon Nov 3 15:47:09 2025 +0100
+
+    Fix various undefined behaviors
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/35>
+
+commit eaae98a40747d830275d6bd2a5fadeea7e3ab280
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Thu Nov 13 07:13:31 2025 +0100
+
+    build: Fix meson linking order
+    
+    Make meson link with the same order as the autotools build.
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/36>
+
+commit d03a4ab1c0b24f6581411622ccf729ceb329aeb8
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Mon Feb 10 12:19:09 2025 +0100
+
+    Compare autotools and meson builds
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/28>
+
+commit b3ba248d8511b4b259ecb83358a4e9f76c1c6799
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Wed Jan 29 20:32:04 2025 +0100
+
+    Add support for meson build
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/28>
+
+commit e19c5e6d6ea0f6063053422d57ea7c96ae49108a
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Sep 23 17:35:26 2025 -0700
+
+    Make sure config.h is included before any system headers
+    
+    Resolves warnings in 32-bit builds on Solaris using gcc 15:
+    
+    In file included from xkbcomp.h:35,
+                     from compat.c:28:
+    config.h:177:9: warning: ‘_FILE_OFFSET_BITS’ redefined
+      177 | #define _FILE_OFFSET_BITS 64
+          |         ^~~~~~~~~~~~~~~~~
+    In file included from /usr/include/sys/types.h:11,
+                     from /usr/X11R7/include/X11/Xos.h:42,
+                     from compat.c:27:
+    /usr/gcc/15/lib/gcc/x86_64-pc-solaris2.11/15.1.0/include-fixed/sys/feature_tests.h:243:9: note: this is the location of the previous definition
+      243 | #define _FILE_OFFSET_BITS       32
+          |         ^~~~~~~~~~~~~~~~~
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/34>
+
+commit 7f80f2d077996bfc65e58c552a270cf6f97c1c1a
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Wed Aug 13 11:47:26 2025 +0200
+
+    symbols: Fix NULL pointer dereference in MergeKeyGroups
+    
+    It may trigger with the following keymap symbols:
+    
+        key <> { [a, A] }; key <> { [NoAction()] };
+    
+    or:
+    
+        key <> { [NoAction()] }; augment key <> { [a, A] };
+    
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/33>
+
+commit 6ec3b544d6f2c32339062db3933c87c82ac2d2b2
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Tue Jul 1 20:24:54 2025 +0200
+
+    types: Fix typo in warning
+    
+    Signed-off-by: Pierre Le Marre <dev@wismill.eu>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/32>
+
+commit 8e73169bf69f1dd301dbc2bdee68870b3379d949
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun May 25 11:39:49 2025 -0700
+
+    man page: fix warnings from `mandoc -T lint`
+    
+    mandoc: xkbcomp.1:2:15: WARNING: cannot parse date, using it verbatim: TH xkbcomp 1.4.7
+    mandoc: xkbcomp.1:9:2: WARNING: skipping paragraph macro: PP after SH
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/31>
+
+commit 38724ab9f0f013a7d684e5a410f72618603e29cc
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Mar 31 18:46:41 2025 -0700
+
+    Improve man page formatting
+    
+    More closely follow common style as described on
+    https://man7.org/linux/man-pages/man7/man-pages.7.html
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/30>
+
+commit cd51404ec62a9d9f4480fc176bcd8c6231ab5900
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Mar 31 18:31:52 2025 -0700
+
+    Accept --help & --version as aliases to -help & -version
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/30>
+
+commit 9cb80be3bd01bab4eba6a8aea7767c36b2284845
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Thu Jan 9 16:32:06 2025 +0100
+
+    types: Fix warning for multiple map occurrences
+    
+    `AddMapEntry` may emit a warning even if told to not report. This is
+    problematic when it is called by `CopyDefToKeyType`, as `AddMapEntry`
+    is used there for adding default `map` entries corresponding to each
+    `preserve` entry, only if relevant. These default entries should not
+    trigger a warning (report = False) if conflicting with an existing entry
+    and simply be ignored. However with the current code a warning may be
+    erroneously emitted if one set the warning level >=9, leaving the user
+    puzzled with a conflicting map entry found nowhere in the source files.
+    
+    Signed-off-by: Pierre Le Marre <dev@wismill.eu>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/27>
+
+commit 374d8a12e9866ce3e2c0157c208b052abe701366
+Author: Pierre Le Marre <dev@wismill.eu>
+Date:   Fri Dec 27 00:47:23 2024 +0100
+
+    Symbols: Fix out-of-bounds actions in MergeKeyGroups
+    
+    Signed-off-by: Pierre Le Marre <dev@wismill.eu>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/26>
+
+commit a9c3d35a1f74de1681aeb7cdd66dce7bf186c666
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Nov 9 11:28:24 2024 -0800
+
+    Use _stricmp()/_strnicmp() instead of strcasecmp()/strncasecmp() on Windows
+    
+    Fixes: 0b4873c ("Assume target platforms have strcasecmp, strncasecmp, & strdup now")
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/25>
+
+commit 3f354d20f5bc0276e27faa7fb5f6356319aa32c3
+Author: Matthieu Herrb <matthieu@herrb.eu>
+Date:   Sat May 4 13:36:07 2024 +0200
+
+    Symbols: resize the syms array when removing NoSymbol
+    
+    On OpenBSD, with malloc_conf=S, the recallocarray() code detects a
+    size mismatch in ResizeKeyGroup when numLevels[group] doesn't match
+    the allocated size of syms[group].
+    
+    Should fix https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/issues/25
+    
+    Signed-off-by: Matthieu Herrb <matthieu@herrb.eu>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/24>
+
+commit 0b4873ce55e3afe2e1716ef4a21cd94a7ae96e64
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Apr 21 16:03:11 2024 -0700
+
+    Assume target platforms have strcasecmp, strncasecmp, & strdup now
+    
+    All have been required since Unix98/SUSv2
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Part-of: <https://gitlab.freedesktop.org/xorg/app/xkbcomp/-/merge_requests/23>
+
+commit e26102f28f08e5432b1ad44bbaef7f32aff199f6
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Feb 3 14:23:58 2024 -0800
+
+    xkbcomp 1.4.7
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit ff32f542c94f1b30ba2ba58193adb3774a5c50e6
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Oct 7 11:09:44 2023 -0700
+
+    GenerateListing: close outFile before returning
+    
+    Found by Oracle Parfait static analyzer:
+    
+    Error: File Leak
+       File Leak [file-ptr-leak]:
+          Leaked File outFile
+            at line 497 of app/xkbcomp/listing.c in function 'GenerateListing'.
+              outFile initialized at line 432 with fopen
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 1f1ea56ca22a85164c4362650b004e202f4007fd
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Feb 6 13:13:21 2023 -0800
+
+    configure: raise minimum autoconf requirement to 2.70
+    
+    Needed for builds on NetBSD to work correctly, since it depends on
+    AC_USE_SYSTEM_EXTENSIONS defining _OPENBSD_SOURCE to expose the
+    prototype for reallocarray() in the system headers.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 6ce2c46869ced346839eb7e0c3f83170025495c6
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Fri Jan 27 09:02:26 2023 -0800
+
+    xkbcomp.h: include config.h before any other headers
+    
+    Ensures flags set by AC_USE_SYSTEM_EXTENSIONS are correctly
+    propogated when including system headers.
+    
+    Closes: #22 xkbcomp from git compile error
+    Fixes: 81e46ca ("Use asprintf() if the platform supports it")
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 772470d0e4fef8e0a3d6eaf4c563fa7b1f6d6d19
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 15:32:03 2022 -0800
+
+    Replace calloc(strlen())+strcpy() pairs with strdup() calls
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 6db8fd556e2562e9a0a821c0d6fd4f7cdcf6266c
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 15:18:26 2022 -0800
+
+    Mark more pointers as const
+    
+    Some suggested by cppcheck, others by manual code inspection
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 299c9762b1dbe53f3297c54e5526aeae767d1a10
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 10:24:13 2022 -0800
+
+    Use unsigned ints when shifting to create bitmasks
+    
+    symbols.c:1057:28: portability: Shifting signed 32-bit value by 31 bits
+      is implementation-defined behaviour. See condition at line 1049.
+      [shiftTooManyBitsSigned]
+            radio_groups |= (1 << (tmp.uval - 1));
+                               ^
+    symbols.c:1049:41: note: Assuming that condition 'tmp.uval>32' is not redundant
+            if ((tmp.uval < 1) || (tmp.uval > XkbMaxRadioGroups))
+                                            ^
+    symbols.c:1057:28: note: Shift
+            radio_groups |= (1 << (tmp.uval - 1));
+                               ^
+    symbols.c:1057:28: warning: Either the condition 'tmp.uval>32' is redundant
+      or there is signed integer overflow for expression '1<<(tmp.uval-1)'.
+      [integerOverflowCond]
+            radio_groups |= (1 << (tmp.uval - 1));
+                               ^
+    symbols.c:1049:41: note: Assuming that condition 'tmp.uval>32' is not redundant
+            if ((tmp.uval < 1) || (tmp.uval > XkbMaxRadioGroups))
+                                            ^
+    symbols.c:1057:28: note: Integer overflow
+            radio_groups |= (1 << (tmp.uval - 1));
+                               ^
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit e4cba31313b44e40efcc0c260a33c3ec83e4b772
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 10:20:05 2022 -0800
+
+    Stop building more unused functions
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 3e486c4578f3f6a81fc0f9afba6551dfa8c7b63b
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 10:02:13 2022 -0800
+
+    Only build debug infrastructure if DEBUG is defined
+    
+    It's only used when DEBUG is defined, so don't build it when
+    we're not using it.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit a3bbf780252e55bb1dcab717289ef09e00d11223
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 09:55:55 2022 -0800
+
+    Remove unused "no indent" (NOI) debug functions
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 0493c7216dd39baeb420583be71af095576dbf74
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 09:50:55 2022 -0800
+
+    Mark more functions and variables static
+    
+    Stop exporting things that aren't used outside the file
+    that defines them.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 4119707089b5c14f53bd5ff0b86ee7e575ac9316
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 09:22:57 2022 -0800
+
+    XkbAddDirectoryToPath: don't leak existing paths on realloc() failure
+    
+    Found by cppcheck:
+    
+    xkbpath.c:217:9: error: Common realloc mistake: 'includePath' nulled
+      but not freed upon failure [memleakOnRealloc]
+            includePath = (char **) realloc(includePath, szPath * sizeof(char *));
+            ^
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 0d22aac7bb50ff1f7588f78ec25e9fb62a7b2e5e
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 09:17:56 2022 -0800
+
+    FindKeypadVMod: check xkb is not NULL before dereference, not after
+    
+    As found by cppcheck:
+    
+    vmod.c:232:26: warning: Either the condition 'xkb' is redundant or there
+      is possible null pointer dereference: xkb. [nullPointerRedundantCheck]
+        name = XkbInternAtom(xkb->dpy, "NumLock", False);
+                             ^
+    vmod.c:233:10: note: Assuming that condition 'xkb' is not redundant
+        if ((xkb) && LookupVModIndex((XPointer) xkb, None, name, TypeInt, &rtrn))
+             ^
+    vmod.c:232:26: note: Null pointer dereference
+        name = XkbInternAtom(xkb->dpy, "NumLock", False);
+                             ^
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit c7a5d1468c75adb2139d2c2facc73854f13b5ba3
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Dec 11 08:57:56 2022 -0800
+
+    Remove #ifdef sgi sections
+    
+    They just included an additional malloc.h header, but SGI Irix
+    has been unsupported for a decade now.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit e6821a8a7b16e5a8e4c478c9544798fae59a21d1
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 16:20:58 2022 -0800
+
+    Handle -Wstringop-truncation warning in HandleOverlayDef()
+    
+    In function ‘HandleOverlayDef’,
+        inlined from ‘HandleSectionBody’ at geometry.c:2778:18,
+        inlined from ‘HandleSectionDef’ at geometry.c:2818:10,
+        inlined from ‘HandleGeometryFile’ at geometry.c:2864:18:
+    geometry.c:2573:9: warning: ‘strncpy’ output may be truncated copying
+     4 bytes from a string of length 4 [-Wstringop-truncation]
+     2573 |         strncpy(key->over, keyDef->over, XkbKeyNameLength);
+          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    geometry.c:2574:9: warning: ‘strncpy’ output may be truncated copying
+     4 bytes from a string of length 4 [-Wstringop-truncation]
+     2574 |         strncpy(key->under, keyDef->under, XkbKeyNameLength);
+          |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 81e46cab5f4bdd69fa0a644dba86f6902cece175
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 16:10:01 2022 -0800
+
+    Use asprintf() if the platform supports it
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit a1551b78e9ac0e2075ca241c0e8ae361758f26b4
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 15:39:39 2022 -0800
+
+    Replace && with & for bitwise comparison
+    
+    Clears up gcc warning:
+    
+    keytypes.c: In function ‘SetPreserve’:
+    keytypes.c:757:26: warning: promoted ~unsigned is always non-zero
+      [-Wsign-compare]
+             || (new.preVMods && (~new.indexVMods)))
+                              ^~
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit e4e821d5083072e796d6489ddcacf895a43c66f1
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 15:37:56 2022 -0800
+
+    Fix 106 missing-field-initializers warnings in misc.c
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 1fb639c97fc28b8ed66b5553eafbbeed07e4cb09
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 15:33:17 2022 -0800
+
+    Replace malloc()+bzero() pairs with calloc() calls
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 8e58b7949ab96180d60fb13f7820d6cc01c228ae
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 15:21:49 2022 -0800
+
+    Remove unnecessary casts from bzero() calls
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit bdbfa354dd4d93657104ccd7c9e892ed45197dd8
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 15:16:05 2022 -0800
+
+    Remove unnecessary casts from memcpy() calls
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit f1757a005f471044da3f8e946a091b067996d270
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 14:30:21 2022 -0800
+
+    Replace Opaque with direct usage of void *
+    
+    Only one use was left after deleting the *alloc/free() wrappers
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 5655379ce89ab55f25a536972aaa310480de9432
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 14:23:11 2022 -0800
+
+    Remove unnecessary checks for NULL pointers before calling free()
+    
+    Not needed in C89 and later
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 2ac6a7f029d8855fbb4e8024aab0511727ac3a67
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 14:10:32 2022 -0800
+
+    Replace uFree() with direct free() calls
+    
+    All these wrappers did was mess with types and add a test for
+    NULL pointers that isn't needed in C89 and later.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 8d85bd1e2f9473958b235caf7af9913b518f73dd
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 14:07:18 2022 -0800
+
+    Replace uTypedRecalloc() with direct recallocarray() calls
+    
+    Retains uRecalloc() as a fallback for platforms without recallocarray()
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit e02e32f71f6c24fcc69bdaf58f6f9e973a017896
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 13:49:56 2022 -0800
+
+    Replace uTypedRealloc() with direct reallocarray() calls
+    
+    Falls back to realloc() if platform doesn't offer reallocarray().
+    Also removes uRealloc() since it had no other uses.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 75af06f5f8ffc41fabd100253aad222cb4ab8662
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 13:44:17 2022 -0800
+
+    Replace uCalloc() and uTypedCalloc() with direct calloc() calls
+    
+    All these wrappers did was mess with types.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 265ea3a77418df2744575f1168f89a33f01e72d4
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 13:39:10 2022 -0800
+
+    Replace uAlloc() and uTypedAlloc() with direct malloc() calls
+    
+    All these wrappers did was mess with types.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 81e51cf1ff494131827df487a0f538c3b07e0407
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 13:34:09 2022 -0800
+
+    Delete unused uTmpAlloc/uTmpFree wrappers around alloca()
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 77b1efa1c83ad64d49d1e9c085d2a496580ce6f9
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 13:26:39 2022 -0800
+
+    Use C99 struct initializers
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 64761ee9424f755b84ab0ce02d13eda32d215a14
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 11:38:04 2022 -0800
+
+    Variable scope reductions
+    
+    Some found by cppcheck, some found by manual code inspection
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 9737af15196380a1687d18a17d297ee17b45a83f
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 11:03:40 2022 -0800
+
+    Remove register keyword from variable declarations
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit b67c058e2ccc27472b238a6b5dc5e4cd20f6d2bd
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Dec 10 09:08:33 2022 -0800
+
+    Eliminate 20 -Wimplicit-fallthrough warnings
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 634f60a9b25b5d03c78e90574adce3e38f378333
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Jul 28 17:30:21 2022 -0700
+
+    gitlab CI: stop requiring Signed-off-by in commits
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 931c469b2b91603c5c196abf65a39c7dab8609d7
+Author: Leandro Nini <drfiemost@email.it>
+Date:   Sat Dec 10 07:49:56 2022 +0000
+
+    Avoid possibly dereferencing null pointer
+    
+    This addresses issue #21
+    
+    Signed-off-by: Leandro Nini <drfiemost@email.it>
+
+commit 7bac6a25bb44d39710f1b2b5fdad56d7f4c01c39
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Wed Dec 7 17:53:16 2022 -0800
+
+    xkbcomp 1.4.6
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 7cdd50a7471ab67591ceb2e8734483220c5a9205
+Author: Matt Turner <mattst88@gmail.com>
+Date:   Tue Nov 29 12:00:20 2022 -0500
+
+    configure: Use AC_SYS_LARGEFILE to enable large file support
+    
+    Signed-off-by: Matt Turner <mattst88@gmail.com>
+
+commit 76eed4986b8c94008853c2215408a100b7e95ecb
+Author: Benno Schulenberg <bensberg@telfort.nl>
+Date:   Mon Jul 11 09:16:55 2022 +0200
+
+    suppress four more warnings when 'warningLevel' is zero
+    
+    This addresses issue #20 some more.
+    
+    Reported-by: Vincent Lefevre
+    
+    Signed-off-by: Benno Schulenberg <bensberg@telfort.nl>
+
+commit c230cee968c7e7956a04e4d73bd6f23260f435db
+Author: Benno Schulenberg <bensberg@telfort.nl>
+Date:   Sun Jul 10 17:31:52 2022 +0200
+
+    suppress the "Could not resolve" warning when 'warningLevel' is zero
+    
+    Two years ago, commit c8cfca25ab changed an error to a warning
+    but forgot to add a check for 'warningLevel'.
+    
+    This partially addresses issue #20.
+    
+    Reported-by: Vincent Lefevre
+    
+    Signed-off-by: Benno Schulenberg <bensberg@telfort.nl>
+
+commit 97311ebd18e0dbc545d18d1a4b8b94b59c1fbd08
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Apr 2 11:58:18 2022 -0700
+
+    man page: remove out-of-date COPYRIGHT section
+    
+    The information previously listed here didn't match what is present in
+    the source code or the COPYING file, and the X(7) man page doesn't list
+    any license information as this had claimed.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit f3f71746ebee5404ccb736b53cddca557cc62060
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Dec 6 14:54:08 2021 -0800
+
+    gitlab CI: update to new templates
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 3aa424c245090ac594b85ce0ba0a438c921101d6
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Mon Dec 6 14:44:55 2021 -0800
+
+    Build xz tarballs instead of bzip2
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 97390d9e15c0c7ac8c69de42e1be1028ae846aad
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Nov 28 11:35:20 2021 -0800
+
+    Fix "upercase" typo
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit f8b240e897ed68b90c116ce4c2f8814e71e5aa97
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Mar 17 15:39:53 2021 +1000
+
+    xkbcomp 1.4.5
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit da810f10d732a312ccee88652141c1d165efc114
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jan 21 13:24:00 2021 +1000
+
+    keycodes: compress the high keycode warning
+    
+    No point spending 3 lines on this, especially given that this warning is
+    always triggered.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 80398db098b2a2214c5bef28d09cefd58beac43d
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jan 21 13:20:40 2021 +1000
+
+    keycodes: downgrade the >255 keycode warning to an info
+    
+    This warning will be triggered all the time now that xkeyboard-config has
+    started adding keycodes > 255. Downgrade to an info, there's nothing the user
+    can do about this warning anyway.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 1955a2645670eeea83d6d163653749249cd839f2
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jan 21 13:16:53 2021 +1000
+
+    Downgrade the warning for missing symbols to info
+    
+    In the interest of maintainability, it's easier to include as many keycodes as
+    possible and then have the symbols mapping specific to the layout. This is
+    particularly true for evdev where the kernel takes care of device-specifics
+    and every keyboard has the same set of keycodes anyway.
+    
+    So let's downgrade this from a warning to a mere info, virtually every
+    keyboard right now triggers this warning for a number of keys.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 9510dedad875099c32993246188050ea73ab1a9f
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jan 21 13:08:25 2021 +1000
+
+    Replace WARN[1-9], ERROR[1-9], etc. with their unnumbered version
+    
+    Those macros date back to when varargs weren't a thing but they've
+    been #defined to the same value for 17 years now.
+    
+    Patch generated with:
+            for action in WARN INFO ERROR ACTION FATAL WSGO; do
+            sed -i "s/${action}[1-9]/${action}/g" `git ls-files`
+            done
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit ff6a19ed8898ee8c79b2b2a2f87806353d89f5d4
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jan 21 13:46:01 2021 +1000
+
+    gitlab CI: add basic build test
+    
+    Copied from xorgproto
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 3b3d25dd32ba48fd6d15ca98baf7109af21e1d97
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jan 21 13:24:51 2021 +1000
+
+    Remove trailing whitespaces
+    
+    Let's clean this up so I don't have to fight vim and git in removing them.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 790b998647ec171133bf196a3d84c5153cd64840
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Nov 5 14:24:24 2020 +1000
+
+    xkbcomp 1.4.4
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit a0a4f112c5858ac2b932247dba2d85061bb59145
+Author: Miroslav Koškár <mk@mkoskar.com>
+Date:   Mon Jul 6 07:48:48 2020 +0200
+
+    Fix lockdevbtn to be XkbSA_LockDeviceBtn action
+
+commit 101d5f2bce9ee13521fe9cb47b7cfd00d01f5914
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Jul 23 10:25:08 2020 -0700
+
+    Fix spelling/wording issues
+    
+    Found by using:
+      codespell --builtin clear,rare,usage,informal,code,names
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit c8cfca25ab2ed65013448f7502bae933c66390ae
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Jun 5 14:23:09 2020 +1000
+
+    Don't pretend unresolved symbols are an error
+    
+    Whenever xkeyboard-config is newer than xorgproto, or libX11 just hasn't yet
+    been rebuilt against the protocol we end up with some unresolved symbols.
+    That's not an error, it just happens. Let's downgrade this to a warning
+    instead.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit dcaa947c488b4cb458946ab9c19579f7c866cbd4
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Jul 17 15:07:14 2019 +1000
+
+    For -R and after chdir, add the current directory to the path
+    
+    This restores the behavior pre 1aecdffaa0db7bbf85bc0aae9043e9437b25c30d, at
+    least when -R is given. For a normal invocation without -R we don't add the
+    current directory, because 1aecdff isn't totally wrong about whether that's a
+    good idea.
+    
+    Fixes https://gitlab.freedesktop.org/xorg/app/xkbcomp/issues/3
+
+commit d373c9b434c603bf6a5eb442b6427992d23ef874
+Author: Matt Turner <mattst88@gmail.com>
+Date:   Thu Feb 20 09:47:30 2020 -0800
+
+    xkbcomp 1.4.3
+    
+    Signed-off-by: Matt Turner <mattst88@gmail.com>
+
+commit e200d0d41ef3158ea717206c1490e499a0c07f1b
+Author: Dimitry Andric <dimitry@andric.com>
+Date:   Wed Feb 19 21:24:59 2020 +0100
+
+    Don't compare with string literals
+    
+    xkbcomp.c:228:37: error: result of comparison against a string literal is unspecified (use an explicit string comparison function instead) [-Werror,-Wstring-compare]
+            if ((argv[i][0] != '-') || (uStringEqual(argv[i], "-")))
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+    ./utils.h:195:30: note: expanded from macro 'uStringEqual'
+                                     ^~~~~~~~~~~~~~~~~~~~~
+    ./utils.h:198:38: note: expanded from macro 'uStringCompare'
+                                     (s1)!=(s2):strcmp(s1,s2))
+                                         ^ ~~~~
+    
+    Don't attempt to do this macro trickery, and simply use strcmp instead,
+    where it applies.
+    
+    Bug: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=244235
+
+commit 29fda8e50e4a4a127348e63fcf9f47600beab93c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jun 13 12:29:19 2019 +1000
+
+    Error out if we have no default path
+    
+    The path is set through configure.ac/Makefile.am and always defined anyway.
+    Let's not re-define it here with a different value than our default.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit ff0e59084d6b9f2e7085fc88ba68916150085afb
+Author: Andreas Wettstein <wettstein509@solnet.ch>
+Date:   Sat Feb 15 17:34:41 2014 +0100
+
+    xkbcomp Fix missing support for "affect" and incorrect modifier handling for ISOLock
+    
+    Add missing support for "affect" flag to selectively affect locking or
+    unlocking for for modifier locking, control locking, and ISOLock.
+    Fix some incorrect masking and modifier handling for ISOLock.
+    
+    Signed-off-by: Andreas Wettstein <wettstein509@solnet.ch>
+    Reviewed-By: Ran Benita <ran234@gmail.com>
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 9edd61b91a02bda31fc6edd2c32c553e872b6ea2
+Author: Miroslav Koškár <mk@mkoskar.com>
+Date:   Fri Jan 18 20:01:01 2019 +0100
+
+    Fix invalid error report on F_Accel field
+    
+    F_Accel is valid MovePtr field yet following error is reported:
+    
+        > Error:            Field accel is not defined for an action of type MovePtr
+        >                   Action definition ignored
+    
+    Signed-off-by: Miroslav Koškár <mk@mkoskar.com>
+
+commit 7ffec6583ae92fe81402870eb89dea21ca34e933
+Author: Andreas Boll <andreas.boll.dev@gmail.com>
+Date:   Mon Feb 11 21:44:51 2019 +0100
+
+    configure: Remove unused AC_SUBST([REQUIRED_MODULES])
+    
+    v2: Add square brackets back.
+    
+    Signed-off-by: Andreas Boll <andreas.boll.dev@gmail.com>
+
+commit 4683410b6b072bd55dbdc661c76a5ba30bae608e
+Author: Andreas Boll <andreas.boll.dev@gmail.com>
+Date:   Mon Feb 11 21:31:19 2019 +0100
+
+    pkgconfig: Remove unneeded Requires.private
+    
+    Fixes "pkg-config --exists xkbcomp" without installed pkg-config files
+    for x11, xkbfile, and xproto >= 7.0.17.
+    
+    xkbcomp works fine without those pkg-config files.
+    
+    https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=913359
+    
+    Signed-off-by: Andreas Boll <andreas.boll.dev@gmail.com>
+
+commit 1fdbacbe34742328b2a95742982b6017f60a1342
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Wed Oct 17 11:44:37 2018 -0400
+
+    Suppress high-keycode warnings at the default warning level
+    
+    We expect evdev to have keycodes above 255, there's no reason to warn
+    about this.
+    
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit 32d8d53fc1b622d97b3b8eb7b8b5e8354eda60a5
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Wed Nov 21 17:11:16 2018 -0800
+
+    Update configure.ac bug URL for gitlab migration
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 2abe23d23d3755335c10ff573e4e1f93b682e9d9
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Jun 8 09:10:03 2018 +1000
+
+    xkbcomp 1.4.2
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 5bc2849273a224a2df593b7e8df31f0bde666482
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jun 7 11:25:01 2018 +1000
+
+    Ignore xkb_keycodes.maximum of > 255
+    
+    Continuation from 7fdfabd75 "keycodes: Ignore high keycodes"
+    
+    A keymap with a key > 255 will have a xkb_keycodes.maximum of that keycode.
+    Let's not throw a fatal error on that, just crop it back to the maximum of
+    255. This doesn't set the "high_keycode_warned" on purpose so we get this for
+    the first key that actually matters.
+    
+    Reproducible with xkeyboard-config 2.24 which has a maximum of 374.
+    
+    https://bugzilla.redhat.com/show_bug.cgi?id=1587998
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 34842845b191082fd1cfff3b7038332cdcadb825
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Thu Mar 1 11:15:18 2018 -0500
+
+    xkbcomp 1.4.1
+    
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit 993d4916a92b56b5043cf0b90f550568c817ad2b
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Feb 13 13:48:46 2018 +1000
+
+    pkgconfig: add the exec_prefix substitution
+    
+    bindir gets replaced with:
+        bindir=${exec_prefix}/bin
+    but exec_prefix isn't set so we end up with an invalid bindir.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Jon Turney <jon.turney@dronecode.org.uk>
+
+commit 3e2a6ad4edfbf21c3f76f8319f0039b7f589944f
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Mon Nov 6 12:54:41 2017 -0500
+
+    pkgconfig: Add our bindir to xkbcomp.pc
+    
+    Reviewed-by: Daniel Stone <daniels@collabora.com>
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit 3fcd5f4490adee266eb4c0110d058c7f4e515e36
+Author: Daniel Stone <daniels@collabora.com>
+Date:   Mon May 1 15:59:28 2017 +0100
+
+    xkbcomp 1.4.0
+    
+    Signed-off-by: Daniel Stone <daniels@collabora.com>
+
+commit 7fdfabd753a39dbdcfcfa65ec33d0192448119d8
+Author: Daniel Stone <daniels@collabora.com>
+Date:   Thu Apr 6 15:52:10 2017 +0100
+
+    keycodes: Ignore high keycodes
+    
+    Rather than throwing a fatal error when a keycode definition exceeds the
+    declared maximum (i.e. 255), just ignore the definition and continue.
+    
+    This allows xkeyboard-config to start shipping datasets including high
+    keycodes, which will work in xkbcommon as it ignores explicit range
+    declarations.
+    
+    Signed-off-by: Daniel Stone <daniels@collabora.com>
+    Reviewed-by: Ran Benita <ran234@gmail.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reported-by: Christian Kellner <gicmo@gnome.org>
+
+commit 9f1e3e8c8914b349b9b52501bb4acadedb31081d
+Author: Mihail Konev <k.mvc@ya.ru>
+Date:   Thu Jan 26 14:00:21 2017 +1000
+
+    autogen: add default patch prefix
+    
+    Signed-off-by: Mihail Konev <k.mvc@ya.ru>
+
+commit 6f16a2e38667bea33e0cb566734a87c2b92c9391
+Author: Emil Velikov <emil.l.velikov@gmail.com>
+Date:   Mon Mar 9 12:00:52 2015 +0000
+
+    autogen.sh: use quoted string variables
+    
+    Place quotes around the $srcdir, $ORIGDIR and $0 variables to prevent
+    fall-outs, when they contain space.
+    
+    Signed-off-by: Emil Velikov <emil.l.velikov@gmail.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit bbc55549ee44830747eccfadd61df3ed38a99202
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jan 24 10:32:07 2017 +1000
+
+    autogen.sh: use exec instead of waiting for configure to finish
+    
+    Syncs the invocation of configure with the one from the server.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Emil Velikov <emil.velikov@collabora.com>
+
+commit 8995ac58e15595de9158c2d8df9e02b0c925e8f4
+Author: Ran Benita <ran234@gmail.com>
+Date:   Wed Jan 6 21:32:52 2016 +0100
+
+    When a file contains several maps, look for a default map
+    
+    Rather than always taking the first one in the file. This is exactly the
+    intended use of the 'default' flag.
+    
+    Note that pretty much the same code is duplicated in xkbcomp.c when
+    compiling a single file from the command line, but there it is
+    implemented correctly (look for XkbLC_Default).
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=69950
+    
+    Signed-off-by: Ran Benita <ran234@gmail.com>
+    Tested-by: Benno Schulenberg <bensberg@justemail.net>
+    Acked-by: Sergey Udaltsov <sergey.udaltsov@gmail.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit bf4d7d059daf5c6f81d70f8d3e5e2a87265381b7
+Author: Benno Schulenberg <bensberg@justemail.net>
+Date:   Thu Sep 11 22:04:21 2014 +0200
+
+    When overriding a key, adjust also its number of levels (#57242).
+    
+    Specifying an explicit key type when overriding a key should adjust
+    the number of levels to that of the specified type. This gets rid of
+    the age-old warning of the right Alt key being ONE_LEVEL but having
+    two symbols assigned.
+    
+    Fixes bug #57242 <http://bugs.freedesktop.org/show_bug.cgi?id=57242>.
+    
+    Signed-off-by: Benno Schulenberg <bensberg@justemail.net>
+    Reviewed-by: Ran Benita <ran234@gmail.com>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit f909259b1da70bc145f19e5ce595c8e945a2a808
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Nov 5 12:19:22 2015 +1000
+
+    xkbcomp 1.3.1
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 26d1c57a938ce5c0d4fd9d645ace25308e6a7070
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Nov 3 09:01:19 2015 +1000
+
+    symbols: increase the warning level for shortening a key type
+    
+    Any use of the german keyboard layout or anything else using
+    level3(ralt_switch) produces the warning
+        Type "ONE_LEVEL" has 1 levels, but <RALT> has 2 symbols
+        Ignoring extra symbols
+    This warning is meaningless, the default definition for RALT comes from
+    pc(pc105) including altwin(meta_alt) which defines it as TWO_LEVEL
+    and { Alt_R, Meta_R }. Including level3(ralt_switch) correctly sets it as
+    ONE_LEVEL but now we get the warning. That makes users file bug reports and we
+    can't be having that, can we?
+    
+    Up the warning level for this case to one past the default. The warning is
+    only useful when you're testing a new keyboard layout or trying to fix an
+    actual bug with missing symbols. And then you can run xkbcomp with -w10.
+    No need to spam the log on every server startup.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Hans de Goede <hdegoede@redhat.com>
+
+commit 511adde23a0518db0379b444580b63edcb9138a8
+Author: Matthew Green <mrg@NetBSD.org>
+Date:   Tue Jul 28 17:53:48 2015 +0200
+
+    Adjust a NUL-string assignment to avoid const issues.
+    
+    Signed-off-by: Thomas Klausner <wiz@NetBSD.org>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 1ae525b3d236b59e6437b2b5433d460e18370973
+Author: Jon TURNEY <jon.turney@dronecode.org.uk>
+Date:   Tue Mar 17 15:19:10 2015 +0000
+
+    Define WIN32_LEAN_AND_MEAN when building on Win32
+    
+    w32api/rpcnndr.h (included by windows.h) uses TypeString as the name of a structure member.
+    
+    xkbcomp.h defines it as a macro for a constant.
+    
+    Define WIN32_LEAN_AND_MEAN to avoid this clash.
+    
+    Signed-off-by: Jon TURNEY <jon.turney@dronecode.org.uk>
+    Reviewed-by: David Macek <david.macek.0@gmail.com>
+
+commit fc3e6ddb2c8e922ea80f2dc5cbc1df2102e30d99
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Mar 3 16:24:50 2015 -0800
+
+    Stop including <X11/Xalloca.h> in parseutils.c
+    
+    I can not find any point in our git history at which alloca() or the
+    Xalloca.h macros ALLOCATE_LOCAL() & DEALLOCATE_LOCAL() were actually
+    used in this source file.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 1e8ee9d0aad072f04186df84752f5636340574e0
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Nov 21 08:18:41 2014 +1000
+
+    xkbcomp 1.3.0
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 978998a1fe0a78829452f5432efe1b74c5049de4
+Author: Vincent Lefevre <vincent@vinc17.net>
+Date:   Mon Oct 27 10:50:30 2014 +0100
+
+    xkbcomp: Improved -w option parsing
+    
+    This patch improves -w option parsing even further, for cases like
+    "xkbcomp -w6 4.xkb out.xkb" (which were not handled by the fix of
+    the warning level is still optional (set to 0 if not present), and
+    errors like "xkbcomp -wfoo in out" are detected and reported.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=66344
+    
+    Signed-off-by: Vincent Lefevre <vincent@vinc17.net>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit d4e02a09258063c6d024c3ccd42d6b22212e6e18
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Mar 8 19:04:24 2014 -0800
+
+    Initialize nMatch even if WIN32 is defined
+    
+    Flagged by cppcheck 1.64:
+    Checking app/xkbcomp/listing.c: WIN32...
+    [app/xkbcomp/listing.c:335]: (error) Uninitialized variable: nMatch
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 7606a46b922dfdb0627f1af6ab1432ae88c79d66
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Mar 8 19:01:12 2014 -0800
+
+    Remove useless assignment to 'outline' variable
+    
+    Flagged by cppcheck 1.64:
+    [app/xkbcomp/geometry.c:2426] -> [app/xkbcomp/geometry.c:2427]:
+     (performance) Variable 'outline' is reassigned a value before
+                   the old one has been used.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 6c2d3b0891f7be6ef4895be75188aa1c6f530bfc
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Mar 8 18:50:22 2014 -0800
+
+    Don't dereference the pointer whose allocation failed
+    
+    Flagged by cppcheck 1.64:
+    [app/xkbcomp/keycodes.c:264] -> [app/xkbcomp/keycodes.c:262]:
+     (warning) Possible null pointer dereference: new - otherwise it
+               is redundant to check it against null.
+    [app/xkbcomp/keytypes.c:600] -> [app/xkbcomp/keytypes.c:597]:
+     (warning) Possible null pointer dereference: old - otherwise it
+               is redundant to check it against null.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 50ebe95a32dc59b1de899ef08f72462055b04065
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Mar 8 18:46:11 2014 -0800
+
+    Remove useless checks for NULL before free in OverlayKeyCreate()
+    
+    There is no need to ensure the pointers passed to free are not NULL,
+    especially right after passing them to strncpy without checking for
+    NULL.
+    
+    Flagged by cppcheck 1.64:
+    [app/xkbcomp/parseutils.c:557] -> [app/xkbcomp/parseutils.c:559]:
+     (warning) Possible null pointer dereference: over - otherwise it
+               is redundant to check it against null.
+    [app/xkbcomp/parseutils.c:558] -> [app/xkbcomp/parseutils.c:561]:
+     (warning) Possible null pointer dereference: under - otherwise it
+               is redundant to check it against null.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 31b90ee4ffc774e0da540277907fc5540c0b012c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Feb 3 07:24:22 2014 +1000
+
+    man: replace default include directory with the one from configure
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit e3e6e938535532bfad175c1635256ab7fb3ac943
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Oct 20 12:36:31 2013 -0700
+
+    Fix many const char * warnings from gcc
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Jasper St. Pierre <jstpierre@mecheye.net>
+
+commit 2458580ac95c550217b3376c46eecb2cca646241
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Oct 20 11:52:43 2013 -0700
+
+    Convert remaining sprintf calls to snprintf
+    
+    Most were fixed length or length checked anyway, this just saves time
+    doublechecking that.   (A few could be replaced by asprintf, but we
+    don't have a copy guaranteed to be reachable from this program yet.)
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Jasper St. Pierre <jstpierre@mecheye.net>
+
+commit 3ed68e06cb45fb526b09e4c7b7c3d60de552b2b3
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Oct 20 12:49:31 2013 -0700
+
+    Remove unused uASSERT macro
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Jasper St. Pierre <jstpierre@mecheye.net>
+
+commit c936bd4315a7dc78de074ac89c5a4d12813421be
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Oct 20 11:58:56 2013 -0700
+
+    Remove unused function entry/exit tracking framework
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Jasper St. Pierre <jstpierre@mecheye.net>
+
+commit 839ccda42d8b088d94324cd77c4be954859914d3
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Aug 28 15:20:56 2013 +1000
+
+    compat: don't warn about redefinition when nothing is defined yet
+    
+    info->groupCompat[i] is bzero'd on init, define is 0. Don't warn when that
+    is the case, otherwise any "group 2 = ..." statement will cause an error.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 24d18e0a844041ef82441adb16aa18cc4b4814ae
+Author: Benno Schulenberg <bensberg@justemail.net>
+Date:   Wed Aug 28 20:03:30 2013 +0200
+
+    Making sure that a copied string is always null-terminated (#66345).
+    
+    A more minimalistic and formally correct solution.
+    This amends and extends the previous fix for bug #66345,
+    fixing not just yyGetKeyName() but also yyGetString().
+    
+    Signed-off-by: Benno Schulenberg <bensberg@justemail.net>
+    
+    Fixes a typo from cdcd552 (should be sizeof - 1, not sizeof -i).
+    Code flows that i is at most sizeof(scanBuf) - 1, so last is not needed.
+    
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 0ebdf47fd4bc434ac3d2339544c022a869510738
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jul 11 13:53:31 2013 +1000
+
+    Parse -w1 flag correctly (#66344)
+    
+    if the flag is "-w", then argv[i][1] is 'w' and unlikely to be a digit.
+    Access [2] instead, which is either \0 or an actual digit.
+    
+    X.Org Bug 66344 <http://bugs.freedesktop.org/show_bug.cgi?id=66344>
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Matt Dew <marcoz@osource.org>
+
+commit cdcd552041fc1325a2a81e3374fadb0dd15950dc
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jul 11 13:26:18 2013 +1000
+
+    Always terminate the scanBuf string (#66345)
+    
+    If a key name exceeds 4 characters, the content of scanBuf is not
+    null-terminated, giving error messages like
+    
+    syntax error: line 7 of test.xkb
+    last scanned symbol is: FOOBARm
+    Errors encountered in test.xkb; not compiled.
+    
+    (last character of the preceding 'maximum' statement in this case)
+    
+    X.Org Bug 66345 <http://bugs.freedesktop.org/show_bug.cgi?id=66345>
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 1cd5c50c54b06de2238d6d7675d0a3c65a21414d
+Author: Laura <lmemsm@gmail.com>
+Date:   Fri Mar 15 11:21:26 2013 +0000
+
+    Add #include <stdlib.h> to xkbscan.c
+    
+    This fixes an issue with _exit not declared when building xkbcomp
+    version 1.2.4 natively on Windows using MinGW32 (version 4.7.2)
+    from www.mingw.org.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=62365
+    
+    Reviewed-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit ed582f4fccd4e23abcfba8b3b03649fea6414f44
+Author: Thomas Klausner <wiz@NetBSD.org>
+Date:   Sun Jun 2 22:22:36 2013 +0200
+
+    Protect config.h like usual.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit c66de126ad10a7220ab74e52fb7cc81b6d8b0993
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue May 21 15:19:35 2013 +1000
+
+    man: document -help/-?, -em1, -emp, -eml
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit a4ff0f0eee046be846cc0f46edaba48b765e50d3
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Apr 9 11:29:15 2013 +1000
+
+    Use DEBUG, not DEBUG_ON to determine whether debugging is enabled
+    
+    Nothing else looks at DEBUG_ON.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 705b9bbb426410f9510601c7010da51184919b36
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Jan 22 22:39:19 2013 -0800
+
+    config: Add missing AC_CONFIG_SRCDIR
+    
+    Regroup AC statements under the Autoconf initialization section.
+    Regroup AM statements under the Automake initialization section.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit ed1b90216e59e6b3ac6ac5fd2faca8e056c76caa
+Author: Colin Walters <walters@verbum.org>
+Date:   Wed Jan 16 13:02:57 2013 -0500
+
+    autogen.sh: Honor NOCONFIGURE=1
+    
+    See http://people.gnome.org/~walters/docs/build-api.txt
+    
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit 0522fab51eec0aa3e623aa17c5b7ea3aa6dfec45
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Wed Jan 16 13:01:21 2013 -0500
+
+    configure: Drop AM_MAINTAINER_MODE
+    
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit e4f767913338052527538d429931e8abd8c3fb88
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Fri Jan 4 18:37:45 2013 -0800
+
+    unifdef -U__UNIXOS2__
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit bd1103ef3cfef9cfed645566f944a69e7ca568b4
+Author: Ryan Pavlik <rpavlik@iastate.edu>
+Date:   Wed Oct 26 12:17:44 2011 -0500
+
+    Include Xwindows.h rather than windows.h
+    
+    Include the specially wrapped windows.h in Xwindows.h, rather than
+    including it directly to avoid compilation errors due to clashing
+    definitions
+    
+    Signed-off-by: Ryan Pavlik <rpavlik@iastate.edu>
+    Reviewed-by: Jon TURNEY <jon.turney@dronecode.org.uk>
+    Reviewed-by: Yaakov Selkowitz <yselkowitz@users.sourceforge.net>
+
+commit a68c5b7b29eb1433b1be73b50c4248e10eab8e64
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Thu Nov 1 16:37:03 2012 +1100
+
+    Reset scan state when opening a new file
+    
+    When we opened a new file after encountering a parse error, we weren't
+    resetting our scan state, and continued to read out of the old buffer
+    rather than that of the new file.
+    
+    Fixes a regression introduced in 9887842e ('Use fread() instead of
+    getc()').
+    
+    Test case:
+        xkbcomp -lfhlpR "path/to/xkeyboard-config.git/symbols/*"
+    The Makefiles in that tree would cause parse errors, the resulting directory
+    file is incomplete (down from ~12000 to ~230 lines).
+    
+    Reported-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit e119cbec7e750ffc4d4bd08b577db2c697035a30
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Wed Oct 31 12:40:49 2012 +1100
+
+    Add parsing support for multiple keysyms per level
+    
+    Parse, but ignore, level definitions in the form of:
+    key <FOO> { [ normal_sym, { M, U, L, T, I, S, Y, M } ] };
+    
+    normal_sym will be carried, but the latter will be turned into NoSymbol.
+    
+    http://bugs.freedesktop.org/show_bug.cgi?id=25025
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit f2eff337176551f643e35c54c1e1ca0a78df69c6
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Mar 22 22:02:56 2012 -0700
+
+    xkbcomp 1.2.4
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit b4fafc4fa7edc4c04c3c0affae0d7f79a63e8d2f
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Wed Dec 28 20:57:55 2011 -0800
+
+    Delete redundant redeclarations of extern Atoms in symbols.c
+    
+    Fixes gcc warnings of:
+    
+    symbols.c:43: warning: redundant redeclaration of 'tok_ONE_LEVEL'
+    tokens.h:99: warning: previous declaration of 'tok_ONE_LEVEL' was here
+    symbols.c:44: warning: redundant redeclaration of 'tok_TWO_LEVEL'
+    tokens.h:100: warning: previous declaration of 'tok_TWO_LEVEL' was here
+    symbols.c:45: warning: redundant redeclaration of 'tok_KEYPAD'
+    tokens.h:102: warning: previous declaration of 'tok_KEYPAD' was here
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 3835cae3cb1ad1073cbb2711f938beb878b4986c
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Wed Dec 28 20:53:45 2011 -0800
+
+    Make sure to leave room for trailing nil byte in yyGetNumber
+    
+    ...though really, by the time you've added 1023 digits to the number
+    you want to parse, you've got much bigger problems than an off-by-one
+    error in your buffer count.
+    
+    Fixes parfait warnings:
+       Buffer overflow (CWE 120): In array dereference of (*buf)[nInBuf] with index 'nInBuf'
+          Array size is 1024 bytes, nInBuf >= 1 and nInBuf <= 1024
+            at line 625 of xkbscan.c in function 'yyGetNumber'.
+       Buffer overflow (CWE 120): In array dereference of (*buf)[nInBuf] with index 'nInBuf'
+          Array size is 1024 bytes, nInBuf <= 1025
+            at line 632 of xkbscan.c in function 'yyGetNumber'.
+    
+    [ This bug was found by the Parfait 0.4.2 bug checking tool.
+      For more information see http://labs.oracle.com/projects/parfait/ ]
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 1447071942dbbbfc37b08417c74c8a1d302c1626
+Author: Andreas Wettstein <wettstein509@solnet.ch>
+Date:   Fri Dec 2 20:10:06 2011 +0000
+
+    include resets group compatibility modifiers #43091
+    
+    This change makes sure that include does not overwrite previous
+    compatibility modifier settings when the included files does not
+    explicitly specify them.
+    
+    Signed-off-by: Andreas Wettstein <wettstein509@solnet.ch>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 5fd14db5b2cc0c2c43f7a1ddefd6f9991eb1dcc2
+Author: Jeremy Huddleston <jeremyhu@apple.com>
+Date:   Fri Nov 11 11:18:43 2011 -0800
+
+    Silence -Wparentheses-equality
+    
+    warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@apple.com>
+
+commit 6099655a4bbe1fd3e26b8afd2b91888ad2766086
+Author: Jeremy Huddleston <jeremyhu@apple.com>
+Date:   Fri Nov 11 11:17:38 2011 -0800
+
+    Silence -Wshadow warnings
+    
+    warning: declaration shadows a local variable [-Wshadow]
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@apple.com>
+
+commit b7e88debd937be147d3581b9c8720c0bfe354052
+Author: Jeremy Huddleston <jeremyhu@apple.com>
+Date:   Fri Nov 11 11:13:42 2011 -0800
+
+    Correct our zeroing out of the row in InitRowInfo
+    
+    geometry.c:369:20: warning: argument to 'sizeof' in '__builtin___memset_chk' call is the same
+          pointer type 'RowInfo *' (aka 'struct _RowInfo *') as the destination; expected 'RowInfo'
+          (aka 'struct _RowInfo') or an explicit length [-Wsizeof-pointer-memaccess]
+            bzero(row, sizeof(RowInfo *));
+            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@apple.com>
+
+commit 33b5c9413463613d341d15184b34a4f4c4e70e56
+Author: Jeremy Huddleston <jeremyhu@apple.com>
+Date:   Fri Nov 11 11:12:22 2011 -0800
+
+    Fix -Wformat warnings
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@apple.com>
+
+commit b9f6482d5fc413222334c2370ef8b9693f4b50fd
+Author: Jeremy Huddleston <jeremyhu@apple.com>
+Date:   Fri Nov 11 11:07:30 2011 -0800
+
+    Add missing _X_NORETURN to uFatalError
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@apple.com>
+
+commit 8ea06128c70b07c265a217222f2a245aad4bfce4
+Author: Jeremy Huddleston <jeremyhu@apple.com>
+Date:   Fri Nov 11 11:06:02 2011 -0800
+
+    Include strings.h for strcasecmp and string.h for strdup
+    
+    Our minimum requirement for X11 is currently Unix98.  Unix98 provides
+    strcasecmp in <strings.h>.  This commit fixes implicit declarations
+    of this function on systems that closely adhere to the standard.
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@apple.com>
+
+commit 89c8317ad84386f69d31f38dcddbc7ff0abffb31
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jul 5 08:23:37 2011 +1000
+
+    Add .pc file for version export
+    
+    Exports xkbcomp version and the xkb base directory.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+    Reviewed-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit cdb8677f370b34a3a523a32ae0023c7e8c0c965c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Jun 22 10:41:33 2011 +1000
+
+    Print version number on -version.
+    
+    This commit isn't playing the WARN/M/M1 macro game. Version numbers to to
+    stdout, full stop.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit cef4ba4b8fdc9a5439f71437c08cf690a750bd6b
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 21 16:04:45 2011 +0100
+
+    Bump to 1.2.3
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 3caab5aa37decb7b5dc1642a0452efc3e1f5100e
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 21 15:55:59 2011 +0100
+
+    Interp: Allow explicit Any/NoSymbol mappings
+    
+    Brown paper bag in full effect.
+    
+    The previous fix, while crushing the previous problem where an unknown
+    keysym for an interp def would lead to every key matching it, also
+    ignored explicit Any+AnyOfOrNone(All) mappings.
+    
+    Such as the one xkeyboard-config relied on for Control to actually
+    update the modifier state.
+    
+    Fix this by allowing mappings explicitly declared as Any/NoSymbol, while
+    ignoring only those with failed keysym lookups.  Unfortunately, due to
+    the structure of the parser, it's a deeply inelegant fix.
+    
+    Verified with a quick check of all layouts (albeit using default
+    variants only) in xkeyboard-config that this results in no changes to
+    the output at all, compared to xkbcomp 1.1.1.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit b34af8b0aec3a1dfc58f9732996274cbf2646a53
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 21 15:55:28 2011 +0100
+
+    Constify LookupKeysym input argument
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit e68a8ef1067f98056237d8067052e2a0d9896133
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 21 14:06:05 2011 +0100
+
+    Bump to 1.2.2
+    
+    Emergency bugfix for the syminterp declarations.  They've been broken
+    since the beginning of time, but I guess we just haven't added new
+    interpreted symbols since around then.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 2a473b906943ffd807ad81960c47530ee7ae9a60
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 21 14:03:53 2011 +0100
+
+    Interp: Ignore NoSymbol definitions
+    
+    A NoSymbol syminterp leads to a Any+AnyOfOrAll(None) definition, which
+    is never what anyone would actually ever want in a sym interp.  The
+    failure mode here was:
+        interpret XF86SomeKeysymYouDontHaveYet {
+            action=Something()
+        }
+    leading to:
+        interpret Any+AnyOfOrAll(None) {
+            action=Something()
+        }
+    leading to every single non-action key triggering your shiny new action
+    that was only supposed to come from a new keysym.
+    
+    At least you could VT switch or zap, I guess.
+    
+    Later, more invasive, revisions will bring a more useful error message.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit a2816345e58c88f5806a5c6df310c7d9c62264f0
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 21 14:03:12 2011 +0100
+
+    Interp: Don't make modifier lookup failure fatal
+    
+    If we can't look up a modifier in a SymInterp declaration, don't make
+    that fatal enough to kill the entire file, just ignore it and move on.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit c7a42b364f0ca06d9859945fa11664d0e0ea2742
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Tue Mar 8 08:16:35 2011 -0500
+
+    config: move pre-processor flags to AM_CPPFLAGS
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 7899a1f4745c8d111dab4dd3abc2b59b40ecdcbc
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Tue Mar 8 08:02:54 2011 -0500
+
+    config: let Automake handle Yacc dist and cleaning
+    
+    BUILT_SOURCES and MAINTAINERCLEANFILES are already handled by Automake.
+    
+    Automake generates all the rules to handle building,
+    distribution and cleaning.
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 137418c63d01d5db0dcaed257d7a26865efa53ae
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Jun 7 23:47:32 2011 -0700
+
+    Replace repeated checks for gcc with _X_ATTRIBUTE_PRINTF from xproto
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Mark Kettenis <kettenis@openbsd.org>
+
+commit a2877e92bd9f9c1532b5cd12cc484ff3cdbc6a0a
+Author: Alistair Leslie-Hughes <leslie_alistair@hotmail.com>
+Date:   Fri Apr 1 20:26:30 2011 +1100
+
+    xkbcomp: Stop possible overflow in yyGetnumber. #31647
+    
+    Fixes: https://bugs.freedesktop.org/show_bug.cgi?id=31647
+    
+    Signed-off-by: Alistair Leslie-Hughes <leslie_alistair@hotmail.com>
+    Reviewed-by: Dan Nicholson <dbn.lists@gmail.com>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 0b8527a3836cde77269461e22844857bf33e0aea
+Author: Julien Cristau <jcristau@debian.org>
+Date:   Sun Feb 13 13:03:05 2011 +0100
+
+    Inline the oiText macro in the only place it's used
+    
+    Gets rid of a compiler warning:
+    geometry.c: In function 'HandleOverlayDef':
+    geometry.c:2578: warning: the address of 'ol' will always evaluate as 'true'
+    
+    X.Org bug#34219 <https://bugs.freedesktop.org/show_bug.cgi?id=34219>
+    
+    Signed-off-by: Julien Cristau <jcristau@debian.org>
+    Reviewed-by: Dirk Wallenstein <halsmit@t-online.de>
+
+commit c8375bcb7eb9f86ca1534cdf1143e91372d0499e
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Feb 11 09:06:04 2011 +1000
+
+    xkbcomp 1.2.1
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit ab5371cefe2b7438b74338f71ff890e0e868b3df
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Wed Jan 19 10:06:56 2011 -0500
+
+    config: move man pages into their own directory
+    
+    Use services provided by XORG_MANPAGE_SECTIONS.
+    Use standard Makefile for man pages.
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 9ce8e2f42ab7695b5165ff0a3d892df96a3c3f01
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Thu Jan 13 11:15:47 2011 -0500
+
+    man: remove trailing spaces and tabs
+    
+    Using s/[ \t]*$//
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 5ecf21cc130d7a45cb5e82e9c2c3025edee5d74f
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Wed Jan 12 16:28:02 2011 -0500
+
+    config: replace deprecated AM_CONFIG_HEADER with AC_CONFIG_HEADERS
+    
+    This silences an Autoconf warning
+
+commit e27e8c2a15ddcf51b2ea58f8eced7f035aa1301e
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Wed Jan 12 15:29:50 2011 -0500
+
+    config: replace deprecated AC_HELP_STRING with AS_HELP_STRING
+    
+    This silences an Automake warning.
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit f524cfae6951442c9a9da65ef317b9c04199500f
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Tue Jan 4 00:05:18 2011 -0800
+
+    Remove out-of-date copies of README.config & README.enhancing
+    
+    The up-to-date master copies of those documents are found in the
+    xorg-docs module, and posted on the X.Org website.
+    
+    Also, x-docs.org no longer carries X11 docs, so point to X.Org's
+    website instead in the README.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+    Reviewed-by: Daniel Stone <daniel@fooishbar.org>
+
+commit cc55d8f5ab021861308b071aab9c03016be15187
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Sun Oct 31 20:35:24 2010 -0400
+
+    config: replace AC_CHECK_FILE with test -f as it fails to cross-compile
+    
+    Testing for the presence of xkbparse.c is legitimate as this is a build
+    file, but the Autoconf macro assumes it is testing on the host system
+    and fails.
+    
+    Tested-by: Abdoulaye Walsimou Gaye <awg@embtoolkit.org>
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 1d59f5b0387b18028017cfab4e55b703417dd735
+Author: Dirk Wallenstein <halsmit@t-online.de>
+Date:   Fri Oct 29 13:08:25 2010 +0200
+
+    man: Improve description of device selection option
+    
+    The device selection option takes effect when loading keymaps, too.
+    
+    Signed-off-by: Dirk Wallenstein <halsmit@t-online.de>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 281c7744f682c1ba4f44c0ee22f9bf7188c14fe6
+Author: Dirk Wallenstein <halsmit@t-online.de>
+Date:   Fri Oct 29 11:35:10 2010 +0200
+
+    Allow uploading a keymap to a single device
+    
+    Signed-off-by: Dirk Wallenstein <halsmit@t-online.de>
+    Reviewed-by: Julien Cristau <jcristau@debian.org>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 851a5f6e0c1b2a98d4714d95e40198ab5dc61607
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sat Oct 30 09:59:52 2010 -0700
+
+    xkbcomp 1.2.0
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 87576c9ebf0f28d66833bb28a8199df1aa01f693
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Sep 23 20:29:57 2010 -0700
+
+    config: Remove unnecessary calls from configure.ac
+    
+    AC_PROG_CC & AC_PROG_INSTALL are provided by XORG_DEFAULT_OPTIONS now
+    PKG_CONFIG_MODULES handles AC_SUBST of the CFLAGS & LIBS variables
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit d083293a4e227e9dd27f74cde391fde4c5824b0c
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Thu Sep 23 20:29:14 2010 -0700
+
+    config: upgrade to util-macros 1.8 for additional man page support
+    
+    Use MAN_SUBST now supplied in XORG_MANPAGE_SECTIONS
+    The value of MAN_SUBST is the same for all X.Org packages.
+    
+    Use AC_PROG_SED now supplied by XORG_DEFAULT_OPTIONS
+    The existing statement can now be removed from the configuration file.
+    
+    Use automake provided $(AM_V_GEN) and XORG_DEFAULT_OPTIONS provided $(SED)
+    Enables silent rule and use platform appropriate version of sed.
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 8f13f1af68fc55b7567a4eb4462a0c911722a3c4
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Tue Jul 20 18:45:18 2010 -0400
+
+    config: update AC_PREREQ statement to 2.60
+    
+    Unrelated to the previous patches, the new value simply reflects
+    the reality that the minimum level for autoconf to configure
+    all x.org modules is 2.60 dated June 2006.
+    
+    ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.60.tar.gz
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 988eb0e121c0f2c992031002acb7274c2026764b
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Mon Jul 12 10:53:34 2010 +0100
+
+    config: allow to build tarball when yacc is missing
+    
+    Autoconf does not handle this scenario as well as Automake does.
+    If xkbparse.c is already there, do not abort the configuration
+    if yacc is missing as it is not needed.
+    
+    If both xkbparse.c and yacc are missing, abort configuration.
+    Yacc is a required tool to build the package.
+    
+    Reported-by: Julien Cristau <jcristau@debian.org>
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 446d226f85433aeb45834b65f966397ad6fbb17f
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Mon Jul 12 10:37:49 2010 +0100
+
+    limits.h is mandated by C89, no need to check for it
+    
+    Alan Coopersmith pointed out that C89 mandates limits.h, so for once in
+    X's life, checking for a system header is just being unnecessarily
+    paranoid.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 61b3d4b024d8146cb0e7659aa958045ceb72c482
+Author: Julien Cristau <jcristau@debian.org>
+Date:   Mon Jul 12 10:28:32 2010 +0100
+
+    Fix signedness issue with getc() return value
+    
+    getc() and ungetc() return and take, respectively, an int rather than a
+    char to allow for error values as well.  Oops.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit a281386fa887e6bf4110840779aed46dd0ac89b6
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Fri Jul 9 19:34:29 2010 +0100
+
+    Fix parsing of 0x1a2b3c4d-style symbols
+    
+    Raw keysyms were not getting parsed correctly, due to forgetting to add
+    the code to libX11, forgetting to add the backwards-compat code for old
+    libX11s, and then stuffing the lexing up anyway.  Yeesh.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 0b04ecbb7a6afb223c91d3b15baab0bc48542281
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 15 19:26:19 2010 +0100
+
+    Fix gcc warnings
+    
+    It was right too: printf was being misused in some spots.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 41b0857c8c1179b87a26888588cbfff28f8bb0d6
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 8 15:11:19 2010 +0100
+
+    Don't malloc() and free() most scanned symbols
+    
+    Use a constant buffer.  Sigh.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 7f7a57c75beb5e1dfb53351e490ef00a324b2727
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Tue Jun 8 12:14:00 2010 +0100
+
+    Fix compilation with DEBUG
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 9887842e33174a6e98675b912e419c711dd20c0f
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Mon Jun 7 22:45:13 2010 +0100
+
+    Use fread() instead of getc()
+    
+    So, it turns out that if you're parsing a fairly large amount of data,
+    using getc() to get all the input rather than, say, read(), is some kind
+    of remarkably daft and unperformant idea.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 02de53d767b20bab1517b4e8a3e7eb3b9e7f15be
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Mon Jun 7 22:43:01 2010 +0100
+
+    Lazy keysym parsing (avoid XStringToKeysym)
+    
+    Instead of calling XStringToKeysym on every keysym we parse, store it as
+    a string until we need to store it in an actual keymap.
+    
+    Signed-off-by: Daniel Stone <daniel@fooishbar.org>
+
+commit 07cc4d60dea2b4c947fed45b082edae4a53b186a
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Wed Jun 2 15:23:58 2010 -0400
+
+    config: add check for yacc to insure it is installed #27973
+    
+    Unlike other macros AC_PROG_YACC sets the YACC variable to "yacc"
+    as a last resort, even if no programs have been found. Improve error
+    checking by issuing an error message if yacc is not found. The module
+    cannot build anyway.
+    
+    Reported-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 7888738047e9f1545aa1905b4a2a0654686f49a8
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Thu Feb 11 10:08:07 2010 -0500
+
+    config: move CWARNFLAGS from configure.ac to Makefile.am
+    
+    Compiler warning flags should be explicitly set in the makefile
+    rather than being merged with other packages compiler flags.
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit ba906359da32644b40b3a8a71e77d3cabca56efe
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Thu Nov 26 09:19:54 2009 -0500
+
+    Makefile.am: add ChangeLog and INSTALL on MAINTAINERCLEANFILES
+    
+    Now that the INSTALL file is generated.
+    Allows running make maintainer-clean.
+
+commit 667f0a0e5d3143533cbbe5979ef82c13cfa62c3a
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Wed Oct 28 14:09:08 2009 -0400
+
+    INSTALL, NEWS, README or AUTHORS files are missing/incorrect #24206
+    
+    Add missing INSTALL file. Use standard GNU file on building tarball
+    README may have been updated
+    Remove AUTHORS file as it is empty and no content available yet.
+    Remove NEWS file as it is empty and no content available yet.
+
+commit 4b7c8a8ef337614c831b2555afeb6d89dbc14fb1
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Tue Oct 27 15:07:25 2009 -0400
+
+    Deploy the new XORG_DEFAULT_OPTIONS #24242
+    
+    This macro aggregate a number of existing macros that sets commmon
+    X.Org components configuration options. It shields the configuration file from
+    future changes.
+
+commit 5fa9ef7e5e87f875dd92cc33403cebf6c60c557f
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Mon Oct 26 22:08:39 2009 -0400
+
+    Makefile.am: ChangeLog not required: EXTRA_DIST or *CLEANFILES #24432
+    
+    ChangeLog filename is known to Automake and requires no further
+    coding in the makefile.
+
+commit b3a52787e0dad42ea7e8da26926b9533b1ecab84
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Thu Oct 22 12:34:15 2009 -0400
+
+    .gitignore: use common defaults with custom section # 24239
+    
+    Using common defaults will reduce errors and maintenance.
+    Only the very small or inexistent custom section need periodic maintenance
+    when the structure of the component changes. Do not edit defaults.
+
+commit fa7e3ff7b49f76294aa14aa8bf1b8adbceb5d340
+Author: Jeremy Huddleston <jeremyhu@freedesktop.org>
+Date:   Wed Oct 21 12:47:21 2009 -0700
+
+    This is not a GNU project, so declare it foreign.
+    
+    On Wed, 2009-10-21 at 13:36 +1000, Peter Hutterer wrote:
+    > On Tue, Oct 20, 2009 at 08:23:55PM -0700, Jeremy Huddleston wrote:
+    > > I noticed an INSTALL file in xlsclients and libXvMC today, and it
+    > > was quite annoying to work around since 'autoreconf -fvi' replaces
+    > > it and git wants to commit it.  Should these files even be in git?
+    > > Can I nuke them for the betterment of humanity and since they get
+    > > created by autoreconf anyways?
+    >
+    > See https://bugs.freedesktop.org/show_bug.cgi?id=24206
+    
+    As an interim measure, replace AM_INIT_AUTOMAKE([dist-bzip2]) with
+    AM_INIT_AUTOMAKE([foreign dist-bzip2]). This will prevent the generation
+    of the INSTALL file. It is also part of the 24206 solution.
+    
+    Signed-off-by: Jeremy Huddleston <jeremyhu@freedesktop.org>
+
+commit a5160032d7e46473b8702b87a546071fc0c0978c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Sat Oct 3 21:12:47 2009 +1000
+
+    xkbcomp 1.1.1
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit a36ca5ba61e2b97398a79713922644fee1a263d1
+Author: Rami Ylimaki <ext-rami.ylimaki@nokia.com>
+Date:   Wed Aug 5 17:16:16 2009 +0300
+
+    xkbcomp: Remove output file if closing fails.
+    
+    Without the fix xkbcomp may leave a truncated file in the filesystem
+    if there is not enough disk space. Using the truncated file leads to
+    problems.
+    
+    Signed-off-by: Rami Ylimaki <ext-rami.ylimaki@nokia.com>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 2cc1dc9a327a5100043d3d54e899b98b81cdf5f5
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jul 9 08:34:21 2009 +1000
+
+    Bump to 1.1.0.
+
+commit eeaa4aec798ef045d0b3b9de3c25932b85b9ac3d
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Mon May 11 09:39:03 2009 -0700
+
+    Use temporary buffer for generating Uxxx names to avoid overflow
+    
+    Instead of sprintf()'ing a 4 character string to a char [4] buffer,
+    and leaving the trailing '\0' to overwrite into the next entry,
+    snprintf() to a 5 character temp buffer and memcpy the 4 characters
+    to the right place.
+    
+    Fixes parfait errors:
+    Error: Buffer overflow at xkbcomp-1.0.4/misc.c:393
+            in function 'ComputeKbdDefaults' [Standard C Library pattern matching]
+           In sprintf related dereference of xkb->names->keys[i].name
+            with index not less than '4'
+           Destination array size is 4 bytes, data to be written is 4 bytes
+    Error: Buffer overflow at xkbcomp-1.0.4/misc.c:402
+            in function 'ComputeKbdDefaults' [Standard C Library pattern matching]
+           In sprintf related dereference of xkb->names->keys[i].name
+            with index not less than '4'
+           Destination array size is 4 bytes, data to be written is 4 bytes
+    
+    [This bug was found by the Parfait bug checking tool.
+      For more information see http://research.sun.com/projects/parfait ]
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@sun.com>
+
+commit 2fd42dae8840089727f95211abdb86316e566afd
+Author: Dan Nicholson <dbn.lists@gmail.com>
+Date:   Sat Mar 7 16:36:51 2009 -0800
+
+    Allow the default XKB config root to be set from configure
+    
+    The default was hardcoded in the Makefile as $(datadir)/share/X11/xkb.
+    This could cause a problem if you are installing xkbcomp to an alternate
+    location but want to continue using the system's XKB data.
+    
+    Signed-off-by: Dan Nicholson <dbn.lists@gmail.com>
+
+commit 3b816fe819bd849acdbabcfba769041bd3eab753
+Author: Paulo Cesar Pereira de Andrade <pcpa@mandriva.com.br>
+Date:   Thu Jan 22 02:45:20 2009 -0200
+
+    Correct a remaining of a wrong change to make some DEBUG_VAR's static.
+
+commit f099da35386cf63d4935ba2613409ff28b3d7ea5
+Author: Paulo Cesar Pereira de Andrade <pcpa@mandriva.com.br>
+Date:   Wed Jan 21 20:43:28 2009 -0200
+
+    Correct make distcheck and most gcc and sparse warnings.
+    
+      Remaining warnings are due to macros that check address or vectors
+    on the stack and auto generated yacc code.
+    
+      Compiled with default flags and also as:
+    % make CFLAGS=-DENTRY_TRACKING_ON -DDEBUG_ON -DASSERTIONS_ON
+      to ensure the "simplification" of code like:
+    foo.c:
+    <hash>define DEBUG_VAR foo_VAR
+    <hash>include "foo.h"
+    ...
+    foo.h:
+    <hash>ifdef DEBUG_VAR_NOT_LOCAL
+    extern
+    <hash>endif
+    int DEBUG_VAR;
+    ...
+    did not change the author's "intended" logic.
+
+commit 82cebb165b22d5409c9d4d31554a8da0c867e0d3
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Wed Sep 10 17:48:29 2008 +0930
+
+    Check for NULL strings before calling strdup.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@redhat.com>
+
+commit a82e1dcc8ad095581402d05e5d1ae1bbf3646954
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Fri Sep 5 15:07:13 2008 -0700
+
+    sprintf -> snprintf conversions
+
+commit d2d06305e1834548edd8a647564efa222a511b53
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Fri Sep 5 14:44:51 2008 -0700
+
+    Remove #if 0'd typedef that appears nowhere else.
+
+commit acd277d7fd48ccfd8ef2ca052b4e144ee95a5d94
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Fri Sep 5 14:32:15 2008 -0700
+
+    Remove X_NOT_POSIX #ifdefs
+    
+    POSIX.1-1990 is well below the current minimum bar
+
+commit 37b62a26716d3abf2ae07dd88cf54bc04d980bd8
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Fri Sep 5 14:22:33 2008 -0700
+
+    Check for strdup & strcasecmp before assuming we need to provide our own
+
+commit 36fecff588199a3a6c007f09ff709f3148d40f77
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Tue Aug 19 16:33:03 2008 +0930
+
+    Don't overwrite previously assigned type indices with useless ones.
+    
+    The default type for a key with no levels is ONE_LEVEL.
+    Let's not overwrite the kt_index with this default type if we have previously
+    assigned a real type.
+    
+    Reproduceable by running setxkbmap -layout "ru(phonetic),us", the first group
+    is assigned ONE_LEVEL and shift stops working.
+    
+    Red Hat Bug #436626 <https://bugzilla.redhat.com/show_bug.cgi?id=436626>
+
+commit d0dfd26e81aef53e9adf5fd6372d69e2ac7a8f9c
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Tue Aug 19 14:36:13 2008 +0930
+
+    Remove unused merge parameter from HandleKeyNameVar.
+
+commit 391ea45b2cadc7faeb6acb5d9ec7b405d67d46fd
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Tue Aug 19 14:35:39 2008 +0930
+
+    Don't pass useless handlers around in HandleIncludeKeycodes.
+    
+    What use is a handler if we only ever use one function anyway?
+
+commit f05f20fd203afdadbcd571023ed31638ccda1f88
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Thu Aug 21 17:28:22 2008 +0930
+
+    More comments.
+
+commit 1aad2a5d8ede9fe5212a4e6087fbe34aa170ac54
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 18 16:28:44 2008 +0930
+
+    Remove useless longestPath variable.
+
+commit 7aef93914e1d6446f64aa42eafa18375c2cb4bed
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 18 14:05:33 2008 +0930
+
+    Silence valgrind warnings.
+    
+    "Conditional jump or move depends on uninitialised value(s)"
+
+commit eb18e9176841b3ea64c497f1919686e134713eb6
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 11 18:01:48 2008 +0930
+
+    Add some explanatory comments
+
+commit 9b877d83947708259252275e14f6995dcf7c29ce
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 11 16:20:22 2008 +0930
+
+    If we're not using XkbDesc, don't require it as a parameter.
+
+commit ca32570cf16494fb8e0577de8b05ba18cb927ce1
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 11 15:47:09 2008 +0930
+
+    Indent fixes.
+    
+    indent -cbi 0 -nprs -nut -npcs -i4 -bli 0 *.c *.h
+
+commit 12e8f5e5b3f33dbd1290c76dd0d6a4cf832993d7
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 11 15:40:03 2008 +0930
+
+    Add a few explanatory comments.
+
+commit de48206e7fe2206542313a2d1d1ea3c40b06114b
+Author: Peter Hutterer <peter.hutterer@redhat.com>
+Date:   Mon Aug 11 15:14:31 2008 +0930
+
+    Remove RCS tags.
+
+commit 8eb2e1fcd08a05f296a31dbadde1ec3cc84d8e28
+Author: Matthieu Herrb <matthieu.herrb@laas.fr>
+Date:   Mon May 12 23:25:47 2008 +0200
+
+    Minimal man page addition for new -i option.
+
+commit 12df85eb5b08d5fb815b0965714f120b05c6c670
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Fri May 9 21:09:44 2008 +0300
+
+    Bump to 1.0.5
+
+commit 1aecdffaa0db7bbf85bc0aae9043e9437b25c30d
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Thu Apr 17 00:52:29 2008 +0300
+
+    Don't scan paths which make NO SENSE WHATSOEVER TO SCAN
+    
+    Hey, I wonder if we have XKB files in our directory! I wonder if we
+    haven't bothered with a structure, and let's try to open a file called
+    'misc' in someone's home directory! What a surprise, it's not a valid
+    XKB file! Let's fail miserably!
+    
+    SURPRISINGLY, THIS IS NOT USEFUL BEHAVIOUR.
+
+commit a3a05fd489a9a35942a4419c537634e796dbebd1
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Thu Apr 17 00:50:07 2008 +0300
+
+    xkbcomp: Take a device ID argument
+    
+    Allows the user to set maps (or whatever) on arbitrary devices.
+
+commit be084fbeba28312fc5102e98d64726464032c3e8
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Thu Mar 6 17:13:42 2008 -0500
+
+    xkbcomp 1.0.4
+
+commit c1cc023fc50ce3a4a23f4682ebefd2301fd13170
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Fri Feb 29 15:30:34 2008 -0500
+
+    Bug #7645: Fix a conditional that always evaluates to FALSE.
+    
+    Since it's if (0 || foo), simplify to if (foo).
+
+commit 3f8bd7e68d0028bce5075124a32cc004166486c6
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Tue Jan 22 16:05:14 2008 -0800
+
+    Bug 14185: MAINTAINERCLEANFILES multiply defined in Makefile.am
+    
+    <http://bugs.freedesktop.org/show_bug.cgi?id=14185>
+
+commit 2421069a3686f7bff702383675fdb77be108021e
+Author: Matthieu Herrb <matthieu@bluenote.herrb.com>
+Date:   Sun Jan 6 11:40:30 2008 +0100
+
+    Revert "Also mark xkbparse.h as a generated file."
+    Apparently only yacc generates it.
+    
+    This reverts commit 3e5b0d615b94c66a2b5a8b3d2e4a04713a442002.
+
+commit 3e5b0d615b94c66a2b5a8b3d2e4a04713a442002
+Author: Matthieu Herrb <matthieu@bluenote.herrb.com>
+Date:   Sun Jan 6 11:17:07 2008 +0100
+
+    Also mark xkbparse.h as a generated file.
+
+commit 686e8b6d33602f5fb7de7a768e532a4ac8090c26
+Author: James Cloos <cloos@jhcloos.com>
+Date:   Thu Dec 6 16:37:18 2007 -0500
+
+    Replace static ChangeLog with dist-hook to generate from git log
+
+commit 6aae208fe5bd8f71757c294a441d7c599a1ec4a1
+Author: Tilman Sauerbeck <tilman@code-monkey.de>
+Date:   Sun Sep 23 20:15:47 2007 +0200
+
+    Ignore *.o and ylwrap.
+
+commit 829cb75130d1edd88fa1d33e277f49167daedacf
+Author: Tilman Sauerbeck <tilman@code-monkey.de>
+Date:   Sun Sep 23 20:15:13 2007 +0200
+
+    Fixed a bunch of const correctness bugs.
+
+commit e8ffa513a109209849b11a3c608356cc28314a8e
+Author: Tilman Sauerbeck <tilman@code-monkey.de>
+Date:   Sun Sep 23 17:50:41 2007 +0200
+
+    Fixed an invalid memory access.
+    
+    Some keynames are less than 3 characters long (not counting the
+    terminator). We're now also initializing all of the keyName array.
+
+commit dfa65b0c8df6a6aab4f86c32a0acb41f44201e7c
+Author: Daniel Drake <ddrake@brontes3d.com>
+Date:   Mon May 21 13:41:00 2007 -0800
+
+    Bug #11025: xkbcomp COPYING file
+    
+    X.Org Bugzilla #11025 <https://bugs.freedesktop.org/show_bug.cgi?id=11025>
+
+commit 3ca028cf767258fd62fb7a1b0eb22d13d333a3ae
+Author: James Cloos <cloos@jhcloos.com>
+Date:   Mon Sep 3 05:51:25 2007 -0400
+
+    Add *~ to .gitignore to skip patch/emacs droppings
+
+commit b00e474ca8dbbb0166f2108e4b08cc3f9c36c735
+Author: James Cloos <cloos@jhcloos.com>
+Date:   Thu Aug 23 19:24:52 2007 -0400
+
+    Rename .cvsignore to .gitignore
+
+commit 313a2748d3dff872e067d515d6deabe1bbd56fbe
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Wed Nov 8 16:30:57 2006 +0200
+
+    bump to 1.0.3
+
+commit 337ed258a1cd3f5a16fa69ef15e98781e76f63a1
+Author: Etsushi Kato <ek.kato@gmail.com>
+Date:   Wed Nov 8 16:29:16 2006 +0200
+
+    compat: avoid use of uninitialised variable (bug #8846)
+    si.interp.match may be unused, so just clobber it, which means we don't
+    end up with stuff like LevelOneOnlyMask wandering in.
+
+commit d920bbadb94684287f70e50ded2a35d65186c188
+Author: Andriy Gapon <avg@icyb.net.ua>
+Date:   Sun Oct 29 02:59:53 2006 +0300
+
+    parser: accept negative numbers in geometry co-ordinates (bug #8763)
+    Accept negative co-ordinates for geometry, per the spec.
+
+commit 0e8fd676de161ba52bb4544f8641be756bc580a1
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Wed Apr 26 23:41:58 2006 +0000
+
+    Bump to 1.0.2
+
+commit 58c77c8db1bfdc739fac7b100fb813028d0449c7
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Mon Apr 3 11:28:43 2006 +0000
+
+    Bug #4851: Fix up have-no-file test.
+
+commit 02d32f8dbc79116d33ef428d5b064009cdd6a06e
+Author: Kevin E Martin <kem@kem.org>
+Date:   Wed Dec 21 02:29:51 2005 +0000
+
+    Update package version for X11R7 release.
+
+commit 836db774d1f08a050af8717c4c8501f337f36281
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Mon Dec 19 16:22:44 2005 +0000
+
+    Stub COPYING files
+
+commit e9f680c5654cd93d30b16bc4b626ae5b25f84e87
+Author: Kevin E Martin <kem@kem.org>
+Date:   Thu Dec 15 00:24:08 2005 +0000
+
+    Update package version number for final X11R7 release candidate.
+
+commit b158f550fce661d67604f4a23d33a9f3b7bc22a1
+Author: Kevin E Martin <kem@kem.org>
+Date:   Tue Dec 6 22:48:22 2005 +0000
+
+    Change *man_SOURCES ==> *man_PRE to fix autotools warnings.
+
+commit f1370c50b199c3c8b2760ebf0228d741855390d7
+Author: Kevin E Martin <kem@kem.org>
+Date:   Sat Dec 3 05:49:24 2005 +0000
+
+    Update package version number for X11R7 RC3 release.
+
+commit 8eb3737f5bce19b89c80d9ab256204f0fa62529b
+Author: Alan Coopersmith <Alan.Coopersmith@sun.com>
+Date:   Mon Nov 28 22:01:43 2005 +0000
+
+    Change *mandir targets to use new *_MAN_DIR variables set by xorg-macros.m4
+        update to fix bug #5167 (Linux prefers *.1x man pages in man1 subdir)
+
+commit f19c3028c34a0dba4ffb9ae19c13421e7ff0ff12
+Author: Eric Anholt <anholt@freebsd.org>
+Date:   Mon Nov 21 10:35:01 2005 +0000
+
+    Another pass at .cvsignores for apps.
+
+commit 3ada747f1cb5400404e4b63430f7a817dbf0c4cb
+Author: Eric Anholt <anholt@freebsd.org>
+Date:   Sun Nov 20 22:08:53 2005 +0000
+
+    Add/improve .cvsignore files for apps.
+
+commit 4eeb611f17bdc01f7a6cb4db3f0997ce5ecc6361
+Author: Kevin E Martin <kem@kem.org>
+Date:   Wed Oct 19 02:47:54 2005 +0000
+
+    Update package version number for RC1 release.
+
+commit 958d09064c96cb50df6f92bfb8d4754c87451920
+Author: Alan Coopersmith <Alan.Coopersmith@sun.com>
+Date:   Mon Oct 17 23:56:23 2005 +0000
+
+    Use @APP_MAN_SUFFIX@ instead of $(APP_MAN_SUFFIX) in macro substitutions to
+        work better with BSD make
+
+commit 950fba3262905c58891773a8795305e685dc1cb3
+Author: Kevin E Martin <kem@kem.org>
+Date:   Sat Oct 15 19:32:52 2005 +0000
+
+    Have generated files be cleaned by maintainer in order to pass
+        check-tarball test.
+
+commit a83e4bb777d6f9b1b42a7fb3ff84a5e0d7e123c7
+Author: Alan Coopersmith <Alan.Coopersmith@sun.com>
+Date:   Fri Oct 14 00:25:46 2005 +0000
+
+    Use sed to fill in variables in man page
+
+commit 8c0d310c1acccc424dae29554a5075f9b339e95f
+Author: Kristian Høgsberg <krh@redhat.com>
+Date:   Thu Sep 1 19:37:02 2005 +0000
+
+    Define DFLT_XKB_CONFIG_ROOT to $(datadir)/X11/xkb so we look in the right
+        place.
+
+commit fabda6a820bdccae85a7c22ad0b30f089952606b
+Author: Keith Packard <keithp@keithp.com>
+Date:   Tue Aug 2 18:03:01 2005 +0000
+
+    Mark generated files as BUILT_SOURCES and CLEANFILES to ensure they are
+        regenerated after 'make clean' and to make parallel builds work right.
+
+commit 35e0b7ef41ffe1f17ad8f21dbda10267961231ea
+Author: Kevin E Martin <kem@kem.org>
+Date:   Fri Jul 29 21:22:35 2005 +0000
+
+    Various changes preparing packages for RC0:
+    - Verify and update package version numbers as needed
+    - Implement versioning scheme
+    - Change bug address to point to bugzilla bug entry form
+    - Disable loadable i18n in libX11 by default (use --enable-loadable-i18n to
+        reenable it)
+    - Fix makedepend to use pkgconfig and pass distcheck
+    - Update build script to build macros first
+    - Update modular Xorg version
+
+commit e447fee50a8014b5281a5abfcc5e468f8cc130ca
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Fri Jul 22 15:08:19 2005 +0000
+
+    Use YACC to compile xkbparse.y.
+
+commit 34cd161f5947b4dc185356bc65653717f56ced00
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Wed Jul 20 19:31:57 2005 +0000
+
+    Use a unique token for PKG_CHECK_MODULES. Otherwise, if you use a global
+        configure cache, you cache it, and the cached value is probably wrong.
+
+commit 8335e5fa471e25675c6a369ec2348883953fcdd0
+Author: Søren Sandmann Pedersen <sandmann@daimi.au.dk>
+Date:   Sat Jul 16 20:56:47 2005 +0000
+
+    Add xkbcomp data to symlink.sh. Some fixes to xkbcomp/Makefile.am
+
+commit d7b3354575f31caa9044b6c5f7aee4f010f6192a
+Author: Søren Sandmann Pedersen <sandmann@daimi.au.dk>
+Date:   Fri Jul 15 18:02:35 2005 +0000
+
+    Build system for xkbcomp
+
+commit 59e48918e7c252926bb5e51a077bcbc8a7eec829
+Author: Alexander Gottwald <alexander.gottwald@s1999.tu-chemnitz.de>
+Date:   Mon Nov 15 15:06:52 2004 +0000
+
+    Bufzilla #1802, http://freedesktop.org/bugzilla/show_bug.cgi?id=1802 Added
+        mingw (Win32) port
+
+commit 0336e043fab6f2a8828d90bc9eef2e23878f6dd1
+Author: Kevin E Martin <kem@kem.org>
+Date:   Fri Sep 3 23:41:22 2004 +0000
+
+    Update formatted docs.
+
+commit 20240438ef9d3a6c66443ca9f095a2766ef6ed4e
+Author: Egbert Eich <eich@suse.de>
+Date:   Fri Apr 23 19:54:50 2004 +0000
+
+    Merging XORG-CURRENT into trunk
+
+commit a3729a9f9fcda07b233f434266148c8751684347
+Author: Egbert Eich <eich@suse.de>
+Date:   Sun Mar 14 08:35:25 2004 +0000
+
+    Importing vendor version xf86-4_4_99_1 on Sun Mar 14 00:26:39 PST 2004
+
+commit 37a1152a4024fb799fe1272ce378e6c7c97ee951
+Author: Egbert Eich <eich@suse.de>
+Date:   Wed Mar 3 12:13:08 2004 +0000
+
+    Importing vendor version xf86-4_4_0 on Wed Mar 3 04:09:24 PST 2004
+
+commit 55f40d0286d0e2e4b1602f983b749352188c3ec4
+Author: Egbert Eich <eich@suse.de>
+Date:   Thu Feb 26 13:36:25 2004 +0000
+
+    readding XFree86's cvs IDs
+
+commit 2a95cda1d358fc309c78dc5201a1dbacaba9d0bf
+Author: Egbert Eich <eich@suse.de>
+Date:   Thu Feb 26 09:24:08 2004 +0000
+
+    Importing vendor version xf86-4_3_99_903 on Wed Feb 26 01:21:00 PST 2004
+
+commit dbba2cffbc57e5bbdec8f24417a8a5dcfef7c2a2
+Author: Egbert Eich <eich@suse.de>
+Date:   Thu Jan 29 08:09:12 2004 +0000
+
+    Importing vendor version xf86-012804-2330 on Thu Jan 29 00:06:33 PST 2004
+
+commit 8aa5bcfe58d3776746d7b0d627f2fb8744fb0817
+Author: Kaleb Keithley <kaleb@freedesktop.org>
+Date:   Fri Dec 19 20:55:58 2003 +0000
+
+    XFree86 4.3.99.902 (RC 2)
+
+commit 37ebbbe7b11febaf548006a9b73db0eebf79881a
+Author: Kaleb Keithley <kaleb@freedesktop.org>
+Date:   Tue Nov 25 19:29:13 2003 +0000
+
+    XFree86 4.3.99.16 Bring the tree up to date for the Cygwin folks
+
+commit 287ac4c6af61d8f9f95cd3b3219c979e1329a2fe
+Author: Kaleb Keithley <kaleb@freedesktop.org>
+Date:   Fri Nov 14 16:49:22 2003 +0000
+
+    XFree86 4.3.0.1
+
+commit 262961d88faf67f69f4630acb8234a4f2c5a6e80
+Author: Kaleb Keithley <kaleb@freedesktop.org>
+Date:   Fri Nov 14 16:49:22 2003 +0000
+
+    Initial revision
+
+commit 2af3aabf0e7eb1514d39b29a6b58fcd0d4de41d1
+Author: Kaleb Keithley <kaleb@freedesktop.org>
+Date:   Fri Nov 14 15:54:54 2003 +0000
+
+    R6.6 is the Xorg base-line

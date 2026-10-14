@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+]>
+<refentry id="gtk-resources">
+<refmeta>
+<refentrytitle>Mailing lists and bug reports</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>Mailing lists and bug reports</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Mailing lists and bug reports</refname>
+<refpurpose>
+Getting help with GTK+
+</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title>Filing a bug report or feature request</title>
+
+<para>
+If you encounter a bug, misfeature, or missing feature in GTK, please
+file a bug report on <ulink url="https://gitlab.gnome.org/GNOME/gtk/issues">GitLab</ulink>.
+</para>
+
+<para>
+Don't hesitate to file a bug report, even if you think we may know
+about it already, or aren't sure of the details. Just give us as much
+information as you have, and if it's already fixed or has already been
+discussed, we'll add a note to that effect in the report.
+</para>
+
+<para>
+The bug tracker should definitely be used for feature requests, it's
+not only for bugs. We track all GTK development in GitLab, so it's
+the way to be sure the GTK developers won't forget about an issue.
+</para>
+
+<para>
+Just make sure that any issue filed is actionable, and contains clear
+instructions on how to reproduce an issue, and the conditions to close
+the bug report or feature request. Non-actionable, or user support
+questions will be directed to Discourse.
+</para>
+
+</refsect1>
+
+<refsect1>
+<title>Contributing</title>
+
+<para>
+Please, follow the instructions outlined in the
+<ulink url="https://gitlab.gnome.org/GNOME/gtk/-/blob/main/CONTRIBUTING.md">Contribution Guide</ulink> available in the GTK
+source code repository.
+</para>
+
+</refsect1>
+
+<refsect1>
+<title>User support</title>
+
+<para>
+If you have questions about building, using, or contributing to GTK, please
+open a topic on <ulink url="https://discourse.gnome.org/tag/gtk">Discourse</ulink>.
+</para>
+
+</refsect1>
+
+</refentry>

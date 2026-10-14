@@ -1,0 +1,297 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+filegroup(
+    name = "kernel_host_archives",
+    srcs = [":libmacho", ":libstuff"],
+    output_group = "archive",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "foreign_includes",
+    hdrs = glob([
+        "include/foreign/**/*.h",
+        "include/**/*.h",
+    ]),
+    includes = [
+        "include/foreign",
+        "include",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "cctools_header_files",
+    srcs = glob(["include/**/*.h"]),
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "libstuff",
+    srcs = glob([
+        "libstuff/*.c",
+    ], exclude = [
+        "libstuff/macosx_deployment_target.c",
+        "libstuff/llvm.c",
+    ]),
+    hdrs = glob(["include/**/*.h"]),
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-DOS_INLINE=\"static inline\"",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+        "-Itools/cctools/libstuff",
+        "-Wno-implicit-function-declaration",
+    ],
+    includes = ["include/foreign", "include", "libstuff"],
+    visibility = ["//visibility:public"],
+    linkstatic = 1,
+)
+
+cc_library(
+    name = "libmacho",
+    srcs = glob(["libmacho/*.c"]),
+    hdrs = glob(["include/**/*.h"]),
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-DOS_INLINE=\"static inline\"",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+        "-Wno-implicit-function-declaration",
+    ],
+    includes = ["include/foreign", "include"],
+    visibility = ["//visibility:public"],
+    linkstatic = 1,
+)
+
+cc_binary(
+    name = "otool",
+    srcs = glob(["otool/*.c", "otool/*.h", "as/*.h"]),
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-DOS_INLINE=\"static inline\"",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+        "-Itools/cctools/otool",
+        "-Itools/cctools/libobjc2",
+        "-Itools/cctools/as",
+        "-Wno-implicit-function-declaration",
+    ],
+    deps = [":libstuff", ":libmacho", "//tools/cctools/libobjc2:libobjc2_headers"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "ld",
+    srcs = glob([
+        "ld64/src/**/*.cpp",
+        "ld64/src/**/*.c",
+        "ld64/src/**/*.h",
+        "ld64/src/**/*.hpp",
+    ], allow_empty = True, exclude = [
+        "ld64/src/ld/parsers/lto_file.cpp",
+        "ld64/src/other/*.cpp",
+        "ld64/src/3rd/BlocksRuntime/*.c",
+        "ld64/src/ld/libcodedirectory.cpp",
+        "ld64/src/ld/libcodedirectory.c",
+    ]),
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-DLD64_VERSION_NUM=609",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+        "-Itools/cctools/ld64/src/abstraction",
+        "-Itools/cctools/ld64/src",
+        "-Itools/cctools/ld64/src/ld",
+        "-Itools/cctools/ld64/src/ld/parsers",
+        "-Itools/cctools/ld64/src/ld/passes",
+        "-Itools/cctools/ld64/src/3rd",
+        "-Itools/cctools/ld64/src/3rd/BlocksRuntime",
+    ],
+    deps = [":libstuff", ":libmacho", "//:sys_uuid", "//:sys_crypto", "//:sys_ssl"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "strip",
+    srcs = ["misc/strip.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "lipo",
+    srcs = ["misc/lipo.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "nm",
+    srcs = ["misc/nm.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "nmedit",
+    srcs = ["misc/strip.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-DNMEDIT",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "libtool",
+    srcs = ["misc/libtool.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "ctf_insert",
+    srcs = ["misc/ctf_insert.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "codesign_allocate",
+    srcs = ["misc/codesign_allocate.c"],
+    copts = [
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D_DARWIN_C_SOURCE",
+        "-D__DARWIN_UNIX03=1",
+        "-DEMULATED_HOST_CPU_TYPE=CPU_TYPE_X86_64",
+        "-DEMULATED_HOST_CPU_SUBTYPE=CPU_SUBTYPE_X86_64_ALL",
+        "-D__private_extern__=",
+        "-DPROGRAM_PREFIX=\"\\\"\\\"\"",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-Itools/cctools/include/foreign",
+        "-Itools/cctools/include",
+    ],
+    deps = [":libstuff", ":libmacho"],
+    visibility = ["//visibility:public"],
+)

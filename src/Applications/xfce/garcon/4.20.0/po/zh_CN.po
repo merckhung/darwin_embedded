@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
+# Chris K. Zhang <plutino@gmail.com>, 2009
+# Hunt Xu <mhuntxu@gmail.com>, 2009-2010
+# 玉堂白鹤 <yjwork@qq.com>, 2013
+# 玉堂 白鹤 <squeeze@189.cn>, 2010
+# 玉堂白鹤 <yjwork@qq.com>, 2016,2022
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2016,2022\n"
+"Language-Team: Chinese (China) (http://app.transifex.com/xfce/garcon/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "附件"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "常用桌面工具和应用程序"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "开发"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "软件开发工具"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "教育"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "教育软件"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "游戏"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "游戏、拼图和其它有趣的软件"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "图形"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "创作和处理图形的应用程序"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "硬件"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "若干硬件设备的设置"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "多媒体"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "影音播放器和编辑器"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "互联网"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "访问互联网的应用程序"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "办公"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "办公和成品应用程序"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "其它"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "未归入其它类别的应用程序"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "个人"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "个人设置"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "科学"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "科学软件"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "屏幕保护"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "屏幕保护小程序"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "设置"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "桌面和系统设置应用程序"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "系统"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "系统工具和实用程序"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "未找到文件 “%s”"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "未能从 %s 载入菜单文件数据：%s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "未能从 %s 载入菜单文件数据"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "无法执行命令 “%s”。"
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "启动错误"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "未能启动 “exo-desktop-item-edit”，它是创建和编辑菜单项目所需的。"
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "关闭(_C)"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "无法载入应用程序菜单"

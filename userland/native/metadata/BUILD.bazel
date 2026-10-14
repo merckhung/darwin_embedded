@@ -1,0 +1,16 @@
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "probe_" + arch,
+        srcs = ["build_metadata.py", "test_metadata.c", "//userland/native:sdk_" + arch],
+        outs = ["test_metadata." + arch + ".o", "metadata." + arch + ".json"],
+        cmd = "python3 userland/native/metadata/build_metadata.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location test_metadata." + arch + ".o)" +
+              " --report $(location metadata." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "probes", srcs = [":probe_arm64", ":probe_x86_64"])

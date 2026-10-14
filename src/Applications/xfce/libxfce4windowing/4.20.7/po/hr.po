@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Ivica  Kolić <ikoli@yahoo.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10 00:45+0100\n"
+"PO-Revision-Date: 2022-12-22 11:42+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>, 2023\n"
+"Language-Team: Croatian (https://www.transifex.com/xfce/teams/16840/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:257
+msgid "The provided window does not have a _NET_WM_ICON or WMHints icon"
+msgstr ""
+
+#: ../libxfce4windowing/xfw-wnck-icon.c:626
+msgid "Failed to find or load an icon for the window"
+msgstr ""
+
+#: ../libxfce4windowing/xfw-workspace-dummy.c:147
+msgid "Workspace 0"
+msgstr "Radni prostor 0"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:216
+msgid "_Move"
+msgstr "_Premjesti"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:221
+msgid "_Resize"
+msgstr "_Promjeni veličinu"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:229
+msgid "Always on _Top"
+msgstr "Uvijek na _vrhu"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:234
+msgid "_Always on Visible Workspace"
+msgstr "_Uvijek na vidljivom radnom prostoru"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:239
+msgid "_Only on This Workspace"
+msgstr "_Samo na ovom radnom prostoru"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:244
+msgid "Move to Workspace _Left"
+msgstr "Premjesti na radni prostor _lijevo"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:253
+msgid "Move to Workspace R_ight"
+msgstr "Premjesti na radni prostor _desno"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:262
+msgid "Move to Workspace _Up"
+msgstr "Premjesti na radni prostor _gore"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:271
+msgid "Move to Workspace _Down"
+msgstr "Premjesti na radni prostor _dolje"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:280
+msgid "Move to Another _Workspace"
+msgstr "Premjesti na drugi _radni prostor"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:289
+msgid "_Close"
+msgstr "_Zatvori"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:462
+#, c-format
+msgid "Workspace %d"
+msgstr "Radni prostor %d"
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Mi_nimize"
+msgstr ""
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:490
+msgid "Unmi_nimize"
+msgstr ""
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Ma_ximize"
+msgstr ""
+
+#: ../libxfce4windowingui/xfw-window-action-menu.c:495
+msgid "Unma_ximize"
+msgstr ""

@@ -1,0 +1,23 @@
+filegroup(
+    name = "kernel_dependency_sources",
+    srcs = glob([
+        "AvailabilityVersions/**", "Libc/**", "compiler-rt/**",
+        "libdispatch/**", "libpthread/**",
+    ]),
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "sources",
+    srcs = glob(["**"]),
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "native_dyld_support_sources",
+    srcs = glob([
+        "libplatform/src/setjmp/**", "libplatform/include/setjmp.h", "architecture/**",
+        "dyld/include/dlfcn.h",
+    ]),
+    visibility = ["//visibility:public"],
+)

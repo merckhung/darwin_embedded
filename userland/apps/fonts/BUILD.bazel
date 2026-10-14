@@ -1,0 +1,345 @@
+load("//userland/native/system:defs.bzl", "native_system")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(
+        name = "fontconfig_" + arch,
+        srcs = ["build_fontconfig.py", "//src/Applications/fonts:sources", "//scripts:native_components.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, "//userland/apps/glib:dependencies." + arch + ".tar",
+                "//userland/apps/graphics:libraries." + arch + ".tar"],
+        outs = ["fontconfig." + arch + ".tar", "fontconfig." + arch + ".imports", "fontconfig." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_fontconfig.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --glib-dependencies $(location //userland/apps/glib:dependencies." + arch + ".tar)" +
+              " --graphics $(location //userland/apps/graphics:libraries." + arch + ".tar)" +
+              " --output $(location fontconfig." + arch + ".tar) --imports $(location fontconfig." + arch + ".imports)" +
+              " --report $(location fontconfig." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "fontconfig", srcs = [":fontconfig_arm64", ":fontconfig_x86_64"])
+[
+    native_system(name = "fontconfig_system_" + arch, arch = arch, exports = ":fontconfig." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "fontconfig_closure", srcs = [":fontconfig_system_arm64", ":fontconfig_system_x86_64"])
+[
+    genrule(
+        name = "fontconfig_runtime_" + arch,
+        srcs = ["link_fontconfig.py", "//src/Applications/fonts:sources", "//src/Applications/graphics:sources",
+                "//src/Applications/glib:sources", "//userland/apps/glib:link_dependencies.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/apps/x11:link_auth.py", "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":fontconfig." + arch + ".tar", ":fontconfig_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["fontconfig-runtime." + arch + ".tar", "fontconfig-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/link_fontconfig.py --root $$PWD --arch " + arch +
+              " --libraries $(location :fontconfig." + arch + ".tar) --system $(location :fontconfig_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location fontconfig-runtime." + arch + ".tar)" +
+              " --report $(location fontconfig-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "fontconfig_runtime", srcs = [":fontconfig_runtime_arm64", ":fontconfig_runtime_x86_64"])
+sh_test(
+    name = "fontconfig_artifact_test", size = "small", srcs = ["check_fontconfig.sh"],
+    data = ["check_fontconfig.py", ":fontconfig", ":fontconfig_runtime", "//src/Applications/fonts:sources",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+
+[
+    genrule(
+        name = "harfbuzz_" + arch,
+        srcs = ["build_harfbuzz.py", "//src/Applications/fonts:sources", "//src/Toolchains:libcxx_headers",
+                "//src/Applications/glib:sources", "//scripts:native_components.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, "//userland/apps/glib:core." + arch + ".tar",
+                "//userland/apps/graphics:libraries." + arch + ".tar"],
+        outs = ["harfbuzz." + arch + ".tar", "harfbuzz." + arch + ".imports", "harfbuzz." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_harfbuzz.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --glib-core $(location //userland/apps/glib:core." + arch + ".tar)" +
+              " --graphics $(location //userland/apps/graphics:libraries." + arch + ".tar)" +
+              " --output $(location harfbuzz." + arch + ".tar) --imports $(location harfbuzz." + arch + ".imports)" +
+              " --report $(location harfbuzz." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "harfbuzz", srcs = [":harfbuzz_arm64", ":harfbuzz_x86_64"])
+[
+    native_system(name = "harfbuzz_system_" + arch, arch = arch, exports = ":harfbuzz." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "harfbuzz_closure", srcs = [":harfbuzz_system_arm64", ":harfbuzz_system_x86_64"])
+[
+    genrule(
+        name = "harfbuzz_runtime_" + arch,
+        srcs = ["link_harfbuzz.py", "build_harfbuzz.py", "//src/Applications/fonts:sources", "//src/Applications/graphics:sources",
+                "//src/Applications/glib:sources", "//userland/apps/glib:link_dependencies.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/apps/x11:link_auth.py", "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":harfbuzz." + arch + ".tar", ":harfbuzz_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["harfbuzz-runtime." + arch + ".tar", "harfbuzz-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/link_harfbuzz.py --root $$PWD --arch " + arch +
+              " --libraries $(location :harfbuzz." + arch + ".tar) --system $(location :harfbuzz_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location harfbuzz-runtime." + arch + ".tar)" +
+              " --report $(location harfbuzz-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "harfbuzz_runtime", srcs = [":harfbuzz_runtime_arm64", ":harfbuzz_runtime_x86_64"])
+sh_test(
+    name = "harfbuzz_upstream_test", size = "enormous", timeout = "eternal",
+    srcs = ["test_harfbuzz_upstream.sh"],
+    data = ["test_harfbuzz_upstream.py", "build_harfbuzz.py", ":harfbuzz_arm64",
+            "//src/Applications/fonts:sources", "//src/Applications/glib:sources",
+            "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py"],
+)
+sh_test(
+    name = "harfbuzz_artifact_test", size = "small", srcs = ["check_harfbuzz.sh"],
+    data = ["check_harfbuzz.py", "build_harfbuzz.py", ":harfbuzz", ":harfbuzz_runtime", "//src/Applications/fonts:sources",
+            "//src/Toolchains:libcxx_headers", "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py",
+            "//userland/apps/glib:build_intl.py", "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+[
+    genrule(
+        name = "cairo_" + arch,
+        srcs = ["build_cairo.py", "//src/Applications/fonts:sources", "//src/Applications/x11:sources",
+                "//src/Toolchains:compiler_rt_builtins",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, ":harfbuzz." + arch + ".tar", ":fontconfig." + arch + ".tar",
+                "//userland/apps/x11:xlib." + arch + ".tar"],
+        outs = ["cairo." + arch + ".tar", "cairo." + arch + ".imports", "cairo." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_cairo.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --harfbuzz $(location :harfbuzz." + arch + ".tar)" +
+              " --fontconfig $(location :fontconfig." + arch + ".tar) --x11 $(location //userland/apps/x11:xlib." + arch + ".tar)" +
+              " --output $(location cairo." + arch + ".tar) --imports $(location cairo." + arch + ".imports)" +
+              " --report $(location cairo." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "cairo", srcs = [":cairo_arm64", ":cairo_x86_64"])
+[
+    native_system(name = "cairo_system_" + arch, arch = arch, exports = ":cairo." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "cairo_closure", srcs = [":cairo_system_arm64", ":cairo_system_x86_64"])
+[
+    genrule(
+        name = "cairo_runtime_" + arch,
+        srcs = ["link_cairo.py", "build_cairo.py", "build_harfbuzz.py", "//src/Applications/fonts:sources",
+                "//src/Applications/x11:sources", "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":cairo." + arch + ".tar", ":cairo_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["cairo-runtime." + arch + ".tar", "cairo-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/link_cairo.py --root $$PWD --arch " + arch +
+              " --libraries $(location :cairo." + arch + ".tar) --system $(location :cairo_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location cairo-runtime." + arch + ".tar)" +
+              " --report $(location cairo-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "cairo_runtime", srcs = [":cairo_runtime_arm64", ":cairo_runtime_x86_64"])
+sh_test(
+    name = "cairo_artifact_test", size = "small", srcs = ["check_cairo.sh"],
+    data = ["check_cairo.py", "build_cairo.py", ":cairo", ":cairo_runtime", "//src/Applications/fonts:sources",
+            "//src/Applications/x11:sources", "//src/Toolchains:compiler_rt_builtins", "//scripts:native_components.py",
+            "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+            "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+sh_test(
+    name = "compiler_builtins_test", size = "small", srcs = ["test_compiler_builtins.sh"],
+    data = ["//src/Toolchains:compiler_rt_builtins"],
+)
+[
+    genrule(
+        name = "font_probe_" + arch,
+        srcs = ["build_font_probe.py", "test_fonts.c", "//src/Toolchains:compiler_rt_builtins", ":cairo." + arch + ".tar",
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/apps/x11:link_auth.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch],
+        outs = ["probe." + arch + ".a", "probe." + arch + ".imports", "probe." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --libraries $(location :cairo." + arch + ".tar)" +
+              " --output $(location probe." + arch + ".a) --exports $(location probe." + arch + ".imports)" +
+              " --report $(location probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "test_requests_" + arch,
+            srcs = [":cairo." + arch + ".imports", ":probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+            outs = ["test." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "test_system_" + arch, arch = arch, exports = ":test." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = ["build_font_probe.py", ":probe." + arch + ".a", ":cairo-runtime." + arch + ".tar", ":test_system_" + arch + ".tar",
+                "//src/Applications/fonts:sources", "//userland/apps/init:root_" + arch, "//userland/native:sdk_" + arch,
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py", "//userland/apps/x11:link_auth.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["test-root." + arch + ".img", "test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :probe." + arch + ".a)" +
+              " --runtime $(location :cairo-runtime." + arch + ".tar) --system $(location :test_system_" + arch + ".tar)" +
+              " --base-root $(location //userland/apps/init:root_" + arch + ") --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location test-root." + arch + ".img)" +
+              " --report $(location test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+[
+    genrule(
+        name = "pango_" + arch,
+        srcs = ["build_pango.py", "build_cairo.py", "//src/Applications/text:sources", "//src/Applications/glib:sources",
+                "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch, ":cairo." + arch + ".tar", "//userland/apps/glib:gio." + arch + ".tar"],
+        outs = ["pango." + arch + ".tar", "pango." + arch + ".imports", "pango." + arch + ".json", "fribidi-generated." + arch + ".tar"],
+        cmd = "python3 userland/apps/fonts/build_pango.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --cairo $(location :cairo." + arch + ".tar)" +
+              " --gio $(location //userland/apps/glib:gio." + arch + ".tar) --output $(location pango." + arch + ".tar)" +
+              " --imports $(location pango." + arch + ".imports) --report $(location pango." + arch + ".json)" +
+              " --generated $(location fribidi-generated." + arch + ".tar)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pango", srcs = [":pango_arm64", ":pango_x86_64"])
+[
+    native_system(name = "pango_system_" + arch, arch = arch, exports = ":pango." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pango_closure", srcs = [":pango_system_arm64", ":pango_system_x86_64"])
+[
+    genrule(
+        name = "pango_runtime_" + arch,
+        srcs = ["link_pango.py", "link_cairo.py", "build_pango.py", "build_cairo.py", "build_harfbuzz.py",
+                "//src/Applications/text:sources", "//src/Applications/fonts:sources", "//src/Applications/x11:sources",
+                "//src/Applications/glib:sources", "//src/Applications/graphics:sources",
+                "//userland/apps/glib:link_dependencies.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/apps/graphics:link_libraries.py", "//userland/apps/graphics:build_libraries.py",
+                "//userland/native/resolver:link_clients.py", "//userland/apps/x11:build_clients.py", "//userland/apps/x11:link_auth.py",
+                "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+                ":pango." + arch + ".tar", ":pango_system_" + arch + ".tar", "//userland/native:dyld_" + arch],
+        outs = ["pango-runtime." + arch + ".tar", "pango-runtime." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/link_pango.py --root $$PWD --arch " + arch +
+              " --libraries $(location :pango." + arch + ".tar) --system $(location :pango_system_" + arch + ".tar)" +
+              " --dyld $(location //userland/native:dyld_" + arch + ") --output $(location pango-runtime." + arch + ".tar)" +
+              " --report $(location pango-runtime." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pango_runtime", srcs = [":pango_runtime_arm64", ":pango_runtime_x86_64"])
+[
+    genrule(
+        name = "pango_probe_" + arch,
+        srcs = ["build_font_probe.py", "test_pango.c", "//src/Applications/text:sources", ":pango." + arch + ".tar",
+                "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+                "//userland/apps/x11:link_auth.py", "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py",
+                "//userland/native:sdk_" + arch],
+        outs = ["pango-probe." + arch + ".a", "pango-probe." + arch + ".imports", "pango-probe." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --pango --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --libraries $(location :pango." + arch + ".tar)" +
+              " --output $(location pango-probe." + arch + ".a) --exports $(location pango-probe." + arch + ".imports)" +
+              " --report $(location pango-probe." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "pango_test_requests_" + arch,
+            srcs = [":pango." + arch + ".imports", ":pango-probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+            outs = ["pango-test." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "pango_test_system_" + arch, arch = arch, exports = ":pango-test." + arch + ".imports",
+                  component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+                  libraries = {"filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                               "accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                               "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                               "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                               "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(
+        name = "pango_test_root_" + arch,
+        srcs = ["build_font_probe.py", ":pango-probe." + arch + ".a", ":pango-runtime." + arch + ".tar", ":pango_test_system_" + arch + ".tar",
+                "//src/Applications/fonts:sources", "//userland/apps/init:root_" + arch, "//userland/native:sdk_" + arch,
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+                "//scripts:sign_diagnostic_macho.py", "//userland/apps/x11:link_auth.py",
+                "//userland/apps/glib:build_dependencies.py", "//userland/apps/glib:build_intl.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["pango-test-root." + arch + ".img", "pango-test-root." + arch + ".json"],
+        cmd = "python3 userland/apps/fonts/build_font_probe.py --pango --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --probe $(location :pango-probe." + arch + ".a)" +
+              " --runtime $(location :pango-runtime." + arch + ".tar) --system $(location :pango_test_system_" + arch + ".tar)" +
+              " --base-root $(location //userland/apps/init:root_" + arch + ") --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location pango-test-root." + arch + ".img)" +
+              " --report $(location pango-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "pango_test_roots", srcs = [":pango_test_root_arm64", ":pango_test_root_x86_64"])
+[
+    sh_binary(name = "verify_pango_" + arch, srcs = ["verify_pango.sh"], args = [arch],
+              data = [":pango_test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+sh_test(
+    name = "pango_artifact_test", size = "small", srcs = ["check_pango.sh"],
+    data = ["check_pango.py", "build_pango.py", "build_cairo.py", ":pango", ":pango_runtime",
+            "//src/Applications/text:sources", "//scripts:native_components.py", "//userland/apps/glib:build_dependencies.py",
+            "//userland/apps/glib:build_intl.py", "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py",
+            "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64"],
+)
+sh_test(
+    name = "fribidi_unicode_test", size = "medium", srcs = ["test_fribidi_unicode.sh"],
+    data = ["//src/Applications/text:sources", ":pango_arm64"],
+)
+[
+    sh_binary(name = "verify_fonts_" + arch, srcs = ["verify_fonts.sh"], args = [arch],
+              data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]

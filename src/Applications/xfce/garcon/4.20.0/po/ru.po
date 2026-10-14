@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Aleksandr P, 2010,2012
+# Aleksey Kabanov <ak099@mail.ru>, 2013
+# Alexander Matveyev <a.s.matveyev@gmail.com>, 2010
+# Andrei Stepanov, 2022-2023
+# Artem Zolochevskiy <artem.zolochevskiy@gmail.com>, 2011-2012
+# Denis Koryavov <dkoryavov@yandex.ru>, 2010
+# Sergey Alyoshin <alyoshin.s@gmail.com>, 2016
+# Simple88, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Andrei Stepanov, 2022-2023\n"
+"Language-Team: Russian (http://app.transifex.com/xfce/garcon/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Инструменты"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Стандартные средства и приложения"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Разработка"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Средства разработки ПО"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Образование"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Образовательное ПО"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Игры"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Игры, головоломки и другое развлекательное ПО"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Графика"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Приложения для создания и обработки графики"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Оборудование"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Настройка некоторых видов оборудования"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Мультимедиа проигрыватели и редакторы"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Интернет"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Приложения для работы в интернете"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Офис"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Офисные приложения"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Прочее"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Приложения, не попавшие в остальные категории"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Личные"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Личные настройки"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Наука"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Научные программы"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Экранные заставки"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Мини-программы экранных заставок"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Настройки"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Приложения для настройки рабочего стола и системы"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Система"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Средства администрирования системы"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Файл «%s» не найден"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Не удалось загрузить данные файла меню из %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Не удалось загрузить данные файла меню из %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Не удалось выполнить команду «%s»."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Ошибка запуска"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Невозможно запустить «exo-desktop-item-edit», которая необходима для редактирования элементов меню."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Закрыть"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Не удалось загрузить меню приложений"

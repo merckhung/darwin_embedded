@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "$0 called with $@" >> /dev/null
+# Remove -mmacosx-version-min if present
+args=()
+for arg in "$@"; do
+    if [[ "$arg" == -mmacosx-version-min=* ]]; then
+        continue
+    fi
+    args+=("$arg")
+done
+
+if [[ "$0" == *"++"* ]]; then
+    exec /usr/bin/clang++ -fblocks -D"__OSX_AVAILABLE(x)=" -D"__IOS_AVAILABLE(x)=" -D"__TVOS_AVAILABLE(x)=" -D"__WATCHOS_AVAILABLE(x)=" -D"__OSX_AVAILABLE_STARTING(x,y)=" -D"__OSX_AVAILABLE_BUT_DEPRECATED(x,y,z,w)=" -D"__API_AVAILABLE(x)=" -D"__API_DEPRECATED(x,y,z)=" -D"__API_UNAVAILABLE(x)=" "${args[@]}"
+else
+    exec /usr/bin/clang -fblocks -D"__OSX_AVAILABLE(x)=" -D"__IOS_AVAILABLE(x)=" -D"__TVOS_AVAILABLE(x)=" -D"__WATCHOS_AVAILABLE(x)=" -D"__OSX_AVAILABLE_STARTING(x,y)=" -D"__OSX_AVAILABLE_BUT_DEPRECATED(x,y,z,w)=" -D"__API_AVAILABLE(x)=" -D"__API_DEPRECATED(x,y,z)=" -D"__API_UNAVAILABLE(x)=" "${args[@]}"
+fi

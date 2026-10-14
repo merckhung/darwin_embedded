@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Aputsiak Niels Janussen <aputtu@gmail.com>, 2013
+# Aputsiak Niels Janussen <aputtu@gmail.com>, 2013
+# Linuxbruger <y.z@live.dk>, 2018
+# Per Kongstad <p_kongstad@op.pl>, 2009,2016
+# scootergrisen, 2017
+# scootergrisen, 2017-2019,2022
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-29 11:53+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: scootergrisen, 2017-2019,2022\n"
+"Language-Team: Danish (http://app.transifex.com/xfce/garcon/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Tilbehør"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Almene skrivebordsværktøjer og -programmer"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Udvikling"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Værktøjer til softwareudvikling"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Læring"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Programmer til læring"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Spil"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Spil, hjernegymnastik og andet sjov software"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Grafik"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Programmer til oprettelse og manipulering af grafik"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Hardware"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Indstillinger for adskillige hardwareenheder"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Multimedie"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Lyd- og videoafspillere, og redigeringsprogrammer"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Internet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Programmer til internetadgang"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Kontor"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Kontor- og produktivitetsprogrammer"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Andre"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Programmer som ikke passer i de andre kategorier"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Personlige"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Personlige indstillinger"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Videnskab"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Videnskabelig software"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Pauseskærme"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Pauseskærm-appletter"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Programmer til skrivebords- og systemindstillinger"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "System"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Systemværktøjer og -redskaber"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Filen \"%s\" blev ikke fundet"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Kunne ikke indlæse data for menufil fra %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Kunne ikke indlæse data for menufil fra %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Kunne ikke køre kommandoen \"%s\"."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Fejl ved start"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Kunne ikke starte \"exo-desktop-item-edit\", som er nødvendigt for at oprette eller redigere menupunkter."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Luk"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Kunne ikke indlæse programmenuen"

@@ -1,0 +1,14 @@
+ xfw_screen_get_type
+ xfw_seat_get_type
+ xfw_window_capabilities_get_type
+ xfw_window_get_type
+ xfw_window_state_get_type
+ xfw_workspace_get_type
+ xfw_workspace_group_capabilities_get_type
+ xfw_workspace_group_get_type
+ xfw_workspace_manager_get_type
+ xfw_workspace_state_get_type
+ xfw_application_get_type
+ xfw_monitor_get_type
+ xfw_monitor_transform_get_type
+ xfw_monitor_subpixel_get_type

@@ -1,0 +1,12 @@
+package(default_visibility = ["//visibility:public"])
+
+genrule(
+    name = "extract",
+    srcs = ["extract_firmware.py", "UPSTREAM.json", "COPYRIGHT", "@ovmf_package//file"],
+    outs = ["OVMF_CODE_4M.fd", "OVMF_VARS-1024x768.fd"],
+    cmd = "python3 $(location extract_firmware.py) --package $(location @ovmf_package//file)" +
+          " --manifest $(location UPSTREAM.json) --copyright $(location COPYRIGHT)" +
+          " --code $(location OVMF_CODE_4M.fd) --variables $(location OVMF_VARS-1024x768.fd)",
+)
+
+filegroup(name = "firmware", srcs = [":extract"])

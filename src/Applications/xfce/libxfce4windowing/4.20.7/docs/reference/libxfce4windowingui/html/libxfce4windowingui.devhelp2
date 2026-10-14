@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="libxfce4windowing Reference Manual" link="index.html" author="" name="libxfce4windowingui" version="2" language="c" online="http://[SERVER]/libxfce4windowing/index.html">
+  <chapters>
+    <sub name="[Insert title here]" link="ch01.html">
+      <sub name="Library Configuration" link="libxfce4windowingui-Library-Configuration.html"/>
+      <sub name="XfwWindowActionMenu" link="XfwWindowActionMenu.html"/>
+      <sub name="XfwWindowListMenu" link="XfwWindowListMenu.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Index of deprecated API" link="deprecated-api-index.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <keyword type="macro" name="LIBXFCE4WINDOWINGUI_CHECK_VERSION()" link="libxfce4windowingui-Library-Configuration.html#LIBXFCE4WINDOWINGUI-CHECK-VERSION:CAPS"/>
+    <keyword type="function" name="libxfce4windowingui_check_version ()" link="libxfce4windowingui-Library-Configuration.html#libxfce4windowingui-check-version"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWINGUI_MAJOR_VERSION" link="libxfce4windowingui-Library-Configuration.html#LIBXFCE4WINDOWINGUI-MAJOR-VERSION:CAPS"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWINGUI_MINOR_VERSION" link="libxfce4windowingui-Library-Configuration.html#LIBXFCE4WINDOWINGUI-MINOR-VERSION:CAPS"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWINGUI_MICRO_VERSION" link="libxfce4windowingui-Library-Configuration.html#LIBXFCE4WINDOWINGUI-MICRO-VERSION:CAPS"/>
+    <keyword type="variable" name="libxfce4windowingui_major_version" link="libxfce4windowingui-Library-Configuration.html#libxfce4windowingui-major-version"/>
+    <keyword type="variable" name="libxfce4windowingui_micro_version" link="libxfce4windowingui-Library-Configuration.html#libxfce4windowingui-micro-version"/>
+    <keyword type="variable" name="libxfce4windowingui_minor_version" link="libxfce4windowingui-Library-Configuration.html#libxfce4windowingui-minor-version"/>
+    <keyword type="function" name="xfw_window_action_menu_new ()" link="XfwWindowActionMenu.html#xfw-window-action-menu-new"/>
+    <keyword type="struct" name="XfwWindowActionMenu" link="XfwWindowActionMenu.html#XfwWindowActionMenu-struct"/>
+    <keyword type="property" name="The “window” property" link="XfwWindowActionMenu.html#XfwWindowActionMenu--window"/>
+    <keyword type="function" name="xfw_window_list_menu_new ()" link="XfwWindowListMenu.html#xfw-window-list-menu-new"/>
+    <keyword type="struct" name="XfwWindowListMenu" link="XfwWindowListMenu.html#XfwWindowListMenu-struct"/>
+    <keyword type="property" name="The “minimized-icon-saturation” property" link="XfwWindowListMenu.html#XfwWindowListMenu--minimized-icon-saturation"/>
+    <keyword type="property" name="The “screen” property" link="XfwWindowListMenu.html#XfwWindowListMenu--screen"/>
+    <keyword type="property" name="The “show-all-workspaces” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-all-workspaces"/>
+    <keyword type="property" name="The “show-icons” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-icons"/>
+    <keyword type="property" name="The “show-sticky-windows-once” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-sticky-windows-once"/>
+    <keyword type="property" name="The “show-urgent-windows-section” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-urgent-windows-section"/>
+    <keyword type="property" name="The “show-workspace-actions” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-workspace-actions"/>
+    <keyword type="property" name="The “show-workspace-names” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-workspace-names"/>
+    <keyword type="property" name="The “show-workspace-submenus” property" link="XfwWindowListMenu.html#XfwWindowListMenu--show-workspace-submenus"/>
+    <keyword type="property" name="The “window-title-ellipsize-mode” property" link="XfwWindowListMenu.html#XfwWindowListMenu--window-title-ellipsize-mode"/>
+    <keyword type="property" name="The “window-title-max-width-chars” property" link="XfwWindowListMenu.html#XfwWindowListMenu--window-title-max-width-chars"/>
+  </functions>
+</book>

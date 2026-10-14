@@ -1,0 +1,64 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libmath_" + arch,
+        srcs = [
+            "target_config.h",
+            "test_math.c",
+            "//src/Libraries/25.5.0:sources",
+            "//userland/native:sdk_" + arch,
+            "//scripts:build_native_math.py",
+        ],
+        outs = ["libmath." + arch + ".a", "libmath." + arch + ".json", "test_math." + arch + ".o"],
+        cmd = "python3 $(location //scripts:build_native_math.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libmath." + arch + ".a)" +
+              " --report $(location libmath." + arch + ".json)" +
+              " --probe-output $(location test_math." + arch + ".o)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":libmath_arm64", ":libmath_x86_64"])
+
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = [
+            "test_main.c", "//userland/native:dyld/native_calls.h",
+            "//scripts:build_native_math_test.py",
+            "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+            "//userland/diagnostic:root_" + arch,
+            "//userland/native:dyld_" + arch,
+            "//userland/native:libsyscall_" + arch,
+            "libmath." + arch + ".a", "test_math." + arch + ".o",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["math-test-root." + arch + ".img", "math-test-root." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_math_test.py) --root $$PWD --arch " + arch +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --libsyscall $(location //userland/native:libsyscall_" + arch + ")" +
+              " --libmath $(location libmath." + arch + ".a)" +
+              " --probe $(location test_math." + arch + ".o)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $(location math-test-root." + arch + ".img)" +
+              " --report $(location math-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+
+[
+    sh_binary(
+        name = "verify_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch],
+        data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]

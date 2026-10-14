@@ -1,0 +1,19 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+cc_library(
+    name = "library",
+    srcs = ["common/abstractfile.c"] + glob(["hfs/*.c"], exclude = ["hfs/hfs.c"]),
+    hdrs = glob(["includes/**/*.h"]),
+    includes = ["includes"],
+    copts = ["-fcommon"],
+    linkopts = ["-lz"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "hfsplus",
+    srcs = ["common/abstractfile.c"] + glob(["hfs/*.c", "includes/**/*.h"]),
+    copts = ["-fcommon", "-Itools/libdmg-hfsplus/includes"],
+    linkopts = ["-lz"],
+    visibility = ["//visibility:public"],
+)

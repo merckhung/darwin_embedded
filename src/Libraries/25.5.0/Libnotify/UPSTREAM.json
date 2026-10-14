@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/Libnotify",
+  "tag": "Libnotify-348.120.4",
+  "commit": "227c145bcf26ec93e18304ba81306a3014d9bd56",
+  "archive_sha256": "582a537701c0ce1ab3dfd36042f46eddbcfde89acdbdbc2c5a42a47aefa8045b",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/Libnotify/tar.gz/refs/tags/Libnotify-348.120.4",
+  "release_manifest": "https://raw.githubusercontent.com/apple-oss-distributions/distribution-macOS/macos-265/release.json"
+}

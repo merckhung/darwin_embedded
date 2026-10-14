@@ -1,0 +1,4448 @@
+commit e288652b65a103c64161307281116b838c5df643
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Aug 10 14:53:29 2026 -0700
+
+    Updates for release
+
+commit ff6a88c1f3be9c60557a40b5cb93875f70c91e26
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Aug 7 23:37:26 2026 -0700
+
+    Add xfw_monitor_get_edid()
+
+commit cb7344c00e31d00ab0fd181bc73da2361b7b203c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Aug 7 21:09:40 2026 -0700
+
+    Support the xfce-output-private-v1 protocol
+    
+    This gives us (on Wayland):
+    
+    * Workarea
+    * Primary monitor
+    * Monitor serial number
+    
+    Also EDID and current monitor-with-pointer, but neither of those are
+    exposed by XfwMonitor.
+    
+    This also fixes the output commit/done sequence handling so initial
+    properties are collected properly before adding the output.
+    
+    Closes #67
+
+commit 83ffd4ac83920ecd7ad190e997539d7a60c8dd60
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Aug 1 09:26:45 2026 +0200
+
+    build: Add missing check for bind_textdomain_codeset
+    
+    Fixes: #66, #68
+
+commit d61ffca578bd134542696ca41c7c4269d6f5837f
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Jul 25 00:47:43 2026 +0200
+
+    I18n: Update translation sk (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 38e4af203491be7c69765215993ebe19f23b0ab3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 3 15:49:35 2026 -0700
+
+    Implement xfce-foreign-toplevel-management-private-v1
+    
+    Implements the rest of the window states for Wayland, as well as a few
+    more operations, as well as the window->workspace mapping.
+    
+    This also restructures XfwWindowWayland so that it collects property
+    changes and waits for the 'done' event before committing those changes
+    and emitting signals.  This was necessary because window state now comes
+    from two separate protocol objects, and that state needs to be kept in
+    sync, not to mention it's not great to fire state-changed twice when it
+    should only be fired once.  This is really how it should have been
+    implemented in the first place, as it follows the intent of the wlr
+    protocol's 'done' event.
+    
+    Closes #65
+
+commit b33b057fcf184fb9ccc39f1e9df81f8df11cedac
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 3 15:52:26 2026 -0700
+
+    Remove G_GNUC_CONST
+    
+    See https://gitlab.xfce.org/xfce/libxfce4ui/-/work_items/149
+
+commit df4dae9dd2b846ea6f477d3a2a66f8b6b3dd4f49
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 16:24:21 2026 +0200
+
+    gobject-linter: Fix property_enum_coverage
+
+commit 268c116719651fab6b7db9d81304d7f25fa633bd
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 16:21:57 2026 +0200
+
+    gobject-linter: Fix missing_implementation
+
+commit c303c001543071bdf722a14ecfb521f748ce875a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 16:21:08 2026 +0200
+
+    gobject-linter: Fix use_g_steal_pointer
+
+commit 5f2c0ffc988433171f854a61fe76763e092b8216
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 16:14:45 2026 +0200
+
+    gobject-linter: Fix g_param_spec_static_strings
+
+commit 6c507ead1c4801bce9f92291f7afcc359072506e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 16:13:04 2026 +0200
+
+    gobject-linter: Fix use_clear_functions
+
+commit 0baf8b93230da47b7e17a93cefd2858e03dfbad5
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 16:03:38 2026 +0200
+
+    gobject-linter: Fix matching_declare_define
+
+commit 69aa99a788739a1fcb30baae29619c23c923c961
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jun 7 15:45:35 2026 +0200
+
+    gobject-linter: Fix property_switch_exhaustiveness
+
+commit 673e4ef337dab605c53f842ee026e36e848b66c5
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jun 7 00:46:18 2026 +0200
+
+    I18n: Update translation cs (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 05ee1eacf90b2a4f2530253b6b78f836cd99cfd2
+Author: correctmost <11866-correctmost@users.noreply.gitlab.xfce.org>
+Date:   Fri Jun 5 02:38:42 2026 -0400
+
+    cppcheck: Fix invalidPrintfArgType_sint warning in test code
+    
+    xfw_monitor_get_scale() returns a guint.
+
+commit 50e1360fb3b3f03780c9f99ed3ef3df4b1253d3b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jun 5 12:43:24 2026 +0200
+
+    Fix includes that should use double quotes
+
+commit 312ed4fde4cd319ce9a8b1a856fe5177e51a6a14
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jun 4 20:05:44 2026 +0200
+
+    cppcheck: Fix knownConditionTrueFalse
+
+commit ee2bf685241e78a152b05d060571def2a50a1993
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jun 4 20:00:48 2026 +0200
+
+    cppcheck: Fix unreadVariable
+
+commit feda1ff69653cd3f1891d12ee3a5ac80b668e509
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jun 4 19:57:41 2026 +0200
+
+    cppcheck: Fix invalidPrintfArgType_sint
+
+commit 412929b616fb5ad0572178003353e31d23cad432
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jun 4 19:54:38 2026 +0200
+
+    scan-build: Update false positive file after clang version bump
+
+commit b3bf5f90136d72d039b86db80f68eb84d56d5566
+Author: dernett <aburnett@tutamail.com>
+Date:   Sun May 31 14:17:56 2026 -0700
+
+    Fix fallback icons for pixmaps path
+
+commit 1ec5a0bb973837653c7363b25f33d480c7230470
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun May 24 23:01:18 2026 -0700
+
+    Back to development
+
+commit 04b6c7aae9797c75e7eef96457d7e93b68c36b49
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun May 24 22:58:16 2026 -0700
+
+    Updates for release
+
+commit c68b87c5ef87d7cee5c5a7f0dc90f1b6088c7aff
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun May 24 20:30:42 2026 -0700
+
+    Add xfw_screen_get_monitor_for_gdk_monitor()
+
+commit d9bcb4a3a9fd5cb29b2da2fbb711e6dc9f568848
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun May 24 20:29:23 2026 -0700
+
+    Add missing "New in 4.20.6" docs section
+
+commit 0068e9141a56735134b3c24d28917104d573483d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun May 17 10:43:02 2026 +0200
+
+    Add missing chain up to parent class
+    
+    Fixes: #61
+
+commit c53e860067264a921b3f49239647d63aae9039c8
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Apr 30 12:46:04 2026 +0200
+
+    I18n: Update translation ko (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 63183b2d22d2b0407d41e586eb2b2d73485d085e
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Apr 24 00:48:00 2026 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit e0e915c6b9cc3e81c402a05b703b929acaf54df6
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Apr 24 00:48:00 2026 +0200
+
+    I18n: Add new translation lo (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit e164118249de62aa18605ee605b73fa679d84ad1
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Apr 17 12:46:05 2026 +0200
+
+    I18n: Update translation ru (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 20e9db45ffe1893bc2027ebd4e07b67b4bd60e63
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Mar 29 10:36:47 2026 +0200
+
+    XfwMonitor: Fix (xdg_)output_done event handling
+    
+    It appears that the correct interpretation of the xdg-output protocol
+    for versions 3 and later is that the compositor must emit an output_done
+    event for all wl_output and xdg_output events, rather than one for each
+    group of events. This seems reasonable, and this is how at least labwc,
+    wayfire, and niri interpret it, so it seems we can stick with this.
+    
+    In particular, this addresses the lack of notification for fractional
+    scaling changes, which requires calling finalize_output().
+
+commit b0ea7affc0d024e43ba0cfcee867c843bd5ffc37
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Mar 28 00:46:27 2026 +0100
+
+    I18n: Update translation tr (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit ad96c7863e819c9d73ca79a440ffe0d609495705
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Mar 26 21:36:06 2026 +0100
+
+    XfwMonitor: Fix typo and initialize class member
+
+commit a11e6a50115353fda82a5ea785693b7eeac5a83c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Mar 27 05:41:05 2026 -0700
+
+    Ignore workarea/workspace count mismatches
+    
+    Some WMs are not fully compliant and set a _NET_WORKAREA array that is
+    smaller than the number of workspaces.  And some don't set it at all.
+    If we don't have a workarea for a particular workspace, just use the
+    full monitor geometry.
+    
+    Closes #59
+
+commit 4109590976f209224b3ee2008fb8ba55c7b9c54c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Mar 27 01:30:31 2026 -0700
+
+    Fix incorrect max to clamp workspace number to
+
+commit 40cc088f7eacf08a9d3b472d2550455683096f3f
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Mar 25 12:46:47 2026 +0100
+
+    I18n: Update translation ka (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 34ea30b779b6f1ab36c1e854ce85a7d2ece8754b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Jan 28 00:08:35 2026 -0800
+
+    Implement workspace geometry for wayland
+
+commit 7b07b658697b91f9e47e0c1b8aa4c53a087659b2
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 27 23:41:15 2026 -0800
+
+    Add XfwWorkspace:geometry property
+    
+    Closes #58
+
+commit 7efc1b5149d33da5ab4a3b5f6a15bbfd0cfe05d6
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 27 00:42:39 2026 -0800
+
+    Fix missing workspace signal connections in test program
+
+commit 44902698e10a3d87c4e29534cc437236e4e5b632
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 26 22:17:07 2026 -0800
+
+    Add test program to enumerate workspaces
+
+commit f17d578a880bf1a279d50ec88f8aed36de05ea48
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 26 22:15:23 2026 -0800
+
+    Fix X11 workspace geometry and layout getting out of date
+    
+    libwnck doesn't provide any kind of notification (signal or
+    property-notify) for the geometry or layout bits.  I really don't love
+    doing it this way, but on a 10-second timer, it re-fetches the data,
+    checks for changes, and notifies if they've changed.
+
+commit c3adf00c3abf942fa2dc7d73e09af0bd62919545
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 26 23:18:42 2026 -0800
+
+    Fix incorrect col & row ordering for Wayland workspace coordinates
+    
+    The first coordinate in the array is the x coordinate (column), and
+    second is y (row).
+
+commit ae32d47d1211d56a33bff979309d4894aaf17338
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 26 17:40:46 2026 -0800
+
+    Fix width -> height typo for XfwWorkspaceX11 geometry
+
+commit b39840b79ee51927375efa1212902f97ab16c199
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 5 22:49:28 2026 -0800
+
+    Add fallback monitor on X11 if XRandR doesn't report anything
+    
+    It turns out that many apps (including xfdesktop and probably others)
+    don't behave very well if there are no monitors.  This happens on
+    fully headless systems, but is especially annoying on a headless system
+    with x11vnc running (as libxfce4windowing-using apps will think there
+    are no monitors, even when a VNC client is connected).
+    
+    GDK has a fallback case for this: if XRandR reports no monitors (or is
+    unsupported), a default monitor is created that uses the X11 Display
+    pointer to fill in the monitor's parameters.  Here we do something
+    similar.
+    
+    Closes #56
+
+commit 9b1e7e18343f927f9946960977804230f3fbc16d
+Author: Balló György <ballogyor@gmail.com>
+Date:   Sun Jan 18 10:56:41 2026 +0100
+
+    Don't depend on wayland-scanner and wayland-protocols
+    
+    wayland-scanner and wayland-protocols are needed to build
+    libxfce4windowing, but not for dependent projects. It's not needed to
+    specify them in the pkg-config file.
+
+commit d63c81cb6e0d7feb36766a7b877a084755f07496
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jan 16 09:28:20 2026 +0100
+
+    XfwWindowWayland: Connect to XfwScreen::monitor-added
+    
+    Also necessary in some cases. This should fix persistent bugs, such as
+    window buttons not always appearing at startup in the panel (or when
+    changing display settings), when monitor filtering is enabled.
+
+commit dbda3cafbfd9f4348dc7d4ab898dd5e9bca3e063
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jan 16 07:46:57 2026 +0100
+
+    XfwWindowWayland: Connect to XfwScreen::monitor-removed
+    
+    In the wlr-foreign-toplevel-management protocol, there is no clear
+    requirement for a compositor to emit the output_leave event when an
+    output is removed and a window was on it (more generally, there is no
+    requirement to emit output_leave if output_enter has been emitted, only
+    the reverse). It seems that labwc, for example, has stopped doing this
+    since a certain version (otherwise I suppose the bug would have come up
+    before, as it causes a crash). In any case, it is better to check, when
+    an output is removed, that it is not in the list of window outputs.
+    
+    Fixes: #57
+
+commit 1dbd85e87f812e875bca833d379eef85e2f85326
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Jan 10 12:46:24 2026 +0100
+
+    I18n: Update translation kk (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit e4e86b0025c84efc063f54de7a518c4109ec48d3
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Dec 29 17:18:18 2025 +0100
+
+    Back to development
+
+commit 67410753b271555d081117f5227ca8d53c289135
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Dec 29 17:07:19 2025 +0100
+
+    Updates for release
+
+commit c930704a70c9607d85bebc749d3c00e052f5960c
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Dec 28 00:45:56 2025 +0100
+
+    I18n: Update translation sl (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 7f86028ab95fc2abf798f61f285c5d2e75e71d87
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Dec 13 00:47:01 2025 +0100
+
+    I18n: Update po/LINGUAS list
+
+commit f0b32a839885bc3ce9acae25691d3b1fd69b1abd
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Dec 13 00:47:01 2025 +0100
+
+    I18n: Add new translation vi (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 5e443e5de0c92ed405265f18a98446f651c4e331
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Dec 9 09:52:44 2025 +0100
+
+    build: Fix typo in optimization level
+    
+    So --buildtype=minsize is properly handled as an optimized build.
+
+commit 8cd69f610a72afd0c26d726f58d30050c5bce60a
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Dec 5 00:45:50 2025 +0100
+
+    I18n: Update translation ar (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 45057d1c41d537791f638755dba307483a917553
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Nov 3 00:45:51 2025 +0100
+
+    I18n: Update translation it (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 3a9fe03c49cf3f32eabeded2348b23d729667f9c
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Oct 27 00:46:37 2025 +0100
+
+    I18n: Update translation sv (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit bc96b103bc98798d6bd7012c4b68c310359d580e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 6 07:55:16 2025 +0200
+
+    XfwWorkspaceWayland: Add missing sanity check
+    
+    Closes: #53
+    Fixes: 930c32a24da39bc461cc51422a06609512a45b68
+
+commit d67160222b0a0606c220d575e5d8612c5fbdf184
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Sep 21 00:46:01 2025 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit e3bad6a4702b54e6bd1d4b1c96f994fef8a0f3ec
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Sep 21 00:46:01 2025 +0200
+
+    I18n: Add new translation th (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit de46de35304578597dbf98e6aa22ec6adc73a710
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Sep 21 00:46:01 2025 +0200
+
+    I18n: Add new translation eo (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit f4e0a453ade03ef0e73578a5bb836664b75ca9f8
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Sep 18 00:46:01 2025 +0200
+
+    I18n: Update translation nb (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 56f9de0736150c88f0b5f04a71aa73e502c1c6a7
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Sep 4 09:38:28 2025 +0200
+
+    XfwWindowX11: Readjust entire monitor list when one is added/removed
+    
+    The coordinates of the other monitors have generally changed.
+    
+    Fixes: #52
+
+commit fe1bd5876cac9613abae3d555ea057ef8b4fb8a0
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Sep 8 12:46:23 2025 +0200
+
+    I18n: Update translation pt_BR (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit eda46893fe17c90e9853505078422e1c8ff7e96e
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Sep 5 00:47:49 2025 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 8f46cbceb67d852cb5517d1c687ea8bbe7d8016e
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Sep 5 00:47:49 2025 +0200
+
+    I18n: Add new translation ug (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit fab83c6b763873b0b11f1e8443827fb3325f197c
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Aug 29 00:45:57 2025 +0200
+
+    I18n: Update translation cs (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit f1872ca52bc7705af121c2e9981a12d1e13cf6ff
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Aug 27 12:45:47 2025 +0200
+
+    I18n: Update translation da (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit d834b3ab501f37580f9bd5cdea906ea3a053dc45
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Aug 24 12:47:06 2025 +0200
+
+    I18n: Update translation oc (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 8a1fd0c18256f6eab9b24129ffe7778a1ddcc486
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Aug 16 16:08:48 2025 +0200
+
+    autotools-build: Add *-docs.xml.in to EXTRA_DIST
+    
+    Closes: #51
+    Fixes: 9986d6f60d61129938fbda5aa439afceb3705ae6
+
+commit ac2642a6dd55442a98d0e0fa3f58bbac9b26bb18
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Aug 14 09:19:02 2025 +0200
+
+    Back to development
+
+commit 3831d28015c52ede7c0db908946be62fa918692d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Aug 14 09:05:29 2025 +0200
+
+    Updates for release
+
+commit d8a9aed4dfce80596b3581082b21f433b40740f9
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Aug 9 00:45:46 2025 +0200
+
+    I18n: Update translation uk (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 2c507a1149ae360d9aa66de5f01be414a77deb5c
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Aug 1 12:46:00 2025 +0200
+
+    I18n: Update translation en_GB (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 102a06d626e861b019663c56835987f74d8f2b24
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Jul 28 22:16:25 2025 +0200
+
+    XfwMonitorWayland: Delay monitor finalization until gdk data are set
+    
+    There are situations like #50 where xfw_monitor_get_gdk_monitor()
+    reproducibly issues a critical warning because XfwScreen::monitor-added
+    is emitted before gdk has filled in all GdkMonitor connectors. This
+    should avoid the problem in most cases.
+
+commit 83a21765c0be8c0ca574f7a24e7f56e3b4f082e2
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jul 27 16:14:51 2025 +0200
+
+    XfwSeatWayland: Store global name for matching when seat is removed
+    
+    Same as 519ce5b2a9754160d57f0265de0f1431c062181c.
+
+commit 7aa8d457f6690c2ea9a540c49525c5f7bb556020
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jul 27 11:03:12 2025 +0200
+
+    XfwMonitorWayland: Fix release order in _global_removed()
+    
+    When the output was removed by the server before sending its properties,
+    and therefore before the monitor had been added to XfwScreen's list of
+    monitors (retaining a reference), the monitor was freed as soon as the
+    `g_hash_table_iter_remove(&iter)` instruction was issued, so
+    `monitor->output` was freed in `_finalize()`, and there was therefore a
+    double free in `g_clear_pointer(&monitor->output, ...`.
+    
+    So `g_clear_pointer(&monitor->output, ...` must be done before
+    `g_hash_table_iter_remove(&iter)`, but this change also reorders the set
+    of operations in `_global_removed()`, so that they are performed in
+    reverse order to the reference additions.
+    
+    Fixes: #49
+
+commit db393349935c866bcaf966418ea13ec5c2ecda3e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Jul 26 23:23:49 2025 +0200
+
+    XfwMonitorManagerWayland: Use g_hash_table_iter_remove when iterating
+
+commit 519ce5b2a9754160d57f0265de0f1431c062181c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jul 25 17:12:28 2025 +0200
+
+    XfwMonitorWayland: Store global name for matching when output is removed
+    
+    The name from registry_global() and the id from wl_proxy_get_id() on the
+    proxy got from wl_registry_bind() are two different things.
+
+commit 16f00b2ec3b1608ff50110f6776acd46a7c9633c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jul 25 22:40:30 2025 +0200
+
+    XfwScreenWayland: Rename id to name in registry_global(_remove)?
+
+commit e59a1d5142f8a8a6d9f79a8fb1e0e24227d1090f
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Jul 26 11:33:48 2025 +0200
+
+    XfwMonitorWayland: Don't make XfwScreen emit signal with null monitor
+    
+    This can cause segfaults, etc. XfwScreen could also check this, but it
+    seems odd to provide a non-null list with all null elements in this
+    case.
+
+commit 6174eeb870a5f2d5063b4605aea955938cffdb30
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jul 25 20:22:42 2025 +0200
+
+    XfwWorkspaceGroupWayland: Connect to XfwScreen::monitor-(added|removed)
+    
+    When an output is created or deleted, the output_(enter|leave) event may
+    be received before the output has been added to the XfwScreen output
+    list, so you also need to connect to XfwScreen::monitor-(added|removed)
+    to make sure you have an up-to-date monitor list.
+
+commit 297b05074dafa45d3681667bbf3d5c6e409df6ab
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Jul 25 12:46:16 2025 +0200
+
+    I18n: Update translation el (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 8302bdf8c4079fca7d40c2ba452658ddd8d5e4af
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Jul 24 00:46:03 2025 +0200
+
+    I18n: Update translation zh_CN (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 0b69be30f11dcfcd4c38d2805cde95283cb56bcf
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Jul 23 00:45:59 2025 +0200
+
+    I18n: Update translation pt_BR (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit eb536361a877ba876cedd7b94f7aa15c7fabde85
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Jul 23 00:45:59 2025 +0200
+
+    I18n: Update translation es (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 03d974734b0a7d35dd618cbc8cc0cfe1954f42fe
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jul 22 12:45:50 2025 +0200
+
+    I18n: Update translation sr (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 1d9c403d5bfb0b4f96b2ec6155159812df466584
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jul 22 00:45:54 2025 +0200
+
+    I18n: Update translation pt (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 03e5ff05b9bd3e37d3c1cf4b0b7424cebb623328
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Jul 21 12:45:59 2025 +0200
+
+    I18n: Update translation ca (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit e9c0e89df170327d0475a11c517e2ec085145c0b
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Jul 21 00:45:49 2025 +0200
+
+    I18n: Update translation bg (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 4f7621a37801b81a801cdf2a22f54100144ca0bb
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 12:45:45 2025 +0200
+
+    I18n: Update translation fr (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 2890a3559c806b64c0c0cd1005345d6b157917cd
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 12:45:45 2025 +0200
+
+    I18n: Update translation de (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 4055b30982a8b133d31125e2d079b8bdba144f65
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 00:48:52 2025 +0200
+
+    I18n: Update translation ro (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 4561637398535b4ca767f120aafb5b100d6ff2f0
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 00:48:52 2025 +0200
+
+    I18n: Update translation pl (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 9d2d467d4b7b108b70e76afee2409188d89a07a0
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 00:48:52 2025 +0200
+
+    I18n: Update translation nl (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 9ed0cbf1cb52833cb950b2b2c1442b4e027f8754
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 00:48:52 2025 +0200
+
+    I18n: Update translation lt (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit fe28223cde43c1e2213f306d99c5183001a7a1c5
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 00:48:52 2025 +0200
+
+    I18n: Update translation ja (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit ba13d33e73718dc06b1fcb272dbc0dc4dae658d0
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jul 20 00:48:52 2025 +0200
+
+    I18n: Update translation et (100%).
+    
+    20 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 4de8c9e3bf7f93aef8babff22d35b8059e3e2837
+Author: Erika <rrika9@yahoo.com>
+Date:   Sat Jul 19 03:07:27 2025 +0000
+
+    Add mnemonics for workspace names in workspace menu
+
+commit de28f09cb51abb39c4b6e95c646c49b633cfd2d5
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jul 18 12:51:00 2025 +0200
+
+    Revert "Update README after switchover to meson"
+    
+    This reverts commit 27aee66df18e5d281a77537e42fe86fb7e5eaea4.
+    
+    Let's not put this in a tarball when we're still using autotools by
+    default.
+
+commit 27aee66df18e5d281a77537e42fe86fb7e5eaea4
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jul 18 12:31:27 2025 +0200
+
+    Update README after switchover to meson
+
+commit 0ba4060339b324499948ecd7894dd961bf3dad40
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Jul 13 10:53:48 2025 -0700
+
+    Destroy wl_output & xdg_output together when wl_output global removed
+    
+    This should hopefully ensure we don't get any more events from either
+    object after we finalize the XfwMonitorWayland instance.
+    
+    Closes #48
+
+commit 047c7b50873fbf143aff492b822668feb34438dc
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Jul 13 10:53:45 2025 +0200
+
+    XfwWorkspaceWayland: Fix typo
+
+commit 1c60bfc6e91bf701cb7bdefdab3490df9544882a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Jul 8 20:02:31 2025 +0200
+
+    XfwWorkspace: Fix id property management
+    
+    * Do not use g_object_set() on wayland (keep id only readable)
+    * No reason to notify an id change on x11 when workspace name changes
+    
+    Related: https://github.com/YaLTeR/niri/pull/1800#issuecomment-2973145964
+    Completes: bb368d007a0cdb70d2fe187f758b5a6400993441
+
+commit e7a83b076ad4f24fd1d08e5b40017dbe16722171
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jul 11 23:28:36 2025 +0200
+
+    Defer binding to the workspace manager until after we have the outputs
+    
+    As done for the toplevel manager in 5a3648f6.
+    
+    Fixes: #47
+
+commit a0b3c31975c37ef56c8f5b396e001350d1d94338
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat May 31 12:46:20 2025 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 62e33e65c573c27fcc6f9df8f3fbe2ed7a0f7c6e
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat May 31 12:46:19 2025 +0200
+
+    I18n: Add new translation ar (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 07f529356caa92961c1858f29e2a336ca88e87fc
+Author: Evan Maddock <maddock.evan@vivaldi.net>
+Date:   Thu May 29 19:22:33 2025 +0000
+
+    meson-build: Add Vala language bindings option
+    
+    Signed-off-by: Evan Maddock <maddock.evan@vivaldi.net>
+
+commit c5c611253d0cd868ec385f2cc07594c192974c1d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed May 21 10:21:26 2025 +0200
+
+    Back to development
+
+commit 4712dcb4877425472a28d3ea130ba4b409637910
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed May 21 10:09:40 2025 +0200
+
+    Updates for release
+
+commit 1996527bd01d546ee47dd9d7fee6e29e1cdfa37d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon May 5 15:12:09 2025 +0200
+
+    Support absolute icon paths
+    
+    Related: https://forum.xfce.org/viewtopic.php?id=18538
+
+commit 7380816b40fa4045c0e5c9f7f08cccb123fb593e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Apr 27 20:07:46 2025 +0200
+
+    meson-build: Add GNU visibility files to sources
+    
+    'link_depends' is not enough, and generate them using configure_file(),
+    to be sure they're present in the build directory when including them in
+    other source files.
+    
+    Fixes: #45
+
+commit a9555ede2ada2faf1c25f74d7ed910060dc2a129
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Apr 10 12:46:30 2025 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit aaba17ba2f68771f27dbf109de7b85320586f5fe
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Apr 10 12:46:30 2025 +0200
+
+    I18n: Add new translation ka (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit f579358dae5f410351b00d5ac1555793e523b35d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Mar 23 08:37:17 2025 +0100
+
+    autotools-build: Search for xdt-gen-visibility also in the working tree
+    
+    In anticipation of its copying by xfce-do-release when generating
+    tarballs, so as not to need xfce4-dev-tools to build them. Meson takes
+    care of all this, from searching the working tree to adding to the
+    tarball.
+    
+    Related: xfce/xfce4-dev-tools!159
+
+commit 9986d6f60d61129938fbda5aa439afceb3705ae6
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Mar 22 08:43:54 2025 +0100
+
+    build: Automate copyright year management
+
+commit 39918dd38f72eef2a7ff2cd36d93349dc5c7620a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Mar 16 20:28:29 2025 +0100
+
+    docs: Fix warnings
+
+commit 2311db96922ce9acd3617e7aafbf8e5e29a51671
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Mar 8 16:54:16 2025 +0100
+
+    XfwWindowX11: Fix memory leak
+
+commit cb52e854dfe620a6de91d339bacfa1b6fed07c83
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Feb 25 05:41:03 2025 +0100
+
+    Try to match the app id in lower case to find the .desktop file
+    
+    This should improve detection of the correct .desktop file in some
+    cases, typically on X11 where the class group id is often capitalized,
+    but perhaps also on Wayland.
+    
+    Related: https://gitlab.xfce.org/xfce/libxfce4windowing/-/issues/31#note_102421
+
+commit b1e91e50e472d41e168e6abe0dc94f8cbe1f891c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Feb 21 22:16:51 2025 +0100
+
+    XfwWindowX11: Keep a ref on workspace
+    
+    When a workspace is destroyed, the windows it contains are moved to the
+    previous workspace, and WnckWindow::workspace-changed signals are
+    emitted, triggering code execution. As long as a window is on the
+    workspace being destroyed, it remains its current workspace and may need
+    it.
+    
+    Fixes: #42
+
+commit e58801e1f8455c928ff133ccde206b105f2bcc01
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 9 17:56:30 2025 +0100
+
+    XfwWnckIcon: Fix wrong compare func
+    
+    Spotted by @Leonardo541 (GitLab ID).
+    
+    Fixes: #38
+
+commit 992ccaad6b9b38cfc80a3bed4f304446ad8e3b38
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Feb 8 09:57:54 2025 +0100
+
+    meson-build: Add missing conditional for ext-workspace
+    
+    Completes: 2df513c434c8f5befec80024739427dfad150c95
+
+commit 1b3523315802fb60d8ad70739b00f812fd348ddb
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Feb 7 16:39:48 2025 +0100
+
+    meson-build: Reintroduce tests option
+    
+    It can be useful to disable test build for this or that reason, provided
+    they are built and run in CI by default.
+    
+    Amends: d493ebcbd61a19a374e668ea133a86978e54e502
+
+commit 402df4bcaa949be1a81bb52585b8a81b764f5382
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Feb 7 16:37:34 2025 +0100
+
+    meson-build: Use SPDX license expression
+    
+    See https://mesonbuild.com/Reference-manual_functions.html#project_license
+
+commit 82c2186e3dc39f15d3e5ef6bb815da143d3b4b4e
+Author: Bobby Rong <rjl931189261@126.com>
+Date:   Fri Feb 7 23:09:50 2025 +0800
+
+    meson-build: Specify wayland-scanner as a native dependency
+    
+    wayland-scanner is supposed to be run natively on the build machine.
+    
+    Similar to: https://github.com/xkbcommon/libxkbcommon/pull/90
+
+commit 87dabc7503757540b8cd2e8b32536ae4cd388817
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Feb 3 11:39:57 2025 +0100
+
+    meson-build: Update debug/optimization flag management
+    
+    Related: xfce/xfce4-dev-tools!145
+
+commit 87d208e708870fef80f8341d0c20f4b2ac0ad3d8
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 2 20:27:47 2025 +0100
+
+    Back to development
+
+commit 61af2d3138a3c282d037c4aff4b3aa58bf999ab5
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 2 20:18:28 2025 +0100
+
+    Updates for release
+
+commit 91f9998608f7faa72928d07c61e68b1e8f947dc1
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 2 19:23:23 2025 +0100
+
+    autotools-build: Unconditionally add ext-workspace-v1.xml to EXTRA_DIST
+
+commit 79deb69586f2dc407b7cc467f76abc0b646f00b4
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 2 17:50:20 2025 +0100
+
+    Back to development
+
+commit ad4e231da85beef40e6eef4d3c65c93f86d48035
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 2 17:36:28 2025 +0100
+
+    Updates for release
+
+commit e37c6e084031466a50e8912367f9019e134ac676
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Feb 2 17:32:30 2025 +0100
+
+    Update copyright year
+
+commit 005369633f07387f487d07b879e7884ee047baeb
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jan 25 15:49:19 2025 -0800
+
+    Sanity-check the dimensions of the icon data in _NET_WM_ICON
+    
+    It seems that somehow there are window icons with negative sizes, which
+    causes the parsing code to crash as the 'cur' pointer ends up going
+    backward into memory not returned by XGetWindowProperty().
+    
+    It still feels like there's another issue here, because presumably
+    libwnck doesn't crash on this, and a quick inspection of their code
+    suggests that they don't handle negative values at all.
+    
+    Closes #37.
+
+commit d493ebcbd61a19a374e668ea133a86978e54e502
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Jan 27 09:44:38 2025 +0100
+
+    meson-build: Use meson built-in tests
+    
+    So that they are all at least compiled during `meson dist` in CI, and
+    run for those that can be. Incidentally, you can also simply run
+    `meson test [--setup=full --interactive testname]` to launch the tests.
+
+commit debd3cbd491173f35eef8f692fccb1e53bb30769
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jan 24 15:18:47 2025 +0100
+
+    XfwMonitorX11: Fix connector for virtual output
+    
+    Based on what is done in gtk3:
+    https://gitlab.gnome.org/GNOME/gtk/-/blob/8804279a1c86b7a9a2585eb489efbb3702e5cdef/gdk/x11/gdkscreen-x11.c#L648
+    
+    Fixes: #36
+
+commit 027106ffec211ffb43bb52a431846d0c23ad6ec2
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 20 23:06:10 2025 -0800
+
+    Use wnck_class_group_get_id() to attempt .desktop file icon fallback
+    
+    The wnck_class_group_get_name() function uses a heuristic to attempt to
+    generate a friendly/display name for the class group, which may not
+    actually be the WM_CLASS resource name.  Since we do actually always
+    want the WM_CLASS resource name when trying to find the .desktop file
+    for the application, we need to use _get_id() instead.
+    
+    Closes #33
+
+commit 8d610d21af23a8f8a4a45c1542c101c4eea7d817
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Jan 20 11:43:41 2025 +0100
+
+    meson-build: Let pkg.generate() fill in required libs
+    
+    It completes what we put in 'requires' from the dependencies declared in
+    library() anyway, by filling in the 'requires_private' field, whose use
+    is recommended by default. So we probably don't need to fill this in in
+    general: it's one less thing to maintain, and the dependencies we've
+    declared public so far should probably have been declared private
+    instead.
+    
+    See-also:
+    https://mesonbuild.com/Pkgconfig-module.html
+    https://people.freedesktop.org/~dbn/pkg-config-guide.html
+    https://stackoverflow.com/a/61674208
+
+commit 565b21c7e104a88a12ddef81e53f8bf01d08d3bd
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jan 17 11:32:10 2025 +0100
+
+    meson-build: Fix pkgdatadir definition
+    
+    It seems it isn't used for now but it was wrong.
+
+commit 9f58da5e6360e84582ec552e7a24971bb2dd91af
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jan 17 11:29:12 2025 +0100
+
+    meson-build: Gobject introspection cleanup
+
+commit 472d5f7e1419a6791430c89bc6b1b9613da10f4a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Jan 17 11:21:53 2025 +0100
+
+    meson-build: Use relative path in gtk-doc
+    
+    So meson searches for source files in the right place by itself (source
+    directory or build directory). meson.project_source_root() prevents it
+    from doing so, while meson.current_source_dir() is simply useless. Meson
+    0.56 is still required because meson.project_source_root() is also used
+    elsewhere.
+    
+    Related: xfce/libxfce4util#30
+
+commit 2eb9f85211e94fce2b47f554dae05ba521129cd5
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Jan 15 09:48:11 2025 +0100
+
+    meson-build: Improve maintainability of multi-dependency features
+
+commit efd845f84981680885f62ca8e9d29d83eb9b0e13
+Author: Erkki Moorits <erkki.moorits@mail.ee>
+Date:   Thu Jan 9 10:52:06 2025 +0200
+
+    Removed extra ';' in source code.
+
+commit f970959328a9eaefa5eaecf15f5d58d9bc61e818
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Jan 7 12:55:50 2025 +0100
+
+    build: Remove ununsed conditional
+
+commit c825c555635adcb83c371984694443a576c3d624
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Jan 6 12:45:57 2025 +0100
+
+    I18n: Update po/LINGUAS list
+
+commit 816cab993048d1299c4a2c24a30404b5f613de1d
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Jan 6 12:45:57 2025 +0100
+
+    I18n: Add new translation sk (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 56020342bbf80eaa7a1c7243380568383318708c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Jan 6 10:11:53 2025 +0100
+
+    docs: Don't run gtkdoc-check
+    
+    It's too demanding, we don't usually respect this (*--undocumented.txt
+    and *-undeclared.txt should be empty).
+    
+    Related: xfce/libxfce4util!54
+
+commit 930c32a24da39bc461cc51422a06609512a45b68
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Dec 31 18:59:19 2024 +0100
+
+    XfwWorkspaceWayland: Ensure active workspace is initialized
+
+commit c292257b511d4601d5d64051042ea90e7b9f92d2
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Dec 31 18:58:37 2024 +0100
+
+    XfwWorkspaceManagerWayland: Fix typo
+    
+    Fixes a crash when removing a workspace.
+
+commit 0b116fd9211e16f4030f12cd9a0602c405d76207
+Author: Johan Malm <jgm323@gmail.com>
+Date:   Mon Dec 30 18:10:22 2024 +0000
+
+    XfwWorkspaceWayland: fix ext-workspace activate
+    
+    ...by adding missing commit to enable compositor workspaces to be switched
+    using the xfce4-panel 'Workspace Switcher' plugin.
+    
+    Without this fix the plugin would correctly indicate the current
+    workspace, but switching did not work by clicking on the plugin.
+    
+    Do the same to the remove and assign_to_workspace_group handlers.
+    
+    Helped-by: Consolatis
+    Written-by: @Tamaranch
+
+commit 560bec132ed1574687ac1b298251f62f5837b70e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 29 16:58:15 2024 +0100
+
+    XfwWorkspaceWayland: Store name property
+
+commit bb368d007a0cdb70d2fe187f758b5a6400993441
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 29 16:57:10 2024 +0100
+
+    XfwWorkspaceWayland: Properly set id property
+    
+    Completes: 2df513c434c8f5befec80024739427dfad150c95
+
+commit 93b2bf2f98e009596e3ac34d73b78d825f655a5d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 29 16:41:11 2024 +0100
+
+    XfwWorkspaceGroupWayland: Fix wrong list element removal
+    
+    Causes a segfault at startup in xfce4-session.
+
+commit 2df513c434c8f5befec80024739427dfad150c95
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Dec 26 18:03:38 2024 +0100
+
+    Update ext-workspace protocol version
+    
+    This may require further corrections to take account of new properties.
+    This fix just allows you to compile and not segfault at startup with
+    xfce4-panel.
+    
+    Also, the conditional part for the meson build is missing, allowing you
+    to use the installed version of ext-workspace-v1.xml if available.
+
+commit 6b468ecc119dd54bb49f98a43c879c5451519b44
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Dec 26 18:01:25 2024 +0100
+
+    XfwWorkspaceWayland: Add missing sanity check
+    
+    It seems that the group can legitimately be NULL in some cases. If it
+    shouldn't, the fix needs to be adapted.
+
+commit 54cea3bbc436cb19a84b8017d8536363b377aa5e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Dec 26 18:00:00 2024 +0100
+
+    XfwWorkspaceManagerWayland: Fix typo
+
+commit 81b4893b27a3581b098a3e359aee439f48035131
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Dec 26 17:58:28 2024 +0100
+
+    XfwWorkspaceGroupWayland: Add missing property and private struct
+
+commit 9e9a484255402f45e962ef5b43ccc5b91ab4a4e5
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Dec 22 00:45:49 2024 +0100
+
+    I18n: Update translation hu (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 421a2507fb5372916189cecbf4f2e0cd635224cd
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Dec 18 00:46:01 2024 +0100
+
+    I18n: Update translation ro (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit f83eadb5edadd31911e600546d901ebb4bdd314a
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Dec 17 12:46:39 2024 +0100
+
+    I18n: Update po/LINGUAS list
+
+commit 68fd8d0e1c3c93283087f3113532b4a806ce3da5
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Dec 17 12:46:39 2024 +0100
+
+    I18n: Add new translation hu (57%).
+    
+    11 translated messages, 8 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit b730054aae0856db8bb2ed4ac656465ca1dcce66
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 15 09:28:09 2024 +0100
+
+    Back to development
+
+commit 302d019d4c5c814e6898dab27c7536d05bd223bb
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 15 09:17:08 2024 +0100
+
+    Updates for release
+
+commit 34502872d19c0bc2f692bfe403046cd46051ad72
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Dec 3 00:45:46 2024 +0100
+
+    I18n: Update translation fi (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 539e01c47289c954fbb39606a6e2ddd07dca35b2
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 1 05:49:43 2024 +0100
+
+    Back to development
+
+commit b639099024d82e99eee090327d391a71e20a1ac2
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 1 05:37:37 2024 +0100
+
+    Updates for release
+
+commit 9aaf71934584029c2f9d3d2ef32eafbfd6d8968b
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Nov 13 00:45:59 2024 +0100
+
+    I18n: Update po/LINGUAS list
+
+commit 71700c5c666bec46a496569de9e83e1db85f1592
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Nov 13 00:45:59 2024 +0100
+
+    I18n: Add new translation gl (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit a1022fb40bdf88f66cc7352f7653b30c03a4dd76
+Author: correctmost <11866-correctmost@users.noreply.gitlab.xfce.org>
+Date:   Fri Nov 8 18:34:30 2024 -0500
+
+    Fix XfwMonitor leak in steal_monitor_by_connector
+
+commit e419118fcf33d96685b01513063ae2bf40ee65e4
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Nov 3 00:45:53 2024 +0100
+
+    I18n: Update translation cs (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit a47ba7c42fdf1405612371aff601690f2e7b466a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Nov 1 15:13:45 2024 +0100
+
+    Back to development
+
+commit 47d854fdf0ee956864a8852f603237e68a4a6b0c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Nov 1 14:48:37 2024 +0100
+
+    Updates for release
+
+commit 15b12570424d00af09891fffb264a5190895eb9a
+Author: correctmost <11866-correctmost@users.noreply.gitlab.xfce.org>
+Date:   Tue Oct 22 20:26:51 2024 -0400
+
+    Fix leak of seats GList
+
+commit 49d7349fd207aa87e819ecac67408415240cf51d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 22 14:16:01 2024 -0700
+
+    Back to development
+
+commit 0f6ad99fa3aa0341ffa50555baa7d064ccd8788d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 22 13:37:11 2024 -0700
+
+    Updates for release
+
+commit 7b4f77e8cd208ea4b12823db3bcf346b3c817f91
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 21 12:57:01 2024 -0700
+
+    Clean up xsettings client & work around GDK swallowing events
+    
+    GDK returns GDK_FILTER_REMOVE on its GdkWindow event filters when it
+    gets a change to the XSETTINGS manager selection, as well as when it
+    sees a change to the _XSETTINGS_SETTINGS property.  I have no idea why
+    it does that, and it's incredibly frustrating.
+    
+    There's a workaround, though: GDK supports "default" window filters,
+    where if you pass NULL for the window to gdk_window_add_filter(), it
+    will pass *all* events to your filter function.  These default filters
+    run before the window-specific filters run, so we can see the xsettings
+    changes before GDK has a chance to see them and prevent us from seeing
+    them.
+    
+    Closes #28
+
+commit 06963875294866dc49eb206f776c8e9592d708b8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 17 22:23:50 2024 -0700
+
+    Remove private sources from the public sources list
+
+commit cd7f89edce2009ed9667f93ef715eefc3ecd35cd
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Oct 9 11:49:51 2024 -0700
+
+    Back to development
+
+commit 64f5033051d5fb77bdb1419d14f1ae2665aad59a
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Oct 9 11:44:22 2024 -0700
+
+    Updates for release
+
+commit 87912eb773923ad79fca703776dae60bf4f8f446
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Oct 9 10:48:07 2024 -0700
+
+    Fix missing parent instance in XfwSeatWayland
+    
+    Closes #27
+
+commit bab96e5cf76999dd70f2de25705cbd1358983f70
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 7 04:04:38 2024 -0700
+
+    Add XfwWindowListMenu widget
+    
+    This is mostly taken from the xfdesktop code, but the styling is more
+    like the xfce4-panel window-menu plugin.  It also includes the union of
+    the features supported by both.
+    
+    The menu currently does not auto-update in an efficient way.  Every time
+    the menu is re-shown, it is re-populated.  The only exception is that if
+    a window is destroyed while the menu is being shown, the menu item for
+    it will be removed.
+    
+    Closes #20
+
+commit 2bf9c172f84e92f3117ffa10e131aa8ebbddd295
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Oct 6 16:07:35 2024 -0700
+
+    Remove the "(constructor)" annotation on xfw_screen_get_default()
+    
+    Apparently that's just for functions that create an instance of the
+    specific class the function is associated with.  In our case, XfwScreen
+    is an abstract class and can't be instantiated.
+    
+    At the very least the Vala compiler doesn't like this, and leaves out
+    _get_default() entirely in its bindings.
+    
+    Closes #25
+
+commit 10ec98e64636e4fffd6a24710a52fe8c49aabe2e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 7 03:37:29 2024 -0700
+
+    Fix crash on workspace add/remove after XfwWindowActionMenu destroyed
+
+commit 101810176aab765a630e432d67fc4234b94ba34a
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 7 00:38:45 2024 -0700
+
+    Make XfwWindowAction menu struct private
+    
+    Not sure why it wasn't already; it's declared as a final type, and
+    there's no reason to make the contents of the struct public, or use a
+    ->priv pointer.
+
+commit 6d079d613b2db530bbd5fca67fdab122664d8958
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Oct 6 23:54:19 2024 -0700
+
+    Back to development
+
+commit b612017a536b27e1e9b33aee4b404b56c66fb363
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Oct 6 23:49:13 2024 -0700
+
+    Updates for release
+
+commit 7d4f44616f24474c679673fab51689bab798e5a8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Oct 6 23:45:49 2024 -0700
+
+    Actually export xfw_screen_get_seats from the library
+
+commit b1d0c1e099f480941dddcf371f296b29d27988e7
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 3 16:51:49 2024 -0700
+
+    Add XfwSeat abstraction
+    
+    This is only used for xfw_window_activate() so far.
+    
+    Closes #26
+
+commit ee229f83623ab0422c9c2b89631d795f6d81c704
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 3 16:03:46 2024 +0200
+
+    build: Adjust Wayland requirements for Xfce 4.20
+
+commit c81b193417b4410c2b99f082608b64f0a37c6fcc
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 3 06:11:19 2024 -0700
+
+    Back to development
+
+commit d126272b79b9e1e489ef1e9570a4a093d22885c8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 3 06:08:45 2024 -0700
+
+    Updates for release
+
+commit 7a864c302c594cef564a68d4d562f3faf271648c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 3 03:12:48 2024 -0700
+
+    Add more compiler flags to the meson build
+
+commit b4ef3be732eab2f00b6de042a32b15b28abe1334
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 3 00:36:49 2024 -0700
+
+    Use physical geometry when comparing X11 window geometry to monitor
+    
+    libwnck reports window geometry in unscaled physical pixels, so we need
+    to compare with the monitor's physical pixels in order to tell if the
+    window is on that monitor.
+    
+    This does raise a question: should the window geometry reported through
+    the API report physical or logical pixels?
+
+commit 3b2ecd61f55c8c26fc072ca6cee9f39880422f61
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Oct 2 18:00:52 2024 +0200
+
+    build: Bump requirements for Xfce 4.20
+
+commit 4c0832d3b436a9bfd9d9a84f41ee56eb2ae587cd
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Oct 2 05:28:45 2024 -0700
+
+    Include meson build files in autotools dist tarball
+
+commit b84cc6056c5434953a9ed83286bfad61cb72914b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 20 04:02:39 2024 -0700
+
+    Set up GNU symbol visibility
+
+commit 909cf3cd07e08fa38d95098b0bec9f2333541680
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 20 03:55:19 2024 -0700
+
+    Ditch maintainer mode
+
+commit f6e9c2330fd091737bd22536524f241cacb91aec
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 20 03:41:59 2024 -0700
+
+    Suppress spurious uninitialized var warning
+
+commit 0a397a4267c52e19c4cdac6dd018f818d36fa380
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 20 03:37:53 2024 -0700
+
+    Make window listener struct static
+
+commit ce9f350a107cccf2a6efeb1b922600842eb45666
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 20 01:12:13 2024 -0700
+
+    Update meson build
+    
+    Updates from our xfce4-dev-tools template
+
+commit 3abc9bc6e5ee079bdde99a3e95f98b32ec5e045b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 27 10:48:21 2024 -0700
+
+    Bump C std from gnu99 to gnu11
+    
+    This gets rid of typedef redefinition warnings in libwnck's headers.
+    And in general we are using C11 anyway, and shouldn't feel constrained
+    by a 25-year old standard.
+
+commit ce794248509eb7f289703a05dd1798b08d0b7a00
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 27 10:31:05 2024 -0700
+
+    meson: fix missing checks for x11 and wayland feature detection
+    
+    Closes #24
+
+commit 7308fe69deebbb47bde52974a3400d0a9dc7c11e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 13 15:39:37 2024 -0700
+
+    Fix physical monitor height not getting set on X11
+
+commit 68079cac43fbe883e3c81fa5599186843985e651
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 12 21:17:58 2024 -0700
+
+    Ensure private symbols don't end up in the introspection file
+
+commit 45c7616fd22ae5713b983f744ccbb3763867ef33
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 12 21:09:01 2024 -0700
+
+    autotools: don't build tests by default
+
+commit 956a69c18758165fd7ad5ddb8212b2ca3d8d44d3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 3 14:32:37 2024 -0700
+
+    Print monitor ID in xfw-enum-monitors test app
+
+commit 72816310085ff3b6f7a6b5b84b2fdeefdc6fe5f9
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 2 19:55:54 2024 -0700
+
+    Try to make monitor IDs stable between X11 and Wayland
+
+commit 709948e5762236e71f97e2adb274c7f7a13c9b1d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Aug 27 02:08:49 2024 -0700
+
+    Move xrandr event base into XfwMonitorManagerX11
+    
+    Gets rid of a global and the need for a GOnce.
+
+commit e4032cf2dbeba95eddacb96521b24498ee96da72
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Aug 27 02:02:08 2024 -0700
+
+    Fetch X11 scale factor from XSETTINGS, not GDK
+    
+    If we have no monitors, then gdk_display_get_monitor(dpy, 0) will return
+    NULL, and we won't be able to get the scale factor.
+
+commit 1a04e4fbc260aa1350decf4e42eb7b4be9c6bfd4
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Aug 26 22:54:58 2024 -0700
+
+    Fix monitor workarea setting when monitors appear
+
+commit 3961f57b2c802c27d3cdc4c39fd28edc52c21f51
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Aug 23 15:05:32 2024 -0700
+
+    Back to development
+
+commit ed682b081c47531695f8b4f78be333c52e8cb3fa
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Aug 23 15:03:08 2024 -0700
+
+    Updates for release
+
+commit feb173aecce6b8ffe5bfa1ae8d73bcbbbac66085
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Aug 23 13:59:56 2024 -0700
+
+    Add tests/Makefile.am
+
+commit a9b4ff4298220d5b5b639f11a3043c39486bb19e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Aug 2 16:09:24 2024 -0700
+
+    x11: refresh monitors in an idle function
+    
+    This avoids redundant work when the X server sends several RRNotify
+    events in quick succession.
+
+commit 471ee5b9081f605c302cd07bfcb6875de158d3ed
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Jul 25 00:45:57 2024 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 7a935bfed7d44ed04c5b6cdaac8e374d0e64a602
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Jul 25 00:45:56 2024 +0200
+
+    I18n: Add new translation ast (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit ebef7159290c03ad0c40c8b9f4de29aaec54fdfb
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 13 22:22:18 2024 -0700
+
+    Add a couple small test programs
+
+commit 5a3648f6d1e728babe842cad43fea1673f706130
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 13 20:34:25 2024 -0700
+
+    Defer binding to the toplevel manager until after we have the outputs
+    
+    Compositors (at least wlroots) will not re-send toplevel output_enter
+    events later on when we bind to and finalize our own wl_output handles,
+    so we'll completely miss these events on startup and not know the
+    initial state of the windows.
+
+commit e3dadd84324fdf6389d87dbc239a31a00c6195ea
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 13 20:20:58 2024 -0700
+
+    Add debug logging to toplevel output_enter/leave
+
+commit b9f5fad7b2b87d7e4464581d4bf2edbbe32eba76
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 13 19:46:21 2024 -0700
+
+    Add debugging when finalizing output properties
+
+commit ee1bfb462cd75bd177456813df441a12bed2431b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 13 14:29:44 2024 -0700
+
+    Add a few more display synchronization points in the wayland code
+
+commit d6a58e61055e97ee346a0c5c263b0ba7a1b496d4
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 13 14:28:41 2024 -0700
+
+    Reset XfwMonitorWayland output_done/xdg_output_done count on finalize
+
+commit 575d61d37e7bb6d8b9d9b7ce801273ecb1bb7405
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 12 19:41:51 2024 -0700
+
+    Add XfwMonitor:fractional-scale
+
+commit 6d2ab8309bb8fa43f7a42121147c64c83903c591
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 12 18:53:17 2024 -0700
+
+    Add primary monitor fallback guessing to X11 too
+
+commit c7f32f0969edad2cb8cd19f843825bedb801b53b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 12 16:15:40 2024 -0700
+
+    Remove extra wl_registry for the wayland monitor management
+    
+    It now shares the one in XfwScreen
+
+commit 9f835253ae39c83188c0f34a9df0dc90686e11ca
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 12 15:41:07 2024 -0700
+
+    Remove extra wl_registry for the wayland workspace manager
+    
+    It now shares the one in XfwScreen
+
+commit 3c4a53b80417e5e961991066e285d4fade3fcc9e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 12 15:16:43 2024 -0700
+
+    Fix missing wl_output & xdg_output assignment in XfwMonitorWayland
+
+commit 568ea7451205a569c2c60ff9510bd834850943ac
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Jul 11 03:01:42 2024 -0700
+
+    Add workarea info and tracking to XfwMonitor
+
+commit 3ab7bd92b79329039c31cb6196d99d6a8d8d0cf5
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 6 14:27:28 2024 -0700
+
+    Use XfwMonitor instead of GdkMonitor throughout
+    
+    This changes the following from being/returning GdkMonitor instances to
+    returning XfwMonitor instances:
+    
+    * XfwWindow:monitors
+    * xfw_window_get_monitors()
+    * XfwWorkspaceGroup:monitors
+    * xfw_workspace_group_get_monitors()
+    * XfwWorkspaceGroup::monitor-added
+    * XfwWorkspaceGroup::monitor-removed
+    
+    Additionally, the GdkScreen used to be passed down into some of the
+    class instances, and were exposed as properties.  Now these are
+    XfwScreen instances instead:
+    
+    * XfwWorkspaceManager:screen
+    * XfwWorkspaceGroup:screen
+    
+    For consistency, XfwScreen:screen has been renamed to
+    XfwScreen:gdk-screen.
+
+commit c79b90837f6d1c213812c9e4bd3c7ee115663579
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 6 13:56:07 2024 -0700
+
+    Add XfwScreen::monitor-added and XfwScreen::monitor-removed
+
+commit 93aed4fa4e1ebc4dfd294b0f73e182138dac61a3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Jul 11 14:11:14 2024 -0700
+
+    Fix 'Since' doc tag typos
+
+commit 067f9b07ea697630b18e069bad8ad73f487c2713
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Jul 11 01:27:13 2024 -0700
+
+    Don't g_warning() if xrandr returns no monitors
+    
+    This happens sometimes, perhaps on suspend/resume, and isn't fatal.
+
+commit 4b292b22611c935fa9c8bb91f179fc9490839b5f
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 6 05:14:49 2024 -0700
+
+    Add xfw_monitor_get_gdk_monitor()
+
+commit ec918ec097209e6534545ab70c3310cb641c8cdc
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 6 05:15:38 2024 -0700
+
+    Fix bad doc comment for XfwMonitor:is-primary
+
+commit eeed4d365f6b08ef1894bb09924ca30b90b1823e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jul 5 18:57:27 2024 -0700
+
+    Add primary monitor concept to XfwMonitor
+
+commit bf853002e52c8be29de999fcf56903edf2a31503
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jul 6 02:38:47 2024 -0700
+
+    Use system-relative include paths in public headers
+    
+    I'm actually not sure how this even worked before.
+
+commit 346251f5cdbe9c02e4eec3bda2f989bbee86c95d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jul 2 02:31:03 2024 -0700
+
+    Fix bad property name (from a stray search-and-replace)
+
+commit c044921201021b3098d5b0089e14fad7e512c3d3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jul 1 01:49:44 2024 -0700
+
+    Move monitors list into XfwScreen
+
+commit dc2f72832d4b9d945bee50d173318898b8555876
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jul 1 01:37:32 2024 -0700
+
+    Make XfwScreen an abstract class instead of an interface
+    
+    Reduces some code duplication, and more to come.
+
+commit 2ae4b22e324a64fecfba405aa9ce993b92480764
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Jun 29 15:03:15 2024 -0700
+
+    wayland: Fix monitor ownership
+    
+    When first creating the XfwMonitorWayland instance, it should be moved
+    into the hash table, not copied.  This, way, if the screen gets shut
+    down before the first wl_output.done event, the monitor won't get
+    leaked.
+    
+    When we eventually copy it into the screen's list of monitors, then it
+    should have a ref added, so there are three owners: the screen's monitor
+    list, the wl_output hash table, and the xdg_output hash table, each of
+    which will free on removal or destruction.
+
+commit 02eb1cba98ceef13400d908b73795c3f381394d9
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Jun 28 18:39:46 2024 -0700
+
+    XfwMonitor: add object properties
+
+commit 68f165aa9a2dac8fa20dbee9a542bd002cd30b1d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Jun 27 00:51:36 2024 -0700
+
+    Add XfwMonitor
+    
+    GdkMonitor has quite a few limitations that make it really hard to do
+    some of the things we need to do in xfdesktop and perhaps elsewhere.
+
+commit 72d2db52b00d7d9fe9580c6da164e92173b798e2
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed May 1 16:48:41 2024 +0200
+
+    Apply .clang-format file
+
+commit 4896d25730c50ff79076ddab97a2a9e8bb361646
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed May 1 12:20:38 2024 +0200
+
+    clang-format: Add file
+    
+    Related: apps/orage#32, xfce/xfce4-dev-tools!101
+
+commit 62ce64dddd0636aa54c7d882726aed088a054942
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jun 27 15:33:38 2024 +0200
+
+    build: Complete use of XDT_VERSION_INIT
+
+commit a26a9f6676c5c4827a5c0379dc70bba56ff3c2bc
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Jun 23 17:45:18 2024 -0700
+
+    Fix warnings about typedef redeclaration
+
+commit 2a25c70a2a8f2cde877a37efba8fa65ec14e1739
+Author: Landry Breuil <landry@openbsd.org>
+Date:   Tue Apr 16 12:18:13 2024 +0200
+
+    use -no-undefined so that libtool consumes it
+
+commit b15306e9475ecafacfba8c0dddd3f8f58bbd3a6d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jun 6 22:55:35 2024 +0200
+
+    scan-build: Add false positive file
+
+commit 3040e3db378f037bf98b788ccb9e7ed6dcc8039a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Jun 4 19:46:32 2024 +0200
+
+    build: clang: Fix -Wcast-align
+
+commit 44cb8120ed38083c9bdd34d1541819d0d254f833
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jun 2 12:45:56 2024 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 995a3b8e5eb33527409384aa280079a3f3e01edf
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jun 2 12:45:56 2024 +0200
+
+    I18n: Add new translation kk (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 88ed27cd6f19f4eb107a04e2b8f386a246fc86b4
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue May 28 23:22:44 2024 +0200
+
+    Revert "Add new CI builds to build without X11 and Wayland"
+    
+    This reverts commit 04c6ce260450ce734f3c8c463368e3308bd9c645.
+    
+    Now included in xfce/xfce4-dev-tools/ci/build_project.yml, see
+    xfce/xfce4-dev-tools!110.
+
+commit 32a7526607b9201bedb38315e8dcc149f122a3e5
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Apr 22 00:45:49 2024 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 5fe625b08f804c93ab69acf3c7182a8ccadd29ee
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Apr 22 00:45:49 2024 +0200
+
+    I18n: Add new translation cs (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 02b9bb9f365a0be0f62458a7ba483b315309b865
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Apr 20 00:46:21 2024 -0700
+
+    Don't toggle show-desktop whenever wnck tells us it changed
+    
+    Calling xfw_screen_x11_set_show_desktop() will also call
+    wnck_screen_toggle_showing_desktop().
+    
+    If an application that uses libxfce4windowing starts up when
+    show-desktop is active, the app will get a showing-desktop-changed
+    signal from wnck, and then toggle it back and forth between off and on a
+    few times.
+    
+    Closes #21.
+
+commit 9394297a89919ecfd8cc3b9799cf6c38ed803ab5
+Author: Landry Breuil <landry@openbsd.org>
+Date:   Tue Apr 16 10:45:48 2024 +0200
+
+    make sure bash is found non non-linux
+
+commit e6a61f5e534534b3537a8de2a9c52a79884a4748
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Apr 10 13:50:12 2024 -0700
+
+    Add meson build files
+
+commit 0a487d79c0d91f3fd299d8fde3f08d120d40187d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Mar 16 23:44:37 2024 -0700
+
+    Add layout-row and layout-column properties to XfwWorkspace
+
+commit 742731f4a31f48a4c81b0450c2e4034083ad2412
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Mar 16 23:28:24 2024 -0700
+
+    Implement workspace layout row/column for Wayland
+
+commit 45d485da899621b7803b8c126eaffcd89f995061
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Mar 4 00:45:39 2024 +0100
+
+    I18n: Update po/LINGUAS list
+
+commit bc83a0fac76bb7df3a5ebbbfce95b4cd119f0ac8
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Mar 4 00:45:39 2024 +0100
+
+    I18n: Add new translation el (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit e637ffb55d89b79f1d977385ffd139affb6533d3
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Feb 29 09:35:26 2024 +0100
+
+    Back to development
+
+commit 083cfbfb559958358dc0b1c94c954a8c6db952ab
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Feb 29 09:34:48 2024 +0100
+
+    Updates for release
+
+commit 4e43bef5e366c5d3b55bbf018e32b724e543892b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Feb 29 09:23:57 2024 +0100
+
+    Update copyright year
+
+commit 774b621ec0876cc3214751874246c4af5334f7df
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Feb 28 01:29:27 2024 -0800
+
+    Ensure workspace/group state is correct on X11 before emitting signals
+    
+    Previously the `XfwWorkspace::group-changed` signal would get emitted
+    before the workspace group's list of workspaces was updated.
+
+commit 8774d83c3f96f94876c4477b48c383e38f09431f
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Feb 28 01:22:26 2024 -0800
+
+    Set initial workspace's group properly on X11
+    
+    This fixes a critical warning because the XfwWorkspace:group property is
+    read-only.  Instead, we have to do it via a private function.
+    
+    Closes #16.
+
+commit 0ddd1517b11eff433eb6f6c35f65c35ed934f680
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Feb 27 15:22:01 2024 -0800
+
+    Add XfwClientType to doc sections
+
+commit baa70e20d933dace9ba67d831809474fff0e186e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Feb 27 12:16:32 2024 -0800
+
+    Add xfw_set_client_type() to doc sections
+
+commit 3d0d72b510d9bd4a0a29995de107ff8aae826a64
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Feb 26 13:41:48 2024 -0800
+
+    Add xfw_set_client_type()
+
+commit 37d26946d8c2df7b4adf2add222f89d794c0a5aa
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Feb 25 22:27:28 2024 -0800
+
+    Add an X11-specific header and xfw_window_get_xid()
+    
+    This also adds preprocessor defines so applications can determine at
+    compile-time if X11 and/or Wayland support are compiled in.
+
+commit d7d9bae6294df6fb0b6cefa50d6fe8ee3d1ce800
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Feb 25 22:10:47 2024 -0800
+
+    Remove xfw_(window|application)_get_id()
+    
+    This always returned zero on Wayland, which is not useful at all, and
+    the XID on X11, which is useful, but maybe should be a backend-specific
+    function.
+
+commit a3fd1449b97d0a9e37ed2b984fd1884372eda07b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Feb 26 14:24:36 2024 +0100
+
+    build: Use AM_DISTCHECK_CONFIGURE_FLAGS
+    
+    So user can extend or override the flags provided there by defining the
+    DISTCHECK_CONFIGURE_FLAGS variable.
+
+commit 37f495959bf94487fbc57dce41d36c4b1a02f4cd
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Feb 20 14:18:37 2024 +0100
+
+    Expose class ids in XfwWindow and XfwApplication
+    
+    The term class id seems quite appropriate, since it is of course used on
+    X11 in WM_CLASS, but also on Wayland, at least in the
+    xdg_toplevel::set_app_id doc, even though we're actually retrieving the
+    app-id from the wlr-foreign-toplevel-management protocol.
+    
+    Closes: #15
+
+commit aa74758341727797f992d4d131134f261d1ddc8b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Apr 27 17:14:47 2023 -0700
+
+    Update ext-workspace protocol spec to current version
+
+commit d2f412773c7abd4e57c2533ab7b814710888a4d6
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Feb 24 17:48:42 2024 +0100
+
+    XfwWindowX11: Improve monitor list management
+    
+    Completes previous commit:
+    * Initialize monitor list
+    * Listen to GdkDisplay::monitor-{added,removed}
+    * Maintain a proper list of monitors where the window is, which should
+      match what wlr-foreign-toplevel-management provides on Wayland
+
+commit a8aa79e5c8c826f98549609016633ec9f86a71f9
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Feb 21 23:26:01 2024 +0100
+
+    XfwWindowX11: Fix monitor management
+    
+    It was all wrong. Apparently never used by anyone.
+    
+    Fixes: 88188a98b4d2b2a020e4b3550a5de65600d2ef3b
+
+commit 1e4a0a494773aaf60b643a4627b1a65340948b04
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Feb 8 00:45:41 2024 +0100
+
+    I18n: Update translation it (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit ddfb5ca67d99988c0d6b6cc222e0752e7ed1675a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Jan 11 18:40:33 2024 +0100
+
+    build: Search for bind_textdomain_codeset in libintl too
+    
+    In FreeBSD bind_textdomain_codeset is provided by external package
+    gettext via libintl.
+    
+    Related: https://gitlab.xfce.org/xfce/libxfce4util/-/issues/25
+
+commit 210a67c25b60d8b14e75ac5b3ebe42ed817444cc
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Dec 8 00:45:54 2023 +0100
+
+    I18n: Update translation oc (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 1fbbf174734dd485102357ae1a169fc487844c97
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Nov 2 19:01:28 2023 +0100
+
+    build: Test if wlr-protocols dir is empty at configure time
+    
+    A rough test, but should prevent unnecessary bug reports if the
+    submodule has not been cloned with the repository, which is likely.
+    
+    Completes: b729a07c87aa18d576ba35070b9afe4b1edc48bd
+
+commit b729a07c87aa18d576ba35070b9afe4b1edc48bd
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 31 08:37:01 2023 -0700
+
+    Use system wlr-protocols defs if avail, fall back to submodule if not
+
+commit 735e0eae0e01a1fd6f019c6644f2d584b57c64fa
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Oct 17 00:45:37 2023 +0200
+
+    I18n: Update translation zh_TW (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit fed8c588f953582de403c97c82a03d1a17944073
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 5 19:11:07 2023 +0200
+
+    Reduce verbosity
+
+commit 1ed2f8d030aa992ff6baf96d29ebb5d82d6d2ef0
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 2 11:54:47 2023 +0200
+
+    Add missing G_END_DECLS
+
+commit 5801cff7fca6744e7fafd492cd93d911592db719
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Sep 13 00:45:49 2023 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 3dc1560458d502922ba9de5e20e97b544eab3cd3
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Sep 13 00:45:49 2023 +0200
+
+    I18n: Add new translation da (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 60aa40223ebaadc6c90bf6fa2589bc0e40b671fa
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Aug 15 13:01:10 2023 +0200
+
+    window-wayland: Set app_id only if it changes
+    
+    Some compositors may send the app_id every time a window becomes active,
+    for example, even though it hasn't changed (since it should probably
+    never change).
+
+commit cc2d33c102e8be2a38bb0189ecc700a2e686fd3b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Aug 15 12:55:47 2023 +0200
+
+    application: Fix window memory management (V2)
+    
+    If the app is finalized before its last window. This shouldn't normally
+    happen, but in any case a WeakNotify is required in addition to the
+    ToggleRef.
+    
+    Completes: 6486f0096e2d672d2318e084075b69a9efbc07c1
+
+commit ddfdf7c24c61993d4fb8a650419a7970f03c228a
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Jul 31 00:45:36 2023 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 3b6497d8e0a9c981d0f8d558220e5d33351e9092
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Jul 31 00:45:35 2023 +0200
+
+    I18n: Add new translation ga (73%).
+    
+    14 translated messages, 5 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 848e3c5dd37e293f16bc156fc9a020bc1d2cb23e
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jun 20 12:45:40 2023 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit ef2cf5ec2f76b5585a71088f4afab885651182cc
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jun 20 12:45:40 2023 +0200
+
+    I18n: Add new translation et (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit db1e54a7adeab14b2bcea58bfbda760171e8054d
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri May 19 12:45:40 2023 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit fd5f3c88b38e0390c24abe4299a9af5f44647568
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri May 19 12:45:39 2023 +0200
+
+    I18n: Add new translation ca (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 97804b1964a1855c519b8d24fc689badcbd0ac16
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu May 11 11:42:20 2023 +0200
+
+    window-wayland: Ensure app always exists (Fixes #14)
+
+commit 279d8e3f082e68a2aa468cd1e9f1db96761eabf7
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu May 4 22:42:58 2023 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 87163e09602e2d51edccf504a97f19142b99992b
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu May 4 21:49:12 2023 +0200
+
+    I18n: Update po/LINGUAS list
+
+commit 5bdda56ab44e241d474b69eecfe6fc37c095361f
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Apr 29 15:23:45 2023 -0700
+
+    Add monitor-added and monitor-removed signals to XfwWorkspaceWayland
+
+commit 0e13756d2eef460b2ec2a3c39f897a7418aeb1de
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Apr 29 15:21:19 2023 -0700
+
+    Minor cleanup to wayland group monitor code
+
+commit 5de98b414e1f020713ef3b9f6d7316170d7853bf
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Apr 29 15:19:21 2023 -0700
+
+    Remove unused code from XfwWorkspaceGroupWayland
+
+commit 087fbf3baa83648305c751744e81d41c902dbce7
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Apr 29 15:14:32 2023 -0700
+
+    Fix missing monitors-changed signal emission on x11/dummy
+
+commit 3071b24f37c61c0dfd41e595acd4364a156e8823
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Apr 28 17:04:39 2023 -0700
+
+    x11: use workspace number as ID
+
+commit ef09987a6a700255a5dcce3a508f7308ca10c253
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Apr 28 12:03:03 2023 +0200
+
+    Use G_N_ELEMENTS()
+
+commit 28ba2632e3e44b48843ce7c2a3d723ef1edcd394
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Apr 25 18:22:32 2023 +0200
+
+    Fix previous commit
+
+commit 6486f0096e2d672d2318e084075b69a9efbc07c1
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Apr 24 16:15:44 2023 +0200
+
+    XfwApplication: Fix window memory management
+    
+    This avoids reference cycle when the XfwScreen is released and windows
+    remain open. This is rarely a problem in practice but can cause crashes
+    that are difficult to debug.
+    
+    Fixes: 9364b05146448c89224376c87f82686da4e93a66
+
+commit de3b95be4a71ede8ef9c6a2add318f73c56339f7
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Apr 19 00:50:17 2023 +0200
+
+    I18n: Update translation uk (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit cf28f361ed12bb1e9b5738ab19101d0497eb4d2d
+Author: Anonymous <noreply@xfce.org>
+Date:   Wed Apr 19 00:50:17 2023 +0200
+
+    I18n: Update translation it (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit a7792d4f76334014679f63f912b1c583dda25185
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Apr 17 16:43:47 2023 +0200
+
+    Back to development
+
+commit 76a10eb67e7741886ba101f3891fca4de062aaac
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Apr 17 16:43:24 2023 +0200
+
+    Updates for release
+
+commit 3ff4cfe38b9854867042b12c7d354f7902a0bf1b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Apr 17 16:33:45 2023 +0200
+
+    Update copyright year
+
+commit ae5e6e95ad82488a5ccf92a5c05d0d5a597c5421
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Apr 8 16:26:02 2023 +0200
+
+    XfwScreenX11: Fix typo in property name when creating window
+    
+    An apparently rarely used code path.
+
+commit cb2e2d1ca54a0cc78f30c9240775f6014f4b772d
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Apr 7 01:15:36 2023 +0200
+
+    I18n: Update translation pt_BR (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 2603596dd01f1919cb6eda3f44bd28d1f70df9c8
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Apr 3 12:45:53 2023 +0200
+
+    I18n: Update translation fr (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 0ab53e0a20f541960df34ae48ca59dee62635a21
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Mar 18 01:03:31 2023 +0100
+
+    I18n: Add new translation ro (57%).
+    
+    11 translated messages, 8 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit d1d464d0a7ead0756f1bc027a34313d4b3c76d91
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Mar 13 00:45:25 2023 +0100
+
+    I18n: Add new translation en_GB (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 92088c66a19876786e19b4e3b0c36bcc54d58aef
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Mar 5 21:15:16 2023 -0800
+
+    Use XDT_CHECK_PACKAGE_BINARY for wayland-scanner
+
+commit 65457c891fbcbf6233d3dc0d4de361773311a592
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Mar 5 21:09:26 2023 -0800
+
+    Use XDT_CHECK_OPTIONAL_FEATURE
+
+commit ca3773e3501dc76629381db7dd58dc273436efae
+Author: Anonymous <noreply@xfce.org>
+Date:   Mon Mar 6 00:45:23 2023 +0100
+
+    I18n: Add new translation id (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 4a9f397af4a0d1ff595615f5caddf7725248e9af
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Feb 19 13:09:02 2023 -0800
+
+    Use XDT_VERSION_INIT() and eliminate need for configure.ac.in
+
+commit 0120b2d96306e736552479fb9e21b3e903b08c93
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Mar 3 22:06:44 2023 -0800
+
+    Use $PKG_CONFIG and not pkg-config in configure.ac
+
+commit 89198a1ca8efafb5f18f0d49681aff83bbe2bd47
+Author: Enrico Weigelt, metux IT consult <info@metux.net>
+Date:   Wed Mar 1 14:01:11 2023 +0000
+
+    autogen.sh: fix xfce4-dev-tools dependency version
+    
+    configure.ac.in requires newer xfce4-dev-tools, otherwise build breaks
+    in various ways, eg. config.rpath isn't generated (needs extra
+    autoreconf run) and makefile variables not filled correctly:
+    
+        /usr/bin/msgfmt: error while opening "@MSGFMT_OPTS@" for reading: No such file or directory
+    
+    Closes: https://gitlab.xfce.org/xfce/libxfce4windowing/-/issues/13
+    Closes. https://gitlab.xfce.org/xfce/libxfce4windowing/-/issues/11
+    Closes: https://gitlab.xfce.org/metux/libxfce4windowing/-/issues/1
+    Closes: https://gitlab.xfce.org/metux/libxfce4windowing/-/issues/2
+    Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+
+commit d0245eb47c2c2840a441145ea95ce5e24eecafaa
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Feb 25 12:45:32 2023 +0100
+
+    I18n: Add new translation hr (68%).
+    
+    13 translated messages, 6 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 6672a6bd137f48518f03242bee016d67cf27bf02
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Feb 23 12:45:34 2023 +0100
+
+    I18n: Update translation ko (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit db08a695365299be56421edafdcf8dcd250b0e44
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Feb 23 00:45:18 2023 +0100
+
+    I18n: Update translation sv (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 19987e58be8977b247f1f82a1f5a259bd7497233
+Author: Đoàn Trần Công Danh <sgn.danh@gmail.com>
+Date:   Tue Feb 21 11:49:34 2023 +0000
+
+    build: Get rid of IntlTool
+    
+    All functionalities of IntlTool have been supported by GNU GetText.
+    See: https://wiki.gnome.org/Initiatives/GnomeGoals/GettextMigration
+
+commit 9939827e7ec57f91f7ba81c44f665322773724cd
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Feb 21 12:27:32 2023 +0100
+
+    Use bind_textdomain_codeset() if available
+    
+    HAVE_BIND_TEXTDOMAIN_CODESET is set in XDT_I18N.
+
+commit 098691b6154f86cbcb62aea06cb7ede3cf740da8
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Feb 20 17:04:47 2023 +0100
+
+    build: Fix autotools warning
+
+commit 539af2a75679f442b0632986c6352f9f9c0ea664
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Feb 18 16:55:08 2023 +0100
+
+    Update bug report address
+
+commit d4a38530265e5a53f2cb437aa35724107dba5782
+Author: Đoàn Trần Công Danh <congdanhqx@gmail.com>
+Date:   Fri Feb 17 19:08:48 2023 +0700
+
+    build: Fix "make dist" when disable wayland
+
+commit 5e7058d7df74c523d41d0a8fc2ab59e567c233c2
+Author: Đoàn Trần Công Danh <congdanhqx@gmail.com>
+Date:   Fri Feb 17 18:25:46 2023 +0700
+
+    configure: Fix X11's dependencies detection
+
+commit 59416bd5d8d339ccbde003bc04559268352ac607
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Feb 5 12:45:28 2023 +0100
+
+    I18n: Add new translation ie (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit cefc69c848d9457378030d2007f2e5a765380308
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Feb 5 00:45:24 2023 +0100
+
+    I18n: Add new translation uk (73%).
+    
+    14 translated messages, 5 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 8f72515e2342904b899462f2dcfdf6d9ceae258b
+Author: Anonymous <noreply@xfce.org>
+Date:   Sat Feb 4 00:45:17 2023 +0100
+
+    I18n: Add new translation ru (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 8e210157de3237ea3eb53bc42cd5da5e2d2df0bd
+Author: Anonymous <noreply@xfce.org>
+Date:   Fri Feb 3 00:45:22 2023 +0100
+
+    I18n: Add new translation oc (78%).
+    
+    15 translated messages, 4 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 9923ca4debea137a881a719696ce1332b38758d9
+Author: Anonymous <noreply@xfce.org>
+Date:   Thu Feb 2 12:45:31 2023 +0100
+
+    I18n: Add new translation en_CA (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 3ab4c88dfcacabc333454fe4f82a4aa5f97f0945
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:07 2023 +0100
+
+    I18n: Add new translation zh_TW (89%).
+    
+    17 translated messages, 2 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit af33795de17eff4156236a235167ef4887f79e7b
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:07 2023 +0100
+
+    I18n: Add new translation zh_CN (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit abe143818fa180df0d7b8b88aac1338b701ab135
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:07 2023 +0100
+
+    I18n: Add new translation tr (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit a2bf4cce0fdb3364d63481502be8817f5fd7a013
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation sv (94%).
+    
+    18 translated messages, 1 untranslated message.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 6aa5593a260e9de03e47c655207d240b31fb548e
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation sr (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit c580062d0fc926ba4568a7ce22139a51cd88d77a
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation sq (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit cd88a7258e671f0ca3e270c1e12ee59b5daf2435
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation sl (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 31b91ada050fa3e00eecd16d6e62369a55b24081
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation pt_BR (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit a76b868f6a681b9c1086ecd6a9a006cdd110a597
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation pt (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 6317094f5058b1415037f6b4fc1336e30032c4b4
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation pl (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit abf279b47bb1566c08a88638f26d45fad74f1f1b
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation nl (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 35ceb075ecb49e30b437c1781395ef99ae49dddc
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:06 2023 +0100
+
+    I18n: Add new translation nb (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 2a4960cc3bf6c1d10e8bf31b396c1372addf4651
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation lt (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 1a717a9bbe3055fe9aee75d13451ed34b7437427
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation ko (89%).
+    
+    17 translated messages, 2 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit cec3acba6487f5431970811e1846bcd02c154b9f
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation ja (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 30a30fee37938445a20a08eaa1d4f8c1a657957b
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation it (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit a732e2842aeda15adf0bd74744e5b1c6965ba99e
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation he (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit e3fb3bc4a243e2b869a2dc105ddd906bca3975d9
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation fr (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 1c6b09f0eb881a8707aa008aadfb8f722287ae35
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation fi (73%).
+    
+    14 translated messages, 5 untranslated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit f2d1ab060c8c4718a868c0d3a5f80bb30cb74587
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation es (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 6dc2839508558a7a3046014916ab9264d5e96b8d
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation de (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 52973ca788482faa28a238a1cc2eb4147d856233
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 31 09:59:05 2023 +0100
+
+    I18n: Add new translation bg (100%).
+    
+    19 translated messages.
+    
+    Transifex (https://explore.transifex.com/xfce/).
+
+commit 66ca431cec25aa748ce4b4a0811312d6311d5b5e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Jan 11 18:05:54 2023 +0100
+
+    XfwWnckIcon: Silently return NULL if no X11 window can be found
+    
+    If `_xfw_wnck_object_get_x11_window()` should not return `None`, it
+    would be up to it to issue a warning rather than the calling function.
+    But in this case it can return `None` because WnckClassGroup can emit
+    the "icon-changed" signal when its window list is empty.
+
+commit 04c6ce260450ce734f3c8c463368e3308bd9c645
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 10 20:51:00 2023 -0800
+
+    Add new CI builds to build without X11 and Wayland
+    
+    This should keep me from breaking these builds in the future.
+
+commit 0dcd0a348c02786e45e8cd167d9ba92df29a2148
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 10 20:44:32 2023 -0800
+
+    configure: error out if no windowing backend enabled
+
+commit 4cd7595961ff2851f98b14d277d58df3aa4458c1
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 10 20:40:52 2023 -0800
+
+    Add configure args to enable/disable X11/Wayland
+    
+    Instead of having to disable specific dependencies to disable one of the
+    windowing backends, now you only need to pass --disable-x11 or
+    --disable-wayland.
+    
+    You can also pass --enable-x11 and/or --enable-wayland, and configure
+    will error out if the dependencies aren't met.
+
+commit 19dde29828a6fbc49a3279f5b2943f0b87d54e25
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 10 20:26:27 2023 -0800
+
+    Fix Wayland-only build
+    
+    Closes #8
+
+commit fda955b179685695e5cf81f1ee72e6532c2e5fd6
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 9 13:51:26 2023 -0800
+
+    Back to development
+
+commit fbfc36b25842a209465e188dcfa1b38258ccc97d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 9 13:49:22 2023 -0800
+
+    Updates for release
+
+commit 3f338ee8505abb39d4d7f5623bf4443f1be31474
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 9 11:59:57 2023 -0800
+
+    Allow callers to determine if a returned icon is a fallback icon
+    
+    Adds xfw_window_icon_is_fallback() and
+    xfw_application_icon_is_fallback().
+
+commit 28780240b1a2378fea41f83dc9d85ed20a1ec861
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 9 11:38:49 2023 -0800
+
+    Remove duplicate _get_icon() code
+    
+    XfwWindow and XfwApplication just call _get_gicon() and then render it.
+    There's really no need for the get_icon() virtual function in either
+    class; the abstract base class can just call _get_gicon() and render it.
+
+commit 0b6fec7bf1715196080d1372e0c6b66faf8369de
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Jan 4 13:08:38 2023 -0800
+
+    Return correct fallback icon for XfwWindowWayland
+
+commit 78ff5b80f5e94441bed60236a2f90a4bb957c1a8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Jan 4 03:46:45 2023 -0800
+
+    Cache GIcon and GdkPixbuf in XfwApplication
+
+commit 710b90cc55c5ebb6850168a5f8fec3d4c6b557d7
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Jan 4 03:46:21 2023 -0800
+
+    Cache GIcon and GdkPixbuf in XfwWindow
+
+commit 95d1178e72823ab5b63861d74fca3f78ba84f9ab
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Jan 1 04:52:56 2023 -0800
+
+    Add xfw_(window|application)_get_gicon()
+    
+    This also stops using libwnck's get_icon() and get_mini_icon() on X11,
+    as they're awkward to use and inflexible.  Instead, we can just fetch
+    _NET_WM_ICON ourselves, and get access to (possibly) several icons of
+    different sizes.
+    
+    This also allows the GIcon to function properly with UI scaling, as for
+    some reason it seems GdkPixbuf (when used as a GIcon) doesn't support UI
+    scaling properly.
+
+commit ec23d5137ee3fa32af294135c1cff8c4a025b4e6
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Jan 7 12:12:03 2023 +0100
+
+    XfwApplication: Make XfwApplicationInstance opaque
+
+commit b47677458240b2fc7fa2eb76ed024a9bf6a4f604
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Jan 3 03:36:58 2023 -0800
+
+    Fix build when X11 disabled
+
+commit a4062a9c7439d3de28d26763608df39bef08b68d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 2 16:18:44 2023 -0800
+
+    Back to development
+
+commit 2948bd2b314dfcdffa4b3631e500cc7432b3c696
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 2 16:16:37 2023 -0800
+
+    Updates for release
+
+commit ee4b35542d7310493caaf2a4eff01b0c966478eb
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Jan 2 15:29:53 2023 -0800
+
+    Make interface structs private
+
+commit a6c0435422585565dd520c119044c7476ea01aed
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Dec 31 02:44:13 2022 -0800
+
+    Fix blurry icons in XfwWindowActionMenu
+
+commit c16b45bb527fef46ba09cf5f4b80c47680047f8f
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Dec 20 18:36:24 2022 -0800
+
+    Enable gitlab CI
+
+commit 9e80d0881da61dcdd56f4ca422d77366eb95e8f3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Dec 20 18:31:14 2022 -0800
+
+    Add README content
+
+commit f5ae5d12810e46465f4fce348e4b299f368807bd
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 18 11:40:35 2022 +0100
+
+    build: Bump requirements to match Xfce 4.18
+
+commit f52d6f0e66409f7de5eeddc72bdd1bfb7474bc5c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 18 11:50:41 2022 +0100
+
+    docs: Fix warning and get_icon() docs
+
+commit f8814eca0cd5b7f3bf7527438293431e04f85a31
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Dec 18 11:35:03 2022 +0100
+
+    docs: Fix typos, warnings and deprecated syntax
+
+commit 931853b6a3a053a2d50bd32b323968af55f4b01e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Dec 17 16:01:42 2022 -0800
+
+    Add library version macros and functions
+
+commit 19d41a15cbf7d80a1f6a5be8a0e394cbaf477805
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Dec 17 17:19:31 2022 -0800
+
+    Fix X11 window icon getting scaled down to half-size
+    
+    I forgot to multiply the requested size by the scale factor when
+    checking to see if the icon needs to be scaled after getting it from
+    libwnck.
+
+commit b93e985f22225054926546601c7698b3901b4199
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Dec 17 14:41:07 2022 -0800
+
+    Thread UI scale factor through to _get_icon() functions
+
+commit b9b0135217ecdeeb32b39d2cf4031477690f964b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Dec 17 23:24:18 2022 +0100
+
+    Silence deprecation warnings from xfce4-dev-tools >= 4.17.1
+    
+    Which automatically set GLIB_VERSION_MAX_ALLOWED.
+
+commit 5da68cff37936b6b77afb73f2d647bd46dbae341
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Dec 17 20:31:01 2022 +0100
+
+    Move xfw_g_desktop_app_info_get() to private
+
+commit b8100488b08ea2006c9465e60555f3b40ffe4f05
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Dec 17 20:07:45 2022 +0100
+
+    Add missing assert in previous commit
+
+commit ca54db0968f96363b96db43f9884e9c453972b76
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Dec 14 23:42:32 2022 +0100
+
+    Make application_x11_get_icon() and window_x11_get_icon() consistent
+
+commit e8e26e476f4fdbd4a00019cbdf605a31dd8c3e7a
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Dec 15 03:02:19 2022 -0800
+
+    Fix GTK_PREFIX commandline
+
+commit 3de5ed95bdaa50a1d826a4dcf3f7262493433640
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Dec 15 02:52:25 2022 -0800
+
+    Reduce glib version requirement to 2.66
+
+commit 36901129fb2eb63d72a293805d80b86b3d8af193
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Dec 14 15:08:31 2022 -0800
+
+    Disconnect signal handlers in dispose in XfwWindowActionMenu
+    
+    Disconnecting in finalize is too late; we can still get signals from the
+    window after the menu item widgets are destroyed.
+
+commit 8171f1440faa81657d6fb8fd5a1fd70460e7bbdf
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Dec 14 15:05:58 2022 -0800
+
+    Fix missing superclass chaining in XfwWindowActionMenu
+
+commit 9ffbaf001ee18b2130260b0b81ee00f5541f4fc2
+Author: Johan Malm <jgm323@gmail.com>
+Date:   Sat Dec 10 22:01:13 2022 +0000
+
+    XfwWindowWayland: Emit signal "name-changed" on title change
+    
+    ...to fix intermittent failure to update title.
+    
+    Fixes: issue #3
+
+commit 09dfa7c7dda554e0e5c957592dc2ed6d5f4da7f1
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Nov 5 22:32:41 2022 +0100
+
+    XfwScreenWayland: Add missing sanity check
+
+commit 09b0b3c1fdc7e7dca0c132599094e00a2afb409b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 29 10:17:43 2022 +0200
+
+    XfwWindowX11: Initialize geometry
+
+commit 8e53ee64b3f7935943ccd797ac5f0280c004ca23
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Oct 28 01:55:42 2022 -0700
+
+    Eliminate blurriness in X11 window icons
+    
+    We need to tell libwnck the default icon size we want, otherwise it'll
+    give us icons of its default size, which are quite small.  Since we
+    don't want to keep invalidating the entirety of libwnck's icon cache any
+    time an app wants an icon of a different size, we just track the largest
+    icon size ever requested, and tell libwnck to generate icons of that
+    size.  If the caller requests something smaller, we downscale.
+    
+    This isn't perfect, but is probably the best we can do.
+
+commit 71ee42a9775a907e56f584a78788e6bcfcfeb8b5
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Oct 22 10:54:55 2022 -0700
+
+    Use G_N_ELEMENTS instead of hand-rolled arrayof
+
+commit b3509d90d691f974563341e9f932d3d53e6146a8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Oct 22 01:44:05 2022 -0700
+
+    Add min/max/close icons to window action menu
+
+commit 31c177a85329a8abfa47e3ae437251916222896d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 18 20:39:18 2022 +0200
+
+    docs: Fix "unused declarations" warnings
+
+commit 61b998dfef8d1b85c444c1aeaab400c6d16350ab
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 18 18:49:26 2022 +0200
+
+    Use G_DECLARE_FINAL_TYPE()
+
+commit aea4b5d690753fa5eb64bd7b0b1797a3f28c1a43
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 18 18:09:30 2022 +0200
+
+    Use G_DECLARE_INTERFACE()
+
+commit 0c92998a7b27fc34709085f5bba5f1b963725ba3
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 18 20:03:59 2022 +0200
+
+    docs: Various small fixes
+
+commit 419cb4b9ac5e3f2dfad230f8c50413d8b49ff32f
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 18 15:24:30 2022 +0200
+
+    docs: Add XfwApplication
+
+commit dca0f00419be4f87eae3cc3c57b38d4c32b8b130
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 18 01:57:59 2022 -0700
+
+    Fix gtkdoc-fixxref options
+
+commit 39cc5975f7b29e709fa13c1604dbd28632dd08a8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 18 01:41:05 2022 -0700
+
+    Add docs for some of XfwWindow
+
+commit b626c36dd8d20a4e3b3a4565c072aa234fda5b2c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 18 01:00:53 2022 -0700
+
+    Add docs for libxfce4windowingui
+
+commit 0b5f5dc5ed82b5500ec48c34b65c09ab67b4137d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 18 00:59:46 2022 -0700
+
+    Fix gitignore rules for reference docs
+
+commit 299e261e9e64191a3782c3d0c95dcaf67166c426
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 18 00:54:44 2022 -0700
+
+    Fix glib/gdk references in libxfce4windowing docs
+    
+    Also add a couple missing symbols
+
+commit 13d0f71a2f61328ab45aa8e7aa0d7513c091ee2a
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 14:54:31 2022 -0700
+
+    Make XfwWorkspace::state-changed consistent
+    
+    Prior to this changed, the state-changed signal passed the old state to
+    the signal handler.  The other signals that handle bitfield changes
+    instead pass a changed mask and the new state.
+
+commit 644785116bf139f2172d4f4ac454daec682877eb
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 14:43:08 2022 -0700
+
+    Fix incorrect type signature for XfwWorkspace::capabilities-changed
+
+commit 3df2497d0a2fd18c885a0ff03760cca82a4732da
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 14:38:58 2022 -0700
+
+    Document XfwWorkspace
+
+commit ede47f5f1bd105813bc81ccdd1cabd5988f235b0
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 14:15:08 2022 -0700
+
+    Add docs for XfwWorkspaceGroupCapabilities
+
+commit 2cffa23383d9f780960ccb02cf8b1d6c97739c80
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 17 19:18:11 2022 +0200
+
+    Fix XfwWindowX11::type-changed emission
+
+commit f86e6a2ec90a1c02ee88d1425d82d203256757e1
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 01:21:09 2022 -0700
+
+    Add module-level docs for workspace manager and group
+
+commit 4258ce06c66af1b9cf3ca1050f354cf807ba7858
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 01:13:38 2022 -0700
+
+    Update doc configuration
+
+commit 01dfc6fbb10f1d40d54df86398a848af808a1064
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 01:05:26 2022 -0700
+
+    Move libxfce4windowing docs to subdir
+    
+    We have two libraries now, so each will need their own directory.
+
+commit 66aa34daca0f8f0801db469aad13b7f26d75c4b9
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Oct 17 01:02:23 2022 -0700
+
+    Add more API docs, and fix a couple doc errors
+
+commit e841449018db3ab922a165818964f5caca458e72
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Oct 14 20:29:56 2022 +0200
+
+    Add GObject introspection support
+    
+    Passes make distcheck, perhaps to refine when filling/fixing the doc.
+
+commit e1b16130339ab81a83a8f368a0db2208b83136fb
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Oct 13 17:48:12 2022 -0700
+
+    Don't exit(1) if we can't figure out the windowing system
+    
+    As much as it's not clear what a caller would actually do with a weird
+    situation where the windowing system is not X11 or Wayland (or if it is,
+    but support for that windowing system was not compiled in), it's
+    probably better to just return "unknown" to the caller and let them
+    figure out what they want to do.
+
+commit 980997fedb36e16eaec06ab6ecf3221021e32ba2
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Oct 12 14:57:49 2022 -0700
+
+    Make XfwWindowActionMenu update as things change
+    
+    If the window's state or capabilities or workspace change after the menu
+    is created, now the items will update accordingly.
+    
+    This also fixes a bug where simply popping up the menu would set the
+    window to be pinned.
+
+commit 4c46819dd5d42fa20c8522bc35f68fe3ebb8d903
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Oct 12 13:45:03 2022 -0700
+
+    Fix window capability for moving between workspaces
+    
+    This gets rid of the CAN_PIN and CAN_UNPIN caps, and replaces it with
+    CAN_CHANGE_WORKSPACE.
+
+commit 955c8088a9a66a13b22ddab321feef19e944df60
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Oct 11 21:21:45 2022 -0700
+
+    Ok, actually use LGPL 2.1 for COPYING
+    
+    This is what I intended from the start (headers in files said LGPL, but
+    COPYING was GPL).  Also, silly to use LGPL 2.0 when LGPL 2.1 is there
+    and has better naming.
+
+commit 133ddcf70d785fa8c54d1deb3ff315872744f35c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 10 20:46:00 2022 +0200
+
+    Add XfwScreen::window-manager-changed
+
+commit 9364b05146448c89224376c87f82686da4e93a66
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 10 13:05:49 2022 +0200
+
+    XfwApplication: Keep a ref on XfwWindows
+
+commit ff129083c18867ee252c42f6f42d60859813f2a2
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 10 12:22:27 2022 +0200
+
+    Add xfw_workspace_group_set_layout()
+
+commit 84c7c2fa65c5abf1cda6f2a3c70a1a970c20b8b1
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 10 09:34:52 2022 +0200
+
+    Add xfw_workspace_dummy_get_geometry()
+    
+    An oversight in c4980d68b71efa5057829acdaf44dadd0fd0bc57.
+
+commit 2b1c4051c3efb5091e417157cc7b8c3823e9b056
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 19:36:59 2022 +0200
+
+    XfwWorkspaceGroup: Add move-viewport capability
+    
+    Completes b6843eccbd072866b2166b80a893d2fee50bc20b.
+
+commit 53329a6cc9f230b243cd58771bfcaacae2240eda
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 19:14:36 2022 +0200
+
+    XfwWorkspaceGroupWayland: Fix hash table management
+
+commit 6202f65ded2990f479696df596d4198c868e04d1
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 18:09:07 2022 +0200
+
+    Prevent Wnck warning
+    
+    For wnck_window_unminimize(): "Received a timestamp of 0; window
+    activation may not function properly."
+
+commit a19bb96ef9e1a26d26b695cc3c5e75556cebf3a3
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 17:34:34 2022 +0200
+
+    XfwScreenWayland: Properly update active window
+    
+    Since we have no guarantee of the order in which the compositor sends
+    the change of window state (newly activated window first, deactivated
+    window next, or vice versa), we must emit
+    XfwScreenWayland::active-window-changed when a window loses its active
+    state if XfwScreenWayland:active-window has not already been updated.
+    So, in particular, when the stack of displayed windows empties,
+    XfwScreenWayland:active-window is properly reset.
+
+commit aeb9dab117b1774743db793547889e44f03797a7
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 17:03:23 2022 +0200
+
+    XfwWindowWayland: Fix typo
+
+commit 06c985ca81df0790eb7ea0def1d97935d734455e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 17:02:41 2022 +0200
+
+    XfwWindowWayland: Fix broken unmaximize capability
+
+commit 456d7909e06d30629841e684a16f5ad2428e546a
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 12:12:57 2022 +0200
+
+    XfwWindowX11: Update active state early enough
+    
+    Unlike the previously reverted commit, this ensures that XfwWindow:state
+    is updated before XfwScreen::active-window-changed emission, during
+    which xfw_window_is_active() would otherwise return the wrong result.
+
+commit 1f3be2f8f96ff7eb43a398eb14934b83c753e006
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 9 12:11:42 2022 +0200
+
+    Revert "XfwWindowX11: Update active state"
+    
+    This reverts commit 1d5a39205bf18602a41e90b3c29522e9e2b2ea07.
+    Better version in next commit.
+
+commit 0e887579f44e9edc0a37fbd2b9c06b594918ac72
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 20:41:31 2022 +0200
+
+    XfwApplicationX11: Keep a ref on WnckApps
+
+commit 5ef0a80a7c3498abae7f34fb865c1c6c175634e5
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 20:04:25 2022 +0200
+
+    Ignore Libwnck 43.0 deprecations
+
+commit 46833a0dbe50295b79b0039abc32bae696192d25
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 19:58:02 2022 +0200
+
+    Add XfwWorkspaceGroup::viewports-changed
+
+commit b6843eccbd072866b2166b80a893d2fee50bc20b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 19:35:51 2022 +0200
+
+    Add xfw_workspace_group_move_viewport()
+
+commit 1a1d4d79403200c4ce6bffc569dbf0a1ec90dade
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 19:16:00 2022 +0200
+
+    XfwWorkspaceGroupDummy: Remove unused member
+
+commit 6226e1a2287cd78b1b1f1192198340663c092167
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 18:45:53 2022 +0200
+
+    XfwWorkspace: Add virtual state
+
+commit c4980d68b71efa5057829acdaf44dadd0fd0bc57
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 18:36:08 2022 +0200
+
+    Add xfw_workspace_get_geometry()
+
+commit df8a1dacb38f73a2e950de9a1bcbea73abf70d83
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 18:08:33 2022 +0200
+
+    XfwWorkspace: Add missing static qualifier
+
+commit 298bdaea06f4abfd499fbc141a731ec9c001eade
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 17:24:57 2022 +0200
+
+    Add xfw_window_is_on_workspace() and xfw_window_is_in_viewport()
+
+commit 87802ec8086a0f1c4c4f74b24e142c2cfa5098dd
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 17:01:53 2022 +0200
+
+    XfwWindow: Add urgent state
+
+commit 7b19c31753dd02801c5000c3230513f008df5973
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 11:22:07 2022 +0200
+
+    Add xfw_window_set_button_geometry()
+
+commit 594c9effaaac47b3cfcaf86712b563afc49d5d7c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 8 10:46:41 2022 +0200
+
+    Add xfw_window_set_geometry()
+
+commit 62ea63fc30a4781f12e98195aed12a79f135db6c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Oct 7 20:45:54 2022 +0200
+
+    XfwWindowX11: Test actual state change in one place
+
+commit 0c9061f81439226445f1c210bbb6489cea00ef2b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Oct 7 20:32:58 2022 +0200
+
+    XfwWindowX11: Fix broken shade/unshade
+
+commit ccf29f97c3aaaa73012be2c2c09b04823160c2ba
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Oct 7 20:29:16 2022 +0200
+
+    XfwWindow: Add missing enum values
+
+commit 02a99ccad4508b4e0465189815c74d66e9b2074d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Oct 7 17:06:56 2022 +0200
+
+    XfwScreenWayland: Emit "active-window-changed" after "window-opened"
+
+commit 805b3ba613e03548dc4864a1f8db9fedb403de3c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 23:27:34 2022 +0200
+
+    Add XfwApplication:instances
+
+commit 74347e4d3f1e4ebab306846322f6747a03d0897d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 18:48:07 2022 +0200
+
+    Remove XfwApplication:pid
+
+commit ca76622bf1e54b7b2647112515a42c385b855aa6
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 18:25:15 2022 +0200
+
+    XfwApplicationX11: Use WnckClassGroup instead of WnckApplication
+    
+    What Libwnck calls "application" corresponds in fact to the instance of
+    an application (a single pid), while "class group" corresponds roughly
+    to the notion of application, as it can be inferred on Wayland from the
+    app-id.
+    
+    Therefore what has been done in 702eafd3 does not allow to find a
+    satisfactory result for window grouping by application on X11, while the
+    result on Wayland is correct.
+    
+    So let's deviate from Wnck naming on this point by starting to use
+    WnckClassGroup as a reference Wnck object for XfwApplication. This is
+    essentially a renaming since the two APIs are very similar.
+    
+    The following commits continue this refactoring by introducing the
+    notion of instance as a member of XfwApplication, in order to retrieve
+    the pid, as well as the name and the list of windows per instance.
+
+commit 0ac8a339e7b0997a02a160862150d134aca2553f
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 17:13:57 2022 +0200
+
+    XfwApplicationX11: Manage window list as on Wayland
+    
+    An oversight in 702eafd38ea5a9aa0f8481f74ac326c8487087ef.
+
+commit 2208e6f9f344a83b8310227b616dc60c368d5bec
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 16:59:57 2022 +0200
+
+    XfwWindowWayland: Remove private getter
+    
+    Unnecessarily added in 702eafd38ea5a9aa0f8481f74ac326c8487087ef.
+
+commit 4382149fa1e7f876e7696b933c0ac0a505767d59
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Oct 5 09:08:02 2022 +0200
+
+    Remove public multi-screen API
+    
+    Multi-screen support has been dropped since GTK 3.10.
+
+commit 29a7076080b2943e0dd60179ea2abe81152d0b7b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 12:50:47 2022 +0200
+
+    XfwWindowActionMenu: Show menu items
+
+commit 05bb437ce93ab11188c8bd5a594f3e5466a26363
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 12:39:49 2022 +0200
+
+    XfwWorkspaceGroup: Set missing workspace manager
+
+commit 704f947476500dfd04537b8298a4b6d66e55d608
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 10:37:52 2022 +0200
+
+    XfwApplicationWayland: Set fallback app name
+
+commit 1d5a39205bf18602a41e90b3c29522e9e2b2ea07
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Oct 6 07:01:53 2022 +0200
+
+    XfwWindowX11: Update active state
+
+commit ac9805be5686b7d7897d264d2ac4e5f80e1daa40
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Oct 5 12:01:11 2022 +0200
+
+    Handle fallback icon internally on X11
+    
+    Instead of adding get_icon_is_fallback() for XfwApplication and
+    XfwWindow. The return value of get_icon() is nullable, it is up to the
+    user to use a fallback icon if he wants.
+
+commit 655f753a25158748d362489879fb5d7be1bff263
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 4 19:06:24 2022 +0200
+
+    Move desktop app search to xfw-util
+
+commit e174368f551d5d0ef78addb5c1cc53cc33ca815d
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 4 18:29:30 2022 +0200
+
+    XfwApplicationWayland: Improve desktop app search
+
+commit e12ef42421ab4b78710cd3d9485e2d36a3c0ec14
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 3 18:52:07 2022 +0200
+
+    XfwWindowWayland: Forward icon from XfwApplication
+
+commit 9d07bb87b9290ea1c1555a2ae9a8ac9d46d403f7
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 3 18:16:34 2022 +0200
+
+    Add XfwWindow:application
+
+commit 702eafd38ea5a9aa0f8481f74ac326c8487087ef
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Mon Oct 3 17:44:03 2022 +0200
+
+    Add XfwApplication
+
+commit c341643593fb093090526d9ffa793ce65ce25422
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Tue Oct 4 10:48:21 2022 +0200
+
+    Fix memory management of Wnck objects
+    
+    Contrary to what was said in b379bcc7, we can't do without keeping a
+    reference on Wnck objects, because we can't control the references kept
+    on Xfw objects. We can therefore find ourselves in the situation where
+    an Xfw object outlives its Wnck reference object.
+    
+    Moreover, keeping a reference on an object for the time of its use is a
+    normal thing to do, which we cannot blame the user for doing (whatever
+    the Libwnck documentation says).
+
+commit eb0d250d7d71db049b5edc53eb75a86fd0734841
+Merge: 6db5461 14ff72a
+Author: Brian Tarricone <brian@tarricone.org>
+Date:   Mon Oct 3 21:29:39 2022 +0000
+
+    Merge branch 'window-icon-size' into 'main'
+    
+    Add a size argument to xfw_window_get_icon()
+    
+    See merge request kelnos/libxfce4windowing!2
+
+commit 14ff72abef56b424824b4a0de6c4b9d3fbc8d59e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 2 23:01:51 2022 +0200
+
+    Add a size argument to xfw_window_get_icon()
+
+commit 6db5461b1846b4faa2fb6761627b5f32acfdaf69
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 2 15:53:57 2022 +0200
+
+    XfwScreenX11: Properly disconnect signal handlers
+
+commit b379bcc7c408168620a03086aa21b35a11450f4e
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 2 15:36:07 2022 +0200
+
+    XfwWorkspaceManagerX11: Fix memory management of Wnck objects
+    
+    A `g_object_ref()` was missing when adding a new workspace on
+    WnckWorkspace::workspace-created, but it seems to be better to do as for
+    the WnckWindow hash table of XfwScreenX11: no ref/unref on Wnck objects,
+    as the doc usually prescribes.
+
+commit 1cb312ffd6d7a33d2f0b0d1ca22a2f3a5b8828b6
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sun Oct 2 13:08:46 2022 +0200
+
+    XfwWindowWayland: Fix some memory leaks
+
+commit 74470e59456cde58cee48ac6fb8f537ab7c8c273
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 1 06:43:13 2022 +0200
+
+    Emit XfwScreenX11::active-window-changed for null active window
+
+commit e31f691fc9ec257a2b31edc76bb43ebf2f2adcce
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Sat Oct 1 06:39:41 2022 +0200
+
+    Revert "Reset active window as Libwnck does"
+    
+    This reverts commit fa56593e0276d7d1cf89339074ca4c83fac7b9b7.
+
+commit fa56593e0276d7d1cf89339074ca4c83fac7b9b7
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Fri Sep 30 22:59:46 2022 +0200
+
+    Reset active window as Libwnck does
+    
+    * reset pointer on WnckWindow::active-window-changed
+    * emit XfwWindow::active-window-changed for `active_window == NULL`
+    * release previous_window
+
+commit ef2da5d3872eda8d26d1e96043718c6bb444333c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Sep 29 22:36:56 2022 +0200
+
+    Add XfwScreen:show-desktop
+
+commit f4e89c40cfb14f78fa0ee9082b4c2ccb2e4e1ac9
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Sep 29 10:15:24 2022 +0200
+
+    build: Move "protocols" to the top of the directory tree
+    
+    Perhaps more conventional, and avoids a bunch of gtk-doc warnings.
+
+commit 837c0091593330dc4bd747fec75cac815e6cb734
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Thu Sep 29 10:30:55 2022 +0200
+
+    build: Fix make distcheck
+
+commit cdb50f454a01d00dbe28c5820c0975998d090930
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Sep 28 23:40:55 2022 +0200
+
+    build: Bump required GLib to 2.74
+    
+    Required by G_DEFINE_ENUM_TYPE, among others. Also check for glib-2.0
+    using the GLIB symbol so that m4 macros based on its detection work
+    properly (see e.g. xfce/xfce4-dev-tools@e17223e0).
+
+commit 3581203c3e3fb4a2ce60389726769efbe659e909
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Sep 28 22:48:32 2022 -0700
+
+    Add xfw_window_is_active()
+
+commit b9d20de96a950dcebcd6fa9d816e0d6b03541e7e
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Sep 28 21:14:52 2022 -0700
+
+    Add xfw-window-action-menu.c to POTFILES
+
+commit 3865a3fcffe341765677a3a1105cd011e5d3ec06
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Sep 28 15:36:39 2022 -0700
+
+    Add start_move() and start_resize() to window
+
+commit 17ef2282fa65e674629f2aeecce324c2d3517920
+Merge: 560270c 88188a9
+Author: Brian Tarricone <brian@tarricone.org>
+Date:   Wed Sep 28 21:21:52 2022 +0000
+
+    Merge branch 'add-monitors-property' into 'main'
+    
+    Add XfwWindow:monitors
+    
+    See merge request kelnos/libxfce4windowing!1
+
+commit 88188a98b4d2b2a020e4b3550a5de65600d2ef3b
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Sep 28 22:54:34 2022 +0200
+
+    Add XfwWindow:monitors
+
+commit 560270ccb1483b598aaf5e5c054a960cf6fe7019
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Sep 28 22:48:24 2022 +0200
+
+    Reset XfwScreenWayland:active-window on close
+
+commit 3e77a753722eafa26edee4b3b2b74e23785d8d7c
+Author: Gaël Bonithon <gael@xfce.org>
+Date:   Wed Sep 28 22:46:46 2022 +0200
+
+    Update .gitignore
+
+commit 2732dbf706859f523d7c2e278ffbd735b2ed48ef
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Sep 28 00:04:56 2022 -0700
+
+    Retrieve wl_seat instance from compositor
+    
+    It turns out that activating a toplevel with a NULL wl_seat parameter
+    causes a protocol error, which crashes the calling app.  So make sure
+    we've fetched a wl_seat from the server before trying to activate a
+    window.
+
+commit cd9a664beb09f8e0a87d419eb9723c75d2e3d2d9
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 22:59:52 2022 -0700
+
+    Implement get_icon() for wayland windows
+    
+    Turns out the app_id event from the toplevel manager is useful after
+    all: it provides the desktop-id of the application, which we can look
+    up, and then see if there's an Icon= field in the .desktop file.  From
+    there, we can try to load it.
+
+commit 86b358f7f25fc046088ff53069e287e5fa1ee14c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 21:42:41 2022 -0700
+
+    Use idiomatic G_CALLBACK() rather than casting
+
+commit 79974e28a8148c856d90b264107273ee88f81e8a
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 18:16:29 2022 -0700
+
+    Make window's pinned state a bit more correct
+    
+    'Pinned' and 'sticky' are two distinct things: the former means that the
+    window is displayed on all workspaces, and the latter means that the
+    window should be kept in the same place on the "monitor glass" if the
+    viewport is scrolled.  (Not even sure what WMs even do viewports larger
+    than the monitor size anymore.)
+    
+    Confusingly, 'sticky' seems to also get set when pinning a window?
+    
+    At any rate, this stops using 'sticky' from Wnck as our version of
+    'pinned'.
+
+commit 05764c0e1d47ccfb09353f5f2f947674fb619b10
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 17:58:46 2022 -0700
+
+    Fix broken impl of X11 active-workspace-changed
+    
+    I was interpreting the Wnck signal handler's parameter as the new active
+    workspace, when it's actually to previously-active workspace.
+
+commit a75316d96b86257a69c81f923a414957b85a7ec7
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 17:51:17 2022 -0700
+
+    Add libxfce4windowingui sub-library
+    
+    This one links to GTK and can have widgets.  XfwWindowActionMenu is the
+    first one.
+
+commit d7393dfc081b73e32ac5e6fe0d1ddae2041ce325
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 17:49:15 2022 -0700
+
+    Forgot to implement window move_to_workspace
+
+commit b39ba33bf36b5298120715e1c613fd71f6b1fc56
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 15:31:19 2022 -0700
+
+    Add window set_above() and set_below()
+
+commit ba1a1471572d65590e110ce5b4929b4b0f2edd81
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 15:03:51 2022 -0700
+
+    Add more window capabilities
+    
+    * _MOVE
+    * _RESIZE
+    * _CAN_PLACE_ABOVE
+    * _CAN_PLACE_BELOW
+    
+    Also added window state bits for above/below.
+
+commit 65a312cdb0721af2940789930a6b8d45c20f3d84
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 14:51:44 2022 -0700
+
+    Add workspace layout functions
+    
+    * xfw_workspace_get_layout_row()
+    * xfw_workspace_get_layout_column()
+    * xfw_workspace_get_neighbor()
+
+commit 8e058450d89f18b67a456988e11ae44d7c975c68
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Tue Sep 27 00:01:20 2022 -0700
+
+    Add missing '-0' suffix in pkgconfig file contents
+
+commit 882f85b5157b0472c090d8770684adf3ad2e5074
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 23:53:36 2022 -0700
+
+    Make methods on XfwWindow that can error return gboolean
+
+commit 0b57dcd13eebb6c387d7000fa31e79ad162413f3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 23:35:33 2022 -0700
+
+    Add 'shaded' window state, with setter & getter
+
+commit 3dd9e44decfffba0d4e1ee35ffa894b52392b779
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 23:25:48 2022 -0700
+
+    Add xfw_screen_get_default()
+
+commit c1517b0f7ab10698802a3765dbf1778eb1fc6c81
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 23:23:06 2022 -0700
+
+    Add xfw_window_get_window_type() & signal & property
+
+commit 36ebabbb406373980d2157d6a43d8414901962b2
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 04:06:28 2022 -0700
+
+    Fix license: I intended LGPL, not GPL
+
+commit 2de4ccee58c1e026b87875fc07621c398a469b6f
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 03:04:05 2022 -0700
+
+    Add workspace capabilities tracking and getter
+    
+    This also changes the workspace activate() and remove() methods to obey
+    the capabilities of the workspace, and they now return a bool to
+    indicate success or failure.
+
+commit 2af195dae252eb3e0d73669cca2ad218545297ff
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 02:46:28 2022 -0700
+
+    Remove setters for most wayland workspace properties
+    
+    They're not writeable anyway; not sure why I put them in there.
+
+commit b20f0b9143b44db4f332f66deb1b102916c3bdf7
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 26 02:06:48 2022 -0700
+
+    Add gtk-doc, with docs for xfw-util and XfwScreen
+
+commit 9776e50f11c8d26f191814db3a36b0f056b5fc2f
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Sep 25 22:56:03 2022 -0700
+
+    Add API version suffix to lib and .pc file
+
+commit 8bbe6961516a5dfe8fb6fdbd0e4a243afc3d72cc
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Sep 25 22:27:34 2022 -0700
+
+    Fix i18n stuff
+
+commit 00d1da72af6033332d371ec30ee3818f66135b7d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Sep 25 22:03:57 2022 -0700
+
+    Fix build when srcdir != buildir
+
+commit 7f53509a596b7ccfa6ba11c671cddf9604ecd4b8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sun Sep 25 21:43:35 2022 -0700
+
+    Override finalize() instead of dispose()
+    
+    Also remember to chain up to the parent class's finalize().
+
+commit 25e22d91198558cf001d651f6cd700d23d44eb31
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Sep 24 09:02:12 2022 -0700
+
+    Add workspace group capabilities & create workspace
+
+commit 01bdb766c576538f5f5dfbc489f4f3f7211146e3
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Sep 24 07:58:13 2022 -0700
+
+    Add window action capabilities tracking/signals
+
+commit 5b1c6e33266ed299ab05b17642cabaea2510615a
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Sat Sep 24 01:40:12 2022 -0700
+
+    Add xfw_workspace_group_get_workspace_manager()
+
+commit ab9bb7c1e1e1b7d77f2855a4175285c133538d2d
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 23:18:34 2022 -0700
+
+    Better workspace faking for Wayland
+    
+    (Only when the workspace extension isn't present though, since it's
+    otherwise hard to fake.)
+
+commit 96882c98ba56f9632b25ea97adff8629957ed36c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:51:39 2022 -0700
+
+    Fix missing iface property installer for XfwWorkspaceDummy
+
+commit ed9da6558125c812ebe4bb77fde60bbb27ee1db2
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:45:28 2022 -0700
+
+    Downgrade some g_warning()s to g_message()s
+    
+    This isn't an issue with the library, and if people want to use
+    G_DEBUG=fatal-warnings to debug their own stuff, us warning here will
+    interfere.
+
+commit 6625b25dae554462f14601e9c5c4bcd833d53f04
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:44:30 2022 -0700
+
+    Fall back to dummy workspace manager on Wayland
+    
+    If the Wayland compositor does not support the workspace protocol,
+    substitute a dummy workspace manager so things will at least sort of
+    work.
+
+commit ee900418b5142ebc0e90df99113a268f785048af
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:42:19 2022 -0700
+
+    Remove old workspace manager constructor/getter/singleton
+    
+    XfwScreen is responsible for creating and managing lifecycle of these
+    now.
+
+commit 333144ccac31f70d5c254ee29c147bfb26416087
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:25:34 2022 -0700
+
+    Fix typo in property name
+
+commit 0f2d92053e4747bd5ed92531d63eab062ea93061
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:16:56 2022 -0700
+
+    Remove old_workspace param from XfwWindow::workspace-changed
+    
+    Wnck doesn't have this param so forget it.
+
+commit 6cd34195c2aefe89284e1162edc50ddd84fda15c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:07:37 2022 -0700
+
+    Fix XfwScreen not being passed to XfwWindowX11 construction
+
+commit ed6c3a2364ead373d31287273f53f8bc45e9d643
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 22:05:07 2022 -0700
+
+    Add XfwWindow::geometry-changed & a getter
+    
+    Not supported on Wayland as there's no way to retrieve this info
+
+commit d76460a6fa7223eebe55a5c470c5b049a2c0ac0c
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 04:35:10 2022 -0700
+
+    Fix a bunch of crasher and gobject-related bugs
+    
+    * I forgot that ->priv pointers don't get automatically set
+    * I forgot that even construct-time properties don't get set before
+      foo_init() (how could they?!); but they can be used in
+      foo_constructed()
+    * XfwScreenX11->priv->wnck_screen never got set at all
+    * XfwScreen::window-stacking-changed signal was specified incorrectly
+    * XfwWorspaceGroupDummy was missing its G_ADD_PRIVATE(), causing memory
+      corruption and crashes
+    * There was a circular dependency creation issue in
+      XfwWorkspaceManagerX11 between the dummy group and the workspaces
+    * XfwWorkspaceGroupWayland was using the wrong property ID for one of
+      the setters
+    * I was misusing the GValue API (and shouldn't really have been doing
+      what I was doing anyway)
+
+commit 6ca6091de703b0b63d88b8214a974335ecb15c82
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 03:08:10 2022 -0700
+
+    Add xfw_screen_get_number()
+
+commit 4ad70c339252af866a89b2ce1c61a39120d85599
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 02:30:59 2022 -0700
+
+    Add xfw_window_get_screen()
+
+commit 92b25c8d155b7e237c471c0a32d92c03d2d12431
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 01:59:46 2022 -0700
+
+    Emit 'closed' signal when X11 window closes
+
+commit b6b59cf0a6768d94912017d5f1a67ac675d94f25
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 01:45:49 2022 -0700
+
+    Make XfwWindow state-changed like libwnck's
+    
+    WnckWindow state-changed passes a changed mask and the new state.
+
+commit 275e0a46556134ff20f3a8f1720f000d5d51ccab
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 01:13:00 2022 -0700
+
+    Add xfw_workspace_get_workspace_group()
+
+commit 2cfb643683210a1a24dc9712b6afe0062a721da9
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 00:34:00 2022 -0700
+
+    Add X11 error trap push/pop wrappers
+
+commit 23ca4a5400e0535c26f465fa8a4c8b9e7833adf1
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Fri Sep 23 00:25:18 2022 -0700
+
+    Add event timestamp to window activate and close
+
+commit a637e3b9f2438f54381dc02e889a1e49ef03a2c6
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 23:41:41 2022 -0700
+
+    Rename some signals and change some semantics
+    
+    Some of my signal names deviated from the names that libwnck uses for
+    really no reason, and changing names (and/or semantics) will make
+    migrating to this library harder.  So let's try to match libwnck where
+    possible.  This changes:
+    
+    * workspace-activated -> active-workspace-changed
+    * active-workspace-changes is passed the previously-active workspace
+      instead of the newly-activated workspace
+    * workspace-group-added -> workspace-group-created
+    * workspace-group-removed -> workspace-group-destroyed
+    * workspace-added -> workspace-created
+    * workspace-removed -> workspace-destroyed
+    * window-created -> window-opened
+    * title -> name
+    * title-changed -> name-changed
+    
+    more rename
+
+commit 05cbddfc199a044da3b84d33b7ff6ca732cb6d49
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 23:40:54 2022 -0700
+
+    Avoid double workspace-activated signals on Wayland
+
+commit 005fbf6e212b8a3629ffa17aeb13168d48220e31
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 23:22:37 2022 -0700
+
+    Change include dir root in pkgconfig file
+
+commit 4fee15dd279965eacd94131eedb228be48392168
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 23:09:33 2022 -0700
+
+    Parameterize workspace state conversion
+
+commit da3d5627ee60c20309624dd2299473a2105756e9
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 23:04:30 2022 -0700
+
+    Emit active-workspace-changed signal in the right order
+    
+    Previously it would get emitted sometime in the middle of the
+    workspace's state::notify signel emission, but we really want it
+    completely after that.
+
+commit a343a0dde6bff60d27caf94a2100f756cebc6ec8
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 22:35:51 2022 -0700
+
+    Add Wayland screen/window implementation
+
+commit 11e68ec8c8a632b4eb8990ae4480647608c4d257
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 21:34:48 2022 -0700
+
+    Add X11 screen/window implemention
+    
+    Wayland to come soon.
+
+commit 61401a4a0b7943658a2c5ef15d20e0be4b33b798
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 21:21:03 2022 -0700
+
+    Fix -no-undefined ldflag
+
+commit 78169ea3637415a509c5df0fcbe079e7b3677688
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 13:46:30 2022 -0700
+
+    Add missing wnck-workspace property to XfwWorkspaceX11
+
+commit 95255f39f3f74186f69965a6088825d2a33c93d4
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 13:28:44 2022 -0700
+
+    No need to store signal IDs in interfaces
+
+commit 7de8fe9b183db8cdfbfffeb6072f6659994aa041
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 13:22:28 2022 -0700
+
+    Use glib flags type for workspace state instead of uint
+
+commit 03c1488faa626d99c12d0a5bd5ce0a1287580aea
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 04:57:43 2022 -0700
+
+    Add xfw_workspace_group_get_workspace_count()
+    
+    With this, I should have enough for xfdesktop to work properly, with the
+    exception of listing all toplevel windows.
+
+commit bb52cfe6c64dd65171052a4efa4663921515e725
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 04:51:51 2022 -0700
+
+    Add 'active-workspace' property to XfwWorkspaceGroup
+
+commit 8adfcdb39bd3b34cd0dca981a3576c700efe10d5
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 04:29:53 2022 -0700
+
+    Add 'number' property to XfwWorkspace
+
+commit f740ba014f0a438ab283dafcbf1eaa79421e2a35
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Thu Sep 22 03:58:02 2022 -0700
+
+    Introduce workspace groups
+    
+    The Wayland workpaces protocol has the concept of workspace groups,
+    which are assigned to one (or more?) outputs (monitors).  X11 doesn't
+    have that concept (well, libwnck doesn't), so we just emulate a single
+    workspace group there.
+    
+    This also refactors a bunch of things and fixes bugs here and there.
+
+commit 9e1638e914c8d0bb1e5ebd01c681481ba5ff6899
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Wed Sep 21 19:52:30 2022 -0700
+
+    Get rid of singleton stuff in the backends
+    
+    This makes things a bit simpler; the backends will create new instances
+    when asked, but the frontend handles keeping a single instance per
+    screen.
+
+commit 875514ae17b3955acc0136d27ebbbf27a7b99bc0
+Author: Brian J. Tarricone <brian@tarricone.org>
+Date:   Mon Sep 19 17:29:14 2022 -0700
+
+    Initial import

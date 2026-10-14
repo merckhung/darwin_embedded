@@ -1,0 +1,45 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("//userland/native/system:defs.bzl", "native_system")
+
+package(default_visibility = ["//visibility:public"])
+
+[
+    native_system(name = "modules_system_" + arch, arch = arch, exports = "modules.exports")
+    for arch in ["arm64", "x86_64"]
+]
+
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = [
+            "build_test.py", "test_main.c", "module.c", "helper.c", "broken.c", "bundle.c", "slow.c", "forking.c", "notifier.c", "weak_a.c", "weak_b.c", "weak_strong.c",
+            ":modules_system_" + arch + ".tar", "//userland/native:sdk_" + arch,
+            "//userland/native:dyld_" + arch, "//userland/diagnostic:root_" + arch,
+            "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py",
+            "//scripts:sign_diagnostic_macho.py",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["modules-test-root." + arch + ".img", "modules-test-root." + arch + ".json"],
+        cmd = "python3 userland/native/modules/build_test.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --system $(location :modules_system_" + arch + ".tar)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $(location modules-test-root." + arch + ".img)" +
+              " --report $(location modules-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+
+[
+    sh_binary(
+        name = "verify_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch],
+        data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]

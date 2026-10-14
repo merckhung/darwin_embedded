@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Xfce development team.
+# This file is distributed under the same license as the xfconf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: xfconf 4.19.4\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/xfce/xfconf\n"
+"POT-Creation-Date: 2024-11-01 20:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xfconf/xfconf-cache.c:806 xfconfd/xfconf-backend-perchannel-xml.c:392
+#: xfconfd/xfconf-backend-perchannel-xml.c:477
+#: xfconfd/xfconf-backend-perchannel-xml.c:641
+#: xfconfd/xfconf-backend-perchannel-xml.c:663 xfconf-query/main.c:323
+#, c-format
+msgid "Property \"%s\" does not exist on channel \"%s\""
+msgstr ""
+
+#: xfconf/xfconf-cache.c:1031
+msgid "Failed to make ResetProperty DBus call"
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:276
+#, c-format
+msgid "Unable to create configuration directory \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:321 xfconfd/xfconf-daemon.c:168
+#, c-format
+msgid "Permission denied while modifying property \"%s\" on channel \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:607
+#, c-format
+msgid "Unable to remove channel \"%s\": %s"
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:1326
+#, c-format
+msgid "Invalid type for <property>: \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:1343
+#: xfconfd/xfconf-backend-perchannel-xml.c:1421
+#, c-format
+msgid "Unable to parse value of type \"%s\" from \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:1401
+msgid "The type attribute of <value> cannot be an array"
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:1410
+#, c-format
+msgid "Invalid type for <value>: \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:1690
+#: xfconfd/xfconf-backend-perchannel-xml.c:1947
+#, c-format
+msgid "Channel \"%s\" does not exist"
+msgstr ""
+
+#: xfconfd/xfconf-backend-perchannel-xml.c:2018
+#, c-format
+msgid "Unable to write channel \"%s\": %s"
+msgstr ""
+
+#: xfconfd/xfconf-backend-factory.c:78
+#, c-format
+msgid "Unable to find Xfconf backend of type \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:125
+msgid "Property names must start with a '/' character"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:134
+msgid "The root element ('/') is not a valid property name"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:149
+msgid ""
+"Property names can only include the ASCII characters A-Z, a-z, 0-9, '_', "
+"'-', ':', '.', ',', '[', ']', '{', '}', '<' and '>', as well as '/' as a "
+"separator"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:158
+msgid "Property names cannot have two or more consecutive '/' characters"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:169
+msgid "Property names cannot end with a '/' character"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:186
+msgid "Channel name cannot be an empty string"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:201
+msgid ""
+"Channel names can only include the ASCII characters A-Z, a-z, 0-9, '{', '}', "
+"'|', ']', '[', ':', ',', '.', '_', and '-'"
+msgstr ""
+
+#: xfconfd/xfconf-backend.c:434
+msgid ""
+"The property name can only be empty or \"/\" if a recursive reset was "
+"specified"
+msgstr ""
+
+#: xfconfd/main.c:148
+msgid "Prints the xfconfd version."
+msgstr ""
+
+#: xfconfd/main.c:150
+msgid ""
+"Configuration backends to use.  The first backend specified is opened read/"
+"write; the others, read-only."
+msgstr ""
+
+#: xfconfd/main.c:154
+msgid "Fork into background after starting; only useful for testing purposes"
+msgstr ""
+
+#: xfconfd/main.c:174
+msgid "Xfce Configuration Daemon"
+msgstr ""
+
+#: xfconfd/main.c:179
+msgid "Xfce configuration daemon"
+msgstr ""
+
+#: xfconfd/main.c:181
+msgid "Report bugs to http://bugs.xfce.org/\n"
+msgstr ""
+
+#: xfconfd/main.c:184
+#, c-format
+msgid "Error parsing options: %s\n"
+msgstr ""
+
+#: xfconfd/xfconf-daemon.c:220
+#, c-format
+msgid "GType transformation failed \"%s\""
+msgstr ""
+
+#: xfconfd/xfconf-daemon.c:488
+msgid "No backends could be started"
+msgstr ""
+
+#: xfconf-query/main.c:81 xfconf-query/main.c:84
+msgid "set"
+msgstr ""
+
+#: xfconf-query/main.c:87
+msgid "reset"
+msgstr ""
+
+#: xfconf-query/main.c:176
+msgid "Version information"
+msgstr ""
+
+#: xfconf-query/main.c:179
+msgid "The channel to query/modify"
+msgstr ""
+
+#: xfconf-query/main.c:182
+msgid "The property to query/modify"
+msgstr ""
+
+#: xfconf-query/main.c:185
+msgid "The new value to set for the property"
+msgstr ""
+
+#: xfconf-query/main.c:188
+msgid "List properties (or channels if -c is not specified)"
+msgstr ""
+
+#: xfconf-query/main.c:191
+msgid "Print property and value in combination with -l or -m"
+msgstr ""
+
+#: xfconf-query/main.c:194
+msgid "Create a new property if it does not already exist"
+msgstr ""
+
+#: xfconf-query/main.c:197
+msgid "Specify the property value type"
+msgstr ""
+
+#: xfconf-query/main.c:200
+msgid "Reset property"
+msgstr ""
+
+#: xfconf-query/main.c:203
+msgid "Recursive (use with -r)"
+msgstr ""
+
+#: xfconf-query/main.c:206
+msgid "Force array even if only one element"
+msgstr ""
+
+#: xfconf-query/main.c:209
+msgid "Invert an existing boolean property"
+msgstr ""
+
+#: xfconf-query/main.c:217
+msgid "Monitor a channel for property changes"
+msgstr ""
+
+#: xfconf-query/main.c:233
+msgid "- Xfconf commandline utility"
+msgstr ""
+
+#: xfconf-query/main.c:237
+#, c-format
+msgid "Option parsing failed: %s"
+msgstr ""
+
+#: xfconf-query/main.c:248
+msgid "The Xfce development team. All rights reserved."
+msgstr ""
+
+#: xfconf-query/main.c:249
+#, c-format
+msgid "Please report bugs to <%s>."
+msgstr ""
+
+#: xfconf-query/main.c:257
+msgid "No property specified"
+msgstr ""
+
+#: xfconf-query/main.c:262
+msgid "--create and --reset options can not be used together"
+msgstr ""
+
+#: xfconf-query/main.c:267
+msgid "--create and --reset options can not be used together with --list"
+msgstr ""
+
+#: xfconf-query/main.c:272
+#, c-format
+msgid "Failed to init libxfconf: %s"
+msgstr ""
+
+#: xfconf-query/main.c:282
+msgid "Channels:"
+msgstr ""
+
+#: xfconf-query/main.c:306
+#, c-format
+msgid "Start monitoring channel \"%s\":"
+msgstr ""
+
+#: xfconf-query/main.c:335 xfconf-query/main.c:433 xfconf-query/main.c:497
+msgid "Failed to set property"
+msgstr ""
+
+#: xfconf-query/main.c:338
+msgid "--toggle only works with boolean values"
+msgstr ""
+
+#: xfconf-query/main.c:346 xfconf-query/main.c:361
+msgid "(unknown)"
+msgstr ""
+
+#: xfconf-query/main.c:353
+#, c-format
+msgid "Value is an array with %d items:"
+msgstr ""
+
+#: xfconf-query/main.c:373
+#, c-format
+msgid ""
+"Property \"%s\" does not exist on channel \"%s\". If a new property should "
+"be created, use the --create option"
+msgstr ""
+
+#: xfconf-query/main.c:381
+msgid "When creating a new property, the value type must be specified"
+msgstr ""
+
+#: xfconf-query/main.c:390
+msgid "Failed to get the existing type for the value"
+msgstr ""
+
+#: xfconf-query/main.c:409
+msgid "Unable to determine the type of the value"
+msgstr ""
+
+#: xfconf-query/main.c:415
+msgid "A value type must be specified to change an array into a single value"
+msgstr ""
+
+#: xfconf-query/main.c:426 xfconf-query/main.c:481
+#, c-format
+msgid "Unable to convert \"%s\" to type \"%s\""
+msgstr ""
+
+#: xfconf-query/main.c:453
+#, c-format
+msgid "There are %d new values, but only %d types could be determined"
+msgstr ""
+
+#: xfconf-query/main.c:473
+#, c-format
+msgid "Unable to determine type of value at index %d"
+msgstr ""
+
+#: xfconf-query/main.c:522
+#, c-format
+msgid "Channel \"%s\" contains no properties"
+msgstr ""

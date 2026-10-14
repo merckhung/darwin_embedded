@@ -1,0 +1,4 @@
+xfce_consolekit_get_type
+xfce_kiosk_get_type
+xfce_rc_get_type
+xfce_systemd_get_type

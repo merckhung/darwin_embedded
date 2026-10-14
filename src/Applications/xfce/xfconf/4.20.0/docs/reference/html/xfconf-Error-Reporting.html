@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Error Reporting: xfconf Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="xfconf Reference Manual">
+<link rel="up" href="ch01.html" title="Xfconf Core Functionality">
+<link rel="prev" href="xfconf-Xfconf-Types.html" title="Xfconf Types">
+<link rel="next" href="ch02.html" title="Xfconf Daemon">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#xfconf-Error-Reporting.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#xfconf-Error-Reporting.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="xfconf-Xfconf-Types.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="xfconf-Error-Reporting"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="xfconf-Error-Reporting.top_of_page"></a>Error Reporting</span></h2>
+<p>Error Reporting — Xfconf library and daemon error descriptions</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="xfconf-Error-Reporting.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="xfconf-Error-Reporting.html#XFCONF-ERROR:CAPS" title="XFCONF_ERROR">XFCONF_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="xfconf-Error-Reporting.html#XfconfError" title="enum XfconfError">XfconfError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="xfconf-Error-Reporting.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">╰──</span> XfconfError
+</pre>
+</div>
+<div class="refsect1">
+<a name="xfconf-Error-Reporting.description"></a><h2>Description</h2>
+<p>Both the Xfconf daemon and library provide error information via the use of <span class="type">GError</span></p>
+</div>
+<div class="refsect1">
+<a name="xfconf-Error-Reporting.functions_details"></a><h2>Functions</h2>
+<p></p>
+</div>
+<div class="refsect1">
+<a name="xfconf-Error-Reporting.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XFCONF-ERROR:CAPS"></a><h3>XFCONF_ERROR</h3>
+<pre class="programlisting">#define XFCONF_ERROR (xfconf_get_error_quark())
+</pre>
+<p>The <span class="type">GError</span> error domain for Xfconf.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfconfError"></a><h3>enum XfconfError</h3>
+<p>An enumeration listing the different kinds of errors under the XFCONF_ERROR domain.</p>
+<div class="refsect3">
+<a name="XfconfError.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-UNKNOWN:CAPS"></a>XFCONF_ERROR_UNKNOWN</p></td>
+<td class="enum_member_description">
+<p>An unknown error occurred</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-CHANNEL-NOT-FOUND:CAPS"></a>XFCONF_ERROR_CHANNEL_NOT_FOUND</p></td>
+<td class="enum_member_description">
+<p>The specified channel does not exist</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-PROPERTY-NOT-FOUND:CAPS"></a>XFCONF_ERROR_PROPERTY_NOT_FOUND</p></td>
+<td class="enum_member_description">
+<p>The specified property does not exist on the channel</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-READ-FAILURE:CAPS"></a>XFCONF_ERROR_READ_FAILURE</p></td>
+<td class="enum_member_description">
+<p>There was a failure reading from the configuration store</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-WRITE-FAILURE:CAPS"></a>XFCONF_ERROR_WRITE_FAILURE</p></td>
+<td class="enum_member_description">
+<p>There was a failure writing to the configuration store</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-PERMISSION-DENIED:CAPS"></a>XFCONF_ERROR_PERMISSION_DENIED</p></td>
+<td class="enum_member_description">
+<p>The user is not allowed to read or write to the channel or property</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-INTERNAL-ERROR:CAPS"></a>XFCONF_ERROR_INTERNAL_ERROR</p></td>
+<td class="enum_member_description">
+<p>An internal error (likely a bug in xfconf) occurred</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-NO-BACKEND:CAPS"></a>XFCONF_ERROR_NO_BACKEND</p></td>
+<td class="enum_member_description">
+<p>No backends were found, or those found could not be loaded</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-INVALID-PROPERTY:CAPS"></a>XFCONF_ERROR_INVALID_PROPERTY</p></td>
+<td class="enum_member_description">
+<p>The property name specified was invalid</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFCONF-ERROR-INVALID-CHANNEL:CAPS"></a>XFCONF_ERROR_INVALID_CHANNEL</p></td>
+<td class="enum_member_description">
+<p>The channel name specified was invalid</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

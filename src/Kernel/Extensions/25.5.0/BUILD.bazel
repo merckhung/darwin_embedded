@@ -1,0 +1,42 @@
+exports_files(["hfs/core/hfs_mount.h"], visibility = ["//visibility:public"])
+
+filegroup(
+    name = "sources",
+    srcs = glob(["**"]),
+)
+
+[
+    genrule(
+        name = component + "_" + arch,
+        srcs = [
+            ":sources",
+            "//scripts:build_kext.py",
+            "//src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar",
+            "//src/Kernel/xnu/12377.121.6:pd_apple_builtins.h",
+            "//src/Kernel/xnu/12377.121.6:libkern/kmod/c_start.c",
+        ] + (["//src/Libraries/25.5.0:kernel_dependency_sources"] if component == "pthread" else []),
+        tools = ["//tools/cctools:ld"],
+        outs = [component + "." + arch + ".tar"],
+        cmd = "python3 $(location //scripts:build_kext.py) --root $$PWD --arch " + arch +
+              " --component " + component +
+              " --sdk $(location //src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar)" +
+              " --ld $(location //tools/cctools:ld) --workdir $(@D)/build-" + component + "-" + arch +
+              " --output $@",
+        visibility = ["//visibility:public"],
+    )
+    for arch, component in [
+        ("x86_64", "embedded_crypto"),
+        ("arm64", "embedded_crypto"),
+        ("x86_64", "hfs"),
+        ("arm64", "hfs"),
+        ("x86_64", "HFSEncodings"),
+        ("arm64", "HFSEncodings"),
+        ("x86_64", "pthread"),
+        ("arm64", "pthread"),
+        ("x86_64", "AppleI386GenericPlatform"),
+        ("x86_64", "AppleAPIC"),
+        ("x86_64", "IOStorageFamily"),
+        ("arm64", "IOStorageFamily"),
+        ("arm64", "PDArmPlatformExpert"),
+    ]
+]

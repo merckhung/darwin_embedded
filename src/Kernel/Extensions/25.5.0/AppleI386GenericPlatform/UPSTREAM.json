@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/PureDarwin/PureDarwin",
+  "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+  "path": "src/Kernel/Extensions/AppleI386GenericPlatform",
+  "upstream_files_sha256": {
+    "AppleI386CPU.cpp": "c46864a310737386eb1782801591426e245b255e6f2979cbccf04a17767c3666",
+    "AppleI386CPU.h": "7f15b50432c902669ae4a9fcfc78aeddee4e9710ca8e7a4455d57e7c77c278a9",
+    "AppleI386PlatformExpert.cpp": "f161467b5559dac77778d7bd6a478b77bcc9ca8bc18b588d9bcb980af89177b9",
+    "AppleI386PlatformExpert.h": "ea206e63275722aa0945188adb8034d929bd9f8301c348a8115d3f607cdb0cc7",
+    "CMakeLists.txt": "dc69f6936c277d01bc4af9ff863f33fc9861457216055ae9aca4b2e99b9f3ed0",
+    "Info.plist": "8ab7b5f51d5fa0af749b1fb504f31dc5340dd30dfbf84cb2cca5d211d2b70600"
+  },
+  "local_changes": [
+    "Declare IOStorageFamily as a dependency before publishing hidden media; remove the unused IOACPIFamily dependency.",
+    "Add Linux/Bazel compilation against the matching exported kernel headers."
+  ]
+}

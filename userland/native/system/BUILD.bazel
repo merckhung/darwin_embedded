@@ -1,0 +1,75 @@
+load(":defs.bzl", "native_system")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+package(default_visibility = ["//visibility:public"])
+
+exports_files(["defs.bzl"])
+
+[
+    genrule(name = "bootstrap_parent_" + arch,
+        srcs = ["build_bootstrap_parent.py", "//userland/native:sdk_" + arch,
+                "//userland/native:mach.headers." + arch + ".tar", "//tools/mig:mig.sh", "//src/Libraries/25.5.0:sources", "//scripts:native_components.py"],
+        tools = ["//tools/mig:migcom"], outs = ["libbootstrap_parent." + arch + ".a", "bootstrap_parent." + arch + ".json"],
+        cmd = "python3 $(location build_bootstrap_parent.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ") --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --migcom $(location //tools/mig:migcom) --output $(location libbootstrap_parent." + arch + ".a) --report $(location bootstrap_parent." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "startup_sources", srcs = ["bootstrap.c", "initialize.c"])
+
+[
+    native_system(name = "base_" + arch, arch = arch, exports = "base.exports")
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":base_arm64", ":base_x86_64"])
+
+[
+    genrule(
+        name = "helpers_" + arch,
+        srcs = [
+            ":startup_sources", "//scripts:build_native_system.py",
+            "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py",
+            "//src/Libraries/25.5.0:sources", "//src/Kernel/xnu/12377.121.6:sources",
+            "//tools/cctools:cctools_header_files",
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+        ],
+        outs = ["helpers_" + arch + ".tar", "helpers_" + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_system.py) --root $$PWD --arch " + arch +
+              " --compile-only --compiler-tls --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --output $(location helpers_" + arch + ".tar)" +
+              " --report $(location helpers_" + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "helpers", srcs = [":helpers_arm64", ":helpers_x86_64"])
+
+[
+    genrule(
+        name = "probe_" + arch,
+        srcs = ["build_probe.py", "test_lifecycle.c", "//userland/native:sdk_" + arch],
+        outs = ["test_lifecycle." + arch + ".o", "test_lifecycle." + arch + ".exports"],
+        cmd = "python3 userland/native/system/build_probe.py --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location test_lifecycle." + arch + ".o)" +
+              " --exports $(location test_lifecycle." + arch + ".exports)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "probes", srcs = [":probe_arm64", ":probe_x86_64"])
+
+sh_test(
+    name = "packaging_test",
+    size = "small",
+    srcs = ["test_packaging.sh"],
+    data = [
+        "test_packaging.py", ":base_arm64.tar", ":base_x86_64.tar",
+        "//scripts:build_native_system.py", "//scripts:native_components.py",
+        "//scripts:sign_diagnostic_macho.py",
+    ],
+)

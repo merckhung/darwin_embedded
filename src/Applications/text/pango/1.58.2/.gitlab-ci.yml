@@ -1,0 +1,201 @@
+include:
+  - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
+    inputs:
+      dist-job-name: "linux-fedora"
+      tarball-artifact-path: "_build/meson-dist/$CI_PROJECT_NAME-$CI_COMMIT_TAG.tar.xz"
+
+stages:
+  - build
+  - analysis
+  - docs
+  - deploy
+  - release
+
+# Common variables
+variables:
+  COMMON_MESON_FLAGS: ""
+  MESON_TEST_TIMEOUT_MULTIPLIER: 2
+  FEDORA_IMAGE: registry.gitlab.gnome.org/gnome/pango/fedora:v13
+
+.only-default:
+  only:
+    - branches
+  except:
+    - tags
+
+linux-fedora:
+  image: $FEDORA_IMAGE
+  stage: build
+  needs: []
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug --default-library=both"
+  script:
+    - git config --global --add safe.directory $CI_PROJECT_DIR
+    - meson setup ${COMMON_MESON_FLAGS} ${EXTRA_MESON_FLAGS} _build
+    - meson compile -C _build
+    - .gitlab-ci/run-tests.sh _build
+    - meson dist -C _build --no-tests
+  artifacts:
+    name: "${env:CI_JOB_NAME}-${env:CI_COMMIT_REF_NAME}"
+    when: always
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/meson-dist/*.tar.xz"
+      - "${CI_PROJECT_DIR}/_build/hello.png"
+      - "${CI_PROJECT_DIR}/_build/fontlist.txt"
+
+sanitizer-build:
+  extends: .only-default
+  image: $FEDORA_IMAGE
+  tags: [ asan ]
+  stage: analysis
+  needs: []
+  script:
+    # ubsan's 'function' check fires on every GObject call through a generic
+    # prototype, and glib is built as a subproject here, so it is sanitized too
+    - CC=clang meson setup --buildtype=debugoptimized -Db_sanitize=address,undefined -Dc_args=-fno-sanitize=function -Db_lundef=false -Dintrospection=disabled _build
+    - meson compile -C _build
+    - .gitlab-ci/run-tests.sh _build
+  artifacts:
+    name: "${env:CI_JOB_NAME}-${env:CI_COMMIT_REF_NAME}"
+    when: always
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/hello.png"
+      - "${CI_PROJECT_DIR}/_build/fontlist.txt"
+
+msys2-mingw64:
+  extends: .only-default
+  stage: build
+  needs: []
+  tags:
+    - win32-ps
+  variables:
+    MSYSTEM: "MINGW64"
+    CHERE_INVOKING: "yes"
+  script:
+    - C:\msys64\usr\bin\pacman --noconfirm -Syyuu
+    - C:\msys64\usr\bin\bash -lc "bash -x ./.gitlab-ci/test-msys2.sh"
+    - C:\msys64\usr\bin\bash -lc "bash -x ./.gitlab-ci/render-msys2.sh"
+    - C:\msys64\usr\bin\bash -lc "bash -x ./.gitlab-ci/list-msys2.sh"
+  artifacts:
+    name: "${env:CI_JOB_NAME}-${env:CI_COMMIT_REF_NAME}"
+    when: always
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/hello.png"
+      - "${CI_PROJECT_DIR}/_build/fontlist.txt"
+
+vs2019-x64:
+  # TODO: Uncomment this when ready to merge.
+  # rules:
+  #   - if: $CI_PROJECT_NAMESPACE == "GNOME"
+  stage: build
+  tags:
+    - win32-ps
+  needs: []
+  script:
+    - .gitlab-ci/test-msvc.bat
+  artifacts:
+    name: "${env:CI_JOB_NAME}-${env:CI_COMMIT_REF_NAME}"
+    when: always
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+
+macos:
+  extends: .only-default
+  only:
+    - branches@GNOME/pango
+    - branches@dehesselle/pango
+  stage: build
+  tags:
+    - macos
+    - arm64
+  needs: []
+  variables:
+    # ragel     -Wno-unused-const-variable, -Wno-overloaded-virtual
+    # pcre2     -Wno-overlength-strings
+    # glib      -Wno-deprecated-declarations, -Wno-literal-conversion
+    # fribidi   -Wno-deprecated-non-prototype, -Wno-enum-conversion
+    # libpng    -Wno-unused-but-set-variable
+    # pixman    -Wno-unknown-attributes
+    # cairo     -Wno-switch-enum, -Wno-deprecated-declarations, -Wno-unused-const-variable
+    CFLAGS: "-Wno-overlength-strings -Wno-deprecated-non-prototype -Wno-enum-conversion -Wno-unused-but-set-variable -Wno-unknown-attributes -Wno-switch-enum -Wno-deprecated-declarations -Wno-unused-const-variable -Wno-literal-conversion"
+    CXXFLAGS: "-Wno-overloaded-virtual -Wno-unused-const-variable"
+    OBJCFLAGS: -Wno-deprecated-declarations
+    CCACHE_DIR: /Users/Shared/work/ccache
+    CCACHE_VER: "4.9.1"
+    CCACHE_URL: https://github.com/ccache/ccache/releases/download/v$CCACHE_VER/ccache-$CCACHE_VER-darwin.tar.gz
+    EXTRA_MESON_FLAGS: "-Dintrospection=disabled -Dpixman:tests=disabled -Dharfbuzz:ragel_subproject=true"
+    PIP_CACHE_DIR: /Users/Shared/work/cache
+    PIPENV_CACHE_DIR: $PIP_CACHE_DIR
+    PYTHONPYCACHEPREFIX: $PIP_CACHE_DIR
+    SDKROOT: /opt/sdks/MacOSX11.3.sdk
+  before_script:
+    - python3 -m venv .venv
+    - curl -L $CCACHE_URL | tar -C .venv/bin -xz --strip-components=1 ccache-$CCACHE_VER-darwin/ccache
+    - source .venv/bin/activate
+    - pip3 install meson==1.8.0 ninja==1.11.1.1 packaging==23.2
+    # Disable font-scale test as it SIGTRAPs. (The test code is skipped over by
+    # inserting "return;" as first statement into the relevant function.)
+    - |
+      LINE_NO=$(grep -n "test_font_scale (void)" tests/test-font.c | awk -F ':' '{ print $1 }')
+      sed -i '' ''$((LINE_NO+2))'i\
+      return;' tests/test-font.c
+  script:
+    - meson setup ${COMMON_MESON_FLAGS} ${EXTRA_MESON_FLAGS} _build
+    - meson compile -C _build
+    - .gitlab-ci/run-tests.sh _build
+  artifacts:
+    name: "${env:CI_JOB_NAME}-${env:CI_COMMIT_REF_NAME}"
+    when: always
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/hello.png"
+      - "${CI_PROJECT_DIR}/_build/fontlist.txt"
+
+reference:
+  image: $FEDORA_IMAGE
+  stage: docs
+  needs: []
+  variables:
+    EXTRA_MESON_FLAGS: ""
+  script:
+    - meson ${COMMON_MESON_FLAGS} ${EXTRA_MESON_FLAGS} -Ddocumentation=true _build
+    - ninja -C _build
+    - mkdir -p _reference/
+    - mv _build/docs/Pango/ _reference/
+    - mv _build/docs/PangoCairo/ _reference/
+    - mv _build/docs/PangoFc/ _reference/
+    - mv _build/docs/PangoFT2/ _reference/
+    - mv _build/docs/PangoOT/ _reference/
+    - mv _build/docs/PangoXft/ _reference/
+  artifacts:
+    paths:
+      - _reference
+
+pages:
+  stage: deploy
+  needs: ['reference']
+  script:
+    - mv _reference/ public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

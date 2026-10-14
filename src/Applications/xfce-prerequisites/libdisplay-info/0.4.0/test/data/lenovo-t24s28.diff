@@ -1,0 +1,111 @@
+--- ref
++++ di
+@@ -47,8 +47,6 @@
+     DTD 1:  1920x1080   60.000000 Hz  16:9     67.500 kHz    148.500000 MHz (527 mm x 296 mm)
+                  Hfront   88 Hsync  44 Hback  148 Hpol P
+                  Vfront    4 Vsync   5 Vback   36 Vpol P
+-    Display Range Limits:
+-      Monitor ranges (GTF): 50-75 Hz V, 30-81 kHz H, max dotclock 180 MHz
+     Display Product Name: 'T24s-28'
+     Display Product Serial Number: 'U5AN9260'
+   Extension blocks: 1
+@@ -66,7 +64,6 @@
+     VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz    148.500000 MHz (native)
+     VIC  69:  1280x720    60.000000 Hz  64:27    45.000 kHz     74.250000 MHz
+     VIC   4:  1280x720    60.000000 Hz  16:9     45.000 kHz     74.250000 MHz
+-  Speaker Allocation Data Block:
+   Detailed Timing Descriptors:
+     DTD 2:  1280x720    60.000000 Hz  16:9     45.000 kHz     74.250000 MHz (527 mm x 296 mm)
+                  Hfront  110 Hsync  40 Hback  220 Hpol P
+@@ -80,88 +77,16 @@
+     DTD 5:  1680x1050   59.883253 Hz  16:10    64.674 kHz    119.000000 MHz (side by side interleaved, 527 mm x 296 mm)
+                  Hfront   48 Hsync  32 Hback   80 Hpol P
+                  Vfront    3 Vsync   6 Vback   21 Vpol P
+-Checksum: 0xb9  Unused space in Extension Block: 46 bytes
++Checksum: 0xb9
+ 
+ ----------------
+ 
+-Block 2, Unknown EDID Extension Block 0x00:
+-  00 ff ff ff ff ff ff 00 30 ae c7 62 00 00 00 00 '........0..b....'
+-  0b 21 01 04 a5 34 20 78 3a 2a 15 aa 54 49 9f 24 '.!...4 x:*..TI.$'
+-  14 50 54 bf ef 80 71 4f 81 8a a9 cf 81 80 95 00 '.PT...qO........'
+-  a9 c0 b3 00 d1 cf 02 3a 80 18 71 38 2d 40 58 2c '.......:..q8-@X,'
+-  45 00 0f 28 21 00 00 1e 00 00 00 fd 00 32 4b 1e 'E..(!........2K.'
+-  51 12 00 0a 20 20 20 20 20 20 00 00 00 fc 00 54 'Q...      .....T'
+-  32 34 73 2d 32 38 0a 20 20 20 20 20 00 00 00 ff '24s-28.     ....'
+-  00 55 35 41 4e 39 32 36 30 0a 20 20 20 20 01 93 '.U5AN9260.    ..'
+-Checksum: 0x93
+-
+-----------------
+-
+-Block 3, CTA-861 Extension Block:
+-  Revision: 3
+-  Underscans IT Video Formats by default
+-  Supports YCbCr 4:4:4
+-  Supports YCbCr 4:2:2
+-  Native detailed modes: 1
+-  Video Data Block:
+-    VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz    148.500000 MHz (native)
+-    VIC  69:  1280x720    60.000000 Hz  64:27    45.000 kHz     74.250000 MHz
+-    VIC   4:  1280x720    60.000000 Hz  16:9     45.000 kHz     74.250000 MHz
+-  Speaker Allocation Data Block:
+-  Detailed Timing Descriptors:
+-    DTD 6:  1280x720    60.000000 Hz  16:9     45.000 kHz     74.250000 MHz (527 mm x 296 mm)
+-                 Hfront  110 Hsync  40 Hback  220 Hpol P
+-                 Vfront    5 Vsync   5 Vback   20 Vpol P
+-    DTD 7:  1366x768    59.789541 Hz 683:384   47.712 kHz     85.500000 MHz (side by side interleaved, 527 mm x 296 mm)
+-                 Hfront   70 Hsync 143 Hback  213 Hpol P
+-                 Vfront    3 Vsync   3 Vback   24 Vpol P
+-    DTD 8:  1440x900    59.901458 Hz  16:10    55.469 kHz     88.750000 MHz (side by side interleaved, 527 mm x 296 mm)
+-                 Hfront   48 Hsync  32 Hback   80 Hpol P
+-                 Vfront    3 Vsync   6 Vback   17 Vpol P
+-    DTD 9:  1680x1050   59.883253 Hz  16:10    64.674 kHz    119.000000 MHz (side by side interleaved, 527 mm x 296 mm)
+-                 Hfront   48 Hsync  32 Hback   80 Hpol P
+-                 Vfront    3 Vsync   6 Vback   21 Vpol P
+-Checksum: 0xb9  Unused space in Extension Block: 46 bytes
+-
+-----------------
+-
+-Warnings:
+-
+-Block 0, Base EDID:
+-  Display Range Limits: GTF support is deprecated in EDID 1.4.
+-Block 1, CTA-861 Extension Block:
+-  Detailed Timing Descriptor #4: DTD is similar but not identical to DMT 0x2e.
+-  Detailed Timing Descriptor #5: DTD is similar but not identical to DMT 0x39.
+-  Add a Colorimetry Data Block with the sRGB colorimetry bit set to avoid interop issues.
+-Block 3, CTA-861 Extension Block:
+-  Detailed Timing Descriptor #8: DTD is similar but not identical to DMT 0x2e.
+-  Detailed Timing Descriptor #9: DTD is similar but not identical to DMT 0x39.
+-  Add a Colorimetry Data Block with the sRGB colorimetry bit set to avoid interop issues.
+-EDID:
+-  Base EDID: Some timings are out of range of the Monitor Ranges:
+-    Horizontal Freq: 31.466 - 84.600 kHz (Monitor: 30.000 - 81.000 kHz)
+-    Maximum Clock: 220.637 MHz (Monitor: 180.000 MHz)
+-  CTA-861: Multiple native progressive timings are defined.
+-
+ Failures:
+ 
+ Block 0, Base EDID:
++  The data size does not match the encoded block count.
+   Display Range Limits: GTF is supported, but the display does not support continuous frequencies.
++
+ Block 1, CTA-861 Extension Block:
+-  Speaker Allocation Data Block: Audio information is present, but bit 6 of Byte 3 of the CTA-861 Extension header indicates no Basic Audio support.
+   Speaker Allocation Data Block: Empty Data Block with length 0.
+-  Missing VCDB, needed for Set Selectable RGB Quantization to avoid interop issues.
+-Block 2, Base EDID:
+-  Unknown Extension Block.
+-Block 3, CTA-861 Extension Block:
+-  Video Data Block: Duplicate VIC 16.
+-  Video Data Block: Duplicate VIC 69.
+-  Video Data Block: Duplicate VIC 4.
+-  Speaker Allocation Data Block: Only one instance of this Data Block is allowed.
+-  Speaker Allocation Data Block: Audio information is present, but bit 6 of Byte 3 of the CTA-861 Extension header indicates no Basic Audio support.
+-  Speaker Allocation Data Block: Empty Data Block with length 0.
+-  Missing VCDB, needed for Set Selectable RGB Quantization to avoid interop issues.
+-EDID:
+-  Base EDID: EDID specified 1 extension block(s), but found 3 extension block(s).
+-
+ EDID conformity: FAIL

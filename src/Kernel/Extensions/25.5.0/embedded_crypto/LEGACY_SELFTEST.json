@@ -1,0 +1,9 @@
+{
+  "purpose": "MD5/SHA-1 compatibility only; not signature authentication or collision-resistant hashing",
+  "md5_reference": "https://www.rfc-editor.org/rfc/rfc1321#appendix-A.5",
+  "sha1_reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+  "messages": ["abc", "12345678901234567890123456789012345678901234567890123456789012345678901234567890"],
+  "md5": ["900150983cd24fb0d6963f7d28e17f72", "57edf4a22be3c955ac49da2e2107b67a"],
+  "sha1": ["a9993e364706816aba3e25717850c26c9cd0d89d", "50abf5706a150990a08b2c5ea40fa0e585554732"],
+  "validation": "Kernel adapter checks both messages before provider registration. SHA-1 uses split updates; the 80-byte message crosses a compression boundary. Reference values independently checked with Python hashlib/OpenSSL."
+}

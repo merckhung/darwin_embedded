@@ -1,0 +1,122 @@
+filegroup(
+    name = "sources",
+    srcs = glob(["**"], exclude = ["BUILD.bazel"]),
+    visibility = ["//visibility:public"],
+)
+
+exports_files(["pd_apple_builtins.h", "libkern/kmod/c_start.c"])
+
+HOST_TOOLS = [
+    "//tools/cctools:ld",
+    "//tools/cctools:kernel_host_archives",
+    "//tools/cctools:strip",
+    "//tools/cctools:lipo",
+    "//tools/cctools:nm",
+    "//tools/cctools:nmedit",
+    "//tools/cctools:libtool",
+    "//tools/cctools:ctf_insert",
+    "//tools/mig:migcom",
+    "//tools/iig:iig",
+    "//tools/unifdef:unifdef",
+]
+
+genrule(
+    name = "kernel_collection_x86_64",
+    srcs = [
+        ":kernel_x86_64",
+        "kernel.headers.x86_64.tar",
+        "//scripts:build_kernel_collection.py",
+        "//src/Kernel/Extensions/25.5.0:embedded_crypto_x86_64",
+        "//src/Kernel/Extensions/25.5.0:AppleI386GenericPlatform_x86_64",
+        "//src/Kernel/Extensions/25.5.0:AppleAPIC_x86_64",
+        "//src/Kernel/Extensions/25.5.0:IOStorageFamily_x86_64",
+        "//src/Kernel/Extensions/25.5.0:pthread_x86_64",
+        "//src/Kernel/Extensions/25.5.0:HFSEncodings_x86_64",
+        "//src/Kernel/Extensions/25.5.0:hfs_x86_64",
+    ],
+    tools = ["//tools/kc-tools:kc-builder"],
+    outs = ["kernel.collection.x86_64"],
+    cmd = "python3 $(location //scripts:build_kernel_collection.py)" +
+          " --builder $(location //tools/kc-tools:kc-builder) --kernel $(location :kernel_x86_64)" +
+          " --sdk $(location kernel.headers.x86_64.tar)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:embedded_crypto_x86_64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:AppleI386GenericPlatform_x86_64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:AppleAPIC_x86_64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:IOStorageFamily_x86_64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:pthread_x86_64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:HFSEncodings_x86_64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:hfs_x86_64)" +
+          " --workdir $(@D)/collection-x86_64 --output $@",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "kernel_collection_arm64",
+    srcs = [
+        ":kernel_arm64", "kernel.headers.arm64.tar",
+        "//scripts:build_kernel_collection.py",
+        "//src/Kernel/Extensions/25.5.0:embedded_crypto_arm64",
+        "//src/Kernel/Extensions/25.5.0:PDArmPlatformExpert_arm64",
+        "//src/Kernel/Extensions/25.5.0:IOStorageFamily_arm64",
+        "//src/Kernel/Extensions/25.5.0:pthread_arm64",
+        "//src/Kernel/Extensions/25.5.0:HFSEncodings_arm64",
+        "//src/Kernel/Extensions/25.5.0:hfs_arm64",
+    ],
+    tools = ["//tools/kc-tools:kc-builder"],
+    outs = ["kernel.collection.arm64"],
+    cmd = "python3 $(location //scripts:build_kernel_collection.py)" +
+          " --builder $(location //tools/kc-tools:kc-builder) --kernel $(location :kernel_arm64)" +
+          " --sdk $(location kernel.headers.arm64.tar)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:embedded_crypto_arm64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:PDArmPlatformExpert_arm64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:IOStorageFamily_arm64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:pthread_arm64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:HFSEncodings_arm64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:hfs_arm64)" +
+          " --kc-base 0xfffffff006c00000 --workdir $(@D)/collection-arm64 --output $@",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "kernel_bin_arm64",
+    srcs = [":kernel_collection_arm64", "//scripts:macho_to_bin.py"],
+    outs = ["arm64/kernel.bin", "arm64/kernel_layout.h", "arm64/kernel_layout.json"],
+    cmd = "python3 $(location //scripts:macho_to_bin.py) $(location :kernel_collection_arm64) " +
+          "$(location arm64/kernel.bin) --virtual-bias 0xfffffff000000000 " +
+          "--header $(location arm64/kernel_layout.h) --layout $(location arm64/kernel_layout.json)",
+    visibility = ["//visibility:public"],
+)
+
+[
+    genrule(
+        name = "build_kernel_" + arch,
+        srcs = [
+            ":sources",
+            "//src/Libraries/25.5.0:kernel_dependency_sources",
+            "//src/Kernel/KernelHeaders/bootstrap:kernel_bootstrap_header_files",
+            "//tools/cctools:cctools_header_files",
+            "//tools/mig:mig.sh",
+            "//scripts:build_xnu.py",
+            "//scripts:plutil.py",
+        ],
+        tools = HOST_TOOLS,
+        outs = ["kernel." + arch, "kernel." + arch + ".unstripped", "kernel.headers." + arch + ".tar"],
+        cmd = "python3 $(location //scripts:build_xnu.py) " +
+              "--root $$PWD --host-ld $(location //tools/cctools:ld) --arch " + arch +
+              " --workdir $(@D)/build-" + arch +
+              " --output $(location kernel." + arch + ")" +
+              " --symbols-output $(location kernel." + arch + ".unstripped)" +
+              " --headers-output $(location kernel.headers." + arch + ".tar) --jobs 8",
+        visibility = ["//visibility:public"],
+    )
+    for arch in ["x86_64", "arm64"]
+]
+
+[
+    filegroup(
+        name = "kernel_" + arch,
+        srcs = ["kernel." + arch],
+        visibility = ["//visibility:public"],
+    )
+    for arch in ["x86_64", "arm64"]
+]

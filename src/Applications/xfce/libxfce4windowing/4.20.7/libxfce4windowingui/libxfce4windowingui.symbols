@@ -1,0 +1,13 @@
+# file:libxfce4windowingui-config
+libxfce4windowingui_check_version
+var:libxfce4windowingui_major_version
+var:libxfce4windowingui_micro_version
+var:libxfce4windowingui_minor_version
+
+# file:xfw-window-action-menu
+xfw_window_action_menu_get_type
+xfw_window_action_menu_new
+
+# file:xfw-window-list-menu
+xfw_window_list_menu_get_type
+xfw_window_list_menu_new

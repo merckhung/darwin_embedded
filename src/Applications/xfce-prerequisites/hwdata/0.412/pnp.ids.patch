@@ -1,0 +1,69 @@
+--- pnp.ids.orig	2025-02-03 07:56:54.066105393 +0100
++++ pnp.ids	2025-02-03 07:56:54.070105355 +0100
+@@ -195,7 +195,7 @@
+ AUD	AudioControl
+ AUG	August Home, Inc.
+ AUI	ALPS ALPINE CO., LTD.
+-AUO	DO NOT USE - AUO
++AUO	AU Optronics
+ AUR	Aureal Semiconductor
+ AUS	ASUSTek COMPUTER INC
+ AUT	Autotime Corporation
+@@ -555,7 +555,7 @@
+ DIN	Daintelecom Co., Ltd
+ DIS	Diseda S.A.
+ DIT	Dragon Information Technology
+-DJE	Capstone Visua lProduct Development
++DJE	Capstone Visual Product Development
+ DJP	Maygay Machines, Ltd
+ DKY	Datakey Inc
+ DLB	Dolby Laboratories Inc.
+@@ -801,7 +801,7 @@
+ FOK	Fokus Technologies GmbH
+ FOS	Foss Tecator
+ FOV	FOVE INC
+-FOX	HON HAI PRECISON IND.CO.,LTD.
++FOX	HON HAI PRECISION IND.CO.,LTD.
+ FPC	Fingerprint Cards AB
+ FPE	Fujitsu Peripherals Ltd
+ FPS	Deltec Corporation
+@@ -888,7 +888,7 @@
+ GRY	Robert Gray Company
+ GSB	NIPPONDENCHI CO,.LTD
+ GSC	General Standards Corporation
+-GSM	Goldstar Company Ltd
++GSM	LG Electronics
+ GSN	Grandstream Networks, Inc.
+ GST	Graphic SystemTechnology
+ GSY	Grossenbacher Systeme AG
+@@ -1293,7 +1293,7 @@
+ LOL	Litelogic Operations Ltd
+ LPE	El-PUSK Co., Ltd.
+ LPI	Design Technology
+-LPL	DO NOT USE - LPL
++LPL	LG Philips
+ LSC	LifeSize Communications
+ LSD	Intersil Corporation
+ LSI	Loughborough Sound Images
+@@ -2347,9 +2347,9 @@
+ UNA	Unisys DSD
+ UNB	Unisys Corporation
+ UNC	Unisys Corporation
+-UND	DO NOT USE - UND
+-UNE	DO NOT USE - UNE
+-UNF	DO NOT USE - UNF
++UND	Unisys Corporation
++UNE	Unisys Corporation
++UNF	Unisys Corporation
+ UNI	Uniform Industry Corp.
+ UNM	Unisys Corporation
+ UNO	Unisys Corporation
+@@ -2491,7 +2491,7 @@
+ WWV	World Wide Video, Inc.
+ WXT	Woxter Technology Co. Ltd
+ WYR	WyreStorm Technologies LLC
+-WYS	Myse Technology
++WYS	Wyse Technology
+ WYT	Wooyoung Image & Information Co.,Ltd.
+ XAC	XAC Automation Corp
+ XAD	Alpha Data

@@ -1,0 +1,2167 @@
+{
+  "format_version": 1,
+  "scope": "Third-party notice index, not a whole-component license determination.",
+  "components": [
+    {
+      "component": "OVMF / EDK II",
+      "root": "bootloader/ovmf",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "bootloader/ovmf/COPYRIGHT",
+          "sha256": "b42a3b2c60b162118ac20ed40f732e9e427a8110e0ff56a81aef9a010a1b303b"
+        },
+        {
+          "path": "bootloader/ovmf/LICENSE.txt",
+          "sha256": "7aa278b6f1a2125d0a0c596fa537caca5a41e7b03f7d2dd0489905f65ffdb984"
+        }
+      ],
+      "provenance": "bootloader/ovmf/UPSTREAM.json"
+    },
+    {
+      "component": "xnu-loader",
+      "root": "bootloader/xnu-loader",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "bootloader/xnu-loader/LICENSE",
+          "sha256": "f4bd21af51ef06b69b41396beebcc95a5fa888706ae2092d873ccc9b08a53467"
+        }
+      ],
+      "provenance": "bootloader/xnu-loader/UPSTREAM.json",
+      "commit": "82ebfc4db6361ea66c034cff388f423811e740c7",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "component": "at-spi2-core",
+      "root": "src/Applications/accessibility/at-spi2-core/2.62.1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/accessibility/at-spi2-core/2.62.1/COPYING",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+        }
+      ],
+      "provenance": "src/Applications/accessibility/at-spi2-core/2.62.1/UPSTREAM.json",
+      "version": "2.62.1"
+    },
+    {
+      "component": "BusyBox",
+      "root": "src/Applications/busybox/1.38.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/busybox/1.38.0/LICENSE",
+          "sha256": "bbfc9843646d483c334664f651c208b9839626891d8f17604db2146962f43548"
+        },
+        {
+          "path": "src/Applications/busybox/1.38.0/archival/libarchive/bz/LICENSE",
+          "sha256": "b5a136ed67798e51fe2e0ca0b2a21cb01b904ff0c9f7d563a6292e276607e58f"
+        }
+      ],
+      "provenance": "src/Applications/busybox/1.38.0/UPSTREAM.json",
+      "version": "1.38.0"
+    },
+    {
+      "component": "LLVM compiler-rt integer division builtins",
+      "root": "src/Applications/cxx/compiler-rt-builtins/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/cxx/compiler-rt-builtins/20.1.8/LICENSE.TXT",
+          "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+        }
+      ],
+      "provenance": "src/Applications/cxx/compiler-rt-builtins/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "libcxx",
+      "root": "src/Applications/cxx/libcxx/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/cxx/libcxx/20.1.8/LICENSE.TXT",
+          "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+        }
+      ],
+      "provenance": "src/Applications/cxx/libcxx/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "libcxxabi",
+      "root": "src/Applications/cxx/libcxxabi/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/cxx/libcxxabi/20.1.8/LICENSE.TXT",
+          "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+        }
+      ],
+      "provenance": "src/Applications/cxx/libcxxabi/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "libunwind",
+      "root": "src/Applications/cxx/libunwind/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/cxx/libunwind/20.1.8/LICENSE.TXT",
+          "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d"
+        }
+      ],
+      "provenance": "src/Applications/cxx/libunwind/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "LLVM libc shared numeric headers",
+      "root": "src/Applications/cxx/llvm-libc-shared/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/cxx/llvm-libc-shared/20.1.8/LICENSE.TXT",
+          "sha256": "ebcd9bbf783a73d05c53ba4d586b8d5813dcdf3bbec50265860ccc885e606f47"
+        }
+      ],
+      "provenance": "src/Applications/cxx/llvm-libc-shared/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "dash",
+      "root": "src/Applications/dash/0.5.13.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/dash/0.5.13.5/COPYING",
+          "sha256": "254a7894923ff62e69184a991dcbccae97edee58a1105e8efbe78caf10595d72"
+        }
+      ],
+      "provenance": "src/Applications/dash/0.5.13.5/UPSTREAM.json",
+      "tag": "v0.5.13.5",
+      "commit": "037bbdfd330017c368caf6242f977974123239b5",
+      "licenses": "BSD-style notices retained in the source files; COPYING contains the upstream license inventory."
+    },
+    {
+      "component": "libXScrnSaver",
+      "root": "src/Applications/desktop-x11/libXScrnSaver/1.2.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXScrnSaver/1.2.5/COPYING",
+          "sha256": "5cf3e16f5dd753a4c0853e8227134ab65f5562d9ef89b1a2d7681f5c8ac9feb5"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXScrnSaver/1.2.5/UPSTREAM.json",
+      "version": "1.2.5"
+    },
+    {
+      "component": "libXcomposite",
+      "root": "src/Applications/desktop-x11/libXcomposite/0.4.7",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXcomposite/0.4.7/COPYING",
+          "sha256": "4ff0d7645aaf5b0402904190e841905a1569132f1d95509eaf0e739b852e2458"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXcomposite/0.4.7/UPSTREAM.json",
+      "version": "0.4.7"
+    },
+    {
+      "component": "libXcursor",
+      "root": "src/Applications/desktop-x11/libXcursor/1.2.3",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXcursor/1.2.3/COPYING",
+          "sha256": "ad2e9d279088c5d612fb0e506ea8bb7d9f01b411e7f4b97b64589c3cd48a68f1"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXcursor/1.2.3/UPSTREAM.json",
+      "version": "1.2.3"
+    },
+    {
+      "component": "libXdamage",
+      "root": "src/Applications/desktop-x11/libXdamage/1.1.7",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXdamage/1.1.7/COPYING",
+          "sha256": "33effe928634be12e668465c3935c5570ff2787b970b15d9243d69df42302c57"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXdamage/1.1.7/UPSTREAM.json",
+      "version": "1.1.7"
+    },
+    {
+      "component": "libXfixes",
+      "root": "src/Applications/desktop-x11/libXfixes/6.0.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXfixes/6.0.2/COPYING",
+          "sha256": "a07d8a5a6972638a745a03983207a1052881c24eea29021fdca7794bea8d7774"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXfixes/6.0.2/UPSTREAM.json",
+      "version": "6.0.2"
+    },
+    {
+      "component": "libXi",
+      "root": "src/Applications/desktop-x11/libXi/1.8.3",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXi/1.8.3/COPYING",
+          "sha256": "9392174bc86e291369fd2f61f3ed325962735a5f5c585ce8d7ebd365e2a5639f"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXi/1.8.3/UPSTREAM.json",
+      "version": "1.8.3"
+    },
+    {
+      "component": "libXinerama",
+      "root": "src/Applications/desktop-x11/libXinerama/1.1.6",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXinerama/1.1.6/COPYING",
+          "sha256": "1d4e533646e02aa0e4192eb5355c1a9dd5d01b00412f01fb73856f0e7a638a84"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXinerama/1.1.6/UPSTREAM.json",
+      "version": "1.1.6"
+    },
+    {
+      "component": "libXrandr",
+      "root": "src/Applications/desktop-x11/libXrandr/1.5.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXrandr/1.5.5/COPYING",
+          "sha256": "73777e5be1cef2827d843e4b186803f050c66db472cf8076d88e2b5f71696e67"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXrandr/1.5.5/UPSTREAM.json",
+      "version": "1.5.5"
+    },
+    {
+      "component": "libXres",
+      "root": "src/Applications/desktop-x11/libXres/1.2.3",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXres/1.2.3/COPYING",
+          "sha256": "0d7300168f85833ea2564835f66a61e036ede90b33e76c06a7b4078096fedbcc"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXres/1.2.3/UPSTREAM.json",
+      "version": "1.2.3"
+    },
+    {
+      "component": "libXtst",
+      "root": "src/Applications/desktop-x11/libXtst/1.2.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/desktop-x11/libXtst/1.2.5/COPYING",
+          "sha256": "940190489c7a0e5ae3d83fc4fcbd79e0cd1b765bf1a4efd408293c1ee0332ceb"
+        }
+      ],
+      "provenance": "src/Applications/desktop-x11/libXtst/1.2.5/UPSTREAM.json",
+      "version": "1.2.5"
+    },
+    {
+      "component": "cairo",
+      "root": "src/Applications/fonts/cairo/1.18.6",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/COPYING",
+          "sha256": "67228a9f7c5f9b67c58f556f1be178f62da4d9e2e6285318d8c74d567255abdf"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/COPYING-LGPL-2.1",
+          "sha256": "9e9e8608c4cdda51a78cc3a385f4ec9a2e4c96d5ecad74ac8bca5fca3e563b7d"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/COPYING-MPL-1.1",
+          "sha256": "53692a2ed6c6a2c6ec9b32dd0b820dfae91e0a1fcdf625ca9ed0bdf8705fcc4f"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/perf/COPYING",
+          "sha256": "6f93b45ea874706058ae35bc02df79c3f9daf00948672eea8394cc25d1327d49"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/test/COPYING",
+          "sha256": "a37812e0e27a211272d4c27fa45028c3653e78bb708acccb77c94128dc72b98e"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/util/COPYING",
+          "sha256": "008e976b6e5e7155ee24322073f42cab7cd6daf90bc2322f1d5c3aacab94111c"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/util/cairo-script/COPYING",
+          "sha256": "25f4d4ce651b1ee6aff713ff986275d6c190a8537e36437886f8bf1497b0a174"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/util/cairo-trace/COPYING",
+          "sha256": "421158645572270264a980b8b130dd988138e4dae20144e22455446e0ef90902"
+        },
+        {
+          "path": "src/Applications/fonts/cairo/1.18.6/util/cairo-trace/COPYING-GPL-3",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        }
+      ],
+      "provenance": "src/Applications/fonts/cairo/1.18.6/UPSTREAM.json",
+      "version": "1.18.6"
+    },
+    {
+      "component": "fontconfig",
+      "root": "src/Applications/fonts/fontconfig/2.18.3",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/fonts/fontconfig/2.18.3/COPYING",
+          "sha256": "51a51aa9823704fd90bccc616cdd17ebabb5b2b3e9cbde886ca02c7002288067"
+        }
+      ],
+      "provenance": "src/Applications/fonts/fontconfig/2.18.3/UPSTREAM.json",
+      "version": "2.18.3"
+    },
+    {
+      "component": "harfbuzz",
+      "root": "src/Applications/fonts/harfbuzz/14.6.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/fonts/harfbuzz/14.6.0/COPYING",
+          "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+        },
+        {
+          "path": "src/Applications/fonts/harfbuzz/14.6.0/perf/texts/COPYING",
+          "sha256": "cf977e70247d5fa9d44955e4d8ed23b503c31f78570f62136756278c2cfcb3c3"
+        },
+        {
+          "path": "src/Applications/fonts/harfbuzz/14.6.0/src/ms-use/COPYING",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        },
+        {
+          "path": "src/Applications/fonts/harfbuzz/14.6.0/test/COPYING",
+          "sha256": "9b35b8485f69cd298fccbb3c40a827dc06cf1185553bef827903497d2944a8d7"
+        },
+        {
+          "path": "src/Applications/fonts/harfbuzz/14.6.0/test/shape/data/aots/COPYING",
+          "sha256": "f55f74bf740db07bb032a90aa74af4307adea3d489c1ccba12453cf0c0a764cb"
+        },
+        {
+          "path": "src/Applications/fonts/harfbuzz/14.6.0/test/shape/data/text-rendering-tests/COPYING",
+          "sha256": "d24039e4d22c9bc72096f6174374539d92a3d6e1163938546ec59179fe095e6f"
+        }
+      ],
+      "provenance": "src/Applications/fonts/harfbuzz/14.6.0/UPSTREAM.json",
+      "version": "14.6.0"
+    },
+    {
+      "component": "gettext",
+      "root": "src/Applications/glib/gettext/1.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/glib/gettext/1.0/COPYING",
+          "sha256": "e79e9c8a0c85d735ff98185918ec94ed7d175efc377012787aebcf3b80f0d90b"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-runtime/COPYING",
+          "sha256": "7ef2cdfe58e0c0460657b6598b49af29d4e03c1e41cbaf0e1da1eb8ad74b95d0"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-runtime/intl/COPYING.LIB",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-runtime/libasprintf/COPYING",
+          "sha256": "03133addae5b99a6148c538300e6d97074453089be1423b741bd081f18e2b298"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-runtime/libasprintf/COPYING.LIB",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/COPYING",
+          "sha256": "5d4cff30d5038f82a0edc79798456049b61e1752fdb7e9ab1f4bfb9fae3a7303"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/gnulib-lib/libxml/COPYING",
+          "sha256": "c5c63674f8a83c4d2e385d96d1c670a03cb871ba2927755467017317878574bd"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-0.23.2/LICENSE",
+          "sha256": "5f9cf9fb6acb1972b35ae29119ce563bb60ec097656bc4b69b9bac2d04c7a147"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-0.23.2/lib/src/unicode/LICENSE",
+          "sha256": "6a18c5fac70d7860b57f5b72b4e2c9a1ba6b3d2741eef7ff9767c5379364f10d"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-d-0.8.2/LICENSE",
+          "sha256": "ecf206b1a27e8e4ea07f1e1529cb111b4be5ce8420bd27b8269981d9c0c389f8"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-go-0.23.4/LICENSE",
+          "sha256": "2e0110e07abef7c2548b26ec9d6969775617ca539a0dc8dbeeb14d6452c711d1"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-ocaml-0.23.2/LICENSE",
+          "sha256": "f977a20805dd6e275f14bc090a5f8e638401dad4df366841c1060f12c75b74ae"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-rust-0.23.2/LICENSE",
+          "sha256": "31d5b6f4243d5c7c6e1c4ebbbb9f6407bd1457a08bcc4f706521710341acba36"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gettext-tools/tree-sitter-typescript-0.23.2/LICENSE",
+          "sha256": "49bf33cf78ef5897e4e161ce1517df7de1ae5042a65b6bcfd44401e0fc606559"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/gnulib-local/lib/libxml/COPYING",
+          "sha256": "c5c63674f8a83c4d2e385d96d1c670a03cb871ba2927755467017317878574bd"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/libtextstyle/COPYING",
+          "sha256": "e79e9c8a0c85d735ff98185918ec94ed7d175efc377012787aebcf3b80f0d90b"
+        },
+        {
+          "path": "src/Applications/glib/gettext/1.0/libtextstyle/lib/libxml/COPYING",
+          "sha256": "c5c63674f8a83c4d2e385d96d1c670a03cb871ba2927755467017317878574bd"
+        }
+      ],
+      "provenance": "src/Applications/glib/gettext/1.0/UPSTREAM.json",
+      "version": "1.0",
+      "license": "LGPL-2.1-or-later (runtime); GPL-3.0-or-later (tools)"
+    },
+    {
+      "component": "glib",
+      "root": "src/Applications/glib/glib/2.90.1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/glib/glib/2.90.1/COPYING",
+          "sha256": "fa6f36630bb1e0c571d34b2bbdf188d08495c9dbf58f28cac112f303fc1f58fb"
+        },
+        {
+          "path": "src/Applications/glib/glib/2.90.1/docs/reference/COPYING",
+          "sha256": "b1ec1d0e5947f81e815d8771f7d4d90671a94bb10a42dc687fb566de461a57aa"
+        },
+        {
+          "path": "src/Applications/glib/glib/2.90.1/gmodule/COPYING",
+          "sha256": "fa6f36630bb1e0c571d34b2bbdf188d08495c9dbf58f28cac112f303fc1f58fb"
+        },
+        {
+          "path": "src/Applications/glib/glib/2.90.1/subprojects/gvdb/COPYING",
+          "sha256": "bdbcdaa7858872393e9d6b216bbdc8a23e99d98dd6cdb7cda19458025b9e19fc"
+        }
+      ],
+      "provenance": "src/Applications/glib/glib/2.90.1/UPSTREAM.json",
+      "version": "2.90.1",
+      "license": "LGPL-2.1-or-later"
+    },
+    {
+      "component": "libffi",
+      "root": "src/Applications/glib/libffi/3.8.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/glib/libffi/3.8.0/LICENSE",
+          "sha256": "17b64dc60f3b6897a60f971e288b973f655c2edcdf08b25f3c3dd5549857881c"
+        },
+        {
+          "path": "src/Applications/glib/libffi/3.8.0/LICENSE-BUILDTOOLS",
+          "sha256": "e67978cd18816c0cb7d29aaaacde7b7447402c2fb321a051698890a8eaedda94"
+        }
+      ],
+      "provenance": "src/Applications/glib/libffi/3.8.0/UPSTREAM.json",
+      "version": "3.8.0",
+      "license": "MIT"
+    },
+    {
+      "component": "libiconv",
+      "root": "src/Applications/glib/libiconv/1.19",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/glib/libiconv/1.19/COPYING",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "path": "src/Applications/glib/libiconv/1.19/COPYING.LIB",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        },
+        {
+          "path": "src/Applications/glib/libiconv/1.19/libcharset/COPYING.LIB",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        }
+      ],
+      "provenance": "src/Applications/glib/libiconv/1.19/UPSTREAM.json",
+      "version": "1.19",
+      "license": "LGPL-2.1-or-later (library); GPL-3.0-or-later (tools)"
+    },
+    {
+      "component": "pcre2",
+      "root": "src/Applications/glib/pcre2/10.49",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/glib/pcre2/10.49/COPYING",
+          "sha256": "99272c55f3dcfa07a8a7e15a5c1a33096e4727de74241d65fa049fccfdd59507"
+        },
+        {
+          "path": "src/Applications/glib/pcre2/10.49/LICENCE.md",
+          "sha256": "197d8a73ffee0d6b09adba2f9c677b5f5aede24edf89258a68e48248d010d811"
+        },
+        {
+          "path": "src/Applications/glib/pcre2/10.49/cmake/COPYING-CMAKE-SCRIPTS",
+          "sha256": "c666ec2313dba24523ccad88f4c04ea4b24fad6545263a35b1d4ab2b08efe50a"
+        },
+        {
+          "path": "src/Applications/glib/pcre2/10.49/deps/sljit/LICENSE",
+          "sha256": "5f216505c0f6ea3273caec89e766eef93cdeb7bbb0c429f9360116d7c938feeb"
+        }
+      ],
+      "provenance": "src/Applications/glib/pcre2/10.49/UPSTREAM.json",
+      "version": "10.49",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "component": "expat",
+      "root": "src/Applications/graphics/expat/2.9.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/graphics/expat/2.9.0/COPYING",
+          "sha256": "31b15de82aa19a845156169a17a5488bf597e561b2c318d159ed583139b25e87"
+        }
+      ],
+      "provenance": "src/Applications/graphics/expat/2.9.0/UPSTREAM.json",
+      "version": "2.9.0"
+    },
+    {
+      "component": "freetype",
+      "root": "src/Applications/graphics/freetype/2.15.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/graphics/freetype/2.15.0/LICENSE.TXT",
+          "sha256": "bd36c8b474855fa294c2ec5c184544478ef3720aad37d65a6296a4f264fd2d3b"
+        }
+      ],
+      "provenance": "src/Applications/graphics/freetype/2.15.0/UPSTREAM.json",
+      "version": "2.15.0"
+    },
+    {
+      "component": "libpng",
+      "root": "src/Applications/graphics/libpng/1.6.59",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/graphics/libpng/1.6.59/LICENSE",
+          "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526"
+        },
+        {
+          "path": "src/Applications/graphics/libpng/1.6.59/contrib/gregbook/COPYING",
+          "sha256": "d6cb0e9e560f51085556949a84af12b79a00f10ab8b66c752537faf7cd665572"
+        },
+        {
+          "path": "src/Applications/graphics/libpng/1.6.59/contrib/gregbook/LICENSE",
+          "sha256": "b6a03c1803eb58ffb1f1278d5c7d4096c4c116e66dce8a7553e8c77d163c3438"
+        },
+        {
+          "path": "src/Applications/graphics/libpng/1.6.59/contrib/pngexif/LICENSE_MIT.txt",
+          "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+        },
+        {
+          "path": "src/Applications/graphics/libpng/1.6.59/contrib/pngminus/LICENSE.txt",
+          "sha256": "1806f1f10d393e9e377b3a8d1b968452b54f1a90378f14eeef45426946ace330"
+        }
+      ],
+      "provenance": "src/Applications/graphics/libpng/1.6.59/UPSTREAM.json",
+      "version": "1.6.59"
+    },
+    {
+      "component": "pixman",
+      "root": "src/Applications/graphics/pixman/0.46.4",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/graphics/pixman/0.46.4/COPYING",
+          "sha256": "fac9270f0987b96ff4533fca3548c633e02083cbba4a0172a3b149b2e4019793"
+        }
+      ],
+      "provenance": "src/Applications/graphics/pixman/0.46.4/UPSTREAM.json",
+      "version": "0.46.4"
+    },
+    {
+      "component": "zlib",
+      "root": "src/Applications/graphics/zlib/1.3.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/graphics/zlib/1.3.2/LICENSE",
+          "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+        },
+        {
+          "path": "src/Applications/graphics/zlib/1.3.2/contrib/dotzlib/LICENSE_1_0.txt",
+          "sha256": "36266a8fd073568394cb81cdb2b124f7fdae2c64c1a7ed09db34b4d22efa2951"
+        },
+        {
+          "path": "src/Applications/graphics/zlib/1.3.2/contrib/minizip/LICENSE.Info-Zip",
+          "sha256": "fc686023047ce5ce3a18a9b8a777156f0e475929d3de06bac279f3c025d2b2ca"
+        }
+      ],
+      "provenance": "src/Applications/graphics/zlib/1.3.2/UPSTREAM.json",
+      "version": "1.3.2"
+    },
+    {
+      "component": "gdk-pixbuf",
+      "root": "src/Applications/gtk/gdk-pixbuf/2.44.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/gtk/gdk-pixbuf/2.44.8/COPYING",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+        }
+      ],
+      "provenance": "src/Applications/gtk/gdk-pixbuf/2.44.8/UPSTREAM.json",
+      "version": "2.44.8"
+    },
+    {
+      "component": "dbus",
+      "root": "src/Applications/ipc/dbus/1.16.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/ipc/dbus/1.16.2/COPYING",
+          "sha256": "150e5d08e1cb5e62b65967d7931acad2c42d98ec1bbb584bebb01921cbc853c2"
+        }
+      ],
+      "provenance": "src/Applications/ipc/dbus/1.16.2/UPSTREAM.json",
+      "version": "1.16.2"
+    },
+    {
+      "component": "OpenBSD libc resolver companion files",
+      "root": "src/Applications/resolver/openbsd/fb109c562f6c1fced0a18e5ac2791d6d41a8b2f6",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Applications/resolver/openbsd/fb109c562f6c1fced0a18e5ac2791d6d41a8b2f6/UPSTREAM.json",
+      "commit": "fb109c562f6c1fced0a18e5ac2791d6d41a8b2f6",
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "OpenSMTPD",
+      "root": "src/Applications/resolver/opensmtpd/7.8.0p1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/resolver/opensmtpd/7.8.0p1/LICENSE",
+          "sha256": "c6ed3494104a9f6356207ed02c8ad19405610c3b071b3a72109b1793a7f8e999"
+        }
+      ],
+      "provenance": "src/Applications/resolver/opensmtpd/7.8.0p1/UPSTREAM.json",
+      "version": "7.8.0p1"
+    },
+    {
+      "component": "fribidi",
+      "root": "src/Applications/text/fribidi/1.0.17",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/text/fribidi/1.0.17/COPYING",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        }
+      ],
+      "provenance": "src/Applications/text/fribidi/1.0.17/UPSTREAM.json",
+      "version": "1.0.17"
+    },
+    {
+      "component": "libdatrie",
+      "root": "src/Applications/text/libdatrie/0.2.14",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/text/libdatrie/0.2.14/COPYING",
+          "sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861"
+        }
+      ],
+      "provenance": "src/Applications/text/libdatrie/0.2.14/UPSTREAM.json",
+      "version": "0.2.14"
+    },
+    {
+      "component": "libthai",
+      "root": "src/Applications/text/libthai/0.1.30",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/text/libthai/0.1.30/COPYING",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        }
+      ],
+      "provenance": "src/Applications/text/libthai/0.1.30/UPSTREAM.json",
+      "version": "0.1.30"
+    },
+    {
+      "component": "pango",
+      "root": "src/Applications/text/pango/1.58.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/text/pango/1.58.2/COPYING",
+          "sha256": "d245807f90032872d1438d741ed21e2490e1175dc8aa3afa5ddb6c8e529b58e5"
+        }
+      ],
+      "provenance": "src/Applications/text/pango/1.58.2/UPSTREAM.json",
+      "version": "1.58.2"
+    },
+    {
+      "component": "gtk",
+      "root": "src/Applications/widgets/gtk/3.24.52",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/widgets/gtk/3.24.52/COPYING",
+          "sha256": "b7993225104d90ddd8024fd838faf300bea5e83d91203eab98e29512acebd69c"
+        },
+        {
+          "path": "src/Applications/widgets/gtk/3.24.52/gdk/COPYING",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+        }
+      ],
+      "provenance": "src/Applications/widgets/gtk/3.24.52/UPSTREAM.json",
+      "version": "3.24.52"
+    },
+    {
+      "component": "libepoxy",
+      "root": "src/Applications/widgets/libepoxy/1.5.10",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/widgets/libepoxy/1.5.10/COPYING",
+          "sha256": "8d5144666f9c4df9bbd69b8900086d5979259152a1060421cdcc0fb9061a1c12"
+        }
+      ],
+      "provenance": "src/Applications/widgets/libepoxy/1.5.10/UPSTREAM.json",
+      "version": "1.5.10"
+    },
+    {
+      "component": "libX11",
+      "root": "src/Applications/x11/libX11/1.8.13",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/libX11/1.8.13/COPYING",
+          "sha256": "eda0c2ed1cae0280c7fe79762eaad8ad31c044afc64e71e92ef2c6f3cd7bc395"
+        },
+        {
+          "path": "src/Applications/x11/libX11/1.8.13/src/xlibi18n/lcUniConv/COPYRIGHT",
+          "sha256": "b7492b0e0cb9117d13dc928130ca8303185008f7231bc91a9a2071b381f5f490"
+        }
+      ],
+      "provenance": "src/Applications/x11/libX11/1.8.13/UPSTREAM.json",
+      "version": "1.8.13"
+    },
+    {
+      "component": "libXau",
+      "root": "src/Applications/x11/libXau/1.0.12",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/libXau/1.0.12/COPYING",
+          "sha256": "56abe29bb1d9806a9e04fa9f80fed2c0f18027594df3f098148d814aef6bddfa"
+        }
+      ],
+      "provenance": "src/Applications/x11/libXau/1.0.12/UPSTREAM.json",
+      "version": "1.0.12"
+    },
+    {
+      "component": "libXdmcp",
+      "root": "src/Applications/x11/libXdmcp/1.1.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/libXdmcp/1.1.5/COPYING",
+          "sha256": "8a3c3f35b0dbcb60a4e242b9e4394a352a65bb27deb2938ea1e2e62a626e16e9"
+        }
+      ],
+      "provenance": "src/Applications/x11/libXdmcp/1.1.5/UPSTREAM.json",
+      "version": "1.1.5"
+    },
+    {
+      "component": "libXext",
+      "root": "src/Applications/x11/libXext/1.3.7",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/libXext/1.3.7/COPYING",
+          "sha256": "fd62910be4b13829d94e76c1447cf840953f0e225c4dc6c79349c84dd0557f22"
+        }
+      ],
+      "provenance": "src/Applications/x11/libXext/1.3.7/UPSTREAM.json",
+      "version": "1.3.7"
+    },
+    {
+      "component": "libXrender",
+      "root": "src/Applications/x11/libXrender/0.9.12",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/libXrender/0.9.12/COPYING",
+          "sha256": "bbe1db89c48816c48248796adac91defd8fbde1141b145f01511781ab87f29a1"
+        }
+      ],
+      "provenance": "src/Applications/x11/libXrender/0.9.12/UPSTREAM.json",
+      "version": "0.9.12"
+    },
+    {
+      "component": "libxcb",
+      "root": "src/Applications/x11/libxcb/1.17.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/libxcb/1.17.0/COPYING",
+          "sha256": "c5ffbfeaa501071ceeb97b7de2c0d703fdaa35de01c0fb6cbac1c28453a3e9fd"
+        }
+      ],
+      "provenance": "src/Applications/x11/libxcb/1.17.0/UPSTREAM.json",
+      "version": "1.17.0"
+    },
+    {
+      "component": "xcb-proto",
+      "root": "src/Applications/x11/xcb-proto/1.17.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/xcb-proto/1.17.0/COPYING",
+          "sha256": "c5ffbfeaa501071ceeb97b7de2c0d703fdaa35de01c0fb6cbac1c28453a3e9fd"
+        }
+      ],
+      "provenance": "src/Applications/x11/xcb-proto/1.17.0/UPSTREAM.json",
+      "version": "1.17.0"
+    },
+    {
+      "component": "xorgproto",
+      "root": "src/Applications/x11/xorgproto/2026.1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-applewmproto",
+          "sha256": "aacd931f191b610902aee1e526090c2858aabc07969441fa2537ffd3e7049555"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-bigreqsproto",
+          "sha256": "dabc025f93129a0eb2d17f37c719dbe5ecbcb5bc8f7bc7f4ce89fe04576cc0c2"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-compositeproto",
+          "sha256": "3e980a770506b448897638632974bbcbdf2da3b99191dd0a03d3770097a46738"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-damageproto",
+          "sha256": "f67a18cb46c4c203c5122b4a901cfcc3178b2a62f83f31ca5fef5bdca3966094"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-dmxproto",
+          "sha256": "819e8dcd3dd2a44850c350331aa492230f86bccb0983dd739dec5ba36d7d2b8e"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-dri2proto",
+          "sha256": "0c306691492c4d7a8cda1ec3847668b797887dddcd7e986b4c166ae27619af7d"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-dri3proto",
+          "sha256": "64a579d1a0b3347301d87c94698a58ea7933d0ae6ca7e8fdd702fde2ea376301"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-evieproto",
+          "sha256": "9936421f7516f7a17ae560b6989636b493e55c01128b543c7e72441568c3cba4"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-fixesproto",
+          "sha256": "fb361c7c4322e4919ae193c5a20055d5190c23aa50480fd0a41f4d439cae2bc6"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-fontcacheproto",
+          "sha256": "1ab381e978bff63d68be2e4f235d51935f3f16f3ba3bebf83afa99a70c0484a2"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-fontsproto",
+          "sha256": "f4af05774b02ae149357cc26f7bf5ef1116c2e09373c2492081a3a1892c58417"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-glproto",
+          "sha256": "823deb4673d3f26aa8c90e704888299648f00be3262f9363eaeecedcd65b936d"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-inputproto",
+          "sha256": "5e083a2ace0215a6084c877c023a6079952ba803d692488203ba4269196debe3"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-kbproto",
+          "sha256": "883f26ebeffb29f955c1e2becdee284bce16c7139b1410f6f7331d3bd59bfc78"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-lg3dproto",
+          "sha256": "2467132d97b75edba05d908604124be2f46ee113954f848c99bcd938055e8e4b"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-pmproto",
+          "sha256": "8442b5f22f2fb13017a4302a906e7dedc899267b41f613558970941120170128"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-presentproto",
+          "sha256": "64a579d1a0b3347301d87c94698a58ea7933d0ae6ca7e8fdd702fde2ea376301"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-printproto",
+          "sha256": "46f599055002bbf3e6ce244bde8d9ebe5ec24ae7906836db186773a9791d0b75"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-randrproto",
+          "sha256": "41c13dcd09147ed2440286f2fb8151df8ebee06deee4ed78ddf094601c216d3d"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-recordproto",
+          "sha256": "e37891ac36e827611d6e7ae51ddb14a9cc9ba56f6cc87c55b6ce3b6d76cd2bf4"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-renderproto",
+          "sha256": "e0ca4f1d27a95ef7552ccdfce7e95ddf1e8b10ac713a05b49e8bd82713d7914b"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-resourceproto",
+          "sha256": "403e7be948674530ad40669b1e3a31adeddb656502f3b0ef810d5d3cc35d0b52"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-scrnsaverproto",
+          "sha256": "fcbd3c628bf4d28ee3e6032054bf44bbe58f3b1a944dad856a8d3eb6b37ea412"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-trapproto",
+          "sha256": "2c1807ecb78dddba1a9cd612a11bfdbc013b77144880ec3c268241495cb022dd"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-videoproto",
+          "sha256": "f8f49bbad61967ebc890fb79fff5bfb7cfc1c341aa8f8dee13eb3fb534040b47"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-windowswmproto",
+          "sha256": "eb183a00c61bb47992f096b6993ed7ec17518bea9c285fe87efff7f622cc6c12"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-x11proto",
+          "sha256": "da835951edc6e3b8d168d6afe7447c65d0b9a99937293cf3f288bba8244a9f86"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xcmiscproto",
+          "sha256": "5531d18cfcc944dab39991f63f182cbbce3fe493ba0c7cf08a25c0d01ee84482"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xextproto",
+          "sha256": "9ce418e7d81cb230d8a53b07a7d9d705fc830dd095c104ba5d9405dc98be8357"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xf86bigfontproto",
+          "sha256": "3591964e01a9cdfc9cc4149a847a431a3f3d98328cc9e5864c7a7831b29c4058"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xf86dgaproto",
+          "sha256": "3591964e01a9cdfc9cc4149a847a431a3f3d98328cc9e5864c7a7831b29c4058"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xf86driproto",
+          "sha256": "4a05d06752388d9db71ee1006f371d4fb2c316a821fc2fc272db90b3ef978334"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xf86miscproto",
+          "sha256": "3591964e01a9cdfc9cc4149a847a431a3f3d98328cc9e5864c7a7831b29c4058"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xf86rushproto",
+          "sha256": "3591964e01a9cdfc9cc4149a847a431a3f3d98328cc9e5864c7a7831b29c4058"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xf86vidmodeproto",
+          "sha256": "942bb46a3503a708948491699171b00b9e0dfb47818d9268b160bccc5f51a4b9"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xineramaproto",
+          "sha256": "b2d8cda803e900915ce10f0ba735ff2c033b39c7cc5a8a436667ca583d4066fa"
+        },
+        {
+          "path": "src/Applications/x11/xorgproto/2026.1/COPYING-xwaylandproto",
+          "sha256": "309bd89bc2b30c6e3d3eb78f5377fa576475499e0ba936a9c3cba50ba5d6375c"
+        }
+      ],
+      "provenance": "src/Applications/x11/xorgproto/2026.1/UPSTREAM.json",
+      "version": "2026.1"
+    },
+    {
+      "component": "xtrans",
+      "root": "src/Applications/x11/xtrans/1.6.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/x11/xtrans/1.6.0/COPYING",
+          "sha256": "3fe68a84ab89e82947e560316ab70cf2d02a8b978ae5cf4fbdfd53fc5b917308"
+        }
+      ],
+      "provenance": "src/Applications/x11/xtrans/1.6.0/UPSTREAM.json",
+      "version": "1.6.0"
+    },
+    {
+      "component": "exo",
+      "root": "src/Applications/xfce/exo/4.20.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/exo/4.20.0/COPYING",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        },
+        {
+          "path": "src/Applications/xfce/exo/4.20.0/COPYING.LIB",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+        }
+      ],
+      "provenance": "src/Applications/xfce/exo/4.20.0/UPSTREAM.json",
+      "version": "4.20.0"
+    },
+    {
+      "component": "garcon",
+      "root": "src/Applications/xfce/garcon/4.20.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/garcon/4.20.0/COPYING",
+          "sha256": "1831caabf4993e5efcd270b5b9f701153cc00305e545da522c6cb1efabc6f8ab"
+        }
+      ],
+      "provenance": "src/Applications/xfce/garcon/4.20.0/UPSTREAM.json",
+      "version": "4.20.0"
+    },
+    {
+      "component": "libxfce4ui",
+      "root": "src/Applications/xfce/libxfce4ui/4.20.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/libxfce4ui/4.20.2/COPYING",
+          "sha256": "681e386e44a19d7d0674b4320272c90e66b6610b741e7e6305f8219c42e85366"
+        }
+      ],
+      "provenance": "src/Applications/xfce/libxfce4ui/4.20.2/UPSTREAM.json",
+      "version": "4.20.2"
+    },
+    {
+      "component": "libxfce4util",
+      "root": "src/Applications/xfce/libxfce4util/4.20.1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/libxfce4util/4.20.1/COPYING",
+          "sha256": "681e386e44a19d7d0674b4320272c90e66b6610b741e7e6305f8219c42e85366"
+        }
+      ],
+      "provenance": "src/Applications/xfce/libxfce4util/4.20.1/UPSTREAM.json",
+      "version": "4.20.1"
+    },
+    {
+      "component": "libxfce4windowing",
+      "root": "src/Applications/xfce/libxfce4windowing/4.20.7",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/libxfce4windowing/4.20.7/COPYING",
+          "sha256": "b3aa400aca6d2ba1f0bd03bd98d03d1fe7489a3bbb26969d72016360af8a5c9d"
+        }
+      ],
+      "provenance": "src/Applications/xfce/libxfce4windowing/4.20.7/UPSTREAM.json",
+      "version": "4.20.7"
+    },
+    {
+      "component": "xfce4-panel",
+      "root": "src/Applications/xfce/xfce4-panel/4.20.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfce4-panel/4.20.8/COPYING",
+          "sha256": "6f16336b34fbe20bc7f0acfc22916468ab0d88822d955d372ce338de8899c21f"
+        },
+        {
+          "path": "src/Applications/xfce/xfce4-panel/4.20.8/COPYING.LIB",
+          "sha256": "64e647f03752f296a36e9af47771f5ec0378a55f1b4fc71e11fa1bae97052608"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfce4-panel/4.20.8/UPSTREAM.json",
+      "version": "4.20.8"
+    },
+    {
+      "component": "xfce4-session",
+      "root": "src/Applications/xfce/xfce4-session/4.20.4",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfce4-session/4.20.4/COPYING",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfce4-session/4.20.4/UPSTREAM.json",
+      "version": "4.20.4"
+    },
+    {
+      "component": "xfce4-settings",
+      "root": "src/Applications/xfce/xfce4-settings/4.20.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfce4-settings/4.20.5/COPYING",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfce4-settings/4.20.5/UPSTREAM.json",
+      "version": "4.20.5"
+    },
+    {
+      "component": "xfce4-terminal",
+      "root": "src/Applications/xfce/xfce4-terminal/1.2.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfce4-terminal/1.2.0/COPYING",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfce4-terminal/1.2.0/UPSTREAM.json",
+      "version": "1.2.0"
+    },
+    {
+      "component": "xfconf",
+      "root": "src/Applications/xfce/xfconf/4.20.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfconf/4.20.0/COPYING",
+          "sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfconf/4.20.0/UPSTREAM.json",
+      "version": "4.20.0"
+    },
+    {
+      "component": "xfdesktop",
+      "root": "src/Applications/xfce/xfdesktop/4.20.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfdesktop/4.20.2/COPYING",
+          "sha256": "32b1062f7da84967e7019d01ab805935caa7ab7321a7ced0e30ebe75e5df1670"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfdesktop/4.20.2/UPSTREAM.json",
+      "version": "4.20.2"
+    },
+    {
+      "component": "xfwm4",
+      "root": "src/Applications/xfce/xfwm4/4.20.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce/xfwm4/4.20.0/COPYING",
+          "sha256": "e1aa57b16350b3f421e49bd8b9401252d2b667616def1718c72576286249ae4f"
+        }
+      ],
+      "provenance": "src/Applications/xfce/xfwm4/4.20.0/UPSTREAM.json",
+      "version": "4.20.0"
+    },
+    {
+      "component": "DejaVu Fonts",
+      "root": "src/Applications/xfce-prerequisites/dejavu-fonts/2.37",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/dejavu-fonts/2.37/LICENSE",
+          "sha256": "7a083b136e64d064794c3419751e5c7dd10d2f64c108fe5ba161eae5e5958a93"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/dejavu-fonts/2.37/UPSTREAM.json",
+      "version": "2.37"
+    },
+    {
+      "component": "hicolor-icon-theme",
+      "root": "src/Applications/xfce-prerequisites/hicolor-icon-theme/0.18",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/hicolor-icon-theme/0.18/COPYING",
+          "sha256": "b0a64377d4ee87b7dbcf418ce4fb33ec3b2d7081b6732890e4af06b8118c4526"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/hicolor-icon-theme/0.18/UPSTREAM.json",
+      "version": "0.18"
+    },
+    {
+      "component": "hwdata",
+      "root": "src/Applications/xfce-prerequisites/hwdata/0.412",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/hwdata/0.412/COPYING",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/hwdata/0.412/LICENSE",
+          "sha256": "21d0406f93e884a050426ebc21931839a45d56bfcbcbfdda7686d583f36f107f"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/hwdata/0.412/UPSTREAM.json",
+      "version": "0.412"
+    },
+    {
+      "component": "iceauth",
+      "root": "src/Applications/xfce-prerequisites/iceauth/1.0.11",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/iceauth/1.0.11/COPYING",
+          "sha256": "fdd9ba8ccb92af2f31f542e7b7a18c27257e6cdce147d231bc9ba3654ad84976"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/iceauth/1.0.11/UPSTREAM.json",
+      "version": "1.0.11"
+    },
+    {
+      "component": "libICE",
+      "root": "src/Applications/xfce-prerequisites/libICE/1.1.2",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/libICE/1.1.2/COPYING",
+          "sha256": "60105b7ea93cb07a67fee8443b092b727e3db7f0dff4fbe05bc6cd7747fb53c8"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/libICE/1.1.2/UPSTREAM.json",
+      "version": "1.1.2"
+    },
+    {
+      "component": "libSM",
+      "root": "src/Applications/xfce-prerequisites/libSM/1.2.6",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/libSM/1.2.6/COPYING",
+          "sha256": "136fb258a67a2810302c6cd99525b068e6f875b8f1031a93b34edad3ffc740a5"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/libSM/1.2.6/UPSTREAM.json",
+      "version": "1.2.6"
+    },
+    {
+      "component": "libdisplay-info",
+      "root": "src/Applications/xfce-prerequisites/libdisplay-info/0.4.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/libdisplay-info/0.4.0/LICENSE",
+          "sha256": "15b396244e58830c5614b9394f4deccfe684970cd507f299383ab57ad339eedd"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/libdisplay-info/0.4.0/test/data/LICENSE.CC-BY-4.0",
+          "sha256": "4014722237c90b6f8effc35b6e04a47815c03ef14ee24683d6c1dfd0b9b644d0"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/libdisplay-info/0.4.0/UPSTREAM.json",
+      "version": "0.4.0"
+    },
+    {
+      "component": "libjpeg-turbo",
+      "root": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0/LICENSE.md",
+          "sha256": "ba6bceebcba0fdd35488477c2cca8c4632ce82c74dbfbc87d886ce6fc4433579"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0/release/License.rtf",
+          "sha256": "d26120ab237f87dea10aa4fa7fd4243cadffd26e54eb2f3903d5fb0f8ed336b2"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0/src/spng/LICENSE",
+          "sha256": "0622b0794d0fecde47d743f1bb70a03e6fdf082be8e71f39de672ed995d96ff9"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0/src/spng/zlib/LICENSE",
+          "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0/testimages/LICENSE.txt",
+          "sha256": "1c4d5dfc985d5061ba11180a8ffb541cc1778bccf87fd9f0fb92cbae69d8a9cc"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/libjpeg-turbo/3.2.0/UPSTREAM.json",
+      "version": "3.2.0"
+    },
+    {
+      "component": "libwnck",
+      "root": "src/Applications/xfce-prerequisites/libwnck/43.3",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/libwnck/43.3/COPYING",
+          "sha256": "b7993225104d90ddd8024fd838faf300bea5e83d91203eab98e29512acebd69c"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/libwnck/43.3/UPSTREAM.json",
+      "version": "43.3"
+    },
+    {
+      "component": "libyaml",
+      "root": "src/Applications/xfce-prerequisites/libyaml/0.2.5",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/libyaml/0.2.5/License",
+          "sha256": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/libyaml/0.2.5/UPSTREAM.json",
+      "version": "0.2.5"
+    },
+    {
+      "component": "lz4",
+      "root": "src/Applications/xfce-prerequisites/lz4/1.10.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/LICENSE",
+          "sha256": "4bc9c403f6b679cc076dee210e0e21c27b4e8f6d3fb43d85364c76657bfaaac5"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/contrib/debian/copyright",
+          "sha256": "4f6ef9d0e844bf432d6a0abb2623f5a61175ae40f7f0e3665490311d89e3af87"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/contrib/djgpp/LICENSE",
+          "sha256": "d011d1e02cb32b71c1ce2922ab41a2e2ad30f4ecf8de22c078d53618205abc05"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/examples/COPYING",
+          "sha256": "609b910ef05c9c855ecc1da155a36ed0f57514eac452cf93446530b5ea4b3bc3"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/lib/LICENSE",
+          "sha256": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/programs/COPYING",
+          "sha256": "609b910ef05c9c855ecc1da155a36ed0f57514eac452cf93446530b5ea4b3bc3"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/lz4/1.10.0/tests/COPYING",
+          "sha256": "609b910ef05c9c855ecc1da155a36ed0f57514eac452cf93446530b5ea4b3bc3"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/lz4/1.10.0/UPSTREAM.json",
+      "version": "1.10.0"
+    },
+    {
+      "component": "startup-notification",
+      "root": "src/Applications/xfce-prerequisites/startup-notification/0.12",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/startup-notification/0.12/COPYING",
+          "sha256": "29935974beae046f50da806b5f4e54532401dd7bcfbc696a0b645f4cbcce9dbb"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/startup-notification/0.12/UPSTREAM.json",
+      "version": "0.12"
+    },
+    {
+      "component": "vte",
+      "root": "src/Applications/xfce-prerequisites/vte/0.84.1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/COPYING.CC-BY-4-0",
+          "sha256": "1fdb3f7cac9ca04483c050ac7d7a78d624918cae376c81745f4c7e4f30db0190"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/COPYING.GPL3",
+          "sha256": "6d8b025839410aa6d46b01df31ae53b5315a0cce60bbf2b12c15649dad00e5c7"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/COPYING.LGPL3",
+          "sha256": "9ccf26cfe845e0eb8bb58053e47366e7ab6b697ae010f7650978d4b71b7d1fc1"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/COPYING.README",
+          "sha256": "74a062323566e70b4f841d5ef5379fb7934b6de7e376d97be21d3ccb11897faf"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/COPYING.XTERM",
+          "sha256": "b38ba4a7958b39e549a12efa30c642618125ac72bbdffeeb855fb89c1cf04dd0"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/doc/reference/licence.md",
+          "sha256": "7b419ddfe51d956e556546897fd4946a2fc41862d838937d809730e9daa03bc4"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/fast_float/LICENSE-APACHE",
+          "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/fast_float/LICENSE-BOOST",
+          "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/fast_float/LICENSE-MIT",
+          "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/fmt/LICENSE",
+          "sha256": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/simdutf/LICENSE-APACHE",
+          "sha256": "3d34610fc6b5e1b0bfe4e2f36171c2d62c28ef05cb8d704f5a0073be41a43b3d"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/simdutf/LICENSE-MIT",
+          "sha256": "fc8dbc04e03ad4efc08a647ffe7f995b811a95bc04c0e85a56d5277c6593fa5f"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/simdutf/benchmarks/competition/u8u16/COPYRIGHT",
+          "sha256": "c4021d0a7daf0d4fa79f43b1205e629fe0b6cb31a5998e14efbd700abf65e55f"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/simdutf/benchmarks/competition/utf8lut/LICENSE",
+          "sha256": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e"
+        },
+        {
+          "path": "src/Applications/xfce-prerequisites/vte/0.84.1/subprojects/simdutf/benchmarks/competition/utfcpp/LICENSE",
+          "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/vte/0.84.1/UPSTREAM.json",
+      "version": "0.84.1"
+    },
+    {
+      "component": "xcb-util",
+      "root": "src/Applications/xfce-prerequisites/xcb-util/0.4.1",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xfce-prerequisites/xcb-util/0.4.1/COPYING",
+          "sha256": "325b64f0b0284e08bbb7a78ae3e55c1edc2a7cd77f603225ae4b8ffc35423e37"
+        }
+      ],
+      "provenance": "src/Applications/xfce-prerequisites/xcb-util/0.4.1/UPSTREAM.json",
+      "version": "0.4.1"
+    },
+    {
+      "component": "libxml2",
+      "root": "src/Applications/xml/libxml2/2.15.4",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xml/libxml2/2.15.4/Copyright",
+          "sha256": "5d4873884a890122a4b9b20ad56ac6f7da1d796a5bfcf04a427970ac96217626"
+        }
+      ],
+      "provenance": "src/Applications/xml/libxml2/2.15.4/UPSTREAM.json",
+      "version": "2.15.4"
+    },
+    {
+      "component": "libXfont2",
+      "root": "src/Applications/xserver/libXfont2/2.0.9",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xserver/libXfont2/2.0.9/COPYING",
+          "sha256": "3b1047f0d45584973866a40e3eedc74aea4c6ac636960d650ae05af603e6d1a8"
+        }
+      ],
+      "provenance": "src/Applications/xserver/libXfont2/2.0.9/UPSTREAM.json",
+      "version": "2.0.9"
+    },
+    {
+      "component": "libfontenc",
+      "root": "src/Applications/xserver/libfontenc/1.1.9",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xserver/libfontenc/1.1.9/COPYING",
+          "sha256": "a4dda7a643b517794bfa23dc9605da030055df38ac8a5b9e1905e690975a59c4"
+        }
+      ],
+      "provenance": "src/Applications/xserver/libfontenc/1.1.9/UPSTREAM.json",
+      "version": "1.1.9"
+    },
+    {
+      "component": "libxkbfile",
+      "root": "src/Applications/xserver/libxkbfile/1.2.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xserver/libxkbfile/1.2.0/COPYING",
+          "sha256": "e1b3fdad8037ab3f986ef9caaa7c8da47d8d55875e680c7d6011f6c07363ea7c"
+        }
+      ],
+      "provenance": "src/Applications/xserver/libxkbfile/1.2.0/UPSTREAM.json",
+      "version": "1.2.0"
+    },
+    {
+      "component": "xkbcomp",
+      "root": "src/Applications/xserver/xkbcomp/1.5.0",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xserver/xkbcomp/1.5.0/COPYING",
+          "sha256": "6b833fdc05906ce57f016dc791db86830d49ee4da2861ce45806c50b3f4dda9e"
+        }
+      ],
+      "provenance": "src/Applications/xserver/xkbcomp/1.5.0/UPSTREAM.json",
+      "version": "1.5.0"
+    },
+    {
+      "component": "xkeyboard-config",
+      "root": "src/Applications/xserver/xkeyboard-config/2.48",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xserver/xkeyboard-config/2.48/COPYING",
+          "sha256": "fc03f6535d16b3fe9beece45b84214a37e6ca4b6550c03cadaed7e1b951fb294"
+        }
+      ],
+      "provenance": "src/Applications/xserver/xkeyboard-config/2.48/UPSTREAM.json",
+      "version": "2.48"
+    },
+    {
+      "component": "xorg-server",
+      "root": "src/Applications/xserver/xorg-server/21.1.25",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Applications/xserver/xorg-server/21.1.25/COPYING",
+          "sha256": "c9f90a6669109aad6c9a7c3b46cc2c574221a73b792afa419336816b49da5c11"
+        }
+      ],
+      "provenance": "src/Applications/xserver/xorg-server/21.1.25/UPSTREAM.json",
+      "version": "21.1.25"
+    },
+    {
+      "component": "AppleAPIC",
+      "root": "src/Kernel/Extensions/25.5.0/AppleAPIC",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Kernel/Extensions/25.5.0/AppleAPIC/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Kernel/Extensions/25.5.0/AppleAPIC/UPSTREAM.json",
+      "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+      "upstream_project_notices": [
+        {
+          "path": "PUREDARWIN_LICENSE.txt",
+          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
+          "repository": "https://github.com/PureDarwin/PureDarwin",
+          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+          "license": "BSD-2-Clause",
+          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
+        }
+      ]
+    },
+    {
+      "component": "AppleI386GenericPlatform",
+      "root": "src/Kernel/Extensions/25.5.0/AppleI386GenericPlatform",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Kernel/Extensions/25.5.0/AppleI386GenericPlatform/UPSTREAM.json",
+      "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+      "upstream_project_notices": [
+        {
+          "path": "PUREDARWIN_LICENSE.txt",
+          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
+          "repository": "https://github.com/PureDarwin/PureDarwin",
+          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+          "license": "BSD-2-Clause",
+          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
+        }
+      ],
+      "notice_location": "Source file headers and the retained PureDarwin project notice; per-file terms govern."
+    },
+    {
+      "component": "IOStorageFamily",
+      "root": "src/Kernel/Extensions/25.5.0/IOStorageFamily",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Kernel/Extensions/25.5.0/IOStorageFamily/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Kernel/Extensions/25.5.0/IOStorageFamily/UPSTREAM.json",
+      "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+      "upstream_project_notices": [
+        {
+          "path": "PUREDARWIN_LICENSE.txt",
+          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
+          "repository": "https://github.com/PureDarwin/PureDarwin",
+          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+          "license": "BSD-2-Clause",
+          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
+        }
+      ]
+    },
+    {
+      "component": "PDArmPlatformExpert",
+      "root": "src/Kernel/Extensions/25.5.0/PDArmPlatformExpert",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Kernel/Extensions/25.5.0/PDArmPlatformExpert/UPSTREAM.json",
+      "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+      "upstream_project_notices": [
+        {
+          "path": "PUREDARWIN_LICENSE.txt",
+          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
+          "repository": "https://github.com/PureDarwin/PureDarwin",
+          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+          "license": "BSD-2-Clause",
+          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
+        }
+      ],
+      "notice_location": "Source file headers and the retained PureDarwin project notice; per-file terms govern."
+    },
+    {
+      "component": "bearssl",
+      "root": "src/Kernel/Extensions/25.5.0/embedded_crypto/bearssl",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Kernel/Extensions/25.5.0/embedded_crypto/bearssl/LICENSE.txt",
+          "sha256": "771bf18c8633ea69ec9b07d2e604c4b99b7bef41b0f5ce6385d24df4448f61ca"
+        }
+      ],
+      "provenance": "src/Kernel/Extensions/25.5.0/embedded_crypto/bearssl/UPSTREAM.json",
+      "commit": "7bea48e5e850ab4cafbe68d3765cdaba13a86d6f",
+      "license": "MIT"
+    },
+    {
+      "component": "hfs",
+      "root": "src/Kernel/Extensions/25.5.0/hfs",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Kernel/Extensions/25.5.0/hfs/APPLE_LICENSE",
+          "sha256": "addd5652908b2add7ba13bda59afa667580fa5732d41a4b65d2ce33bec6c5cb3"
+        }
+      ],
+      "provenance": "src/Kernel/Extensions/25.5.0/hfs/UPSTREAM.json",
+      "tag": "hfs-715.120.4",
+      "license": "APSL-2.0; per-file notices retained"
+    },
+    {
+      "component": "bootstrap",
+      "root": "src/Kernel/KernelHeaders/bootstrap",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Kernel/KernelHeaders/bootstrap/UPSTREAM.json",
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "12377.121.6",
+      "root": "src/Kernel/xnu/12377.121.6",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Kernel/xnu/12377.121.6/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/bsd/conf/copyright",
+          "sha256": "557dbce1211e03b8dd31df7c8a4fefbc7be324d4697a6dc61fd9e91481bafd2e"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/iokit/conf/copyright",
+          "sha256": "557dbce1211e03b8dd31df7c8a4fefbc7be324d4697a6dc61fd9e91481bafd2e"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/libkern/conf/copyright",
+          "sha256": "b9216c6efb1a49607a1318995b4d06add5d50a7043a224d9a2796a15b0c95ac1"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/libsa/conf/copyright",
+          "sha256": "b9216c6efb1a49607a1318995b4d06add5d50a7043a224d9a2796a15b0c95ac1"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/osfmk/conf/copyright",
+          "sha256": "7f3549c94087feb3cca0f7d442e405bb7f61af18d8999fd04d75f667e9164410"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/osfmk/conf/copyright.cmu",
+          "sha256": "5f0643501bf9435eff0d3c6fd6fc51995337064ba770153076de5ce074de27c7"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/osfmk/conf/copyright.osf",
+          "sha256": "b9dbe73a0f2a3353322904fbb919074b6284d812419763e40d80b93216af340b"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/pexpert/conf/copyright",
+          "sha256": "557dbce1211e03b8dd31df7c8a4fefbc7be324d4697a6dc61fd9e91481bafd2e"
+        },
+        {
+          "path": "src/Kernel/xnu/12377.121.6/security/conf/copyright.nai",
+          "sha256": "53fcf32eabf1f777a85266424dc21b6abe94c1d125ae7969661d7beb6952dff5"
+        }
+      ],
+      "provenance": "src/Kernel/xnu/12377.121.6/UPSTREAM.json",
+      "tag": "xnu-12377.121.6",
+      "commit": "ac9718fb1af618d5ce8678d0dc6e8a58f252216f",
+      "upstream_project_notices": [
+        {
+          "path": "PUREDARWIN_LICENSE.txt",
+          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
+          "repository": "https://github.com/PureDarwin/PureDarwin",
+          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+          "license": "BSD-2-Clause",
+          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
+        }
+      ]
+    },
+    {
+      "component": "AvailabilityVersions",
+      "root": "src/Libraries/25.5.0/AvailabilityVersions",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Libraries/25.5.0/AvailabilityVersions/UPSTREAM.json",
+      "tag": "AvailabilityVersions-157.2",
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "IOFireWireFamily",
+      "root": "src/Libraries/25.5.0/IOFireWireFamily",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/IOFireWireFamily/APPLE_LICENSE",
+          "sha256": "359a21ed59e82096455398ea10c5bc8c3ff28e7acf7935b77751d70e3630fc95"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/IOFireWireFamily/UPSTREAM.json",
+      "tag": "IOFireWireFamily-492",
+      "commit": "ad9f879946570c786a80c731c8e9baaa490994ed"
+    },
+    {
+      "component": "IOUSBFamily",
+      "root": "src/Libraries/25.5.0/IOUSBFamily",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/IOUSBFamily/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/IOUSBFamily/UPSTREAM.json",
+      "tag": "IOUSBFamily-560.4.2",
+      "commit": "aa1bde6708ab287ab8d5098287a957f5d34df372"
+    },
+    {
+      "component": "Libc",
+      "root": "src/Libraries/25.5.0/Libc",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/Libc/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        },
+        {
+          "path": "src/Libraries/25.5.0/Libc/regex/FreeBSD/COPYRIGHT",
+          "sha256": "3be175b44ed4ee963d61a34296b3ec8517d82322e9ee77bf365d29d454a497d4"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/Libc/UPSTREAM.json",
+      "tag": "Libc-1752.120.2",
+      "commit": "0ef5ecb01f25edd801d06d624fcc35740294c589"
+    },
+    {
+      "component": "Libinfo",
+      "root": "src/Libraries/25.5.0/Libinfo",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/Libinfo/APPLE_LICENSE",
+          "sha256": "b7b332e2d6a493cb94f79fa49ac7daf38df43ea8e2fdcedf0567446b085d69b9"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/Libinfo/UPSTREAM.json",
+      "tag": "Libinfo-600",
+      "commit": "39b70c515baee5b609e7e91693edbd934b6845a1"
+    },
+    {
+      "component": "Libnotify",
+      "root": "src/Libraries/25.5.0/Libnotify",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/Libnotify/APPLE_LICENSE",
+          "sha256": "b7b332e2d6a493cb94f79fa49ac7daf38df43ea8e2fdcedf0567446b085d69b9"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/Libnotify/UPSTREAM.json",
+      "tag": "Libnotify-348.120.4",
+      "commit": "227c145bcf26ec93e18304ba81306a3014d9bd56"
+    },
+    {
+      "component": "Libsystem",
+      "root": "src/Libraries/25.5.0/Libsystem",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/Libsystem/APPLE_LICENSE",
+          "sha256": "212846e0145aa50fb3a5aef254a370311a93acf6c1e792e47e0068d64c8c3885"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/Libsystem/UPSTREAM.json",
+      "tag": "Libsystem-1356",
+      "commit": "c23b51183e46e613375dc7639fb4bf11fbf59ba8"
+    },
+    {
+      "component": "architecture",
+      "root": "src/Libraries/25.5.0/architecture",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/architecture/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/architecture/UPSTREAM.json",
+      "tag": "architecture-282",
+      "commit": "fe869009b9c98d9d9d6cc917dfed6fab24b0b686"
+    },
+    {
+      "component": "compiler-rt",
+      "root": "src/Libraries/25.5.0/compiler-rt",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/compiler-rt/LICENSE.TXT",
+          "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+        },
+        {
+          "path": "src/Libraries/25.5.0/compiler-rt/llvm/LICENSE.TXT",
+          "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/compiler-rt/UPSTREAM.json",
+      "tag": "llvmorg-20.1.8",
+      "commit": "87f0227cb60147a26a1eeb4fb06e3b505e9c7261"
+    },
+    {
+      "component": "dyld",
+      "root": "src/Libraries/25.5.0/dyld",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/dyld/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/dyld/UPSTREAM.json",
+      "tag": "dyld-1378",
+      "commit": "fd8d0c4d52320ebf64db34f3cb280310d905c5ae"
+    },
+    {
+      "component": "launchd",
+      "root": "src/Libraries/25.5.0/launchd",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Libraries/25.5.0/launchd/UPSTREAM.json",
+      "tag": "launchd-842.92.1",
+      "commit": "49a9c79b2949192dfca697b1054245cdfb645788",
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "libdispatch",
+      "root": "src/Libraries/25.5.0/libdispatch",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/libdispatch/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/libdispatch/UPSTREAM.json",
+      "tag": "libdispatch-1542.100.32"
+    },
+    {
+      "component": "libmalloc",
+      "root": "src/Libraries/25.5.0/libmalloc",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/libmalloc/src/xzone_malloc/LICENSE",
+          "sha256": "7cba53a8dffd929153fe1ca279e7cb39b58e47e2f6435f04dc767cf63fa19328"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/libmalloc/UPSTREAM.json",
+      "tag": "libmalloc-812.100.31",
+      "commit": "c49dafa25f1efe8607701ae6014a663ad2ee437f"
+    },
+    {
+      "component": "libplatform",
+      "root": "src/Libraries/25.5.0/libplatform",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/libplatform/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/libplatform/UPSTREAM.json",
+      "tag": "libplatform-375.120.2",
+      "commit": "b7ed7cf5cf7dd12b98672435db2225a860f199d8"
+    },
+    {
+      "component": "libpthread",
+      "root": "src/Libraries/25.5.0/libpthread",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "src/Libraries/25.5.0/libpthread/UPSTREAM.json",
+      "tag": "libpthread-539.100.4",
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "libresolv",
+      "root": "src/Libraries/25.5.0/libresolv",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/libresolv/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/libresolv/UPSTREAM.json",
+      "tag": "libresolv-96",
+      "commit": "e48cd914edc1cb14f8289b8e2dfdaac360481cd2"
+    },
+    {
+      "component": "openlibm",
+      "root": "src/Libraries/25.5.0/openlibm",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/openlibm/LICENSE.md",
+          "sha256": "b1843fbf5b03f519a5f0a44fce751bdd1022ae7148614923f9d6293e17a18b17"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/openlibm/UPSTREAM.json",
+      "tag": "v0.8.8",
+      "commit": "5fe399749f9276eaa0b8403e507470da05cbbb3f"
+    },
+    {
+      "component": "swift-os",
+      "root": "src/Libraries/25.5.0/swift-os",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/swift-os/LICENSE.txt",
+          "sha256": "770af8291f708538d8ff885a0bbc4e045cd700531741c4f99528d435c14d7f55"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/swift-os/UPSTREAM.json",
+      "commit": "6568feb9215fb94edeaa40215d6bc0c56b48f360"
+    },
+    {
+      "component": "syslog",
+      "root": "src/Libraries/25.5.0/syslog",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Libraries/25.5.0/syslog/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        }
+      ],
+      "provenance": "src/Libraries/25.5.0/syslog/UPSTREAM.json",
+      "tag": "syslog-406",
+      "commit": "69d8586e9a599c304e1b702a9c2830e2f78126d5"
+    },
+    {
+      "component": "LLVM compiler-rt builtins",
+      "root": "src/Toolchains/compiler-rt/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Toolchains/compiler-rt/20.1.8/LICENSE.TXT",
+          "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+        }
+      ],
+      "provenance": "src/Toolchains/compiler-rt/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "LLVM libc++ headers",
+      "root": "src/Toolchains/libcxx/20.1.8",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "src/Toolchains/libcxx/20.1.8/LICENSE.TXT",
+          "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+        }
+      ],
+      "provenance": "src/Toolchains/libcxx/20.1.8/UPSTREAM.json",
+      "version": "20.1.8"
+    },
+    {
+      "component": "cctools",
+      "root": "tools/cctools",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "tools/cctools/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        },
+        {
+          "path": "tools/cctools/as/COPYING",
+          "sha256": "32b1062f7da84967e7019d01ab805935caa7ab7321a7ced0e30ebe75e5df1670"
+        },
+        {
+          "path": "tools/cctools/include/foreign/architecture/APPLE_LICENSE",
+          "sha256": "e5881019d8766c1e88a5fe1dbca4ba40c78011d41fcb18f6e9f50df60182685b"
+        },
+        {
+          "path": "tools/cctools/libobjc2/COPYING",
+          "sha256": "56b923b1db99c7975c4e4ad4847381b32d3c9401fb2c8270b41fb6d31d6014fb"
+        },
+        {
+          "path": "tools/cctools/libobjc2/opts/COPYING",
+          "sha256": "56b923b1db99c7975c4e4ad4847381b32d3c9401fb2c8270b41fb6d31d6014fb"
+        }
+      ]
+    },
+    {
+      "component": "dtrace_ctf",
+      "root": "tools/dtrace_ctf",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "tools/dtrace_ctf/libdwarf/COPYING",
+          "sha256": "52eef471dcd2888f397356cf99ae4a95f49f4f1f9caaaede89b3908e6d97ae40"
+        }
+      ]
+    },
+    {
+      "component": "GNU-EFI",
+      "root": "tools/gnu-efi",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "tools/gnu-efi/COPYRIGHT.debian",
+          "sha256": "4c53ad5fdf4a2822505a204c0c4cdf8b05dc3352d262908ef5e92dad02a2534e"
+        }
+      ],
+      "provenance": "tools/gnu-efi/UPSTREAM.json",
+      "version": "3.0.18",
+      "licenses": "BSD-style licenses retained in source headers; see Debian copyright inventory"
+    },
+    {
+      "component": "iig",
+      "root": "tools/iig",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "tools/iig/LICENSE",
+          "sha256": "f4bd21af51ef06b69b41396beebcc95a5fa888706ae2092d873ccc9b08a53467"
+        }
+      ],
+      "provenance": "tools/iig/UPSTREAM.json",
+      "commit": "28010c688caab7eb5400b9c98faa5b1e538e0108",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "component": "kc-tools",
+      "root": "tools/kc-tools",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "tools/kc-tools/LICENSE",
+          "sha256": "f4bd21af51ef06b69b41396beebcc95a5fa888706ae2092d873ccc9b08a53467"
+        }
+      ],
+      "provenance": "tools/kc-tools/UPSTREAM.json",
+      "commit": "ae159a581b814b596546768f44360481e6f0b141",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "component": "libdmg-hfsplus",
+      "root": "tools/libdmg-hfsplus",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "tools/libdmg-hfsplus/LICENSE",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        }
+      ],
+      "provenance": "tools/libdmg-hfsplus/UPSTREAM.json",
+      "commit": "7ac55ec64c96f7800d9818ce64c79670e7f02b67",
+      "license": "GPL-3.0"
+    },
+    {
+      "component": "mig",
+      "root": "tools/mig",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "provenance": "tools/mig/UPSTREAM.json",
+      "tag": "bootstrap_cmds-138",
+      "upstream_project_notices": [
+        {
+          "path": "PUREDARWIN_LICENSE.txt",
+          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
+          "repository": "https://github.com/PureDarwin/PureDarwin",
+          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+          "license": "BSD-2-Clause",
+          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
+        }
+      ],
+      "notice_location": "Source file headers and the retained PureDarwin project notice; per-file terms govern."
+    },
+    {
+      "component": "unifdef",
+      "root": "tools/unifdef",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "xar",
+      "root": "tools/xar",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [],
+      "notice_location": "Source file headers; consult the provenance record where present."
+    },
+    {
+      "component": "upstream",
+      "root": "userland/native/iokit/upstream",
+      "license_scope": "Retained license texts and individual source headers; no root-license override.",
+      "notices": [
+        {
+          "path": "userland/native/iokit/upstream/APPLE_LICENSE",
+          "sha256": "212846e0145aa50fb3a5aef254a370311a93acf6c1e792e47e0068d64c8c3885"
+        }
+      ],
+      "provenance": "userland/native/iokit/upstream/UPSTREAM.json",
+      "tag": "IOKitUser-100231.120.3",
+      "commit": "23a611d9d194b63465f6df2abfdda63d71c87e97"
+    }
+  ]
+}

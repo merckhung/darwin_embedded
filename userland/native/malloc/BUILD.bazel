@@ -1,0 +1,121 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+[
+    genrule(
+        name = "libmalloc_" + arch,
+        srcs = [
+            "build-config.patch",
+            "test_malloc.c",
+            "//src/Libraries/25.5.0:sources",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//scripts:build_native_malloc.py",
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+        ],
+        outs = ["libmalloc_base." + arch + ".a", "malloc." + arch + ".json", "test_malloc." + arch + ".o"],
+        cmd = "python3 $(location //scripts:build_native_malloc.py) --root $$PWD --arch " + arch +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --output $(location libmalloc_base." + arch + ".a)" +
+              " --report $(location malloc." + arch + ".json)" +
+              " --probe-output $(location test_malloc." + arch + ".o)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "libraries", srcs = [":libmalloc_arm64", ":libmalloc_x86_64"])
+
+[
+    genrule(
+        name = "closure_" + arch,
+        srcs = [
+            "//scripts:build_native_malloc.py",
+            "libmalloc_base." + arch + ".a",
+            "//userland/native:libsyscall_" + arch,
+            "//userland/native:libmach_base." + arch + ".a",
+            "//userland/native:libplatform_" + arch,
+            "//userland/native/pthread:libpthread." + arch + ".a",
+        ],
+        outs = ["malloc_closure." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_malloc.py) --root $$PWD --arch " + arch +
+              " --audit-archive $(location libmalloc_base." + arch + ".a)" +
+              " --dependency $(location //userland/native:libsyscall_" + arch + ")" +
+              " --dependency $(location //userland/native:libmach_base." + arch + ".a)" +
+              " --dependency $(location //userland/native:libplatform_" + arch + ")" +
+              " --dependency $(location //userland/native/pthread:libpthread." + arch + ".a)" +
+              " --report $@",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "closure", srcs = [":closure_arm64", ":closure_x86_64"])
+
+[
+    genrule(
+        name = "test_root_" + arch,
+        srcs = [
+            "bootstrap.c", "test_main.c", "test_crypto.c", "test_libc.c",
+            "//scripts:build_native_malloc_test.py", "//scripts:native_components.py",
+            "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py",
+            "//tools/cctools:cctools_header_files",
+            "//src/Kernel/xnu/12377.121.6:sources",
+            "//src/Libraries/25.5.0:sources",
+            "//userland/diagnostic:root_" + arch,
+            "//userland/native:dyld_" + arch,
+            "//userland/native:sdk_" + arch,
+            "//userland/native:mach.headers." + arch + ".tar",
+            "//userland/native:libmach_base." + arch + ".a",
+            "//userland/native:libsyscall_" + arch,
+            "//userland/native:libplatform_" + arch,
+            "//userland/native/libc:libc_base." + arch + ".a",
+            "//userland/native/math:libmath." + arch + ".a",
+            "//userland/native/tlv:libtlv." + arch + ".a",
+            "//userland/native/rng:libnative_rng." + arch + ".a",
+            "//userland/native/rng:test_rng." + arch + ".o",
+            "//userland/native/metadata:test_metadata." + arch + ".o",
+            "//userland/native/tlv:test_tlv." + arch + ".o",
+            "//userland/native/pthread:libpthread." + arch + ".a",
+            "//userland/native/pthread:libpthread_dyld." + arch + ".a",
+            "libmalloc_base." + arch + ".a", "test_malloc." + arch + ".o",
+        ],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["malloc-test-root." + arch + ".img", "malloc-test-root." + arch + ".json"],
+        cmd = "python3 $(location //scripts:build_native_malloc_test.py) --root $$PWD --arch " + arch +
+              " --base-root $(location //userland/diagnostic:root_" + arch + ")" +
+              " --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --mach-headers $(location //userland/native:mach.headers." + arch + ".tar)" +
+              " --libsyscall $(location //userland/native:libsyscall_" + arch + ")" +
+              " --libmach $(location //userland/native:libmach_base." + arch + ".a)" +
+              " --libplatform $(location //userland/native:libplatform_" + arch + ")" +
+              " --libpthread $(location //userland/native/pthread:libpthread." + arch + ".a)" +
+              " --libpthread-dyld $(location //userland/native/pthread:libpthread_dyld." + arch + ".a)" +
+              " --libc $(location //userland/native/libc:libc_base." + arch + ".a)" +
+              " --libmath $(location //userland/native/math:libmath." + arch + ".a)" +
+              " --librng $(location //userland/native/rng:libnative_rng." + arch + ".a)" +
+              " --rng-probe $(location //userland/native/rng:test_rng." + arch + ".o)" +
+              " --metadata-probe $(location //userland/native/metadata:test_metadata." + arch + ".o)" +
+              " --libtlv $(location //userland/native/tlv:libtlv." + arch + ".a)" +
+              " --tlv-probe $(location //userland/native/tlv:test_tlv." + arch + ".o)" +
+              " --libmalloc $(location libmalloc_base." + arch + ".a)" +
+              " --probe $(location test_malloc." + arch + ".o)" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $(location malloc-test-root." + arch + ".img)" +
+              " --report $(location malloc-test-root." + arch + ".json)",
+    )
+    for arch in ["arm64", "x86_64"]
+]
+
+filegroup(name = "test_roots", srcs = [":test_root_arm64", ":test_root_x86_64"])
+
+[
+    sh_binary(
+        name = "verify_" + arch,
+        srcs = ["verify.sh"],
+        args = [arch],
+        data = [":test_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"],
+    )
+    for arch in ["arm64", "x86_64"]
+]

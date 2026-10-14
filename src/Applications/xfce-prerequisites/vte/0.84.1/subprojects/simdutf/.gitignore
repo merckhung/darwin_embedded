@@ -1,0 +1,26 @@
+# common build directory
+
+build
+*-build-*
+*build
+
+# Visual Studio Code artifacts
+.vscode/*
+.history/
+
+# Python cache
+
+__pycache__
+
+# Amalgamated source files
+
+singleheader/simdutf.cpp
+singleheader/simdutf.h
+singleheader/singleheader.zip
+
+# clangd cache folder
+.cache/clangd/
+corpus/
+
+# generated documentation
+README.generated.md

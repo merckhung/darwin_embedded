@@ -1,0 +1,43 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name xml:lang="en">pango</name>
+  <shortdesc xml:lang="en">Internationalized text layout and rendering library</shortdesc>
+  <description xml:lang="en">Pango is a library for layout and rendering of text, with an emphasis on internationalization. Pango can be used anywhere that text layout is needed. Pango forms the core of text and font handling for GTK.</description>
+  <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
+  <programming-language>C</programming-language>
+
+  <homepage
+  rdf:resource="http://www.pango.org/" />
+  <developer-forum
+  rdf:resource="https://discourse.gnome.org/tag/pango" />
+  <download-page
+  rdf:resource="http://download.gnome.org/sources/pango/"/>
+  <bug-database
+  rdf:resource="https://gitlab.gnome.org/GNOME/pango/issues/"/>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Owen Taylor</foaf:name>
+      <foaf:mbox rdf:resource="mailto:otaylor@redhat.com" />
+      <gnome:userid>otaylor</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Matthias Clasen</foaf:name>
+      <foaf:mbox rdf:resource="mailto:mclasen@redhat.com" />
+      <gnome:userid>matthiasc</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Emmanuele Bassi</foaf:name>
+      <foaf:mbox rdf:resource="mailto:ebassi@gnome.org" />
+      <gnome:userid>ebassi</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+</Project>

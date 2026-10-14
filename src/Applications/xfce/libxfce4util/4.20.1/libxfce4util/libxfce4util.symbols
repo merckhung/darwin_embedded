@@ -1,0 +1,124 @@
+# file:libxfce4util-config
+var:libxfce4util_major_version
+var:libxfce4util_micro_version
+var:libxfce4util_minor_version
+
+# file:xfce-consolekit
+xfce_consolekit_can_hibernate
+xfce_consolekit_can_hybrid_sleep
+xfce_consolekit_can_power_off
+xfce_consolekit_can_reboot
+xfce_consolekit_can_suspend
+xfce_consolekit_get
+xfce_consolekit_get_type attr:G_GNUC_CONST
+xfce_consolekit_hibernate
+xfce_consolekit_hybrid_sleep
+xfce_consolekit_power_off
+xfce_consolekit_reboot
+xfce_consolekit_suspend
+
+# file:xfce-fileutils
+xfce_create_shared_thumbnail_path
+xfce_mkdirhier
+
+# file:xfce-gio-extensions
+xfce_g_file_create_checksum
+xfce_g_file_is_trusted
+xfce_g_file_metadata_is_supported
+xfce_g_file_set_trusted
+
+# file:xfce-i18n
+xfce_get_dir_localized attr:G_GNUC_MALLOC
+xfce_get_dir_localized_r
+xfce_get_file_localized attr:G_GNUC_MALLOC
+xfce_get_file_localized_r
+xfce_get_path_localized
+xfce_locale_match
+xfce_textdomain
+
+# file:xfce-kiosk
+xfce_kiosk_free
+xfce_kiosk_get_type attr:G_GNUC_CONST
+xfce_kiosk_new attr:G_GNUC_MALLOC
+xfce_kiosk_query
+
+# file:xfce-license
+xfce_get_license_text attr:G_GNUC_PURE
+
+# file:xfce-miscutils
+xfce_append_quoted
+xfce_expand_desktop_entry_field_codes attr:G_GNUC_MALLOC
+xfce_expand_variables attr:G_GNUC_MALLOC
+xfce_get_homedir attr:G_GNUC_PURE
+xfce_get_homefile_r
+xfce_get_userdir attr:G_GNUC_PURE
+xfce_get_userfile_r
+xfce_gethostname attr:G_GNUC_MALLOC
+xfce_unescape_desktop_entry_value attr:G_GNUC_MALLOC
+xfce_version_string attr:G_GNUC_PURE
+
+# file:xfce-posix-signal-handler
+xfce_posix_signal_handler_init
+xfce_posix_signal_handler_restore_handler
+xfce_posix_signal_handler_set_handler
+xfce_posix_signal_handler_shutdown
+
+# file:xfce-rc
+xfce_rc_close
+xfce_rc_config_open attr:G_GNUC_MALLOC
+xfce_rc_delete_entry
+xfce_rc_delete_group
+xfce_rc_flush
+xfce_rc_get_entries
+xfce_rc_get_group
+xfce_rc_get_groups
+xfce_rc_get_locale
+xfce_rc_get_type attr:G_GNUC_CONST
+xfce_rc_has_entry
+xfce_rc_has_group
+xfce_rc_is_dirty
+xfce_rc_is_readonly
+xfce_rc_read_bool_entry
+xfce_rc_read_entry
+xfce_rc_read_entry_untranslated
+xfce_rc_read_int_entry
+xfce_rc_read_list_entry attr:G_GNUC_MALLOC
+xfce_rc_rollback
+xfce_rc_set_group
+xfce_rc_simple_open attr:G_GNUC_MALLOC
+xfce_rc_write_bool_entry
+xfce_rc_write_entry
+xfce_rc_write_int_entry
+xfce_rc_write_list_entry
+
+# file:xfce-resource
+xfce_resource_dirs attr:G_GNUC_MALLOC
+xfce_resource_lookup attr:G_GNUC_MALLOC
+xfce_resource_lookup_all attr:G_GNUC_MALLOC
+xfce_resource_match attr:G_GNUC_MALLOC
+xfce_resource_match_custom attr:G_GNUC_MALLOC
+xfce_resource_pop_path
+xfce_resource_push_path
+xfce_resource_save_location attr:G_GNUC_MALLOC
+
+# file:xfce-string
+xfce_g_string_append_quoted
+xfce_str_replace
+
+# file:xfce-systemd
+xfce_systemd_can_hibernate
+xfce_systemd_can_hybrid_sleep
+xfce_systemd_can_power_off
+xfce_systemd_can_reboot
+xfce_systemd_can_suspend
+xfce_systemd_get
+xfce_systemd_get_type attr:G_GNUC_CONST
+xfce_systemd_hibernate
+xfce_systemd_hybrid_sleep
+xfce_systemd_power_off
+xfce_systemd_reboot
+xfce_systemd_suspend
+
+# file:xfce-utf8
+xfce_utf8_remove_controls
+xfce_utf8_strndup attr:G_GNUC_MALLOC

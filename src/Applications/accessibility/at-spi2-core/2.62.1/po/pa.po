@@ -1,0 +1,887 @@
+# #-#-#-#-#  pa.po (at-spi2-core master)  #-#-#-#-#
+# Punjabi translation for at-spi2-core.
+# Copyright (C) 2011 at-spi2-core's COPYRIGHT HOLDER
+# This file is distributed under the same license as the at-spi2-core package.
+#
+# #-#-#-#-#  pa.po (atk.HEAD)  #-#-#-#-#
+# translation of atk.HEAD.po to Punjabi
+# translation of atk.HEAD.pa.po to Punjabi
+# translation of pa.po to Punjabi
+# Copyright (C) 2004 THE atk.HEAD'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the atk.HEAD package.
+#
+# A S Alam <aalam@users.sf.net>, 2011, 2014.
+# Amanpreet Singh Alam <amanlinux@netscape.net>, 2004.
+# Amanpreet Singh Alam <aalam@redhat.com>, 2004.
+# Amanpreet Singh Alam <aalam@users.sf.net>, 2005,2006.
+# A S Alam <aalam@users.sf.net>, 2009, 2011, 2014, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: atk.HEAD\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues\n"
+"POT-Creation-Date: 2023-08-05 16:00+0000\n"
+"PO-Revision-Date: 2023-09-02 08:41-0700\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  pa.po (at-spi2-core master)  #-#-#-#-#\n"
+"X-Generator: Lokalize 23.04.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"#-#-#-#-#  pa.po (atk.HEAD)  #-#-#-#-#\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "ਚੁਣਿਆ ਲਿੰਕ"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "ਦੱਸੋ ਕਿ AtkHyperlink ਆਬਜੈਕਟ ਚੁਣਿਆ ਜਾਵੇ"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "ਅੰਕਰ ਦੀ ਗਿਣਤੀ"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "AtkHyperlink ਇਕਾਈ ਨਾਲ ਸੰਬੰਧਤ ਅੰਕਰਾਂ ਦੀ ਗਿਣਤੀ"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "ਅੰਤ ਇੰਡੈਕਸ"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "AtkHyperlink ਇਕਾਈ ਦੇ ਇੰਡੈਕਸ ਦਾ ਅੰਤ"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "ਸ਼ੁਰੂ ਇੰਡੈਕਸ"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "AtkHyperlink ਇਕਾਈ ਦਾ ਇੰਡੈਕਸ ਸ਼ੁਰੂ"
+
+#: atk/atkobject.c:268
+msgid "Accessible Name"
+msgstr "ਪਹੁੰਚ ਨਾਂ"
+
+#: atk/atkobject.c:269
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr "ਸਹਾਇਕ ਤਕਨੀਕ ਪਹੁੰਚ ਲਈ ਮੌਜੂਦਾ ਆਬਜੈਕਟ ਦਾ ਫਾਰਮੈਟ ਨਾਂ"
+
+#: atk/atkobject.c:275
+msgid "Accessible Description"
+msgstr "ਪਹੁੰਚਯੋਗ ਵੇਰਵਾ"
+
+#: atk/atkobject.c:276
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "ਸਹਾਇਕ ਤਕਨੀਕ ਲਈ ਆਬਜੈਕਟ ਦਾ ਵੇਰਵਾ ਫਾਰਮੈਟ ਕੀਤਾ"
+
+#: atk/atkobject.c:282
+msgid "Accessible Parent"
+msgstr "ਪਹੁੰਚਯੋਗ ਮੋਢੀ"
+
+#: atk/atkobject.c:283
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr "atk_object_get_parent() ਵਲੋਂ ਮੌਜੂਦਾ ਪਹੁੰਚਯੋਗ ਦੇ ਪੇਰੈਂਟ"
+
+#: atk/atkobject.c:299
+msgid "Accessible Value"
+msgstr "ਪਹੁੰਚਯੋਗ ਮੁੱਲ"
+
+#: atk/atkobject.c:300
+msgid "Is used to notify that the value has changed"
+msgstr "ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਮੁੱਲ ਤਬਦੀਲ ਹੋ ਗਿਆ ਹੈ"
+
+#: atk/atkobject.c:308
+msgid "Accessible Role"
+msgstr "ਪਹੁੰਚਯੋਗ ਰੋਲ"
+
+#: atk/atkobject.c:309
+msgid "The accessible role of this object"
+msgstr "ਇਸ ਇਕਾਈ ਦਾ ਪਹੁੰਚਯੋਗ ਰੋਲ"
+
+#: atk/atkobject.c:316
+msgid "Accessible Layer"
+msgstr "ਪਹੁੰਚਯੋਗ ਲੇਅਰ"
+
+#: atk/atkobject.c:317
+msgid "The accessible layer of this object"
+msgstr "ਇਸ ਆਬਜੈਕਟ ਦਾ ਪਹੁੰਚਯੋਗ ਲੇਅਰ"
+
+#: atk/atkobject.c:325
+msgid "Accessible MDI Value"
+msgstr "ਪਹੁੰਚਯੋਗ MDI ਮੁੱਲ"
+
+#: atk/atkobject.c:326
+msgid "The accessible MDI value of this object"
+msgstr "ਇਸ ਆਬਜੈਕਟ ਦਾ ਪਹੁੰਚਯੋਗ MDI"
+
+#: atk/atkobject.c:342
+msgid "Accessible Table Caption"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਸੁਰਖੀ"
+
+#: atk/atkobject.c:343
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤੀ ਜਾਂਦੀ ਹੈ ਕਿ ਟੇਬਲ ਸੁਰਖੀ ਬਦਲ ਗਈ।ਇਹ ਵਿਸ਼ੇਸਤਾ ਵਰਤੀ ਨਹੀ ਜਾਣੀ"
+" ਚਾਹੀਦੀ ਹੈ। "
+"ਇਸ ਦੀ ਬਜਾਏ ਪਹੁੰਚ-ਟੇਬਲ-ਸੁਰਖੀ-ਇਕਾਈ ਇਸਤੇਮਾਲ ਕਰੋ।"
+
+#: atk/atkobject.c:357
+msgid "Accessible Table Column Header"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਕਾਲਮ ਹੈੱਡਰ"
+
+#: atk/atkobject.c:358
+msgid "Is used to notify that the table column header has changed"
+msgstr "ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਣਾ ਹੈ ਕਿ ਟੇਬਲ ਕਾਲਮ ਹੈੱਡਰ ਤਬਦੀਲ ਹੋ ਗਿਆ ਹੈ"
+
+#: atk/atkobject.c:373
+msgid "Accessible Table Column Description"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਕਾਲਮ ਵੇਰਵਾ"
+
+#: atk/atkobject.c:374
+msgid "Is used to notify that the table column description has changed"
+msgstr "ਇਹ ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਟੇਬਲ ਕਾਲਮ ਵੇਰਵਾ ਤਬਦੀਲ ਹੋ ਗਿਆ ਹੈ"
+
+#: atk/atkobject.c:389
+msgid "Accessible Table Row Header"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਕਤਾਰ ਹੈੱਡਰ"
+
+#: atk/atkobject.c:390
+msgid "Is used to notify that the table row header has changed"
+msgstr "ਇਹ ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਟੇਬਲ ਕਤਾਰ ਹੈੱਡਰ ਤਬਦੀਲ ਹੋ ਗਿਆ ਹੈ"
+
+#: atk/atkobject.c:404
+msgid "Accessible Table Row Description"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਕਤਾਰ ਵੇਰਵਾ"
+
+#: atk/atkobject.c:405
+msgid "Is used to notify that the table row description has changed"
+msgstr "ਇਹ ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਟੇਬਲ ਕਤਾਰ ਵੇਰਵਾ ਤਬਦੀਲ ਹੋ ਗਿਆ ਹੈ"
+
+#: atk/atkobject.c:411
+msgid "Accessible Table Summary"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਸੰਖੇਪ"
+
+#: atk/atkobject.c:412
+msgid "Is used to notify that the table summary has changed"
+msgstr "ਇਹ ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਟੇਬਲ ਸੰਖੇਪ ਤਬਦੀਲ ਹੋ ਗਈ ਹੈ"
+
+#: atk/atkobject.c:418
+msgid "Accessible Table Caption Object"
+msgstr "ਪਹੁੰਚਯੋਗ ਟੇਬਲ ਨਾਂ ਇਕਾਈ"
+
+#: atk/atkobject.c:419
+msgid "Is used to notify that the table caption has changed"
+msgstr "ਇਹ ਸੂਚਨਾ ਦੇਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਟੇਬਲ ਨਾਂ ਤਬਦੀਲ ਹੋ ਗਿਆ ਹੈ"
+
+#: atk/atkobject.c:425
+msgid "Number of Accessible Hypertext Links"
+msgstr "ਪਹੁੰਚਯੋਗ ਹਾਈਪ੍ਰਟੈਕਸਟ ਲਿੰਕਾਂ ਦੀ ਗਿਣਤੀ"
+
+#: atk/atkobject.c:426
+msgid "The number of links which the current AtkHypertext has"
+msgstr "ਮੌਜੂਦਾ AtkHypertext ਵਿੱਚ ਲਿੰਕਾਂ ਦੀ ਗਿਣਤੀ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "ਬਹੁਤ ਹਲਕਾ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "ਹਲਕਾ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "ਮਨਜ਼ੂਰਯੋਗ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "ਮਜ਼ਬੂਤ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "ਬਹੁਤ ਮਜ਼ਬੂਤ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "ਬਹੁਤ ਘੱਟ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "ਮੱਧਮ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "ਵੱਧ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "ਬਹੁਤ ਵੱਧ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "ਬਹੁਤ ਖ਼ਰਾਬ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "ਖਰਾਬ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "ਚੰਗਾ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "ਬਹੁਤ ਚੰਗਾ"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "ਸਭ ਤੋਂ ਵਧੀਆ"
+
+#: atspi/atspi-component.c:352 atspi/atspi-misc.c:1229 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+
+#: atspi/atspi-misc.c:49
+msgid "invalid"
+msgstr "ਅਢੁੱਕਵਾਂ"
+
+#: atspi/atspi-misc.c:50
+msgid "accelerator label"
+msgstr "ਐਕਸਰਲੇਸਟਰ ਲੇਬਲ"
+
+#: atspi/atspi-misc.c:51
+msgid "alert"
+msgstr "ਚੇਤਾਵਨੀ"
+
+#: atspi/atspi-misc.c:52
+msgid "animation"
+msgstr "ਐਨੀਮੇਸ਼ਨ"
+
+#: atspi/atspi-misc.c:53
+msgid "arrow"
+msgstr "ਤੀਰ"
+
+#: atspi/atspi-misc.c:54
+msgid "calendar"
+msgstr "ਕੈਲੰਡਰ"
+
+#: atspi/atspi-misc.c:55
+msgid "canvas"
+msgstr "ਕੈਨਵਸ"
+
+#: atspi/atspi-misc.c:56
+msgid "check box"
+msgstr "ਚੈਕ-ਬਕਸਾ"
+
+#: atspi/atspi-misc.c:57
+msgid "check menu item"
+msgstr "ਚੈਕ ਮੇਨੂ ਆਈਟਮ"
+
+#: atspi/atspi-misc.c:58
+msgid "color chooser"
+msgstr "ਰੰਗ ਚੋਣਕਾਰ"
+
+#: atspi/atspi-misc.c:59
+msgid "column header"
+msgstr "ਕਾਲਮ ਹੈੱਡਰ"
+
+#: atspi/atspi-misc.c:60
+msgid "combo box"
+msgstr "ਕੰਬੋ ਬਾਕਸ"
+
+#: atspi/atspi-misc.c:61
+msgid "dateeditor"
+msgstr "ਮਿਤੀ-ਸੰਪਾਦਕ"
+
+#: atspi/atspi-misc.c:62
+msgid "desktop icon"
+msgstr "ਡੈਸਕਟਾਪ ਆਈਕਾਨ"
+
+#: atspi/atspi-misc.c:63
+msgid "desktop frame"
+msgstr "ਡੈਸਕਟਾਪ ਫਰੇਮ"
+
+#: atspi/atspi-misc.c:64
+msgid "dial"
+msgstr "ਡਾਇਲ"
+
+#: atspi/atspi-misc.c:65
+msgid "dialog"
+msgstr "ਡਾਈਲਾਗ"
+
+#: atspi/atspi-misc.c:66
+msgid "directory pane"
+msgstr "ਡਾਇਰੈਕਟਰੀ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:67
+msgid "drawing area"
+msgstr "ਡਰਾਇੰਗ ਖੇਤਰ"
+
+#: atspi/atspi-misc.c:68
+msgid "file chooser"
+msgstr "ਫਾਇਲ ਚੋਣਕਾਰ"
+
+#: atspi/atspi-misc.c:69
+msgid "filler"
+msgstr "ਭਰਨ ਵਾਲਾ"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:71
+msgid "fontchooser"
+msgstr "ਫੋਂਟ ਚੋਣਕਾਰ"
+
+#: atspi/atspi-misc.c:72
+msgid "frame"
+msgstr "ਫਰੇਮ"
+
+#: atspi/atspi-misc.c:73
+msgid "glass pane"
+msgstr "ਗਲਾਸ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:74
+msgid "html container"
+msgstr "html ਬਕਸਾ"
+
+#: atspi/atspi-misc.c:75
+msgid "icon"
+msgstr "ਆਈਕਾਨ"
+
+#: atspi/atspi-misc.c:76
+msgid "image"
+msgstr "ਚਿੱਤਰ"
+
+#: atspi/atspi-misc.c:77
+msgid "internal frame"
+msgstr "ਅੰਦਰੂਨੀ ਫਰੇਮ"
+
+#: atspi/atspi-misc.c:78
+msgid "label"
+msgstr "ਲੇਬਲ"
+
+#: atspi/atspi-misc.c:79
+msgid "layered pane"
+msgstr "ਪਰਤਦਾਰ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:80
+msgid "list"
+msgstr "ਲਿਸਟ"
+
+#: atspi/atspi-misc.c:81
+msgid "list item"
+msgstr "ਲਿਸਟ ਆਈਟਮ"
+
+#: atspi/atspi-misc.c:82
+msgid "menu"
+msgstr "ਮੇਨੂ"
+
+#: atspi/atspi-misc.c:83
+msgid "menu bar"
+msgstr "ਮੇਨੂ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:84
+#| msgid "push button"
+msgid "menu button"
+msgstr "ਮੇਨੂ ਬਟਨ"
+
+#: atspi/atspi-misc.c:85
+msgid "menu item"
+msgstr "ਮੇਨੂ ਆਈਟਮ"
+
+#: atspi/atspi-misc.c:86
+msgid "option pane"
+msgstr "ਚੋਣ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:87
+msgid "page tab"
+msgstr "ਪੇਜ਼ ਟੈਬ"
+
+#: atspi/atspi-misc.c:88
+msgid "page tab list"
+msgstr "ਪੇਜ਼ ਟੈਬ ਲਿਸਟ"
+
+#: atspi/atspi-misc.c:89
+msgid "panel"
+msgstr "ਪੈਨਲ"
+
+#: atspi/atspi-misc.c:90
+msgid "password text"
+msgstr "ਪਾਸਵਰਡ ਟੈਕਸਟ"
+
+#: atspi/atspi-misc.c:91
+msgid "popup menu"
+msgstr "ਪੋਪਅੱਪ ਮੇਨੂ"
+
+#: atspi/atspi-misc.c:92
+msgid "progress bar"
+msgstr "ਤਰੱਕੀ ਪੱਟੀ"
+
+#: atspi/atspi-misc.c:93
+msgid "push button"
+msgstr "ਦਬਾਉ ਬਟਨ"
+
+#: atspi/atspi-misc.c:94
+msgid "radio button"
+msgstr "ਰੇਡੀਉ ਬਟਨ"
+
+#: atspi/atspi-misc.c:95
+msgid "radio menu item"
+msgstr "ਰੇਡੀਉ ਮੇਨੂ ਆਈਟਮ"
+
+#: atspi/atspi-misc.c:96
+msgid "root pane"
+msgstr "ਰੂਟ (root) ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:97
+msgid "row header"
+msgstr "ਕਤਾਰ ਹੈੱਡਰ"
+
+#: atspi/atspi-misc.c:98
+msgid "scroll bar"
+msgstr "ਸਕ੍ਰੋਲ ਪੱਟੀ"
+
+#: atspi/atspi-misc.c:99
+msgid "scroll pane"
+msgstr "ਸਕ੍ਰੋਲ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:100
+msgid "separator"
+msgstr "ਵੱਖਰੇਵਾਂ"
+
+#: atspi/atspi-misc.c:101
+msgid "slider"
+msgstr "ਸਲਾਈਡਰ"
+
+#: atspi/atspi-misc.c:102
+msgid "split pane"
+msgstr "ਵੱਖ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:103
+msgid "spin button"
+msgstr "ਘੁੰਮਾਉ ਬਟਨ"
+
+#: atspi/atspi-misc.c:104
+msgid "statusbar"
+msgstr "ਹਾਲਤ-ਪੱਟੀ"
+
+#: atspi/atspi-misc.c:105
+msgid "table"
+msgstr "ਟੇਬਲ"
+
+#: atspi/atspi-misc.c:106
+msgid "table cell"
+msgstr "ਟੇਬਲ ਸੈੱਲ"
+
+#: atspi/atspi-misc.c:107
+msgid "table column header"
+msgstr "ਟੇਬਲ ਕਾਲਮ ਹੈੱਡਰ"
+
+#: atspi/atspi-misc.c:108
+msgid "table row header"
+msgstr "ਟੇਬਲ ਕਤਾਰ ਹੈੱਡਰ"
+
+#: atspi/atspi-misc.c:109
+msgid "tear off menu item"
+msgstr "ਵੱਖ ਹੋਣ ਵਾਲੀ ਮੇਨੂ ਇਕਾਈ"
+
+#: atspi/atspi-misc.c:110
+msgid "terminal"
+msgstr "ਟਰਮੀਨਲ"
+
+#: atspi/atspi-misc.c:111
+msgid "text"
+msgstr "ਟੈਕਸਟ"
+
+#: atspi/atspi-misc.c:112
+msgid "toggle button"
+msgstr "ਤਬਦੀਲ ਬਟਨ"
+
+#: atspi/atspi-misc.c:113
+msgid "tool bar"
+msgstr "ਟੂਲ ਬਾਰ"
+
+#: atspi/atspi-misc.c:114
+msgid "tool tip"
+msgstr "ਟੂਲ ਟਿੱਪ"
+
+#: atspi/atspi-misc.c:115
+msgid "tree"
+msgstr "ਲੜੀ"
+
+#: atspi/atspi-misc.c:116
+msgid "tree table"
+msgstr "ਲੜੀ ਟੇਬਲ"
+
+#: atspi/atspi-misc.c:117
+msgid "unknown"
+msgstr "ਅਣਜਾਣ"
+
+#: atspi/atspi-misc.c:118
+msgid "viewport"
+msgstr "ਵਿਊਪੋਰਟ"
+
+#: atspi/atspi-misc.c:119
+msgid "window"
+msgstr "ਵਿੰਡੋ"
+
+#: atspi/atspi-misc.c:120
+msgid "header"
+msgstr "ਹੈੱਡਰ"
+
+#: atspi/atspi-misc.c:121
+msgid "footer"
+msgstr "ਫੁੱਟਰ"
+
+#: atspi/atspi-misc.c:122
+msgid "paragraph"
+msgstr "ਪੈਰ੍ਹਾ"
+
+#: atspi/atspi-misc.c:123
+msgid "ruler"
+msgstr "ਰੂਲਰ"
+
+#: atspi/atspi-misc.c:124
+msgid "application"
+msgstr "ਐਪਲੀਕੇਸ਼ਨ"
+
+#: atspi/atspi-misc.c:125
+msgid "autocomplete"
+msgstr "ਸਵੈ-ਪੂਰਨ"
+
+#: atspi/atspi-misc.c:126
+msgid "edit bar"
+msgstr "ਸੋਧ ਪੱਟੀ"
+
+#: atspi/atspi-misc.c:127
+msgid "embedded component"
+msgstr "ਇੰਬੈੱਡ ਭਾਗ"
+
+#: atspi/atspi-misc.c:128
+msgid "entry"
+msgstr "ਐਂਟਰੀ"
+
+#: atspi/atspi-misc.c:129
+msgid "chart"
+msgstr "ਚਾਰਟ"
+
+#: atspi/atspi-misc.c:130
+msgid "caption"
+msgstr "ਸੁਰਖੀ"
+
+#: atspi/atspi-misc.c:131
+msgid "document frame"
+msgstr "ਡੌਕੂਮੈਂਟ ਫਰੇਮ"
+
+#: atspi/atspi-misc.c:132
+msgid "heading"
+msgstr "ਹੈੱਡਿੰਗ"
+
+#: atspi/atspi-misc.c:133
+msgid "page"
+msgstr "ਪੇਜ਼"
+
+#: atspi/atspi-misc.c:134
+msgid "section"
+msgstr "ਸੈਕਸ਼ਨ"
+
+#: atspi/atspi-misc.c:135
+msgid "redundant object"
+msgstr "ਦੂਹਰਾ ਆਬਜੈਕਟ"
+
+#: atspi/atspi-misc.c:136
+msgid "form"
+msgstr "ਫਾਰਮ"
+
+#: atspi/atspi-misc.c:137
+msgid "link"
+msgstr "ਲਿੰਕ"
+
+#: atspi/atspi-misc.c:138
+msgid "input method window"
+msgstr "ਇੰਪੁੱਟ ਢੰਗ ਵਿੰਡੋ"
+
+#: atspi/atspi-misc.c:139
+msgid "table row"
+msgstr "ਟੇਬਲ ਕਤਾਰ"
+
+#: atspi/atspi-misc.c:140
+msgid "tree item"
+msgstr "ਲੜੀ ਆਈਟਮ"
+
+#: atspi/atspi-misc.c:141
+msgid "document spreadsheet"
+msgstr "ਡੌਕੂਮੈਂਟ ਸਪਰੈਡਸ਼ੀਟ"
+
+#: atspi/atspi-misc.c:142
+msgid "document presentation"
+msgstr "ਡੌਕੂਮੈਂਟ ਪਰਿਜੈਂਟੇਸ਼ਨ"
+
+#: atspi/atspi-misc.c:143
+msgid "document text"
+msgstr "ਡੌਕੂਮੈਂਟ ਟੈਕਸਟ"
+
+#: atspi/atspi-misc.c:144
+msgid "document web"
+msgstr "ਡੌਕੂਮੈਂਟ ਵੈੱਬ"
+
+#: atspi/atspi-misc.c:145
+msgid "document email"
+msgstr "ਡੌਕੂਮੈਂਟ ਈਮੇਲ"
+
+#: atspi/atspi-misc.c:146
+msgid "comment"
+msgstr "ਟਿੱਪਣੀ"
+
+#: atspi/atspi-misc.c:147
+msgid "list box"
+msgstr "ਲਿਸਟ ਬਾਕਸ"
+
+#: atspi/atspi-misc.c:148
+msgid "grouping"
+msgstr "ਗਰੁੱਪਿੰਗ"
+
+#: atspi/atspi-misc.c:149
+msgid "image map"
+msgstr "ਚਿੱਤਰ ਮੈਪ"
+
+#: atspi/atspi-misc.c:150
+msgid "notification"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ"
+
+#: atspi/atspi-misc.c:151
+msgid "info bar"
+msgstr "ਜਾਣਕਾਰੀ ਬਾਹੀ"
+
+#: atspi/atspi-misc.c:152
+msgid "level bar"
+msgstr "ਲੈਵਲ ਪੱਟੀ"
+
+#: atspi/atspi-misc.c:153
+msgid "title bar"
+msgstr "ਟਾਈਟਲ ਪੱਟੀ"
+
+#: atspi/atspi-misc.c:154
+msgid "block quote"
+msgstr "ਬਲਾਕ ਕੋਟ"
+
+#: atspi/atspi-misc.c:155
+msgid "audio"
+msgstr "ਆਡੀਓ"
+
+#: atspi/atspi-misc.c:156
+msgid "video"
+msgstr "ਵਿਡੀਓ"
+
+#: atspi/atspi-misc.c:157
+msgid "definition"
+msgstr "ਪਰਿਭਾਸ਼ਾ"
+
+#: atspi/atspi-misc.c:158
+msgid "article"
+msgstr "ਲੇਖ"
+
+#: atspi/atspi-misc.c:159
+msgid "landmark"
+msgstr "ਲੈਂਡਮਾਰਕ"
+
+#: atspi/atspi-misc.c:160
+msgid "log"
+msgstr "ਲਾਗ"
+
+#: atspi/atspi-misc.c:161
+msgid "marquee"
+msgstr "ਸ਼ਾਮਿਆਨਾ"
+
+#: atspi/atspi-misc.c:162
+msgid "math"
+msgstr "ਗਣਿਤ"
+
+#: atspi/atspi-misc.c:163
+msgid "rating"
+msgstr "ਰੇਟਿੰਗ"
+
+#: atspi/atspi-misc.c:164
+msgid "timer"
+msgstr "ਟਾਈਮਰ"
+
+#: atspi/atspi-misc.c:165
+msgid "description list"
+msgstr "ਵੇਰਵਾ ਸੂਚੀ"
+
+#: atspi/atspi-misc.c:166
+msgid "description term"
+msgstr "ਵੇਰਵ ਸ਼ਬਦ"
+
+#: atspi/atspi-misc.c:167
+msgid "description value"
+msgstr "ਵੇਰਵਾ ਮੁੱਲ"
+
+#~ msgid "Attempted synchronous call where prohibited"
+#~ msgstr "ਸੈਕਰੋਨਾਈਸ ਕਾਲ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਗਈ, ਜਿੱਥੇ ਪਾਬੰਦੀ ਹੈ"
+
+#~ msgid "AT-SPI: Unknown signature %s for RemoveAccessible"
+#~ msgstr "AT-SPI: RemoveAccessible ਲਈ ਅਣਜਾਣ %s ਦਸਤਖਤ"
+
+#~ msgid "AT-SPI: Error calling getRoot for %s: %s"
+#~ msgstr "AT-SPI: %s ਲਈ getRoot ਦੌਰਾਨ ਗਲਤੀ: %s"
+
+#~ msgid "AT-SPI: Error in GetItems, sender=%s, error=%s"
+#~ msgstr "AT-SPI: GetItems ਵਿੱਚ ਗਲਤੀਆਂ, sender=%s, ਗਲਤੀ=%s"
+
+#~ msgid ""
+#~ "AT-SPI: Called _atspi_dbus_return_accessible_from_message with strange "
+#~ "signature %s"
+#~ msgstr ""
+#~ "AT-SPI: Called _atspi_dbus_return_accessible_from_message ਅਜੀਬ ਦਸਤਖਤ %s "
+#~ "ਨਾਲ"
+
+#~ msgid ""
+#~ "AT-SPI: Called _atspi_dbus_return_hyperlink_from_message with strange "
+#~ "signature %s"
+#~ msgstr ""
+#~ "AT-SPI: _atspi_dbus_return_hyperlink_from_message ਅਜੀਬ ਦਸਤਖਤ %s ਨਾਲ ਕਾਲ "
+#~ "ਕੀਤਾ"
+
+#~ msgid "AT-SPI: AddAccessible with unknown signature %s\n"
+#~ msgstr "AT-SPI: ਅਣਜਾਣ ਦਸਤਖਤ %s ਨਾਲ AddAccessible\n"
+
+#~ msgid ""
+#~ "AT-SPI: expected a variant when fetching %s from interface %s; got %s\n"
+#~ msgstr "AT-SPI: ਵੇਰੀਏਟ ਦੀ ਲੋੜ ਸੀ, ਜੋ ਕਿ %2$s ਇੰਟਰਫੇਸ ਤੋਂ %1$s ਲੈ ਸਕਦਾ; ਮਿਲਿਆ %3$s\n"
+
+#~ msgid "atspi_dbus_get_property: Wrong type: expected %s, got %c\n"
+#~ msgstr "atspi_dbus_get_property: ਗਲਤ ਕਿਸਮ: ਲੋੜ ਸੀ %s, ਮਿਲਿਆ %c\n"
+
+#~ msgid "AT-SPI: Unknown interface %s"
+#~ msgstr "AT-SPI: ਅਣਜਾਣ ਇੰਟਰਫੇਸ %s"
+
+#~ msgid "AT-SPI: expected 2 values in states array; got %d\n"
+#~ msgstr "AT-SPI: states ਅਰੇ 'ਚ 2 ਮੁੱਲ ਚਾਹੀਦੇ ਸਨ; ਮਿਲੇ %d\n"
+
+#~ msgid "Streamable content not implemented"
+#~ msgstr "ਸਟਰੀਮ-ਯੋਗ ਸਮੱਗਰੀ ਹਾਲੇ ਸਥਾਪਤ ਨਹੀਂ"
+
+#~ msgid ""
+#~ "called atspi_event_listener_register_from_callback with a NULL event_type"
+#~ msgstr ""
+#~ "atspi_event_listener_register_from_callback NULL event_type ਨਾਲ ਕਾਲ ਕੀਤਾ"
+
+#~ msgid "Got invalid signature %s for signal %s from interface %s\n"
+#~ msgstr "ਇੰਟਰਫੇਸ %3$s ਤੋਂ %2$s ਸਿਗਨਲ ਲਈ ਗਲਤ ਦਸਤਖਤ %1$s ਮਿਲਿਆ\n"
+
+#~ msgid "AT-SPI: Could not get the display\n"
+#~ msgstr "AT-SPI: ਡਿਸਪਲੇਅ ਨਹੀਂ ਮਿਲਿਆ\n"
+
+#~ msgid "AT-SPI: Accessibility bus not found - Using session bus.\n"
+#~ msgstr "AT-SPI: ਅਸੈਸਬਿਲਟੀ ਬਸ ਨਹੀਂ ਲੱਭੀ - ਸ਼ੈਸ਼ਨ ਬਸ ਦੀ ਵਰਤੋਂ।\n"
+
+#~ msgid "AT-SPI: Couldn't connect to bus: %s\n"
+#~ msgstr "AT-SPI: ਬਸ ਨਾਲ ਕੁਨੈਕਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ: %s\n"
+
+#~ msgid "AT-SPI: Couldn't register with bus: %s\n"
+#~ msgstr "AT-SPI: ਬਸ ਨਾਲ ਰਜਿਸਟਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ: %s\n"
+
+#~ msgid "Is used to notify that the parent has changed"
+#~ msgstr "ਜੇ ਮੋਢੀ (parent) ਬਦਲ ਗਿਆ ਹੈ ਤਾਂ ਇਹ ਟਿੱਪਣੀ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ  "

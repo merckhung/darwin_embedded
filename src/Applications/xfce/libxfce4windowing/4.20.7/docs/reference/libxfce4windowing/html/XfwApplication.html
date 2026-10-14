@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XfwApplication: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfwWindow.html" title="XfwWindow">
+<link rel="next" href="XfwMonitor.html" title="XfwMonitor">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfwApplication.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfwApplication.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#XfwApplication.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#XfwApplication.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfwWindow.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfwMonitor.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfwApplication"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfwApplication.top_of_page"></a>XfwApplication</span></h2>
+<p>XfwApplication — An object representing a desktop application</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfwApplication.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfwApplication.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-class-id" title="xfw_application_get_class_id ()">xfw_application_get_class_id</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-name" title="xfw_application_get_name ()">xfw_application_get_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GdkPixbuf</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-icon" title="xfw_application_get_icon ()">xfw_application_get_icon</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GIcon</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-gicon" title="xfw_application_get_gicon ()">xfw_application_get_gicon</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-icon-is-fallback" title="xfw_application_icon_is_fallback ()">xfw_application_icon_is_fallback</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-windows" title="xfw_application_get_windows ()">xfw_application_get_windows</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-instances" title="xfw_application_get_instances ()">xfw_application_get_instances</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="returnvalue">XfwApplicationInstance</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-get-instance" title="xfw_application_get_instance ()">xfw_application_get_instance</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-instance-get-pid" title="xfw_application_instance_get_pid ()">xfw_application_instance_get_pid</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-instance-get-name" title="xfw_application_instance_get_name ()">xfw_application_instance_get_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwApplication.html#xfw-application-instance-get-windows" title="xfw_application_instance_get_windows ()">xfw_application_instance_get_windows</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwApplication.html#XfwApplication--class-id" title="The “class-id” property">class-id</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GIcon</span> *</td>
+<td class="property_name"><a class="link" href="XfwApplication.html#XfwApplication--gicon" title="The “gicon” property">gicon</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_name"><a class="link" href="XfwApplication.html#XfwApplication--instances" title="The “instances” property">instances</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwApplication.html#XfwApplication--name" title="The “name” property">name</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_name"><a class="link" href="XfwApplication.html#XfwApplication--windows" title="The “windows” property">windows</a></td>
+<td class="property_flags">Read</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
+</colgroup>
+<tbody><tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="XfwApplication.html#XfwApplication-icon-changed" title="The “icon-changed” signal">icon-changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwApplication.html#XfwApplication-struct" title="XfwApplication">XfwApplication</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance">XfwApplicationInstance</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> XfwApplication
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowing/libxfce4windowing.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.description"></a><h2>Description</h2>
+<p><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> represents an application in the common or abstract sense,
+i.e. it can have several windows belonging to different instances, identified
+by their process ID.</p>
+<p>Note that <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> is actually an interface; when obtaining an
+instance, an instance of a windowing-environment-specific object that
+implements this interface will be returned.</p>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-application-get-class-id"></a><h3>xfw_application_get_class_id ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfw_application_get_class_id (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>);</pre>
+<p>Fetches this application's class id. On X11 this should be the class name of
+the <a class="ulink" href="https://x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html#wm_class_property" target="_top">WM_CLASS property</a>.
+On Wayland, it's the <a class="ulink" href="https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1#zwlr_foreign_toplevel_handle_v1:event:app_id" target="_top">application ID</a>,
+which should correspond to the basename of the application's desktop file.</p>
+<div class="refsect3">
+<a name="xfw-application-get-class-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-class-id.returns"></a><h4>Returns</h4>
+<p>A UTF-8 formatted string,
+owned by <em class="parameter"><code>app</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-get-name"></a><h3>xfw_application_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfw_application_get_name (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>);</pre>
+<p>Fetches this application's human-readable name.</p>
+<div class="refsect3">
+<a name="xfw-application-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-name.returns"></a><h4>Returns</h4>
+<p>A UTF-8 formatted string,
+owned by <em class="parameter"><code>app</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-get-icon"></a><h3>xfw_application_get_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkPixbuf</span> *
+xfw_application_get_icon (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>,
+                          <em class="parameter"><code><span class="type">gint</span> size</code></em>,
+                          <em class="parameter"><code><span class="type">gint</span> scale</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>app</code></em>
+'s icon.  If <em class="parameter"><code>app</code></em>
+ has no icon, a fallback icon may be
+returned.  Whether or not the returned icon is a fallback icon can be
+determined using <a class="link" href="XfwApplication.html#xfw-application-icon-is-fallback" title="xfw_application_icon_is_fallback ()"><code class="function">xfw_application_icon_is_fallback()</code></a>.</p>
+<div class="refsect3">
+<a name="xfw-application-get-icon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>size</p></td>
+<td class="parameter_description"><p>the desired icon size.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>scale</p></td>
+<td class="parameter_description"><p>the UI scale factor.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-icon.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GdkPixbuf</span>, owned by <em class="parameter"><code>app</code></em>
+,
+or <code class="literal">NULL</code> if <em class="parameter"><code>app</code></em>
+has no icon and a fallback cannot be rendered. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-get-gicon"></a><h3>xfw_application_get_gicon ()</h3>
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *
+xfw_application_get_gicon (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>app</code></em>
+'s icon as a size-independent <span class="type">GIcon</span>.  If an icon cannot be
+found, a <span class="type">GIcon</span> representing a fallback icon will be returned.  Whether or
+not the returned icon is a fallback icon can be determined using
+<a class="link" href="XfwApplication.html#xfw-application-icon-is-fallback" title="xfw_application_icon_is_fallback ()"><code class="function">xfw_application_icon_is_fallback()</code></a>.</p>
+<div class="refsect3">
+<a name="xfw-application-get-gicon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-gicon.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GIcon</span>, owned by <em class="parameter"><code>app</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-icon-is-fallback"></a><h3>xfw_application_icon_is_fallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_application_icon_is_fallback (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>);</pre>
+<p>Determines if <em class="parameter"><code>app</code></em>
+ does not have an icon, and thus a fallback icon
+will be returned from <a class="link" href="XfwApplication.html#xfw-application-get-icon" title="xfw_application_get_icon ()"><code class="function">xfw_application_get_icon()</code></a> and
+<a class="link" href="XfwApplication.html#xfw-application-get-gicon" title="xfw_application_get_gicon ()"><code class="function">xfw_application_get_gicon()</code></a>.</p>
+<div class="refsect3">
+<a name="xfw-application-icon-is-fallback.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-icon-is-fallback.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> or <code class="literal">FALSE</code>, depending on if <em class="parameter"><code>app</code></em>
+'s icon uses a
+fallback icon or not.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-get-windows"></a><h3>xfw_application_get_windows ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_application_get_windows (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>);</pre>
+<p>Lists all windows belonging to the application.</p>
+<div class="refsect3">
+<a name="xfw-application-get-windows.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-windows.returns"></a><h4>Returns</h4>
+<p>The list of <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> belonging to <em class="parameter"><code>app</code></em>
+. The list and its contents are owned
+by <em class="parameter"><code>app</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwWindow][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-get-instances"></a><h3>xfw_application_get_instances ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_application_get_instances (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>);</pre>
+<p>Lists all instances of the application.</p>
+<div class="refsect3">
+<a name="xfw-application-get-instances.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-instances.returns"></a><h4>Returns</h4>
+<p>The list of <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> of <em class="parameter"><code>app</code></em>
+, or <code class="literal">NULL</code> if listing instances is
+not supported on the windowing environment in use. The list and its contents
+are owned by <em class="parameter"><code>app</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwApplicationInstance][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-get-instance"></a><h3>xfw_application_get_instance ()</h3>
+<pre class="programlisting"><a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="returnvalue">XfwApplicationInstance</span></a> *
+xfw_application_get_instance (<em class="parameter"><code><a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app</code></em>,
+                              <em class="parameter"><code><a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> *window</code></em>);</pre>
+<p>Finds the <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> to which <em class="parameter"><code>window</code></em>
+ belongs.</p>
+<div class="refsect3">
+<a name="xfw-application-get-instance.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>window</p></td>
+<td class="parameter_description"><p>the application window you want to get the instance of.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-get-instance.returns"></a><h4>Returns</h4>
+<p>The <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> to which <em class="parameter"><code>window</code></em>
+belongs, or <code class="literal">NULL</code> if <em class="parameter"><code>window</code></em>
+does not belong to <em class="parameter"><code>app</code></em>
+, or if listing instances is not supported on the
+windowing environment in use. The returned <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> is owned
+by <em class="parameter"><code>app</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-instance-get-pid"></a><h3>xfw_application_instance_get_pid ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+xfw_application_instance_get_pid (<em class="parameter"><code><a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> *instance</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>instance</code></em>
+'s PID.</p>
+<div class="refsect3">
+<a name="xfw-application-instance-get-pid.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>instance</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-instance-get-pid.returns"></a><h4>Returns</h4>
+<p> The process ID of <em class="parameter"><code>instance</code></em>
+, or 0 if none is available.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-instance-get-name"></a><h3>xfw_application_instance_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfw_application_instance_get_name (<em class="parameter"><code><a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> *instance</code></em>);</pre>
+<p>Fetches <em class="parameter"><code>instance</code></em>
+'s name, which can often be the same as the application name.</p>
+<div class="refsect3">
+<a name="xfw-application-instance-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>instance</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-instance-get-name.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>instance</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-application-instance-get-windows"></a><h3>xfw_application_instance_get_windows ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+xfw_application_instance_get_windows (<em class="parameter"><code><a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> *instance</code></em>);</pre>
+<p>Lists all windows belonging to the application instance.</p>
+<div class="refsect3">
+<a name="xfw-application-instance-get-windows.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>instance</p></td>
+<td class="parameter_description"><p>an <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-application-instance-get-windows.returns"></a><h4>Returns</h4>
+<p>The list of <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> belonging to <em class="parameter"><code>instance</code></em>
+. The list and its contents are owned
+by <em class="parameter"><code>instance</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> XfwWindow][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-1.html#api-index-4.19.1">4.19.1</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfwApplication-struct"></a><h3>XfwApplication</h3>
+<pre class="programlisting">typedef struct _XfwApplication XfwApplication;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwApplicationInstance"></a><h3>XfwApplicationInstance</h3>
+<pre class="programlisting">typedef struct _XfwApplicationInstance XfwApplicationInstance;</pre>
+<p>An opaque structure representing an instance of an <a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a>.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfwApplication--class-id"></a><h3>The <code class="literal">“class-id”</code> property</h3>
+<pre class="programlisting">  “class-id”                 <span class="type">char</span> *</pre>
+<p>The application class id.</p>
+<p>Owner: XfwApplication</p>
+<p>Flags: Read</p>
+<p>Default value: ""</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-3.html#api-index-4.19.3">4.19.3</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwApplication--gicon"></a><h3>The <code class="literal">“gicon”</code> property</h3>
+<pre class="programlisting">  “gicon”                    <span class="type">GIcon</span> *</pre>
+<p>The <span class="type">GIcon</span> that represents this application.</p>
+<p>Owner: XfwApplication</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwApplication--instances"></a><h3>The <code class="literal">“instances”</code> property</h3>
+<pre class="programlisting">  “instances”                <span class="type">gpointer</span></pre>
+<p>The list of <a class="link" href="XfwApplication.html#XfwApplicationInstance" title="XfwApplicationInstance"><span class="type">XfwApplicationInstance</span></a> belonging to the application.</p>
+<p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GList(XfwApplicationInstance)]</span></p>
+<p>Owner: XfwApplication</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwApplication--name"></a><h3>The <code class="literal">“name”</code> property</h3>
+<pre class="programlisting">  “name”                     <span class="type">char</span> *</pre>
+<p>The application name.</p>
+<p>Owner: XfwApplication</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwApplication--windows"></a><h3>The <code class="literal">“windows”</code> property</h3>
+<pre class="programlisting">  “windows”                  <span class="type">gpointer</span></pre>
+<p>The list of <a class="link" href="XfwWindow.html" title="XfwWindow"><span class="type">XfwWindow</span></a> belonging to the application.</p>
+<p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GList(XfwWindow)]</span></p>
+<p>Owner: XfwApplication</p>
+<p>Flags: Read</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwApplication.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="XfwApplication-icon-changed"></a><h3>The <code class="literal">“icon-changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="XfwApplication.html" title="XfwApplication"><span class="type">XfwApplication</span></a> *app,
+               <span class="type">gpointer</span>        user_data)</pre>
+<p>Emitted when <em class="parameter"><code>app</code></em>
+'s icon changes.</p>
+<div class="refsect3">
+<a name="XfwApplication-icon-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>app</p></td>
+<td class="parameter_description"><p>the object which received the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

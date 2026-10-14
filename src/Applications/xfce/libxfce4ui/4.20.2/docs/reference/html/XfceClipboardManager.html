@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XfceClipboardManager: libxfce4ui Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4ui Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfceTitledDialog.html" title="XfceTitledDialog">
+<link rel="next" href="XfceSMClient.html" title="XfceSMClient">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfceClipboardManager.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfceClipboardManager.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfceTitledDialog.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="XfceSMClient.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfceClipboardManager"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfceClipboardManager.top_of_page"></a>XfceClipboardManager</span></h2>
+<p>XfceClipboardManager — X11 clipboard manager</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfceClipboardManager.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to
+develop applications to these interfaces, release them, and have confidence that
+they will run on all minor releases of the product (after the one in which the
+interface was introduced, and within the same major release). Even at a major
+release, incompatible changes are expected to be rare, and to have strong
+justifications.
+"><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="function_type">
+<a class="link" href="XfceClipboardManager.html" title="XfceClipboardManager"><span class="returnvalue">XfceClipboardManager</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="XfceClipboardManager.html#xfce-clipboard-manager-new" title="xfce_clipboard_manager_new ()">xfce_clipboard_manager_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfceClipboardManager.html#XfceClipboardManager-struct" title="XfceClipboardManager">XfceClipboardManager</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> XfceClipboardManager
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4ui/libxfce4ui.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.description"></a><h2>Description</h2>
+<p>X11 clipboard manager which ensures persistence in the sense of
+<a href="/usr/share/gtk-doc/html/gdk3/GdkDisplay.html#gdk-display-supports-clipboard-persistence"><code class="function">gdk_display_supports_clipboard_persistence()</code></a>.</p>
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfce-clipboard-manager-new"></a><h3>xfce_clipboard_manager_new ()</h3>
+<pre class="programlisting"><a class="link" href="XfceClipboardManager.html" title="XfceClipboardManager"><span class="returnvalue">XfceClipboardManager</span></a> *
+xfce_clipboard_manager_new (<em class="parameter"><code><span class="type">gboolean</span> replace</code></em>);</pre>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="xfce-clipboard-manager-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>replace</p></td>
+<td class="parameter_description"><p>whether or not to replace an existing clipboard manager</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-clipboard-manager-new.returns"></a><h4>Returns</h4>
+<p>A new <a class="link" href="XfceClipboardManager.html" title="XfceClipboardManager"><span class="type">XfceClipboardManager</span></a> instance
+or <code class="literal">NULL</code> if <em class="parameter"><code>replace</code></em>
+is <code class="literal">FALSE</code> and a clipboard manager is already running. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-5.html#api-index-4.19.5">4.19.5</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfceClipboardManager.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfceClipboardManager-struct"></a><h3>XfceClipboardManager</h3>
+<pre class="programlisting">typedef struct _XfceClipboardManager XfceClipboardManager;</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

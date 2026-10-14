@@ -1,0 +1,47 @@
+#!/bin/sh
+# -*- mode: sh -*-
+# Minimal configure script which writes out a Makefile.inc
+# Copyright 2010, 2011 Colin Walters <walters@verbum.org>
+# Licensed under the new-BSD license (http://www.opensource.org/licenses/bsd-license.php)
+
+prefix=/usr
+blacklist=true
+
+for arg; do
+    case "$arg" in
+        --prefix=*) prefix=${arg#*=};;
+        --bindir=*) bindir=${arg#*=};;
+        --sbindir=*) sbindir=${arg#*=};;
+        --libexecdir=*) libexecdir=${arg#*=};;
+        --datadir=*) datadir=${arg#*=};;
+        --sysconfdir=*) sysconfdir=${arg#*=};;
+        --libdir=*) libdir=${arg#*=};;
+        --mandir=*) mandir=${arg#*=};;
+        --disable-blacklist) blacklist=false;;
+        *) echo "Ignoring unknown option '$arg'";;
+    esac
+    shift
+done
+
+# Handle srcdir != builddir
+srcdir=$(dirname $0)
+if ! test -f Makefile; then
+    ln -s ${srcdir}/Makefile Makefile
+fi
+
+cat > Makefile.inc.tmp <<EOF
+srcdir = ${srcdir}
+
+prefix ?= ${prefix}
+bindir ?= ${bindir:-${prefix}/bin}
+sbindir ?= ${sbindir:-${prefix}/sbin}
+libexecdir ?= ${libexecdir:-${prefix}/libexec}
+datadir ?= ${datadir:-${prefix}/share}
+sysconfdir ?= ${sysconfdir:-${prefix}/etc}
+libdir ?= ${libdir:-${prefix}/lib}
+mandir ?= ${mandir:-${prefix}/share/man}
+
+blacklist ?= ${blacklist}
+
+EOF
+mv Makefile.inc.tmp Makefile.inc

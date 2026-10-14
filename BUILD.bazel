@@ -1,0 +1,108 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+# ---------------------------------------------------------------------------
+# Host system libraries shared by the cctools / XNU host-tool builds.
+# ---------------------------------------------------------------------------
+cc_library(
+    name = "sys_zlib",
+    linkopts = ["-lz"],
+    linkstatic = 1,
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "sys_libxml2",
+    includes = ["/usr/include/libxml2"],
+    linkopts = ["-lxml2"],
+    linkstatic = 1,
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "sys_crypto",
+    linkopts = ["-lcrypto"],
+    linkstatic = 1,
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "sys_uuid",
+    linkopts = ["-luuid"],
+    linkstatic = 1,
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "sys_ssl",
+    linkopts = ["-lssl"],
+    linkstatic = 1,
+    visibility = ["//visibility:public"],
+)
+
+# ---------------------------------------------------------------------------
+# Convenience build bundles:
+#   bazel build //:arm64    -> XNU ARM64 kernel + custom raspi4b bootloader
+#   bazel build //:x86_64   -> source-built EFI loader, kernel and HFS root
+# ---------------------------------------------------------------------------
+filegroup(
+    name = "arm64",
+    srcs = [
+        "//bootloader/rpi4:boot_current_bin",
+        "//src/Kernel/xnu/12377.121.6:kernel_bin_arm64",
+        "//minimal_rootfs:arm64",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "boot_img_current",
+    srcs = [
+        "//src/Kernel/xnu/12377.121.6:kernel_collection_x86_64",
+        "//bootloader/xnu-loader:efi",
+        "//scripts:create_efi_image.py",
+        "//minimal_rootfs:x86_64",
+    ],
+    outs = ["boot_current.img"],
+    cmd = "python3 $(location //scripts:create_efi_image.py) " +
+          "--loader $(location //bootloader/xnu-loader:efi) " +
+          "--kernel-collection $(location //src/Kernel/xnu/12377.121.6:kernel_collection_x86_64) " +
+          "--root-image $(location //minimal_rootfs:x86_64) --output $@",
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "x86_64",
+    srcs = [":boot_img_current", "//bootloader/ovmf:firmware"],
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "arm64_kernel",
+    actual = "//src/Kernel/xnu/12377.121.6:kernel_bin_arm64",
+)
+
+alias(
+    name = "x86_64_boot_img",
+    actual = ":boot_img_current",
+)
+
+# ---------------------------------------------------------------------------
+# Bazel-native QEMU boot targets:
+#   bazel run //:boot_arm64
+#   bazel run //:boot_x86_64               (verifies native dash)
+#   bazel run //:boot_x86_64 -- --interactive
+# ---------------------------------------------------------------------------
+sh_binary(
+    name = "boot_arm64",
+    srcs = ["//tools:boot_arm64.sh"],
+    data = [":arm64", "//scripts:verify_qemu_boot.py"],
+    visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "boot_x86_64",
+    srcs = ["//tools:boot_x86_64.sh"],
+    data = [":x86_64", "//scripts:verify_qemu_boot.py"],
+    visibility = ["//visibility:public"],
+)

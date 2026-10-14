@@ -1,0 +1,14 @@
+[
+    genrule(
+        name = "root_" + arch,
+        srcs = ["diagnostic.c", "start.S", "dyld.c", "dyld_start.S",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/cctools:ld", "//tools/libdmg-hfsplus:hfsplus"],
+        outs = ["root." + arch + ".img"],
+        cmd = "python3 $(location //scripts:build_diagnostic_userland.py) --root $$PWD --arch " + arch +
+              " --ld $(location //tools/cctools:ld) --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
+              " --output $@",
+        visibility = ["//visibility:public"],
+    )
+    for arch in ["x86_64", "arm64"]
+]

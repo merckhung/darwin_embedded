@@ -1,0 +1,25 @@
+image: debian:stable
+
+variables:
+  DEPENDENCIES: python3 git meson daps
+  LANG: C.UTF-8
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_PIPELINE_SOURCE == 'push'
+
+build-validate:
+  before_script:
+    - rm -f /etc/rpm/macros.image-language-conf
+    - apt-get update -qq && apt-get install -yq eatmydata
+    - eatmydata apt-get install -yq $DEPENDENCIES
+
+  script:
+    # Build & Install
+    - mkdir build && cd build
+    - meson setup ..
+    - ninja && DESTDIR=./install ninja install
+    - cd ..
+    # Validate DocBook
+    - ./validate.py

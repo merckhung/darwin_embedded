@@ -1,0 +1,271 @@
+#include "simdutf.h"
+
+#include <array>
+
+#include <tests/helpers/fixed_string.h>
+#include <tests/helpers/random_int.h>
+#include <tests/helpers/test.h>
+#include <tests/helpers/transcode_test_base.h>
+
+namespace {
+constexpr std::array<size_t, 7> input_size{7, 16, 12, 64, 67, 128, 256};
+constexpr simdutf::endianness LE = simdutf::endianness::LITTLE;
+
+using simdutf::tests::helpers::transcode_utf16_to_utf8_test_base;
+
+} // namespace
+
+TEST(convert_pure_ASCII) {
+  size_t counter = 0;
+  auto generator = [&counter]() -> uint32_t { return counter++ & 0x7f; };
+
+  auto procedure = [&implementation](const char16_t *utf16, size_t size,
+                                     char *utf8) -> size_t {
+    const simdutf::result res =
+        implementation.convert_utf16le_to_utf8_with_errors(utf16, size, utf8);
+    ASSERT_EQUAL(res.error, simdutf::error_code::SUCCESS);
+    return res.count;
+  };
+  auto size_procedure = [&implementation](const char16_t *utf16,
+                                          size_t size) -> size_t {
+    return implementation.utf8_length_from_utf16le(utf16, size);
+  };
+  std::array<size_t, 1> input_size{16};
+  for (size_t size : input_size) {
+    transcode_utf16_to_utf8_test_base test(LE, generator, size);
+    ASSERT_TRUE(test(procedure));
+    ASSERT_TRUE(test.check_size(size_procedure));
+  }
+}
+
+TEST_LOOP(convert_into_1_or_2_UTF8_bytes) {
+  simdutf::tests::helpers::RandomInt random(
+      0x0000, 0x07ff, seed); // range for 1 or 2 UTF-8 bytes
+
+  auto procedure = [&implementation](const char16_t *utf16, size_t size,
+                                     char *utf8) -> size_t {
+    simdutf::result res =
+        implementation.convert_utf16le_to_utf8_with_errors(utf16, size, utf8);
+    ASSERT_EQUAL(res.error, simdutf::error_code::SUCCESS);
+    return res.count;
+  };
+  auto size_procedure = [&implementation](const char16_t *utf16,
+                                          size_t size) -> size_t {
+    return implementation.utf8_length_from_utf16le(utf16, size);
+  };
+  for (size_t size : input_size) {
+    transcode_utf16_to_utf8_test_base test(LE, random, size);
+    ASSERT_TRUE(test(procedure));
+    ASSERT_TRUE(test.check_size(size_procedure));
+  }
+}
+
+TEST_LOOP(convert_into_1_or_2_or_3_UTF8_bytes) {
+  // range for 1, 2 or 3 UTF-8 bytes
+  simdutf::tests::helpers::RandomIntRanges random(
+      {{0x0000, 0x007f}, {0x0080, 0x07ff}, {0x0800, 0xd7ff}, {0xe000, 0xffff}},
+      seed);
+
+  auto procedure = [&implementation](const char16_t *utf16, size_t size,
+                                     char *utf8) -> size_t {
+    simdutf::result res =
+        implementation.convert_utf16le_to_utf8_with_errors(utf16, size, utf8);
+    ASSERT_EQUAL(res.error, simdutf::error_code::SUCCESS);
+    return res.count;
+  };
+  auto size_procedure = [&implementation](const char16_t *utf16,
+                                          size_t size) -> size_t {
+    return implementation.utf8_length_from_utf16le(utf16, size);
+  };
+  for (size_t size : input_size) {
+    transcode_utf16_to_utf8_test_base test(LE, random, size);
+    ASSERT_TRUE(test(procedure));
+    ASSERT_TRUE(test.check_size(size_procedure));
+  }
+}
+
+TEST_LOOP(convert_into_3_or_4_UTF8_bytes) {
+  // range for 3 or 4 UTF-8 bytes
+  simdutf::tests::helpers::RandomIntRanges random(
+      {{0x0800, 0xd800 - 1}, {0xe000, 0x10ffff}}, seed);
+
+  auto procedure = [&implementation](const char16_t *utf16, size_t size,
+                                     char *utf8) -> size_t {
+    const simdutf::result res =
+        implementation.convert_utf16le_to_utf8_with_errors(utf16, size, utf8);
+    ASSERT_EQUAL(res.error, simdutf::error_code::SUCCESS);
+    return res.count;
+  };
+  auto size_procedure = [&implementation](const char16_t *utf16,
+                                          size_t size) -> size_t {
+    return implementation.utf8_length_from_utf16le(utf16, size);
+  };
+  for (size_t size : input_size) {
+    transcode_utf16_to_utf8_test_base test(LE, random, size);
+    ASSERT_TRUE(test(procedure));
+    ASSERT_TRUE(test.check_size(size_procedure));
+  }
+}
+
+TEST(convert_fails_if_there_is_sole_low_surrogate) {
+  const size_t size = 64;
+  transcode_utf16_to_utf8_test_base test(LE, []() { return '*'; }, size + 32);
+
+  for (char16_t low_surrogate = 0xdc00; low_surrogate <= 0xdfff;
+       low_surrogate++) {
+    for (size_t i = 0; i < size; i++) {
+      auto procedure = [&implementation, &i](const char16_t *utf16, size_t size,
+                                             char *utf8) -> size_t {
+        const simdutf::result res =
+            implementation.convert_utf16le_to_utf8_with_errors(utf16, size,
+                                                               utf8);
+        ASSERT_EQUAL(res.error, simdutf::error_code::SURROGATE);
+        ASSERT_EQUAL(res.count, i);
+        return 0;
+      };
+      const auto old = test.input_utf16[i];
+      test.input_utf16[i] = to_utf16le(low_surrogate);
+      ASSERT_TRUE(test(procedure));
+      test.input_utf16[i] = old;
+    }
+  }
+}
+
+TEST(convert_fails_if_there_is_sole_high_surrogate) {
+  const size_t size = 64;
+  transcode_utf16_to_utf8_test_base test(LE, []() { return '*'; }, size + 32);
+
+  for (char16_t high_surrogate = 0xdc00; high_surrogate <= 0xdfff;
+       high_surrogate++) {
+    for (size_t i = 0; i < size; i++) {
+      auto procedure = [&implementation, &i](const char16_t *utf16, size_t size,
+                                             char *utf8) -> size_t {
+        const simdutf::result res =
+            implementation.convert_utf16le_to_utf8_with_errors(utf16, size,
+                                                               utf8);
+        ASSERT_EQUAL(res.error, simdutf::error_code::SURROGATE);
+        ASSERT_EQUAL(res.count, i);
+        return 0;
+      };
+      const auto old = test.input_utf16[i];
+      test.input_utf16[i] = to_utf16le(high_surrogate);
+      ASSERT_TRUE(test(procedure));
+      test.input_utf16[i] = old;
+    }
+  }
+}
+
+TEST(
+    convert_fails_if_there_is_low_surrogate_is_followed_by_another_low_surrogate) {
+  const size_t size = 64;
+  transcode_utf16_to_utf8_test_base test(LE, []() { return '*'; }, size + 32);
+
+  for (char16_t low_surrogate = 0xdc00; low_surrogate <= 0xdfff;
+       low_surrogate++) {
+    for (size_t i = 0; i < size - 1; i++) {
+      auto procedure = [&implementation, &i](const char16_t *utf16, size_t size,
+                                             char *utf8) -> size_t {
+        const simdutf::result res =
+            implementation.convert_utf16le_to_utf8_with_errors(utf16, size,
+                                                               utf8);
+        ASSERT_EQUAL(res.error, simdutf::error_code::SURROGATE);
+        ASSERT_EQUAL(res.count, i);
+        return 0;
+      };
+      const auto old0 = test.input_utf16[i + 0];
+      const auto old1 = test.input_utf16[i + 1];
+      test.input_utf16[i + 0] = to_utf16le(low_surrogate);
+      test.input_utf16[i + 1] = to_utf16le(low_surrogate);
+      ASSERT_TRUE(test(procedure));
+      test.input_utf16[i + 0] = old0;
+      test.input_utf16[i + 1] = old1;
+    }
+  }
+}
+
+TEST(convert_fails_if_there_is_surrogate_pair_is_followed_by_high_surrogate) {
+  const size_t size = 64;
+  transcode_utf16_to_utf8_test_base test(LE, []() { return '*'; }, size + 32);
+
+  const char16_t low_surrogate = to_utf16le(0xd801);
+  const char16_t high_surrogate = to_utf16le(0xdc02);
+  for (size_t i = 0; i < size - 2; i++) {
+    auto procedure = [&implementation, &i](const char16_t *utf16, size_t size,
+                                           char *utf8) -> size_t {
+      const simdutf::result res =
+          implementation.convert_utf16le_to_utf8_with_errors(utf16, size, utf8);
+      ASSERT_EQUAL(res.error, simdutf::error_code::SURROGATE);
+      ASSERT_EQUAL(res.count, i + 2);
+      return 0;
+    };
+    const auto old0 = test.input_utf16[i + 0];
+    const auto old1 = test.input_utf16[i + 1];
+    const auto old2 = test.input_utf16[i + 2];
+    test.input_utf16[i + 0] = low_surrogate;
+    test.input_utf16[i + 1] = high_surrogate;
+    test.input_utf16[i + 2] = high_surrogate;
+    ASSERT_TRUE(test(procedure));
+    test.input_utf16[i + 0] = old0;
+    test.input_utf16[i + 1] = old1;
+    test.input_utf16[i + 2] = old2;
+  }
+}
+
+#if SIMDUTF_CPLUSPLUS23
+
+namespace {
+template <auto input> constexpr auto size() {
+  return simdutf::utf8_length_from_utf16(input);
+}
+
+template <auto input> constexpr auto convert() {
+  using namespace simdutf::tests::helpers;
+  CTString<char8_t, size<input>()> tmp;
+  const auto ret = simdutf::convert_utf16_to_utf8_with_errors(input, tmp);
+  if (ret.is_err()) {
+    throw "failed";
+  }
+  if (ret.count != tmp.size()) {
+    throw "unexpected write size";
+  }
+  return tmp;
+}
+} // namespace
+
+TEST(compile_time_convert_utf16_to_utf8_with_errors) {
+  using namespace simdutf::tests::helpers;
+  constexpr auto input = u"köttbulle"_utf16;
+  constexpr auto expected = u8"köttbulle"_utf8;
+  constexpr auto output = convert<input>();
+  static_assert(output == expected);
+}
+
+namespace {
+template <auto input> constexpr auto size_le() {
+  return simdutf::utf8_length_from_utf16le(input);
+}
+template <auto input> constexpr auto convert_le() {
+  using namespace simdutf::tests::helpers;
+  CTString<char8_t, size_le<input>()> tmp;
+  const auto ret = simdutf::convert_utf16le_to_utf8_with_errors(input, tmp);
+  if (ret.is_err()) {
+    throw "failed";
+  }
+  if (ret.count != tmp.size()) {
+    throw "unexpected write size";
+  }
+  return tmp;
+}
+} // namespace
+
+TEST(compile_time_convert_utf16le_to_utf8_with_errors) {
+  using namespace simdutf::tests::helpers;
+  constexpr auto input = u"köttbulle"_utf16le;
+  constexpr auto expected = u8"köttbulle"_utf8;
+  constexpr auto output = convert_le<input>();
+  static_assert(output == expected);
+}
+
+#endif
+
+TEST_MAIN

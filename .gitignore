@@ -1,0 +1,29 @@
+# Bazel symlinks / outputs
+.cache/
+.repo/
+**/bazel-bin
+**/bazel-out
+**/bazel-testlogs
+bazel-*
+**/obj/
+**/dst/
+**/sym/
+
+# Build artifacts
+*.o
+*.log
+adt/adt_builder
+tools/unifdef/unifdef
+**/kernel.bin
+**/kernel.mach*
+**/*.elf
+
+# QEMU / runtime logs
+qemu_out.log
+qemu_serial.log
+uart1.log
+*.pyc
+__pycache__/
+
+# Local raw image outputs
+**/*.raw

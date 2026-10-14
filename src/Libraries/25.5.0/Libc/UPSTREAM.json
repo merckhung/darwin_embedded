@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/Libc",
+  "tag": "Libc-1752.120.2",
+  "commit": "0ef5ecb01f25edd801d06d624fcc35740294c589",
+  "archive_sha256": "b7b6c6d185ef59187c392824ef464a0ebdb6b962d1574abbb93d3aa15e20d826"
+}

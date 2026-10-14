@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# marcin mikołajczak <me@mkljczk.pl>, 2016
+# Marek Adamski, 2022-2024
+# Piotr Sokół <psokol.l10n@gmail.com>, 2010,2013
+# Piotr Strębski <strebski@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-30 00:45+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Marek Adamski, 2022-2024\n"
+"Language-Team: Polish (http://app.transifex.com/xfce/garcon/language/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Akcesoria"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Obejmuje narzędzia i programy użytkowe"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Programowanie"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Obejmuje narzędzia programistyczne"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Edukacja"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Obejmuje oprogramowanie edukacyjne"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Gry"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Obejmuje gry i inne oprogramowanie rozrywkowe"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Grafika"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Obejmuje programy służące do tworzenia i modyfikowania grafiki"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Sprzęt"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Obejmuje ustawienia różnych urządzeń sprzętowych"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Obejmuje odtwarzacze oraz edytory dźwięku i wideo"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Internet"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Obejmuje programy internetowe"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Biuro"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Obejmuje programy biurowe i zwiększające produktywność"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Inne"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Obejmuje programy niepasujące do innych kategorii"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "Osobiste"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Obejmuje ustawienia osobiste"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Nauka"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Obejmuje oprogramowanie naukowe"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Wygaszacze ekranu"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Obejmuje aplety wygaszacza ekranu"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Obejmuje programy do zarządzania ustawieniami systemu i pulpitu"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "System"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Obejmuje narzędzia do zarządzania systemem"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Nie odnaleziono pliku  „%s”"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Nie udało się wczytać pliku menu %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Nie udało się wczytać pliku menu %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Nie udało się wykonać polecenia „%s”."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Problem z uruchamianiem"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Nie udało się uruchomić „exo-desktop-item-edit”, który jest wymagany do tworzenia i edytowania pozycji w menu."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "Za_mknij"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Nie udało się wczytać menu programów"

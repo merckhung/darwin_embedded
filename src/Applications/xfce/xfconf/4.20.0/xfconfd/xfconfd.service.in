@@ -1,0 +1,7 @@
+[Unit]
+Description=Xfce configuration service
+
+[Service]
+Type=dbus
+BusName=@XFCONF_SERVICE_NAME_PREFIX@.Xfconf
+ExecStart=@HELPERDIR@/xfce4/xfconf/xfconfd

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="libxfce4windowing Reference Manual" link="index.html" author="" name="libxfce4windowing" version="2" language="c" online="http://[SERVER]/libxfce4windowing/index.html">
+  <chapters>
+    <sub name="[Insert title here]" link="ch01.html">
+      <sub name="Library Configuration" link="libxfce4windowing-Library-Configuration.html"/>
+      <sub name="Utilities" link="libxfce4windowing-Utilities.html"/>
+      <sub name="XfwScreen" link="XfwScreen.html"/>
+      <sub name="XfwSeat" link="XfwSeat.html"/>
+      <sub name="XfwWorkspaceManager" link="XfwWorkspaceManager.html"/>
+      <sub name="XfwWorkspaceGroup" link="XfwWorkspaceGroup.html"/>
+      <sub name="XfwWorkspace" link="XfwWorkspace.html"/>
+      <sub name="XfwWindow" link="XfwWindow.html"/>
+      <sub name="XfwApplication" link="XfwApplication.html"/>
+      <sub name="XfwMonitor" link="XfwMonitor.html"/>
+      <sub name="X11 Backend" link="libxfce4windowing-X11-Backend.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Index of deprecated API" link="deprecated-api-index.html"/>
+    <sub name="Index of new API in 4.19.1" link="api-index-4-19-1.html"/>
+    <sub name="Index of new API in 4.19.3" link="api-index-4-19-3.html"/>
+    <sub name="Index of new API in 4.19.4" link="api-index-4-19-4.html"/>
+    <sub name="Index of new API in 4.20.6" link="api-index-4-20-6.html"/>
+    <sub name="Index of new API in 4.20.7" link="api-index-4-20-7.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <keyword type="macro" name="LIBXFCE4WINDOWING_CHECK_VERSION()" link="libxfce4windowing-Library-Configuration.html#LIBXFCE4WINDOWING-CHECK-VERSION:CAPS"/>
+    <keyword type="function" name="libxfce4windowing_check_version ()" link="libxfce4windowing-Library-Configuration.html#libxfce4windowing-check-version"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWING_HAS_X11" link="libxfce4windowing-Library-Configuration.html#LIBXFCE4WINDOWING-HAS-X11:CAPS" since="4.19.3"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWING_HAS_WAYLAND" link="libxfce4windowing-Library-Configuration.html#LIBXFCE4WINDOWING-HAS-WAYLAND:CAPS" since="4.19.3"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWING_MAJOR_VERSION" link="libxfce4windowing-Library-Configuration.html#LIBXFCE4WINDOWING-MAJOR-VERSION:CAPS"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWING_MINOR_VERSION" link="libxfce4windowing-Library-Configuration.html#LIBXFCE4WINDOWING-MINOR-VERSION:CAPS"/>
+    <keyword type="macro" name="LIBXFCE4WINDOWING_MICRO_VERSION" link="libxfce4windowing-Library-Configuration.html#LIBXFCE4WINDOWING-MICRO-VERSION:CAPS"/>
+    <keyword type="variable" name="libxfce4windowing_major_version" link="libxfce4windowing-Library-Configuration.html#libxfce4windowing-major-version"/>
+    <keyword type="variable" name="libxfce4windowing_micro_version" link="libxfce4windowing-Library-Configuration.html#libxfce4windowing-micro-version"/>
+    <keyword type="variable" name="libxfce4windowing_minor_version" link="libxfce4windowing-Library-Configuration.html#libxfce4windowing-minor-version"/>
+    <keyword type="function" name="xfw_set_client_type ()" link="libxfce4windowing-Utilities.html#xfw-set-client-type" since="4.19.3"/>
+    <keyword type="function" name="xfw_windowing_get ()" link="libxfce4windowing-Utilities.html#xfw-windowing-get"/>
+    <keyword type="function" name="xfw_windowing_error_trap_push ()" link="libxfce4windowing-Utilities.html#xfw-windowing-error-trap-push"/>
+    <keyword type="function" name="xfw_windowing_error_trap_pop ()" link="libxfce4windowing-Utilities.html#xfw-windowing-error-trap-pop"/>
+    <keyword type="function" name="xfw_windowing_error_trap_pop_ignored ()" link="libxfce4windowing-Utilities.html#xfw-windowing-error-trap-pop-ignored"/>
+    <keyword type="macro" name="XFW_ERROR" link="libxfce4windowing-Utilities.html#XFW-ERROR:CAPS"/>
+    <keyword type="enum" name="enum XfwClientType" link="libxfce4windowing-Utilities.html#XfwClientType" since="4.19.3"/>
+    <keyword type="enum" name="enum XfwError" link="libxfce4windowing-Utilities.html#XfwError"/>
+    <keyword type="enum" name="enum XfwWindowing" link="libxfce4windowing-Utilities.html#XfwWindowing"/>
+    <keyword type="enum" name="enum XfwDirection" link="libxfce4windowing-Utilities.html#XfwDirection"/>
+    <keyword type="function" name="xfw_screen_get_default ()" link="XfwScreen.html#xfw-screen-get-default"/>
+    <keyword type="function" name="xfw_screen_get_seats ()" link="XfwScreen.html#xfw-screen-get-seats"/>
+    <keyword type="function" name="xfw_screen_get_workspace_manager ()" link="XfwScreen.html#xfw-screen-get-workspace-manager"/>
+    <keyword type="function" name="xfw_screen_get_windows ()" link="XfwScreen.html#xfw-screen-get-windows"/>
+    <keyword type="function" name="xfw_screen_get_windows_stacked ()" link="XfwScreen.html#xfw-screen-get-windows-stacked"/>
+    <keyword type="function" name="xfw_screen_get_active_window ()" link="XfwScreen.html#xfw-screen-get-active-window"/>
+    <keyword type="function" name="xfw_screen_get_monitors ()" link="XfwScreen.html#xfw-screen-get-monitors" since="4.19.4"/>
+    <keyword type="function" name="xfw_screen_get_primary_monitor ()" link="XfwScreen.html#xfw-screen-get-primary-monitor" since="4.19.4"/>
+    <keyword type="function" name="xfw_screen_get_monitor_from_gdk_monitor ()" link="XfwScreen.html#xfw-screen-get-monitor-from-gdk-monitor" since="4.20.6"/>
+    <keyword type="function" name="xfw_screen_get_show_desktop ()" link="XfwScreen.html#xfw-screen-get-show-desktop"/>
+    <keyword type="function" name="xfw_screen_set_show_desktop ()" link="XfwScreen.html#xfw-screen-set-show-desktop"/>
+    <keyword type="struct" name="XfwScreen" link="XfwScreen.html#XfwScreen-struct"/>
+    <keyword type="property" name="The “active-window” property" link="XfwScreen.html#XfwScreen--active-window"/>
+    <keyword type="property" name="The “gdk-screen” property" link="XfwScreen.html#XfwScreen--gdk-screen"/>
+    <keyword type="property" name="The “show-desktop” property" link="XfwScreen.html#XfwScreen--show-desktop"/>
+    <keyword type="property" name="The “workspace-manager” property" link="XfwScreen.html#XfwScreen--workspace-manager"/>
+    <keyword type="signal" name="The “active-window-changed” signal" link="XfwScreen.html#XfwScreen-active-window-changed"/>
+    <keyword type="signal" name="The “monitor-added” signal" link="XfwScreen.html#XfwScreen-monitor-added"/>
+    <keyword type="signal" name="The “monitor-removed” signal" link="XfwScreen.html#XfwScreen-monitor-removed"/>
+    <keyword type="signal" name="The “monitors-changed” signal" link="XfwScreen.html#XfwScreen-monitors-changed"/>
+    <keyword type="signal" name="The “seat-added” signal" link="XfwScreen.html#XfwScreen-seat-added"/>
+    <keyword type="signal" name="The “seat-removed” signal" link="XfwScreen.html#XfwScreen-seat-removed"/>
+    <keyword type="signal" name="The “window-closed” signal" link="XfwScreen.html#XfwScreen-window-closed"/>
+    <keyword type="signal" name="The “window-manager-changed” signal" link="XfwScreen.html#XfwScreen-window-manager-changed"/>
+    <keyword type="signal" name="The “window-opened” signal" link="XfwScreen.html#XfwScreen-window-opened"/>
+    <keyword type="signal" name="The “window-stacking-changed” signal" link="XfwScreen.html#XfwScreen-window-stacking-changed"/>
+    <keyword type="function" name="xfw_seat_get_name ()" link="XfwSeat.html#xfw-seat-get-name"/>
+    <keyword type="struct" name="XfwSeat" link="XfwSeat.html#XfwSeat-struct"/>
+    <keyword type="property" name="The “name” property" link="XfwSeat.html#XfwSeat--name"/>
+    <keyword type="function" name="xfw_workspace_manager_list_workspace_groups ()" link="XfwWorkspaceManager.html#xfw-workspace-manager-list-workspace-groups"/>
+    <keyword type="function" name="xfw_workspace_manager_list_workspaces ()" link="XfwWorkspaceManager.html#xfw-workspace-manager-list-workspaces"/>
+    <keyword type="struct" name="XfwWorkspaceManager" link="XfwWorkspaceManager.html#XfwWorkspaceManager-struct"/>
+    <keyword type="typedef" name="XfwWorkspaceManagerIface" link="XfwWorkspaceManager.html#XfwWorkspaceManagerIface"/>
+    <keyword type="property" name="The “screen” property" link="XfwWorkspaceManager.html#XfwWorkspaceManager--screen"/>
+    <keyword type="signal" name="The “workspace-created” signal" link="XfwWorkspaceManager.html#XfwWorkspaceManager-workspace-created"/>
+    <keyword type="signal" name="The “workspace-destroyed” signal" link="XfwWorkspaceManager.html#XfwWorkspaceManager-workspace-destroyed"/>
+    <keyword type="signal" name="The “workspace-group-created” signal" link="XfwWorkspaceManager.html#XfwWorkspaceManager-workspace-group-created"/>
+    <keyword type="signal" name="The “workspace-group-destroyed” signal" link="XfwWorkspaceManager.html#XfwWorkspaceManager-workspace-group-destroyed"/>
+    <keyword type="function" name="xfw_workspace_group_get_capabilities ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-get-capabilities"/>
+    <keyword type="function" name="xfw_workspace_group_get_workspace_count ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-get-workspace-count"/>
+    <keyword type="function" name="xfw_workspace_group_list_workspaces ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-list-workspaces"/>
+    <keyword type="function" name="xfw_workspace_group_get_active_workspace ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-get-active-workspace"/>
+    <keyword type="function" name="xfw_workspace_group_get_monitors ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-get-monitors"/>
+    <keyword type="function" name="xfw_workspace_group_get_workspace_manager ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-get-workspace-manager"/>
+    <keyword type="function" name="xfw_workspace_group_create_workspace ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-create-workspace"/>
+    <keyword type="function" name="xfw_workspace_group_move_viewport ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-move-viewport"/>
+    <keyword type="function" name="xfw_workspace_group_set_layout ()" link="XfwWorkspaceGroup.html#xfw-workspace-group-set-layout"/>
+    <keyword type="struct" name="XfwWorkspaceGroup" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-struct"/>
+    <keyword type="enum" name="enum XfwWorkspaceGroupCapabilities" link="XfwWorkspaceGroup.html#XfwWorkspaceGroupCapabilities"/>
+    <keyword type="typedef" name="XfwWorkspaceGroupIface" link="XfwWorkspaceGroup.html#XfwWorkspaceGroupIface"/>
+    <keyword type="property" name="The “active-workspace” property" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup--active-workspace"/>
+    <keyword type="property" name="The “monitors” property" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup--monitors"/>
+    <keyword type="property" name="The “screen” property" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup--screen"/>
+    <keyword type="property" name="The “workspace-manager” property" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup--workspace-manager"/>
+    <keyword type="property" name="The “workspaces” property" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup--workspaces"/>
+    <keyword type="signal" name="The “active-workspace-changed” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-active-workspace-changed"/>
+    <keyword type="signal" name="The “capabilities-changed” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-capabilities-changed"/>
+    <keyword type="signal" name="The “monitor-added” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-monitor-added"/>
+    <keyword type="signal" name="The “monitor-removed” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-monitor-removed"/>
+    <keyword type="signal" name="The “monitors-changed” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-monitors-changed"/>
+    <keyword type="signal" name="The “viewports-changed” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-viewports-changed"/>
+    <keyword type="signal" name="The “workspace-added” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-workspace-added"/>
+    <keyword type="signal" name="The “workspace-removed” signal" link="XfwWorkspaceGroup.html#XfwWorkspaceGroup-workspace-removed"/>
+    <keyword type="function" name="xfw_workspace_get_id ()" link="XfwWorkspace.html#xfw-workspace-get-id"/>
+    <keyword type="function" name="xfw_workspace_get_name ()" link="XfwWorkspace.html#xfw-workspace-get-name"/>
+    <keyword type="function" name="xfw_workspace_get_capabilities ()" link="XfwWorkspace.html#xfw-workspace-get-capabilities"/>
+    <keyword type="function" name="xfw_workspace_get_state ()" link="XfwWorkspace.html#xfw-workspace-get-state"/>
+    <keyword type="function" name="xfw_workspace_get_number ()" link="XfwWorkspace.html#xfw-workspace-get-number"/>
+    <keyword type="function" name="xfw_workspace_get_workspace_group ()" link="XfwWorkspace.html#xfw-workspace-get-workspace-group"/>
+    <keyword type="function" name="xfw_workspace_get_layout_row ()" link="XfwWorkspace.html#xfw-workspace-get-layout-row"/>
+    <keyword type="function" name="xfw_workspace_get_layout_column ()" link="XfwWorkspace.html#xfw-workspace-get-layout-column"/>
+    <keyword type="function" name="xfw_workspace_get_neighbor ()" link="XfwWorkspace.html#xfw-workspace-get-neighbor"/>
+    <keyword type="function" name="xfw_workspace_get_geometry ()" link="XfwWorkspace.html#xfw-workspace-get-geometry"/>
+    <keyword type="function" name="xfw_workspace_activate ()" link="XfwWorkspace.html#xfw-workspace-activate"/>
+    <keyword type="function" name="xfw_workspace_remove ()" link="XfwWorkspace.html#xfw-workspace-remove"/>
+    <keyword type="function" name="xfw_workspace_assign_to_workspace_group ()" link="XfwWorkspace.html#xfw-workspace-assign-to-workspace-group"/>
+    <keyword type="struct" name="XfwWorkspace" link="XfwWorkspace.html#XfwWorkspace-struct"/>
+    <keyword type="enum" name="enum XfwWorkspaceCapabilities" link="XfwWorkspace.html#XfwWorkspaceCapabilities"/>
+    <keyword type="enum" name="enum XfwWorkspaceState" link="XfwWorkspace.html#XfwWorkspaceState"/>
+    <keyword type="typedef" name="XfwWorkspaceIface" link="XfwWorkspace.html#XfwWorkspaceIface"/>
+    <keyword type="property" name="The “capabilities” property" link="XfwWorkspace.html#XfwWorkspace--capabilities"/>
+    <keyword type="property" name="The “geometry” property" link="XfwWorkspace.html#XfwWorkspace--geometry"/>
+    <keyword type="property" name="The “group” property" link="XfwWorkspace.html#XfwWorkspace--group"/>
+    <keyword type="property" name="The “id” property" link="XfwWorkspace.html#XfwWorkspace--id"/>
+    <keyword type="property" name="The “layout-column” property" link="XfwWorkspace.html#XfwWorkspace--layout-column"/>
+    <keyword type="property" name="The “layout-row” property" link="XfwWorkspace.html#XfwWorkspace--layout-row"/>
+    <keyword type="property" name="The “name” property" link="XfwWorkspace.html#XfwWorkspace--name"/>
+    <keyword type="property" name="The “number” property" link="XfwWorkspace.html#XfwWorkspace--number"/>
+    <keyword type="property" name="The “state” property" link="XfwWorkspace.html#XfwWorkspace--state"/>
+    <keyword type="signal" name="The “capabilities-changed” signal" link="XfwWorkspace.html#XfwWorkspace-capabilities-changed"/>
+    <keyword type="signal" name="The “group-changed” signal" link="XfwWorkspace.html#XfwWorkspace-group-changed"/>
+    <keyword type="signal" name="The “name-changed” signal" link="XfwWorkspace.html#XfwWorkspace-name-changed"/>
+    <keyword type="signal" name="The “state-changed” signal" link="XfwWorkspace.html#XfwWorkspace-state-changed"/>
+    <keyword type="function" name="xfw_window_get_class_ids ()" link="XfwWindow.html#xfw-window-get-class-ids" since="4.19.3"/>
+    <keyword type="function" name="xfw_window_get_name ()" link="XfwWindow.html#xfw-window-get-name"/>
+    <keyword type="function" name="xfw_window_get_icon ()" link="XfwWindow.html#xfw-window-get-icon"/>
+    <keyword type="function" name="xfw_window_get_gicon ()" link="XfwWindow.html#xfw-window-get-gicon" since="4.19.1"/>
+    <keyword type="function" name="xfw_window_icon_is_fallback ()" link="XfwWindow.html#xfw-window-icon-is-fallback" since="4.19.1"/>
+    <keyword type="function" name="xfw_window_get_window_type ()" link="XfwWindow.html#xfw-window-get-window-type"/>
+    <keyword type="function" name="xfw_window_get_state ()" link="XfwWindow.html#xfw-window-get-state"/>
+    <keyword type="function" name="xfw_window_get_capabilities ()" link="XfwWindow.html#xfw-window-get-capabilities"/>
+    <keyword type="function" name="xfw_window_get_geometry ()" link="XfwWindow.html#xfw-window-get-geometry"/>
+    <keyword type="function" name="xfw_window_get_screen ()" link="XfwWindow.html#xfw-window-get-screen"/>
+    <keyword type="function" name="xfw_window_get_workspace ()" link="XfwWindow.html#xfw-window-get-workspace"/>
+    <keyword type="function" name="xfw_window_get_monitors ()" link="XfwWindow.html#xfw-window-get-monitors"/>
+    <keyword type="function" name="xfw_window_get_application ()" link="XfwWindow.html#xfw-window-get-application"/>
+    <keyword type="function" name="xfw_window_activate ()" link="XfwWindow.html#xfw-window-activate"/>
+    <keyword type="function" name="xfw_window_close ()" link="XfwWindow.html#xfw-window-close"/>
+    <keyword type="function" name="xfw_window_start_move ()" link="XfwWindow.html#xfw-window-start-move"/>
+    <keyword type="function" name="xfw_window_start_resize ()" link="XfwWindow.html#xfw-window-start-resize"/>
+    <keyword type="function" name="xfw_window_set_geometry ()" link="XfwWindow.html#xfw-window-set-geometry"/>
+    <keyword type="function" name="xfw_window_set_button_geometry ()" link="XfwWindow.html#xfw-window-set-button-geometry"/>
+    <keyword type="function" name="xfw_window_move_to_workspace ()" link="XfwWindow.html#xfw-window-move-to-workspace"/>
+    <keyword type="function" name="xfw_window_set_minimized ()" link="XfwWindow.html#xfw-window-set-minimized"/>
+    <keyword type="function" name="xfw_window_set_maximized ()" link="XfwWindow.html#xfw-window-set-maximized"/>
+    <keyword type="function" name="xfw_window_set_fullscreen ()" link="XfwWindow.html#xfw-window-set-fullscreen"/>
+    <keyword type="function" name="xfw_window_set_skip_pager ()" link="XfwWindow.html#xfw-window-set-skip-pager"/>
+    <keyword type="function" name="xfw_window_set_skip_tasklist ()" link="XfwWindow.html#xfw-window-set-skip-tasklist"/>
+    <keyword type="function" name="xfw_window_set_pinned ()" link="XfwWindow.html#xfw-window-set-pinned"/>
+    <keyword type="function" name="xfw_window_set_shaded ()" link="XfwWindow.html#xfw-window-set-shaded"/>
+    <keyword type="function" name="xfw_window_set_above ()" link="XfwWindow.html#xfw-window-set-above"/>
+    <keyword type="function" name="xfw_window_set_below ()" link="XfwWindow.html#xfw-window-set-below"/>
+    <keyword type="function" name="xfw_window_is_active ()" link="XfwWindow.html#xfw-window-is-active"/>
+    <keyword type="function" name="xfw_window_is_minimized ()" link="XfwWindow.html#xfw-window-is-minimized"/>
+    <keyword type="function" name="xfw_window_is_maximized ()" link="XfwWindow.html#xfw-window-is-maximized"/>
+    <keyword type="function" name="xfw_window_is_fullscreen ()" link="XfwWindow.html#xfw-window-is-fullscreen"/>
+    <keyword type="function" name="xfw_window_is_skip_pager ()" link="XfwWindow.html#xfw-window-is-skip-pager"/>
+    <keyword type="function" name="xfw_window_is_skip_tasklist ()" link="XfwWindow.html#xfw-window-is-skip-tasklist"/>
+    <keyword type="function" name="xfw_window_is_pinned ()" link="XfwWindow.html#xfw-window-is-pinned"/>
+    <keyword type="function" name="xfw_window_is_shaded ()" link="XfwWindow.html#xfw-window-is-shaded"/>
+    <keyword type="function" name="xfw_window_is_above ()" link="XfwWindow.html#xfw-window-is-above"/>
+    <keyword type="function" name="xfw_window_is_below ()" link="XfwWindow.html#xfw-window-is-below"/>
+    <keyword type="function" name="xfw_window_is_urgent ()" link="XfwWindow.html#xfw-window-is-urgent"/>
+    <keyword type="function" name="xfw_window_is_on_workspace ()" link="XfwWindow.html#xfw-window-is-on-workspace"/>
+    <keyword type="function" name="xfw_window_is_in_viewport ()" link="XfwWindow.html#xfw-window-is-in-viewport"/>
+    <keyword type="struct" name="XfwWindow" link="XfwWindow.html#XfwWindow-struct"/>
+    <keyword type="enum" name="enum XfwWindowCapabilities" link="XfwWindow.html#XfwWindowCapabilities"/>
+    <keyword type="enum" name="enum XfwWindowState" link="XfwWindow.html#XfwWindowState"/>
+    <keyword type="enum" name="enum XfwWindowType" link="XfwWindow.html#XfwWindowType"/>
+    <keyword type="property" name="The “application” property" link="XfwWindow.html#XfwWindow--application"/>
+    <keyword type="property" name="The “capabilities” property" link="XfwWindow.html#XfwWindow--capabilities"/>
+    <keyword type="property" name="The “class-ids” property" link="XfwWindow.html#XfwWindow--class-ids"/>
+    <keyword type="property" name="The “gicon” property" link="XfwWindow.html#XfwWindow--gicon"/>
+    <keyword type="property" name="The “monitors” property" link="XfwWindow.html#XfwWindow--monitors"/>
+    <keyword type="property" name="The “name” property" link="XfwWindow.html#XfwWindow--name"/>
+    <keyword type="property" name="The “screen” property" link="XfwWindow.html#XfwWindow--screen"/>
+    <keyword type="property" name="The “state” property" link="XfwWindow.html#XfwWindow--state"/>
+    <keyword type="property" name="The “type” property" link="XfwWindow.html#XfwWindow--type"/>
+    <keyword type="property" name="The “workspace” property" link="XfwWindow.html#XfwWindow--workspace"/>
+    <keyword type="signal" name="The “capabilities-changed” signal" link="XfwWindow.html#XfwWindow-capabilities-changed"/>
+    <keyword type="signal" name="The “class-changed” signal" link="XfwWindow.html#XfwWindow-class-changed"/>
+    <keyword type="signal" name="The “closed” signal" link="XfwWindow.html#XfwWindow-closed"/>
+    <keyword type="signal" name="The “geometry-changed” signal" link="XfwWindow.html#XfwWindow-geometry-changed"/>
+    <keyword type="signal" name="The “icon-changed” signal" link="XfwWindow.html#XfwWindow-icon-changed"/>
+    <keyword type="signal" name="The “name-changed” signal" link="XfwWindow.html#XfwWindow-name-changed"/>
+    <keyword type="signal" name="The “state-changed” signal" link="XfwWindow.html#XfwWindow-state-changed"/>
+    <keyword type="signal" name="The “type-changed” signal" link="XfwWindow.html#XfwWindow-type-changed"/>
+    <keyword type="signal" name="The “workspace-changed” signal" link="XfwWindow.html#XfwWindow-workspace-changed"/>
+    <keyword type="function" name="xfw_application_get_class_id ()" link="XfwApplication.html#xfw-application-get-class-id" since="4.19.3"/>
+    <keyword type="function" name="xfw_application_get_name ()" link="XfwApplication.html#xfw-application-get-name"/>
+    <keyword type="function" name="xfw_application_get_icon ()" link="XfwApplication.html#xfw-application-get-icon"/>
+    <keyword type="function" name="xfw_application_get_gicon ()" link="XfwApplication.html#xfw-application-get-gicon" since="4.19.1"/>
+    <keyword type="function" name="xfw_application_icon_is_fallback ()" link="XfwApplication.html#xfw-application-icon-is-fallback" since="4.19.1"/>
+    <keyword type="function" name="xfw_application_get_windows ()" link="XfwApplication.html#xfw-application-get-windows"/>
+    <keyword type="function" name="xfw_application_get_instances ()" link="XfwApplication.html#xfw-application-get-instances"/>
+    <keyword type="function" name="xfw_application_get_instance ()" link="XfwApplication.html#xfw-application-get-instance"/>
+    <keyword type="function" name="xfw_application_instance_get_pid ()" link="XfwApplication.html#xfw-application-instance-get-pid" since="4.19.1"/>
+    <keyword type="function" name="xfw_application_instance_get_name ()" link="XfwApplication.html#xfw-application-instance-get-name" since="4.19.1"/>
+    <keyword type="function" name="xfw_application_instance_get_windows ()" link="XfwApplication.html#xfw-application-instance-get-windows" since="4.19.1"/>
+    <keyword type="struct" name="XfwApplication" link="XfwApplication.html#XfwApplication-struct"/>
+    <keyword type="struct" name="XfwApplicationInstance" link="XfwApplication.html#XfwApplicationInstance"/>
+    <keyword type="property" name="The “class-id” property" link="XfwApplication.html#XfwApplication--class-id"/>
+    <keyword type="property" name="The “gicon” property" link="XfwApplication.html#XfwApplication--gicon"/>
+    <keyword type="property" name="The “instances” property" link="XfwApplication.html#XfwApplication--instances"/>
+    <keyword type="property" name="The “name” property" link="XfwApplication.html#XfwApplication--name"/>
+    <keyword type="property" name="The “windows” property" link="XfwApplication.html#XfwApplication--windows"/>
+    <keyword type="signal" name="The “icon-changed” signal" link="XfwApplication.html#XfwApplication-icon-changed"/>
+    <keyword type="function" name="xfw_monitor_get_identifier ()" link="XfwMonitor.html#xfw-monitor-get-identifier" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_description ()" link="XfwMonitor.html#xfw-monitor-get-description" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_connector ()" link="XfwMonitor.html#xfw-monitor-get-connector" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_make ()" link="XfwMonitor.html#xfw-monitor-get-make" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_model ()" link="XfwMonitor.html#xfw-monitor-get-model" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_serial ()" link="XfwMonitor.html#xfw-monitor-get-serial" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_refresh ()" link="XfwMonitor.html#xfw-monitor-get-refresh" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_scale ()" link="XfwMonitor.html#xfw-monitor-get-scale" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_fractional_scale ()" link="XfwMonitor.html#xfw-monitor-get-fractional-scale" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_physical_geometry ()" link="XfwMonitor.html#xfw-monitor-get-physical-geometry" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_logical_geometry ()" link="XfwMonitor.html#xfw-monitor-get-logical-geometry" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_workarea ()" link="XfwMonitor.html#xfw-monitor-get-workarea" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_physical_size ()" link="XfwMonitor.html#xfw-monitor-get-physical-size" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_subpixel ()" link="XfwMonitor.html#xfw-monitor-get-subpixel" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_transform ()" link="XfwMonitor.html#xfw-monitor-get-transform" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_is_primary ()" link="XfwMonitor.html#xfw-monitor-is-primary" since="4.19.4"/>
+    <keyword type="function" name="xfw_monitor_get_gdk_monitor ()" link="XfwMonitor.html#xfw-monitor-get-gdk-monitor" since="4.19.4"/>
+    <keyword type="struct" name="XfwMonitor" link="XfwMonitor.html#XfwMonitor-struct"/>
+    <keyword type="enum" name="enum XfwMonitorSubpixel" link="XfwMonitor.html#XfwMonitorSubpixel" since="4.19.4"/>
+    <keyword type="enum" name="enum XfwMonitorTransform" link="XfwMonitor.html#XfwMonitorTransform" since="4.19.4"/>
+    <keyword type="property" name="The “connector” property" link="XfwMonitor.html#XfwMonitor--connector"/>
+    <keyword type="property" name="The “description” property" link="XfwMonitor.html#XfwMonitor--description"/>
+    <keyword type="property" name="The “edid” property" link="XfwMonitor.html#XfwMonitor--edid"/>
+    <keyword type="property" name="The “edid-len” property" link="XfwMonitor.html#XfwMonitor--edid-len"/>
+    <keyword type="property" name="The “fractional-scale” property" link="XfwMonitor.html#XfwMonitor--fractional-scale"/>
+    <keyword type="property" name="The “gdk-monitor” property" link="XfwMonitor.html#XfwMonitor--gdk-monitor"/>
+    <keyword type="property" name="The “height-mm” property" link="XfwMonitor.html#XfwMonitor--height-mm"/>
+    <keyword type="property" name="The “identifier” property" link="XfwMonitor.html#XfwMonitor--identifier"/>
+    <keyword type="property" name="The “is-primary” property" link="XfwMonitor.html#XfwMonitor--is-primary"/>
+    <keyword type="property" name="The “logical-geometry” property" link="XfwMonitor.html#XfwMonitor--logical-geometry"/>
+    <keyword type="property" name="The “make” property" link="XfwMonitor.html#XfwMonitor--make"/>
+    <keyword type="property" name="The “model” property" link="XfwMonitor.html#XfwMonitor--model"/>
+    <keyword type="property" name="The “physical-geometry” property" link="XfwMonitor.html#XfwMonitor--physical-geometry"/>
+    <keyword type="property" name="The “refresh” property" link="XfwMonitor.html#XfwMonitor--refresh"/>
+    <keyword type="property" name="The “scale” property" link="XfwMonitor.html#XfwMonitor--scale"/>
+    <keyword type="property" name="The “serial” property" link="XfwMonitor.html#XfwMonitor--serial"/>
+    <keyword type="property" name="The “subpixel” property" link="XfwMonitor.html#XfwMonitor--subpixel"/>
+    <keyword type="property" name="The “transform” property" link="XfwMonitor.html#XfwMonitor--transform"/>
+    <keyword type="property" name="The “width-mm” property" link="XfwMonitor.html#XfwMonitor--width-mm"/>
+    <keyword type="property" name="The “workarea” property" link="XfwMonitor.html#XfwMonitor--workarea"/>
+    <keyword type="function" name="xfw_window_x11_get_xid ()" link="libxfce4windowing-X11-Backend.html#xfw-window-x11-get-xid" since="4.19.3"/>
+    <keyword type="constant" name="XFW_CLIENT_TYPE_APPLICATION" link="libxfce4windowing-Utilities.html#XFW-CLIENT-TYPE-APPLICATION:CAPS"/>
+    <keyword type="constant" name="XFW_CLIENT_TYPE_PAGER" link="libxfce4windowing-Utilities.html#XFW-CLIENT-TYPE-PAGER:CAPS"/>
+    <keyword type="constant" name="XFW_ERROR_UNSUPPORTED" link="libxfce4windowing-Utilities.html#XFW-ERROR-UNSUPPORTED:CAPS"/>
+    <keyword type="constant" name="XFW_ERROR_INTERNAL" link="libxfce4windowing-Utilities.html#XFW-ERROR-INTERNAL:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOWING_UNKNOWN" link="libxfce4windowing-Utilities.html#XFW-WINDOWING-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOWING_X11" link="libxfce4windowing-Utilities.html#XFW-WINDOWING-X11:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOWING_WAYLAND" link="libxfce4windowing-Utilities.html#XFW-WINDOWING-WAYLAND:CAPS"/>
+    <keyword type="constant" name="XFW_DIRECTION_UP" link="libxfce4windowing-Utilities.html#XFW-DIRECTION-UP:CAPS"/>
+    <keyword type="constant" name="XFW_DIRECTION_DOWN" link="libxfce4windowing-Utilities.html#XFW-DIRECTION-DOWN:CAPS"/>
+    <keyword type="constant" name="XFW_DIRECTION_LEFT" link="libxfce4windowing-Utilities.html#XFW-DIRECTION-LEFT:CAPS"/>
+    <keyword type="constant" name="XFW_DIRECTION_RIGHT" link="libxfce4windowing-Utilities.html#XFW-DIRECTION-RIGHT:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_GROUP_CAPABILITIES_NONE" link="XfwWorkspaceGroup.html#XFW-WORKSPACE-GROUP-CAPABILITIES-NONE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_GROUP_CAPABILITIES_CREATE_WORKSPACE" link="XfwWorkspaceGroup.html#XFW-WORKSPACE-GROUP-CAPABILITIES-CREATE-WORKSPACE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_GROUP_CAPABILITIES_MOVE_VIEWPORT" link="XfwWorkspaceGroup.html#XFW-WORKSPACE-GROUP-CAPABILITIES-MOVE-VIEWPORT:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_GROUP_CAPABILITIES_SET_LAYOUT" link="XfwWorkspaceGroup.html#XFW-WORKSPACE-GROUP-CAPABILITIES-SET-LAYOUT:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_CAPABILITIES_NONE" link="XfwWorkspace.html#XFW-WORKSPACE-CAPABILITIES-NONE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_CAPABILITIES_ACTIVATE" link="XfwWorkspace.html#XFW-WORKSPACE-CAPABILITIES-ACTIVATE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_CAPABILITIES_DEACTIVATE" link="XfwWorkspace.html#XFW-WORKSPACE-CAPABILITIES-DEACTIVATE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_CAPABILITIES_REMOVE" link="XfwWorkspace.html#XFW-WORKSPACE-CAPABILITIES-REMOVE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_CAPABILITIES_ASSIGN" link="XfwWorkspace.html#XFW-WORKSPACE-CAPABILITIES-ASSIGN:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_STATE_NONE" link="XfwWorkspace.html#XFW-WORKSPACE-STATE-NONE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_STATE_ACTIVE" link="XfwWorkspace.html#XFW-WORKSPACE-STATE-ACTIVE:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_STATE_URGENT" link="XfwWorkspace.html#XFW-WORKSPACE-STATE-URGENT:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_STATE_HIDDEN" link="XfwWorkspace.html#XFW-WORKSPACE-STATE-HIDDEN:CAPS"/>
+    <keyword type="constant" name="XFW_WORKSPACE_STATE_VIRTUAL" link="XfwWorkspace.html#XFW-WORKSPACE-STATE-VIRTUAL:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_NONE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-NONE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_MINIMIZE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-MINIMIZE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_UNMINIMIZE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-UNMINIMIZE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_MAXIMIZE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-MAXIMIZE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_UNMAXIMIZE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-UNMAXIMIZE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_FULLSCREEN" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-FULLSCREEN:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_UNFULLSCREEN" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-UNFULLSCREEN:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_SHADE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-SHADE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_UNSHADE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-UNSHADE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_MOVE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-MOVE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_RESIZE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-RESIZE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_PLACE_ABOVE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-PLACE-ABOVE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_UNPLACE_ABOVE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-UNPLACE-ABOVE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_PLACE_BELOW" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-PLACE-BELOW:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_UNPLACE_BELOW" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-UNPLACE-BELOW:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_CAPABILITIES_CAN_CHANGE_WORKSPACE" link="XfwWindow.html#XFW-WINDOW-CAPABILITIES-CAN-CHANGE-WORKSPACE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_NONE" link="XfwWindow.html#XFW-WINDOW-STATE-NONE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_ACTIVE" link="XfwWindow.html#XFW-WINDOW-STATE-ACTIVE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_MINIMIZED" link="XfwWindow.html#XFW-WINDOW-STATE-MINIMIZED:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_MAXIMIZED" link="XfwWindow.html#XFW-WINDOW-STATE-MAXIMIZED:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_FULLSCREEN" link="XfwWindow.html#XFW-WINDOW-STATE-FULLSCREEN:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_SKIP_PAGER" link="XfwWindow.html#XFW-WINDOW-STATE-SKIP-PAGER:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_SKIP_TASKLIST" link="XfwWindow.html#XFW-WINDOW-STATE-SKIP-TASKLIST:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_PINNED" link="XfwWindow.html#XFW-WINDOW-STATE-PINNED:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_SHADED" link="XfwWindow.html#XFW-WINDOW-STATE-SHADED:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_ABOVE" link="XfwWindow.html#XFW-WINDOW-STATE-ABOVE:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_BELOW" link="XfwWindow.html#XFW-WINDOW-STATE-BELOW:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_STATE_URGENT" link="XfwWindow.html#XFW-WINDOW-STATE-URGENT:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_NORMAL" link="XfwWindow.html#XFW-WINDOW-TYPE-NORMAL:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_DESKTOP" link="XfwWindow.html#XFW-WINDOW-TYPE-DESKTOP:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_DOCK" link="XfwWindow.html#XFW-WINDOW-TYPE-DOCK:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_DIALOG" link="XfwWindow.html#XFW-WINDOW-TYPE-DIALOG:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_TOOLBAR" link="XfwWindow.html#XFW-WINDOW-TYPE-TOOLBAR:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_MENU" link="XfwWindow.html#XFW-WINDOW-TYPE-MENU:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_UTILITY" link="XfwWindow.html#XFW-WINDOW-TYPE-UTILITY:CAPS"/>
+    <keyword type="constant" name="XFW_WINDOW_TYPE_SPLASHSCREEN" link="XfwWindow.html#XFW-WINDOW-TYPE-SPLASHSCREEN:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_SUBPIXEL_UNKNOWN" link="XfwMonitor.html#XFW-MONITOR-SUBPIXEL-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_SUBPIXEL_NONE" link="XfwMonitor.html#XFW-MONITOR-SUBPIXEL-NONE:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_SUBPIXEL_HRGB" link="XfwMonitor.html#XFW-MONITOR-SUBPIXEL-HRGB:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_SUBPIXEL_HBGR" link="XfwMonitor.html#XFW-MONITOR-SUBPIXEL-HBGR:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_SUBPIXEL_VRGB" link="XfwMonitor.html#XFW-MONITOR-SUBPIXEL-VRGB:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_SUBPIXEL_VBGR" link="XfwMonitor.html#XFW-MONITOR-SUBPIXEL-VBGR:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_NORMAL" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-NORMAL:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_90" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-90:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_180" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-180:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_270" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-270:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_FLIPPED" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-FLIPPED:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_FLIPPED_90" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-FLIPPED-90:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_FLIPPED_180" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-FLIPPED-180:CAPS"/>
+    <keyword type="constant" name="XFW_MONITOR_TRANSFORM_FLIPPED_270" link="XfwMonitor.html#XFW-MONITOR-TRANSFORM-FLIPPED-270:CAPS"/>
+  </functions>
+</book>

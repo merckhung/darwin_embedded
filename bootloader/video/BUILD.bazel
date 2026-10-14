@@ -1,0 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+exports_files(["metadata.h"])
+cc_library(name = "metadata", hdrs = ["metadata.h"])

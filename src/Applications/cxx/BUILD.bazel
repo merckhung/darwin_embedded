@@ -1,0 +1,3 @@
+package(default_visibility = ["//visibility:public"])
+filegroup(name = "sources", srcs = glob(["libcxx/**", "libcxxabi/**", "libunwind/**", "llvm-libc-shared/**"], exclude = ["**/__pycache__/**", "**/*.pyc"]))
+filegroup(name = "compiler_builtins", srcs = glob(["compiler-rt-builtins/**"]))

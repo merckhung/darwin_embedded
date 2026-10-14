@@ -1,0 +1,127 @@
+# Uighur Translation for vte.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Abduxukur Abdurixit <abduxukur.abdurixit@t-systems.ch>, 2005
+#
+msgid ""
+msgstr "Project-Id-Version: vte\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/vte/issues/\n"
+"POT-Creation-Date: 2025-09-10 23:51+0000\n"
+"PO-Revision-Date: 2004-02-05 00:10+0100\n"
+"Last-Translator:  Abduxukur Abdurixit <abduxukur.abdurixit@t-systems.ch>\n"
+"Language-Team:  GNOME Uighur Translation Project <gnome-uighur@yahoogroups.com>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/vte.cc:8342
+msgid "WARNING"
+msgstr "ئاگاھلاندۇرۇش"
+
+#: src/vte.cc:8344
+msgid "GnuTLS not enabled; data will be written to disk unencrypted!"
+msgstr "GnuTLS قوزغىتىلمىغان: سانلىق مەلۇماتنى دىسكىغا شىفىرلىماي يازىدۇ!"
+
+#: src/spawn.cc:133
+#, c-format
+msgid "Failed to set pipe nonblocking: %s"
+msgstr "نور توسۇلمىغاننى تەڭشىيەلمىدى: %s"
+
+#: src/spawn.cc:178
+#, c-format
+msgid "poll error: %s"
+msgstr "سۈرۈشتۈرۈش خاتالىقى: %s"
+
+#: src/spawn.cc:185
+msgid "Operation timed out"
+msgstr "مەشغۇلات ۋاقتى ئېشىپ كەتتى"
+
+#: src/spawn.cc:195
+msgid "Operation was cancelled"
+msgstr "مەشغۇلات بىكار قىلىندى"
+
+#: src/spawn.cc:213
+#, c-format
+msgid "Failed to read from child pipe (%s)"
+msgstr "تارماق نوردىن ئوقۇيالمىدى (%s)"
+
+#: src/spawn.cc:653
+#, c-format
+msgid "Failed to change to directory “%s”: %s"
+msgstr "مۇندەرىجە «%s» غا ئۆزگەرتەلمىدى: %s"
+
+#: src/spawn.cc:722
+#, c-format
+msgid "Failed to execute child process “%s”: "
+msgstr "تارماق جەريان «%s» نى ئىجرا قىلالمىدى: "
+
+#, c-format
+#~ msgid "Unable to convert characters from %s to %s."
+#~ msgstr "%s ھەرپىنى %s ھەرپىگە ئايلاندۇرالمىدى"
+
+#, c-format
+#~ msgid "Attempt to set invalid NRC map '%c'."
+#~ msgstr "ئىناۋەتسىز NRC خەرىتە '%c' تەڭشەشنى سىنىدى."
+
+#~ msgid "Unrecognized identified coding system."
+#~ msgstr "تونۇيالمىغان كودلاشنى بەلگىلەش سىستېمىسى"
+
+#, c-format
+#~ msgid "Attempt to set invalid wide NRC map '%c'."
+#~ msgstr "ئىناۋەتسىز كەڭ NRC خەرىتە '%c' تەڭشەشنى سىنىدى."
+
+#, c-format
+#~ msgid "Duplicate (%s/%s)!"
+#~ msgstr "(%s/%s) نۇسخىلا!"
+
+#~ msgid "Could not open console.\n"
+#~ msgstr "كونترول سۇپىسىنى ئاچالمىدى.\n"
+
+#~ msgid "Could not parse the geometry spec passed to --geometry"
+#~ msgstr "--geometry غا يوللايدىغان گېئومېتىرىيىلىك پارامېتىرنى يېشەلمىدى"
+
+#, c-format
+#~ msgid "Error compiling regular expression \"%s\"."
+#~ msgstr "مۇنتىزىم ئىپادە \"%s\" نى ھېسابلاشتا خاتالىق يۈز بەردى."
+
+#~ msgid "Unable to send data to child, invalid charset convertor"
+#~ msgstr ""
+#~ "تارماق جەريانغا سانلىق-مەلۇمات يوللىيالمىدى، ھەرپ-بەلگە ئايلاندۇرغۇچ "
+#~ "ئىناۋەتسىز"
+
+#, c-format
+#~ msgid "Error (%s) converting data for child, dropping."
+#~ msgstr ""
+#~ "تارماق پروگرامما سانلىق-ئاساسىنى ئۆزگەرتىش جەريانىدا خاتالىق كۆرۈلگىنىنى "
+#~ "ئۈچۈن تاشلىۋېتىلدى(%s) ."
+
+#, c-format
+#~ msgid "Error reading PTY size, using defaults: %s\n"
+#~ msgstr ""
+#~ "PTY چوڭلۇقىنى ئوقۇشتا خاتالىق كۆرۈلدى، كۆڭۈلدىكى چوڭلۇق ئىشلىتىلىدۇ: %s\n"
+
+#~ msgid "_vte_conv_open() failed setting word characters"
+#~ msgstr "_vte_conv_open() سۆزدىكى ھەرپ تىزمىسىنى بەلگىلەش مەغلۇپ بولدى."
+
+#~ msgid "can not run %s"
+#~ msgstr "%s نى ئىجرا قىلالمىدى"
+
+#~ msgid "Error adding `%s' to environment, continuing."
+#~ msgstr "%s نى مۇھىتقا قوشۇشتا خاتالىق يۈز بەردى، داۋاملىشىدۇ."
+
+#~ msgid "Error creating signal pipe."
+#~ msgstr "سىگنال قانىلى ھاسىل قىلىشتا خاتالىق يۈز بەردى"
+
+#~ msgid "No handler for control sequence `%s' defined."
+#~ msgstr ""
+#~ "%s كونترول ھەرپلەر تىزمىسى نى بىر تەرەپ قىلىش پروگراممىسى ئېنىق ئەمەس "
+
+#~ msgid "Error setting PTY size: %s."
+#~ msgstr "PTY ئۆلچىمىنى بەلگىلەشتە خاتالىق كۆرۈلدى:%s"
+
+#~ msgid "Unknown pixel mode %d.\n"
+#~ msgstr "%d تونۇمايدىغان پىكسېل شەكلى \n"
+
+#~ msgid "Can not draw character U+%04x.\n"
+#~ msgstr " U+%04x ھەرپىنى سىزالمايدۇ.\n"

@@ -1,0 +1,1230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XfwMonitor: libxfce4windowing Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4windowing Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="XfwApplication.html" title="XfwApplication">
+<link rel="next" href="libxfce4windowing-X11-Backend.html" title="X11 Backend">
+<meta name="generator" content="GTK-Doc V1.35.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#XfwMonitor.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#XfwMonitor.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#XfwMonitor.properties" class="shortcut">Properties</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="XfwApplication.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libxfce4windowing-X11-Backend.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="XfwMonitor"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="XfwMonitor.top_of_page"></a>XfwMonitor</span></h2>
+<p>XfwMonitor — An object representing a physical monitor</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="XfwMonitor.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+"><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-identifier" title="xfw_monitor_get_identifier ()">xfw_monitor_get_identifier</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-description" title="xfw_monitor_get_description ()">xfw_monitor_get_description</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-connector" title="xfw_monitor_get_connector ()">xfw_monitor_get_connector</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-make" title="xfw_monitor_get_make ()">xfw_monitor_get_make</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-model" title="xfw_monitor_get_model ()">xfw_monitor_get_model</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-serial" title="xfw_monitor_get_serial ()">xfw_monitor_get_serial</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-refresh" title="xfw_monitor_get_refresh ()">xfw_monitor_get_refresh</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-scale" title="xfw_monitor_get_scale ()">xfw_monitor_get_scale</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gdouble</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-fractional-scale" title="xfw_monitor_get_fractional_scale ()">xfw_monitor_get_fractional_scale</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-physical-geometry" title="xfw_monitor_get_physical_geometry ()">xfw_monitor_get_physical_geometry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-logical-geometry" title="xfw_monitor_get_logical_geometry ()">xfw_monitor_get_logical_geometry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-workarea" title="xfw_monitor_get_workarea ()">xfw_monitor_get_workarea</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-physical-size" title="xfw_monitor_get_physical_size ()">xfw_monitor_get_physical_size</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwMonitor.html#XfwMonitorSubpixel" title="enum XfwMonitorSubpixel"><span class="returnvalue">XfwMonitorSubpixel</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-subpixel" title="xfw_monitor_get_subpixel ()">xfw_monitor_get_subpixel</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="XfwMonitor.html#XfwMonitorTransform" title="enum XfwMonitorTransform"><span class="returnvalue">XfwMonitorTransform</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-transform" title="xfw_monitor_get_transform ()">xfw_monitor_get_transform</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-is-primary" title="xfw_monitor_is_primary ()">xfw_monitor_is_primary</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GdkMonitor</span> *
+</td>
+<td class="function_name">
+<a class="link" href="XfwMonitor.html#xfw-monitor-get-gdk-monitor" title="xfw_monitor_get_gdk_monitor ()">xfw_monitor_get_gdk_monitor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--connector" title="The “connector” property">connector</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--description" title="The “description” property">description</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gpointer</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--edid" title="The “edid” property">edid</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">guint64</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--edid-len" title="The “edid-len” property">edid-len</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">double</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--fractional-scale" title="The “fractional-scale” property">fractional-scale</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GdkMonitor</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--gdk-monitor" title="The “gdk-monitor” property">gdk-monitor</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">guint</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--height-mm" title="The “height-mm” property">height-mm</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--identifier" title="The “identifier” property">identifier</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--is-primary" title="The “is-primary” property">is-primary</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GdkRectangle</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--logical-geometry" title="The “logical-geometry” property">logical-geometry</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--make" title="The “make” property">make</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--model" title="The “model” property">model</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GdkRectangle</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--physical-geometry" title="The “physical-geometry” property">physical-geometry</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">guint</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--refresh" title="The “refresh” property">refresh</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">guint</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--scale" title="The “scale” property">scale</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">char</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--serial" title="The “serial” property">serial</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="XfwMonitor.html#XfwMonitorSubpixel" title="enum XfwMonitorSubpixel"><span class="type">XfwMonitorSubpixel</span></a></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--subpixel" title="The “subpixel” property">subpixel</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="XfwMonitor.html#XfwMonitorTransform" title="enum XfwMonitorTransform"><span class="type">XfwMonitorTransform</span></a></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--transform" title="The “transform” property">transform</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">guint</span></td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--width-mm" title="The “width-mm” property">width-mm</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">GdkRectangle</span> *</td>
+<td class="property_name"><a class="link" href="XfwMonitor.html#XfwMonitor--workarea" title="The “workarea” property">workarea</a></td>
+<td class="property_flags">Read</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="XfwMonitor.html#XfwMonitor-struct" title="XfwMonitor">XfwMonitor</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwMonitor.html#XfwMonitorSubpixel" title="enum XfwMonitorSubpixel">XfwMonitorSubpixel</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="XfwMonitor.html#XfwMonitorTransform" title="enum XfwMonitorTransform">XfwMonitorTransform</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">├──</span> XfwMonitorSubpixel
+    <span class="lineart">╰──</span> XfwMonitorTransform
+    GObject
+    <span class="lineart">╰──</span> XfwMonitor
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4windowing/libxfce4windowing.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.description"></a><h2>Description</h2>
+<p><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> represents a physical monitor connected to the <a class="link" href="XfwScreen.html" title="XfwScreen"><span class="type">XfwScreen</span></a>.</p>
+<p>In some virtual environments (e.g. a nested X11 or Wayland session), the
+monitor might instead represent an on-screen window that contains the output
+of the virtual environment.</p>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfw-monitor-get-identifier"></a><h3>xfw_monitor_get_identifier ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+xfw_monitor_get_identifier (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Retrieves an opaque identifier for this monitor.  The identifier can usually
+be relied upon to uniquely identify this monitor (even if you have multiple
+identical monitors of the same make and model), assuming the monitor's
+hardware is set up properly.</p>
+<p>This identifier should also be stable across application and machine
+restarts.</p>
+<p>If the monitor's hardware is not set up properly, the identifier may not be
+unique.  Unfortunately, this library cannot determine when this is the case.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-identifier.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-identifier.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>monitor</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-description"></a><h3>xfw_monitor_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+xfw_monitor_get_description (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns a human-readable description of this monitor, suitable for
+displaying in a user interface.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-description.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-description.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>monitor</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-connector"></a><h3>xfw_monitor_get_connector ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+xfw_monitor_get_connector (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the name of the physical connector this monitor is connected to.</p>
+<p>This might be a string such as "eDP-1", "DP-3", or "HDMI-2".  Note that in
+environments where the monitor is "virtual", a synthetic connector name may
+be returned.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-connector.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-connector.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>monitor</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-make"></a><h3>xfw_monitor_get_make ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+xfw_monitor_get_make (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the monitor's manufacturer's name, if available.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-make.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-make.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>monitor</code></em>
+, or
+<code class="literal">NULL</code>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-model"></a><h3>xfw_monitor_get_model ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+xfw_monitor_get_model (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the monitor's product model name, if available.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-model.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-model.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>monitor</code></em>
+, or
+<code class="literal">NULL</code>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-serial"></a><h3>xfw_monitor_get_serial ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+xfw_monitor_get_serial (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the monitor's serial number, if available.  Note that some
+manufacturers do not program their monitor's hardware with unique serial
+numbers.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-serial.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-serial.returns"></a><h4>Returns</h4>
+<p>A string owned by <em class="parameter"><code>monitor</code></em>
+, or
+<code class="literal">NULL</code>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-refresh"></a><h3>xfw_monitor_get_refresh ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+xfw_monitor_get_refresh (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the monitor's current refresh rate, in millihertz.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-refresh.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-refresh.returns"></a><h4>Returns</h4>
+<p> A non-negative integer in mHz.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-scale"></a><h3>xfw_monitor_get_scale ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+xfw_monitor_get_scale (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the monitor's scaling factor, as an integer.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-scale.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-scale.returns"></a><h4>Returns</h4>
+<p> A positive integer scale.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-fractional-scale"></a><h3>xfw_monitor_get_fractional_scale ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>
+xfw_monitor_get_fractional_scale (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the monitor's scaling factor.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-fractional-scale.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-fractional-scale.returns"></a><h4>Returns</h4>
+<p> A positive fractional scale.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-physical-geometry"></a><h3>xfw_monitor_get_physical_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_monitor_get_physical_geometry (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>,
+                                   <em class="parameter"><code><span class="type">GdkRectangle</span> *physical_geometry</code></em>);</pre>
+<p>Retrieves the position and size of the monitor in physical device pixels.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-physical-geometry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>physical_geometry</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkRectangle</span>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-logical-geometry"></a><h3>xfw_monitor_get_logical_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_monitor_get_logical_geometry (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>,
+                                  <em class="parameter"><code><span class="type">GdkRectangle</span> *logical_geometry</code></em>);</pre>
+<p>Retrieves the position and size of the monitor in logical application
+pixels, which are affected by the monitor's fractional scale factor.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-logical-geometry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>logical_geometry</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkRectangle</span>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-workarea"></a><h3>xfw_monitor_get_workarea ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_monitor_get_workarea (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>,
+                          <em class="parameter"><code><span class="type">GdkRectangle</span> *workarea</code></em>);</pre>
+<p>Retrieves the workarea for <em class="parameter"><code>monitor</code></em>
+, which may exclude regions of the screen
+for windows such as panels or docks.</p>
+<p>The returned geometry is in logical application pixels, which are affected
+by the monitor's integer scale factor.  The origin is set to the top-left
+corner of the monitor.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-workarea.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>workarea</p></td>
+<td class="parameter_description"><p>a <span class="type">GdkRectangle</span>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-physical-size"></a><h3>xfw_monitor_get_physical_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfw_monitor_get_physical_size (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>,
+                               <em class="parameter"><code><span class="type">guint</span> *width_mm</code></em>,
+                               <em class="parameter"><code><span class="type">guint</span> *height_mm</code></em>);</pre>
+<p>Retrieves the physical width and height of the monitor in millimeters.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-physical-size.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>width_mm</p></td>
+<td class="parameter_description"><p>an unsigned integer. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>height_mm</p></td>
+<td class="parameter_description"><p>an unsigned integer. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-subpixel"></a><h3>xfw_monitor_get_subpixel ()</h3>
+<pre class="programlisting"><a class="link" href="XfwMonitor.html#XfwMonitorSubpixel" title="enum XfwMonitorSubpixel"><span class="returnvalue">XfwMonitorSubpixel</span></a>
+xfw_monitor_get_subpixel (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the subpixel ordering of <em class="parameter"><code>monitor</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-subpixel.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-subpixel.returns"></a><h4>Returns</h4>
+<p> A value from the <a class="link" href="XfwMonitor.html#XfwMonitorSubpixel" title="enum XfwMonitorSubpixel"><span class="type">XfwMonitorSubpixel</span></a> enum.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-transform"></a><h3>xfw_monitor_get_transform ()</h3>
+<pre class="programlisting"><a class="link" href="XfwMonitor.html#XfwMonitorTransform" title="enum XfwMonitorTransform"><span class="returnvalue">XfwMonitorTransform</span></a>
+xfw_monitor_get_transform (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the rotation and reflection transform set on <em class="parameter"><code>monitor</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-transform.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-transform.returns"></a><h4>Returns</h4>
+<p> A value from the <a class="link" href="XfwMonitor.html#XfwMonitorTransform" title="enum XfwMonitorTransform"><span class="type">XfwMonitorTransform</span></a> enum.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-is-primary"></a><h3>xfw_monitor_is_primary ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfw_monitor_is_primary (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns whether or not <em class="parameter"><code>monitor</code></em>
+ has been designated as the primary
+monitor.</p>
+<div class="refsect3">
+<a name="xfw-monitor-is-primary.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-is-primary.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> or <code class="literal">FALSE</code>.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfw-monitor-get-gdk-monitor"></a><h3>xfw_monitor_get_gdk_monitor ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkMonitor</span> *
+xfw_monitor_get_gdk_monitor (<em class="parameter"><code><a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a> *monitor</code></em>);</pre>
+<p>Returns the <span class="type">GdkMonitor</span> that corresponds to <em class="parameter"><code>monitor</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfw-monitor-get-gdk-monitor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="XfwMonitor.html" title="XfwMonitor"><span class="type">XfwMonitor</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfw-monitor-get-gdk-monitor.returns"></a><h4>Returns</h4>
+<p>A <span class="type">GdkMonitor</span>. </p>
+<p><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>][<acronym title="The data is owned by the callee, which is responsible of freeing it."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfwMonitor-struct"></a><h3>XfwMonitor</h3>
+<pre class="programlisting">typedef struct _XfwMonitor XfwMonitor;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitorSubpixel"></a><h3>enum XfwMonitorSubpixel</h3>
+<p>Describes how the color components of the physical pixels are laid out on a
+monitor.</p>
+<div class="refsect3">
+<a name="XfwMonitorSubpixel.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-SUBPIXEL-UNKNOWN:CAPS"></a>XFW_MONITOR_SUBPIXEL_UNKNOWN</p></td>
+<td class="enum_member_description">
+<p>unknown subpixel ordering.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-SUBPIXEL-NONE:CAPS"></a>XFW_MONITOR_SUBPIXEL_NONE</p></td>
+<td class="enum_member_description">
+<p>no subpixel geometry.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-SUBPIXEL-HRGB:CAPS"></a>XFW_MONITOR_SUBPIXEL_HRGB</p></td>
+<td class="enum_member_description">
+<p>horizontal RGB.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-SUBPIXEL-HBGR:CAPS"></a>XFW_MONITOR_SUBPIXEL_HBGR</p></td>
+<td class="enum_member_description">
+<p>horizontal BGR.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-SUBPIXEL-VRGB:CAPS"></a>XFW_MONITOR_SUBPIXEL_VRGB</p></td>
+<td class="enum_member_description">
+<p>vertical RGB.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-SUBPIXEL-VBGR:CAPS"></a>XFW_MONITOR_SUBPIXEL_VBGR</p></td>
+<td class="enum_member_description">
+<p>vertical BGR.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitorTransform"></a><h3>enum XfwMonitorTransform</h3>
+<p>Describes the rotation and reflection applied to a monitor.</p>
+<div class="refsect3">
+<a name="XfwMonitorTransform.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-NORMAL:CAPS"></a>XFW_MONITOR_TRANSFORM_NORMAL</p></td>
+<td class="enum_member_description">
+<p>no transformation applied.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-90:CAPS"></a>XFW_MONITOR_TRANSFORM_90</p></td>
+<td class="enum_member_description">
+<p>rotated counter-clockwise by 90 degrees.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-180:CAPS"></a>XFW_MONITOR_TRANSFORM_180</p></td>
+<td class="enum_member_description">
+<p>rotated counter-clockwise by 180 degrees.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-270:CAPS"></a>XFW_MONITOR_TRANSFORM_270</p></td>
+<td class="enum_member_description">
+<p>rotated counter-clockwise by 270 degrees.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-FLIPPED:CAPS"></a>XFW_MONITOR_TRANSFORM_FLIPPED</p></td>
+<td class="enum_member_description">
+<p>flipped along a vertical axis.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-FLIPPED-90:CAPS"></a>XFW_MONITOR_TRANSFORM_FLIPPED_90</p></td>
+<td class="enum_member_description">
+<p>flipped along a vertical axis and rotated
+counter-clockwise by 90 degrees.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-FLIPPED-180:CAPS"></a>XFW_MONITOR_TRANSFORM_FLIPPED_180</p></td>
+<td class="enum_member_description">
+<p>flipped
+along a vertical axis and rotated counter-clockwise by 180 degrees.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="XFW-MONITOR-TRANSFORM-FLIPPED-270:CAPS"></a>XFW_MONITOR_TRANSFORM_FLIPPED_270</p></td>
+<td class="enum_member_description">
+<p>flipped along a vertical axis and
+rotated counter-clockwise by 270 degrees.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="XfwMonitor.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="XfwMonitor--connector"></a><h3>The <code class="literal">“connector”</code> property</h3>
+<pre class="programlisting">  “connector”                <span class="type">char</span> *</pre>
+<p>Physical/virtual connector name.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--description"></a><h3>The <code class="literal">“description”</code> property</h3>
+<pre class="programlisting">  “description”              <span class="type">char</span> *</pre>
+<p>Human-readable description.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--edid"></a><h3>The <code class="literal">“edid”</code> property</h3>
+<pre class="programlisting">  “edid”                     <span class="type">gpointer</span></pre>
+<p>Raw EDID bytes.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p class="since">Since: <a class="link" href="api-index-4-20-7.html#api-index-4.20.7">4.20.7</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--edid-len"></a><h3>The <code class="literal">“edid-len”</code> property</h3>
+<pre class="programlisting">  “edid-len”                 <span class="type">guint64</span></pre>
+<p>Length of data in the <em class="parameter"><code>XfwMonitor</code></em>
+:edid property.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="api-index-4-20-7.html#api-index-4.20.7">4.20.7</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--fractional-scale"></a><h3>The <code class="literal">“fractional-scale”</code> property</h3>
+<pre class="programlisting">  “fractional-scale”         <span class="type">double</span></pre>
+<p>UI fractional scaling factor.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--gdk-monitor"></a><h3>The <code class="literal">“gdk-monitor”</code> property</h3>
+<pre class="programlisting">  “gdk-monitor”              <span class="type">GdkMonitor</span> *</pre>
+<p>The <span class="type">GdkMonitor</span> corresponding to this monitor.</p>
+<p>Since 4.19.4</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--height-mm"></a><h3>The <code class="literal">“height-mm”</code> property</h3>
+<pre class="programlisting">  “height-mm”                <span class="type">guint</span></pre>
+<p>Physical height of the monitor in millimeters.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--identifier"></a><h3>The <code class="literal">“identifier”</code> property</h3>
+<pre class="programlisting">  “identifier”               <span class="type">char</span> *</pre>
+<p>Opaque, hopefully-unique monitor identifier.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--is-primary"></a><h3>The <code class="literal">“is-primary”</code> property</h3>
+<pre class="programlisting">  “is-primary”               <span class="type">gboolean</span></pre>
+<p>Whether or not this monitor is the primary monitor.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: FALSE</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--logical-geometry"></a><h3>The <code class="literal">“logical-geometry”</code> property</h3>
+<pre class="programlisting">  “logical-geometry”         <span class="type">GdkRectangle</span> *</pre>
+<p>Coordinates and size of the monitor in scaled logical pixels.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--make"></a><h3>The <code class="literal">“make”</code> property</h3>
+<pre class="programlisting">  “make”                     <span class="type">char</span> *</pre>
+<p>Manufacturer name.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--model"></a><h3>The <code class="literal">“model”</code> property</h3>
+<pre class="programlisting">  “model”                    <span class="type">char</span> *</pre>
+<p>Product model name.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--physical-geometry"></a><h3>The <code class="literal">“physical-geometry”</code> property</h3>
+<pre class="programlisting">  “physical-geometry”        <span class="type">GdkRectangle</span> *</pre>
+<p>Coordinates and size of the monitor in physical device pixels.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--refresh"></a><h3>The <code class="literal">“refresh”</code> property</h3>
+<pre class="programlisting">  “refresh”                  <span class="type">guint</span></pre>
+<p>Current refresh rate, in millihertz.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: 60000</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--scale"></a><h3>The <code class="literal">“scale”</code> property</h3>
+<pre class="programlisting">  “scale”                    <span class="type">guint</span></pre>
+<p>UI scaling factor.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--serial"></a><h3>The <code class="literal">“serial”</code> property</h3>
+<pre class="programlisting">  “serial”                   <span class="type">char</span> *</pre>
+<p>Product serial number.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: NULL</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--subpixel"></a><h3>The <code class="literal">“subpixel”</code> property</h3>
+<pre class="programlisting">  “subpixel”                 <a class="link" href="XfwMonitor.html#XfwMonitorSubpixel" title="enum XfwMonitorSubpixel"><span class="type">XfwMonitorSubpixel</span></a></pre>
+<p>Hardware subpixel layout.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: XFW_MONITOR_SUBPIXEL_UNKNOWN</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--transform"></a><h3>The <code class="literal">“transform”</code> property</h3>
+<pre class="programlisting">  “transform”                <a class="link" href="XfwMonitor.html#XfwMonitorTransform" title="enum XfwMonitorTransform"><span class="type">XfwMonitorTransform</span></a></pre>
+<p>Rotation and reflection of the monitor's contents.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: XFW_MONITOR_TRANSFORM_NORMAL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--width-mm"></a><h3>The <code class="literal">“width-mm”</code> property</h3>
+<pre class="programlisting">  “width-mm”                 <span class="type">guint</span></pre>
+<p>Physical width of the monitor in millimeters.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="api-index-4-19-4.html#api-index-4.19.4">4.19.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfwMonitor--workarea"></a><h3>The <code class="literal">“workarea”</code> property</h3>
+<pre class="programlisting">  “workarea”                 <span class="type">GdkRectangle</span> *</pre>
+<p>Monitor workarea in scaled logical pixels.</p>
+<p>Owner: XfwMonitor</p>
+<p>Flags: Read</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.35.1</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+To update the various IDs files, run 'make download'.
+
+Related:
+ * python binding https://github.com/xsuchy/python-hwdata

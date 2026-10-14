@@ -1,0 +1,160 @@
+Version 0.18
+~~~~~~~~~~~~
+Released: 2024-05-20
+
+Features:
+ * Provide a pkgconfig file
+ * Create HiDPI directories
+ * Port build system to Meson
+
+Specification:
+ * spec: Mandate that base themes must be installed
+ * spec/icon-naming: Add name for the screenshot-taking program
+
+Miscellaneous:
+ * Convert changelog to NEWS file and update it
+ * Add script to quickly validate the specification
+ * Add CI
+
+Contributors:
+ Alexander Schwinn, Danielle Foré, Matthias Klumpp,
+ Robert-André Mauchin, Xavier Claessens
+
+Version 0.17
+~~~~~~~~~~~~
+Released: 2017-08-31
+
+ * Fix cut-and-paste issue in scale=2 name for 256x256@2/animations
+
+Version 0.16
+~~~~~~~~~~~~
+Released: 2017-08-22
+
+ * Fix old version reference in NEWS
+ * index.theme: Add icon scale support
+ * ChangeLog: Remove trailing whitespace
+ * spec/icon-theme: Add space between sentences
+ * spec: Remove trailing whitespace
+
+Version 0.15
+~~~~~~~~~~~~
+Released: 2015-03-24
+
+ * Add symbolic/apps directory for symbolic app icons
+
+Version 0.14
+~~~~~~~~~~~~
+Released: 2014-12-09
+
+ * Create 512x512 directory
+ * Use automake to generate VPATH-compatible makefiles
+ * support 512x512 bitmaps for high density display age
+ * icon-theme-spec: Add icon scale support
+
+Version 0.13
+~~~~~~~~~~~~
+Released: 2013-12-17
+
+ * icon-theme-spec: Add icon scale support
+ * Support 512x512 bitmaps for high density display age
+
+Version 0.12
+~~~~~~~~~~~~
+Released: 2010-01-13
+
+ * Fix details with 256x256 icons
+
+Version 0.11
+~~~~~~~~~~~~
+Released: 2009-09-25
+
+ * index.theme:
+   Added 256x256 size. (#15231)
+ * autogen.sh: updated to run "configure" with usual maintainer
+   options.
+ * Makefile.in:
+   Update configure.ac for autoconf 2.60
+   Patch from andreas.hanke@gmx-topmail.de
+
+Version 0.10
+~~~~~~~~~~~~
+Released: 2006-11-22
+
+* Makefile.in:
+* index.theme:
+  Add new contexts from icon naming spec:
+  animations, categories, emotes, places,
+  status
+  Patch from Luca Ferretti <elle.uca@libero.it>
+
+Version 0.9
+~~~~~~~~~~~
+Released: 2006-01-12
+
+ * index.theme:
+   Sort values for Directories keys (fix gnome bug 315841) and add missing
+   entries. Now all installed directories should have an entry in this
+   file.
+ * Makefile.in (ICON_CONTEXTS):
+   Add emblem subdir
+
+Version 0.8
+~~~~~~~~~~~
+Released: 2005-04-08
+
+ * index.theme:
+   Add emblem subdir
+
+Version 0.7
+~~~~~~~~~~~
+Released: 2005-02-04
+
+ * index.theme (Size):
+   Fix typos in last version
+
+Version 0.6
+~~~~~~~~~~~
+Released: 2005-02-02
+
+ * Makefile.in (ICON_SIZES):
+   Add 24x24 dirs
+ * index.theme (Directories):
+   Add 24x24 version of action, apps, devices, filesystem & mimetypes
+
+Version 0.5
+~~~~~~~~~~~
+Released: 2004-04-06
+
+ * Makefile.in:
+   Create the stock/* directories.
+ * Makefile.in:
+   Added back COPYING
+ * Makefile:
+   Makefile.in:
+   configure.ac:
+   install-sh:
+     Convert to autoconf
+     Patch from James Henstridge
+ * COPYING:
+   Makefile (FILES):
+     Added GPL license.
+
+Version 0.3
+~~~~~~~~~~~
+Released: 2004-02-04
+
+ * Makefile:
+   Update version to 0.3
+   Add new dir sizes
+ * index.theme:
+   Add stock icon dirs
+ * index.theme:
+   Rename to hicolor. Add Hidden=true
+ * Makefile:
+   Rename to hicolor. Fix up
+ * README:
+   Update
+ * Makefile (tag):
+   Added a tag target.
+ * Makefile (dist):
+   Added a dist target.

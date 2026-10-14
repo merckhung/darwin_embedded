@@ -1,0 +1,6 @@
+package(default_visibility = ["//visibility:public"])
+
+alias(name = "arm64", actual = "//userland/apps/init:root_arm64")
+alias(name = "x86_64", actual = "//userland/apps/init:root_x86_64")
+
+filegroup(name = "images", srcs = [":arm64", ":x86_64"])

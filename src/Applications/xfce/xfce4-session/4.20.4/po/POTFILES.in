@@ -1,0 +1,28 @@
+# List of source files containing translatable strings.
+
+xfce.desktop.in
+xfce-wayland.desktop.in
+libxfsm/xfsm-util.c
+settings/main.c
+settings/session-editor.c
+settings/xfae-dialog.c
+settings/xfae-model.c
+settings/xfae-window.c
+xfce4-session/main.c
+xfce4-session/xfsm-chooser.c
+xfce4-session/xfsm-client.c
+xfce4-session/xfsm-compat-gnome.c
+xfce4-session/xfsm-compat-kde.c
+xfce4-session/xfsm-dns.c
+xfce4-session/xfsm-global.c
+xfce4-session/xfsm-manager.c
+xfce4-session/xfsm-logout-dialog.c
+xfce4-session/xfsm-startup.c
+xfce4-session/xfsm-shutdown.c
+xfce4-session-logout/main.c
+xfce4-session-logout/xfce4-session-logout.desktop.in
+xfce4-session/org.xfce.session.policy.in.in
+
+# files added by intltool-prepare.
+settings/xfce-session-settings.desktop.in
+settings/xfce4-session-settings.ui

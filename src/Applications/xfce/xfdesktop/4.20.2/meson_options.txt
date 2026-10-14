@@ -1,0 +1,69 @@
+option(
+  'desktop-menu',
+  type: 'feature',
+  value: 'auto',
+  description: 'Desktop right-click applications menu',
+)
+
+option(
+  'desktop-icons',
+  type: 'boolean',
+  value: true,
+  description: 'Support for desktop icons',
+)
+
+option(
+  'file-icons',
+  type: 'boolean',
+  value: true,
+  description: 'Support for desktop file icons',
+)
+
+option(
+  'thunarx',
+  type: 'feature',
+  value: 'auto',
+  description: 'Support for Thunar file management extensions',
+)
+
+option(
+  'notifications',
+  type: 'feature',
+  value: 'auto',
+  description: 'Support for mount notifications',
+)
+
+option(
+  'x11',
+  type: 'feature',
+  value: 'auto',
+  description: 'Support for the X11 windowing system',
+)
+
+option(
+  'wayland',
+  type: 'feature',
+  value: 'auto',
+  description: 'Support for the Wayland windowing system',
+)
+
+option(
+  'file-manager-fallback',
+  type: 'string',
+  value: 'Thunar',
+  description: 'Fallback file manager to use if the DBus interface is not available',
+)
+
+option(
+  'default-backdrop-filename',
+  type: 'string',
+  value: 'backgrounds/xfce/xfce-x.svg',
+  description: 'The path to the default background image (relative paths will prepend $(datadir)',
+)
+
+option(
+  'tests',
+  type: 'boolean',
+  value: true,
+  description: 'Whether or not to build test programs',
+)

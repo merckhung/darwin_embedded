@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/launchd",
+  "tag": "launchd-842.92.1",
+  "commit": "49a9c79b2949192dfca697b1054245cdfb645788",
+  "archive_sha256": "76657450aee11bdc2f4ebf85e19e3b9c215771564257e710e3a59b1340c1b49b"
+}

@@ -1,0 +1,138 @@
+#if 0
+	if(cflag)
+	    print_argstrings(mh_magic, ofile->load_commands, mh_ncmds,
+			     mh_sizeofcmds, mh_cputype, mh_cpusubtype,
+			     ofile->object_byte_sex, ofile->object_addr,
+			     ofile->object_size);
+
+	if(oflag){
+	    if(mh_cputype & CPU_ARCH_ABI64){
+		get_linked_reloc_info(ofile->load_commands, mh_ncmds,
+			mh_sizeofcmds, ofile->object_byte_sex,
+			ofile->object_addr, ofile->object_size, &ext_relocs,
+			&next_relocs, &loc_relocs, &nloc_relocs);
+		/* create aligned relocations entries as needed */
+		relocs = NULL;
+		nrelocs = 0;
+		if((intptr_t)ext_relocs % sizeof(int32_t) != 0 ||
+		   ofile->object_byte_sex != get_host_byte_sex()){
+		    relocs = allocate(next_relocs *
+				      sizeof(struct relocation_info));
+		    memcpy(relocs, ext_relocs, next_relocs *
+			   sizeof(struct relocation_info));
+		    ext_relocs = relocs;
+		}
+		if((intptr_t)loc_relocs % sizeof(int32_t) != 0 ||
+		   ofile->object_byte_sex != get_host_byte_sex()){
+		    relocs = allocate(nloc_relocs *
+				      sizeof(struct relocation_info));
+		    memcpy(relocs, loc_relocs, nloc_relocs *
+			   sizeof(struct relocation_info));
+		    loc_relocs = relocs;
+		}
+		if(ofile->object_byte_sex != get_host_byte_sex()){
+		    swap_relocation_info(ext_relocs, next_relocs,
+					 get_host_byte_sex());
+		    swap_relocation_info(loc_relocs, nloc_relocs,
+					 get_host_byte_sex());
+		}
+		setup_dyld_bind_info(ofile->load_commands, mh_ncmds,
+				     mh_sizeofcmds, ofile->object_byte_sex,
+				     ofile->object_addr, ofile->object_size,
+				     &dbi, &ndbi, &chain_format);
+#if USE_LIBOBJC
+		print_objc2_64bit(mh_cputype, ofile->load_commands, mh_ncmds,
+			    mh_sizeofcmds, ofile->object_byte_sex,
+			    ofile->object_addr, ofile->object_size, symbols,
+			    nsymbols, strings, strings_size, sorted_symbols,
+			    nsorted_symbols, ext_relocs, next_relocs,
+			    loc_relocs, nloc_relocs, dbi, ndbi, chain_format,
+			    vflag);
+#endif
+	    }
+	    else{
+		 /*
+		  * This is the 32-bit non-arm cputype case.  Which is normally
+		  * the first Objective-C ABI.  But it may be the case of a
+		  * binary for the iOS simulator which is the second Objective-C
+		  * ABI.  In that case print_objc_segment() will determine that
+		  * and return FALSE.
+		  */
+#if USE_LIBOBJC
+		 if(print_objc_segment(mh_cputype, ofile->load_commands,
+			mh_ncmds, mh_sizeofcmds, ofile->object_byte_sex,
+			ofile->object_addr, ofile->object_size, sorted_symbols,
+			nsorted_symbols, vflag) == FALSE){
+		    get_linked_reloc_info(ofile->load_commands, mh_ncmds,
+			    mh_sizeofcmds, ofile->object_byte_sex,
+			    ofile->object_addr, ofile->object_size, &ext_relocs,
+			    &next_relocs, &loc_relocs, &nloc_relocs);
+		    /* create aligned relocations entries as needed */
+		    relocs = NULL;
+		    nrelocs = 0;
+		    if((intptr_t)ext_relocs % sizeof(int32_t) != 0 ||
+		       ofile->object_byte_sex != get_host_byte_sex()){
+			relocs = allocate(next_relocs *
+					  sizeof(struct relocation_info));
+			memcpy(relocs, ext_relocs, next_relocs *
+			       sizeof(struct relocation_info));
+			ext_relocs = relocs;
+		    }
+		    if((intptr_t)loc_relocs % sizeof(int32_t) != 0 ||
+		       ofile->object_byte_sex != get_host_byte_sex()){
+			relocs = allocate(nloc_relocs *
+					  sizeof(struct relocation_info));
+			memcpy(relocs, loc_relocs, nloc_relocs *
+			       sizeof(struct relocation_info));
+			loc_relocs = relocs;
+		    }
+		    if(ofile->object_byte_sex != get_host_byte_sex()){
+			swap_relocation_info(ext_relocs, next_relocs,
+					     get_host_byte_sex());
+			swap_relocation_info(loc_relocs, nloc_relocs,
+					     get_host_byte_sex());
+		    }
+		    setup_dyld_bind_info(ofile->load_commands, mh_ncmds,
+				      mh_sizeofcmds, ofile->object_byte_sex,
+				      ofile->object_addr, ofile->object_size,
+				      &dbi, &ndbi, &chain_format);
+		    print_objc2_32bit(mh_cputype, ofile->load_commands,
+			    mh_ncmds, mh_sizeofcmds, ofile->object_byte_sex,
+			    ofile->object_addr, ofile->object_size, symbols,
+			    nsymbols, strings, strings_size, sorted_symbols,
+			    nsorted_symbols, ext_relocs, next_relocs,
+			    loc_relocs, nloc_relocs, dbi, ndbi, chain_format,
+			    vflag);
+		}
+#endif
+	    }
+	}
+#endif
+
+	if(load_commands != NULL)
+	    free(load_commands);
+	if(allocated_symbols != NULL)
+	    free(allocated_symbols);
+	if(sorted_symbols != NULL)
+	    free(sorted_symbols);
+	if(allocated_indirect_symbols != NULL)
+	    free(allocated_indirect_symbols);
+	if(allocated_hints != NULL)
+	    free(allocated_hints);
+	if(allocated_dices != NULL)
+	    free(allocated_dices);
+	if(allocated_tocs != NULL)
+	    free(allocated_tocs);
+	if(allocated_mods != NULL)
+	    free(allocated_mods);
+	if(allocated_refs != NULL)
+	    free(allocated_refs);
+	if(dbi != NULL)
+	    free(dbi);
+	if(segnames != NULL) {
+	    for (uint32_t i = 0; i < nsegname; ++i) {
+		free(segnames[i]);
+	    }
+	    free(segnames);
+	}
+}

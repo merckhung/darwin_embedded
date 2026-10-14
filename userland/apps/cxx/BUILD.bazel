@@ -1,0 +1,113 @@
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("//userland/native/system:defs.bzl", "native_system")
+package(default_visibility = ["//visibility:public"])
+[
+    genrule(name = "libraries_" + arch,
+        srcs = ["build_libraries.py", "//src/Applications/cxx:sources", "//userland/native:sdk_" + arch, "//scripts:native_components.py"],
+        outs = ["cxx." + arch + ".tar", "cxx." + arch + ".imports", "cxx." + arch + ".json"],
+        cmd = "python3 userland/apps/cxx/build_libraries.py --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location cxx." + arch + ".tar) --imports $(location cxx." + arch + ".imports) --report $(location cxx." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "libraries", srcs = [":libraries_arm64", ":libraries_x86_64"])
+[
+    genrule(name = "probe_" + arch,
+        srcs = ["build_probe.py", "build_libraries.py", "test_runtime.cpp", "test_module.cpp", ":cxx." + arch + ".tar", ":cxx." + arch + ".json", "//userland/native:sdk_" + arch, "//scripts:native_components.py"],
+        outs = ["test_runtime." + arch + ".o", "test_module." + arch + ".o", "probe." + arch + ".imports"],
+        cmd = "python3 $(location build_probe.py) --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location cxx." + arch + ".tar)" +
+              " --build-report $(location cxx." + arch + ".json) --source $(location test_runtime.cpp) --module-source $(location test_module.cpp)" +
+              " --output $(location test_runtime." + arch + ".o) --module-output $(location test_module." + arch + ".o) --requests $(location probe." + arch + ".imports)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "builtins_" + arch,
+        srcs = ["build_builtins.py", "build_libraries.py", "//src/Applications/cxx:compiler_builtins", "//userland/native:sdk_" + arch, "//scripts:native_components.py"],
+        outs = ["libcompiler_rt." + arch + ".a", "compiler-rt." + arch + ".json"],
+        cmd = "python3 $(location build_builtins.py) --root $$PWD --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --output $(location libcompiler_rt." + arch + ".a) --report $(location compiler-rt." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "system_probe_" + arch,
+        srcs = ["test_system.c", "//userland/native/pty:build.py", "//userland/native:sdk_" + arch],
+        outs = ["test_system." + arch + ".o", "test_system." + arch + ".imports"],
+        cmd = "python3 $(location //userland/native/pty:build.py) --arch " + arch + " --sdk $(location //userland/native:sdk_" + arch + ")" +
+              " --source $(location test_system.c) --output $(location test_system." + arch + ".o) --requests $(location test_system." + arch + ".imports)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "requests_" + arch,
+        srcs = [":cxx." + arch + ".imports", ":test_system." + arch + ".imports", ":probe." + arch + ".imports", "//userland/apps/init:system." + arch + ".exports"],
+        outs = ["system." + arch + ".imports"], cmd = "cat $(SRCS) > $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    native_system(name = "system_" + arch, arch = arch, exports = ":system." + arch + ".imports",
+        component_libraries = {"libc": ["//userland/apps/x11:libnative_x11_libc." + arch + ".a"]},
+        libraries = {"accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                     "filesystem": "//userland/apps/x11:libnative_x11_support." + arch + ".a",
+                     "gio_support": "//userland/apps/glib:libgio_support." + arch + ".a",
+                     "glib_support": "//userland/apps/glib:libglib_support." + arch + ".a",
+                     "compiler_rt": ":libcompiler_rt." + arch + ".a",
+                     "init_support": "//userland/apps/init:libinit_support." + arch + ".a"})
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "systems", srcs = [":system_arm64", ":system_x86_64"])
+[
+    genrule(name = "runtime_" + arch,
+        srcs = ["link_libraries.py", "build_libraries.py", ":cxx." + arch + ".tar", ":cxx." + arch + ".json", ":system_" + arch + ".tar", ":test_module." + arch + ".o",
+                "//userland/native:dyld_" + arch, "//scripts:native_components.py", "//scripts:sign_diagnostic_macho.py", "//userland/apps/x11:link_auth.py"],
+        outs = ["cxx-runtime." + arch + ".tar", "cxx-runtime." + arch + ".json"],
+        cmd = "python3 $(location link_libraries.py) --arch " + arch + " --libraries $(location cxx." + arch + ".tar) --build-report $(location cxx." + arch + ".json)" +
+              " --system $(location system_" + arch + ".tar) --module $(location test_module." + arch + ".o) --dyld $(location //userland/native:dyld_" + arch + ") --output $(location cxx-runtime." + arch + ".tar) --report $(location cxx-runtime." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+filegroup(name = "runtime", srcs = [":runtime_arm64", ":runtime_x86_64"])
+[
+    genrule(name = "runtime_root_" + arch,
+        srcs = ["test_runtime.cpp", ":test_runtime." + arch + ".o", ":cxx-runtime." + arch + ".tar", ":cxx-runtime." + arch + ".json", ":cxx." + arch + ".tar",
+                "//userland/apps/init:root." + arch + ".img", "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch,
+                "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["runtime-root." + arch + ".img", "runtime-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-cxx-test" +
+              " --probe-source $(location test_runtime.cpp) --probe-object $(location test_runtime." + arch + ".o) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location cxx." + arch + ".tar)" +
+              " --runtime $(location cxx-runtime." + arch + ".tar) --runtime-report $(location cxx-runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location runtime-root." + arch + ".img) --report $(location runtime-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    sh_binary(name = "verify_runtime_" + arch, srcs = ["verify_runtime.sh"], args = [arch],
+        data = [":runtime_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "runtime_report_" + arch,
+        srcs = ["//userland/native/pty:build.py", ":system_" + arch + ".tar"], outs = ["runtime." + arch + ".json"],
+        cmd = "python3 $(location //userland/native/pty:build.py) --arch " + arch + " --runtime $(location system_" + arch + ".tar) --output $@")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    genrule(name = "system_root_" + arch,
+        srcs = ["test_system.c", "//userland/native/pty:empty_headers", ":system_" + arch + ".tar", ":runtime." + arch + ".json",
+                "//userland/apps/init:root." + arch + ".img", "//userland/native:sdk_" + arch, "//userland/native:dyld_" + arch,
+                "//userland/apps/x11:build_xorg_root.py", "//userland/apps/x11:link_auth.py", "//scripts:native_components.py",
+                "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
+        tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["system-root." + arch + ".img", "system-root." + arch + ".json"],
+        cmd = "python3 $(location //userland/apps/x11:build_xorg_root.py) --arch " + arch + " --probe-name native-cxx-system-test" +
+              " --probe-source $(location test_system.c) --sdk $(location //userland/native:sdk_" + arch + ") --headers $(location //userland/native/pty:empty_headers)" +
+              " --runtime $(location system_" + arch + ".tar) --runtime-report $(location runtime." + arch + ".json)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location system-root." + arch + ".img) --report $(location system-root." + arch + ".json)")
+    for arch in ["arm64", "x86_64"]
+]
+[
+    sh_binary(name = "verify_system_" + arch, srcs = ["verify_system.sh"], args = [arch],
+        data = [":system_root_" + arch, "//:" + arch, "//scripts:verify_qemu_boot.py"])
+    for arch in ["arm64", "x86_64"]
+]
+sh_test(name = "artifact_test", size = "small", srcs = ["check_libraries.sh"],
+    data = ["check_libraries.py", ":libraries", ":runtime", ":builtins_arm64", ":builtins_x86_64", "//src/Applications/cxx:compiler_builtins", "//src/Applications/cxx:sources", "//userland/native:dyld_arm64", "//userland/native:dyld_x86_64",
+            "//userland/apps/xfce:check_wm.py", "//userland/apps/x11:check_clients.py", "//userland/apps/x11:link_auth.py"])

@@ -1,0 +1,1270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Resource Config File Support: libxfce4util Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="libxfce4util-Resource-lookup-functions.html" title="Resource lookup functions">
+<link rel="next" href="libxfce4util-Unicode-Support-Functions.html" title="Unicode Manipulation">
+<meta name="generator" content="GTK-Doc V1.34.0 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libxfce4util-Resource-Config-File-Support.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#libxfce4util-Resource-Config-File-Support.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libxfce4util-Resource-lookup-functions.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libxfce4util-Unicode-Support-Functions.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libxfce4util-Resource-Config-File-Support"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4util-Resource-Config-File-Support.top_of_page"></a>Resource Config File Support</span></h2>
+<p>Resource Config File Support — functions for reading and writing resource config files.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="returnvalue">XfceRc</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-simple-open" title="xfce_rc_simple_open ()">xfce_rc_simple_open</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="returnvalue">XfceRc</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-config-open" title="xfce_rc_config_open ()">xfce_rc_config_open</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-close" title="xfce_rc_close ()">xfce_rc_close</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-flush" title="xfce_rc_flush ()">xfce_rc_flush</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-is-dirty" title="xfce_rc_is_dirty ()">xfce_rc_is_dirty</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-is-readonly" title="xfce_rc_is_readonly ()">xfce_rc_is_readonly</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-locale" title="xfce_rc_get_locale ()">xfce_rc_get_locale</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> **
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-groups" title="xfce_rc_get_groups ()">xfce_rc_get_groups</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> **
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-entries" title="xfce_rc_get_entries ()">xfce_rc_get_entries</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-delete-group" title="xfce_rc_delete_group ()">xfce_rc_delete_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-group" title="xfce_rc_get_group ()">xfce_rc_get_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-has-group" title="xfce_rc_has_group ()">xfce_rc_has_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-set-group" title="xfce_rc_set_group ()">xfce_rc_set_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-delete-entry" title="xfce_rc_delete_entry ()">xfce_rc_delete_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-has-entry" title="xfce_rc_has_entry ()">xfce_rc_has_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry" title="xfce_rc_read_entry ()">xfce_rc_read_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry-untranslated" title="xfce_rc_read_entry_untranslated ()">xfce_rc_read_entry_untranslated</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-bool-entry" title="xfce_rc_read_bool_entry ()">xfce_rc_read_bool_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-int-entry" title="xfce_rc_read_int_entry ()">xfce_rc_read_int_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> **
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-list-entry" title="xfce_rc_read_list_entry ()">xfce_rc_read_list_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-rollback" title="xfce_rc_rollback ()">xfce_rc_rollback</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" title="xfce_rc_write_entry ()">xfce_rc_write_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-bool-entry" title="xfce_rc_write_bool_entry ()">xfce_rc_write_bool_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-int-entry" title="xfce_rc_write_int_entry ()">xfce_rc_write_int_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-list-entry" title="xfce_rc_write_list_entry ()">xfce_rc_write_list_entry</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="XfceRc"></a><div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc-struct" title="XfceRc">XfceRc</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html">GBoxed</a>
+    <span class="lineart">╰──</span> XfceRc
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libxfce4util/libxfce4util.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.description"></a><h2>Description</h2>
+<p>Provides support for parsing INI-style resource config files like used by for
+example KDE and some Xfce components (like xfwm4, who uses rc files for the
+themes).</p>
+<p>The parser itself is optimized for high-performance using memory and string chunks
+to reduce the time spent looking for heap memory (a nice side effect of this is the
+reduced heap corruption). But due to this fact, an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object might consume quite
+a lot of memory after some time of usage. Therefore you should close an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object
+as soon as possible after loading configuration data from the object.</p>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="xfce-rc-simple-open"></a><h3>xfce_rc_simple_open ()</h3>
+<pre class="programlisting"><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="returnvalue">XfceRc</span></a> *
+xfce_rc_simple_open (<em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>,
+                     <em class="parameter"><code><span class="type">gboolean</span> readonly</code></em>);</pre>
+<p>Parses the resource config file specified by <em class="parameter"><code>filename</code></em>
+.</p>
+<p>If <em class="parameter"><code>readonly</code></em>
+ is <code class="literal">TRUE</code> parsing is generally faster, because only untranslated
+entries and entries that match the current locale will be loaded. Also if
+you pass <code class="literal">TRUE</code> for <em class="parameter"><code>readonly</code></em>
+, <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-simple-open" title="xfce_rc_simple_open ()"><span class="type">xfce_rc_simple_open</span></a> will fail if <em class="parameter"><code>filename</code></em>
+
+does not reference a regular file.</p>
+<p>It is no error if <em class="parameter"><code>readonly</code></em>
+ is <code class="literal">FALSE</code> and the file referenced by <em class="parameter"><code>filename</code></em>
+
+does not exists. In this case you'll start with a fresh config, which contains
+only the default group and no entries.</p>
+<div class="refsect3">
+<a name="xfce-rc-simple-open.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>filename</p></td>
+<td class="parameter_description"><p>name of the filename to open.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>readonly</p></td>
+<td class="parameter_description"><p>whether to open <em class="parameter"><code>filename</code></em>
+readonly.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-simple-open.returns"></a><h4>Returns</h4>
+<p>the newly created <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object, or <code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-config-open"></a><h3>xfce_rc_config_open ()</h3>
+<pre class="programlisting"><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="returnvalue">XfceRc</span></a> *
+xfce_rc_config_open (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *resource</code></em>,
+                     <em class="parameter"><code><span class="type">gboolean</span> readonly</code></em>);</pre>
+<p>If <em class="parameter"><code>readonly</code></em>
+ is <code class="literal">TRUE</code> parsing is generally faster, because only untranslated
+entries and entries that match the current locale will be loaded. Also if
+you pass <code class="literal">TRUE</code> for <em class="parameter"><code>readonly</code></em>
+, <span class="type">xfce_rc_config</span> will fail if <em class="parameter"><code>resource</code></em>
+
+does not reference a regular file.</p>
+<p>It is no error if <em class="parameter"><code>readonly</code></em>
+ is <code class="literal">FALSE</code> and the file referenced by <em class="parameter"><code>resource</code></em>
+
+does not exists. In this case you'll start with a fresh config, which contains
+only the default group and no entries.</p>
+<div class="refsect3">
+<a name="xfce-rc-config-open.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>The resource type being opened</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>resource</p></td>
+<td class="parameter_description"><p>The resource name to open</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>readonly</p></td>
+<td class="parameter_description"><p>whether to open <em class="parameter"><code>resource</code></em>
+readonly.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-config-open.returns"></a><h4>Returns</h4>
+<p>the newly created <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object, or <code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-close"></a><h3>xfce_rc_close ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_close (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Destructs <em class="parameter"><code>rc</code></em>
+.</p>
+<p>If <em class="parameter"><code>rc</code></em>
+ was opened read-write and contains dirty (modified) entries, these
+will be flushed to permanent storage first.</p>
+<div class="refsect3">
+<a name="xfce-rc-close.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-flush"></a><h3>xfce_rc_flush ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_flush (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Flushes all changes that currently reside only in memory back to permanent
+storage. Dirty configuration entries are written in the most specific file
+available.</p>
+<div class="refsect3">
+<a name="xfce-rc-flush.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-is-dirty"></a><h3>xfce_rc_is_dirty ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_rc_is_dirty (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Checks whether <em class="parameter"><code>rc</code></em>
+ has any dirty (modified) entries.</p>
+<div class="refsect3">
+<a name="xfce-rc-is-dirty.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-is-dirty.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>rc</code></em>
+has any dirty (modified) entries.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-is-readonly"></a><h3>xfce_rc_is_readonly ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_rc_is_readonly (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Returns the read-only status of <em class="parameter"><code>rc</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-rc-is-readonly.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-is-readonly.returns"></a><h4>Returns</h4>
+<p> the read-only status.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-get-locale"></a><h3>xfce_rc_get_locale ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfce_rc_get_locale (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Returns current locale used by <em class="parameter"><code>rc</code></em>
+ to lookup translated entries.</p>
+<div class="refsect3">
+<a name="xfce-rc-get-locale.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-get-locale.returns"></a><h4>Returns</h4>
+<p> a string representing the current locale.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-get-groups"></a><h3>xfce_rc_get_groups ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
+xfce_rc_get_groups (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Returns the names of all known groups in <em class="parameter"><code>rc</code></em>
+.</p>
+<p>Since the default groups (the "NULL group") name is <code class="literal">NULL</code>, it will not be
+returned with this functions. But it does not matter at all, since the
+default group is known to always exist.</p>
+<div class="refsect3">
+<a name="xfce-rc-get-groups.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-get-groups.returns"></a><h4>Returns</h4>
+<p>a NULL-terminated string array will the names of all groups in
+<em class="parameter"><code>rc</code></em>
+. Should be freed using <code class="function">g_strfreev()</code> when no longer needed. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-get-entries"></a><h3>xfce_rc_get_entries ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
+xfce_rc_get_entries (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *group</code></em>);</pre>
+<p>Returns the names of all entries in <em class="parameter"><code>group</code></em>
+ if any.</p>
+<p><code class="literal">NULL</code> is a valid input value for <em class="parameter"><code>group</code></em>
+. <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-get-entries" title="xfce_rc_get_entries ()"><span class="type">xfce_rc_get_entries</span></a> will
+then return all entries in the so called "NULL group". Though this
+"NULL group" should only be used for backward compatibility with old
+applications. You should not use it in newly written code.</p>
+<div class="refsect3">
+<a name="xfce-rc-get-entries.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>group</p></td>
+<td class="parameter_description"><p>the name of the group to get entries from.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-get-entries.returns"></a><h4>Returns</h4>
+<p>a NULL-terminated string array with all entries in <em class="parameter"><code>group</code></em>
+. Has to
+be freed using <code class="function">g_strfreev()</code> if no longer needed. If the specified
+<em class="parameter"><code>group</code></em>
+does not exists, <code class="literal">NULL</code> is returned. If the <em class="parameter"><code>group</code></em>
+has no entries,
+an empty string array is returned. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-delete-group"></a><h3>xfce_rc_delete_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_delete_group (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                      <em class="parameter"><code>const <span class="type">gchar</span> *group</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> global</code></em>);</pre>
+<p>If <em class="parameter"><code>rc</code></em>
+ is a simple config object and <em class="parameter"><code>group</code></em>
+ exists, it is deleted. All entries
+within <em class="parameter"><code>group</code></em>
+ will be deleted. For simple config objects, <em class="parameter"><code>global</code></em>
+ is ignored.</p>
+<p>If <em class="parameter"><code>rc</code></em>
+ is a complex config object and <em class="parameter"><code>group</code></em>
+ exists, it will be deleted will
+all entries. If <em class="parameter"><code>global</code></em>
+ is <code class="literal">TRUE</code>, the entry will be marked as deleted globally,
+therefore all calls to <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry" title="xfce_rc_read_entry ()"><span class="type">xfce_rc_read_entry</span></a> and related functions will return
+the fallback values. If <em class="parameter"><code>global</code></em>
+ is <code class="literal">FALSE</code>, the <em class="parameter"><code>group</code></em>
+ will be deleted in the
+per-user config file, and further calls to <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry" title="xfce_rc_read_entry ()"><span class="type">xfce_rc_read_entry</span></a> will most
+probably return the system-wide config entries.</p>
+<div class="refsect3">
+<a name="xfce-rc-delete-group.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>group</p></td>
+<td class="parameter_description"><p>name of the group to delete.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>global</p></td>
+<td class="parameter_description"><p>whether to delete the group globally.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-get-group"></a><h3>xfce_rc_get_group ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfce_rc_get_group (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Returns the name of the group in which we are searching for keys and
+from which we are retrieving entries. If the currently active group is
+the default group (the so called "NULL group"), <code class="literal">NULL</code> will be returned.</p>
+<div class="refsect3">
+<a name="xfce-rc-get-group.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-get-group.returns"></a><h4>Returns</h4>
+<p> the name of the current group.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-has-group"></a><h3>xfce_rc_has_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_rc_has_group (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *group</code></em>);</pre>
+<p>Returns <code class="literal">TRUE</code> if the specified <em class="parameter"><code>group</code></em>
+ is known about.</p>
+<div class="refsect3">
+<a name="xfce-rc-has-group.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>group</p></td>
+<td class="parameter_description"><p>the group to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-has-group.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the <em class="parameter"><code>group</code></em>
+exists.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-set-group"></a><h3>xfce_rc_set_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_set_group (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *group</code></em>);</pre>
+<p>Specifies the group in which keys will be read and written. Subsequent calls
+to <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-read-entry" title="xfce_rc_read_entry ()"><span class="type">xfce_rc_read_entry</span></a> and <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" title="xfce_rc_write_entry ()"><span class="type">xfce_rc_write_entry</span></a> will be applied only in the
+active group.</p>
+<p>If <em class="parameter"><code>group</code></em>
+ references a group that does not exists, it will be created for
+you. But note, that empty groups will not be synced to permanent storage.</p>
+<div class="refsect3">
+<a name="xfce-rc-set-group.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>group</p></td>
+<td class="parameter_description"><p>the name of the new group or <code class="literal">NULL</code> to to switch back to the default group.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-delete-entry"></a><h3>xfce_rc_delete_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_delete_entry (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                      <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> global</code></em>);</pre>
+<p>Similar to <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-delete-group" title="xfce_rc_delete_group ()"><span class="type">xfce_rc_delete_group</span></a>, but works on an entry in the current
+group.</p>
+<div class="refsect3">
+<a name="xfce-rc-delete-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to delete.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>global</p></td>
+<td class="parameter_description"><p>whether to delete <em class="parameter"><code>key</code></em>
+globally.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-has-entry"></a><h3>xfce_rc_has_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_rc_has_entry (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>Checks whether the <em class="parameter"><code>key</code></em>
+ has an entry in the current group.</p>
+<div class="refsect3">
+<a name="xfce-rc-has-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-has-entry.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the <em class="parameter"><code>key</code></em>
+is available, else <code class="literal">FALSE</code>.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-read-entry"></a><h3>xfce_rc_read_entry ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfce_rc_read_entry (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                    <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                    <em class="parameter"><code>const <span class="type">gchar</span> *fallback</code></em>);</pre>
+<p>Reads the value of an entry specified by <em class="parameter"><code>key</code></em>
+ in the current group.</p>
+<div class="refsect3">
+<a name="xfce-rc-read-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>fallback</p></td>
+<td class="parameter_description"><p>a default value returned if the <em class="parameter"><code>key</code></em>
+was not found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-read-entry.returns"></a><h4>Returns</h4>
+<p> the value for this <em class="parameter"><code>key</code></em>
+, or <em class="parameter"><code>fallback</code></em>
+if <em class="parameter"><code>key</code></em>
+was not found.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-read-entry-untranslated"></a><h3>xfce_rc_read_entry_untranslated ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+xfce_rc_read_entry_untranslated (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *fallback</code></em>);</pre>
+<p>Reads the value of an entry specified by <em class="parameter"><code>key</code></em>
+ in the current group. The
+untranslated entry is returned. You normally do not need this.</p>
+<div class="refsect3">
+<a name="xfce-rc-read-entry-untranslated.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>fallback</p></td>
+<td class="parameter_description"><p>a default value returned if the <em class="parameter"><code>key</code></em>
+was not found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-read-entry-untranslated.returns"></a><h4>Returns</h4>
+<p> the untranslated value for this <em class="parameter"><code>key</code></em>
+, or <em class="parameter"><code>fallback</code></em>
+if <em class="parameter"><code>key</code></em>
+was not
+found.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-read-bool-entry"></a><h3>xfce_rc_read_bool_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+xfce_rc_read_bool_entry (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                         <em class="parameter"><code><span class="type">gboolean</span> fallback</code></em>);</pre>
+<p>Reads the value of an entry specified by <em class="parameter"><code>key</code></em>
+ in the current group and interpret
+it as a boolean value. Currently "on", "true" and "yes" are accepted as true,
+everything else is false.</p>
+<div class="refsect3">
+<a name="xfce-rc-read-bool-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>fallback</p></td>
+<td class="parameter_description"><p>a default value returned if the <em class="parameter"><code>key</code></em>
+was not found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-read-bool-entry.returns"></a><h4>Returns</h4>
+<p> the value for this <em class="parameter"><code>key</code></em>
+.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-read-int-entry"></a><h3>xfce_rc_read_int_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+xfce_rc_read_int_entry (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                        <em class="parameter"><code><span class="type">gint</span> fallback</code></em>);</pre>
+<p>Reads the value of an entry specified by <em class="parameter"><code>key</code></em>
+ in the current group
+and interprets it as an integer value.</p>
+<div class="refsect3">
+<a name="xfce-rc-read-int-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>fallback</p></td>
+<td class="parameter_description"><p>a default value returned if the <em class="parameter"><code>key</code></em>
+was not found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-read-int-entry.returns"></a><h4>Returns</h4>
+<p> the value for this <em class="parameter"><code>key</code></em>
+.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-read-list-entry"></a><h3>xfce_rc_read_list_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
+xfce_rc_read_list_entry (<em class="parameter"><code>const <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *delimiter</code></em>);</pre>
+<p>Reads a list of strings in the entry specified by key in the current group.
+The returned list has to be freed using <code class="function">g_strfreev()</code> when no longer needed.</p>
+<p>This does not support delimiter escaping. If you need this feature, use
+<code class="function">g_key_file_get_string_list()</code> instead.</p>
+<div class="refsect3">
+<a name="xfce-rc-read-list-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to search for.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>delimiter</p></td>
+<td class="parameter_description"><p>a string which specifies the places at which to split the string.
+The delimiter is not included in any of the resulting strings.
+If NULL, "," is used.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="xfce-rc-read-list-entry.returns"></a><h4>Returns</h4>
+<p>the list or NULL if the entry does not exist. </p>
+<p><span class="annotation">[<acronym title="The caller owns the data, and is responsible for free it."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-rollback"></a><h3>xfce_rc_rollback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_rollback (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>);</pre>
+<p>Mark <em class="parameter"><code>rc</code></em>
+ as "clean", i.e. don't write dirty entries at destruction time. If
+you then call <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" title="xfce_rc_write_entry ()"><span class="type">xfce_rc_write_entry</span></a> again, the dirty flag is set again and
+dirty entries will be written at a subsequent <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-flush" title="xfce_rc_flush ()"><span class="type">xfce_rc_flush</span></a> call.</p>
+<div class="refsect3">
+<a name="xfce-rc-rollback.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-write-entry"></a><h3>xfce_rc_write_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_write_entry (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);</pre>
+<p>Writes a <em class="parameter"><code>key</code></em>
+/<em class="parameter"><code>value</code></em>
+ pair. This has no effect if the resource config
+was opened readonly, else the value will be written to permanent storage
+on the next call to <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-flush" title="xfce_rc_flush ()"><span class="type">xfce_rc_flush</span></a> or when <em class="parameter"><code>rc</code></em>
+ is destroyed using
+<a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-close" title="xfce_rc_close ()"><span class="type">xfce_rc_close</span></a>.</p>
+<p>If <em class="parameter"><code>rc</code></em>
+ was opened using <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-config-open" title="xfce_rc_config_open ()"><span class="type">xfce_rc_config_open</span></a>, the value will be
+written to the most specific config file.</p>
+<div class="refsect3">
+<a name="xfce-rc-write-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>the value to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-write-bool-entry"></a><h3>xfce_rc_write_bool_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_write_bool_entry (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                          <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                          <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
+<p>Wrapper for <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" title="xfce_rc_write_entry ()"><span class="type">xfce_rc_write_entry</span></a>, that stores a boolean <em class="parameter"><code>value</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-rc-write-bool-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>the value to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-write-int-entry"></a><h3>xfce_rc_write_int_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_write_int_entry (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);</pre>
+<p>Wrapper for <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" title="xfce_rc_write_entry ()"><span class="type">xfce_rc_write_entry</span></a>, that stores an integer <em class="parameter"><code>value</code></em>
+.</p>
+<div class="refsect3">
+<a name="xfce-rc-write-int-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>the value to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-rc-write-list-entry"></a><h3>xfce_rc_write_list_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+xfce_rc_write_list_entry (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> *rc</code></em>,
+                          <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                          <em class="parameter"><code><span class="type">gchar</span> **value</code></em>,
+                          <em class="parameter"><code>const <span class="type">gchar</span> *separator</code></em>);</pre>
+<p>Wrapper for <a class="link" href="libxfce4util-Resource-Config-File-Support.html#xfce-rc-write-entry" title="xfce_rc_write_entry ()"><span class="type">xfce_rc_write_entry</span></a>, that stores a string list <em class="parameter"><code>value</code></em>
+.</p>
+<p>This does not support delimiter escaping. If you need this feature, use
+<code class="function">g_key_file_set_string_list()</code> instead.</p>
+<div class="refsect3">
+<a name="xfce-rc-write-list-entry.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>rc</p></td>
+<td class="parameter_description"><p>an <a class="link" href="libxfce4util-Resource-Config-File-Support.html#XfceRc"><span class="type">XfceRc</span></a> object.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key to write.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>a <code class="literal">NULL</code> terminated list of strings to store in the entry specified by key.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>separator</p></td>
+<td class="parameter_description"><p>the list separator. Defaults to "," if <code class="literal">NULL</code>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2.html#api-index-4.2">4.2</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-Config-File-Support.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="XfceRc-struct"></a><h3>XfceRc</h3>
+<pre class="programlisting">typedef struct _XfceRc XfceRc;</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.34.0</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+exports_files(["mig.sh"])
+
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+genrule(
+    name = "parser",
+    srcs = ["parser.y"],
+    outs = ["y.tab.c", "y.tab.h"],
+    cmd = "yacc -d -b $(@D)/y $(SRCS)",
+)
+
+genrule(
+    name = "lexxer",
+    srcs = ["lexxer.l"],
+    outs = ["lexxer.yy.c"],
+    cmd = "lex -o $@ $(SRCS)",
+)
+
+cc_library(
+    name = "migcom_lib",
+    srcs = [
+        "error.c",
+        "global.c",
+        "header.c",
+        "mig.c",
+        "routine.c",
+        "server.c",
+        "statement.c",
+        "string.c",
+        "type.c",
+        "user.c",
+        "utils.c",
+        "y.tab.c",
+        "lexxer.yy.c",
+    ],
+    hdrs = [
+        "y.tab.h",
+    ] + glob(["*.h"]),
+    copts = [
+        "-std=gnu17",
+        "-include", "sys/types.h",
+        "-Dlinux",
+        "-D_GNU_SOURCE",
+        "-D__private_extern__=",
+        "-D__dead2=",
+        "-D__LITTLE_ENDIAN__",
+        "-DOS_INLINE=\"static inline\"",
+    ],
+    defines = [
+        "MIG_VERSION=\\\"\\\"",
+    ],
+    includes = ["."],
+    deps = ["//tools/cctools:foreign_includes"],
+    linkstatic = 1,
+)
+
+cc_binary(
+    name = "migcom",
+    deps = [":migcom_lib"],
+    visibility = ["//visibility:public"],
+)
+
+sh_test(
+    name = "generator_test",
+    size = "small",
+    srcs = ["tests/generator_test.sh"],
+    data = [":migcom", "mig.sh", "tests/smoke.defs"],
+)

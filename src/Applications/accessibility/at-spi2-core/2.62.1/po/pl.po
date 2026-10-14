@@ -1,0 +1,832 @@
+# Polish translation for at-spi2-core.
+# Copyright © 2003-2025 the at-spi2-core authors.
+# This file is distributed under the same license as the at-spi2-core package.
+# Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 2003.
+# Artur Flinta <aflinta@at.kernel.pl>, 2003-2006.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2025.
+# Aviary.pl <community-poland@mozilla.org>, 2009-2025.
+# Victoria Niedzielska <victorian@gnome.org>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: at-spi2-core\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2026-07-31 18:18+0000\n"
+"PO-Revision-Date: 2026-08-02 15:59+0200\n"
+"Last-Translator: Victoria Niedzielska <victorian@gnome.org>\n"
+"Language-Team: Polish <https://l10n.gnome.org/teams/pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 50.0\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "Zaznaczony odnośnik"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "Określa, czy obiekt AtkHyperlink jest zaznaczony"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "Liczba zakotwiczeń"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "Liczba zakotwiczeń powiązanych z obiektem AtkHyperlink"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "Indeks końcowy"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "Indeks końcowy obiektu AtkHyperlink"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "Indeks początkowy"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "Indeks początkowy obiektu AtkHyperlink"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "Nazwa obiektu dostępności"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr ""
+"Nazwa instancji obiektu, sformatowana dla dostępu technologii wspierających"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "Opis obiektu dostępności"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "Opis obiektu, sformatowany dla dostępu technologii wspierających"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "Nadrzędny obiekt dostępności"
+
+#: atk/atkobject.c:288
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr ""
+"Obiekt nadrzędny obecnego obiektu dostępności, zwrócony przez "
+"atk_object_get_parent()"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "Wartość obiektu dostępności"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "Jest używany do powiadamiania o zmianie wartości obiektu"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "Rola dostępności"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "Rola dostępności tego obiektu"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "Warstwa dostępności"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "Warstwa dostępności tego obiektu"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "Wartość dostępności MDI"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "Wartość dostępności MDI tego obiektu"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "Nagłówek tabeli dostępności"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"Jest używane do powiadamiania o zmianie nagłówka tabeli. Zamiast tej "
+"właściwości należy używać obiektu nagłówka tabeli dostępności"
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "Nagłówek kolumny tabeli dostępności"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "Jest używane do powiadamiania o zmianie nagłówka kolumny tabeli"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "Opis kolumny tabeli dostępności"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "Jest używane do powiadamiania o zmianie opisu kolumny tabeli"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "Nagłówek wiersza tabeli dostępności"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "Jest używane do powiadamiania o zmianie nagłówka wiersza tabeli"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "Opis wiersza tabeli dostępności"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "Jest używane do powiadamiania o zmianie opisu wiersza tabeli"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "Zestawienie tabeli dostępności"
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "Jest używane do powiadamiania o zmianie zestawienia tabeli"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "Obiekt nagłówka tabeli dostępności"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "Jest używane do powiadamiania o zmianie nagłówka tabeli"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "Liczba hipertekstowych odnośników dostępności"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "Liczba odnośników posiadanych przez bieżący obiekt AtkHypertext"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "Identyfikator obiektu dostępności"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr ""
+"Identyfikator obiektu dostępności, przydatne do zautomatyzowanego testowania"
+
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "Tekst pomocy"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "Tekst pomocy powiązany z tym obiektem dostępności"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "bardzo słabe"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "słabe"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "akceptowalne"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "silne"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "bardzo silne"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "bardzo niskie"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "średnie"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "wysokie"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "bardzo wysokie"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "bardzo złe"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "złe"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "dobre"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "bardzo dobre"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "najlepsze"
+
+#: atspi/atspi-component.c:341 atspi/atspi-misc.c:1237 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "Aplikacja już nie istnieje"
+
+#: atspi/atspi-misc.c:51
+msgid "invalid"
+msgstr "nieprawidłowy"
+
+#: atspi/atspi-misc.c:52
+msgid "accelerator label"
+msgstr "etykieta z klawiszem skrótu"
+
+#: atspi/atspi-misc.c:53
+msgid "alert"
+msgstr "alarm"
+
+#: atspi/atspi-misc.c:54
+msgid "animation"
+msgstr "animacja"
+
+#: atspi/atspi-misc.c:55
+msgid "arrow"
+msgstr "strzałka"
+
+#: atspi/atspi-misc.c:56
+msgid "calendar"
+msgstr "kalendarz"
+
+#: atspi/atspi-misc.c:57
+msgid "canvas"
+msgstr "płótno"
+
+#: atspi/atspi-misc.c:58
+msgid "check box"
+msgstr "przycisk opcji"
+
+#: atspi/atspi-misc.c:59
+msgid "check menu item"
+msgstr "element menu wyboru"
+
+#: atspi/atspi-misc.c:60
+msgid "color chooser"
+msgstr "okno wyboru kolorów"
+
+#: atspi/atspi-misc.c:61
+msgid "column header"
+msgstr "nagłówek kolumny"
+
+#: atspi/atspi-misc.c:62
+msgid "combo box"
+msgstr "wejście z opcjami"
+
+#: atspi/atspi-misc.c:63
+msgid "dateeditor"
+msgstr "edytor dat"
+
+#: atspi/atspi-misc.c:64
+msgid "desktop icon"
+msgstr "ikona pulpitu"
+
+#: atspi/atspi-misc.c:65
+msgid "desktop frame"
+msgstr "ramka pulpitu"
+
+# chyba o to może chodzić
+# ew. wybieranie numeru.
+#: atspi/atspi-misc.c:66
+msgid "dial"
+msgstr "tarcza liczbowa"
+
+#: atspi/atspi-misc.c:67
+msgid "dialog"
+msgstr "okno dialogowe"
+
+#: atspi/atspi-misc.c:68
+msgid "directory pane"
+msgstr "obszar katalogu"
+
+#: atspi/atspi-misc.c:69
+msgid "drawing area"
+msgstr "obszar rysowania"
+
+#: atspi/atspi-misc.c:70
+msgid "file chooser"
+msgstr "okno wyboru pliku"
+
+#: atspi/atspi-misc.c:71
+msgid "filler"
+msgstr "wypełniacz"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:73
+msgid "fontchooser"
+msgstr "okno wyboru czcionki"
+
+#: atspi/atspi-misc.c:74
+msgid "frame"
+msgstr "ramka"
+
+#: atspi/atspi-misc.c:75
+msgid "glass pane"
+msgstr "obszar szklany"
+
+#: atspi/atspi-misc.c:76
+msgid "html container"
+msgstr "kontener HTML"
+
+#: atspi/atspi-misc.c:77
+msgid "icon"
+msgstr "ikona"
+
+#: atspi/atspi-misc.c:78
+msgid "image"
+msgstr "obraz"
+
+#: atspi/atspi-misc.c:79
+msgid "internal frame"
+msgstr "ramka wewnętrzna"
+
+#: atspi/atspi-misc.c:80
+msgid "label"
+msgstr "etykieta"
+
+#: atspi/atspi-misc.c:81
+msgid "layered pane"
+msgstr "obszar warstwowy"
+
+#: atspi/atspi-misc.c:82
+msgid "list"
+msgstr "lista"
+
+#: atspi/atspi-misc.c:83
+msgid "list item"
+msgstr "element listy"
+
+#: atspi/atspi-misc.c:84
+msgid "menu"
+msgstr "menu"
+
+#: atspi/atspi-misc.c:85
+msgid "menu bar"
+msgstr "pasek menu"
+
+#: atspi/atspi-misc.c:86
+msgid "menu button"
+msgstr "przycisk menu"
+
+#: atspi/atspi-misc.c:87
+msgid "menu item"
+msgstr "element menu"
+
+#: atspi/atspi-misc.c:88
+msgid "option pane"
+msgstr "obszar opcji"
+
+#: atspi/atspi-misc.c:89
+msgid "page tab"
+msgstr "zakładka strony"
+
+#: atspi/atspi-misc.c:90
+msgid "page tab list"
+msgstr "lista zakładek stron"
+
+#: atspi/atspi-misc.c:91
+msgid "panel"
+msgstr "panel"
+
+#: atspi/atspi-misc.c:92
+msgid "password text"
+msgstr "tekst hasła"
+
+#: atspi/atspi-misc.c:93
+msgid "popup menu"
+msgstr "menu podręczne"
+
+#: atspi/atspi-misc.c:94
+msgid "progress bar"
+msgstr "pasek postępu"
+
+#: atspi/atspi-misc.c:95
+msgid "button"
+msgstr "przycisk"
+
+#: atspi/atspi-misc.c:96
+msgid "radio button"
+msgstr "przycisk radiowy"
+
+#: atspi/atspi-misc.c:97
+msgid "radio menu item"
+msgstr "radiowy element menu"
+
+#: atspi/atspi-misc.c:98
+msgid "root pane"
+msgstr "obszar główny"
+
+#: atspi/atspi-misc.c:99
+msgid "row header"
+msgstr "nagłówek wiersza"
+
+#: atspi/atspi-misc.c:100
+msgid "scroll bar"
+msgstr "pasek przewijania"
+
+#: atspi/atspi-misc.c:101
+msgid "scroll pane"
+msgstr "obszar przewijania"
+
+#: atspi/atspi-misc.c:102
+msgid "separator"
+msgstr "separator"
+
+#: atspi/atspi-misc.c:103
+msgid "slider"
+msgstr "suwak"
+
+#: atspi/atspi-misc.c:104
+msgid "split pane"
+msgstr "obszar podziału"
+
+#: atspi/atspi-misc.c:105
+msgid "spin button"
+msgstr "wejście liczbowe"
+
+#: atspi/atspi-misc.c:106
+msgid "statusbar"
+msgstr "pasek stanu"
+
+#: atspi/atspi-misc.c:107
+msgid "switch"
+msgstr "przełącznik"
+
+#: atspi/atspi-misc.c:108
+msgid "table"
+msgstr "tabela"
+
+#: atspi/atspi-misc.c:109
+msgid "table cell"
+msgstr "komórka tabeli"
+
+#: atspi/atspi-misc.c:110
+msgid "table column header"
+msgstr "nagłówek kolumny tabeli"
+
+#: atspi/atspi-misc.c:111
+msgid "table row header"
+msgstr "nagłówek wiersza tabeli"
+
+#: atspi/atspi-misc.c:112
+msgid "tear off menu item"
+msgstr "odrywający element menu"
+
+#: atspi/atspi-misc.c:113
+msgid "terminal"
+msgstr "terminal"
+
+#: atspi/atspi-misc.c:114
+msgid "text"
+msgstr "napis"
+
+#: atspi/atspi-misc.c:115
+msgid "toggle button"
+msgstr "przycisk przełączania"
+
+#: atspi/atspi-misc.c:116
+msgid "tool bar"
+msgstr "pasek narzędziowy"
+
+#: atspi/atspi-misc.c:117
+msgid "tool tip"
+msgstr "podpowiedź"
+
+#: atspi/atspi-misc.c:118
+msgid "tree"
+msgstr "drzewo"
+
+#: atspi/atspi-misc.c:119
+msgid "tree table"
+msgstr "tabela drzewiasta"
+
+#: atspi/atspi-misc.c:120
+msgid "unknown"
+msgstr "nieznany"
+
+#: atspi/atspi-misc.c:121
+msgid "viewport"
+msgstr "obszar wyświetlania"
+
+#: atspi/atspi-misc.c:122
+msgid "window"
+msgstr "okno"
+
+#: atspi/atspi-misc.c:123
+msgid "header"
+msgstr "nagłówek"
+
+#: atspi/atspi-misc.c:124
+msgid "footer"
+msgstr "stopka"
+
+#: atspi/atspi-misc.c:125
+msgid "paragraph"
+msgstr "akapit"
+
+#: atspi/atspi-misc.c:126
+msgid "ruler"
+msgstr "linia"
+
+#: atspi/atspi-misc.c:127
+msgid "application"
+msgstr "aplikacja"
+
+#: atspi/atspi-misc.c:128
+msgid "autocomplete"
+msgstr "automatyczne uzupełnianie"
+
+#: atspi/atspi-misc.c:129
+msgid "edit bar"
+msgstr "pasek edycji"
+
+#: atspi/atspi-misc.c:130
+msgid "embedded component"
+msgstr "element osadzony"
+
+#: atspi/atspi-misc.c:131
+msgid "entry"
+msgstr "wejście"
+
+#: atspi/atspi-misc.c:132
+msgid "chart"
+msgstr "wykres"
+
+#: atspi/atspi-misc.c:133
+msgid "caption"
+msgstr "podpis"
+
+#: atspi/atspi-misc.c:134
+msgid "document frame"
+msgstr "ramka dokumentu"
+
+#: atspi/atspi-misc.c:135
+msgid "heading"
+msgstr "nagłówek"
+
+#: atspi/atspi-misc.c:136
+msgid "page"
+msgstr "strona"
+
+#: atspi/atspi-misc.c:137
+msgid "section"
+msgstr "sekcja"
+
+#: atspi/atspi-misc.c:138
+msgid "redundant object"
+msgstr "obiekt nadmiarowy"
+
+#: atspi/atspi-misc.c:139
+msgid "form"
+msgstr "formularz"
+
+#: atspi/atspi-misc.c:140
+msgid "link"
+msgstr "odnośnik"
+
+#: atspi/atspi-misc.c:141
+msgid "input method window"
+msgstr "okno metody wprowadzania"
+
+#: atspi/atspi-misc.c:142
+msgid "table row"
+msgstr "wiersz tabeli"
+
+#: atspi/atspi-misc.c:143
+msgid "tree item"
+msgstr "element drzewa"
+
+#: atspi/atspi-misc.c:144
+msgid "document spreadsheet"
+msgstr "arkusz kalkulacyjny dokumentu"
+
+#: atspi/atspi-misc.c:145
+msgid "document presentation"
+msgstr "prezentacja dokumentu"
+
+#: atspi/atspi-misc.c:146
+msgid "document text"
+msgstr "tekst dokumentu"
+
+#: atspi/atspi-misc.c:147
+msgid "document web"
+msgstr "witryna dokumentu"
+
+#: atspi/atspi-misc.c:148
+msgid "document email"
+msgstr "adres e-mail dokumentu"
+
+#: atspi/atspi-misc.c:149
+msgid "comment"
+msgstr "komentarz"
+
+#: atspi/atspi-misc.c:150
+msgid "list box"
+msgstr "przycisk listy"
+
+#: atspi/atspi-misc.c:151
+msgid "grouping"
+msgstr "grupowanie"
+
+#: atspi/atspi-misc.c:152
+msgid "image map"
+msgstr "mapa obrazu"
+
+#: atspi/atspi-misc.c:153
+msgid "notification"
+msgstr "powiadomienie"
+
+#: atspi/atspi-misc.c:154
+msgid "info bar"
+msgstr "pasek informacji"
+
+#: atspi/atspi-misc.c:155
+msgid "level bar"
+msgstr "pasek poziomu"
+
+#: atspi/atspi-misc.c:156
+msgid "title bar"
+msgstr "pasek tytułowy"
+
+#: atspi/atspi-misc.c:157
+msgid "block quote"
+msgstr "cytat blokowy"
+
+#: atspi/atspi-misc.c:158
+msgid "audio"
+msgstr "dźwięk"
+
+#: atspi/atspi-misc.c:159
+msgid "video"
+msgstr "nagranie wideo"
+
+#: atspi/atspi-misc.c:160
+msgid "definition"
+msgstr "definicja"
+
+#: atspi/atspi-misc.c:161
+msgid "article"
+msgstr "artykuł"
+
+#: atspi/atspi-misc.c:162
+msgid "landmark"
+msgstr "punkt orientacyjny"
+
+#: atspi/atspi-misc.c:163
+msgid "log"
+msgstr "dziennik"
+
+#: atspi/atspi-misc.c:164
+msgid "marquee"
+msgstr "pływający tekst"
+
+#: atspi/atspi-misc.c:165
+msgid "math"
+msgstr "matematyka"
+
+#: atspi/atspi-misc.c:166
+msgid "rating"
+msgstr "ocena"
+
+#: atspi/atspi-misc.c:167
+msgid "timer"
+msgstr "stoper"
+
+#: atspi/atspi-misc.c:168
+msgid "description list"
+msgstr "lista opisu"
+
+#: atspi/atspi-misc.c:169
+msgid "description term"
+msgstr "termin opisu"
+
+#: atspi/atspi-misc.c:170
+msgid "description value"
+msgstr "wartość opisu"

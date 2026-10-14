@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the garcon.master package.
+# 
+# Translators:
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2016,2022-2023
+# Любомир Василев, 2015
+# Красимир Беров, 2021
+# Любомир Василев, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Garcon\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2023-05-05 10:48+0200\n"
+"PO-Revision-Date: 2013-07-02 20:32+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2016,2022-2023\n"
+"Language-Team: Bulgarian (http://app.transifex.com/xfce/garcon/language/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/xfce/xfce-accessories.desktop.in:6
+msgid "Accessories"
+msgstr "Помощни приложения"
+
+#: data/xfce/xfce-accessories.desktop.in:7
+msgid "Common desktop tools and applications"
+msgstr "Основни инструменти и приложения за работния плот"
+
+#: data/xfce/xfce-development.desktop.in:6
+msgid "Development"
+msgstr "Разработка"
+
+#: data/xfce/xfce-development.desktop.in:7
+msgid "Software development tools"
+msgstr "Инструменти за разработка"
+
+#: data/xfce/xfce-education.desktop.in:6
+msgid "Education"
+msgstr "Образование"
+
+#: data/xfce/xfce-education.desktop.in:7
+msgid "Educational software"
+msgstr "Образователни приложения"
+
+#: data/xfce/xfce-games.desktop.in:6
+msgid "Games"
+msgstr "Игри"
+
+#: data/xfce/xfce-games.desktop.in:7
+msgid "Games, puzzles, and other fun software"
+msgstr "Игри, пъзели и други забавления"
+
+#: data/xfce/xfce-graphics.desktop.in:6
+msgid "Graphics"
+msgstr "Графика"
+
+#: data/xfce/xfce-graphics.desktop.in:7
+msgid "Graphics creation and manipulation applications"
+msgstr "Приложения за създаване и редактиране на изображения"
+
+#: data/xfce/xfce-hardware.desktop.in:6
+msgid "Hardware"
+msgstr "Хардуер"
+
+#: data/xfce/xfce-hardware.desktop.in:7
+msgid "Settings for several hardware devices"
+msgstr "Настройки за няколко хардуерни устройства"
+
+#: data/xfce/xfce-multimedia.desktop.in:6
+msgid "Multimedia"
+msgstr "Мултимедия"
+
+#: data/xfce/xfce-multimedia.desktop.in:7
+msgid "Audio and video players and editors"
+msgstr "Аудио и видео плейъри и редактори"
+
+#: data/xfce/xfce-network.desktop.in:6
+msgid "Internet"
+msgstr "Интернет"
+
+#: data/xfce/xfce-network.desktop.in:7
+msgid "Applications for Internet access"
+msgstr "Приложения за достъп до Интернет"
+
+#: data/xfce/xfce-office.desktop.in:6
+msgid "Office"
+msgstr "Офис"
+
+#: data/xfce/xfce-office.desktop.in:7
+msgid "Office and productivity applications"
+msgstr "Приложения за производителност и офис"
+
+#: data/xfce/xfce-other.desktop.in:6
+msgid "Other"
+msgstr "Други"
+
+#: data/xfce/xfce-other.desktop.in:7
+msgid "Applications that don't fit into other categories"
+msgstr "Приложения, които не попадат в друга група"
+
+#: data/xfce/xfce-personal.desktop.in:6
+msgid "Personal"
+msgstr "За лично ползване"
+
+#: data/xfce/xfce-personal.desktop.in:7
+msgid "Personal settings"
+msgstr "Лични настройки"
+
+#: data/xfce/xfce-science.desktop.in:6
+msgid "Science"
+msgstr "Наука"
+
+#: data/xfce/xfce-science.desktop.in:7
+msgid "Scientific software"
+msgstr "Научен софтуер"
+
+#: data/xfce/xfce-screensavers.desktop.in:6
+msgid "Screensavers"
+msgstr "Предпазители на екрана"
+
+#: data/xfce/xfce-screensavers.desktop.in:7
+msgid "Screensaver applets"
+msgstr "Аплети за предпазител на екрана"
+
+#: data/xfce/xfce-settings.desktop.in:6
+msgid "Settings"
+msgstr "Настройки"
+
+#: data/xfce/xfce-settings.desktop.in:7
+msgid "Desktop and system settings applications"
+msgstr "Приложения за настройки на работния плот и системата"
+
+#: data/xfce/xfce-system.desktop.in:6
+msgid "System"
+msgstr "Система"
+
+#: data/xfce/xfce-system.desktop.in:7
+msgid "System tools and utilities"
+msgstr "Системни инструменти"
+
+#: garcon/garcon-menu.c:716
+#, c-format
+msgid "File \"%s\" not found"
+msgstr "Файлът „%s“ не е открит"
+
+#: garcon/garcon-menu-parser.c:277
+#, c-format
+msgid "Could not load menu file data from %s: %s"
+msgstr "Не може да се зареди файл за меню от %s: %s"
+
+#: garcon/garcon-menu-parser.c:284
+#, c-format
+msgid "Could not load menu file data from %s"
+msgstr "Не може да се зареди файл за меню от %s"
+
+#: garcon-gtk/garcon-gtk-menu.c:412
+#, c-format
+msgid "Failed to execute command \"%s\"."
+msgstr "Не може да бъде изпълнена команда „%s“."
+
+#: garcon-gtk/garcon-gtk-menu.c:438
+msgid "Launch Error"
+msgstr "Грешка при стартиране"
+
+#: garcon-gtk/garcon-gtk-menu.c:440
+msgid ""
+"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"edit menu items."
+msgstr "Не може да стартира \"exo-desktop-item-edit\", което се изисква за да създавате и редактирате елементи в менюто."
+
+#: garcon-gtk/garcon-gtk-menu.c:442
+msgid "_Close"
+msgstr "_Затваряне"
+
+#: garcon-gtk/garcon-gtk-menu.c:591
+msgid "Failed to load the applications menu"
+msgstr "Не може да бъде заредено менюто на приложенията"

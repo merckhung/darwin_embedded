@@ -1,0 +1,11 @@
+start transform 1 0 0 1 0 0
+  start clip rectangle 0 500 500 1e+03
+    push group
+      push group
+        start transform 1 0 0 1 0 0
+          fill glyph 159 solid 128 128 128 102
+        end transform
+      pop group mode 3
+    pop group mode 3
+  end clip
+end transform

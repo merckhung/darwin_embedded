@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/apple-oss-distributions/IOUSBFamily",
+  "tag": "IOUSBFamily-560.4.2",
+  "commit": "aa1bde6708ab287ab8d5098287a957f5d34df372",
+  "archive_url": "https://codeload.github.com/apple-oss-distributions/IOUSBFamily/tar.gz/refs/tags/IOUSBFamily-560.4.2",
+  "archive_sha256": "e5aa42b2ab472b4102f31d6e3d34e5978df1ebd79a97f9eca247d2f34a8b971b",
+  "note": "Newest published Apple IOUSBFamily tag with a nonempty IOUSBFamily/Headers/USB.h. The later 630.4.5 archive contains a zero-byte USB.h. Imported genuine legacy public USB definitions for the matching XNU IOKit error tables; not represented as a macOS 26.5 release component."
+}

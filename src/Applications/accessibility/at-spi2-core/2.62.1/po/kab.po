@@ -1,0 +1,824 @@
+# Kabyle translation for at-spi2-core.
+# Copyright (C) 2024 at-spi2-core's COPYRIGHT HOLDER
+# This file is distributed under the same license as the at-spi2-core package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# ButterflyOfFire <ButterflyOfFire@protonmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: at-spi2-core gnome-45\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/at-spi2-core/issues/\n"
+"POT-Creation-Date: 2024-03-11 11:13+0000\n"
+"PO-Revision-Date: 2024-03-16 13:56+0100\n"
+"Last-Translator: sa\n"
+"Language-Team: Kabyle <>\n"
+"Language: kab\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-DL-Team: kab\n"
+"X-DL-Module: at-spi2-core\n"
+"X-DL-Branch: gnome-45\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: atk/atkhyperlink.c:127
+msgid "Selected Link"
+msgstr "Fren aseɣwen"
+
+#: atk/atkhyperlink.c:128
+msgid "Specifies whether the AtkHyperlink object is selected"
+msgstr "Yessefray ɣef tɣawsa n AtkHypertext tettwafren"
+
+#: atk/atkhyperlink.c:134
+msgid "Number of Anchors"
+msgstr "Amḍan n timedyin"
+
+#: atk/atkhyperlink.c:135
+msgid "The number of anchors associated with the AtkHyperlink object"
+msgstr "Amḍan n tedmiyin yeqqnen s tɣawsa n AtkHypertext"
+
+#: atk/atkhyperlink.c:143
+msgid "End index"
+msgstr "Amatar n taggara"
+
+#: atk/atkhyperlink.c:144
+msgid "The end index of the AtkHyperlink object"
+msgstr "Amatar n taggara n tɣawsa n AtkHypertext"
+
+#: atk/atkhyperlink.c:152
+msgid "Start index"
+msgstr "Amatar n uskar"
+
+#: atk/atkhyperlink.c:153
+msgid "The start index of the AtkHyperlink object"
+msgstr "Amatar n uskar n tɣawsa n AtkHypertext"
+
+#: atk/atkobject.c:273
+msgid "Accessible Name"
+msgstr "Isem uffar"
+
+#: atk/atkobject.c:274
+msgid "Object instance’s name formatted for assistive technology access"
+msgstr "Isem n tummant n tɣawasa yemsel i unekcum ɣer tetiknulujiyin n tallalt"
+
+#: atk/atkobject.c:280
+msgid "Accessible Description"
+msgstr "Aglam uffar"
+
+#: atk/atkobject.c:281
+msgid "Description of an object, formatted for assistive technology access"
+msgstr "Aglam n tɣawasa, yemsel i unekcum ɣer tetiknulujiyin n tallalt"
+
+#: atk/atkobject.c:287
+msgid "Accessible Parent"
+msgstr "Amaraw uffar"
+
+#: atk/atkobject.c:288
+msgid "Parent of the current accessible as returned by atk_object_get_parent()"
+msgstr "Amaraw n wuffar amiran yettwarr-d s atk_object_get_parent()"
+
+#: atk/atkobject.c:304
+msgid "Accessible Value"
+msgstr "Azal uffar"
+
+#: atk/atkobject.c:305
+msgid "Is used to notify that the value has changed"
+msgstr "Yettuseqdec i uselɣu ɣef wazal yettusenfel"
+
+#: atk/atkobject.c:313
+msgid "Accessible Role"
+msgstr "Tmlilt tuffart"
+
+#: atk/atkobject.c:314
+msgid "The accessible role of this object"
+msgstr "Alugen uffar n tɣawsa-a"
+
+#: atk/atkobject.c:321
+msgid "Accessible Layer"
+msgstr "Tissi tuffart"
+
+#: atk/atkobject.c:322
+msgid "The accessible layer of this object"
+msgstr "Tissi tuffart deg tɣawsa-a"
+
+#: atk/atkobject.c:330
+msgid "Accessible MDI Value"
+msgstr "Azal MDI uffar"
+
+#: atk/atkobject.c:331
+msgid "The accessible MDI value of this object"
+msgstr "Azal MDI uffar n tɣawsa-a"
+
+#: atk/atkobject.c:347
+msgid "Accessible Table Caption"
+msgstr "Taneffust n tfelwit tuffart"
+
+#: atk/atkobject.c:348
+msgid ""
+"Is used to notify that the table caption has changed; this property should "
+"not be used. accessible-table-caption-object should be used instead"
+msgstr ""
+"Yettuseqdec i uselɣu ɣef tneffust n tfelwit tettusenfel; tazwart-a ur ilaq "
+"ara ad tettuseqdac. ad yettuseqdac deg wadeg-is accessible-table-caption-"
+"object"
+
+#: atk/atkobject.c:362
+msgid "Accessible Table Column Header"
+msgstr "Aqerru n tgejdit n tfelwit uffar"
+
+#: atk/atkobject.c:363
+msgid "Is used to notify that the table column header has changed"
+msgstr "Yettuseqdac i uselɣu ɣef uqerru n tgejdit n tfelwit yettusenfel"
+
+#: atk/atkobject.c:378
+msgid "Accessible Table Column Description"
+msgstr "Aglam n tgejdit n tfelwit tuffart"
+
+#: atk/atkobject.c:379
+msgid "Is used to notify that the table column description has changed"
+msgstr "Yettuseqdac i uselɣu ɣef uglam n tgejdit n tfelwit yettusenfel"
+
+#: atk/atkobject.c:394
+msgid "Accessible Table Row Header"
+msgstr "Aqerru n yizirig n tfelwit tuffart"
+
+#: atk/atkobject.c:395
+msgid "Is used to notify that the table row header has changed"
+msgstr "Yettuseqdac i uselɣu ɣef uqerru n yizirig  n tfelwit yettusenfel"
+
+#: atk/atkobject.c:409
+msgid "Accessible Table Row Description"
+msgstr "Aglam n yizirig n tfelwit tuffart"
+
+#: atk/atkobject.c:410
+msgid "Is used to notify that the table row description has changed"
+msgstr "Yettuseqdac i uselɣu ɣef uglam n yizirig n tfelwit yettusenfel"
+
+#: atk/atkobject.c:416
+msgid "Accessible Table Summary"
+msgstr "Agzul n tfelwit tuffart"
+
+#: atk/atkobject.c:417
+msgid "Is used to notify that the table summary has changed"
+msgstr "Yettuseqdac i uselɣu ɣef ugzul n tfelwit yettusenfel"
+
+#: atk/atkobject.c:423
+msgid "Accessible Table Caption Object"
+msgstr "Taɣawsa n tneffust n tfelwit tuffart"
+
+#: atk/atkobject.c:424
+msgid "Is used to notify that the table caption has changed"
+msgstr "Yettuseqdac i uselɣu ɣef tneffust n tfelwit tettusenfel"
+
+#: atk/atkobject.c:430
+msgid "Number of Accessible Hypertext Links"
+msgstr "Amḍan n yiseɣwan n uflaḍris uffaren"
+
+#: atk/atkobject.c:431
+msgid "The number of links which the current AtkHypertext has"
+msgstr "Amḍan n yiseɣwan i yesεa AtkHypertext amiran"
+
+#: atk/atkobject.c:440
+msgid "Accessible ID"
+msgstr "Asulay uffar"
+
+#: atk/atkobject.c:441
+msgid "ID for the accessible; useful for automated testing"
+msgstr "Asulay i i wuffar; d unmas i yikayaden iwurmanen"
+
+#: atk/atkobject.c:447
+msgid "Help text"
+msgstr "Aḍris n tallalti"
+
+#: atk/atkobject.c:448
+msgid "Help text associated with the accessible"
+msgstr "Aḍris n tallalt yeqqen ɣer wuffar"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:193
+msgid "very weak"
+msgstr "d afessas aṭas"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:200
+msgid "weak"
+msgstr "d afessas maḍi"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:207
+msgid "acceptable"
+msgstr "yettwaqbal"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:214
+msgid "strong"
+msgstr "iǧhedd"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a password-strength meter. Note that what such a
+#. * widget presents is controlled by application developers. Thus
+#. * assistive technologies such as screen readers are expected to
+#. * present this string alone or as a token in a list.
+#.
+#: atk/atkvalue.c:221
+msgid "very strong"
+msgstr "iǧhedd aṭas"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:229
+msgid "very low"
+msgstr "yuder aṭas"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:237
+msgid "medium"
+msgstr "d alemmas"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:245
+msgid "high"
+msgstr "εlay"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a volume slider. Note that what such a widget
+#. * presents (e.g. temperature, volume, price) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:253
+msgid "very high"
+msgstr "εlay aṭas"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:261
+msgid "very bad"
+msgstr "ucmit"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:269
+msgid "bad"
+msgstr "yir"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:277
+msgid "good"
+msgstr "yelha"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:285
+msgid "very good"
+msgstr "igerrez"
+
+#. Translators: This string describes a range within value-related
+#. * widgets such as a hard drive usage. Note that what such a widget
+#. * presents (e.g. hard drive usage, network traffic) is controlled by
+#. * application developers. Thus assistive technologies such as screen
+#. * readers are expected to present this string alone or as a token in
+#. * a list.
+#.
+#: atk/atkvalue.c:293
+msgid "best"
+msgstr "ifaz"
+
+#: atspi/atspi-component.c:352 atspi/atspi-misc.c:1230 atspi/atspi-value.c:123
+msgid "The application no longer exists"
+msgstr "Dayen ulac asnas-a"
+
+#: atspi/atspi-misc.c:49
+msgid "invalid"
+msgstr "armeɣtu"
+
+#: atspi/atspi-misc.c:50
+msgid "accelerator label"
+msgstr "tabzimt tuffart"
+
+#: atspi/atspi-misc.c:51
+msgid "alert"
+msgstr "alɣu"
+
+#: atspi/atspi-misc.c:52
+msgid "animation"
+msgstr "amray"
+
+#: atspi/atspi-misc.c:53
+msgid "arrow"
+msgstr "tanila"
+
+#: atspi/atspi-misc.c:54
+msgid "calendar"
+msgstr "awitay"
+
+#: atspi/atspi-misc.c:55
+msgid "canvas"
+msgstr "abeckil"
+
+#: atspi/atspi-misc.c:56
+msgid "check box"
+msgstr "senqed tanaka"
+
+#: atspi/atspi-misc.c:57
+msgid "check menu item"
+msgstr "senqed aferdis n wumuɣ"
+
+#: atspi/atspi-misc.c:58
+msgid "color chooser"
+msgstr "anefran n yini"
+
+#: atspi/atspi-misc.c:59
+msgid "column header"
+msgstr "aqerru n tgejdit"
+
+#: atspi/atspi-misc.c:60
+msgid "combo box"
+msgstr "tanaka n ufran"
+
+#: atspi/atspi-misc.c:61
+msgid "dateeditor"
+msgstr "amaẓrag n wazemz"
+
+#: atspi/atspi-misc.c:62
+msgid "desktop icon"
+msgstr "tignit n tnarit"
+
+#: atspi/atspi-misc.c:63
+msgid "desktop frame"
+msgstr "akatar n tnarit"
+
+#: atspi/atspi-misc.c:64
+msgid "dial"
+msgstr "iwnes"
+
+#: atspi/atspi-misc.c:65
+msgid "dialog"
+msgstr "adiwenni"
+
+#: atspi/atspi-misc.c:66
+msgid "directory pane"
+msgstr "agalis n ukaram"
+
+#: atspi/atspi-misc.c:67
+msgid "drawing area"
+msgstr "tamnaḍt n usuneɣ"
+
+#: atspi/atspi-misc.c:68
+msgid "file chooser"
+msgstr "anefran n ufaylu"
+
+#: atspi/atspi-misc.c:69
+msgid "filler"
+msgstr "amesmad"
+
+#. I know it looks wrong but that is what Java returns
+#: atspi/atspi-misc.c:71
+msgid "fontchooser"
+msgstr "anefran n tsefsit"
+
+#: atspi/atspi-misc.c:72
+msgid "frame"
+msgstr "akaram"
+
+#: atspi/atspi-misc.c:73
+msgid "glass pane"
+msgstr "agalis n zzǧaǧ"
+
+#: atspi/atspi-misc.c:74
+msgid "html container"
+msgstr "amagbar html"
+
+#: atspi/atspi-misc.c:75
+msgid "icon"
+msgstr "tignit"
+
+#: atspi/atspi-misc.c:76
+msgid "image"
+msgstr "tugna"
+
+#: atspi/atspi-misc.c:77
+msgid "internal frame"
+msgstr "akatar agensan"
+
+#: atspi/atspi-misc.c:78
+msgid "label"
+msgstr "tabzimt"
+
+#: atspi/atspi-misc.c:79
+msgid "layered pane"
+msgstr "agalis n tissiwin"
+
+#: atspi/atspi-misc.c:80
+msgid "list"
+msgstr "tabdart"
+
+#: atspi/atspi-misc.c:81
+msgid "list item"
+msgstr "aferdis n tebdart"
+
+#: atspi/atspi-misc.c:82
+msgid "menu"
+msgstr "umuɣ"
+
+#: atspi/atspi-misc.c:83
+msgid "menu bar"
+msgstr "afeggag n wumuɣ"
+
+#: atspi/atspi-misc.c:84
+msgid "menu button"
+msgstr "taqeffalt n wumuɣ"
+
+#: atspi/atspi-misc.c:85
+msgid "menu item"
+msgstr "aferdis n wumuɣ"
+
+#: atspi/atspi-misc.c:86
+msgid "option pane"
+msgstr "agalis n textiṛiyin"
+
+#: atspi/atspi-misc.c:87
+msgid "page tab"
+msgstr "iccer n usebter"
+
+#: atspi/atspi-misc.c:88
+msgid "page tab list"
+msgstr "tabdart n yiccer n usebter"
+
+#: atspi/atspi-misc.c:89
+msgid "panel"
+msgstr "agalis"
+
+#: atspi/atspi-misc.c:90
+msgid "password text"
+msgstr "aḍris n wawal n uεeddi"
+
+#: atspi/atspi-misc.c:91
+msgid "popup menu"
+msgstr "umuɣ n usfaylu udhim"
+
+#: atspi/atspi-misc.c:92
+msgid "progress bar"
+msgstr "afeggag n usfari"
+
+#: atspi/atspi-misc.c:93
+msgid "push button"
+msgstr "taqeffalt n tussda"
+
+#: atspi/atspi-misc.c:94
+msgid "radio button"
+msgstr "taqeffalt n ṛṛadyu"
+
+#: atspi/atspi-misc.c:95
+msgid "radio menu item"
+msgstr "aferdis n wumuɣ n ṛṛadyu"
+
+#: atspi/atspi-misc.c:96
+msgid "root pane"
+msgstr "agalis n uẓar"
+
+#: atspi/atspi-misc.c:97
+msgid "row header"
+msgstr "aqerru n yizirig"
+
+#: atspi/atspi-misc.c:98
+msgid "scroll bar"
+msgstr "afeggag n udrurem"
+
+#: atspi/atspi-misc.c:99
+msgid "scroll pane"
+msgstr "agalis n udrurem"
+
+#: atspi/atspi-misc.c:100
+msgid "separator"
+msgstr "anabraz"
+
+#: atspi/atspi-misc.c:101
+msgid "slider"
+msgstr "tigri"
+
+#: atspi/atspi-misc.c:102
+msgid "split pane"
+msgstr "agalis n tebniqt"
+
+#: atspi/atspi-misc.c:103
+msgid "spin button"
+msgstr "taqeffalt n tuzzya"
+
+#: atspi/atspi-misc.c:104
+msgid "statusbar"
+msgstr "afeggag n waddad"
+
+#: atspi/atspi-misc.c:105
+msgid "table"
+msgstr "tafelwit"
+
+#: atspi/atspi-misc.c:106
+msgid "table cell"
+msgstr "tabniqt n tfelwit"
+
+#: atspi/atspi-misc.c:107
+msgid "table column header"
+msgstr "aqerru n tgejdit n tfelwit"
+
+#: atspi/atspi-misc.c:108
+msgid "table row header"
+msgstr "aqerru n yizirig n tfelwit"
+
+#: atspi/atspi-misc.c:109
+msgid "tear off menu item"
+msgstr "senfer aferdis n wumuɣ"
+
+#: atspi/atspi-misc.c:110
+msgid "terminal"
+msgstr "tadiwent"
+
+#: atspi/atspi-misc.c:111
+msgid "text"
+msgstr "aḍris"
+
+#: atspi/atspi-misc.c:112
+msgid "toggle button"
+msgstr "taqeffalt n uneggez"
+
+#: atspi/atspi-misc.c:113
+msgid "tool bar"
+msgstr "afeggag n yifecka"
+
+#: atspi/atspi-misc.c:114
+msgid "tool tip"
+msgstr "asentel n yifcka"
+
+#: atspi/atspi-misc.c:115
+msgid "tree"
+msgstr "aseklu"
+
+#: atspi/atspi-misc.c:116
+msgid "tree table"
+msgstr "tafelwit n yisekla"
+
+#: atspi/atspi-misc.c:117
+msgid "unknown"
+msgstr "arussin"
+
+#: atspi/atspi-misc.c:118
+msgid "viewport"
+msgstr "asfaylu"
+
+#: atspi/atspi-misc.c:119
+msgid "window"
+msgstr "asfaylu"
+
+#: atspi/atspi-misc.c:120
+msgid "header"
+msgstr "aqerru"
+
+#: atspi/atspi-misc.c:121
+msgid "footer"
+msgstr "aḍar"
+
+#: atspi/atspi-misc.c:122
+msgid "paragraph"
+msgstr "taseddart"
+
+#: atspi/atspi-misc.c:123
+msgid "ruler"
+msgstr "alugan"
+
+#: atspi/atspi-misc.c:124
+msgid "application"
+msgstr "asnas"
+
+#: atspi/atspi-misc.c:125
+msgid "autocomplete"
+msgstr "taččart tawurmant"
+
+#: atspi/atspi-misc.c:126
+msgid "edit bar"
+msgstr "ẓreg afeggag"
+
+#: atspi/atspi-misc.c:127
+msgid "embedded component"
+msgstr "asuddes usliɣ"
+
+#: atspi/atspi-misc.c:128
+msgid "entry"
+msgstr "anekcum"
+
+#: atspi/atspi-misc.c:129
+msgid "chart"
+msgstr "adlif"
+
+#: atspi/atspi-misc.c:130
+msgid "caption"
+msgstr "taneffust"
+
+#: atspi/atspi-misc.c:131
+msgid "document frame"
+msgstr "akaram n yisemli"
+
+#: atspi/atspi-misc.c:132
+msgid "heading"
+msgstr "ixef"
+
+#: atspi/atspi-misc.c:133
+msgid "page"
+msgstr "asebter"
+
+#: atspi/atspi-misc.c:134
+msgid "section"
+msgstr "tafrayt"
+
+#: atspi/atspi-misc.c:135
+msgid "redundant object"
+msgstr "taɣawsa tallusant"
+
+#: atspi/atspi-misc.c:136
+msgid "form"
+msgstr "eg"
+
+#: atspi/atspi-misc.c:137
+msgid "link"
+msgstr "aseɣwen"
+
+#: atspi/atspi-misc.c:138
+msgid "input method window"
+msgstr "asfaylu n tarrayt n tira"
+
+#: atspi/atspi-misc.c:139
+msgid "table row"
+msgstr "izirig n tfelwit"
+
+#: atspi/atspi-misc.c:140
+msgid "tree item"
+msgstr "aferdis n yifecka"
+
+#: atspi/atspi-misc.c:141
+msgid "document spreadsheet"
+msgstr "tifert n usiḍen n yisemli"
+
+#: atspi/atspi-misc.c:142
+msgid "document presentation"
+msgstr "asenked n yisemli"
+
+#: atspi/atspi-misc.c:143
+msgid "document text"
+msgstr "aḍris n yisemli"
+
+#: atspi/atspi-misc.c:144
+msgid "document web"
+msgstr "isemli web"
+
+#: atspi/atspi-misc.c:145
+msgid "document email"
+msgstr "isemli n yimayl"
+
+#: atspi/atspi-misc.c:146
+msgid "comment"
+msgstr "awennit"
+
+#: atspi/atspi-misc.c:147
+msgid "list box"
+msgstr "tabewwaḍt n tebdarin"
+
+#: atspi/atspi-misc.c:148
+msgid "grouping"
+msgstr "asegrew"
+
+#: atspi/atspi-misc.c:149
+msgid "image map"
+msgstr "tafelwit n tugna"
+
+#: atspi/atspi-misc.c:150
+msgid "notification"
+msgstr "alɣu"
+
+#: atspi/atspi-misc.c:151
+msgid "info bar"
+msgstr "afeggag n talɣut"
+
+#: atspi/atspi-misc.c:152
+msgid "level bar"
+msgstr "afeggag n uswir"
+
+#: atspi/atspi-misc.c:153
+msgid "title bar"
+msgstr "afeggag n uzwel"
+
+#: atspi/atspi-misc.c:154
+msgid "block quote"
+msgstr "sewḥel izen"
+
+#: atspi/atspi-misc.c:155
+msgid "audio"
+msgstr "ameslaw"
+
+#: atspi/atspi-misc.c:156
+msgid "video"
+msgstr "tavidyut"
+
+#: atspi/atspi-misc.c:157
+msgid "definition"
+msgstr "tabadut"
+
+#: atspi/atspi-misc.c:158
+msgid "article"
+msgstr "amagrad"
+
+#: atspi/atspi-misc.c:159
+msgid "landmark"
+msgstr "ticreḍt n useddag"
+
+#: atspi/atspi-misc.c:160
+msgid "log"
+msgstr "qqen"
+
+#: atspi/atspi-misc.c:161
+msgid "marquee"
+msgstr "marquee"
+
+#: atspi/atspi-misc.c:162
+msgid "math"
+msgstr "tusnakt"
+
+#: atspi/atspi-misc.c:163
+msgid "rating"
+msgstr "tazmilt"
+
+#: atspi/atspi-misc.c:164
+msgid "timer"
+msgstr "amakud"
+
+#: atspi/atspi-misc.c:165
+msgid "description list"
+msgstr "tabdart n uglam"
+
+#: atspi/atspi-misc.c:166
+msgid "description term"
+msgstr "tiwtilin n uglam"
+
+#: atspi/atspi-misc.c:167
+msgid "description value"
+msgstr "azal n uglam"

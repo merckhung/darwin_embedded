@@ -1,0 +1,8 @@
+{
+  "project": "GNU-EFI",
+  "version": "3.0.18",
+  "source_archive": "https://archive.ubuntu.com/ubuntu/pool/main/g/gnu-efi/gnu-efi_3.0.18.orig.tar.bz2",
+  "archive_sha256": "7f212c96ee66547eeefb531267b641e5473d7d8529f0bd8ccdefd33cf7413f5c",
+  "upstream": "https://sourceforge.net/projects/gnu-efi/files/",
+  "licenses": "BSD-style licenses retained in source headers; see Debian copyright inventory"
+}
