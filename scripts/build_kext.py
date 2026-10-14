@@ -25,11 +25,7 @@ SOURCES = {
         "IOGUIDPartitionScheme.cpp", "IOMedia.cpp", "IOMediaBSDClient.cpp",
         "IOPartitionScheme.cpp", "IOStorage.cpp",
     ],
-    "PDArmPlatformExpert": [
-        "PDArmPlatformExpert.cpp", "PDArmCPU.cpp", "PDArmGIC.cpp", "PDArmGICController.cpp",
-        "PDAppleAIC.cpp", "PDBcm2835IC.cpp", "PDSun50iUSB.cpp", "PDSun50iWatchdog.cpp",
-        "PDSg2002.cpp", "PDPerfControl.cpp", "PDSun60iDVFS.cpp",
-    ],
+    "BCM2711Platform": ["BCM2711Platform.cpp"],
 }
 
 
@@ -92,8 +88,7 @@ def main():
                   "-D__PTHREAD_EXPOSE_INTERNALS__", "-I", str(source / "private"),
                   "-I", str(sdk / "usr/include/libsa")]
     sources = [source / filename for filename in SOURCES[args.component]]
-    if args.component == "PDArmPlatformExpert":
-        sources = [filename for filename in sources if filename.name != "PDSun60iDVFS.cpp"]
+
     if args.component != "embedded_crypto":
         metadata = work / "kmod_info.c"
         entry = ('extern kern_return_t pthread_start(kmod_info_t *, void *);\n'

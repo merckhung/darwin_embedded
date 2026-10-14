@@ -108,7 +108,7 @@ def main():
             if not (managed <= vc_base <= base < base + pitch * height <= vc_base + vc_size):
                 raise RuntimeError("reported framebuffer overlaps managed RAM or exceeds VC memory")
             child.expect(r"Darwin Kernel Version 25\.5\.0:")
-            child.expect(r"PDArmPlatformExpert: published framebuffer nub, " +
+            child.expect(r"BCM2711Platform: published framebuffer nub, " +
                          f"{width}x{height}")
             child.expect(r"\r*\nroot[^\r\n]*# ")
             nonce = secrets.token_hex(24)

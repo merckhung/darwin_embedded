@@ -30,6 +30,9 @@
     "Reject unresolved relocation, dyld and chained-fixup imports instead of binding them to a panic trampoline.",
     "Add a Linux host Bazel target.",
     "Apply and validate classic x86_64 KEXT_BUNDLE pointer and PC-relative relocations instead of skipping them.",
-    "Preserve the child kernel DATA_CONST extent separately from the collection aggregate, and avoid mutating the input header."
+    "Preserve the child kernel DATA_CONST extent separately from the collection aggregate, and avoid mutating the input header.",
+    "Remove the inactive standalone build script for the former multi-platform loader; Bazel constructs the supported collections.",
+    "Remove inactive CMake/Nix recipes; the supported builds use Bazel.",
+    "Restrict collection tooling to thin x86_64/ARM64 Mach-O; remove ARM32/Thumb, RISC-V, standalone prelink and classic-output paths. Retain the shared prelink assembly library used internally by MH_FILESET construction."
   ]
 }

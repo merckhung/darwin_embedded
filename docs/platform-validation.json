@@ -1,0 +1,205 @@
+{
+  "format_version": 1,
+  "recorded_utc": "2026-10-14T14:55:41.846802+00:00",
+  "scope": "Pi 4B platform and native 64-bit PC UEFI/XNU boot path; native QEMU shell, framebuffer and hardware-input checks. Four-variant desktop and screenshot evidence is recorded separately in docs/validation.json.",
+  "base_commit": "2330881d3ede3896e8e341141fa85e95b55f73b8",
+  "targets": {
+    "arm64": "QEMU raspi4b / Cortex-A72, one CPU active",
+    "x86_64": "QEMU q35 / OVMF / Penryn; DE64BOOT v1 native 64-bit entry; kernel at physical 65 MiB"
+  },
+  "root_filesystem": "HFS+ RAM disk on md0",
+  "implementation_sha256": {
+    "bootloader/pc_uefi/loader.c": "ccf0be6740e3902302943d678a9b21860060b9d5a6c94fc5c6c933ae47be5fc8",
+    "bootloader/pc_uefi/image.c": "56a90d0058129b21792f8942a9a2240ec649a4a5c5e086d7dd140849fe1606b8",
+    "bootloader/pc_uefi/layout.h": "164ffbf63214e1b429cafeda0e808ffee13562676661b6f9c0fc4987f0a06510",
+    "scripts/build_xnu.py": "1a73b0d2a0ee5aae6f12b88d8cbcc4cfc8de6351b1acb33b3627bc415b8e2aca",
+    "src/Kernel/Extensions/25.5.0/BCM2711Platform/BCM2711Platform.cpp": "5bf476300535ffe6a9a26f104121ace757f10ea5c452e52205ba5ad79c3cbbed",
+    "src/Kernel/xnu/12377.121.6/osfmk/arm64/sleh.c": "d92857d067cd9c7bc97a48f603d6f0b44d63d60307a549447b17acf8b7543c14",
+    "tools/kc-tools/lib/linker.c": "786326311184fcfcfaf068bac2bc78b0b58e966a324e2b588763d8c0c30b44b8",
+    "tools/kc-tools/lib/macho_view.c": "3f8bf6e3505d85f6afa89f5f9cfda0c9d2de1c3b9a1cf4b6dcdf079b38e86db4",
+    "tools/kc-tools/src/fileset.c": "59c3fbd4fe803aae3d342e4d3c1af79fee6f8543991ab4145156500b198f9599",
+    "tools/kc-tools/src/kc_builder.c": "58dd624b4e8d823444cf140222e5ca54bfed0a9adb6dd968184c18cd9540ddfc",
+    "bootloader/pc_uefi/enter64.S": "5aef5871642616c6421b3c0ed76ed4851f4fe09168341ed84e635223cc51bc57",
+    "src/Kernel/xnu/12377.121.6/osfmk/x86_64/start.s": "ffd1a709a4fce2a1bddb5d8b01e548b1736db8d58e504791a819e97b245e3b26",
+    "bootloader/pc_uefi/compile_efi.py": "526a70d41fe607d7b78c0c97c250ff328cc2fe9543c22ea2c7de7c0cf1653ede",
+    "bootloader/pc_uefi/UPSTREAM.json": "de0f9b9d47b7f28a37e809a7ebe12283913883b5c4573a9d4f94056e3b9254a2"
+  },
+  "host_tests": {
+    "bazel_targets": [
+      "//bootloader/pc_uefi:image_test",
+      "//tools/kc-tools:view_test",
+      "//scripts/native_framebuffer:framebuffer_test",
+      "//userland/native/framebuffer:bounds_test",
+      "//userland/native/framebuffer:capture_test",
+      "//userland/native/input:decode_test"
+    ],
+    "passed": 6,
+    "collection_regressions_passed": 4,
+    "parser_address_and_undefined_behavior_sanitizers_passed": true,
+    "efi_pe_output_rejections_passed": 4
+  },
+  "runtime_checks": [
+    {
+      "architecture": "arm64",
+      "check": "native",
+      "captured_utc": "2026-10-14T14:45:32.116629+00:00",
+      "exit_status": 0,
+      "artifacts": {
+        "kernel": "f92dc6748806f77552010652d16139737c5ca1bf268dbb4a28211a7d8b3ed4bb",
+        "layout": "4f361c21e31ac048e36bfc62a495e7f06874ebf4ad294999a9e9ecce2a19247d",
+        "loader": "1da08ee7aab6f5d649ab07a8c44e8c8b98e54e3ac62448c99dedb0c35e1d41a8",
+        "root_image": "701dc8e14505cc1c716570a8aab1707d62e3dd2b4d2b4a070a7b7c5cd2d4999c",
+        "root_report": "633b105c4346cff7b7528eaa63471aeae7c5ea8580d3be5a4797f1bb9480a72b"
+      },
+      "input_manifest_sha256": "d44e11aa6b36bfcb7bc3c04466a1d48543c10008980b9d4b6b25bd47758eac3e",
+      "serial_log": ".cache/capture-four/minimal-final/arm64-fafdig2y/serial.log",
+      "serial_sha256": "e66118f44bb77200dd230709c42b9481590969027cc0d7f5efe706bb2b17b1d3",
+      "checks": [
+        "fresh-nonce uname identity",
+        "native PID 1",
+        "shell reaping and respawn",
+        "BusyBox file operations",
+        "pipelines and archives",
+        "native ps process checks"
+      ],
+      "tools_result_sha256": "58cd5eddb65990becc01a9ffef97b5cd97a5903b8ee278cf3f3a41328dfaa2d7"
+    },
+    {
+      "architecture": "x86_64",
+      "check": "native",
+      "captured_utc": "2026-10-14T14:45:44.023394+00:00",
+      "exit_status": 0,
+      "artifacts": {
+        "boot_image": "17144f69aabdb7073bd2fe787ff7d98dfeef1b99624ab1feb311fa000a75f4b3",
+        "firmware_code": "e322462c034d0ec6443dca2b2fe36c17d00a24de0b72cd76456a62fde8ab36a5",
+        "firmware_variables": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+        "root_image": "0da4c98f81397209174566dd9616207b48af9b446a2714322a67082168a3fbfc",
+        "root_report": "c79352b76199bb89fda69047c8d970d24b454461ddf226bd1b6d29ebe3261bd2"
+      },
+      "input_manifest_sha256": "a1289c96b07b478c26941312742baee7b04d884df042f2a7531d0147848ffc76",
+      "serial_log": ".cache/capture-four/minimal-final/x86_64-t8ptdwwz/serial.log",
+      "serial_sha256": "dff25da3c909f16dd63d0df062139105a0f30e1bac50eb33866ae2d6ca61f1c4",
+      "checks": [
+        "fresh-nonce uname identity",
+        "native PID 1",
+        "shell reaping and respawn",
+        "BusyBox file operations",
+        "pipelines and archives",
+        "native ps process checks"
+      ],
+      "tools_result_sha256": "33c0ec8eab1ab0533c8a2c8b22007661dcec6db26e96101913c8787ccadeeb6f"
+    },
+    {
+      "architecture": "arm64",
+      "check": "framebuffer",
+      "captured_utc": "2026-10-14T14:34:29.884569+00:00",
+      "exit_status": 0,
+      "artifacts": {
+        "root": "94d628964d5c4ddac7e5b9b5bf1fc23f16e42cb9db4de8eb91fffc6575c207c9",
+        "driver_report": "2f25354ce2af7f652cf19d3501e3d23053ebd3c9ddf6f90d8b31b94e307cca1c",
+        "root_report": "4775dd07e2ac3994d4a0c16d0804c40cc6cec1a72762fe1b9a842be06cf3eff8",
+        "kernel": "b54259770a0b762eb3753b9311e443fa21207da3ce62cb293a1e8d30cdd507a3",
+        "layout": "ac6c65ed5cebbfb184a6d25914e2a2de3558354387862d95c5b88abd98fc71dd",
+        "loader": "1da08ee7aab6f5d649ab07a8c44e8c8b98e54e3ac62448c99dedb0c35e1d41a8"
+      },
+      "input_manifest_sha256": "1e0ff016c123688302afc488ad320f20f29ef800d81730ae36d9bafc21d8adb6",
+      "serial_log": ".cache/platform-entry64/framebuffer/arm64-q5v5xnd3/serial.log",
+      "serial_sha256": "887edcb0ad0b1b49b5f4f1d7f1907ecce126921b5d41af50f2e2dae56394dd7f",
+      "result_sha256": "4bd12ef05ffe127c04448fb33ffc5a869aaf378827ef9cb774fba53049630638",
+      "scanout": {
+        "width": 1024,
+        "height": 768,
+        "row_bytes": 4096,
+        "screenshot_sha256": "d9928b8d15a0e6c548260364bca277dd096a03add84e7e6f1b9951b45838b1e6",
+        "console_ownership_checked": true
+      }
+    },
+    {
+      "architecture": "x86_64",
+      "check": "framebuffer",
+      "captured_utc": "2026-10-14T14:45:43.773145+00:00",
+      "exit_status": 0,
+      "artifacts": {
+        "root": "a6866bed87b86264f27b10b5b9892a2761322303c190f2f679ce761c79a2d18a",
+        "driver_report": "c151559bcb071452304a114e1c26a81f44f2ecf6cf7768e1a47dcf179cafae3b",
+        "root_report": "611ee7ec36a4ac4f7ff04187b1e7a0664c04ad4fc1c83bb85495fc5c59168811",
+        "boot": "1d55e5126f71116a30276f73ada2df5a506fdbad00a0e6a70b7423dfa2f9af8a",
+        "firmware": "e322462c034d0ec6443dca2b2fe36c17d00a24de0b72cd76456a62fde8ab36a5",
+        "variables": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e"
+      },
+      "input_manifest_sha256": "fb84d2fd406254ec3f8fd7e75da05aceb4ab75af5a9bc947fe12ff6e153024ec",
+      "serial_log": ".cache/platform-entry64/framebuffer/x86_64-17aswuyw/serial.log",
+      "serial_sha256": "4643d13452b1734d794ee8ba6d0ad9e8b0f369b4225680956fe1433ab673f96b",
+      "result_sha256": "6789a0eb4167b8ea6f48d5ddd45a311f0444490c1f56c82dbfe00ae434a04276",
+      "scanout": {
+        "width": 1024,
+        "height": 768,
+        "row_bytes": 4096,
+        "screenshot_sha256": "ec8bc6e35f832858a488f99ff639d18a32ceff5a61e8c195dfd5288bfb24d6e0",
+        "console_ownership_checked": true
+      }
+    },
+    {
+      "architecture": "arm64",
+      "check": "input",
+      "captured_utc": "2026-10-14T14:34:30.101767+00:00",
+      "exit_status": 0,
+      "artifacts": {
+        "root": "c29ecdb5000df2025747d47ba45d08c74ecd67b725c5c0dc1f35f87e5597c4cf",
+        "root_report": "8df5233bed2d0af9bf2ee8d5f172928ff933d37f821d19da681f67a0b43e8910",
+        "driver_report": "04c10a299c9b2998884865dd748354ee51742129db346008387094397b7aee8a",
+        "driver": "14ddd98f21c2c4fd70c53b88cab5e73590b24d8463d06a5c30731c265a878d45",
+        "collection": "093d85099d0d8756acb556c87496c727f9b709beb4b8ebfea3fff70db9d61c42",
+        "kernel": "3c4356abba78b39d77adb5781e01eba38a85e83286a20a5954fb144cb174d392",
+        "layout": "a7dc8070fda946b87f18caed6765204ac1d64632b0f0663f7b8ce3ecf0f7ab56",
+        "loader": "1da08ee7aab6f5d649ab07a8c44e8c8b98e54e3ac62448c99dedb0c35e1d41a8"
+      },
+      "input_manifest_sha256": "d59c32bf05e06895d2b1c41fc10b5bb694d26d504445e0e0e767d55bd6ed8536",
+      "serial_log": ".cache/platform-entry64/input/arm64-dflff7fq/serial.log",
+      "serial_sha256": "477e9bc2f01e02c8f582f711206bd2e0697332060646dc61f530c803f4a06559",
+      "result_sha256": "a602e0951503dc8f4b1a95ccfb0f8f41b64dce9b34a9e56100001958e9cb83d4",
+      "events": 11,
+      "checks": [
+        "actual QMP keyboard/mouse events",
+        "privilege rejection",
+        "exclusive open",
+        "invalid payload rejection",
+        "reopen"
+      ]
+    },
+    {
+      "architecture": "x86_64",
+      "check": "input",
+      "captured_utc": "2026-10-14T14:45:44.025629+00:00",
+      "exit_status": 0,
+      "artifacts": {
+        "root": "1153bfa06e177b6372e23efdf1be545af8dc7dd99a7590d4fa44c05f12b66de4",
+        "root_report": "fb625980f9428948dfc02289a9330b86f7c4a62c0b82ebc86bd17af0eed7c01c",
+        "driver_report": "55d37cec47a41583b51cc60aa8e2429a5b55907db2378bcff20205d25b009b42",
+        "driver": "aa554822634ab4755cc61cf8190d3d5b9c9e1eae0b3f9b5910f70ca6dddd539b",
+        "collection": "502c12983495b4628b5420117bb142de2aa40cdfb1df59078b494d0c86969b5a",
+        "boot": "99164aec6ec3d91f5072bfee2041b6d9edfe8c0c7543052005fc31ed2310808f",
+        "firmware": "e322462c034d0ec6443dca2b2fe36c17d00a24de0b72cd76456a62fde8ab36a5",
+        "variables": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e"
+      },
+      "input_manifest_sha256": "2773adb89ffde67305aa18a5d3601495656e2c96ee262c50f6abaebc8940be08",
+      "serial_log": ".cache/platform-entry64/input/x86_64-q4jbjc9z/serial.log",
+      "serial_sha256": "db2e48eebe97d1aa81827784fae8917f2a0e8719b6f1eb67cddc6bc9a7c68047",
+      "result_sha256": "db1d8cf4c277474936f3236e654dad26dd9761f4f3ec3752c5948d032a585479",
+      "events": 11,
+      "checks": [
+        "actual QMP keyboard/mouse events",
+        "privilege rejection",
+        "exclusive open",
+        "invalid payload rejection",
+        "reopen"
+      ]
+    }
+  ],
+  "limits": [
+    "Physical Pi 4B and physical PC boot were not tested.",
+    "The Pi firmware loading path still needs to replace QEMU image/entropy injection.",
+    "ARM secondary CPU startup remains unsupported.",
+    "The PC entry requires a DE64BOOT v1 kernel and four-level firmware paging."
+  ]
+}

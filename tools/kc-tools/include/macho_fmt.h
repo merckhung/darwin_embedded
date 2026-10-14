@@ -17,12 +17,7 @@
 // CPU types
 #define CPU_TYPE_X86_64 ((int)(7 | 0x01000000))
 #define CPU_TYPE_ARM64  ((int)(12 | 0x01000000))
-#define CPU_TYPE_ARM    ((int)12)
-// riscv as ld64 numbers it, 24 with the 64-bit abi bit
-#define CPU_TYPE_RISCV64 ((int)(24 | 0x01000000))
 #define CPU_SUBTYPE_ALL 0
-#define CPU_SUBTYPE_ARM_V6  6
-#define CPU_SUBTYPE_ARM_V7  9
 
 // Flags
 #define MH_NOUNDEFS       0x1
@@ -57,16 +52,6 @@
 // x86_64 thread state (for LC_UNIXTHREAD entry)
 #define X86_THREAD_STATE64     4
 #define X86_THREAD_STATE64_CNT 42   // uint32 count
-
-// arm (32-bit) thread state (for LC_UNIXTHREAD entry): r0-r12, sp, lr, pc, cpsr
-#define ARM_THREAD_STATE       1
-#define ARM_THREAD_STATE_CNT   17   // uint32 count
-#define ARM_THREAD_STATE_PC    15   // index of pc within the state
-
-// riscv64 thread state (for LC_UNIXTHREAD entry): x0-x31 then pc, all 64-bit
-#define RISCV_THREAD_STATE64     1
-#define RISCV_THREAD_STATE64_CNT 66   // uint32 count
-#define RISCV_THREAD_STATE64_PC  32   // index of pc within the state
 
 // LC_FILESET_ENTRY payload
 struct fileset_entry_command {
@@ -128,19 +113,6 @@ struct dyld_chained_fixups_header {
 #define RL_SHORT 1
 #define RL_LONG  2
 #define RL_QUAD  3
-
-// arm (32-bit) relocation types
-#define ARM_RELOC_VANILLA       0
-#define ARM_RELOC_PAIR          1
-#define ARM_RELOC_SECTDIFF      2
-#define ARM_RELOC_LOCAL_SECTDIFF 3
-#define ARM_RELOC_PB_LA_PTR     4
-#define ARM_RELOC_BR24          5
-#define ARM_THUMB_RELOC_BR22    6
-#define N_ARM_THUMB_DEF         0x0008  /* n_desc: symbol is a Thumb function */
-#define ARM_THUMB_32BIT_BRANCH  7
-#define ARM_RELOC_HALF          8
-#define ARM_RELOC_HALF_SECTDIFF 9
 
 // x86_64 relocation types
 #define X86_64_RELOC_UNSIGNED   0

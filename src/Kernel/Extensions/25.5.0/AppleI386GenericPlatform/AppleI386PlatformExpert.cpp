@@ -107,7 +107,7 @@ bool AppleI386PlatformExpert::init(OSDictionary *properties) {\
  * On x86_64 stock XNU only publishes it from
  * IOPlatformExpert::registerNVRAMController(), because on a real Mac the UUID
  * comes out of NVRAM. PureDarwin has no IONVRAMController, so that path never
- * runs; xnu-loader instead puts the 16-byte "platform-uuid" property (from
+ * runs; the PC UEFI loader instead puts the 16-byte "platform-uuid" property (from
  * SMBIOS, falling back to the boot volume UUID) on the device-tree /options
  * node, and we publish it here.
  */

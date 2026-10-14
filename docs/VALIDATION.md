@@ -1,6 +1,7 @@
 # Runtime validation and screenshots
 
-The README screenshots show fresh boots of both roots on ARM64 and x86_64.
+The README screenshots were refreshed on October 14, 2026, from fresh boots
+of both roots on ARM64 and x86_64 using `BCM2711Platform` and `pc_uefi`.
 Commands execute inside each guest: `uname -srm`, `uname -v`, a Mach-O header
 read from `/bin/busybox`, and `ps aux`.
 
@@ -12,10 +13,11 @@ in graphical roots, the desktop processes.
 
 Desktop images are lossless PNG conversions of QEMU framebuffer dumps.
 For those captures, the guest serial shell sends the inspection output to the
-original terminal through its real Darwin PTY. Process columns are selected
-for readability. Hardware keyboard/interactive-shell input is verified
+original terminal through its real Darwin PTY. Desktop process rows and
+columns are selected for readability. Hardware keyboard/interactive-shell input is verified
 separately by the fresh challenge checks described below.
-Minimal images capture only the serial-console window. No kernel banners,
+Minimal images capture only a live xterm serial-console window on a private
+Xvfb display; `df -h /` also shows the 64 MiB RAM disk. No kernel banners,
 output labels or desktop pixels are synthesized. Screenshots show runtime
 evidence, not cryptographic attestation. The [validation record](validation.json)
 binds captures to hashed boot inputs, inventories and completed checks,
@@ -56,6 +58,13 @@ ps aux
 Use `bazel query 'kind(sh_binary, //userland/...)'` to list component checks.
 Compilation alone does not establish runtime behavior.
 
+All four refreshed captures use the replacement Pi 4B platform module or PC
+UEFI loader. The [validation record](validation.json) contains their current
+boot-input hashes, kernel banners, utility and desktop check results, and
+screenshot hashes. The earlier [platform validation record](platform-validation.json)
+also covers framebuffer ownership and keyboard/mouse driver checks. Neither
+record establishes physical-board boot or ARM SMP support.
+
 ## Publication checks
 
 The source snapshot retains upstream notices, provenance and licenses.
@@ -64,8 +73,9 @@ of the host desktop were removed. Firmware comes from a pinned publisher
 package with package/member hashes and its copyright inventory. The kernel
 build identity uses a project name.
 
-Secret scanning checks the cleaned source snapshot. Original upstream crypto
-test keys and known vectors remain in their source imports; scanner matches
+The earlier publication secret scan checked the cleaned source snapshot;
+it was not repeated for this platform and screenshot update. Original upstream
+crypto test keys and known vectors remain in their source imports; scanner matches
 do not make those fixtures private credentials. See the validation record for
 counts and classifications. The public repository starts from a clean source
 snapshot, excluding earlier development history, build caches and local metadata.

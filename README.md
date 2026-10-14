@@ -6,8 +6,9 @@ The supported kernel is **XNU 12377.121.6 / Darwin 25.5.0**.
 Guest applications use Darwin and Mach APIs directly.
 
 Darwin Embedded is derived from [PureDarwin](https://github.com/PureDarwin/PureDarwin),
-including its platform support, compatibility headers and
-[XNU EFI loader](https://github.com/PureDarwin/xnu-loader).
+including its PC platform/storage support and compatibility headers.
+The supported hardware paths use the project's [Pi 4B platform module](src/Kernel/Extensions/25.5.0/BCM2711Platform/README.md)
+and [PC UEFI loader](bootloader/pc_uefi/README.md).
 
 | Setup | Guest applications | Root image | QEMU machine |
 | --- | --- | --- | --- |
@@ -16,9 +17,11 @@ including its platform support, compatibility headers and
 | Xfce4 x86_64 | Xorg, Xfce session, xfwm4, settings, panels, desktop and original Xfce terminal/VTE | 128 MiB HFS+ | q35 / Penryn |
 | Xfce4 ARM64 | The same native desktop stack | 128 MiB HFS+ | raspi4b / Cortex-A72 |
 
-The screenshots below come from running guests. Each shows Darwin kernel
-identity and the Mach-O header of a guest executable. The desktop captures are
-QEMU framebuffer dumps; the minimal captures show their serial consoles.
+The screenshots below were refreshed on October 14, 2026, after replacing the
+platform module with `BCM2711Platform` and the PC loader with `pc_uefi`.
+Each shows Darwin kernel identity and the Mach-O header of a guest executable.
+The desktop captures are QEMU framebuffer dumps; the minimal captures show
+their serial consoles.
 [Validation details](docs/VALIDATION.md) explain the kernel, architecture,
 process and executable checks and provide commands to reproduce them.
 

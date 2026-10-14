@@ -24,9 +24,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--arch", choices=("arm64", "x86_64"), required=True)
     parser.add_argument("--program", choices=("native-framebuffer-test", "native-input-test"), default="native-framebuffer-test")
-    for name in ("probe", "system", "base-root", "dyld", "hfs-tool", "output", "report"):
+    for name in ("probe", "system", "base-root", "base-report", "dyld", "hfs-tool", "output", "report"):
         parser.add_argument("--" + name, type=Path, required=True)
     args = parser.parse_args()
+    base_report = json.loads(args.base_report.read_text())
+    if base_report["architecture"] != args.arch or base_report["root_sha256"] != sha(args.base_root):
+        raise ValueError("base root does not match its verified inventory")
+    aliases = base_report.get("busybox_aliases", {})
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=args.output.parent) as directory:
         work = Path(directory).resolve()
@@ -48,6 +52,8 @@ def main():
         edit("extractall", "/", original)
         expected = {"/" + str(path.relative_to(original)): path.read_bytes()
                     for path in original.rglob("*") if path.is_file()}
+        if {name: hashlib.sha256(data).hexdigest() for name, data in expected.items()} != base_report["installed_sha256"]:
+            raise ValueError("extracted base root differs from its verified inventory")
         installed = {"/bin/" + args.program: probe, "/usr/lib/dyld": args.dyld}
         for path in (system / "usr").rglob("*"):
             if path.is_file():
@@ -63,6 +69,10 @@ def main():
         providers |= set().union(*(symbols(path)[0] for path in (extracted / "usr/lib").rglob("*.dylib")))
         types = {}
         for name, data in expected.items():
+            if name in aliases:
+                if data != aliases[name].encode() or aliases[name] not in expected:
+                    raise ValueError("invalid inherited BusyBox alias: " + name)
+                continue
             if name.startswith(("/bin/", "/sbin/")) or name == "/usr/lib/dyld" or name.endswith(".dylib"):
                 kind = 7 if name == "/usr/lib/dyld" else 6 if name.endswith(".dylib") else 2
                 cpu = 0x100000c if args.arch == "arm64" else 0x1000007

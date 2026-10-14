@@ -1,0 +1,20 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+genrule(
+    name = "efi",
+    srcs = [
+        "compile_efi.py", "loader.c", "image.c", "image.h", "enter64.S", "layout.h",
+        "//tools/gnu-efi:runtime", "//bootloader/video:metadata.h",
+        "//src/Kernel/xnu/12377.121.6:pexpert/pexpert/i386/boot.h",
+    ],
+    outs = ["BOOTX64.EFI"],
+    cmd = "python3 bootloader/pc_uefi/compile_efi.py --project-root $$PWD --source bootloader/pc_uefi " +
+          "--runtime $(location //tools/gnu-efi:runtime) --output $@",
+    visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "image_test",
+    size = "small",
+    srcs = ["image.c", "image.h", "image_test.c"],
+)

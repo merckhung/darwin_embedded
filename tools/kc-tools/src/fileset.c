@@ -9,7 +9,6 @@
 /* arm64 XNU is built for a 16KB page granule; segment vmaddrs it maps or frees
  * must respect that, not the 4KB PAGE used for file layout above. */
 #define ARM64_KERNEL_PAGE 0x4000ULL
-#define RISCV64_KERNEL_PAGE 0x1000ULL
 #define ALIGN_UP(x, a) (((uint64_t)(x) + ((uint64_t)(a) - 1)) & ~((uint64_t)(a) - 1))
 
 #define DYLD_CHAINED_PTR_64_KERNEL_CACHE 8
@@ -78,14 +77,6 @@ kernel_arm64_set_entry(uint8_t *data, size_t data_size,
           /* x[0..28], fp, lr, sp, pc: pc is qword 32. */
           *(uint64_t *)(state + 32 * sizeof(uint64_t)) = entry;
           fprintf(stderr, "fileset: ARM64 LC_UNIXTHREAD entry -> 0x%llx\n",
-              (unsigned long long)entry);
-          return;
-        }
-        // riscv64 keeps x0-x31 then pc
-        if (mh->cputype == CPU_TYPE_RISCV64 && flavor == RISCV_THREAD_STATE64 &&
-            state_size >= (RISCV_THREAD_STATE64_PC + 1) * sizeof(uint64_t)) {
-          *(uint64_t *)(state + RISCV_THREAD_STATE64_PC * sizeof(uint64_t)) = entry;
-          fprintf(stderr, "fileset: RISCV64 LC_UNIXTHREAD entry -> 0x%llx\n",
               (unsigned long long)entry);
           return;
         }
@@ -557,8 +548,7 @@ int fileset_assemble(const uint8_t *kernel_data, size_t kernel_size,
   if (kernel_size >= sizeof(struct mach_header_64)) {
     const struct mach_header_64 *input_mh =
         (const struct mach_header_64 *)kernel_data;
-    if (input_mh->magic == MH_MAGIC_64 && (input_mh->cputype == CPU_TYPE_ARM64 ||
-                                           input_mh->cputype == CPU_TYPE_RISCV64))
+    if (input_mh->magic == MH_MAGIC_64 && input_mh->cputype == CPU_TYPE_ARM64)
       arm64_entry = kernel_arm64_start(kernel_data, kernel_size, input_mh);
   }
 
@@ -592,11 +582,9 @@ int fileset_assemble(const uint8_t *kernel_data, size_t kernel_size,
    * XML) all exist to satisfy arm_vm_init. i386_init has no equivalent
    * requirements and XNU's x86 path still reads the payload out of the
    * original prelink segments, so they must not be applied there. */
-  // riscv64's vm init is a port of arm_vm_init, so it takes the same layout on 4K pages
   const int kc_is_arm64 = (mh->magic == MH_MAGIC_64 &&
-      (mh->cputype == CPU_TYPE_ARM64 || mh->cputype == CPU_TYPE_RISCV64));
-  const uint64_t kernel_page =
-      mh->cputype == CPU_TYPE_RISCV64 ? RISCV64_KERNEL_PAGE : ARM64_KERNEL_PAGE;
+      mh->cputype == CPU_TYPE_ARM64);
+  const uint64_t kernel_page = ARM64_KERNEL_PAGE;
   if (mh->magic != MH_MAGIC_64) {
     fprintf(stderr, "fileset: kernel not MH_MAGIC_64 (0x%x)\n", mh->magic);
     if (base_owned)
@@ -892,8 +880,7 @@ int fileset_assemble(const uint8_t *kernel_data, size_t kernel_size,
   uint8_t *fixups_blob = NULL;
   uint32_t fixups_size = 0;
   if (!has_chained_fixups) {
-    // riscv64 local relocations share arm64's shape, type 0 is the plain pointer
-    if ((mh->cputype == CPU_TYPE_ARM64 || mh->cputype == CPU_TYPE_RISCV64) &&
+    if (mh->cputype == CPU_TYPE_ARM64 &&
         build_kernel_cache_fixups(base_data, base_size, mh, segs, nsegs,
             kc_base ? kc_base : first_seg_vmaddr, kexts, num_kexts,
             &fixups_blob, &fixups_size) != 0) {
@@ -1020,7 +1007,7 @@ int fileset_assemble(const uint8_t *kernel_data, size_t kernel_size,
 
   struct mach_header_64 *omh = (struct mach_header_64 *)out;
 
-  if (omh->cputype == CPU_TYPE_ARM64 || omh->cputype == CPU_TYPE_RISCV64)
+  if (omh->cputype == CPU_TYPE_ARM64)
     kernel_arm64_set_entry(out, out_len, omh, arm64_entry);
 
   /* Preserve non-null, zero-sized PRELINK placeholders for the embedded

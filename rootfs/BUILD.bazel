@@ -22,8 +22,8 @@ alias(name = "arm64", actual = ":root.arm64.img")
 alias(name = "x86_64", actual = ":root.x86_64.img")
 filegroup(name = "images", srcs = [":arm64", ":x86_64"])
 filegroup(name = "reports", srcs = [":root.arm64.json", ":root.x86_64.json"])
-genrule(name = "efi_image_x86_64", srcs = [":root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64", "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"],
-    outs = ["boot.x86_64.img"], cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+genrule(name = "efi_image_x86_64", srcs = [":root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64", "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"],
+    outs = ["boot.x86_64.img"], cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
           " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location root.x86_64.img) --output $@")
 filegroup(name = "boot_inputs_arm64", srcs = [":arm64", "//userland/apps/x11:desktop_kernel_arm64", "//userland/apps/xfce:desktop_loader_arm64"])
 [

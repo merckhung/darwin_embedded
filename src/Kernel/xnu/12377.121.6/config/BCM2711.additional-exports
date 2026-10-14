@@ -1,1 +1,4 @@
-_pd_gic_current_spi
+_bcm2711_current_interrupt
+_bcm2711_interrupt_count
+_bcm2711_send_ipi
+_bcm2711_set_device_interrupt

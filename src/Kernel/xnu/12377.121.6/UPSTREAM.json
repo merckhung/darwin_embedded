@@ -26,7 +26,9 @@
     "Distinguish empty/compressed page-table entries from valid physical page zero during ARM pmap removal.",
     "Enable the GIC-400 distributor and CPU interface groups required by QEMU raspi4b without security extensions.",
     "Use physical memory-device copies for the reserved x86_64 EFI RAM disk, outside the kernel static mapping.",
-    "Fail entitlement queries closed when the embedded profile has no AMFI provider. Accept entitlement acceleration without AMFI only for ad-hoc signatures with empty entitlements and no privileged flags, platform identity or team identifier. Normal CodeDirectory validation and code-page hash checks remain enabled."
+    "Fail entitlement queries closed when the embedded profile has no AMFI provider. Accept entitlement acceleration without AMFI only for ad-hoc signatures with empty entitlements and no privileged flags, platform identity or team identifier. Normal CodeDirectory validation and code-page hash checks remain enabled.",
+    "Expose BCM2711 GIC-400 interrupt-vector control and SGI0 delivery to the new Pi 4B platform module; remove the previous platform-extension interrupt export.",
+    "Add a versioned native 64-bit PC UEFI entry in x86_64/start.s; preserve long mode while XNU installs its own bootstrap page tables, GDT and segment bases before shared vstart initialization."
   ],
   "modification_notices": [
     {
@@ -106,7 +108,7 @@
     },
     {
       "file": "osfmk/arm64/sleh.c",
-      "last_port_change": "2026-10-12",
+      "last_port_change": "2026-10-14",
       "notice_added": "2026-10-13"
     },
     {
@@ -158,6 +160,11 @@
       "file": "pexpert/pexpert/arm64/board_config.h",
       "last_port_change": "2026-10-12",
       "notice_added": "2026-10-13"
+    },
+    {
+      "file": "osfmk/x86_64/start.s",
+      "last_port_change": "2026-10-14",
+      "notice_added": "2026-10-14"
     }
   ]
 }

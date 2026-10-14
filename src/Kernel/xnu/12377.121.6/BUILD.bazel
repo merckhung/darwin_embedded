@@ -4,7 +4,7 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 
-exports_files(["pd_apple_builtins.h", "libkern/kmod/c_start.c"])
+exports_files(["pd_apple_builtins.h", "libkern/kmod/c_start.c", "pexpert/pexpert/i386/boot.h"])
 
 HOST_TOOLS = [
     "//tools/cctools:ld",
@@ -56,7 +56,7 @@ genrule(
         ":kernel_arm64", "kernel.headers.arm64.tar",
         "//scripts:build_kernel_collection.py",
         "//src/Kernel/Extensions/25.5.0:embedded_crypto_arm64",
-        "//src/Kernel/Extensions/25.5.0:PDArmPlatformExpert_arm64",
+        "//src/Kernel/Extensions/25.5.0:BCM2711Platform_arm64",
         "//src/Kernel/Extensions/25.5.0:IOStorageFamily_arm64",
         "//src/Kernel/Extensions/25.5.0:pthread_arm64",
         "//src/Kernel/Extensions/25.5.0:HFSEncodings_arm64",
@@ -68,7 +68,7 @@ genrule(
           " --builder $(location //tools/kc-tools:kc-builder) --kernel $(location :kernel_arm64)" +
           " --sdk $(location kernel.headers.arm64.tar)" +
           " --kext $(location //src/Kernel/Extensions/25.5.0:embedded_crypto_arm64)" +
-          " --kext $(location //src/Kernel/Extensions/25.5.0:PDArmPlatformExpert_arm64)" +
+          " --kext $(location //src/Kernel/Extensions/25.5.0:BCM2711Platform_arm64)" +
           " --kext $(location //src/Kernel/Extensions/25.5.0:IOStorageFamily_arm64)" +
           " --kext $(location //src/Kernel/Extensions/25.5.0:pthread_arm64)" +
           " --kext $(location //src/Kernel/Extensions/25.5.0:HFSEncodings_arm64)" +

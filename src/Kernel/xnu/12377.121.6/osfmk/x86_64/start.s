@@ -1,3 +1,5 @@
+/* Darwin Embedded modification, 2026-10-14: add the native 64-bit PC
+ * UEFI entry contract. See UPSTREAM.json; original notices remain below. */
 /*
  * Copyright (c) 2007 Apple Inc. All rights reserved.
  *
@@ -123,6 +125,91 @@ EXT(mc_task_stack_end):
 	.code64
 
 /*
+ * Embedded PC boot contract, version 1.
+ *
+ * UEFI has already entered long mode and supplies identity-mapped RAM. The
+ * loader calls this physical address with boot_args in RDI, interrupts off,
+ * and the complete collection installed at its link address. Its private
+ * stack is temporary: nothing in firmware is called after entering here.
+ *
+ * Keep paging and long mode enabled throughout. XNU owns the descriptor
+ * table, bootstrap mappings and the eventual high virtual-address jump.
+ * This entry is separate from pstart, which remains the 32-bit AP path.
+ */
+
+	.section __HIB, __text
+	.code64
+	.align ALIGN
+	.globl EXT(_start)
+LEXT(_start)
+	/* The loader validates these bytes before ExitBootServices. The short
+	 * branch skips the contract tag; changing the ABI requires a new tag.
+	 * Layout: branch (2), "DE64BOOT" (8), version (4), reserved zero (2). */
+	.byte 0xeb, 0x0e
+	.ascii "DE64BOOT"
+	.long 1
+	.short 0
+
+	cli
+	cld
+	/* Use an identity-mapped kernel stack before replacing firmware's CR3.
+	 * RDI is deliberately untouched until the shared vstart initialization. */
+	leaq EXT(low_eintstack)(%rip), %rsp
+	andq $-16, %rsp
+
+	/* boot_pt.c stores table links as offsets from BootPML4. Rebase only
+	 * the links; its 2 MiB leaves already map physical addresses 0..4 GiB.
+	 * Both the low mapping and KERNEL_BASE alias must refer to that tree. */
+	leaq EXT(BootPML4)(%rip), %rax
+	addq %rax, 0(%rax)
+	addq %rax, KERNEL_PML4_INDEX*8(%rax)
+	leaq EXT(BootPDPT)(%rip), %rcx
+	addq %rax, 0(%rcx)
+	addq %rax, 8(%rcx)
+	addq %rax, 16(%rcx)
+	addq %rax, 24(%rcx)
+
+	/* The firmware selector values are not an XNU ABI. Install XNU's GDT
+	 * now, and reload CS below while both instruction addresses are still
+	 * identity mapped. The cached current CS remains valid until then. */
+	lgdtq EXT(protected_mode_gdtr)(%rip)
+
+	/* Drop firmware PCID/global-page state before switching translation
+	 * roots. Four-level paging was checked by the loader; PAE stays set.
+	 * Set NXE before any kernel page-table entry can carry its NX bit. */
+	movl $CR4_PAE, %ecx
+	movq %rcx, %cr4
+	movl $MSR_IA32_EFER, %ecx
+	rdmsr
+	orl $MSR_IA32_EFER_NXE, %eax
+	wrmsr
+	leaq EXT(BootPML4)(%rip), %rax
+	movq %rax, %cr3
+	movq %cr0, %rax
+	orq $CR0_WP, %rax
+	movq %rax, %cr0
+
+	/* A far return reloads a 64-bit CS; it never enters compatibility
+	 * mode. No firmware instruction or stack address is used from here. */
+	pushq $KERNEL64_CS
+	leaq L_pc_segments(%rip), %rax
+	pushq %rax
+	lretq
+L_pc_segments:
+	/* Firmware may have left TLS/per-CPU bases behind. XNU establishes
+	 * its own bases later, so clear all three before normal startup. */
+	xorl %eax, %eax
+	xorl %edx, %edx
+	movl $MSR_IA32_FS_BASE, %ecx
+	wrmsr
+	movl $MSR_IA32_GS_BASE, %ecx
+	wrmsr
+	movl $MSR_IA32_KERNEL_GS_BASE, %ecx
+	wrmsr
+	jmp L_boot64_segments
+
+
+/*
  * BSP CPU start here.
  *	eax points to kernbootstruct
  *
@@ -135,9 +222,7 @@ EXT(mc_task_stack_end):
 	.text
 	.section __HIB, __text
 	.align	ALIGN
-	.globl	EXT(_start)
 	.globl	EXT(pstart)
-LEXT(_start)
 LEXT(pstart)
 
 /*
@@ -195,6 +280,7 @@ L_pstart_common:
 	 */
 	SWITCH_TO_64BIT_MODE
 
+L_boot64_segments:
 	/* Flush data segment selectors */
 	xor	%eax, %eax
 	mov	%ax, %ss

@@ -13,6 +13,7 @@
     "PICShared.h": "efa9216431365d49580f5fde028bd38d43b5af8eec936abc516d4343b127f45f"
   },
   "local_changes": [
-    "Add Linux/Bazel compilation against the matching exported kernel headers."
+    "Add Linux/Bazel compilation against the matching exported kernel headers.",
+    "Remove inactive CMake/Nix recipes; the supported builds use Bazel."
   ]
 }

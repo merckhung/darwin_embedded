@@ -69,6 +69,7 @@
   },
   "local_changes": [
     "Use the matching SDK libkern/OSMalloc.h declaration rather than a relative path into another XNU checkout.",
-    "Add Linux/Bazel compilation against the matching exported kernel headers."
+    "Add Linux/Bazel compilation against the matching exported kernel headers.",
+    "Remove inactive CMake/Nix recipes; the supported builds use Bazel."
   ]
 }

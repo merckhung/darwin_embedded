@@ -1,4 +1,4 @@
-load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_test")
 
 cc_binary(
     name = "kc-builder",
@@ -6,4 +6,11 @@ cc_binary(
     includes = ["include"],
     copts = ["-std=gnu11", "-Wno-unused-function", "-Wno-unused-variable"],
     visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "view_test",
+    size = "small",
+    srcs = ["tests/view_test.c", "lib/macho_view.c"] + glob(["include/*.h"]),
+    includes = ["include"],
 )

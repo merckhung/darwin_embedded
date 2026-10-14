@@ -1,4 +1,4 @@
-/* Darwin Embedded modifications: latest recorded port revision 2026-10-12.
+/* Darwin Embedded modifications: latest recorded port revision 2026-10-14.
  * Modification notice added 2026-10-13; see UPSTREAM.json for port details.
  * The original license and copyright notices below remain applicable. */
 /*
@@ -3012,9 +3012,44 @@ static vm_offset_t bcm_gicd, bcm_gicc;
 static uint32_t bcm_current_spi[MAX_CPUS];
 
 uint32_t
-pd_gic_current_spi(void)
+bcm2711_current_interrupt(void)
 {
 	return bcm_current_spi[cpu_number()];
+}
+
+/* BCM2711Platform uses the controller initialized here; there is no second
+ * GIC implementation in the platform extension. SGI0 is reserved for IPIs. */
+unsigned int
+bcm2711_interrupt_count(void)
+{
+	unsigned int count = ((*(volatile uint32_t *)(bcm_gicd + 4) & 0x1f) + 1) * 32;
+	return count < 1020 ? count : 1020;
+}
+
+void
+bcm2711_send_ipi(unsigned int cpu)
+{
+	if (cpu >= 4) {
+		return;
+	}
+	__asm__ volatile("dsb ishst" ::: "memory");
+	*(volatile uint32_t *)(bcm_gicd + 0xf00) = (1u << cpu) << 16;
+}
+
+void
+bcm2711_set_device_interrupt(unsigned int interrupt, bool enabled)
+{
+	if (interrupt < 32 || interrupt >= bcm2711_interrupt_count()) {
+		return;
+	}
+	if (enabled) {
+		((volatile uint8_t *)bcm_gicd)[0x400 + interrupt] = 0xa0;
+		((volatile uint8_t *)bcm_gicd)[0x800 + interrupt] =
+		    *(volatile uint8_t *)(bcm_gicd + 0x800);
+	}
+	__asm__ volatile("dsb sy" ::: "memory");
+	*(volatile uint32_t *)(bcm_gicd + (enabled ? 0x100 : 0x180) +
+	    (interrupt / 32) * 4) = 1u << (interrupt % 32);
 }
 
 static void

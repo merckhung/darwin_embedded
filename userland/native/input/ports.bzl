@@ -13,7 +13,7 @@ def input_port(arch):
               " --sdk $(location //src/Kernel/xnu/12377.121.6:kernel.headers." + arch + ".tar) --ld $(location //tools/cctools:ld)" +
               " --output $(location NativeBootInput." + arch + ".tar) --report $(location driver." + arch + ".json)",
     )
-    kexts = (["embedded_crypto", "PDArmPlatformExpert", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"] if arch == "arm64" else
+    kexts = (["embedded_crypto", "BCM2711Platform", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"] if arch == "arm64" else
              ["embedded_crypto", "AppleI386GenericPlatform", "AppleAPIC", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"])
     native.genrule(
         name = "collection_" + arch,
@@ -44,18 +44,20 @@ def input_port(arch):
     native_system(
         name = "system_" + arch, arch = arch, exports = ":probe." + arch + ".exports",
         libraries = {"accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                     "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                     "permissions": "//userland/apps/glib:libglib_support." + arch + ".a",
                      "init_support": "//userland/apps/init:libinit_support." + arch + ".a",
                      "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"},
     )
     native.genrule(
         name = "root_" + arch,
         srcs = ["//userland/native/framebuffer:build_root.py", ":probe." + arch + ".o", ":system_" + arch + ".tar",
-                "//userland/apps/init:root." + arch + ".img", "//userland/native:dyld_" + arch, "//scripts:native_components.py",
+                "//userland/apps/init:root." + arch + ".img", "//userland/apps/init:root." + arch + ".json", "//userland/native:dyld_" + arch, "//scripts:native_components.py",
                 "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
         tools = ["//tools/libdmg-hfsplus:hfsplus"], outs = ["root." + arch + ".img", "root." + arch + ".json"],
         cmd = "python3 $(location //userland/native/framebuffer:build_root.py) --arch " + arch + " --program native-input-test" +
               " --probe $(location probe." + arch + ".o) --system $(location system_" + arch + ".tar)" +
-              " --base-root $(location //userland/apps/init:root." + arch + ".img) --dyld $(location //userland/native:dyld_" + arch + ")" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --base-report $(location //userland/apps/init:root." + arch + ".json) --dyld $(location //userland/native:dyld_" + arch + ")" +
               " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus) --output $(location root." + arch + ".img) --report $(location root." + arch + ".json)",
     )
     if arch == "arm64":
@@ -80,9 +82,9 @@ def input_port(arch):
     else:
         native.genrule(
             name = "boot_x86_64",
-            srcs = [":collection_x86_64", ":root.x86_64.img", "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"],
+            srcs = [":collection_x86_64", ":root.x86_64.img", "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"],
             outs = ["boot.x86_64.img"],
-            cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+            cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
                   " --kernel-collection $(location :collection_x86_64) --root-image $(location :root.x86_64.img) --output $@",
         )
     sh_binary(

@@ -19,18 +19,17 @@
       "provenance": "bootloader/ovmf/UPSTREAM.json"
     },
     {
-      "component": "xnu-loader",
-      "root": "bootloader/xnu-loader",
+      "component": "Embedded PC UEFI loader",
+      "root": "bootloader/pc_uefi",
       "license_scope": "Retained license texts and individual source headers; no root-license override.",
       "notices": [
         {
-          "path": "bootloader/xnu-loader/LICENSE",
-          "sha256": "f4bd21af51ef06b69b41396beebcc95a5fa888706ae2092d873ccc9b08a53467"
+          "path": "bootloader/pc_uefi/LICENSE",
+          "sha256": "91d6e46b28d8e82dfae8ee70e657af4bea40204413c87c2193e904ac91f73482"
         }
       ],
-      "provenance": "bootloader/xnu-loader/UPSTREAM.json",
-      "commit": "82ebfc4db6361ea66c034cff388f423811e740c7",
-      "license": "BSD-3-Clause"
+      "provenance": "bootloader/pc_uefi/UPSTREAM.json",
+      "license": "BSD-2-Clause for the loader; included public XNU headers retain APSL-2.0."
     },
     {
       "component": "at-spi2-core",
@@ -1622,25 +1621,6 @@
           "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
         }
       ]
-    },
-    {
-      "component": "PDArmPlatformExpert",
-      "root": "src/Kernel/Extensions/25.5.0/PDArmPlatformExpert",
-      "license_scope": "Retained license texts and individual source headers; no root-license override.",
-      "notices": [],
-      "provenance": "src/Kernel/Extensions/25.5.0/PDArmPlatformExpert/UPSTREAM.json",
-      "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
-      "upstream_project_notices": [
-        {
-          "path": "PUREDARWIN_LICENSE.txt",
-          "sha256": "e09bb7f344d4ed82f229c458109071537ecf18543b177fea88589f0d05adfb5e",
-          "repository": "https://github.com/PureDarwin/PureDarwin",
-          "commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
-          "license": "BSD-2-Clause",
-          "scope": "PureDarwin-original code; individual source notices and other imported licenses remain applicable."
-        }
-      ],
-      "notice_location": "Source file headers and the retained PureDarwin project notice; per-file terms govern."
     },
     {
       "component": "bearssl",

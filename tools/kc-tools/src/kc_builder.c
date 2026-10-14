@@ -123,20 +123,9 @@ static int load_kext(const char *kext_dir, const char *prefix, KextBundle *out) 
 static void usage(const char *prog) {
   fprintf(stderr,
     "Usage: %s -kernel <file> -kext <dir.kext> [...] -o <output>\n"
-    "       [-prefix /System/Library/Extensions] [-kext-vmbase <hex>] [-classic]\n"
-    "\n"
-    "  Builds a prelinked kernel Mach-O from a base kernel and kext bundles.\n"
-    "  Links each kext against the kernel symbol table, applies x86_64\n"
-    "  relocations, then assembles the __PRELINK_TEXT/__PRELINK_INFO segments.\n"
-    "\n"
-    "  By default wraps the result as an MH_FILESET kernel collection\n"
-    "  (fileset_assemble). -classic instead writes the plain prelinked\n"
-    "  kernel Mach-O (prelink_assemble's output, filetype MH_EXECUTE) with\n"
-    "  no __KCHDR/MH_FILESET wrapper, i386_init.c's\n"
-    "  kernel_mach_header_is_in_fileset() check sees a non-fileset kernel\n"
-    "  and skips kernel_collection_slide() entirely (the \"kcgen-style KC\"\n"
-    "  path), sidestepping its address-computation bug for this synthetic\n"
-    "  __KCHDR layout (see fileset.c's kchdr_vmaddr comment).\n",
+    "       [-codeless <dir.kext>] [-prefix /System/Library/Extensions]\n"
+    "       [-kext-vmbase <hex>] [-kc-base <hex>]\n"
+    "Build an x86_64 or ARM64 MH_FILESET collection for embedded Darwin.\n",
     prog);
 }
 
@@ -152,7 +141,6 @@ int main(int argc, char *argv[]) {
   int num_codeless_paths = 0;
   uint64_t kext_vmbase = 0;
   uint64_t kc_base = 0;
-  int classic = 0;
 
   for (int i = 1; i < argc; i++) {
     if (!strcmp(argv[i], "-kernel") && i + 1 < argc) {
@@ -169,8 +157,6 @@ int main(int argc, char *argv[]) {
       kext_vmbase = strtoull(argv[++i], NULL, 16);
     } else if (!strcmp(argv[i], "-kc-base") && i + 1 < argc) {
       kc_base = strtoull(argv[++i], NULL, 16);
-    } else if (!strcmp(argv[i], "-classic")) {
-      classic = 1;
     } else {
       fprintf(stderr, "unknown argument: %s\n", argv[i]);
       usage(argv[0]);
@@ -340,13 +326,7 @@ int main(int argc, char *argv[]) {
 
   uint8_t *out_data = NULL;
   size_t out_size = 0;
-  if (classic) {
-    if (prelink_assemble(kernel_data, kernel_size, linked, (size_t)nlinked,
-                         &out_data, &out_size) != 0) {
-      fprintf(stderr, "prelink_assemble failed\n");
-      return 1;
-    }
-  } else if (fileset_assemble(kernel_data, kernel_size, linked, (size_t)nlinked, kc_base,
+  if (fileset_assemble(kernel_data, kernel_size, linked, (size_t)nlinked, kc_base,
                        &out_data, &out_size) != 0) {
     fprintf(stderr, "fileset_assemble failed\n");
     return 1;

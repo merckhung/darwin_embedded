@@ -12,6 +12,7 @@
   },
   "local_changes": [
     "Declare IOStorageFamily as a dependency before publishing hidden media; remove the unused IOACPIFamily dependency.",
-    "Add Linux/Bazel compilation against the matching exported kernel headers."
+    "Add Linux/Bazel compilation against the matching exported kernel headers.",
+    "Remove inactive CMake/Nix recipes; the supported builds use Bazel."
   ]
 }

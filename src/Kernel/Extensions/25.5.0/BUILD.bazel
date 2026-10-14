@@ -37,6 +37,6 @@ filegroup(
         ("x86_64", "AppleAPIC"),
         ("x86_64", "IOStorageFamily"),
         ("arm64", "IOStorageFamily"),
-        ("arm64", "PDArmPlatformExpert"),
+        ("arm64", "BCM2711Platform"),
     ]
 ]

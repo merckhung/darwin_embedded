@@ -11,7 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    files = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0')
+    files = subprocess.check_output(
+        ['git', 'ls-files', '--cached', '--others', '--exclude-standard', '-z'],
+        cwd=ROOT).decode().split('\0')
     paths = [Path(f) for f in files if f and (ROOT / f).is_file()]
     manifests = [p for p in paths if p.name == 'UPSTREAM.json']
     roots = {p.parent for p in manifests}

@@ -1,28 +1,28 @@
 {
   "format_version": 1,
-  "verified_utc": "2026-10-14T03:53:44.136628+00:00",
+  "verified_utc": "2026-10-14T14:55:34.834953+00:00",
   "xnu": "12377.121.6",
   "darwin": "25.5.0",
   "guest_format": "Native Mach-O; complete root inventories reject ELF images.",
   "evidence_scope": "Actual boot inputs, kernel serial banners, completed native guest checks and unaltered screenshots; not cryptographic runtime attestation.",
   "build_checks": [
-    "Both kernel targets and all four root boot inputs built successfully through Bazel.",
-    "bazel query //... passes after documentation consolidation."
+    "Both kernels, minimal roots and Xfce roots and boot inputs built successfully through Bazel.",
+    "bazel query //... passes."
   ],
   "setups": [
     {
       "variant": "minimal",
       "architecture": "arm64",
       "qemu_machine": "raspi4b",
-      "boot_captured_utc": "2026-10-14T03:36:10.900146+00:00",
-      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:15 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_ARM64",
+      "boot_captured_utc": "2026-10-14T14:45:32.116629+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Wed Oct 14 07:29:38 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_ARM64",
       "boot_inputs": {
         "kernel": {
-          "sha256": "774a33007256cd4dcc950f87b7157e61e6ae44eb6d3233b7158d18b5dff9f73f",
-          "size_bytes": 18265878
+          "sha256": "f92dc6748806f77552010652d16139737c5ca1bf268dbb4a28211a7d8b3ed4bb",
+          "size_bytes": 18200310
         },
         "layout": {
-          "sha256": "c94d7406467f86506719e2dd2169eef5c66ebef26aede0a5bf2d4422e74dac57",
+          "sha256": "4f361c21e31ac048e36bfc62a495e7f06874ebf4ad294999a9e9ecce2a19247d",
           "size_bytes": 2842
         },
         "loader": {
@@ -30,8 +30,12 @@
           "size_bytes": 5804
         },
         "root_image": {
-          "sha256": "dd023f631ba133370ab40461c30ce025533b8b9877272dac28b1ed3c99aeb733",
+          "sha256": "701dc8e14505cc1c716570a8aab1707d62e3dd2b4d2b4a070a7b7c5cd2d4999c",
           "size_bytes": 67108864
+        },
+        "root_report": {
+          "sha256": "633b105c4346cff7b7528eaa63471aeae7c5ea8580d3be5a4797f1bb9480a72b",
+          "size_bytes": 22067
         }
       },
       "root": {
@@ -41,7 +45,7 @@
       },
       "busybox": {
         "version": "1.38.0",
-        "sha256": "180fb3d16cf52eddca1572783b6be1e75f889a97870cc0259b0f8b21440de1dc",
+        "sha256": "7223934885dfd65fcf4e63a295ae9541bff127b46f4f38f59743a8826c273f92",
         "header_words": [
           "feedfacf",
           "0100000c",
@@ -58,31 +62,36 @@
         "native_utilities_exit_status": 0,
         "files_permissions_pipelines_sha256_archives": true,
         "process_child_presence_and_exit": true,
-        "tools_result_sha256": "97b05354d0dc5fe0fbf9341ae2b110f164e48bc8a318afca1844dce197e791a8",
+        "tools_result_sha256": "58cd5eddb65990becc01a9ffef97b5cd97a5903b8ee278cf3f3a41328dfaa2d7",
         "pid1_parentage": true,
         "shell_exit_status": 23,
-        "shell_reaping_and_respawn": true
+        "shell_reaping_and_respawn": true,
+        "exit_status": 0
       },
       "screenshot": {
         "path": "docs/screenshots/minimal-arm64.png",
-        "sha256": "0e1ff2bd14019b99e45021155f2caada54e5a60a33c45185a608532db4392adb",
-        "size_bytes": 19223,
-        "width": 1096,
-        "height": 627,
-        "captured_utc": "2026-10-14T03:39:52.322030+00:00",
+        "sha256": "a5b51c8b89d7834bed4ce59f548e66e660d0bdbf343714fa708bd5723e31b661",
+        "size_bytes": 77137,
+        "width": 1256,
+        "height": 684,
+        "captured_utc": "2026-10-14T14:45:48.981859+00:00",
         "command_channel": "Interactive guest serial shell.",
-        "method": "Serial-console window capture"
+        "method": "Live xterm serial-console window on a private Xvfb display."
+      },
+      "runtime_evidence": {
+        "serial_sha256": "e66118f44bb77200dd230709c42b9481590969027cc0d7f5efe706bb2b17b1d3",
+        "input_manifest_sha256": "d44e11aa6b36bfcb7bc3c04466a1d48543c10008980b9d4b6b25bd47758eac3e"
       }
     },
     {
       "variant": "minimal",
       "architecture": "x86_64",
       "qemu_machine": "q35",
-      "boot_captured_utc": "2026-10-14T03:36:13.894220+00:00",
-      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:16 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_X86_64",
+      "boot_captured_utc": "2026-10-14T14:45:44.023394+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Wed Oct 14 07:29:39 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_X86_64",
       "boot_inputs": {
         "boot_image": {
-          "sha256": "d54a001e9f7454c571ff3ba954ceaae70d9a80cd49c4158dc28b1696624d6031",
+          "sha256": "17144f69aabdb7073bd2fe787ff7d98dfeef1b99624ab1feb311fa000a75f4b3",
           "size_bytes": 134217728
         },
         "firmware_code": {
@@ -94,8 +103,12 @@
           "size_bytes": 540672
         },
         "root_image": {
-          "sha256": "0b2f5c53033a71f4998bd7f2ee8681203e975965cd177437b6d619ef648cdc44",
+          "sha256": "0da4c98f81397209174566dd9616207b48af9b446a2714322a67082168a3fbfc",
           "size_bytes": 67108864
+        },
+        "root_report": {
+          "sha256": "c79352b76199bb89fda69047c8d970d24b454461ddf226bd1b6d29ebe3261bd2",
+          "size_bytes": 22068
         }
       },
       "root": {
@@ -105,7 +118,7 @@
       },
       "busybox": {
         "version": "1.38.0",
-        "sha256": "ecd3bc6eea8c638a17dc41e0a54d2d1acd9f75b6fce17512fd4020a7397c5908",
+        "sha256": "dd2720b74d215cfc3d8e43862db4b40494df1b72b5a87f48adc0efb05c435d0b",
         "header_words": [
           "feedfacf",
           "01000007",
@@ -122,51 +135,56 @@
         "native_utilities_exit_status": 0,
         "files_permissions_pipelines_sha256_archives": true,
         "process_child_presence_and_exit": true,
-        "tools_result_sha256": "a356958904f68683b682954c13e146d829d580ac8a10f36fbbcfa2adce20edb7",
+        "tools_result_sha256": "33c0ec8eab1ab0533c8a2c8b22007661dcec6db26e96101913c8787ccadeeb6f",
         "pid1_parentage": true,
         "shell_exit_status": 23,
-        "shell_reaping_and_respawn": true
+        "shell_reaping_and_respawn": true,
+        "exit_status": 0
       },
       "screenshot": {
         "path": "docs/screenshots/minimal-x86_64.png",
-        "sha256": "db16388d563804e22a486c6e2d941d18ee1fcd56302ed950e3dddc26ce4d3981",
-        "size_bytes": 20149,
-        "width": 1096,
-        "height": 627,
-        "captured_utc": "2026-10-14T03:52:58.282785+00:00",
+        "sha256": "f0eebc392cd1042ae67af50e02bbc0b78f9544a8a7f0977eb8422bbf05b06579",
+        "size_bytes": 78976,
+        "width": 1256,
+        "height": 684,
+        "captured_utc": "2026-10-14T14:47:18.484213+00:00",
         "command_channel": "Interactive guest serial shell.",
-        "method": "Serial-console window capture"
+        "method": "Live xterm serial-console window on a private Xvfb display."
+      },
+      "runtime_evidence": {
+        "serial_sha256": "dff25da3c909f16dd63d0df062139105a0f30e1bac50eb33866ae2d6ca61f1c4",
+        "input_manifest_sha256": "a1289c96b07b478c26941312742baee7b04d884df042f2a7531d0147848ffc76"
       }
     },
     {
       "variant": "xfce",
       "architecture": "arm64",
       "qemu_machine": "raspi4b",
-      "boot_captured_utc": "2026-10-14T03:36:14.806629+00:00",
-      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:15 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_ARM64",
+      "boot_captured_utc": "2026-10-14T14:50:21.058543+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Wed Oct 14 07:29:38 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_ARM64",
       "boot_inputs": {
         "root": {
-          "sha256": "8ea48c99526979ff001f1444baa9766d4e0ef654c354b3d0062e268af158fa0d",
+          "sha256": "c1adbaa84a154b3544b3f96f8b6f25e8280a4429a899457c05f577ca4f80d472",
           "size_bytes": 134217728
         },
         "root_report": {
-          "sha256": "45084fba04af3245abf7245d994094ee58cd2b744211d6d61b161dc85ae1e1bd",
+          "sha256": "b31ff0fc4744dd1dd5db97955a218663637c54d2ff9da6ae80bc75a740ea6f34",
           "size_bytes": 48354344
         },
         "runtime_report": {
-          "sha256": "c02d543eddc9aa12925086d5fc60aa54c78889114673a6bf85645844b4447cd9",
+          "sha256": "b57cf1fe77ef131c050252325a336012e5a768782139e227599820905948f714",
           "size_bytes": 82872517
         },
         "collection": {
-          "sha256": "7e5c05fe5674c0ec0fc51b972dc070355cb1ffdd1c22656e20babcc3fdc8ff8f",
-          "size_bytes": 13436790
+          "sha256": "2c063203030973474c8586f38f4ca3d8e77fce9370383b0dc8bb0fe800a72afd",
+          "size_bytes": 13371222
         },
         "kernel": {
-          "sha256": "e964bf4c3ab9b9773c575c14eb0189f49e22b4cd9094cb79878cebd239145d9d",
-          "size_bytes": 18466678
+          "sha256": "228f7222eedfd45dcdb3ecfd74265ead3b15c25607c26087aba0684431f0521c",
+          "size_bytes": 18401110
         },
         "layout": {
-          "sha256": "fb95a8e7c5b2ba165e7be108d9741ffc40f4718495c537833d6cb01b19db0840",
+          "sha256": "7d348a2490773979c5d4216980a2999861bc929cce5de95049a3ef4472bae623",
           "size_bytes": 2842
         },
         "loader": {
@@ -181,7 +199,7 @@
       },
       "busybox": {
         "version": "1.38.0",
-        "sha256": "180fb3d16cf52eddca1572783b6be1e75f889a97870cc0259b0f8b21440de1dc",
+        "sha256": "7223934885dfd65fcf4e63a295ae9541bff127b46f4f38f59743a8826c273f92",
         "header_words": [
           "feedfacf",
           "0100000c",
@@ -198,13 +216,13 @@
         "native_utilities_exit_status": 0,
         "files_permissions_pipelines_sha256_archives": true,
         "process_child_presence_and_exit": true,
-        "tools_result_sha256": "65290ecc970dc87e398a417f6139cb0e4f5d4cf84bddfd975edeca8a37ef33f0",
+        "tools_result_sha256": "37ec9d3a4e641bb301d684cb479e6727b398e02963b0874c91565e581abfac30",
         "hardware_keyboard_to_interactive_shell": true,
         "hardware_keyboard_to_pty_child": true,
         "desktop_checked": true,
         "automatic_desktop_startup": true,
         "desktop_components": {
-          "session_pid": 11,
+          "session_pid": 9,
           "desktop_pid": 78,
           "panel_pid": 77,
           "desktop_window": 12582918,
@@ -218,44 +236,56 @@
         },
         "tty": "/dev/ttys000",
         "exit_status": 0,
-        "desktop_result_sha256": "850851a1d2d1d82c2dcd829930a46a7fed50731c45b376f93129b3e97abc88dd"
+        "desktop_result_sha256": "6b5691ca55b50b6a5ae459c68dd7ff4e5699edcbb95f02d774c4082e14169404",
+        "monotonic_clock": {
+          "host_elapsed_ns": 5067845344,
+          "guest_elapsed_ns": 5081062000,
+          "guest_host_ratio": 1.0026079438307343
+        },
+        "inspection_exit_status": 0,
+        "hardware_input_scanout_sha256": "a87969afe5278dd2c8707b3a11946ee4ffe92e464e44cc841999124d842d76da"
       },
       "screenshot": {
         "path": "docs/screenshots/xfce-arm64.png",
-        "sha256": "884651c94e090b2cacd11a2c7bdebe8acb5995337dba9fcbb88cfd725effa7d5",
-        "size_bytes": 183933,
+        "sha256": "fbc86722242a1b07a711a41c7ff4499556f809cef4a7e7e8bbd9dd1bc5a8e20b",
+        "size_bytes": 185273,
         "width": 1024,
         "height": 768,
-        "captured_utc": "2026-10-14T03:47:48.944086+00:00",
+        "captured_utc": "2026-10-14T14:53:17.940908+00:00",
         "command_channel": "Guest serial shell; desktop output sent to the original terminal through its Darwin PTY.",
-        "method": "QEMU framebuffer dump; lossless PPM-to-PNG conversion"
+        "method": "QEMU framebuffer dump; lossless PPM-to-PNG conversion.",
+        "raw_screenshot_sha256": "d907d6b8fdcedfa486e51afa8a537166e6c531a133793804c940d9e5308390b7"
+      },
+      "runtime_evidence": {
+        "serial_sha256": "77000ebf8b7d4a8c53c058773f0c2ce3161b29b0194f7d3dc8a3ea15672c9825",
+        "input_manifest_sha256": "c2873153f32740c481571277350f61864efc9fdbb5821e64a2a5e590db2ee23f"
       }
     },
     {
       "variant": "xfce",
       "architecture": "x86_64",
       "qemu_machine": "q35",
-      "boot_captured_utc": "2026-10-14T03:36:17.702126+00:00",
-      "kernel_banner": "Darwin Kernel Version 25.5.0: Tue Oct 13 20:25:16 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_X86_64",
+      "boot_captured_utc": "2026-10-14T14:50:21.753124+00:00",
+      "kernel_banner": "Darwin Kernel Version 25.5.0: Wed Oct 14 07:29:39 PDT 2026; DarwinEmbedded:xnu-12377.121.6/RELEASE_X86_64",
       "boot_inputs": {
         "root": {
-          "sha256": "50500ee3181910d9ae1fabb511850581a156cd7fdf9a6ec424256b7d69bb4978",
+          "sha256": "2a157bbe139acf1e7e13e884dc01aa06fcc4a9e130f7e16a6d69cf77a23a9f55",
           "size_bytes": 134217728
         },
         "root_report": {
-          "sha256": "052ab3b79d49659178af03d4ada6f51b64894def7a16e235c498b7b4b22cfa7c",
+          "sha256": "5328fc72856575cb5cce95027f6d137a9372b7e9890af83035d9feeb7ccbe36c",
           "size_bytes": 48444935
         },
         "runtime_report": {
-          "sha256": "a1c757dd3c97b8fe940ce18fb72154bed9af3e54767cad54573c9e5096b31402",
+          "sha256": "9dfac4058474d0960986fcdbd8a85e4cb66b2b0e1936c0276b37366843788911",
           "size_bytes": 83038620
         },
         "collection": {
-          "sha256": "f5268dd03ac5f74540646470132c67da6c54db2341afb5c2f97812b1dbd6424d",
+          "sha256": "9793389de1dfe5bf271e813182fa43994e8beec30cdc0cac8f3cad3df8f90791",
           "size_bytes": 18980864
         },
         "boot": {
-          "sha256": "41e9ec2131f71d9f21c55b943cc3edfba2fea520af0e9ace44d0e24b2d767815",
+          "sha256": "2e4d3b0913fb8dd49cf729e883217d65968990c79dd225d790c32630abcd8702",
           "size_bytes": 201326592
         },
         "firmware": {
@@ -274,7 +304,7 @@
       },
       "busybox": {
         "version": "1.38.0",
-        "sha256": "ecd3bc6eea8c638a17dc41e0a54d2d1acd9f75b6fce17512fd4020a7397c5908",
+        "sha256": "dd2720b74d215cfc3d8e43862db4b40494df1b72b5a87f48adc0efb05c435d0b",
         "header_words": [
           "feedfacf",
           "01000007",
@@ -291,7 +321,7 @@
         "native_utilities_exit_status": 0,
         "files_permissions_pipelines_sha256_archives": true,
         "process_child_presence_and_exit": true,
-        "tools_result_sha256": "b4629ee8db1037dec9d7a70a27b3dcb8d8b226ca3d3a21a30f09f65cf17770a5",
+        "tools_result_sha256": "60ae53e1ed1108fa97f04607c236c03d69f5f9b44eb880143a9a940f848090f6",
         "hardware_keyboard_to_interactive_shell": true,
         "hardware_keyboard_to_pty_child": true,
         "desktop_checked": true,
@@ -299,7 +329,7 @@
         "desktop_components": {
           "session_pid": 9,
           "desktop_pid": 77,
-          "panel_pid": 68,
+          "panel_pid": 75,
           "desktop_window": 14680071,
           "panel_windows": [
             12582915,
@@ -307,21 +337,33 @@
           ],
           "registered_session_clients": 5,
           "xfwm4_pid": 18,
-          "xfsettingsd_pid": 45
+          "xfsettingsd_pid": 50
         },
         "tty": "/dev/ttys000",
         "exit_status": 0,
-        "desktop_result_sha256": "717eb5b67a8e0bcba22001d05b5856d6764b7147851a55844ff7f165f6dd532b"
+        "desktop_result_sha256": "ce55e03f4cf5e3116845dfbe226677789c54cc7c2d93a48c245800d4b929e582",
+        "monotonic_clock": {
+          "host_elapsed_ns": 5625052296,
+          "guest_elapsed_ns": 5605862000,
+          "guest_host_ratio": 0.996588423539876
+        },
+        "inspection_exit_status": 0,
+        "hardware_input_scanout_sha256": "9331cbe4e077cc7bb6e173bfccd0a21c913b15b5411285c02a4ebe78034cd470"
       },
       "screenshot": {
         "path": "docs/screenshots/xfce-x86_64.png",
-        "sha256": "bb1004d9e36a33646c3c8d7229f07264b014131c0e6641295eb355a025c5b00e",
-        "size_bytes": 268502,
-        "width": 1280,
-        "height": 800,
-        "captured_utc": "2026-10-14T03:47:53.298706+00:00",
+        "sha256": "542b2a8cc40473a8c3c9059daa6fcdd80aac91d89a8c43e23fcdd7efabc949c7",
+        "size_bytes": 187399,
+        "width": 1024,
+        "height": 768,
+        "captured_utc": "2026-10-14T14:54:50.684858+00:00",
         "command_channel": "Guest serial shell; desktop output sent to the original terminal through its Darwin PTY.",
-        "method": "QEMU framebuffer dump; lossless PPM-to-PNG conversion"
+        "method": "QEMU framebuffer dump; lossless PPM-to-PNG conversion.",
+        "raw_screenshot_sha256": "1e214addd69c69cde61e73585f1c832c66a9cfb118f646547e5d8d3b95188289"
+      },
+      "runtime_evidence": {
+        "serial_sha256": "41c3aa4b46a651bb600a33478ab65da41aa6d2230477f01cc749d0b3d8848b6f",
+        "input_manifest_sha256": "37c0766e908c50c578690e71f7b84e6a44b4aecdc80781d5d6449b4914c9627a"
       }
     }
   ],
@@ -335,7 +377,13 @@
       "candidates_in_project_code": 0,
       "non_manifest_files_matching_publisher_inventory": 28
     },
-    "scope": "No project credentials identified; retained public upstream test fixtures and false-positive checksum/source-symbol matches. Scanner coverage is not proof that all possible secrets are absent."
+    "scope": "No project credentials identified; retained public upstream test fixtures and false-positive checksum/source-symbol matches. Scanner coverage is not proof that all possible secrets are absent. This earlier publication scan was not repeated for the platform changes or refreshed captures.",
+    "recorded_utc": "2026-10-14T03:53:44.136628+00:00"
   },
-  "publication_scope": "Public repository initialized from a clean source snapshot, excluding earlier development history, build caches and local metadata. BSD-2-Clause covers original code; PureDarwin-original code retains its BSD notice; upstream licenses and binary redistribution requirements remain applicable."
+  "publication_scope": "Public repository initialized from a clean source snapshot, excluding earlier development history, build caches and local metadata. BSD-2-Clause covers original code; PureDarwin-original code retains its BSD notice; upstream licenses and binary redistribution requirements remain applicable.",
+  "platform": {
+    "arm64": "BCM2711Platform; kernel-owned GIC-400/GICv2; one active CPU.",
+    "x86_64": "pc_uefi; DE64BOOT v1 native 64-bit XNU entry; kernel at physical 65 MiB; OVMF GOP framebuffer.",
+    "component_validation": "docs/platform-validation.json"
+  }
 }

@@ -200,6 +200,11 @@ def main():
         "PLUTIL": f"python3 {ROOT / 'scripts/plutil.py'}",
         "LD_KERNEL_LIBS": "-lclang_rt.cc_kext",
     }
+    if args.arch == "x86_64":
+        # Link the PC kernel above low firmware/ACPI NVS reservations. The
+        # loader shares this contract in bootloader/pc_uefi/layout.h and rejects
+        # collections linked for a different physical base.
+        values["KERNEL_BASE_OFFSET"] = "0x4100000"
     env = os.environ.copy()
     env["KERNEL_BUILD_OBJROOT"] = "xnu-" + VERSION + "/RELEASE_" + args.arch.upper()
     env["PATH"] = str(tools) + os.pathsep + env["PATH"]

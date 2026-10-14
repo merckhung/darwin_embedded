@@ -35,7 +35,7 @@ sh_test(name = "bounds_test", srcs = ["test_bounds.sh"], data = [":bounds_progra
 sh_test(name = "capture_test", srcs = ["test_capture.sh"], data = ["test_capture.py", "verify.py"], size = "small")
 
 _BASE_KEXTS = {
-    "arm64": ["embedded_crypto", "PDArmPlatformExpert", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"],
+    "arm64": ["embedded_crypto", "BCM2711Platform", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"],
     "x86_64": ["embedded_crypto", "AppleI386GenericPlatform", "AppleAPIC", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"],
 }
 
@@ -103,6 +103,8 @@ genrule(
     native_system(
         name = "system_" + arch, arch = arch, exports = ":probe." + arch + ".exports",
         libraries = {"accounts": "//userland/native/accounts:libaccounts." + arch + ".a",
+                     "resolver": "//userland/native/resolver:libresolver." + arch + ".a",
+                     "permissions": "//userland/apps/glib:libglib_support." + arch + ".a",
                      "init_support": "//userland/apps/init:libinit_support." + arch + ".a",
                      "iokit": "//userland/native/iokit:libnative_iokit." + arch + ".a"},
     )
@@ -113,13 +115,13 @@ genrule(
     genrule(
         name = "root_" + arch,
         srcs = ["build_root.py", ":probe." + arch + ".o", ":system_" + arch + ".tar",
-                "//userland/apps/init:root." + arch + ".img", "//userland/native:dyld_" + arch,
+                "//userland/apps/init:root." + arch + ".img", "//userland/apps/init:root." + arch + ".json", "//userland/native:dyld_" + arch,
                 "//scripts:native_components.py", "//scripts:build_diagnostic_userland.py", "//scripts:sign_diagnostic_macho.py"],
         tools = ["//tools/libdmg-hfsplus:hfsplus"],
         outs = ["root." + arch + ".img", "root." + arch + ".json"],
         cmd = "python3 userland/native/framebuffer/build_root.py --arch " + arch +
               " --probe $(location probe." + arch + ".o) --system $(location system_" + arch + ".tar)" +
-              " --base-root $(location //userland/apps/init:root." + arch + ".img)" +
+              " --base-root $(location //userland/apps/init:root." + arch + ".img) --base-report $(location //userland/apps/init:root." + arch + ".json)" +
               " --dyld $(location //userland/native:dyld_" + arch + ")" +
               " --hfs-tool $(location //tools/libdmg-hfsplus:hfsplus)" +
               " --output $(location root." + arch + ".img) --report $(location root." + arch + ".json)",
@@ -129,9 +131,9 @@ genrule(
 
 genrule(
     name = "boot_x86_64",
-    srcs = [":collection_x86_64", ":root.x86_64.img", "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"],
+    srcs = [":collection_x86_64", ":root.x86_64.img", "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"],
     outs = ["boot.x86_64.img"],
-    cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+    cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
           " --kernel-collection $(location :collection_x86_64) --root-image $(location :root.x86_64.img) --output $@",
 )
 

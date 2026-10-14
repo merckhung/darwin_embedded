@@ -1,7 +1,7 @@
 load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 
 def xorg_boot(arch):
-    kexts = (["embedded_crypto", "PDArmPlatformExpert", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"] if arch == "arm64" else
+    kexts = (["embedded_crypto", "BCM2711Platform", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"] if arch == "arm64" else
              ["embedded_crypto", "AppleI386GenericPlatform", "AppleAPIC", "IOStorageFamily", "pthread", "HFSEncodings", "hfs"])
     drivers = ["//userland/native/framebuffer:NativeBootFramebuffer." + arch + ".tar", "//userland/native/input:NativeBootInput." + arch + ".tar"]
     native.genrule(
@@ -40,9 +40,9 @@ def xorg_boot(arch):
     else:
         native.genrule(
             name = "xorg_boot_x86_64",
-            srcs = [":desktop_collection_x86_64", ":xorg-root.x86_64.img", "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"],
+            srcs = [":desktop_collection_x86_64", ":xorg-root.x86_64.img", "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"],
             outs = ["xorg-boot.x86_64.img"],
-            cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+            cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
                   " --kernel-collection $(location :desktop_collection_x86_64) --root-image $(location :xorg-root.x86_64.img) --output $@",
         )
     sh_binary(

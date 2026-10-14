@@ -1,0 +1,13 @@
+{
+  "project": "Embedded PC UEFI loader",
+  "license": "BSD-2-Clause for the loader; included public XNU headers retain APSL-2.0.",
+  "implementation": "Project implementation of a native 64-bit boot contract; a private-stack bridge calls the C collection installer, then XNU owns CPU initialization.",
+  "boot_contract": {
+    "version": 1,
+    "entry_tag": "DE64BOOT",
+    "kernel_definition": "src/Kernel/xnu/12377.121.6/osfmk/x86_64/start.s",
+    "argument": "SysV RDI points to the pinned XNU boot_args structure",
+    "execution": "Long mode and paging remain enabled from UEFI through kernel startup."
+  },
+  "build": "Clang compiles a C translation unit and the private-stack bridge; GNU-EFI provides standard runtime objects and linking support; generated PE headers, sections and executable entry are checked."
+}

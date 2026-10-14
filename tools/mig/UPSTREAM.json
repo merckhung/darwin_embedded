@@ -2,5 +2,8 @@
   "repository": "https://github.com/apple-oss-distributions/bootstrap_cmds",
   "tag": "bootstrap_cmds-138",
   "linux_port_repository": "https://github.com/PureDarwin/PureDarwin",
-  "linux_port_commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7"
+  "linux_port_commit": "bd832c0035744ff3edc2f6259853a30bf1c624e7",
+  "local_changes": [
+    "Remove inactive CMake/Nix recipes; the supported builds use Bazel."
+  ]
 }

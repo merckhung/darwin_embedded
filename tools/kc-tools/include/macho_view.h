@@ -1,6 +1,6 @@
 #pragma once
 /*
- * A width-neutral view over a thin Mach-O image.
+ * A view over supported thin x86_64 and ARM64 Mach-O images.
  */
 #include <stddef.h>
 #include <stdint.h>
@@ -56,25 +56,24 @@ typedef struct {
   uint64_t n_value;
 } MachoSym;
 
-// Parse a Mach-O (selecting a slice if it is fat). Returns 0 on success.
+// Parse a supported thin 64-bit Mach-O. Returns 0 on success.
 int macho_view(const uint8_t *data, size_t size, MachoView *mv);
 
 // The load command that begins a segment, for this image's width.
 static inline uint32_t macho_lc_segment(const MachoView *mv) {
-  return mv->is64 ? LC_SEGMENT_64 : LC_SEGMENT;
+  return LC_SEGMENT_64;
 }
 
 static inline size_t macho_seg_cmdsize(const MachoView *mv) {
-  return mv->is64 ? sizeof(struct segment_command_64)
-                  : sizeof(struct segment_command);
+  return sizeof(struct segment_command_64);
 }
 
 static inline size_t macho_sect_size(const MachoView *mv) {
-  return mv->is64 ? sizeof(struct section_64) : sizeof(struct section);
+  return sizeof(struct section_64);
 }
 
 static inline size_t macho_nlist_size(const MachoView *mv) {
-  return mv->is64 ? sizeof(struct nlist_64) : sizeof(struct nlist);
+  return sizeof(struct nlist_64);
 }
 
 // Iterate load commands: `for (MACHO_EACH_LC(mv, lc))`.

@@ -421,8 +421,8 @@ genrule(name = "desktop_loader_arm64",
           " $(location //bootloader/rpi4:boot_entry.S) $(location //bootloader/rpi4:boot_current.c) &&" +
           " llvm-objcopy-20 -S -O binary $(@D)/desktop_boot.elf $@")
 genrule(name = "desktop_boot_x86_64", srcs = [":xfce-desktop-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
-        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-desktop-boot.x86_64.img"],
-        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+        "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"], outs = ["xfce-desktop-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
               " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-desktop-root.x86_64.img) --output $@")
 [
     sh_binary(name = "verify_desktop_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--desktop"],
@@ -431,8 +431,8 @@ genrule(name = "desktop_boot_x86_64", srcs = [":xfce-desktop-root.x86_64.img", "
     for arch in ["arm64", "x86_64"]
 ]
 genrule(name = "terminal_boot_x86_64", srcs = [":xfce-terminal-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
-        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-terminal-boot.x86_64.img"],
-        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+        "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"], outs = ["xfce-terminal-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
               " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-terminal-root.x86_64.img) --output $@")
 [
     sh_binary(name = "verify_terminal_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--terminal"],
@@ -441,8 +441,8 @@ genrule(name = "terminal_boot_x86_64", srcs = [":xfce-terminal-root.x86_64.img",
     for arch in ["arm64", "x86_64"]
 ]
 genrule(name = "jpeg_boot_x86_64", srcs = [":xfce-jpeg-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
-        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-jpeg-boot.x86_64.img"],
-        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+        "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"], outs = ["xfce-jpeg-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
               " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-jpeg-root.x86_64.img) --output $@")
 [
     sh_binary(name = "verify_jpeg_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--jpeg"],
@@ -520,8 +520,8 @@ sh_test(name = "wm_artifact_test", size = "small", srcs = ["check_wm.sh"],
     for arch in ["arm64", "x86_64"]
 ]
 genrule(name = "wm_boot_x86_64", srcs = [":xfce-wm-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
-        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-wm-boot.x86_64.img"],
-        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+        "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"], outs = ["xfce-wm-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
               " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-wm-root.x86_64.img) --output $@")
 [
     sh_binary(name = "verify_wm_" + arch, srcs = ["verify_ui.sh"], args = [arch, "--wm"],
@@ -585,8 +585,8 @@ sh_test(name = "ui_capture_test", size = "small", srcs = ["check_ui_capture.sh"]
 ]
 filegroup(name = "ui_test_roots", srcs = [":ui_test_root_arm64", ":ui_test_root_x86_64"])
 genrule(name = "ui_boot_x86_64", srcs = [":xfce-ui-root.x86_64.img", "//userland/apps/x11:desktop_collection_x86_64",
-        "//bootloader/xnu-loader:efi", "//scripts:create_efi_image.py"], outs = ["xfce-ui-boot.x86_64.img"],
-        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/xnu-loader:efi)" +
+        "//bootloader/pc_uefi:efi", "//scripts:create_efi_image.py"], outs = ["xfce-ui-boot.x86_64.img"],
+        cmd = "python3 $(location //scripts:create_efi_image.py) --loader $(location //bootloader/pc_uefi:efi)" +
               " --kernel-collection $(location //userland/apps/x11:desktop_collection_x86_64) --root-image $(location xfce-ui-root.x86_64.img) --output $@")
 [
     sh_binary(name = "verify_ui_" + arch, srcs = ["verify_ui.sh"], args = [arch],
